@@ -13,12 +13,12 @@ gt.Const.PTR.hookLegendsEnemyTrees <- function()
 		gt.Const.Perks.PerkDefs.LegendFavouredEnemyGhoul,
 		gt.Const.Perks.PerkDefs.LegendFavouredEnemyDirewolf,
 		gt.Const.Perks.PerkDefs.LegendFavouredEnemySpider,
-		gt.Const.Perks.PerkDefs.LegendFavouredEnemyLindwurm		
-	];	
+		gt.Const.Perks.PerkDefs.LegendFavouredEnemyLindwurm
+	];
 	this.Const.Perks.BeastsTree.Tree[4] = [];
 	this.Const.Perks.BeastsTree.Tree[5] = [];
-	this.Const.Perks.BeastsTree.Tree[6] = [];	
-	
+	this.Const.Perks.BeastsTree.Tree[6] = [];
+
 	while (this.Const.Perks.MysticTree.Tree.len() < 7)
 	{
 		this.Const.Perks.MysticTree.Tree.push(emptyArray);
@@ -34,7 +34,7 @@ gt.Const.PTR.hookLegendsEnemyTrees <- function()
 	this.Const.Perks.MysticTree.Tree[4] = [];
 	this.Const.Perks.MysticTree.Tree[5] = [];
 	this.Const.Perks.MysticTree.Tree[6] = [];
-	
+
 	while (this.Const.Perks.UndeadTree.Tree.len() < 7)
 	{
 		this.Const.Perks.UndeadTree.Tree.push(emptyArray);
@@ -50,7 +50,7 @@ gt.Const.PTR.hookLegendsEnemyTrees <- function()
 	this.Const.Perks.UndeadTree.Tree[4] = [];
 	this.Const.Perks.UndeadTree.Tree[5] = [];
 	this.Const.Perks.UndeadTree.Tree[6] = [];
-	
+
 	while (this.Const.Perks.OrcsTree.Tree.len() < 7)
 	{
 		this.Const.Perks.OrcsTree.Tree.push(emptyArray);
@@ -66,7 +66,7 @@ gt.Const.PTR.hookLegendsEnemyTrees <- function()
 	this.Const.Perks.OrcsTree.Tree[4] = [];
 	this.Const.Perks.OrcsTree.Tree[5] = [];
 	this.Const.Perks.OrcsTree.Tree[6] = [];
-	
+
 	while (this.Const.Perks.CivilizationTree.Tree.len() < 7)
 	{
 		this.Const.Perks.CivilizationTree.Tree.push(emptyArray);
@@ -78,12 +78,12 @@ gt.Const.PTR.hookLegendsEnemyTrees <- function()
 		gt.Const.Perks.PerkDefs.LegendFavouredEnemyCaravan,
 		gt.Const.Perks.PerkDefs.LegendFavouredEnemyMercenary,
 		gt.Const.Perks.PerkDefs.LegendFavouredEnemyNoble,
-		gt.Const.Perks.PerkDefs.LegendFavouredEnemySoutherner		
+		gt.Const.Perks.PerkDefs.LegendFavouredEnemySoutherner
 	];
 	this.Const.Perks.CivilizationTree.Tree[4] = [];
 	this.Const.Perks.CivilizationTree.Tree[5] = [];
 	this.Const.Perks.CivilizationTree.Tree[6] = [];
-	
+
 	while (this.Const.Perks.OutlandersTree.Tree.len() < 7)
 	{
 		this.Const.Perks.OutlandersTree.Tree.push(emptyArray);
@@ -99,7 +99,7 @@ gt.Const.PTR.hookLegendsEnemyTrees <- function()
 	this.Const.Perks.OutlandersTree.Tree[4] = [];
 	this.Const.Perks.OutlandersTree.Tree[5] = [];
 	this.Const.Perks.OutlandersTree.Tree[6] = [];
-	
+
 	this.Const.Perks.EnemyTrees.Tree = [
 		this.Const.Perks.BeastsTree,
 		this.Const.Perks.MysticTree,
@@ -178,8 +178,8 @@ gt.Const.PTR.createStylesTrees <- function()
 
 	gt.Const.Perks.StylesTrees <- {
 		Tree = [
-			gt.Const.Perks.OneHandedTree,	
-			gt.Const.Perks.TwoHandedTree,	
+			gt.Const.Perks.OneHandedTree,
+			gt.Const.Perks.TwoHandedTree,
 			gt.Const.Perks.RangedTree
 		],
 		function getRandom( _exclude )
@@ -226,13 +226,13 @@ gt.Const.PTR.createProfessionTrees <- function()
 		ID = "AssassinProfessionTree",
 		Descriptions = [
 			"took lives in exchange for gold"
-		],		
+		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
-			
+
 		],
 		ExpertiseMultipliers = [
-			
+
 		],
 		Tree = [
 			[
@@ -260,10 +260,10 @@ gt.Const.PTR.createProfessionTrees <- function()
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
-			
+
 		],
 		ExpertiseMultipliers = [
-			
+
 		],
 		Tree = [
 			[
@@ -293,10 +293,10 @@ gt.Const.PTR.createProfessionTrees <- function()
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
-			
+
 		],
 		ExpertiseMultipliers = [
-			
+
 		],
 		Tree = [
 			[
@@ -324,10 +324,10 @@ gt.Const.PTR.createProfessionTrees <- function()
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
-			
+
 		],
 		ExpertiseMultipliers = [
-			
+
 		],
 		Tree = [
 			[
@@ -354,10 +354,10 @@ gt.Const.PTR.createProfessionTrees <- function()
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
-			
+
 		],
 		ExpertiseMultipliers = [
-			
+
 		],
 		Tree = [
 			[
@@ -408,14 +408,14 @@ gt.Const.PTR.createProfessionTrees <- function()
 	gt.Const.Perks.HunterProfessionTree <- {
 		ID = "HunterProfessionTree",
 		Descriptions = [
-			"hunted in the forests"		
+			"hunted in the forests"
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
-			
+
 		],
 		ExpertiseMultipliers = [
-			
+
 		],
 		Tree = [
 			[
@@ -435,14 +435,14 @@ gt.Const.PTR.createProfessionTrees <- function()
 	gt.Const.Perks.DiggerProfessionTree <- {
 		ID = "DiggerProfessionTree",
 		Descriptions = [
-			"used a shovel to earn coin"		
+			"used a shovel to earn coin"
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
-			
+
 		],
 		ExpertiseMultipliers = [
-			
+
 		],
 		Tree = [
 			[
@@ -462,14 +462,14 @@ gt.Const.PTR.createProfessionTrees <- function()
 	gt.Const.Perks.LumberjackProfessionTree <- {
 		ID = "LumberjackProfessionTree",
 		Descriptions = [
-			"fell trees"		
+			"fell trees"
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
-			
+
 		],
 		ExpertiseMultipliers = [
-			
+
 		],
 		Tree = [
 			[
@@ -491,14 +491,14 @@ gt.Const.PTR.createProfessionTrees <- function()
 	gt.Const.Perks.ApothecaryProfessionTree <- {
 		ID = "ApothecaryProfessionTree",
 		Descriptions = [
-			"collected herbs"		
+			"collected herbs"
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
-			
+
 		],
 		ExpertiseMultipliers = [
-			
+
 		],
 		Tree = [
 			[
@@ -524,14 +524,14 @@ gt.Const.PTR.createProfessionTrees <- function()
 	gt.Const.Perks.JugglerProfessionTree <- {
 		ID = "JugglerProfessionTree",
 		Descriptions = [
-			"performed in a circus"		
+			"performed in a circus"
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
-			
+
 		],
 		ExpertiseMultipliers = [
-			
+
 		],
 		Tree = [
 			[
@@ -553,14 +553,14 @@ gt.Const.PTR.createProfessionTrees <- function()
 	gt.Const.Perks.MinstrelProfessionTree <- {
 		ID = "MinstrelProfessionTree",
 		Descriptions = [
-			"performed music at a tavern"		
+			"performed music at a tavern"
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
-			
+
 		],
 		ExpertiseMultipliers = [
-			
+
 		],
 		Tree = [
 			[
@@ -588,14 +588,14 @@ gt.Const.PTR.createProfessionTrees <- function()
 	gt.Const.Perks.HolyManProfessionTree <- {
 		ID = "HolyManProfessionTree",
 		Descriptions = [
-			"preached the word of the gods"		
+			"preached the word of the gods"
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
-			
+
 		],
 		ExpertiseMultipliers = [
-			
+
 		],
 		Tree = [
 			[],
@@ -619,14 +619,14 @@ gt.Const.PTR.createProfessionTrees <- function()
 	gt.Const.Perks.CultistProfessionTree <- {
 		ID = "CultistProfessionTree",
 		Descriptions = [
-			"took part in cultist rituals"		
+			"took part in cultist rituals"
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
-			
+
 		],
 		ExpertiseMultipliers = [
-			
+
 		],
 		Tree = [
 			[],
@@ -650,14 +650,14 @@ gt.Const.PTR.createProfessionTrees <- function()
 	gt.Const.Perks.TraderProfessionTree <- {
 		ID = "TraderProfessionTree",
 		Descriptions = [
-			"traded goods"		
+			"traded goods"
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
-			
+
 		],
 		ExpertiseMultipliers = [
-			
+
 		],
 		Tree = [
 			[],
@@ -746,7 +746,7 @@ gt.Const.PTR.hookTraitsTrees <- function()
 	this.Const.Perks.AgileTree.Tree[4] = [this.Const.Perks.PerkDefs.Footwork];
 	this.Const.Perks.AgileTree.Tree[5] = [];
 	this.Const.Perks.AgileTree.Tree[6] = [this.Const.Perks.PerkDefs.Rebound];
-	
+
 	while (this.Const.Perks.IndestructibleTree.Tree.len() < 7)
 	{
 		this.Const.Perks.IndestructibleTree.Tree.push(emptyArray);
@@ -758,7 +758,7 @@ gt.Const.PTR.hookTraitsTrees <- function()
 	this.Const.Perks.IndestructibleTree.Tree[4] = [];
 	this.Const.Perks.IndestructibleTree.Tree[5] = [];
 	this.Const.Perks.IndestructibleTree.Tree[6] = [this.Const.Perks.PerkDefs.Rebound];
-	
+
 	while (this.Const.Perks.ViciousTree.Tree.len() < 7)
 	{
 		this.Const.Perks.ViciousTree.Tree.push(emptyArray);
@@ -770,7 +770,7 @@ gt.Const.PTR.hookTraitsTrees <- function()
 	this.Const.Perks.ViciousTree.Tree[4] = [this.Const.Perks.PerkDefs.LoneWolf];
 	this.Const.Perks.ViciousTree.Tree[5] = [this.Const.Perks.PerkDefs.LegendAssuredConquest];
 	this.Const.Perks.ViciousTree.Tree[6] = [this.Const.Perks.PerkDefs.Fearsome];
-	
+
 	while (this.Const.Perks.DeviousTree.Tree.len() < 7)
 	{
 		this.Const.Perks.DeviousTree.Tree.push(emptyArray);
@@ -782,7 +782,7 @@ gt.Const.PTR.hookTraitsTrees <- function()
 	this.Const.Perks.DeviousTree.Tree[4] = [this.Const.Perks.PerkDefs.LegendEvasion];
 	this.Const.Perks.DeviousTree.Tree[5] = [this.Const.Perks.PerkDefs.LegendHidden];
 	this.Const.Perks.DeviousTree.Tree[6] = [this.Const.Perks.PerkDefs.LegendUntouchable];
-	
+
 	while (this.Const.Perks.IntelligentTree.Tree.len() < 7)
 	{
 		this.Const.Perks.IntelligentTree.Tree.push(emptyArray);
@@ -794,7 +794,7 @@ gt.Const.PTR.hookTraitsTrees <- function()
 	this.Const.Perks.IntelligentTree.Tree[4] = [];
 	this.Const.Perks.IntelligentTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRKnowTheirWeakness];
 	this.Const.Perks.IntelligentTree.Tree[6] = [];
-	
+
 	while (this.Const.Perks.CalmTree.Tree.len() < 7)
 	{
 		this.Const.Perks.CalmTree.Tree.push(emptyArray);
@@ -806,7 +806,7 @@ gt.Const.PTR.hookTraitsTrees <- function()
 	this.Const.Perks.CalmTree.Tree[4] = [this.Const.Perks.PerkDefs.LegendClarity];
 	this.Const.Perks.CalmTree.Tree[5] = [this.Const.Perks.PerkDefs.LegendMindOverBody];
 	this.Const.Perks.CalmTree.Tree[6] = [this.Const.Perks.PerkDefs.PerfectFocus];
-	
+
 	while (this.Const.Perks.FastTree.Tree.len() < 7)
 	{
 		this.Const.Perks.FastTree.Tree.push(emptyArray);
@@ -818,7 +818,7 @@ gt.Const.PTR.hookTraitsTrees <- function()
 	this.Const.Perks.FastTree.Tree[4] = [this.Const.Perks.PerkDefs.LegendSecondWind];
 	this.Const.Perks.FastTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRFreshAndFurious];
 	this.Const.Perks.FastTree.Tree[6] = [this.Const.Perks.PerkDefs.BattleFlow];
-	
+
 	while (this.Const.Perks.LargeTree.Tree.len() < 7)
 	{
 		this.Const.Perks.LargeTree.Tree.push(emptyArray);
@@ -830,7 +830,7 @@ gt.Const.PTR.hookTraitsTrees <- function()
 	this.Const.Perks.LargeTree.Tree[4] = [this.Const.Perks.PerkDefs.Stalwart];
 	this.Const.Perks.LargeTree.Tree[5] = [];
 	this.Const.Perks.LargeTree.Tree[6] = [this.Const.Perks.PerkDefs.LegendMuscularity];
-	
+
 	while (this.Const.Perks.OrganisedTree.Tree.len() < 7)
 	{
 		this.Const.Perks.OrganisedTree.Tree.push(emptyArray);
@@ -842,7 +842,7 @@ gt.Const.PTR.hookTraitsTrees <- function()
 	this.Const.Perks.OrganisedTree.Tree[4] = [this.Const.Perks.PerkDefs.LegendSkillfulStacking];
 	this.Const.Perks.OrganisedTree.Tree[5] = [this.Const.Perks.PerkDefs.LegendPacifist];
 	this.Const.Perks.OrganisedTree.Tree[6] = [];
-	
+
 	while (this.Const.Perks.SturdyTree.Tree.len() < 7)
 	{
 		this.Const.Perks.SturdyTree.Tree.push(emptyArray);
@@ -854,7 +854,7 @@ gt.Const.PTR.hookTraitsTrees <- function()
 	this.Const.Perks.SturdyTree.Tree[4] = [this.Const.Perks.PerkDefs.ReturnFavor];
 	this.Const.Perks.SturdyTree.Tree[5] = [this.Const.Perks.PerkDefs.Vengeance];
 	this.Const.Perks.SturdyTree.Tree[6] = [this.Const.Perks.PerkDefs.Indomitable];
-	
+
 	while (this.Const.Perks.FitTree.Tree.len() < 7)
 	{
 		this.Const.Perks.FitTree.Tree.push(emptyArray);
@@ -866,7 +866,7 @@ gt.Const.PTR.hookTraitsTrees <- function()
 	this.Const.Perks.FitTree.Tree[4] = [this.Const.Perks.PerkDefs.Berserk];
 	this.Const.Perks.FitTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRUnstoppable];
 	this.Const.Perks.FitTree.Tree[6] = [this.Const.Perks.PerkDefs.KillingFrenzy];
-	
+
 	while (this.Const.Perks.TrainedTree.Tree.len() < 7)
 	{
 		this.Const.Perks.TrainedTree.Tree.push(emptyArray);
@@ -878,11 +878,11 @@ gt.Const.PTR.hookTraitsTrees <- function()
 	this.Const.Perks.TrainedTree.Tree[4] = [this.Const.Perks.PerkDefs.Underdog];
 	this.Const.Perks.TrainedTree.Tree[5] = [];
 	this.Const.Perks.TrainedTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRTheRushOfBattle];
-	
+
 	this.Const.Perks.ResilientTree <- this.Const.Perks.IndestructibleTree;
-	this.Const.Perks.TalentedTree <- this.Const.Perks.IntelligentTree;	
-	this.Const.Perks.UnstoppableTree <- this.Const.Perks.FitTree;	
-	
+	this.Const.Perks.TalentedTree <- this.Const.Perks.IntelligentTree;
+	this.Const.Perks.UnstoppableTree <- this.Const.Perks.FitTree;
+
 	gt.Const.Perks.TraitsTrees.Tree = [
 		gt.Const.Perks.AgileTree,
 		gt.Const.Perks.ResilientTree,
@@ -897,7 +897,7 @@ gt.Const.PTR.hookTraitsTrees <- function()
 		gt.Const.Perks.UnstoppableTree,
 		gt.Const.Perks.TrainedTree
 	];
-	
+
 	foreach (tree in gt.Const.Perks.TraitsTrees.Tree)
 	{
 		tree.SelfExpertiseMultiplier <- this.Const.Perks.Expertise.Full;
@@ -907,7 +907,7 @@ gt.Const.PTR.hookTraitsTrees <- function()
 gt.Const.PTR.hookClassTrees <- function()
 {
 	local emptyArray = [];
-	
+
 	gt.Const.Perks.SergeantClassTree <- {
 		ID = "SergeantClassTree",
 		Descriptions = [
@@ -965,7 +965,7 @@ gt.Const.PTR.hookClassTrees <- function()
 			]
 		]
 	};
-	
+
 	gt.Const.Perks.HealerClassTree <- {
 		ID = "HealerClassTree",
 		Descriptions = [
@@ -987,7 +987,7 @@ gt.Const.PTR.hookClassTrees <- function()
 			]
 		]
 	};
-	
+
 	gt.Const.Perks.TrapperClassTree <- {
 		ID = "TrapperClassTree",
 		Descriptions = [
@@ -1011,7 +1011,7 @@ gt.Const.PTR.hookClassTrees <- function()
 			[]
 		]
 	};
-	
+
 	gt.Const.Perks.ChefClassTree <- {
 		ID = "ChefClassTree",
 		Descriptions = [
@@ -1037,7 +1037,7 @@ gt.Const.PTR.hookClassTrees <- function()
 			]
 		]
 	};
-	
+
 	gt.Const.Perks.MenderClassTree <- {
 		ID = "MenderClassTree",
 		Descriptions = [
@@ -1057,7 +1057,7 @@ gt.Const.PTR.hookClassTrees <- function()
 			[]
 		]
 	};
-	
+
 	gt.Const.Perks.ClerkClassTree <- {
 		ID = "ClerkClassTree",
 		Descriptions = [
@@ -1079,7 +1079,7 @@ gt.Const.PTR.hookClassTrees <- function()
 			[]
 		]
 	};
-	
+
 	while (this.Const.Perks.HoundmasterClassTree.Tree.len() < 7)
 	{
 		this.Const.Perks.HoundmasterClassTree.Tree.push(emptyArray);
@@ -1091,7 +1091,7 @@ gt.Const.PTR.hookClassTrees <- function()
 	this.Const.Perks.HoundmasterClassTree.Tree[4] = [this.Const.Perks.PerkDefs.LegendDogHandling];
 	this.Const.Perks.HoundmasterClassTree.Tree[5] = [this.Const.Perks.PerkDefs.LegendPackleader];
 	this.Const.Perks.HoundmasterClassTree.Tree[6] = [this.Const.Perks.PerkDefs.LegendDogMaster];
-	
+
 	gt.Const.Perks.ClassTrees.Tree = [
 		gt.Const.Perks.SergeantClassTree,
 		gt.Const.Perks.HealerClassTree,
@@ -1101,7 +1101,7 @@ gt.Const.PTR.hookClassTrees <- function()
 		gt.Const.Perks.ClerkClassTree,
 		gt.Const.Perks.HoundmasterClassTree
 	];
-	
+
 	foreach (tree in this.Const.Perks.ClassTrees.Tree)
 	{
 		tree.SelfExpertiseMultiplier <- this.Const.Perks.Expertise.High;
@@ -1122,7 +1122,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 		IconDisabled = "ui/perks/ptr_testing_bw.png",
 		Const = "PTRTesting"
 	});
-	
+
 	local axePerks = [
 		{
 			ID = "perk.ptr_dismemberment",
@@ -1200,7 +1200,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Const = "PTRHipShooter"
 		}
 	];
-	
+
 	local cleaverPerks = [
 		{
 			ID = "perk.ptr_open_wounds",
@@ -1239,7 +1239,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Const = "PTRMauler"
 		}
 	];
-	
+
 	local crossbowPerks = [
 		{
 			ID = "perk.ptr_through_the_ranks",
@@ -1287,8 +1287,8 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Const = "PTRWindlassTraining"
 		}
 	];
-	
-	local daggerPerks = [	
+
+	local daggerPerks = [
 		{
 			ID = "perk.ptr_between_the_ribs",
 			Script = "scripts/skills/perks/perk_ptr_between_the_ribs",
@@ -1317,7 +1317,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Const = "PTRSwiftStabs"
 		}
 	];
-	
+
 	local flailPerks = [
 		{
 			ID = "perk.ptr_small_target",
@@ -1365,7 +1365,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Const = "PTRFromAllSides"
 		}
 	];
-	
+
 	local hammerPerks = [
 		{
 			ID = "perk.ptr_rattle",
@@ -1459,9 +1459,9 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_bone_breaker.png",
 			IconDisabled = "ui/perks/ptr_bone_breaker_bw.png",
 			Const = "PTRBoneBreaker"
-		}		
+		}
 	];
-	
+
 	local polearmPerks = [
 		{
 			ID = "perk.ptr_bolster",
@@ -1508,7 +1508,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			IconDisabled = "ui/perks/ptr_follow_up_bw.png",
 			Const = "PTRFollowUp"
 		},
-		{	
+		{
 			ID = "perk.ptr_long_reach",
 			Script = "scripts/skills/perks/perk_ptr_long_reach",
 			Name = this.Const.Strings.PerkName.PTRLongReach,
@@ -1516,9 +1516,9 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_long_reach.png",
 			IconDisabled = "ui/perks/ptr_long_reach_bw.png",
 			Const = "PTRLongReach"
-		}		
+		}
 	];
-	
+
 	local slingPerks = [
 		{
 			ID = "perk.ptr_patience",
@@ -1539,7 +1539,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Const = "PTRHeavyProjectiles"
 		}
 	];
-	
+
 	local spearPerks = [
 		{
 			ID = "perk.ptr_pointy_end",
@@ -1596,7 +1596,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Const = "PTRKingOfAllWeapons"
 		}
 	];
-	
+
 	local staffPerks = [
 		{
 			ID = "perk.ptr_easy_target",
@@ -1626,8 +1626,8 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Const = "PTRWhackASmack"
 		}
 	];
-	
-	local swordPerks = [		
+
+	local swordPerks = [
 		{
 			ID = "perk.ptr_heightened_reflexes",
 			Script = "scripts/skills/perks/perk_ptr_heightened_reflexes",
@@ -1656,7 +1656,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Const = "PTRSweepingStrikes"
 		}
 	];
-	
+
 	local throwingPerks = [
 		{
 			ID = "perk.ptr_hybridization",
@@ -1695,7 +1695,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Const = "PTRNailedIt"
 		}
 	];
-	
+
 	local traitsPerks = [
 		{
 			ID = "perk.ptr_fresh_and_furious",
@@ -1725,7 +1725,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Const = "PTRKnowTheirWeakness"
 		}
 	];
-	
+
 	local classPerks = [
 		{
 			ID = "perk.ptr_the_rush_of_battle",
@@ -1737,7 +1737,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Const = "PTRTheRushOfBattle"
 		}
 	];
-	
+
 	local professionPerks = [
 		{
 			ID = "perk.ptr_personal_armor",
@@ -1767,7 +1767,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Const = "PTRTunnelVision"
 		}
 	];
-	
+
 	// Will  be moved to their appropriate trees at the end of the development cycle.
 	local additionalPerks = [
 		{
@@ -1816,12 +1816,12 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Const = "PTRRangedSupremacy"
 		},
 	];
-	
+
 	local perkSets = [
 		axePerks,
 		bowPerks,
 		cleaverPerks,
-		crossbowPerks,		
+		crossbowPerks,
 		daggerPerks,
 		flailPerks,
 		hammerPerks,
@@ -1831,13 +1831,13 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 		spearPerks,
 		staffPerks,
 		swordPerks,
-		throwingPerks,		
+		throwingPerks,
 		traitsPerks,
 		classPerks,
 		professionPerks,
 		additionalPerks
 	];
-	
+
 	foreach (perkSet in perkSets)
 	{
 		foreach (perk in perkSet)
@@ -1845,7 +1845,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			this.Const.Perks.PerkDefObjects.push(perk);
 		}
 	}
-	
+
 	this.Const.Perks.PerkDefs.clear();
 
 	foreach( i, v in this.Const.Perks.PerkDefObjects )
@@ -1867,20 +1867,20 @@ gt.Const.PTR.hookWeaponTrees <- function()
 	this.Const.Perks.AxeTree.Tree[3] = [this.Const.Perks.PerkDefs.SpecAxe];
 	this.Const.Perks.AxeTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRBetweenTheEyes];
 	this.Const.Perks.AxeTree.Tree[5] = [this.Const.Perks.PerkDefs.SunderingStrikes];
-	this.Const.Perks.AxeTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRCull];	
-	
+	this.Const.Perks.AxeTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRCull];
+
 	while (this.Const.Perks.BowTree.Tree.len() < 7)
 	{
 		this.Const.Perks.BowTree.Tree.push(emptyArray);
 	}
 	this.Const.Perks.BowTree.Tree[0] = [this.Const.Perks.PerkDefs.LegendMarkTarget];
-	this.Const.Perks.BowTree.Tree[1] = [];
+	this.Const.Perks.BowTree.Tree[1] = [this.Const.Perks.PerkDefs.PTRRangedSupremacy];
 	this.Const.Perks.BowTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRArrowToTheKnee];
 	this.Const.Perks.BowTree.Tree[3] = [this.Const.Perks.PerkDefs.SpecBow];
-	this.Const.Perks.BowTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRRangedSupremacy];
+	this.Const.Perks.BowTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRMarksmanship];
 	this.Const.Perks.BowTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRFlamingArrows];
 	this.Const.Perks.BowTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRHipShooter];
-	
+
 	while (this.Const.Perks.CleaverTree.Tree.len() < 7)
 	{
 		this.Const.Perks.CleaverTree.Tree.push(emptyArray);
@@ -1892,7 +1892,7 @@ gt.Const.PTR.hookWeaponTrees <- function()
 	this.Const.Perks.CleaverTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRBloodlust];
 	this.Const.Perks.CleaverTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRBloodbath];
 	this.Const.Perks.CleaverTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRMauler];
-	
+
 	while (this.Const.Perks.CrossbowTree.Tree.len() < 7)
 	{
 		this.Const.Perks.CrossbowTree.Tree.push(emptyArray);
@@ -1906,7 +1906,7 @@ gt.Const.PTR.hookWeaponTrees <- function()
 	this.Const.Perks.CrossbowTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRIronSights];
 	this.Const.Perks.CrossbowTree.Tree[5] = [this.Const.Perks.PerkDefs.LegendPiercingShot];
 	this.Const.Perks.CrossbowTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRWindlassTraining];
-	
+
 	while (this.Const.Perks.DaggerTree.Tree.len() < 7)
 	{
 		this.Const.Perks.DaggerTree.Tree.push(emptyArray);
@@ -1918,20 +1918,20 @@ gt.Const.PTR.hookWeaponTrees <- function()
 	this.Const.Perks.DaggerTree.Tree[4] = [this.Const.Perks.PerkDefs.DoubleStrike];
 	this.Const.Perks.DaggerTree.Tree[5] = [this.Const.Perks.PerkDefs.Overwhelm];
 	this.Const.Perks.DaggerTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRSwiftStabs];
-	
+
 	while (this.Const.Perks.FlailTree.Tree.len() < 7)
 	{
 		this.Const.Perks.FlailTree.Tree.push(emptyArray);
 	}
 	this.Const.Perks.FlailTree.Tree[0] = [this.Const.Perks.PerkDefs.PTRSmallTarget];
 	this.Const.Perks.FlailTree.Tree[1] = [this.Const.Perks.PerkDefs.PTRHeadSmasher];
-	this.Const.Perks.FlailTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRFromAllSides];	
+	this.Const.Perks.FlailTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRFromAllSides];
 	this.Const.Perks.FlailTree.Tree[3] = [this.Const.Perks.PerkDefs.SpecFlail];
 	this.Const.Perks.FlailTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRDeadlyPrecision];
 	this.Const.Perks.FlailTree.Tree[5] = [this.Const.Perks.PerkDefs.HeadHunter];
 	this.Const.Perks.FlailTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRFlailSpinner];
-	
-	
+
+
 	while (this.Const.Perks.HammerTree.Tree.len() < 7)
 	{
 		this.Const.Perks.HammerTree.Tree.push(emptyArray);
@@ -1943,7 +1943,7 @@ gt.Const.PTR.hookWeaponTrees <- function()
 	this.Const.Perks.HammerTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRSoftMetal];
 	this.Const.Perks.HammerTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRDismantle];
 	this.Const.Perks.HammerTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRDentArmor];
-	
+
 	while (this.Const.Perks.MaceTree.Tree.len() < 7)
 	{
 		this.Const.Perks.MaceTree.Tree.push(emptyArray);
@@ -1955,7 +1955,7 @@ gt.Const.PTR.hookWeaponTrees <- function()
 	this.Const.Perks.MaceTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRConcussiveStrikes];
 	this.Const.Perks.MaceTree.Tree[5] = [this.Const.Perks.PerkDefs.PushTheAdvantage];
 	this.Const.Perks.MaceTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRBoneBreaker];
-	
+
 	while (this.Const.Perks.PolearmTree.Tree.len() < 7)
 	{
 		this.Const.Perks.PolearmTree.Tree.push(emptyArray);
@@ -1968,7 +1968,7 @@ gt.Const.PTR.hookWeaponTrees <- function()
 	this.Const.Perks.PolearmTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRFormidableApproach];
 	this.Const.Perks.PolearmTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRFollowUp];
 	this.Const.Perks.PolearmTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRLongReach];
-	
+
 	while (this.Const.Perks.SlingsTree.Tree.len() < 7)
 	{
 		this.Const.Perks.SlingsTree.Tree.push(emptyArray);
@@ -1981,7 +1981,7 @@ gt.Const.PTR.hookWeaponTrees <- function()
 	this.Const.Perks.SlingsTree.Tree[4] = [this.Const.Perks.PerkDefs.LegendSpecialistSlingDamage];
 	this.Const.Perks.SlingsTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRHeavyProjectiles];
 	this.Const.Perks.SlingsTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRSniper];
-		
+
 	while (this.Const.Perks.SpearTree.Tree.len() < 7)
 	{
 		this.Const.Perks.SpearTree.Tree.push(emptyArray);
@@ -1995,7 +1995,7 @@ gt.Const.PTR.hookWeaponTrees <- function()
 	this.Const.Perks.SpearTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRTwoForOne];
 	this.Const.Perks.SpearTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRABetterGrip];
 	this.Const.Perks.SpearTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRKingOfAllWeapons];
-	
+
 	while (this.Const.Perks.SwordTree.Tree.len() < 7)
 	{
 		this.Const.Perks.SwordTree.Tree.push(emptyArray);
@@ -2009,7 +2009,7 @@ gt.Const.PTR.hookWeaponTrees <- function()
 	this.Const.Perks.SwordTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRTempo];
 	this.Const.Perks.SwordTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRKata];
 	this.Const.Perks.SwordTree.Tree[6] = [this.Const.Perks.PerkDefs.PTREnGarde, this.Const.Perks.PerkDefs.Fencer];
-	
+
 	while (this.Const.Perks.GreatSwordTree.Tree.len() < 7)
 	{
 		this.Const.Perks.GreatSwordTree.Tree.push(emptyArray);
@@ -2021,7 +2021,7 @@ gt.Const.PTR.hookWeaponTrees <- function()
 	this.Const.Perks.GreatSwordTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRTempo];
 	this.Const.Perks.GreatSwordTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRKata];
 	this.Const.Perks.GreatSwordTree.Tree[6] = [this.Const.Perks.PerkDefs.PTREnGarde, this.Const.Perks.PerkDefs.Fencer];
-	
+
 	while (this.Const.Perks.StavesTree.Tree.len() < 7)
 	{
 		this.Const.Perks.StavesTree.Tree.push(emptyArray);
@@ -2035,7 +2035,7 @@ gt.Const.PTR.hookWeaponTrees <- function()
 	this.Const.Perks.StavesTree.Tree[4] = [this.Const.Perks.PerkDefs.LegendSpecStaffStun];
 	this.Const.Perks.StavesTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRWearThemDown];
 	this.Const.Perks.StavesTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRWhackASmack];
-	
+
 	while (this.Const.Perks.ThrowingTree.Tree.len() < 7)
 	{
 		this.Const.Perks.ThrowingTree.Tree.push(emptyArray);
@@ -2048,4 +2048,3 @@ gt.Const.PTR.hookWeaponTrees <- function()
 	this.Const.Perks.ThrowingTree.Tree[5] = [this.Const.Perks.PerkDefs.CloseCombatArcher];
 	this.Const.Perks.ThrowingTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRNailedIt];
 }
-
