@@ -19,7 +19,6 @@ this.perk_ptr_ranged_supremacy <- this.inherit("scripts/skills/skill", {
 		{
 			return;
 		}
-		this.logInfo("ranged supremacy onAnySkillUsed");
 		_properties.RangedSkill += 10;
 	}
 });

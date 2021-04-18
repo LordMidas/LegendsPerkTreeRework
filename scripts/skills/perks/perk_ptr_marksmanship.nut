@@ -15,6 +15,13 @@ this.perk_ptr_marksmanship <- this.inherit("scripts/skills/skill", {
 
 	function onUpdate(_properties)
 	{
-		_properties.RangedDamageMult *= 1.0 + this.getContainer().getActor().getBaseProperties().RangedSkill * 0.1;	
+		if (!this.getContainer().getActor().isArmedWithRangedWeapon())
+		{
+			return;
+		}
+				
+		local bonus = this.Math.floor(this.getContainer().getActor().getBaseProperties().RangedSkill * 0.1);
+		_properties.DamageRegularMin += bonus;
+		_properties.DamageRegularMax += bonus;
 	}
 });
