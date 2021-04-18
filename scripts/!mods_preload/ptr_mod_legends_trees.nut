@@ -1815,6 +1815,15 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			IconDisabled = "ui/perks/ptr_ranged_supremacy_bw.png",
 			Const = "PTRRangedSupremacy"
 		},
+		{
+			ID = "perk.ptr_marksmanship",
+			Script = "scripts/skills/perks/perk_ptr_marksmanship",
+			Name = this.Const.Strings.PerkName.PTRMarksmanship,
+			Tooltip = this.Const.Strings.PerkDescription.PTRMarksmanship,
+			Icon = "ui/perks/ptr_marksmanship.png",
+			IconDisabled = "ui/perks/ptr_marksmanship_bw.png",
+			Const = "PTRMarksmanship"
+		}
 	];
 
 	local perkSets = [
