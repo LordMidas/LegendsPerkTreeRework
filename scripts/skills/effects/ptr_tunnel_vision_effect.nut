@@ -1,7 +1,7 @@
 this.ptr_tunnel_vision_effect <- this.inherit("scripts/skills/skill", {
 	m = {
 		VisionBonus = 1,
-		SkillBonus = 0.1
+		SkillBonus = 10
 	},
 	function create()
 	{
@@ -37,31 +37,22 @@ this.ptr_tunnel_vision_effect <- this.inherit("scripts/skills/skill", {
 			id = 10,
 			type = "text",
 			icon = "ui/icons/ranged_skill.png",
-			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + (this.getBonus() * 100) + "[/color] Melee Skill"
+			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.SkillBonus + "[/color] Melee Skill"
 		});
 
 		tooltip.push({
 			id = 10,
 			type = "text",
 			icon = "ui/icons/melee_defense.png",
-			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + (this.getBonus() * 100) + "[/color] Ranged Skill"
+			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.SkillBonus + "[/color] Ranged Skill"
 		});
 
 		return tooltip;
 	}
 
-	function getBonus()
-	{
-		return this.m.SkillBonus;
-	}
-
 	function onUpdate( _properties )
 	{
-		local bonus = this.getBonus();
-		if (bonus > 0)
-		{
-			_properties.MeleeSkillMult *= 1.0 + this.getBonus();
-			_properties.MeleeDefenseMult *= 1.0 + this.getBonus();
-		}
+		_properties.MeleeSkillMult *= 1.0 + this.m.SkillBonus / 100.0;
+		_properties.MeleeDefenseMult *= 1.0 + this.m.SkillBonus / 100.0;
 	}
 });

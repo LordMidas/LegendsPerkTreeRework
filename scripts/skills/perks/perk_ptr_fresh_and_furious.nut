@@ -34,7 +34,7 @@ this.perk_ptr_fresh_and_furious <- this.inherit("scripts/skills/skill", {
 				id = 10,
 				type = "text",
 				icon = "ui/icons/damage_dealt.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + (this.getBonus() * 100) + "%[/color] Damage Dealt"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getBonus() + "%[/color] Damage Dealt"
 			}
 		);
 
@@ -49,7 +49,7 @@ this.perk_ptr_fresh_and_furious <- this.inherit("scripts/skills/skill", {
 		}
 
 		local actor = this.getContainer().getActor();
-		return 0.25 * (1.0 - (actor.getFatigue() / actor.getFatigueMax()) / 0.3);
+		return this.Math.floor(100 * (0.25 * (1.0 - (actor.getFatigue() / actor.getFatigueMax()) / 0.3)));
 	}
 
 	function onUpdate( _properties )
@@ -57,7 +57,7 @@ this.perk_ptr_fresh_and_furious <- this.inherit("scripts/skills/skill", {
 		local bonus = this.getBonus();
 		if (bonus > 0)
 		{
-			_properties.DamageTotalMult *= 1.0 + bonus;
+			_properties.DamageTotalMult *= 1.0 + bonus / 100.0;
 		}
 	}
 

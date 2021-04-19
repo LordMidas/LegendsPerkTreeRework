@@ -1,8 +1,8 @@
 this.perk_ptr_the_rush_of_battle <- this.inherit("scripts/skills/skill", {
 	m = {
 		Stacks = 0,
-		BonusPerStack = 0.05,
-		BonusMax = 1.2
+		BonusPerStack = 5,
+		BonusMax = 20
 	},
 	function create()
 	{
@@ -30,7 +30,7 @@ this.perk_ptr_the_rush_of_battle <- this.inherit("scripts/skills/skill", {
 			id = 10,
 			type = "text",
 			icon = "ui/icons/melee_skill.png",
-			text = "Skills build up [color=" + this.Const.UI.Color.PositiveValue + "]-" + (this.getBonus() * 100) + "%[/color] Fatigue"
+			text = "Skills build up [color=" + this.Const.UI.Color.PositiveValue + "]-" + this.getBonus() + "%[/color] Fatigue"
 		});
 
 		return tooltip;
@@ -63,7 +63,7 @@ this.perk_ptr_the_rush_of_battle <- this.inherit("scripts/skills/skill", {
 
 	function getBonus()
 	{
-		return this.Math.maxf(this.m.BonusMax, 1.0 + this.m.Stacks * this.m.BonusPerStack);
+		return this.Math.max(this.m.BonusMax, this.m.Stacks * this.m.BonusPerStack);
 	}
 
 	function onUpdate( _properties )
@@ -72,7 +72,7 @@ this.perk_ptr_the_rush_of_battle <- this.inherit("scripts/skills/skill", {
 		{
 			return;
 		}
-		_properties.FatigueEffectMult *= 1.0 - this.getBonus();
+		_properties.FatigueEffectMult *= 1.0 - this.getBonus() / 100.0;
 	}
 
 	function onTurnEnd()
