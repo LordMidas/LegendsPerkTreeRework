@@ -42,13 +42,13 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 				id = 3,
 				type = "text",
 				icon = "ui/icons/special.png",
-				text = "Costs 2 fewer Action Points than the movement cost of the starting tile."
+				text = "Costs [color=" + this.Const.UI.Color.PositiveValue + "]2[/color] fewer Action Points than the movement cost of the starting tile"
 			});
 			tooltip.push({
 				id = 3,
 				type = "text",
 				icon = "ui/icons/special.png",
-				text = "Builds Fatigue equal to the movement cost of the starting tile."
+				text = "Builds Fatigue equal to the movement cost of the starting tile"
 			});
 		}
 		else
@@ -117,7 +117,7 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 		{
 			return false;
 		}
-		
+
 		for( local i = 0; i < 6; i++ )
 		{
 			if (_tile.hasNextTile(i))
