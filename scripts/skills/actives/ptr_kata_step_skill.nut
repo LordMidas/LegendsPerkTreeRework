@@ -33,15 +33,32 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 
 	function getTooltip()
 	{
-		local tooltip = this.skill.getDefaultUtilityTooltip();
+		local tooltip = this.skill.getTooltip();
 		local actor = this.getContainer().getActor();
 
-		/* tooltip.push({
-			id = 3,
-			type = "text",
-			icon = "ui/tooltips/special.png",
-			text = "Does not cost any Action Points or Fatigue"
-		}); */
+		if (!actor.isPlacedOnMap())
+		{
+			tooltip.push({
+				id = 3,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Costs 2 fewer Action Points than the movement cost of the starting tile."
+			});
+			tooltip.push({
+				id = 3,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Builds Fatigue equal to the movement cost of the starting tile."
+			});
+		}
+		else
+		{
+			tooltip.push({
+				id = 3,
+				type = "text",
+				text = this.getCostString()
+			});
+		}
 
 		if (actor.getCurrentProperties().IsRooted)
 		{
@@ -96,6 +113,11 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 
 	function anAdjacentEmptyTileHasAdjacentEnemy( _tile )
 	{
+		if (_tile == null)
+		{
+			return false;
+		}
+		
 		for( local i = 0; i < 6; i++ )
 		{
 			if (_tile.hasNextTile(i))
@@ -189,12 +211,18 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 
 	function onAfterUpdate ( _properties )
 	{
-		this.m.FatigueCost = 4;
+		this.m.FatigueCost = 0;
+		this.m.ActionPointCost = 0;
 
 		local actor = this.getContainer().getActor();
-		if (actor.isPlacedOnMap() && actor.getTile() != null)
+		if (actor.isPlacedOnMap())
 		{
-			this.m.FatigueCost = actor.m.FatigueCosts[actor.getTile().Type];
+			local myTile = actor.getTile();
+			if (myTile != null)
+			{
+				this.m.FatigueCost = this.Math.max(0, actor.getFatigueCosts()[myTile.Type]);
+				this.m.ActionPointCost = this.Math.max(0, actor.getActionPointCosts()[myTile.Type] - 2);
+			}
 		}
 	}
 
@@ -206,7 +234,7 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 		}
 
 		local actor = this.getContainer().getActor();
-		
+
 		if (this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
 		{
 			return;
