@@ -78,7 +78,15 @@ this.perk_ptr_testing <- this.inherit("scripts/skills/skill", {
 
 			"scripts/skills/perks/perk_reach_advantage",
 			"scripts/skills/perks/perk_ptr_bloody_harvest",
-			"scripts/skills/perks/perk_ptr_sweeping_strikes"
+			"scripts/skills/perks/perk_ptr_sweeping_strikes",
+
+			"scripts/skills/perks/perk_ptr_fresh_and_furious",
+			"scripts/skills/perks/perk_ptr_know_their_weakness",
+			"scripts/skills/perks/perk_ptr_personal_armor",
+			"scripts/skills/perks/perk_ptr_strength_in_numbers",
+			"scripts/skills/perks/perk_ptr_the_rush_of_battle",
+			"scripts/skills/perks/perk_ptr_tunnel_vision",
+			"scripts/skills/perks/perk_ptr_unstoppable",
 		]
 	},
 	function create()

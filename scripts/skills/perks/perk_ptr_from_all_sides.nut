@@ -17,7 +17,7 @@ this.perk_ptr_from_all_sides <- this.inherit("scripts/skills/skill", {
 	}
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
-	{	
+	{
 		local actor = this.getContainer().getActor();
 		if (this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
 		{
@@ -28,29 +28,29 @@ this.perk_ptr_from_all_sides <- this.inherit("scripts/skills/skill", {
 		{
 			return;
 		}
-		
-		local weapon = actor.getMainhandItem();		
+
+		local weapon = actor.getMainhandItem();
 		if (weapon == null || weapon.getCategories().find("Flail") == null)
 		{
 			return;
 		}
-		
+
 		if (this.m.SkillCount == this.Const.SkillCounter && this.m.LastTargetID == _targetEntity.getID())
 		{
 			return;
 		}
-		
+
 		this.m.SkillCount = this.Const.SkillCounter;
 		this.m.LastTargetID = _targetEntity.getID();
 		local effect = this.new("scripts/skills/effects/ptr_from_all_sides_effect");
 		_targetEntity.getSkills().add(effect);
-		
+
 		if (_bodyPart == this.Const.BodyPart.Head)
 		{
 			effect.m.Count++;
 		}
 	}
-	
+
 	function onCombatStarted()
 	{
 		this.m.SkillCount = 0;
@@ -65,4 +65,3 @@ this.perk_ptr_from_all_sides <- this.inherit("scripts/skills/skill", {
 	}
 
 });
-

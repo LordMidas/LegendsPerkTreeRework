@@ -155,7 +155,7 @@ gt.Const.PTR.hookStrings <- function()
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendAssuredConquest].Tooltip = gt.Const.Strings.PerkDescription.LegendAssuredConquest;
 
 	gt.Const.Strings.PerkName.PTRKnowTheirWeakness <- "Know their Weakness";
-	gt.Const.Strings.PerkDescription.PTRKnowTheirWeakness <- "After killing an enemy, Melee Skill and Ranged Skill are increased by [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color], up to a maximum of [color=" + this.Const.UI.Color.PositiveValue + "]30%[/color]. The bonus drops by [color=" + this.Const.UI.Color.NegativeValue + "]5%[/color] if you get hit.\n[color=#0b0084]From the Talented perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRKnowTheirWeakness <- "After killing an enemy, Melee Skill is increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] and Ranged Skill by [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color], up to a maximum of [color=" + this.Const.UI.Color.PositiveValue + "]30%[/color] for each. The bonus drops by [color=" + this.Const.UI.Color.NegativeValue + "]5%[/color] if you get hit.\n[color=#0b0084]From the Talented perk group[/color]";
 	gt.Const.Strings.PerkName.PTRRisingStar <- "Rising Star";
 	gt.Const.Strings.PerkDescription.PTRRisingStar <- "Experience Gain is increased by [color=" + this.Const.UI.Color.PositiveValue + "]25%[/color] until Level 13, and by [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color] after that. At Level 13, gain [color=" + this.Const.UI.Color.PositiveValue + "]2[/color] perk points.\n[color=#0b0084]From the Talented perk group[/color]";
 

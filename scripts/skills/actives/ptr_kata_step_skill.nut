@@ -33,15 +33,17 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 
 	function getTooltip()
 	{
-		local tooltip = this.skill.getTooltip();
-		
-		tooltip.push({
+		local tooltip = this.skill.getDefaultUtilityTooltip();
+		local actor = this.getContainer().getActor();
+
+		/* tooltip.push({
 			id = 3,
 			type = "text",
+			icon = "ui/tooltips/special.png",
 			text = "Does not cost any Action Points or Fatigue"
-		});
+		}); */
 
-		if (this.getContainer().getActor().getCurrentProperties().IsRooted)
+		if (actor.getCurrentProperties().IsRooted)
 		{
 			tooltip.push({
 				id = 9,
@@ -51,11 +53,26 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 			});
 		}
 
+		if(actor.isPlacedOnMap() && !this.anAdjacentEmptyTileHasAdjacentEnemy(actor.getTile()))
+		{
+			tooltip.push({
+				id = 10,
+				type = "text",
+				icon = "ui/tooltips/warning.png",
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]Requires an empty tile adjacent to an enemy[/color]"
+			});
+		}
+
 		return tooltip;
 	}
-	
+
 	function tileHasAdjacentEnemy(_tile)
 	{
+		if (_tile == null)
+		{
+			return false;
+		}
+
 		for( local i = 0; i < 6; i++ )
 		{
 			if (_tile.hasNextTile(i))
@@ -73,25 +90,26 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 				}
 			}
 		}
-		
+
 		return false;
 	}
-	
-	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
+
+	function anAdjacentEmptyTileHasAdjacentEnemy( _tile )
 	{
-		if (!_skill.isAttack())
+		for( local i = 0; i < 6; i++ )
 		{
-			return;
-		}		
-		
-		local actor = this.getContainer().getActor();	
-		local weapon = actor.getMainhandItem();		
-		if (weapon == null || weapon.getCategories().find("Sword") == null)
-		{
-			return;
+			if (_tile.hasNextTile(i))
+			{
+				local nextTile = _tile.getNextTile(i);
+
+				if (nextTile.IsEmpty && this.tileHasAdjacentEnemy(nextTile) && !(this.Math.abs(nextTile.Level - _tile.Level) > 1))
+				{
+					return true;
+				}
+			}
 		}
 
-		this.m.IsSpent = false;
+		return false;
 	}
 
 	function isUsable()
@@ -99,7 +117,7 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 		if (!this.m.IsSpent && this.skill.isUsable() && !this.getContainer().getActor().getCurrentProperties().IsRooted)
 		{
 			local myTile = this.getContainer().getActor().getTile();
-			local hasAdjacentEnemy = false;
+			/* local hasAdjacentEnemy = false;
 			local anAdjacentTileHasAdjacentEnemy = false;
 
 			for( local i = 0; i < 6; i++ )
@@ -107,7 +125,7 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 				if (myTile.hasNextTile(i))
 				{
 					local nextTile = myTile.getNextTile(i);
-					
+
 					if (nextTile.IsEmpty && this.tileHasAdjacentEnemy(nextTile) && !(this.Math.abs(nextTile.Level - myTile.Level) > 1))
 					{
 						anAdjacentTileHasAdjacentEnemy = true;
@@ -124,8 +142,14 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 					}
 				}
 			}
-			
+
+			hasAdjacentEnemy = true;
 			if (hasAdjacentEnemy && anAdjacentTileHasAdjacentEnemy)
+			{
+				return true;
+			} */
+
+			if (this.anAdjacentEmptyTileHasAdjacentEnemy(myTile))
 			{
 				return true;
 			}
@@ -147,7 +171,7 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 		{
 			return false;
 		}
-		
+
 		if (this.tileHasAdjacentEnemy(_targetTile))
 		{
 			return true;
@@ -162,17 +186,51 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 		this.m.IsSpent = true;
 		return true;
 	}
-	
+
+	function onAfterUpdate ( _properties )
+	{
+		this.m.FatigueCost = 4;
+
+		local actor = this.getContainer().getActor();
+		if (actor.isPlacedOnMap() && actor.getTile() != null)
+		{
+			this.m.FatigueCost = actor.m.FatigueCosts[actor.getTile().Type];
+		}
+	}
+
+	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
+	{
+		if (!_skill.isAttack())
+		{
+			return;
+		}
+
+		local actor = this.getContainer().getActor();
+		
+		if (this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
+		{
+			return;
+		}
+
+		local weapon = actor.getMainhandItem();
+		if (weapon == null || weapon.getCategories().find("Sword") == null)
+		{
+			return;
+		}
+
+		this.m.IsSpent = false;
+	}
+
 	function onTurnStart()
 	{
-		this.m.IsSpent = false;
+		this.m.IsSpent = true;
 	}
-	
+
 	function onCombatStarted()
 	{
-		this.m.IsSpent = false;
+		this.m.IsSpent = true;
 	}
-	
+
 	function onCombatFinished()
 	{
 		this.skill.onCombatFinished();
@@ -180,4 +238,3 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 	}
 
 });
-
