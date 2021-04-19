@@ -1,8 +1,9 @@
 this.perk_ptr_know_their_weakness <- this.inherit("scripts/skills/skill", {
 	m = {
 		Stacks = 0,
-		BonusPerStack = 0.05,
-		BonusMax = 1.3
+		BonusMeleePerStack = 10,
+		BonusRangedPerStack = 5,
+		BonusMax = 30
 	},
 	function create()
 	{
@@ -16,43 +17,43 @@ this.perk_ptr_know_their_weakness <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
 	function getName()
 	{
 		return "Knows their Weakness";
 	}
-	
+
 	function getDescription()
 	{
 		return "With each enemy felled, this character finds it easier to kill those who remain.";
 	}
-	
+
 	function getTooltip()
 	{
 		local tooltip = this.skill.getTooltip();
-		
+
 		tooltip.push({
 			id = 10,
 			type = "text",
 			icon = "ui/icons/melee_skill.png",
-			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getBonus() + "[/color] Melee Skill"
+			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.Math.min(this.m.BonusMax, this.m.Stacks * this.m.BonusMeleePerStack) + "[/color] Melee Skill"
 		});
-		
+
 		tooltip.push({
 			id = 10,
 			type = "text",
 			icon = "ui/icons/ranged_skill.png",
-			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getBonus() + "[/color] Ranged Skill"
+			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.Math.min(this.m.BonusMax, this.m.Stacks * this.m.BonusRangedPerStack) + "[/color] Ranged Skill"
 		});
-		
+
 		return tooltip;
 	}
-	
+
 	function isHidden()
 	{
 		return this.m.Stacks == 0;
 	}
-	
+
 	function onTargetKilled( _targetEntity, _skill )
 	{
 		if (!_skill.isAttack())
@@ -61,34 +62,31 @@ this.perk_ptr_know_their_weakness <- this.inherit("scripts/skills/skill", {
 		}
 		this.m.Stacks++;
 	}
-	
+
 	function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
 	{
 		if (_attacker == null || _attacker.getID() == this.getContainer().getActor().getID() || _skill == null || !_skill.isAttack())
 		{
-			this.m.Stacks--;
+			return;
 		}
+
+		this.m.Stacks--;
 	}
-	
-	function getBonus()
-	{
-		return this.Math.maxf(this.m.BonusMax, 1.0 + this.m.Stacks * this.m.BonusPerStack);
-	}
-	
+
 	function onUpdate( _properties )
 	{
-		_properties.MeleeSkillMult *= this.getBonus();
+		_properties.MeleeSkillMult *= 1.0 + (this.Math.min(this.m.BonusMax, this.m.Stacks * this.m.BonusMeleePerStack) * 0.01);
+		_properties.RangedSkillMult *= 1.0 + (this.Math.min(this.m.BonusMax, this.m.Stacks * this.m.BonusMeleePerStack) * 0.01);
 	}
-	
+
 	function onCombatStarted()
 	{
 		this.m.Stacks = 0;
 	}
-	
+
 	function onCombatFinished()
 	{
 		this.skill.onCombatFinished();
 		this.m.Stacks = 0;
 	}
 });
-

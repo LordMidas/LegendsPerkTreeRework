@@ -21,23 +21,30 @@ this.perk_ptr_unstoppable <- this.inherit("scripts/skills/skill", {
 	{
 		return "This character\'s attacks seem to not miss at all.";
 	}
-	
+
 	function isHidden()
 	{
 		return this.m.Stacks == 0;
 	}
-	
+
 	function getTooltip()
 	{
 		local tooltip = this.skill.getTooltip();
-		
+
 		tooltip.push({
 			id = 10,
 			type = "text",
 			icon = "ui/icons/hitchance.png",
-			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.Bonus + "%[/color] chance to hit the head"
+			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getBonus() + "[/color] Melee Skill"
 		});
-		
+
+		tooltip.push({
+			id = 10,
+			type = "text",
+			icon = "ui/icons/hitchance.png",
+			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getBonus() + "[/color] Ranged Skill"
+		});
+
 		return tooltip;
 	}
 
@@ -47,33 +54,38 @@ this.perk_ptr_unstoppable <- this.inherit("scripts/skills/skill", {
 		{
 			return;
 		}
-		
+
 		this.m.Stacks++;
 	}
-	
+
 	function onTargetMissed( _skill, _targetEntity )
 	{
 		if (!_skill.isAttack() || _targetEntity == null || _targetEntity.isAlliedWith(this.getContainer().getActor()))
 		{
 			return;
 		}
-		
+
 		this.m.Stacks = this.Math.floor(this.m.Stacks / 2);
 	}
-	
+
 	function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
 	{
 		if (!_skill.isAttack() || _attacker = this.getContainer().getActor())
 		{
 			return;
 		}
-		
+
 		this.m.Stacks = 0;
+	}
+
+	function getBonus()
+	{
+		return this.m.Stacks * this.m.BonusPerStack;
 	}
 
 	function onUpdate( _properties )
 	{
-		local bonus = this.m.Stacks * this.m.BonusPerStack;
+		local bonus = this.getBonus();
 		_properties.MeleeSkill += bonus;
 		_properties.RangedSkill += bonus;
 	}
@@ -89,4 +101,3 @@ this.perk_ptr_unstoppable <- this.inherit("scripts/skills/skill", {
 		this.m.Stacks = 0;
 	}
 });
-

@@ -13,12 +13,12 @@ gt.Const.PTR.hookStrings <- function()
 
 	gt.Const.Strings.PerkName.PTRArrowToTheKnee <- "Arrow to the Knee";
 	gt.Const.Strings.PerkDescription.PTRArrowToTheKnee <- "Causes your next ranged attack to apply a debuff on the target for one turn, reducing their Melee and Ranged Defense by [color=" + this.Const.UI.Color.NegativeValue + "]10%[/color] and requiring them to spend [color=" + this.Const.UI.Color.NegativeValue + "]2[/color] additional Action Points per tile moved.\n[color=#0b0084]From the Bow perk group[/color]";
-	gt.Const.Strings.PerkName.PTRSniper <- "Sniper";
-	gt.Const.Strings.PerkDescription.PTRSniper <- "Ranged attacks do [color=" + this.Const.UI.Color.PositiveValue + "]+2%[/color] damage per tile the target is away from you.\n[color=#0b0084]From the Bow perk group[/color]";
 	gt.Const.Strings.PerkName.PTRRangedSupremacy <- "Ranged Supremacy";
 	gt.Const.Strings.PerkDescription.PTRRangedSupremacy <- "Ranged attacks have [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit against enemies wielding ranged weapons.\n[color=#0b0084]From the Bow perk group[/color]";
 	gt.Const.Strings.PerkName.PTRFlamingArrows <- "Flaming Arrows";
 	gt.Const.Strings.PerkDescription.PTRFlamingArrows <- "Requires Bow. Aimed Shot now additionally does fire damage and will always trigger a morale check with a penalty to Resolve to [color=" + this.Const.UI.Color.PositiveValue + "]20%[/color] of your Ranged Skill if it hits the target.\n[color=#0b0084]From the Bow perk group[/color]";
+	gt.Const.Strings.PerkName.PTRMarksmanship <- "Marksmanship";
+	gt.Const.Strings.PerkDescription.PTRMarksmanship <- "Ranged damage is increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of your Base Ranged Skill.\n[color=#0b0084]From the Bow perk group[/color]";
 	gt.Const.Strings.PerkName.PTRHipShooter <- "Hip Shooter";
 	gt.Const.Strings.PerkDescription.PTRHipShooter <- "Requires Bow. Each subsequent Quick Shot requires [color=" + this.Const.UI.Color.NegativeValue + "]1[/color] less Action Point to a minimum of [color=" + this.Const.UI.Color.PositiveValue + "]2[/color].\n[color=#0b0084]From the Bow perk group[/color]";
 
@@ -56,12 +56,12 @@ gt.Const.PTR.hookStrings <- function()
 	gt.Const.Strings.PerkName.PTRFlailSpinner <- "Flail Spinner";
 	gt.Const.Strings.PerkDescription.PTRFlailSpinner <- "Requires Flail. Attacks with flails have a [color=" + this.Const.UI.Color.PositiveValue + "]+50%[/color] chance to do a free extra attack.\n[color=#0b0084]From the Flail perk group[/color]";
 	gt.Const.Strings.PerkName.PTRDeadlyPrecision <- "Deadly Precision";
-	gt.Const.Strings.PerkDescription.PTRDeadlyPrecision <- "When using flails, an additional random [color=" + this.Const.UI.Color.PositiveValue + "]0-25%[/color] of damage ignores armor.\n[color=#0b0084]From the Flail perk group[/color]";	
+	gt.Const.Strings.PerkDescription.PTRDeadlyPrecision <- "When using flails, an additional random [color=" + this.Const.UI.Color.PositiveValue + "]0-25%[/color] of damage ignores armor.\n[color=#0b0084]From the Flail perk group[/color]";
 	gt.Const.Strings.PerkName.PTRFromAllSides <- "From all Sides";
 	gt.Const.Strings.PerkDescription.PTRFromAllSides <- "Requires Flail. Successful hits from Flails progressively reduce the target's Melee and Ranged Defense by [color=" + this.Const.UI.Color.NegativeValue + "]5%[/color] for one turn. The effect is doubled if the attacks hit the head.\n[color=#0b0084]From the Flail perk group[/color]";
 
 	gt.Const.Strings.PerkDescription.LegendSmackdown = "Use your size and strength to bully your way into the prime position. Unlocks the \'Wind Up\' skill that prepares you to knock back and Baffle an opponent on your next swing. Also causes the target to spend [color=" + this.Const.UI.Color.NegativeValue + "]3[/color] additional Action Points per tile moved on their turn. \n[color=#0b0084]From the Hammer perk group[/color]";
-	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSmackdown].Tooltip = gt.Const.Strings.PerkDescription.LegendSmackdown;	
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSmackdown].Tooltip = gt.Const.Strings.PerkDescription.LegendSmackdown;
 	gt.Const.Strings.PerkName.PTRRattle <- "Rattle";
 	gt.Const.Strings.PerkDescription.PTRRattle <- "When attacking an opponent wearing armor, if an attack does at least [color=" + this.Const.UI.Color.NegativeValue + "]10[/color] damage to Hitpoints, apply the Rattled effect which reduces the target\'s damage output by [color=" + this.Const.UI.Color.NegativeValue + "]10%[/color] for [color=" + this.Const.UI.Color.PositiveValue + "]1[/color] turn. Only works with attacks that do Blunt damage.\n[color=#0b0084]From the Hammer perk group[/color]";
 	gt.Const.Strings.PerkName.PTRDeepImpact <- "Deep Impact";
@@ -101,6 +101,8 @@ gt.Const.PTR.hookStrings <- function()
 	gt.Const.Strings.PerkDescription.PTRPatience <- "Gain [color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] Ranged Skill as long as you have not moved during your turn.\n[color=#0b0084]From the Sling perk group[/color]";
 	gt.Const.Strings.PerkName.PTRHeavyProjectiles <- "Heavy Projectiles";
 	gt.Const.Strings.PerkDescription.PTRHeavyProjectiles <- "Ranged attacks have a chance to apply the Dazed effect. The chance is [color=" + this.Const.UI.Color.PositiveValue + "]100%[/color] on a hit to the head and [color=" + this.Const.UI.Color.PositiveValue + "]25%[/color] on a hit to the body. Ignores target's immunity.\n[color=#0b0084]From the Sling perk group[/color]";
+	gt.Const.Strings.PerkName.PTRSniper <- "Sniper";
+	gt.Const.Strings.PerkDescription.PTRSniper <- "Damage from Ranged attacks is increased by [color=" + this.Const.UI.Color.PositiveValue + "]2%[/color] per tile the target is away from you.\n[color=#0b0084]From the Bow perk group[/color]";
 
 	gt.Const.Strings.PerkName.PTRPointyEnd <- "Pointy End";
 	gt.Const.Strings.PerkDescription.PTRPointyEnd <- "Melee piercing attacks against an enemy without a shield gain [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit.\n[color=#0b0084]From the Spear perk group[/color]";
@@ -124,7 +126,7 @@ gt.Const.PTR.hookStrings <- function()
 	gt.Const.Strings.PerkName.PTRKata <- "Kata";
 	gt.Const.Strings.PerkDescription.PTRKata <- "Requires Sword. A successful attack with swords allows you to move one tile for free ignoring zone of control during this turn. However, the target tile for the movement must be adjacent to an enemy.\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Strings.PerkName.PTREnGarde <- "En garde";
-	gt.Const.Strings.PerkDescription.PTREnGarde <- "Requires Sword. When wielding a sword, if you have not moved from your position during your turn, use Riposte freely at the end of your turn if your weapon has Riposte. If your weapon does not have Riposte, gain +10 Melee Defense instead until the start of your next turn.\n[color=#0b0084]From the Sword perk group[/color]";	
+	gt.Const.Strings.PerkDescription.PTREnGarde <- "Requires Sword. When wielding a sword, if you have not moved from your position during your turn, use Riposte freely at the end of your turn if your weapon has Riposte. If your weapon does not have Riposte, gain +10 Melee Defense instead until the start of your next turn.\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Strings.PerkName.PTRBloodyHarvest <- "Bloody Harvest";
 	gt.Const.Strings.PerkDescription.PTRBloodyHarvest <- "Requires Sword. AOE attacks gain [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit and do [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] damage.\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Strings.PerkName.PTRSweepingStrikes <- "Sweeping Strikes";
@@ -145,34 +147,34 @@ gt.Const.PTR.hookStrings <- function()
 	gt.Const.Strings.PerkDescription.PTROpportunist <- "The first time you stand over an enemy's corpse, gain [color=" + this.Const.UI.Color.PositiveValue + "]1[/color] ammo and restore [color=" + this.Const.UI.Color.PositiveValue + "]4[/color] Action Points.\n[color=#0b0084]From the Throwing perk group[/color]";
 	gt.Const.Strings.PerkName.PTRNailedIt <- "Nailed It";
 	gt.Const.Strings.PerkDescription.PTRNailedIt <- "Removes the penalty to hit-chance from throwing weapons.\n[color=#0b0084]From the Throwing perk group[/color]";
-	
+
 	gt.Const.Strings.PerkName.PTRSurvivalInstinct <- "Survival Instinct";
 	gt.Const.Strings.PerkDescription.PTRSurvivalInstinct <- "Melee and Ranged Defense are increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] for one turn whenever you get hit. Does not stack from multiple hits.\n[color=#0b0084]From the Resilient perk group[/color]";
-	
+
 	gt.Const.Strings.PerkDescription.LegendAssuredConquest = "Resolve is increased by [color=" + this.Const.UI.Color.PositiveValue + "]25%[/color] when at Confident morale.\n[color=#0b0084]From the Vicious perk group[/color]";
-	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendAssuredConquest].Tooltip = gt.Const.Strings.PerkDescription.LegendAssuredConquest;		
-	
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendAssuredConquest].Tooltip = gt.Const.Strings.PerkDescription.LegendAssuredConquest;
+
 	gt.Const.Strings.PerkName.PTRKnowTheirWeakness <- "Know their Weakness";
-	gt.Const.Strings.PerkDescription.PTRKnowTheirWeakness <- "After killing an enemy, Melee Skill and Ranged Skill are increased by [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color], up to a maximum of [color=" + this.Const.UI.Color.PositiveValue + "]30%[/color]. The bonus drops by [color=" + this.Const.UI.Color.NegativeValue + "]5%[/color] if you get hit.\n[color=#0b0084]From the Talented perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRKnowTheirWeakness <- "After killing an enemy, Melee Skill is increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] and Ranged Skill by [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color], up to a maximum of [color=" + this.Const.UI.Color.PositiveValue + "]30%[/color] for each. The bonus drops by [color=" + this.Const.UI.Color.NegativeValue + "]5%[/color] if you get hit.\n[color=#0b0084]From the Talented perk group[/color]";
 	gt.Const.Strings.PerkName.PTRRisingStar <- "Rising Star";
 	gt.Const.Strings.PerkDescription.PTRRisingStar <- "Experience Gain is increased by [color=" + this.Const.UI.Color.PositiveValue + "]25%[/color] until Level 13, and by [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color] after that. At Level 13, gain [color=" + this.Const.UI.Color.PositiveValue + "]2[/color] perk points.\n[color=#0b0084]From the Talented perk group[/color]";
-	
+
 	gt.Const.Strings.PerkName.PTRFreshAndFurious <- "Fresh and Furious";
 	gt.Const.Strings.PerkDescription.PTRFreshAndFurious <- "Damage is increased by [color=" + this.Const.UI.Color.PositiveValue + "]+25%[/color] when at [color=" + this.Const.UI.Color.PositiveValue + "]0%[/color] Fatigue. This bonus reduces to [color=" + this.Const.UI.Color.NegativeValue + "]0%[/color] when  your Fatigue approaches [color=" + this.Const.UI.Color.NegativeValue + "]30%[/color] of Maximum Fatigue.\n[color=#0b0084]From the Fast perk group[/color]";
-		
+
 	gt.Const.Strings.PerkName.PTRUnstoppable <- "Unstoppable";
 	gt.Const.Strings.PerkDescription.PTRUnstoppable <- "Gain [color=" + this.Const.UI.Color.PositiveValue + "]+5[/color] Melee Skill and Ranged Skill for every successful attack. You lose half of the bonus if you miss an attack, and all of it if you get hit.\n[color=#0b0084]From the Unstoppable perk group[/color]";
-	
+
 	gt.Const.Strings.PerkName.PTRTheRushOfBattle <- "The Rush of Battle";
 	gt.Const.Strings.PerkDescription.PTRTheRushOfBattle <- "When dodging or getting hit by an attack, gain a stacking [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color] reduction to the Fatigue Cost of  skills during your next turn, up to a maximum of [color=" + this.Const.UI.Color.PositiveValue + "]20%[/color].\n[color=#0b0084]From the Warrior perk group[/color]";
-		
+
 	gt.Const.Strings.PerkName.PTRPersonalArmor <- "Personal Armor";
 	gt.Const.Strings.PerkDescription.PTRPersonalArmor <- "Give your own armor some of that special treatment. Damage to armor is reduced by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color].\n[color=#0b0084]From the Blacksmith perk group[/color]";
 	gt.Const.Strings.PerkName.PTRStrengthInNumbers <- "Strength in Numbers";
 	gt.Const.Strings.PerkDescription.PTRStrengthInNumbers <- "Gain [color=" + this.Const.UI.Color.PositiveValue + "]+2[/color] Melee Skill, Ranged Skil, Melee  Defense and Ranged Defense for each adjacent ally.\n[color=#0b0084]From the Militia perk group[/color]";
 	gt.Const.Strings.PerkName.PTRTunnelVision <- "Tunnel Vision";
 	gt.Const.Strings.PerkDescription.PTRTunnelVision <- "At night, vision is increased by [color=" + this.Const.UI.Color.PositiveValue + "]+1[/color] and Melee Skill and Melee Defense are increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color].\n[color=#0b0084]From the Miner perk group[/color]";
-	
+
 	gt.Const.Strings.PerkName.PTRWearsItWell <- "Wears it Well";
 	gt.Const.Strings.PerkDescription.PTRWearsItWell <- "Fatigue Recovery is increased by [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color] of your current Maximum Fatigue.\n[color=#0b0084]From the Large perk group[/color]";
 }

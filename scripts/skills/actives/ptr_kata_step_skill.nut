@@ -34,14 +34,33 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 	function getTooltip()
 	{
 		local tooltip = this.skill.getTooltip();
-		
-		tooltip.push({
-			id = 3,
-			type = "text",
-			text = "Does not cost any Action Points or Fatigue"
-		});
+		local actor = this.getContainer().getActor();
 
-		if (this.getContainer().getActor().getCurrentProperties().IsRooted)
+		if (!actor.isPlacedOnMap())
+		{
+			tooltip.push({
+				id = 3,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Costs [color=" + this.Const.UI.Color.PositiveValue + "]2[/color] fewer Action Points than the movement cost of the starting tile"
+			});
+			tooltip.push({
+				id = 3,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Builds Fatigue equal to the movement cost of the starting tile"
+			});
+		}
+		else
+		{
+			tooltip.push({
+				id = 3,
+				type = "text",
+				text = this.getCostString()
+			});
+		}
+
+		if (actor.getCurrentProperties().IsRooted)
 		{
 			tooltip.push({
 				id = 9,
@@ -51,11 +70,26 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 			});
 		}
 
+		if(actor.isPlacedOnMap() && !this.anAdjacentEmptyTileHasAdjacentEnemy(actor.getTile()))
+		{
+			tooltip.push({
+				id = 10,
+				type = "text",
+				icon = "ui/tooltips/warning.png",
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]Requires an empty tile adjacent to an enemy[/color]"
+			});
+		}
+
 		return tooltip;
 	}
-	
+
 	function tileHasAdjacentEnemy(_tile)
 	{
+		if (_tile == null)
+		{
+			return false;
+		}
+
 		for( local i = 0; i < 6; i++ )
 		{
 			if (_tile.hasNextTile(i))
@@ -73,25 +107,31 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 				}
 			}
 		}
-		
+
 		return false;
 	}
-	
-	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
+
+	function anAdjacentEmptyTileHasAdjacentEnemy( _tile )
 	{
-		if (!_skill.isAttack())
+		if (_tile == null)
 		{
-			return;
-		}		
-		
-		local actor = this.getContainer().getActor();	
-		local weapon = actor.getMainhandItem();		
-		if (weapon == null || weapon.getCategories().find("Sword") == null)
-		{
-			return;
+			return false;
 		}
 
-		this.m.IsSpent = false;
+		for( local i = 0; i < 6; i++ )
+		{
+			if (_tile.hasNextTile(i))
+			{
+				local nextTile = _tile.getNextTile(i);
+
+				if (nextTile.IsEmpty && this.tileHasAdjacentEnemy(nextTile) && !(this.Math.abs(nextTile.Level - _tile.Level) > 1))
+				{
+					return true;
+				}
+			}
+		}
+
+		return false;
 	}
 
 	function isUsable()
@@ -99,7 +139,7 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 		if (!this.m.IsSpent && this.skill.isUsable() && !this.getContainer().getActor().getCurrentProperties().IsRooted)
 		{
 			local myTile = this.getContainer().getActor().getTile();
-			local hasAdjacentEnemy = false;
+			/* local hasAdjacentEnemy = false;
 			local anAdjacentTileHasAdjacentEnemy = false;
 
 			for( local i = 0; i < 6; i++ )
@@ -107,7 +147,7 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 				if (myTile.hasNextTile(i))
 				{
 					local nextTile = myTile.getNextTile(i);
-					
+
 					if (nextTile.IsEmpty && this.tileHasAdjacentEnemy(nextTile) && !(this.Math.abs(nextTile.Level - myTile.Level) > 1))
 					{
 						anAdjacentTileHasAdjacentEnemy = true;
@@ -124,8 +164,14 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 					}
 				}
 			}
-			
+
+			hasAdjacentEnemy = true;
 			if (hasAdjacentEnemy && anAdjacentTileHasAdjacentEnemy)
+			{
+				return true;
+			} */
+
+			if (this.anAdjacentEmptyTileHasAdjacentEnemy(myTile))
 			{
 				return true;
 			}
@@ -147,7 +193,7 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 		{
 			return false;
 		}
-		
+
 		if (this.tileHasAdjacentEnemy(_targetTile))
 		{
 			return true;
@@ -162,17 +208,57 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 		this.m.IsSpent = true;
 		return true;
 	}
-	
+
+	function onAfterUpdate ( _properties )
+	{
+		this.m.FatigueCost = 0;
+		this.m.ActionPointCost = 0;
+
+		local actor = this.getContainer().getActor();
+		if (actor.isPlacedOnMap())
+		{
+			local myTile = actor.getTile();
+			if (myTile != null)
+			{
+				this.m.FatigueCost = this.Math.max(0, actor.getFatigueCosts()[myTile.Type]);
+				this.m.ActionPointCost = this.Math.max(0, actor.getActionPointCosts()[myTile.Type] - 2);
+			}
+		}
+	}
+
+	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
+	{
+		if (!_skill.isAttack())
+		{
+			return;
+		}
+
+		local actor = this.getContainer().getActor();
+
+		if (this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
+		{
+			return;
+		}
+
+		local weapon = actor.getMainhandItem();
+		if (weapon == null || weapon.getCategories().find("Sword") == null)
+		{
+			return;
+		}
+
+		this.m.IsSpent = false;
+	}
+
 	function onTurnStart()
 	{
-		this.m.IsSpent = false;
+		this.m.IsSpent = true;
 	}
-	
+
 	function onCombatStarted()
 	{
-		this.m.IsSpent = false;
+		this.m.IsSpent = true;
 	}
-	
+
 	function onCombatFinished()
 	{
 		this.skill.onCombatFinished();
@@ -180,4 +266,3 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 	}
 
 });
-

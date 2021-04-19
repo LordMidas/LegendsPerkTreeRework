@@ -12,10 +12,12 @@ this.perk_ptr_tunnel_vision <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
 	function onCombatStarted()
 	{
-		this.getContainer().add(this.new("scripts/skills/effects/ptr_tunnel_vision_effect"));
+		if (!this.World.getTime().IsDaytime)
+		{
+			this.getContainer().add(this.new("scripts/skills/effects/ptr_tunnel_vision_effect"));
+		}
 	}
 });
-

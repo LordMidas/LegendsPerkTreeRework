@@ -12,10 +12,9 @@ this.perk_ptr_personal_armor <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-		
+
 	function onUpdate( _properties )
 	{
-		_properties.ArmorDamageReceivedMult *= 0.9;
-	}	
+		_properties.DamageReceivedArmorMult *= 0.9;
+	}
 });
-

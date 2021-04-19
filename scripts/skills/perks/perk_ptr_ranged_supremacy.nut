@@ -12,15 +12,13 @@ this.perk_ptr_ranged_supremacy <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
 		if (!_skill.isAttack() || !_skill.isRanged() || _targetEntity == null || !_targetEntity.isArmedWithRangedWeapon())
 		{
 			return;
 		}
-		
-		_properties.RangedSkill += 10;		
+		_properties.RangedSkill += 10;
 	}
 });
-
