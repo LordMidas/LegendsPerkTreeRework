@@ -107,7 +107,7 @@ gt.Const.PTR.hookStrings <- function()
 	gt.Const.Strings.PerkName.PTRPointyEnd <- "Pointy End";
 	gt.Const.Strings.PerkDescription.PTRPointyEnd <- "Melee piercing attacks against an enemy without a shield gain [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit.\n[color=#0b0084]From the Spear perk group[/color]";
 	gt.Const.Strings.PerkName.PTRImpaler <- "Impaler";
-	gt.Const.Strings.PerkDescription.PTRImpaler <- "Piercing attacks have a [color=" + this.Const.UI.Color.NegativeValue + "]15%[/color] lower damag threshold to inflict injury.\n[color=#0b0084]From the Spear perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRImpaler <- "Piercing attacks have a [color=" + this.Const.UI.Color.NegativeValue + "]15%[/color] lower damage threshold to inflict injury.\n[color=#0b0084]From the Spear perk group[/color]";
 	gt.Const.Strings.PerkName.PTRThroughTheGaps <- "Through the Gaps";
 	gt.Const.Strings.PerkDescription.PTRThroughTheGaps <- "Piercing attacks ignore an additional [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of the target's armor.\n[color=#0b0084]From the Spear perk group[/color]";
 	gt.Const.Strings.PerkName.PTRTwoForOne <- "Two for One";
