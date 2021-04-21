@@ -1823,6 +1823,15 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_marksmanship.png",
 			IconDisabled = "ui/perks/ptr_marksmanship_bw.png",
 			Const = "PTRMarksmanship"
+		},
+		{
+			ID = "perk.ptr_rising_star",
+			Script = "scripts/skills/perks/perk_ptr_rising_star",
+			Name = this.Const.Strings.PerkName.PTRRisingStar,
+			Tooltip = this.Const.Strings.PerkDescription.PTRRisingStar,
+			Icon = "ui/perks/ptr_rising_star.png",
+			IconDisabled = "ui/perks/ptr_rising_star_bw.png",
+			Const = "PTRRisingStar"
 		}
 	];
 
