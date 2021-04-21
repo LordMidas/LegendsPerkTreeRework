@@ -793,7 +793,7 @@ gt.Const.PTR.hookTraitsTrees <- function()
 	this.Const.Perks.IntelligentTree.Tree[3] = [];
 	this.Const.Perks.IntelligentTree.Tree[4] = [];
 	this.Const.Perks.IntelligentTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRKnowTheirWeakness];
-	this.Const.Perks.IntelligentTree.Tree[6] = [];
+	this.Const.Perks.IntelligentTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRRisingStar];
 
 	while (this.Const.Perks.CalmTree.Tree.len() < 7)
 	{
