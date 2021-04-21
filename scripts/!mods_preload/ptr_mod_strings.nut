@@ -120,13 +120,13 @@ gt.Const.PTR.hookStrings <- function()
 	gt.Const.Strings.PerkName.PTRVersatileWeapon <- "Versatile Weapon";
 	gt.Const.Strings.PerkDescription.PTRVersatileWeapon <- "Requires Sword. When wielding a sword, gain [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] damage, [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] armor penetration and [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] armor effectiveness.\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Strings.PerkName.PTRHeightenedReflexes <- "Heightened Reflexes";
-	gt.Const.Strings.PerkDescription.PTRHeightenedReflexes <- "Gain [color=" + this.Const.UI.Color.PositiveValue + "]25%[/color] of your Current Melee Defense as Initiative.\n[color=#0b0084]From the Sword perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRHeightenedReflexes <- "Gain [color=" + this.Const.UI.Color.PositiveValue + "]25%[/color] of your Base Melee Defense as Initiative.\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Strings.PerkName.PTRTempo <- "Tempo";
 	gt.Const.Strings.PerkDescription.PTRTempo <- "Every attack against a target who acts after you in the current round increases your Initiative by [color=" + this.Const.UI.Color.PositiveValue + "]+15[/color]. The bonus lasts until the start of your next turn.\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Strings.PerkName.PTRKata <- "Kata";
-	gt.Const.Strings.PerkDescription.PTRKata <- "Requires Sword. A successful attack with swords allows you to move one tile for free ignoring zone of control during this turn. However, the target tile for the movement must be adjacent to an enemy.\n[color=#0b0084]From the Sword perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRKata <- "Requires Sword. Unlocks the Kata Step skill which, after a successful attack with swords, allows you to move one tile ignoring zone of control with reduced Action Point cost and minimal Fatigue cost. However, the target tile for the movement must be adjacent to an enemy.\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Strings.PerkName.PTREnGarde <- "En garde";
-	gt.Const.Strings.PerkDescription.PTREnGarde <- "Requires Sword. When wielding a sword, if you have not moved from your position during your turn, use Riposte freely at the end of your turn if your weapon has Riposte. If your weapon does not have Riposte, gain +10 Melee Defense instead until the start of your next turn.\n[color=#0b0084]From the Sword perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTREnGarde <- "Requires Sword. When wielding a sword, if you have not moved from your position during your turn, use Riposte freely at the end of your turn if your weapon has Riposte. If your weapon does not have Riposte, gain [color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] Melee Defense instead until the start of your next turn.\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Strings.PerkName.PTRBloodyHarvest <- "Bloody Harvest";
 	gt.Const.Strings.PerkDescription.PTRBloodyHarvest <- "Requires Sword. AOE attacks gain [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit and do [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] damage.\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Strings.PerkName.PTRSweepingStrikes <- "Sweeping Strikes";
@@ -146,7 +146,7 @@ gt.Const.PTR.hookStrings <- function()
 	gt.Const.Strings.PerkName.PTROpportunist <- "Opportunist";
 	gt.Const.Strings.PerkDescription.PTROpportunist <- "The first time you stand over an enemy's corpse, gain [color=" + this.Const.UI.Color.PositiveValue + "]1[/color] ammo and restore [color=" + this.Const.UI.Color.PositiveValue + "]4[/color] Action Points.\n[color=#0b0084]From the Throwing perk group[/color]";
 	gt.Const.Strings.PerkName.PTRNailedIt <- "Nailed It";
-	gt.Const.Strings.PerkDescription.PTRNailedIt <- "Removes the penalty to hit-chance from throwing weapons.\n[color=#0b0084]From the Throwing perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRNailedIt <- "The chance to hit the head with ranged attacks is increased by [color=" + this.Const.UI.Color.PositiveValue + "]25%[/color] but reduced by [color=" + this.Const.UI.Color.NegativeValue + "]5%[/color] per tile of distance between you and the target.\n[color=#0b0084]From the Throwing perk group[/color]";
 
 	gt.Const.Strings.PerkName.PTRSurvivalInstinct <- "Survival Instinct";
 	gt.Const.Strings.PerkDescription.PTRSurvivalInstinct <- "Melee and Ranged Defense are increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] for one turn whenever you get hit. Does not stack from multiple hits.\n[color=#0b0084]From the Resilient perk group[/color]";
