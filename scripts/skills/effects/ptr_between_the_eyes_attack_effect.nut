@@ -8,7 +8,7 @@ this.ptr_between_the_eyes_attack_effect <- this.inherit("scripts/skills/skill", 
 		this.m.Name = "Between the Eyes";
 		this.m.Description = "This character is aiming their next Melee attack to hit right between their target\'s eyes.";
 		this.m.Icon = "ui/perks/ptr_between_the_eyes.png";
-		//this.m.IconMini = "ptr_between_the_eyes_attack_effect_mini";				
+		//this.m.IconMini = "ptr_between_the_eyes_attack_effect_mini";
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;
 		this.m.IsRemovedAfterBattle = true;
@@ -35,28 +35,28 @@ this.ptr_between_the_eyes_attack_effect <- this.inherit("scripts/skills/skill", 
 			}
 		];
 	}
-	
+
 	function setBonus(_properties)
 	{
-		this.m.Bonus = this.Math.floor(_properties.MeleeSkill * 0.5);
+		this.m.Bonus = this.Math.floor(_properties.getMeleeSkill() * 0.5);
 	}
-	
+
 	function onUpdate( _properties )
 	{
 		this.setBonus(_properties);
 	}
-		
+
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
 		if (this.isGarbage() || !_skill.isAttack() || _skill.isRanged())
 		{
 			return;
 		}
-		
+
 		this.setBonus(_properties);
 		_properties.HitChance[this.Const.BodyPart.Head] += this.m.Bonus;
 	}
-	
+
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
 		this.removeSelf();
@@ -67,4 +67,3 @@ this.ptr_between_the_eyes_attack_effect <- this.inherit("scripts/skills/skill", 
 		this.removeSelf();
 	}
 });
-

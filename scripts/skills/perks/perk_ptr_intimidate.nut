@@ -22,13 +22,13 @@ this.perk_ptr_intimidate <- this.inherit("scripts/skills/skill", {
 		if (effect == null)
 		{
 			effect = this.new("scripts/skills/effects/ptr_intimidated_effect");
-			effect.m.IntimidatorSkill = this.getContainer().getActor().getCurrentProperties().MeleeSkill;
+			effect.m.IntimidatorSkill = this.getContainer().getActor().getCurrentProperties().getMeleeSkill();
 			_targetEntity.getSkills().add(effect);
 		}
 		else
 		{
 			effect.m.PrevIntimidatorSkill = effect.m.IntimidatorSkill;
-			effect.m.IntimidatorSkill = this.getContainer().getActor().getCurrentProperties().MeleeSkill;
+			effect.m.IntimidatorSkill = this.getContainer().getActor().getCurrentProperties().getMeleeSkill();
 		}
 	}
 

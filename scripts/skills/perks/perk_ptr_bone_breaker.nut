@@ -14,28 +14,28 @@ this.perk_ptr_bone_breaker <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
 		if (_targetEntity == null || !_skill.isAttack() || _skill.m.InjuriesOnBody != this.Const.Injury.BluntBody)
 		{
 			return;
 		}
-		
+
 		local actor = this.getContainer().getActor();
 		local weapon = actor.getMainhandItem();
-		
-		if (weapon == null || !weapon.isItemType(this.Const.Items.ItemType.TwoHanded) || weapon.getCategories().find("Mace") == null)
+
+		if (weapon == null || weapon.getCategories().find("Mace") == null)
 		{
 			return;
 		}
-		
+
 		if (_targetEntity.getFlags().has("undead"))
 		{
 			_properties.DamageTotalMult *= this.m.BonusVsUndead;
 		}
 	}
-	
+
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
 		local actor = this.getContainer().getActor();
@@ -43,13 +43,13 @@ this.perk_ptr_bone_breaker <- this.inherit("scripts/skills/skill", {
 		{
 			return;
 		}
-		
+
 		if (!_skill.isAttack() || !_skill.hasBluntDamage())
 		{
 			return;
-		}		
-		
-		local weapon = actor.getMainhandItem();		
+		}
+
+		local weapon = actor.getMainhandItem();
 		if (weapon == null || !weapon.isItemType(this.Const.Items.ItemType.TwoHanded) || weapon.getCategories().find("Mace") == null)
 		{
 			return;
@@ -60,14 +60,14 @@ this.perk_ptr_bone_breaker <- this.inherit("scripts/skills/skill", {
 			if (_targetEntity.m.CurrentProperties.IsAffectedByInjuries && _targetEntity.m.IsAbleToDie && _targetEntity.m.CurrentProperties.ThresholdToReceiveInjuryMult != 0)
 			{
 				local injuries = _bodyPart == this.Const.BodyPart.Head ? this.Const.Injury.BluntHead : this.Const.Injury.BluntBody;
-				local potentialInjuries = [];				
+				local potentialInjuries = [];
 
 				foreach( inj in injuries )
 				{
 					if (!_targetEntity.m.Skills.hasSkill(inj.ID) && _targetEntity.m.ExcludedInjuries.find(inj.ID) == null)
 					{
 						potentialInjuries.push(inj.Script);
-					}					
+					}
 				}
 
 				local appliedInjury = false;
@@ -99,13 +99,12 @@ this.perk_ptr_bone_breaker <- this.inherit("scripts/skills/skill", {
 						potentialInjuries.remove(r);
 					}
 				}
-				
+
 				if (appliedInjury)
-				{					
+				{
 					_targetEntity.onUpdateInjuryLayer();
 				}
 			}
 		}
 	}
 });
-

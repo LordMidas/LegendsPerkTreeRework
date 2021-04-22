@@ -15,7 +15,7 @@ this.ptr_formidable_approach_debuff_effect <- this.inherit("scripts/skills/skill
 		this.m.IsActive = false;
 		this.m.IsHidden = true;
 	}
-	
+
 	function getTooltip()
 	{
 		return [
@@ -43,12 +43,12 @@ this.ptr_formidable_approach_debuff_effect <- this.inherit("scripts/skills/skill
 			}
 		];
 	}
-	
+
 	function isHidden()
 	{
 		return this.m.CurrentMalus == 0;
 	}
-	
+
 	function getCurrentMalus()
 	{
 		foreach (i, enemy in this.m.CurrentEnemies)
@@ -58,67 +58,67 @@ this.ptr_formidable_approach_debuff_effect <- this.inherit("scripts/skills/skill
 				this.m.CurrentEnemies.remove(i);
 			}
 		}
-		
+
 		if (this.m.CurrentEnemies.len() == 0)
 		{
 			return 0;
 		}
-		
+
 		local weapon = this.getContainer().getActor().getMainhandItem();
 		if (weapon != null && weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon) && weapon.isItemType(this.Const.Items.ItemType.TwoHanded))
 		{
 			return 0;
 		}
-		
+
 		local meleeSkill = 0;
 		foreach (enemy in this.m.CurrentEnemies)
 		{
-			local enemyMeleeSkill = enemy.getCurrentProperties().MeleeSkill;
+			local enemyMeleeSkill = enemy.getCurrentProperties().getMeleeSkill();
 			if (enemyMeleeSkill > meleeSkill)
 			{
 				meleeSkill = enemyMeleeSkill;
 			}
 		}
-		
+
 		return meleeSkill * this.m.MalusFactor;
 	}
-	
+
 	function updateMalus()
 	{
 		this.m.CurrentMalus = this.getCurrentMalus();
 	}
-	
+
 	function onUpdate( _properties )
 	{
 		local actor = this.getContainer().getActor();
 		if (actor.m.IsMoving)
-		{			
+		{
 			this.m.CurrentEnemies.clear();
-						
+
 			if (!actor.isArmedWithOneHandedWeapon())
 			{
 				return;
 			}
-			
-			local adjacentEnemies = actor.getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.Enemy);			
+
+			local adjacentEnemies = actor.getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.Enemy);
 			foreach (enemy in adjacentEnemies)
 			{
 				if (!enemy.hasZoneOfControl())
 				{
 					continue;
-				}			
+				}
 
-				local enemyPerk = enemy.getSkills().getSkillByID("perk.ptr_formidable_approach");				
+				local enemyPerk = enemy.getSkills().getSkillByID("perk.ptr_formidable_approach");
 				if (enemyPerk != null && enemyPerk.isInEffect())
 				{
-					this.m.CurrentEnemies.push(enemy);		
+					this.m.CurrentEnemies.push(enemy);
 				}
 			}
 		}
-		
+
 		this.updateMalus();
 	}
-	
+
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
 		local idx = this.m.CurrentEnemies.find(_targetEntity);
@@ -128,16 +128,15 @@ this.ptr_formidable_approach_debuff_effect <- this.inherit("scripts/skills/skill
 			this.updateMalus();
 		}
 	}
-	
+
 	function onCombatStarted()
 	{
 		this.m.CurrentEnemies.clear();
 	}
-	
+
 	function onCombatFinished()
 	{
 		this.skill.onCombatFinished();
 		this.m.CurrentEnemies.clear();
 	}
 });
-
