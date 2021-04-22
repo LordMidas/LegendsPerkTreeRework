@@ -232,6 +232,43 @@ gt.Const.PTR.hookSkills <- function()
 		}
 	});
 
+	::mods_hookNewObject("skills/effects/dodge_effect", function(o) {
+		o.m.Bonus <- 0;
+
+		o.getTooltip = function ()
+		{
+			local tooltip = this.skill.getTooltip();
+			tooltip.extend(
+				[
+					{
+						id = 10,
+						type = "text",
+						icon = "ui/icons/melee_defense.png",
+						text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.Bonus + "[/color] Melee Defense"
+					},
+					{
+						id = 11,
+						type = "text",
+						icon = "ui/icons/ranged_defense.png",
+						text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.Bonus + "[/color] Ranged Defense"
+					}
+				]);
+
+			return tooltip;
+		}
+
+		o.onUpdate = function(_properties)
+		{
+		}
+
+		o.onAfterUpdate <- function (_properties)
+		{
+			this.m.Bonus = this.Math.floor(this.getContainer().getActor().getInitiative() * 0.15);
+			_properties.MeleeDefense += this.Math.max(0, this.m.Bonus);
+			_properties.RangedDefense += this.Math.max(0, this.m.Bonus);
+		}
+	});
+
 	::mods_hookNewObject("skills/perks/perk_legend_smackdown", function(o) {
 		local oldonTargetHit = o.onTargetHit;
 		o.onTargetHit = function( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
