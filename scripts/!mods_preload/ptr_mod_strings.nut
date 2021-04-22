@@ -25,7 +25,7 @@ gt.Const.PTR.hookStrings <- function()
 	gt.Const.Strings.PerkName.PTROpenWounds <- "Open Wounds";
 	gt.Const.Strings.PerkDescription.PTROpenWounds <- "Attacks inflict an additional stack of Bleeding against targets who have sustained an injury. This chance is 100% for Cleavers and 25% for other weapons.\n[color=#0b0084]From the Cleaver perk group[/color]";
 	gt.Const.Strings.PerkName.PTRBloodlust <- "Bloodlust";
-	gt.Const.Strings.PerkDescription.PTRBloodlust <- "When adjacent to Bleeding enemies, skills build up [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] less Fatigue for each stack of Bleeding. At the end of your turn, recover [color=" + this.Const.UI.Color.PositiveValue + "]1[/color] Fatigue per stack of Bleeding on adjacent enemies.\n[color=#0b0084]From the Cleaver perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRBloodlust <- "When adjacent to Bleeding enemies, skills build up [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] less Fatigue for each stack of Bleeding. Additionally, Fatigue Recovery is increased by [color=" + this.Const.UI.Color.PositiveValue + "]+1[/color] per stack of Bleeding on adjacent enemies at the end of your Turn.\n[color=#0b0084]From the Cleaver perk group[/color]";
 	gt.Const.Strings.PerkName.PTRBloodbath <- "Bloodbath";
 	gt.Const.Strings.PerkDescription.PTRBloodbath <- "Fatalities instantly restore 3 Action Points. Has no limit on how many times it can proc per turn.\n[color=#0b0084]From the Cleaver perk group[/color]";
 	gt.Const.Strings.PerkName.PTRMauler <- "Mauler (requires Cleaver)";
