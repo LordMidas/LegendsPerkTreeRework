@@ -6,7 +6,7 @@ this.ptr_arrow_to_the_knee_attack_effect <- this.inherit("scripts/skills/skill",
 		this.m.Name = "Arrow to the Knee";
 		this.m.Description = "This character is aiming their next ranged attack at their target's knee, attempting to reduce their defenses and mobility.";
 		this.m.Icon = "ui/perks/ptr_arrow_to_the_knee.png";
-		//this.m.IconMini = "ptr_arrow_to_the_knee_attack_effect_mini";		
+		//this.m.IconMini = "ptr_arrow_to_the_knee_attack_effect_mini";
 		this.m.SoundOnHit = [
 			"sounds/combat/cleave_hit_hitpoints_01.wav",
 			"sounds/combat/cleave_hit_hitpoints_02.wav",
@@ -15,6 +15,11 @@ this.ptr_arrow_to_the_knee_attack_effect <- this.inherit("scripts/skills/skill",
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;
 		this.m.IsRemovedAfterBattle = true;
+	}
+
+	function isHidden()
+	{
+		return this.isGarbage();
 	}
 
 	function getTooltip()
@@ -57,9 +62,9 @@ this.ptr_arrow_to_the_knee_attack_effect <- this.inherit("scripts/skills/skill",
 			}
 
 			local effect = this.new("scripts/skills/effects/ptr_arrow_to_the_knee_debuff_effect");
-			_targetEntity.getSkills().add(effect);			
+			_targetEntity.getSkills().add(effect);
 		}
-		
+
 		this.removeSelf();
 	}
 
@@ -68,4 +73,3 @@ this.ptr_arrow_to_the_knee_attack_effect <- this.inherit("scripts/skills/skill",
 		this.removeSelf();
 	}
 });
-
