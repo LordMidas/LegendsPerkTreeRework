@@ -12,35 +12,20 @@ this.perk_ptr_sweeping_strikes <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
 		if (!_targetEntity.isAlive() || _targetEntity.isDying() || _targetEntity.isAlliedWith(this.getContainer().getActor()))
 		{
 			return;
 		}
-		
+
 		if (!_skill.isAOE() || !_skill.isAttack())
 		{
 			return;
-		}		
-				
-		local malus = 20;
-		local targetWeapon = _targetEntity.getMainhandItem();
-		
-		if (targetWeapon != null && targetWeapon.isItemType(this.Const.Items.ItemType.TwoHanded))
-		{
-			malus = malus/2;
 		}
-		
-		if (_targetEntity.isTurnDone() || _targetEntity.isTurnStarted())
-		{
-			malus = malus/2;
-		}
-		
+
 		local effect = this.new("scripts/skills/effects/ptr_sweeping_strikes_debuff_effect");
-		effect.m.Malus = malus;
 		_targetEntity.getSkills().add(effect);
 	}
 });
-

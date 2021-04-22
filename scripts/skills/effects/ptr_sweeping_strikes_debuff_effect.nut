@@ -15,7 +15,30 @@ this.ptr_sweeping_strikes_debuff_effect <- this.inherit("scripts/skills/skill", 
 		this.m.IsHidden = false;
 		this.m.IsRemovedAfterBattle = true;
 	}
-	
+
+	function setMalus()
+	{
+		local actor = this.getContainer().getActor();
+		local weapon = actor.getMainhandItem();
+
+		this.m.Malus = 20;
+
+		if (weapon != null && weapon.isItemType(this.Const.Items.ItemType.TwoHanded))
+		{
+			this.m.Malus = this.m.Malus/2;
+		}
+
+		if (actor.isTurnDone() || actor.isTurnStarted())
+		{
+			this.m.Malus = this.m.Malus/2;
+		}
+	}
+
+	function onAdded()
+	{
+		this.setMalus();
+	}
+
 	function getTooltip()
 	{
 		return [
@@ -42,10 +65,9 @@ this.ptr_sweeping_strikes_debuff_effect <- this.inherit("scripts/skills/skill", 
 	{
 		_properties.MeleeSkillMult *= 1.0 - (this.m.Malus * 0.01);
 	}
-	
+
 	function onTurnEnd()
 	{
 		this.removeSelf();
 	}
 });
-
