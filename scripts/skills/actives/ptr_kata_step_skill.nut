@@ -31,6 +31,17 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 		this.m.MaxLevelDifference = 1;
 	}
 
+	function onAdded()
+	{
+		local actor = this.getContainer().getActor();
+		if (actor.isPlayerControlled())
+		{
+			return;
+		}
+
+		actor.getAIAgent().addBehavior(this.new("scripts/ai/tactical/behaviors/ai_kata_step"));
+	}
+
 	function getTooltip()
 	{
 		local tooltip = this.skill.getTooltip();
