@@ -12,12 +12,11 @@ this.perk_ptr_hybridization <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
 	function onUpdate( _properties )
 	{
 		local baseProperties = this.getContainer().getActor().getBaseProperties();
-		_properties.RangedSkill += baseProperties.MeleeSkill * 0.1;
-		_properties.MeleeSkill += baseProperties.RangedSkill * 0.1;
+		_properties.RangedSkill += baseProperties.getMeleeSkill() * 0.1;
+		_properties.MeleeSkill += baseProperties.getRangedSkill() * 0.1;
 	}
 });
-
