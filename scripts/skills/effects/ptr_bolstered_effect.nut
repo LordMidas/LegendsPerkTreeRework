@@ -55,7 +55,7 @@ this.ptr_bolstered_effect <- this.inherit("scripts/skills/skill", {
 
 		local actor = this.getContainer().getActor();
 
-		if (!actor.isArmedWithMeleeWeapon() || actor.getMoraleState() == this.Const.MoraleState.Ignore || actor.getMoraleState() == this.Const.MoraleState.Fleeing)
+		if (!actor.isPlacedOnMap() || !actor.isArmedWithMeleeWeapon() || actor.getMoraleState() == this.Const.MoraleState.Ignore || actor.getMoraleState() == this.Const.MoraleState.Fleeing)
 		{
 			return;
 		}
