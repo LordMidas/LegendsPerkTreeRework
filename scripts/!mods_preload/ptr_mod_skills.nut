@@ -50,7 +50,6 @@ gt.Const.PTR.hookSkills <- function()
 	});
 
 	::mods_hookNewObject("skills/perks/perk_reach_advantage", function(o) {
-		this.logInfo("reach advantage hooked");
 		local oldOnTargetHit = o.onTargetHit;
 		o.onTargetHit = function( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 		{

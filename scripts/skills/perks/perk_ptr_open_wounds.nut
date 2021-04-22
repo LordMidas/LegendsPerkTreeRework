@@ -1,6 +1,6 @@
 this.perk_ptr_open_wounds <- this.inherit("scripts/skills/skill", {
 	m = {
-		ChanceOtherWeapon = 25		
+		ChanceOtherWeapon = 25
 	},
 	function create()
 	{
@@ -20,19 +20,19 @@ this.perk_ptr_open_wounds <- this.inherit("scripts/skills/skill", {
 		if (!_skill.isAttack() || !_targetEntity.isAlive() || _damageInflictedHitpoints < this.Const.Combat.MinDamageToApplyBleeding || !_targetEntity.getSkills().hasSkillOfType(this.Const.SkillType.TemporaryInjury))
 		{
 			return;
-		}		
-		
+		}
+
 		if (_skill.m.InjuriesOnBody == this.Const.Injury.CuttingBody || _skill.m.InjuriesOnBody == this.Const.Injury.PiercingBody)
 		{
 			local actor = this.getContainer().getActor();
 			local weapon = actor.getMainhandItem();
-			
+
 			local isCleaver = false;
 			if (weapon != null && weapon.getCategories().find("Cleaver") != null)
 			{
 				isCleaver = true;
 			}
-			
+
 			local roll = this.Math.rand(1, 100);
 			if (isCleaver || roll <= this.m.ChanceOtherWeapon)
 			{
@@ -42,7 +42,7 @@ this.perk_ptr_open_wounds <- this.inherit("scripts/skills/skill", {
 				{
 					effect.setActor(this.getContainer().getActor());
 				}
-				
+
 				local skillID = _skill.getID();
 				if (skillID == "actives.cleave" || skillID == "actives.whip")
 				{
@@ -52,11 +52,9 @@ this.perk_ptr_open_wounds <- this.inherit("scripts/skills/skill", {
 				{
 					effect.setDamage(actor.isHigh() ? 10 : 5);
 				}
-				
+
 				_targetEntity.getSkills().add(effect);
-				this.logInfo("extra bleed applied");
 			}
 		}
 	}
 });
-
