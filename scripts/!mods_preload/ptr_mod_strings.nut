@@ -120,7 +120,7 @@ gt.Const.PTR.hookStrings <- function()
 	gt.Const.Strings.PerkName.PTRVersatileWeapon <- "Versatile Weapon";
 	gt.Const.Strings.PerkDescription.PTRVersatileWeapon <- "Requires Sword. When wielding a sword, gain [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] damage, [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] armor penetration and [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] armor effectiveness.\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Strings.PerkName.PTRHeightenedReflexes <- "Heightened Reflexes";
-	gt.Const.Strings.PerkDescription.PTRHeightenedReflexes <- "Gain [color=" + this.Const.UI.Color.PositiveValue + "]25%[/color] of your Base Melee Defense as Initiative.\n[color=#0b0084]From the Sword perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRHeightenedReflexes <- "Gain [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] of your Base Melee Defense as Initiative.\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Strings.PerkName.PTRTempo <- "Tempo";
 	gt.Const.Strings.PerkDescription.PTRTempo <- "Every attack against a target who acts after you in the current round increases your Initiative by [color=" + this.Const.UI.Color.PositiveValue + "]+15[/color]. The bonus lasts until the start of your next turn.\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Strings.PerkName.PTRKata <- "Kata";
