@@ -1,6 +1,6 @@
 this.ptr_follow_up_effect <- this.inherit("scripts/skills/skill", {
 	m = {
-		DamageMalus = 0.5,		
+		DamageMalus = 50,
 		ProcCount = 0
 	},
 	function create()
@@ -15,7 +15,7 @@ this.ptr_follow_up_effect <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 		this.m.IsRemovedAfterBattle = true;
 	}
-	
+
 	function getTooltip()
 	{
 		return [
@@ -33,7 +33,7 @@ this.ptr_follow_up_effect <- this.inherit("scripts/skills/skill", {
 				id = 10,
 				type = "text",
 				icon = "ui/icons/damage_dealt.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + (this.getCurrentMalus() * 100) + "%[/color] Damage inflicted"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + (100 - this.getCurrentMalus()) + "%[/color] Damage inflicted"
 			}
 		];
 	}
@@ -45,23 +45,22 @@ this.ptr_follow_up_effect <- this.inherit("scripts/skills/skill", {
 			this.removeSelf();
 			return;
 		}
-		
+
 		if (this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() == this.getContainer().getActor().getID())
 		{
 			return;
 		}
-		
-		_properties.DamageTotalMult *= this.getCurrentMalus();
+
+		_properties.DamageTotalMult *= this.getCurrentMalus() / 100.0;
 	}
-	
+
 	function getCurrentMalus()
 	{
-		return this.Math.maxf(0.1, this.m.DamageMalus - (this.m.ProcCount * 0.1));
-	}	
-	
+		return this.Math.maxf(10, this.m.DamageMalus - (this.m.ProcCount * 10));
+	}
+
 	function onTurnStart()
 	{
 		this.removeSelf();
 	}
 });
-

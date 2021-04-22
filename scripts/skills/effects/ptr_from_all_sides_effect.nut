@@ -64,8 +64,8 @@ this.ptr_from_all_sides_effect <- this.inherit("scripts/skills/skill", {
 
 	function onUpdate( _properties )
 	{
-		_properties.MeleeDefenseMult = this.Math.maxf(0.0, _properties.MeleeSkillMult - 0.05 * this.m.Count);
-		_properties.RangedDefenseMult = this.Math.maxf(0.0, _properties.RangedSkillMult - 0.05 * this.m.Count);
+		_properties.MeleeDefenseMult = this.Math.maxf(0.0, _properties.MeleeDefenseMult - 0.05 * this.m.Count);
+		_properties.RangedDefenseMult = this.Math.maxf(0.0, _properties.RangedDefenseMult - 0.05 * this.m.Count);
 	}
 
 	function onTurnStart()
@@ -73,4 +73,3 @@ this.ptr_from_all_sides_effect <- this.inherit("scripts/skills/skill", {
 		this.removeSelf();
 	}
 });
-

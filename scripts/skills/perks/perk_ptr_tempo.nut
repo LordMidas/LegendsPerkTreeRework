@@ -17,36 +17,36 @@ this.perk_ptr_tempo <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
 	function isHidden()
 	{
 		return this.m.Stacks == 0;
 	}
-	
+
 	function getDescription()
 	{
-		return "This character the advantage of going first in the flow of battle.";
+		return "This character has the advantage of going first in the flow of battle.";
 	}
 	
 	function getTooltip()
 	{
 		local tooltip = this.skill.getTooltip();
-		
+
 		tooltip.push({
 			id = 10,
 			type = "text",
 			icon = "ui/icons/initiative.png",
 			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getBonus() + "[/color] Initiative"
 		});
-		
+
 		return tooltip;
 	}
-	
+
 	function getBonus()
 	{
 		return this.m.Stacks * this.m.BonusInitiative;
 	}
-	
+
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
 		local actor = this.getContainer().getActor();
@@ -54,18 +54,18 @@ this.perk_ptr_tempo <- this.inherit("scripts/skills/skill", {
 		{
 			return;
 		}
-		
+
 		if (this.m.SkillCount == this.Const.SkillCounter && this.m.LastTargetID == _targetEntity.getID())
 		{
 			return;
 		}
-		
+
 		this.m.SkillCount = this.Const.SkillCounter;
 		this.m.LastTargetID = _targetEntity.getID();
-		
+
 		this.m.Stacks++;
 	}
-	
+
 	function onTargetMissed( _skill, _targetEntity )
 	{
 		local actor = this.getContainer().getActor();
@@ -73,28 +73,28 @@ this.perk_ptr_tempo <- this.inherit("scripts/skills/skill", {
 		{
 			return;
 		}
-		
+
 		if (this.m.SkillCount == this.Const.SkillCounter && this.m.LastTargetID == _targetEntity.getID())
 		{
 			return;
 		}
-		
+
 		this.m.SkillCount = this.Const.SkillCounter;
 		this.m.LastTargetID = _targetEntity.getID();
-		
+
 		this.m.Stacks++;
 	}
-	
+
 	function onUpdate( _properties )
 	{
 		_properties.Initiative += this.getBonus();
 	}
-	
+
 	function onTurnStart()
 	{
 		this.m.Stacks = 0;
 	}
-	
+
 	function onCombatStarted()
 	{
 		this.m.Stacks = 0;
@@ -110,4 +110,3 @@ this.perk_ptr_tempo <- this.inherit("scripts/skills/skill", {
 		this.m.LastTargetID = 0;
 	}
 });
-

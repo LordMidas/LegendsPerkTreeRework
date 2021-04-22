@@ -12,10 +12,9 @@ this.perk_ptr_heightened_reflexes <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
 	function onUpdate( _properties )
-	{		
-		_properties.Initiative += 0.25 * this.getContainer().getActor().getBaseProperties().MeleeDefense;
+	{
+		_properties.Initiative += 0.25 * this.getContainer().getActor().getBaseProperties().getMeleeDefense();
 	}
 });
-
