@@ -1,5 +1,5 @@
 this.ptr_bolstered_effect <- this.inherit("scripts/skills/skill", {
-	m = {		
+	m = {
 		Bonus = 0,
 		AllyMeleeSkillFactor = 0.05,
 		IsCombatStarted = false
@@ -16,7 +16,7 @@ this.ptr_bolstered_effect <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 		this.m.IsStacking = false;
 	}
-	
+
 	function getTooltip()
 	{
 		return [
@@ -38,60 +38,59 @@ this.ptr_bolstered_effect <- this.inherit("scripts/skills/skill", {
 			}
 		];
 	}
-	
+
 	function isHidden()
-	{		
+	{
 		return this.m.Bonus == 0 || this.getContainer().getActor().getMoraleState() == this.Const.MoraleState.Ignore || this.getContainer().getActor().getMoraleState() == this.Const.MoraleState.Fleeing;
-	}	
-	
+	}
+
 	function onUpdate( _properties )
 	{
 		this.m.Bonus = 0;
-		
+
 		if (this.m.IsCombatStarted == false)
 		{
 			return;
-		}		
-		
+		}
+
 		local actor = this.getContainer().getActor();
-		
+
 		if (!actor.isArmedWithMeleeWeapon() || actor.getMoraleState() == this.Const.MoraleState.Ignore || actor.getMoraleState() == this.Const.MoraleState.Fleeing)
 		{
 			return;
 		}
-		
+
 		local allyMeleeSkill = 0;
-		local adjacentAllies = actor.getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.SameFaction);			
-		
+		local adjacentAllies = actor.getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.SameFaction);
+
 		foreach (ally in adjacentAllies)
 		{
 			if (!ally.hasZoneOfControl())
 			{
 				continue;
-			}			
-			
-			local allyPerk = ally.getSkills().getSkillByID("perk.ptr_bolster");							
+			}
+
+			local allyPerk = ally.getSkills().getSkillByID("perk.ptr_bolster");
 			if (allyPerk != null && allyPerk.isInEffect())
 			{
-				allyMeleeSkill = this.Math.max(allyMeleeSkill, ally.getCurrentProperties().MeleeSkill);
+				allyMeleeSkill = this.Math.max(allyMeleeSkill, ally.getCurrentProperties().getMeleeSkill());
 			}
-		}		
+		}
 		if (allyMeleeSkill > 0)
 		{
-			this.m.Bonus = this.Math.floor(allyMeleeSkill * this.m.AllyMeleeSkillFactor);			
+			this.m.Bonus = this.Math.floor(allyMeleeSkill * this.m.AllyMeleeSkillFactor);
 			_properties.Bravery += this.m.Bonus;
 		}
 	}
-	
+
 	function onCombatStarted()
 	{
 		this.m.IsCombatStarted = true;
 	}
-	
+
 	function onCombatFinished()
 	{
 		this.skill.onCombatFinished();
 		this.m.IsCombatStarted = false;
 	}
 });
-
