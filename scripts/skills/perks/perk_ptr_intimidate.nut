@@ -12,12 +12,12 @@ this.perk_ptr_intimidate <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
 	function applyDebuff(_targetEntity)
 	{
 		//local actors = _targetEntity.getActorsWithinDistanceAsArray(2);
 		//local attacker = this.getContainer().getActor();
-		
+
 		local effect = _targetEntity.getSkills().getSkillByID("effect.ptr_intimidated");
 		if (effect == null)
 		{
@@ -25,16 +25,16 @@ this.perk_ptr_intimidate <- this.inherit("scripts/skills/skill", {
 			effect.m.IntimidatorSkill = this.getContainer().getActor().getCurrentProperties().MeleeSkill;
 			_targetEntity.getSkills().add(effect);
 		}
-		else 
+		else
 		{
 			effect.m.PrevIntimidatorSkill = effect.m.IntimidatorSkill;
 			effect.m.IntimidatorSkill = this.getContainer().getActor().getCurrentProperties().MeleeSkill;
 		}
 	}
-	
-	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
+
+	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
 	{
-		if (!this.isInEffect() || !_targetEntity.isAlive() || _targetEntity.isDying() || _targetEntity.isAlliedWith(this.getContainer().getActor()))
+		if (!_skill.isAttack() || !this.isInEffect() || _targetEntity.isAlliedWith(this.getContainer().getActor()))
 		{
 			return;
 		}
@@ -51,16 +51,15 @@ this.perk_ptr_intimidate <- this.inherit("scripts/skills/skill", {
 
 		this.applyDebuff(_targetEntity);
 	}
-	
+
 	function isInEffect()
 	{
-		local weapon = this.getContainer().getActor().getMainhandItem();		
+		local weapon = this.getContainer().getActor().getMainhandItem();
 		if (weapon == null || weapon.getCategories().find("Polearm") == null)
 		{
 			return false;
 		}
-		
+
 		return true;
 	}
 });
-
