@@ -87,7 +87,7 @@ gt.Const.PTR.hookStrings <- function()
 	gt.Const.Strings.PerkName.PTRBolster <- "Bolster";
 	gt.Const.Strings.PerkDescription.PTRBolster <- "Requires Polearm. When wielding a Polearm, increase the Resolve of adjacent allies by [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color] of your Melee Skill. If multiple polearm users with this perk are present, only the highest bonus applies.\n[color=#0b0084]From the Polearm perk group[/color]";
 	gt.Const.Strings.PerkName.PTRLeverage <- "Leverage";
-	gt.Const.Strings.PerkDescription.PTRLeverage <- "When using two-handed weapons, attacks at 2 tiles range have [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit the head.\n[color=#0b0084]From the Polearm perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRLeverage <- "When using two-handed weapons, attacks at 2 tiles range have [color=" + this.Const.UI.Color.PositiveValue + "]+20%[/color] chance to hit the head.\n[color=#0b0084]From the Polearm perk group[/color]";
 	gt.Const.Strings.PerkName.PTRIntimidate <- "Intimidate";
 	gt.Const.Strings.PerkDescription.PTRIntimidate <- "Requires Polearm. Attacks from Polearms reduce the Resolve of the target by [color=" + this.Const.UI.Color.NegativeValue + "]10%[/color] of your Melee Skill. Multiple attacks do not stack.\n[color=#0b0084]From the Polearm perk group[/color]";
 	gt.Const.Strings.PerkName.PTRFormidableApproach <- "Formidable Approach";
