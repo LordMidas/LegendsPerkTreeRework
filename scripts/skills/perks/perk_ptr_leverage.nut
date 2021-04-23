@@ -12,13 +12,12 @@ this.perk_ptr_leverage <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
 		if (_skill.isAttack() && !_skill.isRanged() && _targetEntity != null && _targetEntity.getTile().getDistanceTo(this.getContainer().getActor().getTile()) == 2)
 		{
-			_properties.HitChance[this.Const.BodyPart.Head] += 10;
+			_properties.HitChance[this.Const.BodyPart.Head] += 20;
 		}
 	}
 });
-
