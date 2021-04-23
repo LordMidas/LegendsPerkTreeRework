@@ -17,24 +17,29 @@ this.ptr_follow_up_proccer_effect <- this.inherit("scripts/skills/skill", {
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
+		if (!_skill.isAttack() || _skill.isRanged())
+		{
+			return;
+		}
+		
 		local actor = this.getContainer().getActor();
-		if (!_skill.isAttack() || _targetEntity == null || !_targetEntity.isAlive() || _targetEntity.isDying() || _targetEntity.isAlliedWith(actor))
+		if (_targetEntity == null || !_targetEntity.isAlive() || _targetEntity.isDying() || _targetEntity.isAlliedWith(actor))
 		{
 			return;
 		}
-		
-		if (actor.getSkills().hasSkill("effects.ptr_follow_up"))			
+
+		if (actor.getSkills().hasSkill("effects.ptr_follow_up"))
 		{
 			return;
 		}
-		
+
 		if (this.m.SkillCount == this.Const.SkillCounter)
 		{
 			return;
 		}
-		
+
 		this.m.SkillCount = this.Const.SkillCounter;
-		
+
 		local actors = _targetEntity.getActorsWithinDistanceAsArray(2, this.Const.FactionRelation.Enemy)
 		foreach (ally in actors)
 		{
@@ -42,15 +47,15 @@ this.ptr_follow_up_proccer_effect <- this.inherit("scripts/skills/skill", {
 			{
 				continue;
 			}
-			
+
 			local allySkill = ally.getSkills().getSkillByID("effects.ptr_follow_up");
 			if (allySkill != null)
 			{
-				local attack = allySkill.getContainer().getAttackOfOpportunity();				
+				local attack = allySkill.getContainer().getAttackOfOpportunity();
 				if (attack != null)
 				{
-					//this.logInfo("ally is " + ally.getName() + " and his skill is " + allySkill.getID() + " and attack is " + attack.getID());					
-					if (!ally.isHiddenToPlayer() || _targetEntity.getTile().IsVisibleForPlayer)					
+					//this.logInfo("ally is " + ally.getName() + " and his skill is " + allySkill.getID() + " and attack is " + attack.getID());
+					if (!ally.isHiddenToPlayer() || _targetEntity.getTile().IsVisibleForPlayer)
 					{
 						allySkill.getContainer().setBusy(true)
 						this.Time.scheduleEvent(this.TimeUnit.Virtual, 100, function ( _skillToUse )
@@ -60,22 +65,21 @@ this.ptr_follow_up_proccer_effect <- this.inherit("scripts/skills/skill", {
 								//_skillToUse.attackEntity(_skillToUse.getContainer().getActor(), _targetEntity);
 								_skillToUse.useForFree(_targetEntity.getTile());
 								allySkill.m.ProcCount++;
-							}					
-							_skillToUse.getContainer().setBusy(false);							
+							}
+							_skillToUse.getContainer().setBusy(false);
 						}.bindenv(attack), attack);
 					}
-					else 
+					else
 					{
 						if (_targetEntity.isAlive())
 						{
 							//attack.attackEntity(attack.getContainer().getActor(), _targetEntity);
 							attack.useForFree(_targetEntity.getTile());
-							allySkill.m.ProcCount++;							
-						}						
+							allySkill.m.ProcCount++;
+						}
 					}
 				}
 			}
 		}
 	}
 });
-
