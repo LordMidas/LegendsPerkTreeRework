@@ -52,6 +52,8 @@ this.ptr_follow_up_effect <- this.inherit("scripts/skills/skill", {
 		}
 
 		_properties.DamageTotalMult *= this.getCurrentMalus() / 100.0;
+
+		this.logInfo("Follow up damage malus applied");
 	}
 
 	function getCurrentMalus()
