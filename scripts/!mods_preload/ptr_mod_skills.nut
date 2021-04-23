@@ -34,6 +34,11 @@ gt.Const.PTR.hookSkills <- function()
 		{
 			oldonTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor );
 
+			if (_skill != this)
+			{
+				return;
+			}
+
 			if (!this.getContainer().hasSkill("perk.ptr_flaming_arrows"))
 			{
 				return;
