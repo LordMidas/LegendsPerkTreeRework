@@ -18,7 +18,7 @@ gt.Const.PTR.hookStrings <- function()
 	gt.Const.Strings.PerkName.PTRFlamingArrows <- "Flaming Arrows";
 	gt.Const.Strings.PerkDescription.PTRFlamingArrows <- "Requires Bow. Aimed Shot now additionally does fire damage and will always trigger a morale check with a penalty to Resolve to [color=" + this.Const.UI.Color.PositiveValue + "]20%[/color] of your Ranged Skill if it hits the target.\n[color=#0b0084]From the Bow perk group[/color]";
 	gt.Const.Strings.PerkName.PTRMarksmanship <- "Marksmanship";
-	gt.Const.Strings.PerkDescription.PTRMarksmanship <- "Ranged damage is increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of your Base Ranged Skill.\n[color=#0b0084]From the Bow perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRMarksmanship <- "When using a Ranged weapon, gain [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of your Base Ranged Skill as additional Minimum and Maximum Damage.\n[color=#0b0084]From the Bow perk group[/color]";
 	gt.Const.Strings.PerkName.PTRHipShooter <- "Hip Shooter";
 	gt.Const.Strings.PerkDescription.PTRHipShooter <- "Requires Bow. Each subsequent Quick Shot requires [color=" + this.Const.UI.Color.NegativeValue + "]1[/color] less Action Point to a minimum of [color=" + this.Const.UI.Color.PositiveValue + "]2[/color].\n[color=#0b0084]From the Bow perk group[/color]";
 
