@@ -47,13 +47,31 @@ this.ptr_whack_a_smack_effect <- this.inherit("scripts/skills/skill", {
 
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
-		if (this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != this.getContainer().getActor().getID())
+		if (this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() == this.getContainer().getActor().getID())
 		{
-			_properties.MeleeSkill -= this.m.MeleeSkillMalus;
-			if (_properties.IsSpecializedInStaffStun)
-			{
-				_properties.MeleeSkill += 10;
-			}
+			return;
 		}
+
+		_properties.MeleeSkill -= this.m.MeleeSkillMalus;
+		
+		if (_properties.IsSpecializedInStaffStun)
+		{
+			_properties.MeleeSkill += 10;
+		}
+	}
+
+	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
+	{
+		if (this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() == this.getContainer().getActor().getID())
+		{
+			return;
+		}
+
+		if (!_targetEntity.isAlive() || !_skill.isAttack() || _skill.isRanged())
+		{
+			return;
+		}
+
+		_targetEntity.getSkills().add(this.new("scripts/skills/effects/legend_baffled_effect"));
 	}
 });
