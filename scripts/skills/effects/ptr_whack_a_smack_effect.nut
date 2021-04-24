@@ -1,6 +1,6 @@
 this.ptr_whack_a_smack_effect <- this.inherit("scripts/skills/skill", {
 	m = {
-		MeleeSkillMalus = 25
+		MeleeSkillMalus = 20
 	},
 	function create()
 	{
@@ -13,17 +13,17 @@ this.ptr_whack_a_smack_effect <- this.inherit("scripts/skills/skill", {
 		this.m.IsActive = false;
 		this.m.IsRemovedAfterBattle = true;
 	}
-	
+
 	function getDescription()
 	{
 		return "This character is prepared to immediately counter-attack on any failed attempt to attack them in melee.";
 	}
-	
+
 	function isHidden()
 	{
 		return !this.isInEffect();
 	}
-	
+
 	function isInEffect()
 	{
 		local weapon = this.getContainer().getActor().getMainhandItem();
@@ -31,7 +31,7 @@ this.ptr_whack_a_smack_effect <- this.inherit("scripts/skills/skill", {
 		{
 			return false;
 		}
-		
+
 		return true;
 	}
 
@@ -41,7 +41,7 @@ this.ptr_whack_a_smack_effect <- this.inherit("scripts/skills/skill", {
 		{
 			return;
 		}
-		
+
 		_properties.IsRiposting = true;
 	}
 
@@ -50,7 +50,10 @@ this.ptr_whack_a_smack_effect <- this.inherit("scripts/skills/skill", {
 		if (this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != this.getContainer().getActor().getID())
 		{
 			_properties.MeleeSkill -= this.m.MeleeSkillMalus;
+			if (_properties.IsSpecializedInStaffStun)
+			{
+				_properties.MeleeSkill += 10;
+			}
 		}
 	}
 });
-

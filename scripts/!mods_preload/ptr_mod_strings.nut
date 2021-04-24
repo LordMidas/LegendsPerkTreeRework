@@ -134,10 +134,14 @@ gt.Const.PTR.hookStrings <- function()
 
 	gt.Const.Strings.PerkName.PTREasyTarget <- "Easy Target";
 	gt.Const.Strings.PerkDescription.PTREasyTarget <- "When successfully hitting a target, [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of the Fatigue Cost of the attack is returned per negative status effect previously affecting the target.\n[color=#0b0084]From the Staff perk group[/color]";
+	gt.Const.Strings.PerkDescription.LegendMasteryStaves = "Master the art of fighting with staves. Skills build up [color=" + this.Const.UI.Color.NegativeValue + "]25%[/color] less Fatigue.\n\nIncreases the chance to apply Dazed.\n\n Reduces the costs for Missile, Revolt, Entice, Chain Lightning and Firefield.\n\nStaff Sweep gains [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] chance to hit. \n[color=#0b0084]From the Staff perk group[/color]";
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendMasteryStaves].Tooltip = gt.Const.Strings.PerkDescription.LegendMasteryStaves;
+	gt.Const.Strings.PerkDescription.LegendSpecStaffStun = "Master the movements required to spin your staff in a great flourish that lands with additional force. Any strike with a staff that would normally daze, also stuns and staggers.\n\nWhack \'a Smack gains [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit.\n[color=#0b0084]From the Staff perk group[/color]",
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSpecStaffStun].Tooltip = gt.Const.Strings.PerkDescription.LegendSpecStaffStun;
 	gt.Const.Strings.PerkName.PTRWearThemDown <- "Wear them Down";
 	gt.Const.Strings.PerkDescription.PTRWearThemDown <- "Gain a chance that an enemy requires two successful rolls to hit you. This chance is [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] per negative status affecting the enemy (e.g. dazed, baffled etc.).\n[color=#0b0084]From the Staff perk group[/color]";
 	gt.Const.Strings.PerkName.PTRWhackASmack <- "Whack a\' Smack";
-	gt.Const.Strings.PerkDescription.PTRWhackASmack <- "Requires Staff. While wielding a staff, perform a free attack against anyone who misses an attack against you. This free attack has a [color=" + this.Const.UI.Color.NegativeValue + "]-25%[/color] chance to hit. Applies Baffled on the target if successful.\n[color=#0b0084]From the Staff perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRWhackASmack <- "Requires Staff. While wielding a staff, perform a free attack against anyone who misses an attack against you. This free attack has a [color=" + this.Const.UI.Color.NegativeValue + "]-20%[/color] chance to hit. Applies Baffled on the target if successful.\n[color=#0b0084]From the Staff perk group[/color]";
 
 	gt.Const.Strings.PerkName.PTRHybridization <- "Hybridization";
 	gt.Const.Strings.PerkDescription.PTRHybridization <- "Gain [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of your Base Melee Skill as Ranged Skill and [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of your Base Ranged Skill as Melee Skill.\n[color=#0b0084]From the Throwing perk group[/color]";
