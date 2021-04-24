@@ -26,13 +26,14 @@ this.ptr_whack_a_smack_effect <- this.inherit("scripts/skills/skill", {
 
 	function isInEffect()
 	{
-		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon == null || weapon.getCategories().find("Staff") == null)
+		local actor = this.getContainer().getActor();
+		if (!actor.hasZoneOfControl())
 		{
 			return false;
 		}
 
-		if (this.getContainer().getActor().getMoraleState() == this.Const.MoraleState.Fleeing)
+		local weapon = actor.getMainhandItem();
+		if (weapon == null || weapon.getCategories().find("Staff") == null)
 		{
 			return false;
 		}
