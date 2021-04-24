@@ -270,6 +270,14 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 		this.m.IsSpent = false;
 	}
 
+	function onUpdate( _properties )
+	{
+		if (this.getContainer().getActor().m.IsMoving)
+		{
+			this.m.IsSpent = true;
+		}
+	}
+
 	function onTargetMissed( _skill, _targetEntity )
 	{
 		if (_skill.isAttack())
