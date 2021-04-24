@@ -21,7 +21,7 @@ this.ptr_follow_up_proccer_effect <- this.inherit("scripts/skills/skill", {
 		{
 			return;
 		}
-		
+
 		local actor = this.getContainer().getActor();
 		if (_targetEntity == null || !_targetEntity.isAlive() || _targetEntity.isDying() || _targetEntity.isAlliedWith(actor))
 		{
@@ -49,7 +49,7 @@ this.ptr_follow_up_proccer_effect <- this.inherit("scripts/skills/skill", {
 			}
 
 			local allySkill = ally.getSkills().getSkillByID("effects.ptr_follow_up");
-			if (allySkill != null)
+			if (allySkill != null && allySkill.canFollowUp())
 			{
 				local attack = allySkill.getContainer().getAttackOfOpportunity();
 				if (attack != null)
