@@ -249,7 +249,20 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 		this.m.IsSpent = false;
 	}
 
-	function onTurnStart()
+	function onTargetMissed( _skill, _targetEntity )
+	{
+		if (_skill.isAttack())
+		{
+			this.m.IsSpent = true;
+		}
+	}
+
+	function onWaitTurn()
+	{
+		this.m.IsSpent = true;
+	}
+
+	function onTurnEnd()
 	{
 		this.m.IsSpent = true;
 	}
