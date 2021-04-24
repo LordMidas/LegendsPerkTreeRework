@@ -41,7 +41,7 @@ gt.Const.PTR.hookActor <- function()
 			local tile = this.getTile();
 			local c = 0;
 
-			for( local i = 0; i <= 6; i++ )
+			for( local i = 0; i < 6; i++ )
 			{
 				if (tile.hasNextTile(i))
 				{
