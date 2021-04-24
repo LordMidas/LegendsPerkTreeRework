@@ -124,7 +124,7 @@ gt.Const.PTR.hookStrings <- function()
 	gt.Const.Strings.PerkName.PTRTempo <- "Tempo";
 	gt.Const.Strings.PerkDescription.PTRTempo <- "Every attack against a target who acts after you in the current round increases your Initiative by [color=" + this.Const.UI.Color.PositiveValue + "]+15[/color]. The bonus lasts until the start of your next turn.\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Strings.PerkName.PTRKata <- "Kata";
-	gt.Const.Strings.PerkDescription.PTRKata <- "Requires Sword. Unlocks the Kata Step skill which, after a successful attack with swords, allows you to move one tile ignoring zone of control with reduced Action Point cost and minimal Fatigue cost. However, the target tile for the movement must be adjacent to an enemy.\n[color=#0b0084]From the Sword perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRKata <- "Requires Sword. Unlocks the Kata Step skill which, immediately after a successful attack, allows you to move one tile ignoring zone of control with reduced Action Point cost. However, the target tile for the movement must be adjacent to an enemy.\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Strings.PerkName.PTREnGarde <- "En garde";
 	gt.Const.Strings.PerkDescription.PTREnGarde <- "Requires Sword. When wielding a sword, if you have not moved from your position during your turn, use Riposte freely at the end of your turn if your weapon has Riposte. If your weapon does not have Riposte, gain [color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] Melee Defense instead until the start of your next turn.\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Strings.PerkName.PTRBloodyHarvest <- "Bloody Harvest";
