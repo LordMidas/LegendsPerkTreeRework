@@ -67,7 +67,7 @@ gt.Const.PTR.hookSkills <- function()
 			}
 
 			local weapon = actor.getMainhandItem();
-			if (weapon != null && weapon.isItemType(this.Const.Items.ItemType.OneHanded) && weapon.getCategories().find("Spear") != null && actor.getOffhandItem() == null && this.getContainer().hasSkill("perk.ptr_a_better_grip"))
+			if (weapon != null && weapon.isItemType(this.Const.Items.ItemType.OneHanded) && weapon.getCategories().find("Spear") != null && !this.getContainer().getSkillByID("special.double_grip").isHidden() && this.getContainer().hasSkill("perk.ptr_a_better_grip"))
 			{
 				this.m.Stacks = this.Math.min(this.m.Stacks + 1, 5);
 			}
@@ -80,7 +80,7 @@ gt.Const.PTR.hookSkills <- function()
 			local actor = this.getContainer().getActor();
 			local weapon = actor.getMainhandItem();
 
-			if (weapon != null && weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon) && (weapon.isItemType(this.Const.Items.ItemType.TwoHanded) || (weapon.getCategories().find("Spear") != null && actor.getOffhandItem() == null && this.getContainer().hasSkill("perk.ptr_a_better_grip"))))
+			if (weapon != null && weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon) && (weapon.isItemType(this.Const.Items.ItemType.TwoHanded) || (weapon.getCategories().find("Spear") != null && !this.getContainer().getSkillByID("special.double_grip").isHidden() && this.getContainer().hasSkill("perk.ptr_a_better_grip"))))
 			{
 				_properties.MeleeDefense += this.m.Stacks * 5;
 			}
