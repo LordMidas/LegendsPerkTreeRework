@@ -32,6 +32,11 @@ this.ptr_whack_a_smack_effect <- this.inherit("scripts/skills/skill", {
 			return false;
 		}
 
+		if (this.getContainer().getActor().getMoraleState() == this.Const.MoraleState.Fleeing)
+		{
+			return false;
+		}
+
 		return true;
 	}
 
@@ -53,7 +58,7 @@ this.ptr_whack_a_smack_effect <- this.inherit("scripts/skills/skill", {
 		}
 
 		_properties.MeleeSkill -= this.m.MeleeSkillMalus;
-		
+
 		if (_properties.IsSpecializedInStaffStun)
 		{
 			_properties.MeleeSkill += 10;
