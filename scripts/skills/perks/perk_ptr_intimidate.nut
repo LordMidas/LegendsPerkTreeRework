@@ -17,7 +17,11 @@ this.perk_ptr_intimidate <- this.inherit("scripts/skills/skill", {
 	{
 		//local actors = _targetEntity.getActorsWithinDistanceAsArray(2);
 		//local attacker = this.getContainer().getActor();
-
+		if (_targetEntity.getMoraleState() == this.Const.MoraleState.Ignore)
+		{
+			return;
+		}
+		
 		local effect = _targetEntity.getSkills().getSkillByID("effect.ptr_intimidated");
 		if (effect == null)
 		{
