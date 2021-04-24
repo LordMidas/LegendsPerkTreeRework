@@ -118,7 +118,7 @@ gt.Const.PTR.hookSkills <- function()
 
 			if (this.getContainer().hasSkill("perk.ptr_two_for_one"))
 			{
-				if (weapon.isItemType(this.Const.Items.ItemType.OneHanded) && actor.getOffhandItem() == null)
+				if (actor.isDoubleGrippingWeapon())
 				{
 					this.m.ActionPointCost -= 1;
 				}
@@ -126,7 +126,7 @@ gt.Const.PTR.hookSkills <- function()
 
 			if (this.getContainer().hasSkill("perk.ptr_a_better_grip"))
 			{
-				if (weapon.isItemType(this.Const.Items.ItemType.OneHanded) && actor.getOffhandItem() == null)
+				if (actor.isDoubleGrippingWeapon())
 				{
 					this.m.MaxRange += 1;
 				}
