@@ -2,7 +2,8 @@ local gt = this.getroottable();
 
 gt.Const.PTR.hookActor <- function()
 {
-	::mods_hookBaseClass("entity/tactical/actor", function(o) {
+	::mods_hookBaseClass("entity/tactical/actor", function(o)
+	{
 		while (!("BloodSaturation" in o.m))
 		{
 			o = o[o.SuperName];
@@ -71,4 +72,5 @@ gt.Const.PTR.hookActor <- function()
 
 			return this.Math.max(0, c - 1 - this.m.CurrentProperties.StartSurroundCountAt);
 		});
+	}
 }
