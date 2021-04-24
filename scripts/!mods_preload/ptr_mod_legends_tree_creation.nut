@@ -865,4 +865,10 @@ gt.Const.PTR.hookLegendsPerkTreeCreationSystem <- function()
 
 		return { Tree = null, Expertise = null };
 	}
+
+	gt.Const.Perks.checkExpertise <- function( _expertise, _zeroBasedRow )
+	{
+		local roll = this.Math.rand(1, 100);
+		return roll > 100 - _zeroBasedRow * 10 ? false : true;
+	}
 }
