@@ -7,7 +7,7 @@ gt.Const.PTR.hookPlayer <- function()
 		{
 			o = o[o.SuperName];
 		}
-		
+
 		o.updateLevel = function()
 		{
 			while (this.m.Level < this.Const.LevelXP.len() && this.m.XP >= this.Const.LevelXP[this.m.Level])
@@ -24,8 +24,8 @@ gt.Const.PTR.hookPlayer <- function()
 				{
 					++this.m.PerkPoints;
 				}
-				
-				if (this.m.Level == 13 && this.m.Skills.hasSkill("perk.rising_star"))
+
+				if (this.m.Level == 13 && this.m.Skills.hasSkill("perk.ptr_rising_star"))
 				{
 					this.m.PerkPoints += 2;
 				}
