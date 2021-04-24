@@ -10,6 +10,7 @@ local modID = "mod_PTR";
 	gt.Const.PTR.hookStrings();
 	gt.Const.PTR.hookSkill();
 	gt.Const.PTR.hookActor();
+	gt.Const.PTR.hookPlayer();
 	//gt.Const.PTR.hookPerks();
 	gt.Const.PTR.hookSkills();
 	gt.Const.PTR.hookWeapons();
