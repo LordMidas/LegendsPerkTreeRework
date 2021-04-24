@@ -284,7 +284,7 @@ gt.Const.PTR.hookSkills <- function()
 				return success;
 			}
 
-			if(_targetEntity.isAlive() && !_targetEntity.getSkills().hasSkill("effect.ptr_smackdown_debuff"))
+			if(_targetEntity.isAlive())
 			{
 				_targetEntity.getSkills().add(this.new("scripts/skills/effects/ptr_smackdown_debuff_effect"));
 			}
