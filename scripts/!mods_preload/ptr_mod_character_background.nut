@@ -44,9 +44,9 @@ gt.Const.PTR.hookCharacterBackground <- function()
 		{
 			o = o[o.SuperName];
 		}
-		
+
 		o.m.PerkTreeDynamicMins = {
-			//Profession = 1,			
+			//Profession = 1,
 			Weapon = 6,
 			Defense = 2,
 			Traits = 5,
@@ -59,9 +59,9 @@ gt.Const.PTR.hookCharacterBackground <- function()
 		};
 		o.m.PerkTreeDynamicMinsMagic = {
 			//Profession = 1,
-			Weapon = 8,
+			Weapon = 6,
 			Defense = 2,
-			Traits = 6,
+			Traits = 5,
 			Enemy = 1,
 			EnemyChance = 0.01,
 			Class = 1,
@@ -71,9 +71,9 @@ gt.Const.PTR.hookCharacterBackground <- function()
 		};
 		o.m.PerkTreeDynamicMinsBeast = {
 			//Profession = 1,
-			Weapon = 8,
+			Weapon = 6,
 			Defense = 2,
-			Traits = 3,
+			Traits = 5,
 			Enemy = 1,
 			EnemyChance = 0.05,
 			Class = 1,
