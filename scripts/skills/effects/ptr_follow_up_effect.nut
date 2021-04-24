@@ -38,6 +38,24 @@ this.ptr_follow_up_effect <- this.inherit("scripts/skills/skill", {
 		];
 	}
 
+	function canFollowUp()
+	{
+		local actor = this.getContainer().getActor();
+
+		if (!actor.hasZoneOfControl())
+		{
+			return false;
+		}
+
+		local weapon = actor.getMainhandItem();
+		if (weapon == null || weapon.getCategories().find("Polearm") == null)
+		{
+			return false;
+		}
+
+		return true;
+	}
+
 	function onUpdate( _properties )
 	{
 		if (this.getContainer().getActor().isEngagedInMelee())
