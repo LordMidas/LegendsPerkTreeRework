@@ -12,13 +12,17 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
 	function onTurnEnd()
-	{		
+	{
 		local actor = this.getContainer().getActor();
-		
+		if (!actor.hasZoneOfControl())
+		{
+			return;
+		}
+
 		local weapon = actor.getMainhandItem();
-		
+
 		if (!actor.isPlacedOnMap() || weapon == null || !weapon.isItemType(this.Const.Items.ItemType.OneHanded) || weapon.getCategories().find("Spear") == null)
 		{
 			return;
@@ -30,24 +34,23 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 		}
 
 		local skill = actor.getSkills().getAttackOfOpportunity();
-		
+
 		if (skill != null)
 		{
 			local target = actor.getRandomActorWithinDistance(skill.m.MaxRange, this.Const.FactionRelation.Enemy);
-			
+
 			if (target != null)
 			{
 				skill.useForFree(target.getTile());
-				
+
 				// skill.getContainer().setBusy(true);
 				// this.Time.scheduleEvent(this.TimeUnit.Virtual, 300, function ( _skill )
 				// {
 					// _skill.attackEntity(actor, target);
 					// _skill.m.IsDoingAttackMove = true;
-					// _skill.getContainer().setBusy(false);					
+					// _skill.getContainer().setBusy(false);
 				// }.bindenv( skill ), skill);
 			}
 		}
 	}
 });
-
