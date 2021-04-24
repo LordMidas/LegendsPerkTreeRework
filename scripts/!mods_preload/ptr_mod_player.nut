@@ -3,13 +3,14 @@ local gt = this.getroottable();
 gt.Const.PTR.hookPlayer <- function()
 {
 	::mods_hookBaseClass("entity/tactical/player", function(o) {
-		while (!("updateLevel" in o.m))
+		/* while (!("updateLevel" in o.m))
 		{
 			o = o[o.SuperName];
-		}
-
-		o.updateLevel = function()
+		} */
+		this.logInfo ("player hooked");
+		::mods_override(o, "updateLevel", function()
 		{
+			this.logInfo("updateLevel hooked");
 			while (this.m.Level < this.Const.LevelXP.len() && this.m.XP >= this.Const.LevelXP[this.m.Level])
 			{
 				++this.m.Level;
@@ -27,6 +28,7 @@ gt.Const.PTR.hookPlayer <- function()
 
 				if (this.m.Level == 13 && this.m.Skills.hasSkill("perk.ptr_rising_star"))
 				{
+					this.logInfo("check passed");
 					this.m.PerkPoints += 2;
 				}
 
@@ -48,6 +50,6 @@ gt.Const.PTR.hookPlayer <- function()
 					this.updateAchievement("TooStubbornToDie", 1, 1);
 				}
 			}
-		}
+		});
 	});
 }
