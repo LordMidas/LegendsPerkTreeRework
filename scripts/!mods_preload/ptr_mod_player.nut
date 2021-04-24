@@ -2,11 +2,7 @@ local gt = this.getroottable();
 
 gt.Const.PTR.hookPlayer <- function()
 {
-	::mods_hookBaseClass("entity/tactical/player", function(o) {
-		/* while (!("updateLevel" in o.m))
-		{
-			o = o[o.SuperName];
-		} */
+	::mods_hookClass("entity/tactical/player", function(o) {
 		this.logInfo ("player hooked");
 		::mods_override(o, "updateLevel", function()
 		{
