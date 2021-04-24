@@ -72,5 +72,5 @@ gt.Const.PTR.hookActor <- function()
 
 			return this.Math.max(0, c - 1 - this.m.CurrentProperties.StartSurroundCountAt);
 		});
-	}
+	});
 }
