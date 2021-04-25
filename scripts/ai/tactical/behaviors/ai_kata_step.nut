@@ -210,8 +210,9 @@ this.ai_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 
 										local hypotheticalNewZOC = movementCosts.End.getZoneOfControlCountOtherThan(_entity.getAlliedFactions());
 
-										if( hypotheticalNewZOC <= inZonesOfControl )
+										if( hypotheticalNewZOC > inZonesOfControl )
 										{
+											continue;
 										}
 
 										score = score * (this.Const.AI.Behavior.DisengageBetterTargetMult - movementCosts.Tiles * 0.1 + value * this.Const.AI.Behavior.DisengageTargetMult);
