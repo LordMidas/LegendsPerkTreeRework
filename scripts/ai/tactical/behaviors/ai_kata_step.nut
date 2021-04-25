@@ -18,6 +18,7 @@ this.ai_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 
 	function onEvaluate( _entity )
 	{
+		this.logInfo("kata step evaluate");
 		this.m.TargetTile = null;
 		this.m.Target = null;
 		this.m.Skill = null;
@@ -251,10 +252,10 @@ this.ai_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 			return this.Const.AI.Behavior.Score.Zero;
 		}
 
-		if (accumulatedAOO <= 15)
+		/* if (accumulatedAOO <= 15)
 		{
 			this.m.JustMove = true;
-		}
+		} */
 
 		this.m.TargetTile = bestTile;
 		this.m.Target = bestTarget;
