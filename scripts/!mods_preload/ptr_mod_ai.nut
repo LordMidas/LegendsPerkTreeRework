@@ -6,5 +6,9 @@ gt.Const.PTR.hookAI <- function()
 	gt.Const.AI.Behavior.ID.KataStep <- maxID;
 	gt.Const.AI.Behavior.ID.COUNT = maxID + 1;
 	gt.Const.AI.Behavior.Order.KataStep <- 25;
+<<<<<<< Updated upstream
 	gt.Const.AI.Behavior.Score.KataStep <- 9000;
+=======
+	gt.Const.AI.Behavior.Score.KataStep <- 350;
+>>>>>>> Stashed changes
 }
