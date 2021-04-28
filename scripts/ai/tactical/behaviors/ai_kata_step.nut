@@ -154,7 +154,7 @@ this.ai_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 							continue;
 						}
 
-						local d = this.queryActorTurnsNearTarget(t.Actor, ally.getTile(), t.Actor);
+						local d = this.queryActorTurnsNearTarget(target, ally.getTile(), target);
 
 						if (d.Turns <= 1.0)
 						{
