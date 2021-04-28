@@ -4,7 +4,7 @@ this.ptr_arrow_to_the_knee_debuff_effect <- this.inherit("scripts/skills/skill",
 	{
 		this.m.ID = "effects.ptr_arrow_to_the_knee_debuff";
 		this.m.Name = "Took an Arrow to the Knee";
-		this.m.Description = "This character has taken an arrow to the knee.";
+		this.m.Description = "This character used to move around freely like you, but then he took arrow to the knee.";
 		this.m.Icon = "ui/perks/ptr_arrow_to_the_knee.png";
 		//this.m.IconMini = "ptr_arrow_to_the_knee_debuff_effect_mini";
 		this.m.Overlay = "ptr_arrow_to_the_knee_debuff_effect";
@@ -15,30 +15,32 @@ this.ptr_arrow_to_the_knee_debuff_effect <- this.inherit("scripts/skills/skill",
 
 	function getTooltip()
 	{
-		return [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			},
-			{
-				id = 10,
-				type = "text",
-				icon = "ui/icons/special.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-10%[/color] Melee and Ranged defense."
-			},
-			{
-				id = 10,
-				type = "text",
-				icon = "ui/icons/special.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]2[/color] additional Action Points per tile moved."
-			}
-		];
+		local tooltip = this.skill.getTooltip();
+		
+		tooltip.extend(
+			[
+				{
+					id = 10,
+					type = "text",
+					icon = "ui/icons/melee_defense.png",
+					text = "[color=" + this.Const.UI.Color.NegativeValue + "]-10%[/color] Melee Defense"
+				},
+				{
+					id = 10,
+					type = "text",
+					icon = "ui/icons/ranged_defense.png",
+					text = "[color=" + this.Const.UI.Color.NegativeValue + "]-10%[/color] Ranged Defense"
+				},
+				{
+					id = 10,
+					type = "text",
+					icon = "ui/icons/action_points.png",
+					text = "[color=" + this.Const.UI.Color.NegativeValue + "]2[/color] additional Action Points per tile moved"
+				}
+			]
+		);
+		
+		return tooltip;
 	}
 
 	function onUpdate( _properties )
@@ -52,5 +54,4 @@ this.ptr_arrow_to_the_knee_debuff_effect <- this.inherit("scripts/skills/skill",
 	{
 		this.removeSelf();
 	}
-
 });
