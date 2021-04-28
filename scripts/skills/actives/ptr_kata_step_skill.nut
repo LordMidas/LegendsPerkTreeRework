@@ -33,6 +33,7 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 
 	function onAdded()
 	{
+		this.m.IsSpent = true;
 		local actor = this.getContainer().getActor();
 		if (actor.isPlayerControlled())
 		{

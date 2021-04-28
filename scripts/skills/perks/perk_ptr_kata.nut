@@ -12,46 +12,34 @@ this.perk_ptr_kata <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
 	function onAdded()
 	{
 		this.getContainer().add(this.new("scripts/skills/actives/ptr_kata_step_skill"));
 	}
-	
+
 	function onRemoved()
 	{
 		this.getContainer().removeByID("actives.ptr_kata_step");
 	}
-	
+
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
 		if (!_skill.isAttack())
 		{
 			return;
-		}		
-		
-		local actor = this.getContainer().getActor();	
-		local weapon = actor.getMainhandItem();		
+		}
+
+		local actor = this.getContainer().getActor();
+		local weapon = actor.getMainhandItem();
 		if (weapon == null || weapon.getCategories().find("Sword") == null)
 		{
 			return;
 		}
 
 		if (this.getContainer().hasSkill("actives.ptr_kata_step"))
-		{			
-			
+		{
+
 		}
 	}
-	
-	function onCombatStarted()
-	{
-		this.getContainer().add(this.new("scripts/skills/actives/ptr_kata_step_skill"));
-	}
-	
-	function onCombatFinished()
-	{
-		this.skill.onCombatFinished();
-		this.getContainer().removeByID("actives.ptr_kata_step");
-	}	
 });
-
