@@ -18,7 +18,7 @@ gt.Const.PTR.hookStrings <- function()
 	gt.Const.Strings.PerkName.PTRFlamingArrows <- "Flaming Arrows";
 	gt.Const.Strings.PerkDescription.PTRFlamingArrows <- "Requires Bow. Aimed Shot now additionally does fire damage and will always trigger a morale check with a penalty to Resolve to [color=" + this.Const.UI.Color.PositiveValue + "]20%[/color] of your Ranged Skill if it hits the target.\n[color=#0b0084]From the Bow perk group[/color]";
 	gt.Const.Strings.PerkName.PTRMarksmanship <- "Marksmanship";
-	gt.Const.Strings.PerkDescription.PTRMarksmanship <- "Ranged damage is increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of your Base Ranged Skill.\n[color=#0b0084]From the Bow perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRMarksmanship <- "When using a Ranged weapon, gain [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of your Base Ranged Skill as additional Minimum and Maximum Damage.\n[color=#0b0084]From the Bow perk group[/color]";
 	gt.Const.Strings.PerkName.PTRHipShooter <- "Hip Shooter";
 	gt.Const.Strings.PerkDescription.PTRHipShooter <- "Requires Bow. Each subsequent Quick Shot requires [color=" + this.Const.UI.Color.NegativeValue + "]1[/color] less Action Point to a minimum of [color=" + this.Const.UI.Color.PositiveValue + "]2[/color].\n[color=#0b0084]From the Bow perk group[/color]";
 
@@ -87,7 +87,7 @@ gt.Const.PTR.hookStrings <- function()
 	gt.Const.Strings.PerkName.PTRBolster <- "Bolster";
 	gt.Const.Strings.PerkDescription.PTRBolster <- "Requires Polearm. When wielding a Polearm, increase the Resolve of adjacent allies by [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color] of your Melee Skill. If multiple polearm users with this perk are present, only the highest bonus applies.\n[color=#0b0084]From the Polearm perk group[/color]";
 	gt.Const.Strings.PerkName.PTRLeverage <- "Leverage";
-	gt.Const.Strings.PerkDescription.PTRLeverage <- "When using two-handed weapons, attacks at 2 tiles range have [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit the head.\n[color=#0b0084]From the Polearm perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRLeverage <- "When using two-handed weapons, attacks at 2 tiles range have [color=" + this.Const.UI.Color.PositiveValue + "]+20%[/color] chance to hit the head.\n[color=#0b0084]From the Polearm perk group[/color]";
 	gt.Const.Strings.PerkName.PTRIntimidate <- "Intimidate";
 	gt.Const.Strings.PerkDescription.PTRIntimidate <- "Requires Polearm. Attacks from Polearms reduce the Resolve of the target by [color=" + this.Const.UI.Color.NegativeValue + "]10%[/color] of your Melee Skill. Multiple attacks do not stack.\n[color=#0b0084]From the Polearm perk group[/color]";
 	gt.Const.Strings.PerkName.PTRFormidableApproach <- "Formidable Approach";
@@ -102,7 +102,7 @@ gt.Const.PTR.hookStrings <- function()
 	gt.Const.Strings.PerkName.PTRHeavyProjectiles <- "Heavy Projectiles";
 	gt.Const.Strings.PerkDescription.PTRHeavyProjectiles <- "Ranged attacks have a chance to apply the Dazed effect. The chance is [color=" + this.Const.UI.Color.PositiveValue + "]100%[/color] on a hit to the head and [color=" + this.Const.UI.Color.PositiveValue + "]25%[/color] on a hit to the body. Ignores target's immunity.\n[color=#0b0084]From the Sling perk group[/color]";
 	gt.Const.Strings.PerkName.PTRSniper <- "Sniper";
-	gt.Const.Strings.PerkDescription.PTRSniper <- "Damage from Ranged attacks is increased by [color=" + this.Const.UI.Color.PositiveValue + "]2%[/color] per tile the target is away from you.\n[color=#0b0084]From the Bow perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRSniper <- "Damage from Ranged attacks is increased by [color=" + this.Const.UI.Color.PositiveValue + "]2%[/color] per tile the target is away from you.\n[color=#0b0084]From the Sling perk group[/color]";
 
 	gt.Const.Strings.PerkName.PTRPointyEnd <- "Pointy End";
 	gt.Const.Strings.PerkDescription.PTRPointyEnd <- "Melee piercing attacks against an enemy without a shield gain [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit.\n[color=#0b0084]From the Spear perk group[/color]";
@@ -120,11 +120,11 @@ gt.Const.PTR.hookStrings <- function()
 	gt.Const.Strings.PerkName.PTRVersatileWeapon <- "Versatile Weapon";
 	gt.Const.Strings.PerkDescription.PTRVersatileWeapon <- "Requires Sword. When wielding a sword, gain [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] damage, [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] armor penetration and [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] armor effectiveness.\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Strings.PerkName.PTRHeightenedReflexes <- "Heightened Reflexes";
-	gt.Const.Strings.PerkDescription.PTRHeightenedReflexes <- "Gain [color=" + this.Const.UI.Color.PositiveValue + "]25%[/color] of your Base Melee Defense as Initiative.\n[color=#0b0084]From the Sword perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRHeightenedReflexes <- "Gain [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] of your Base Melee Defense as Initiative.\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Strings.PerkName.PTRTempo <- "Tempo";
 	gt.Const.Strings.PerkDescription.PTRTempo <- "Every attack against a target who acts after you in the current round increases your Initiative by [color=" + this.Const.UI.Color.PositiveValue + "]+15[/color]. The bonus lasts until the start of your next turn.\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Strings.PerkName.PTRKata <- "Kata";
-	gt.Const.Strings.PerkDescription.PTRKata <- "Requires Sword. Unlocks the Kata Step skill which, after a successful attack with swords, allows you to move one tile ignoring zone of control with reduced Action Point cost and minimal Fatigue cost. However, the target tile for the movement must be adjacent to an enemy.\n[color=#0b0084]From the Sword perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRKata <- "Requires Sword. Unlocks the Kata Step skill which, immediately after a successful attack, allows you to move one tile ignoring zone of control with reduced Action Point cost. However, the target tile for the movement must be adjacent to an enemy.\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Strings.PerkName.PTREnGarde <- "En garde";
 	gt.Const.Strings.PerkDescription.PTREnGarde <- "Requires Sword. When wielding a sword, if you have not moved from your position during your turn, use Riposte freely at the end of your turn if your weapon has Riposte. If your weapon does not have Riposte, gain [color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] Melee Defense instead until the start of your next turn.\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Strings.PerkName.PTRBloodyHarvest <- "Bloody Harvest";
@@ -134,10 +134,14 @@ gt.Const.PTR.hookStrings <- function()
 
 	gt.Const.Strings.PerkName.PTREasyTarget <- "Easy Target";
 	gt.Const.Strings.PerkDescription.PTREasyTarget <- "When successfully hitting a target, [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of the Fatigue Cost of the attack is returned per negative status effect previously affecting the target.\n[color=#0b0084]From the Staff perk group[/color]";
+	gt.Const.Strings.PerkDescription.LegendMasteryStaves = "Master the art of fighting with staves. Skills build up [color=" + this.Const.UI.Color.NegativeValue + "]25%[/color] less Fatigue.\n\nIncreases the chance to apply Dazed.\n\n Reduces the costs for Missile, Revolt, Entice, Chain Lightning and Firefield.\n\nStaff Sweep gains [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] chance to hit. \n[color=#0b0084]From the Staff perk group[/color]";
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendMasteryStaves].Tooltip = gt.Const.Strings.PerkDescription.LegendMasteryStaves;
+	gt.Const.Strings.PerkDescription.LegendSpecStaffStun = "Master the movements required to spin your staff in a great flourish that lands with additional force. Any strike with a staff that would normally daze, also stuns and staggers.\n\nWhack a\' Smack gains [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit.\n[color=#0b0084]From the Staff perk group[/color]",
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSpecStaffStun].Tooltip = gt.Const.Strings.PerkDescription.LegendSpecStaffStun;
 	gt.Const.Strings.PerkName.PTRWearThemDown <- "Wear them Down";
 	gt.Const.Strings.PerkDescription.PTRWearThemDown <- "Gain a chance that an enemy requires two successful rolls to hit you. This chance is [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] per negative status affecting the enemy (e.g. dazed, baffled etc.).\n[color=#0b0084]From the Staff perk group[/color]";
 	gt.Const.Strings.PerkName.PTRWhackASmack <- "Whack a\' Smack";
-	gt.Const.Strings.PerkDescription.PTRWhackASmack <- "Requires Staff. While wielding a staff, perform a free attack against anyone who misses an attack against you. This free attack has a [color=" + this.Const.UI.Color.NegativeValue + "]-25%[/color] chance to hit. Applies Baffled on the target if successful.\n[color=#0b0084]From the Staff perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRWhackASmack <- "Requires Staff. While wielding a staff, perform a free attack against anyone who misses an attack against you. This free attack has a [color=" + this.Const.UI.Color.NegativeValue + "]-20%[/color] chance to hit. Applies Baffled on the target if successful.\n[color=#0b0084]From the Staff perk group[/color]";
 
 	gt.Const.Strings.PerkName.PTRHybridization <- "Hybridization";
 	gt.Const.Strings.PerkDescription.PTRHybridization <- "Gain [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of your Base Melee Skill as Ranged Skill and [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of your Base Ranged Skill as Melee Skill.\n[color=#0b0084]From the Throwing perk group[/color]";

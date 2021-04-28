@@ -34,6 +34,11 @@ gt.Const.PTR.hookSkills <- function()
 		{
 			oldonTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor );
 
+			if (_skill != this)
+			{
+				return;
+			}
+
 			if (!this.getContainer().hasSkill("perk.ptr_flaming_arrows"))
 			{
 				return;
@@ -50,7 +55,6 @@ gt.Const.PTR.hookSkills <- function()
 	});
 
 	::mods_hookNewObject("skills/perks/perk_reach_advantage", function(o) {
-		this.logInfo("reach advantage hooked");
 		local oldOnTargetHit = o.onTargetHit;
 		o.onTargetHit = function( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 		{
@@ -63,7 +67,7 @@ gt.Const.PTR.hookSkills <- function()
 			}
 
 			local weapon = actor.getMainhandItem();
-			if (weapon != null && weapon.isItemType(this.Const.Items.ItemType.OneHanded) && weapon.getCategories().find("Spear") != null && actor.getOffhandItem() == null && this.getContainer().hasSkill("perk.ptr_a_better_grip"))
+			if (weapon != null && weapon.isItemType(this.Const.Items.ItemType.OneHanded) && weapon.getCategories().find("Spear") != null && actor.isDoubleGrippingWeapon() && this.getContainer().hasSkill("perk.ptr_a_better_grip"))
 			{
 				this.m.Stacks = this.Math.min(this.m.Stacks + 1, 5);
 			}
@@ -76,7 +80,7 @@ gt.Const.PTR.hookSkills <- function()
 			local actor = this.getContainer().getActor();
 			local weapon = actor.getMainhandItem();
 
-			if (weapon != null && weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon) && (weapon.isItemType(this.Const.Items.ItemType.TwoHanded) || (weapon.getCategories().find("Spear") != null && actor.getOffhandItem() == null && this.getContainer().hasSkill("perk.ptr_a_better_grip"))))
+			if (weapon != null && weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon) && (weapon.isItemType(this.Const.Items.ItemType.TwoHanded) || (weapon.getCategories().find("Spear") != null && actor.isDoubleGrippingWeapon() && this.getContainer().hasSkill("perk.ptr_a_better_grip"))))
 			{
 				_properties.MeleeDefense += this.m.Stacks * 5;
 			}
@@ -114,7 +118,7 @@ gt.Const.PTR.hookSkills <- function()
 
 			if (this.getContainer().hasSkill("perk.ptr_two_for_one"))
 			{
-				if (weapon.isItemType(this.Const.Items.ItemType.OneHanded) && actor.getOffhandItem() == null)
+				if (actor.isDoubleGrippingWeapon())
 				{
 					this.m.ActionPointCost -= 1;
 				}
@@ -122,7 +126,7 @@ gt.Const.PTR.hookSkills <- function()
 
 			if (this.getContainer().hasSkill("perk.ptr_a_better_grip"))
 			{
-				if (weapon.isItemType(this.Const.Items.ItemType.OneHanded) && actor.getOffhandItem() == null)
+				if (actor.isDoubleGrippingWeapon())
 				{
 					this.m.MaxRange += 1;
 				}
@@ -280,7 +284,7 @@ gt.Const.PTR.hookSkills <- function()
 				return success;
 			}
 
-			if(_targetEntity.isAlive() && !_targetEntity.getSkills().hasSkill("effect.ptr_smackdown_debuff"))
+			if(_targetEntity.isAlive())
 			{
 				_targetEntity.getSkills().add(this.new("scripts/skills/effects/ptr_smackdown_debuff_effect"));
 			}

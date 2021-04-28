@@ -15,6 +15,6 @@ this.perk_ptr_heightened_reflexes <- this.inherit("scripts/skills/skill", {
 
 	function onUpdate( _properties )
 	{
-		_properties.Initiative += 0.25 * this.getContainer().getActor().getBaseProperties().getMeleeDefense();
+		_properties.Initiative += 0.50 * this.getContainer().getActor().getBaseProperties().getMeleeDefense();
 	}
 });

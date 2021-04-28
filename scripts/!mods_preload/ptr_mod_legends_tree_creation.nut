@@ -276,7 +276,7 @@ gt.Const.PTR.hookLegendsPerkTreeCreationSystem <- function()
 			Attributes = attributes
 		};
 	};
-	
+
 	gt.Const.Perks.IntermediateSystem <- function( _mins, _map )
 	{
 		local tree = [
@@ -293,35 +293,35 @@ gt.Const.PTR.hookLegendsPerkTreeCreationSystem <- function()
 			[]
 		];
 		local attributes = this.Const.Perks.TraitsTrees.getBaseAttributes();
-		local _localMap = {};		
-		
+		local _localMap = {};
+
 		foreach (categoryName, treeListInCategory in _map)
-		{			
+		{
 			if (!(categoryName in _localMap))
 			{
-				_localMap[categoryName] <- [];				
+				_localMap[categoryName] <- [];
 			}
-			
+
 			foreach (tree in treeListInCategory)
-			{				
-				_localMap[categoryName].push(tree);	
-			}			
+			{
+				_localMap[categoryName].push(tree);
+			}
 		}
-		
+
 		foreach (categoryName, v in _mins)
 		{
 			if (categoryName == "EnemyChance" || categoryName == "ClassChance" || categoryName == "MagicChance")
 			{
 				continue;
 			}
-			
+
 			if (!(categoryName in _localMap))
 			{
 				_localMap[categoryName] <- [];
 			}
-			
+
 			local count = _mins[categoryName] - _localMap[categoryName].len();
-			
+
 			for (local i = 0; i < count; i++)
 			{
 				local r = this.Math.rand(0, 100);
@@ -337,18 +337,18 @@ gt.Const.PTR.hookLegendsPerkTreeCreationSystem <- function()
 				{
 					continue;
 				}
-				
+
 				local exclude = [];
 				foreach (tree in _localMap[categoryName])
 				{
 					exclude.push(tree.ID);
 				}
-				
+
 				local t = this.Const.Perks[categoryName + "Trees"].getRandom(exclude);
 				_localMap[categoryName].push(t);
-			}			
+			}
 		}
-		
+
 		// local _totals = {};
 		// local _overflows = {};
 
@@ -431,9 +431,9 @@ gt.Const.PTR.hookLegendsPerkTreeCreationSystem <- function()
 			Attributes = attributes
 		};
 	};
-	
+
 	gt.Const.Perks.ConvertLegendsMapToPTR <- function ( _map )
-	{	
+	{
 		local getEquivalentPTRTrees = function(_legendsTree)
 		{
 			switch (_legendsTree.ID)
@@ -441,27 +441,27 @@ gt.Const.PTR.hookLegendsPerkTreeCreationSystem <- function()
 				case "InspirationalTree":
 					return [this.Const.Perks.SergeantClassTree];
 					break;
-					
+
 				case "MartyrTree":
 					return [this.Const.Perks.ResilientTree];
-					break;			
-					
+					break;
+
 				default:
 					return [_legendsTree];
 			}
 		}
-		
-		local PTRMap = {}	
-		
+
+		local PTRMap = {}
+
 		foreach (categoryName, treeList in _map)
 		{
 			if (this.Const.Perks.SkippedCategories.find(categoryName) != null)
 			{
 				continue;
 			}
-			
+
 			local PTRCategory = [];
-			
+
 			foreach (tree in treeList)
 			{
 				local EquivalentPTRTrees = getEquivalentPTRTrees(tree);
@@ -469,16 +469,16 @@ gt.Const.PTR.hookLegendsPerkTreeCreationSystem <- function()
 				{
 					PTRCategory.push([{ Weight = 10, Expertise = this.Const.Perks.Expertise.Medium, Tree = t }]);
 				}
-			}			
-			
+			}
+
 			PTRMap[categoryName] <- PTRCategory;
 		}
-		
+
 		return PTRMap;
-	};	
-		
+	};
+
 	gt.Const.Perks.OrderOfAssignment <- ["Profession", "Traits", "Class", "Defense", "Weapon"];
-	gt.Const.Perks.SkippedCategories <- ["WeightMultipliers", "ExpertiseMultipliers"];	
+	gt.Const.Perks.SkippedCategories <- ["WeightMultipliers", "ExpertiseMultipliers"];
 	gt.Const.Perks.MultiplierTypes <- ["Weight", "Expertise"];
 	gt.Const.Perks.Expertise <- {
 		None = 100,
@@ -487,7 +487,7 @@ gt.Const.PTR.hookLegendsPerkTreeCreationSystem <- function()
 		High = 0.5,
 		Full = 0
 	};
-	
+
 	gt.Const.Perks.GetDynamicPerkTree = function ( _mins, _map )
 	{
 		if (!("WeightMultipliers" in _map))
@@ -508,15 +508,15 @@ gt.Const.PTR.hookLegendsPerkTreeCreationSystem <- function()
 			[],
 			[],
 			[]
-		];	
-		
+		];
+
 		foreach (categoryName, treeListsinCategory in _map)
 		{
 			if (this.Const.Perks.SkippedCategories.find(categoryName) != null)
 			{
 				continue;
 			}
-			
+
 			foreach (treeList in treeListsinCategory)
 			{
 				foreach (tree in treeList)
@@ -530,27 +530,27 @@ gt.Const.PTR.hookLegendsPerkTreeCreationSystem <- function()
 						tree.Expertise <- this.Const.Perks.Expertise.Medium;
 					}
 				}
-			}		
+			}
 		}
-		
-		local attributes = this.Const.Perks.TraitsTrees.getBaseAttributes();		
-		local _localMap = {};		
+
+		local attributes = this.Const.Perks.TraitsTrees.getBaseAttributes();
+		local _localMap = {};
 		local treesInMap = 0;
 		local assignedCategories = [];
-		
+
 		local addTreesFromMapCategory = function(_categoryName, _treeLists)
 		{
 			local treesInCategory = [];
-			
+
 			foreach (treeList in _treeLists)
 			{
 				treeList = this.applyMultipliersBasedOnBackground(_map, treeList);
-				
+
 				if (assignedCategories.len() > 0)
 				{
 					treeList = this.applyMultipliersBasedOnAssignedCategories(_localMap, treeList, assignedCategories);
 				}
-				
+
 				local tree = this.getWeightedRandomTreeFromTreeList(treeList);
 				if (tree.Tree == this.Const.Perks.RandomTree)
 				{
@@ -562,58 +562,58 @@ gt.Const.PTR.hookLegendsPerkTreeCreationSystem <- function()
 					treesInMap++;
 				}
 			}
-			
+
 			if (assignedCategories.find(_categoryName) == null)
 			{
 				assignedCategories.push(_categoryName);
 			}
 		}
-		
+
 		foreach (categoryName in this.Const.Perks.OrderOfAssignment)
 		{
 			if (!(categoryName in _localMap))
 			{
-				_localMap[categoryName] <- [];				
+				_localMap[categoryName] <- [];
 			}
-			
+
 			if (!(categoryName in _map))
 			{
 				continue;
 			}
-			
+
 			local treeListsInCategory = _map[categoryName];
-			
+
 			addTreesFromMapCategory(categoryName,treeListsInCategory);
 		}
-		
+
 		foreach (categoryName, treeListsInCategory in _map)
 		{
 			if (this.Const.Perks.SkippedCategories.find(categoryName) != null || this.Const.Perks.OrderOfAssignment.find(categoryName) != null)
 			{
 				continue;
 			}
-			
+
 			if (!(categoryName in _localMap))
 			{
-				_localMap[categoryName] <- [];				
+				_localMap[categoryName] <- [];
 			}
-			
-			addTreesFromMapCategory(categoryName, treeListsInCategory);		
+
+			addTreesFromMapCategory(categoryName, treeListsInCategory);
 		}
-		
+
 		foreach (categoryName, v in _mins)
 		{
 			if (categoryName == "EnemyChance" || categoryName == "ClassChance" || categoryName == "MagicChance")
 			{
 				continue;
 			}
-			
+
 			if (!(categoryName in _localMap))
 			{
 				_localMap[categoryName] <- [];
 			}
 		}
-		
+
 		local assignMins = function(_categoryName)
 		{
 			local count = _mins[_categoryName] - _localMap[_categoryName].len();
@@ -632,49 +632,49 @@ gt.Const.PTR.hookLegendsPerkTreeCreationSystem <- function()
 				{
 					continue;
 				}
-				
+
 				local exclude = [];
 				foreach (tree in _localMap[_categoryName])
 				{
 					exclude.push(tree.Tree.ID);
 				}
-				
+
 				local t = this.getWeightedRandomTreeFromCategory(_categoryName, _map, _localMap, assignedCategories, exclude);
 				_localMap[_categoryName].push(t);
 				treesInMap++;
 			}
-			
+
 			if (assignedCategories.find(_categoryName) == null)
 			{
 				assignedCategories.push(_categoryName);
 			}
 		}
-		
+
 		foreach (categoryName in this.Const.Perks.OrderOfAssignment)
 		{
 			if ((this.Const.Perks.SkippedCategories.find(categoryName) != null) || !(categoryName in _mins))
 			{
 				continue;
 			}
-			
+
 			assignMins(categoryName);
 		}
-		
+
 		foreach (categoryName, treeListsInCategory in _localMap)
 		{
 			if ((this.Const.Perks.SkippedCategories.find(categoryName) != null) || !(categoryName in _mins) || this.Const.Perks.OrderOfAssignment.find(categoryName) != null)
 			{
 				continue;
 			}
-			
+
 			assignMins(categoryName);
 		}
-		
+
 		if (!("Styles" in _localMap))
 		{
 			_localMap.Styles <- [];
 		}
-		
+
 		foreach (treeEntry in _localMap.Weapon)
 		{
 			if (this.Const.Perks.RangedWeaponTrees.Tree.find(treeEntry.Tree) != null)
@@ -683,7 +683,7 @@ gt.Const.PTR.hookLegendsPerkTreeCreationSystem <- function()
 				break;
 			}
 		}
-		
+
 		foreach (treeEntry in _localMap.Weapon)
 		{
 			if (this.Const.Perks.MeleeWeaponTrees.Tree.find(treeEntry.Tree) != null)
@@ -702,7 +702,7 @@ gt.Const.PTR.hookLegendsPerkTreeCreationSystem <- function()
 				{
 					_localMap.Styles.push({ Expertise = this.Const.Perks.Expertise.Full, Tree = this.Const.Perks.TwoHandedTree });
 				}
-				
+
 				break;
 			}
 		}
@@ -711,10 +711,10 @@ gt.Const.PTR.hookLegendsPerkTreeCreationSystem <- function()
 		{
 			foreach( treeEntry in category )
 			{
-				// local roll = this.Math.rand(1, 100) * treeEntry.Expertise;				
+				// local roll = this.Math.rand(1, 100) * treeEntry.Expertise;
 				// this.logInfo("roll is : " + roll + " and perk tree is: " + treeEntry.Tree.ID + " and expertise is : " + treeEntry.Expertise);
 				foreach( rowNumber, perksInRow in treeEntry.Tree.Tree )
-				{	
+				{
 					// if (roll > 100 - rowNumber * 10)
 					// {
 						// break;
@@ -760,20 +760,20 @@ gt.Const.PTR.hookLegendsPerkTreeCreationSystem <- function()
 	gt.Const.Perks.getWeightedRandomTreeFromCategory <- function(_categoryName, _backgroundMap, _currentMap, _assignedCategories, _exclude = null)
 	{
 		local potentialTrees = [];
-		
+
 		foreach( tree in gt.Const.Perks[_categoryName + "Trees"].Tree )
 		{
 			if (_exclude != null && _exclude.find(tree.ID) != null)
 			{
 				continue;
 			}
-			
+
 			local weight = 10;
 			if ("SelfWeightMultiplier" in tree)
 			{
 				weight *= tree.SelfWeightMultiplier;
 			}
-			
+
 			local expertise = this.Const.Perks.Expertise.Medium;
 			if ("SelfExpertiseMultiplier" in tree)
 			{
@@ -781,18 +781,18 @@ gt.Const.PTR.hookLegendsPerkTreeCreationSystem <- function()
 			}
 			potentialTrees.push( {Weight = weight, Expertise = expertise, Tree = tree} );
 		}
-		
+
 		potentialTrees = this.applyMultipliersBasedOnBackground(_backgroundMap, potentialTrees);
-		
-		potentialTrees = this.applyMultipliersBasedOnAssignedCategories(_currentMap, potentialTrees, _assignedCategories);		
-		
+
+		potentialTrees = this.applyMultipliersBasedOnAssignedCategories(_currentMap, potentialTrees, _assignedCategories);
+
 		return this.getWeightedRandomTreeFromTreeList(potentialTrees);
 	}
-	
+
 	gt.Const.Perks.applyMultipliers <- function( _multipliersList, _treeList, _multiplierType )
 	{
 		foreach (tree in _treeList)
-		{			
+		{
 			foreach (multiplier in _multipliersList)
 			{
 				if (tree.Tree.ID == multiplier.Tree.ID)
@@ -801,10 +801,10 @@ gt.Const.PTR.hookLegendsPerkTreeCreationSystem <- function()
 				}
 			}
 		}
-		
+
 		return _treeList;
 	}
-	
+
 	gt.Const.Perks.applyMultipliersBasedOnBackground <- function( _map, _treeList )
 	{
 		foreach (multiplierType in this.Const.Perks.MultiplierTypes)
@@ -815,12 +815,12 @@ gt.Const.PTR.hookLegendsPerkTreeCreationSystem <- function()
 				_treeList = this.applyMultipliers(_map[multiplierTitle], _treeList, multiplierType);
 			}
 		}
-		
+
 		return _treeList;
 	}
-	
+
 	gt.Const.Perks.applyMultipliersBasedOnAssignedCategories <- function( _map, _treeList, _assignedCategories)
-	{		
+	{
 		foreach (categoryName, treeListsInCategory in _map)
 		{
 			if (_assignedCategories.find(categoryName) != null)
@@ -828,7 +828,7 @@ gt.Const.PTR.hookLegendsPerkTreeCreationSystem <- function()
 				foreach (tree in _map[categoryName])
 				{
 					if ("WeightMultipliers" in tree.Tree)
-					{				
+					{
 						_treeList = this.applyMultipliers(tree.Tree.WeightMultipliers, _treeList, "Weight");
 					}
 					if ("ExpertiseMultipliers" in tree.Tree)
@@ -838,7 +838,7 @@ gt.Const.PTR.hookLegendsPerkTreeCreationSystem <- function()
 				}
 			}
 		}
-		
+
 		return _treeList;
 	}
 
@@ -849,20 +849,26 @@ gt.Const.PTR.hookLegendsPerkTreeCreationSystem <- function()
 		{
 			totalWeight += tree.Weight;
 		}
-		
+
 		local roll = this.Math.rand(1, totalWeight);
-		
+
 		foreach (tree in _treeList)
 		{
 			if (roll <= tree.Weight)
 			{
-				this.logInfo("Returning random tree: " + tree.Tree.ID + " with weight " + tree.Weight);
+				//this.logInfo("Returning random tree: " + tree.Tree.ID + " with weight " + tree.Weight);
 				return { Tree = tree.Tree, Expertise = tree.Expertise };
 			}
-			
+
 			roll -= tree.Weight;
 		}
-		
+
 		return { Tree = null, Expertise = null };
+	}
+
+	gt.Const.Perks.checkExpertise <- function( _expertise, _zeroBasedRow )
+	{
+		local roll = this.Math.rand(1, 100);
+		return roll > 100 - _zeroBasedRow * 10 ? false : true;
 	}
 }

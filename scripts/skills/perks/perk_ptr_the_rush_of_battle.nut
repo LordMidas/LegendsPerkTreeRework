@@ -63,7 +63,7 @@ this.perk_ptr_the_rush_of_battle <- this.inherit("scripts/skills/skill", {
 
 	function getBonus()
 	{
-		return this.Math.max(this.m.BonusMax, this.m.Stacks * this.m.BonusPerStack);
+		return this.Math.min(this.m.BonusMax, this.m.Stacks * this.m.BonusPerStack);
 	}
 
 	function onUpdate( _properties )

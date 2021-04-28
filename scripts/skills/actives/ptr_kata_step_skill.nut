@@ -6,7 +6,7 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "actives.ptr_kata_step";
 		this.m.Name = "Kata Step";
-		this.m.Description = "Use the flow of your sword\'s swings to take a step through Zone of Control without triggering attacks of opportunity.";
+		this.m.Description = "Use the flow of your sword\'s swings to take a step through Zone of Control without triggering attacks of opportunity. Can only be used immediately after a successful attack.";
 		this.m.Icon = "skills/ptr_kata_step_skill.png";
 		this.m.IconDisabled = "skills/ptr_kata_step_skill_bw.png";
 		this.m.Overlay = "ptr_kata_step_skill";
@@ -29,6 +29,23 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 		this.m.MinRange = 1;
 		this.m.MaxRange = 1;
 		this.m.MaxLevelDifference = 1;
+	}
+
+	function onAdded()
+	{
+		local actor = this.getContainer().getActor();
+		if (actor.isPlayerControlled())
+		{
+			return;
+		}
+
+		local agent = actor.getAIAgent();
+
+		if (agent.findBehavior(this.Const.AI.Behavior.ID.KataStep) == null)
+		{
+			agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_kata_step"));
+			agent.finalizeBehaviors();
+		}
 	}
 
 	function getTooltip()
@@ -77,6 +94,16 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 				type = "text",
 				icon = "ui/tooltips/warning.png",
 				text = "[color=" + this.Const.UI.Color.NegativeValue + "]Requires an empty tile adjacent to an enemy[/color]"
+			});
+		}
+
+		if(this.m.IsSpent)
+		{
+			tooltip.push({
+				id = 10,
+				type = "text",
+				icon = "ui/tooltips/warning.png",
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]Can only be used immediately after a successful attack[/color]"
 			});
 		}
 
@@ -249,7 +276,28 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 		this.m.IsSpent = false;
 	}
 
-	function onTurnStart()
+	function onUpdate( _properties )
+	{
+		if (this.getContainer().getActor().m.IsMoving)
+		{
+			this.m.IsSpent = true;
+		}
+	}
+
+	function onTargetMissed( _skill, _targetEntity )
+	{
+		if (_skill.isAttack())
+		{
+			this.m.IsSpent = true;
+		}
+	}
+
+	function onWaitTurn()
+	{
+		this.m.IsSpent = true;
+	}
+
+	function onTurnEnd()
 	{
 		this.m.IsSpent = true;
 	}
