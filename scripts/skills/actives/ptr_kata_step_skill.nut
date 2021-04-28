@@ -39,7 +39,13 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		actor.getAIAgent().addBehavior(this.new("scripts/ai/tactical/behaviors/ai_kata_step"));
+		local agent = actor.getAIAgent();
+
+		if (agent.findBehavior(this.Const.AI.Behavior.ID.KataStep) == null)
+		{
+			agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_kata_step"));
+			agent.finalizeBehaviors();
+		}
 	}
 
 	function getTooltip()
