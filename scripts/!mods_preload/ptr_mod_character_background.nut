@@ -39,12 +39,7 @@ gt.Const.PTR.hookCharacterBackground <- function()
 			]
 		};
 	};
-	::mods_hookBaseClass("skills/backgrounds/character_background", function(o) {
-		while (!("getGenericTooltip" in o))
-		{
-			o = o[o.SuperName];
-		}
-
+	::mods_hookExactClass("skills/backgrounds/character_background", function(o) {
 		o.m.PerkTreeDynamicMins = {
 			//Profession = 1,
 			Weapon = 6,
