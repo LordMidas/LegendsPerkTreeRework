@@ -2,7 +2,7 @@ local gt = this.getroottable();
 
 gt.Const.PTR.hookLegendsPerkTreeCreationSystem <- function()
 {
-	gt.Const.Perks.RandomTree <- {};
+	gt.Const.Perks.RandomTree <- {ID = "RandomTree"};
 	gt.Const.Perks.OldSystem <- function( _mins, _map )
 	{
 		local tree = [
