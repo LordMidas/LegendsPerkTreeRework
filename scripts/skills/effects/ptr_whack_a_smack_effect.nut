@@ -60,7 +60,7 @@ this.ptr_whack_a_smack_effect <- this.inherit("scripts/skills/skill", {
 
 		_properties.MeleeSkill -= this.m.MeleeSkillMalus;
 
-		if (_properties.IsSpecializedInStaffStun)
+		if (_properties.IsSpecializedInStaffStun && _skill.getID() == "actives.legend_staff_bash")
 		{
 			_properties.MeleeSkill += 10;
 		}
