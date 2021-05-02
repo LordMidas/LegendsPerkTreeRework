@@ -7,6 +7,25 @@ gt.Const.PTR.hookCharacterBackgrounds <- function()
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
+				{ Multiplier = 0.25, Tree = this.Const.Perks.OrganisedTree },
+				{ Multiplier = 0.25, Tree = this.Const.Perks.DeviousTree },
+				{ Multiplier = 0.33, Tree = this.Const.Perks.LightArmorTree },
+				{ Multiplier = 2, Tree = this.Const.Perks.PolearmTree },
+				{ Multiplier = 0, Tree = this.Const.Perks.BowTree },
+				{ Multiplier = 0.5, Tree = this.Const.Perks.CrossbowTree },
+				{ Multiplier = 0, Tree = this.Const.Perks.SlingTree }
+			],
+			Class = [
+				[{Weight = 100, Tree = this.Const.Perks.SergeantClassTree}]
+			],
+			Defense = [
+				[
+					{Weight = 50, Tree = this.Const.Perks.MediumArmorTree},
+					{Weight = 50, Tree = this.Const.Perks.HeavyArmorTree}
+				]
+			],
+			Weapon = [
+				[{Weight = 100, Tree = this.Const.Perks.SwordTree}]
 			]
 		};
 	});
@@ -16,6 +35,32 @@ gt.Const.PTR.hookCharacterBackgrounds <- function()
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
+				{ Multiplier = 5, Tree = this.Const.Perks.OrganisedTree },
+				{ Multiplier = 1.5, Tree = this.Const.Perks.ClerkClassTree }
+			],
+			Profession = [
+				[
+					{Weight = 12, Tree = this.Const.Perks.ButcherProfessionTree},
+					{Weight = 12, Tree = this.Const.Perks.BlacksmithProfessionTree},
+					{Weight = 12, Tree = this.Const.Perks.TraderProfessionTree},
+					{Weight = 12, Tree = this.Const.Perks.ApothecaryProfessionTree},
+					{Weight = 12, Tree = this.Const.Perks.LaborerProfessionTree},
+					{Weight = 12, Tree = this.Const.Perks.ServiceProfessionTree},
+					{Weight = 28, Tree = null},
+				]
+			],
+			Traits = [
+				[
+					{Weight = 75, Tree = this.Const.Perks.TalentedTree},
+					{Weight = 25, Tree = null},
+				]
+			],
+			Defense = [
+				[
+					{Weight = 33, Tree = this.Const.Perks.MediumArmorTree},
+					{Weight = 33, Tree = this.Const.Perks.HeavyArmorTree},
+					{Weight = 33, Tree = this.Const.Perks.LightArmorTree},
+				]
 			]
 		};
 	});
@@ -25,6 +70,9 @@ gt.Const.PTR.hookCharacterBackgrounds <- function()
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
+			],
+			Profession = [
+				[{Weight = 100, Tree = this.Const.Perks.AssassinProfessionTree}]
 			]
 		};
 	});
@@ -34,6 +82,9 @@ gt.Const.PTR.hookCharacterBackgrounds <- function()
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
+			],
+			Profession = [
+				[{Weight = 100, Tree = this.Const.Perks.AssassinProfessionTree}]
 			]
 		};
 	});
@@ -43,7 +94,41 @@ gt.Const.PTR.hookCharacterBackgrounds <- function()
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
-			]
+				{Multiplier = 0.25, Tree = this.Const.Perks.CalmTree},
+				{Multiplier = 0.25, Tree = this.Const.Perks.OrganisedTree},
+				{Multiplier = 3, Tree = this.Const.Perks.UnstoppableTree},
+				{Multiplier = 2, Tree = this.Const.Perks.ViciousTree},
+				{Multiplier = 0.2, Tree = this.Const.Perks.ClerkClassTree},
+				{Multiplier = 0.33, Tree = this.Const.Perks.ShieldTree},
+				{Multiplier = 2, Tree = this.Const.Perks.AxeTree},
+				{Multiplier = 2, Tree = this.Const.Perks.HammerTree},
+				{Multiplier = 2, Tree = this.Const.Perks.MaceTree},
+				{Multiplier = 2, Tree = this.Const.Perks.CleaverTree},
+				{Multiplier = 0.5, Tree = this.Const.Perks.BowTree},
+				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
+				{Multiplier = 0.33, Tree = this.Const.Perks.CrossbowTree},
+				{Multiplier = 0.5, Tree = this.Const.Perks.DaggerTree},
+				{Multiplier = 0.5, Tree = this.Const.Perks.PolearmTree},
+				{Multiplier = 0.5, Tree = this.Const.Perks.SpearTree},
+				{Multiplier = 0.25, Tree = this.Const.Perks.StavesTree}
+			],
+			Profession = [
+				[
+					{Weight = 80, Tree = this.Const.Perks.RaiderProfessionTree},
+					{Weight = 10, Tree = this.Const.Perks.HunterProfessionTree},
+					{Weight = 10, Tree = this.Const.Perks.ButcherProfessionTree}
+				]
+			],
+			Traits = [
+				[
+					{Weight = 50, Tree = this.Const.Perks.LargeTree},
+					{Weight = 50, Tree = this.Const.Perks.AgileTree}
+				],
+				[
+					{Weight = 50, Tree = this.Const.Perks.SturdyTree},
+					{Weight = 50, Tree = this.Const.Perks.FastTree}
+				]
+			],
 		};
 	});
 
