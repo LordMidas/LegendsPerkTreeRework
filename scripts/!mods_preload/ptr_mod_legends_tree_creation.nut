@@ -793,6 +793,11 @@ gt.Const.PTR.hookLegendsPerkTreeCreationSystem <- function()
 	{
 		foreach (tree in _treeList)
 		{
+			if (tree.Tree == null)
+			{
+				continue;
+			}
+
 			foreach (multiplier in _multipliersList)
 			{
 				if (tree.Tree.ID == multiplier.Tree.ID)
