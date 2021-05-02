@@ -222,6 +222,121 @@ gt.Const.PTR.createStylesTrees <- function()
 
 gt.Const.PTR.createProfessionTrees <- function()
 {
+	gt.Const.Perks.PauperProfessionTree <- {
+		ID = "PauperProfessionTree",
+		Descriptions = [
+			"is a dreg of society"
+		],
+		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
+		WeightMultipliers = [
+
+		],
+		ExpertiseMultipliers = [
+
+		],
+		Tree = [
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[]
+		]
+	};
+
+	gt.Const.Perks.LaborerProfessionTree <- {
+		ID = "LaborerProfessionTree",
+		Descriptions = [
+			"earned his bread with hard labor"
+		],
+		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
+		WeightMultipliers = [
+
+		],
+		ExpertiseMultipliers = [
+
+		],
+		Tree = [
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[]
+		]
+	};
+
+	gt.Const.Perks.ServiceProfessionTree <- {
+		ID = "ServiceProfessionTree",
+		Descriptions = [
+			"performed services"
+		],
+		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
+		WeightMultipliers = [
+
+		],
+		ExpertiseMultipliers = [
+
+		],
+		Tree = [
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[]
+		]
+	};
+
+	gt.Const.Perks.RaiderProfessionTree <- {
+		ID = "RaiderProfessionTree",
+		Descriptions = [
+			"raided villages and caravans"
+		],
+		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
+		WeightMultipliers = [
+
+		],
+		ExpertiseMultipliers = [
+
+		],
+		Tree = [
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[]
+		]
+	};
+
+	gt.Const.Perks.SoldierProfessionTree <- {
+		ID = "SoldierProfessionTree",
+		Descriptions = [
+			"served in the military"
+		],
+		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
+		WeightMultipliers = [
+
+		],
+		ExpertiseMultipliers = [
+
+		],
+		Tree = [
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[]
+		]
+	};
+
 	gt.Const.Perks.AssassinProfessionTree <- {
 		ID = "AssassinProfessionTree",
 		Descriptions = [
