@@ -2,10 +2,10 @@ local gt = this.getroottable();
 
 gt.Const.PTR <- {};
 
-local modID = "mod_PTR";
+local modID = "mod_legends_PTR";
 ::mods_registerMod(modID, 1.0, "Perk Trees Rework 0.5.1-Beta");
 
-::mods_queue(modID, "mod_legends, MSU, mod_FencerPerk", function()
+::mods_queue(modID, "mod_legends, mod_MSU, mod_fencerPerk", function()
 {
 	gt.Const.PTR.hookStrings();
 	gt.Const.PTR.hookSkill();
