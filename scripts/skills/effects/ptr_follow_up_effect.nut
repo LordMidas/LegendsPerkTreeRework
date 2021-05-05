@@ -18,31 +18,50 @@ this.ptr_follow_up_effect <- this.inherit("scripts/skills/skill", {
 
 	function getTooltip()
 	{
-		return [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			},
-			{
-				id = 10,
-				type = "text",
-				icon = "ui/icons/damage_dealt.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + (100 - this.getCurrentMalus()) + "%[/color] Damage inflicted"
-			}
-		];
+		local tooltip = this.skill.getTooltip();
+		tooltip.push(
+				{
+					id = 10,
+					type = "text",
+					icon = "ui/icons/damage_dealt.png",
+					text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + (100 - this.getCurrentMalus()) + "%[/color] Damage inflicted"
+				}
+			);
+
+		local actor = this.getContainer().getActor();
+		if (actor.isEngagedInMelee())
+		{
+			tooltip.push(
+					{
+						id = 10,
+						type = "text",
+						icon = "ui/tooltips/warning.png",
+						text = "Cannot Follow Up when when engaged in melee"
+					}
+				);
+		}
+
+		local weapon = actor.getMainhandItem();
+		if (weapon == null || weapon.getCategories().find("Polearm") == null)
+		{
+			tooltip.push(
+					{
+						id = 10,
+						type = "text",
+						icon = "ui/tooltips/warning.png",
+						text = "Can only Follow Up when using a Polearm"
+					}
+				);
+		}
+
+		return tooltip;
 	}
 
 	function canFollowUp()
 	{
 		local actor = this.getContainer().getActor();
 
-		if (!actor.hasZoneOfControl())
+		if (!actor.getCurrentProperties().IsAbleToUseWeaponSkills || !actor.hasZoneOfControl() || actor.isEngagedInMelee())
 		{
 			return false;
 		}
@@ -58,9 +77,8 @@ this.ptr_follow_up_effect <- this.inherit("scripts/skills/skill", {
 
 	function onUpdate( _properties )
 	{
-		if (this.getContainer().getActor().isEngagedInMelee())
+		if (!this.getContainer().getActor().isPlacedOnMap())
 		{
-			this.removeSelf();
 			return;
 		}
 
