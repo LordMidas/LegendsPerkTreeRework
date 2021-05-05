@@ -58,7 +58,7 @@ this.ptr_follow_up_proccer_effect <- this.inherit("scripts/skills/skill", {
 					if (!ally.isHiddenToPlayer() || _targetEntity.getTile().IsVisibleForPlayer)
 					{
 						allySkill.getContainer().setBusy(true)
-						this.Time.scheduleEvent(this.TimeUnit.Virtual, 100, function ( _skillToUse )
+						this.Time.scheduleEvent(this.TimeUnit.Virtual, 200, function ( _skillToUse )
 						{
 							if (_targetEntity.isAlive())
 							{
