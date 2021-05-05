@@ -27,7 +27,7 @@ this.perk_ptr_tempo <- this.inherit("scripts/skills/skill", {
 	{
 		return "This character has the advantage of going first in the flow of battle.";
 	}
-	
+
 	function getTooltip()
 	{
 		local tooltip = this.skill.getTooltip();
@@ -47,10 +47,15 @@ this.perk_ptr_tempo <- this.inherit("scripts/skills/skill", {
 		return this.m.Stacks * this.m.BonusInitiative;
 	}
 
-	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
+	function gainStackIfApplicable(_skill, _targetEntity)
 	{
 		local actor = this.getContainer().getActor();
 		if (!_skill.isAttack() || this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
+		{
+			return;
+		}
+
+		if (_targetEntity.isTurnDone() || _targetEntity.isTurnStarted())
 		{
 			return;
 		}
@@ -66,23 +71,14 @@ this.perk_ptr_tempo <- this.inherit("scripts/skills/skill", {
 		this.m.Stacks++;
 	}
 
+	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
+	{
+		gainStackIfApplicable(_skill, _targetEntity);
+	}
+
 	function onTargetMissed( _skill, _targetEntity )
 	{
-		local actor = this.getContainer().getActor();
-		if (!_skill.isAttack() || this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
-		{
-			return;
-		}
-
-		if (this.m.SkillCount == this.Const.SkillCounter && this.m.LastTargetID == _targetEntity.getID())
-		{
-			return;
-		}
-
-		this.m.SkillCount = this.Const.SkillCounter;
-		this.m.LastTargetID = _targetEntity.getID();
-
-		this.m.Stacks++;
+		gainStackIfApplicable(_skill, _targetEntity);
 	}
 
 	function onUpdate( _properties )
@@ -104,8 +100,8 @@ this.perk_ptr_tempo <- this.inherit("scripts/skills/skill", {
 
 	function onCombatFinished()
 	{
-		this.m.Stacks = 0;
 		this.skill.onCombatFinished();
+		this.m.Stacks = 0;
 		this.m.SkillCount = 0;
 		this.m.LastTargetID = 0;
 	}
