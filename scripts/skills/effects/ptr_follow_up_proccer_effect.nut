@@ -54,7 +54,6 @@ this.ptr_follow_up_proccer_effect <- this.inherit("scripts/skills/skill", {
 				local attack = allySkill.getContainer().getAttackOfOpportunity();
 				if (attack != null)
 				{
-					//this.logInfo("ally is " + ally.getName() + " and his skill is " + allySkill.getID() + " and attack is " + attack.getID());
 					if (!ally.isHiddenToPlayer() || _targetEntity.getTile().IsVisibleForPlayer)
 					{
 						allySkill.getContainer().setBusy(true)
@@ -62,7 +61,6 @@ this.ptr_follow_up_proccer_effect <- this.inherit("scripts/skills/skill", {
 						{
 							if (_targetEntity.isAlive())
 							{
-								//_skillToUse.attackEntity(_skillToUse.getContainer().getActor(), _targetEntity);
 								_skillToUse.useForFree(_targetEntity.getTile());
 								allySkill.m.ProcCount++;
 							}
@@ -73,7 +71,6 @@ this.ptr_follow_up_proccer_effect <- this.inherit("scripts/skills/skill", {
 					{
 						if (_targetEntity.isAlive())
 						{
-							//attack.attackEntity(attack.getContainer().getActor(), _targetEntity);
 							attack.useForFree(_targetEntity.getTile());
 							allySkill.m.ProcCount++;
 						}
