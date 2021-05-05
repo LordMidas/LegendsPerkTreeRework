@@ -14,7 +14,7 @@ this.ptr_hip_shooter_effect <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 		this.m.IsRemovedAfterBattle = true;
 	}
-	
+
 	function getTooltip()
 	{
 		return [
@@ -31,12 +31,12 @@ this.ptr_hip_shooter_effect <- this.inherit("scripts/skills/skill", {
 			{
 				id = 10,
 				type = "text",
-				icon = "ui/icons/special.png",
-				text = "The Action Point cost of Quick Shot is reduced for the remainder of this turn."
-			}			
+				icon = "ui/icons/action_points.png",
+				text = "The Action Point cost of Quick Shot is reduced for the remainder of this turn"
+			}
 		];
 	}
-	
+
 	function isHidden()
 	{
 		local skill = this.getContainer().getSkillByID("actives.quick_shot");
@@ -44,8 +44,7 @@ this.ptr_hip_shooter_effect <- this.inherit("scripts/skills/skill", {
 		{
 			return true;
 		}
-		
+
 		return false;
 	}
 });
-
