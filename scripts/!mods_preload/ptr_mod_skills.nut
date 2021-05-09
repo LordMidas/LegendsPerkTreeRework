@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.PTR.hookSkills <- function()
+gt.Const.PTR.modSkills <- function()
 {
 	::mods_hookNewObject("skills/actives/aimed_shot", function(o) {
 		o.m.FieldsChangedByFlamingArrows <- false;

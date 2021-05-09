@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.PTR.hookCharacterBackgrounds <- function()
+gt.Const.PTR.modCharacterBackgrounds <- function()
 {
 	::mods_hookNewObject("skills/backgrounds/adventurous_noble_background", function(o) {
 		o.m.PerkTreeDynamic = {

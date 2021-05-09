@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.PTR.hookStrings <- function()
+gt.Const.PTR.modStrings <- function()
 {
 	gt.Const.Strings.PerkName.PTRDismemberment <- "Dismemberment";
 	gt.Const.Strings.PerkDescription.PTRDismemberment <- "Cutting attacks have a [color=" + this.Const.UI.Color.NegativeValue + "]15%[/color] lower damage threshold to inflict injuries. Cutting attacks can now inflict injuries on Undead.\n[color=#0b0084]From the Axe perk group[/color]";
