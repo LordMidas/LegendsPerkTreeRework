@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.PTR.hookWeapons <- function()
+gt.Const.PTR.modWeapons <- function()
 {
 	::mods_hookNewObject("items/weapons/legend_staff", function(o) {
 		local oldonEquip = o.onEquip;

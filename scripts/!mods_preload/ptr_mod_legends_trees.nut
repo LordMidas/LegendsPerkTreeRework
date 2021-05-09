@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.PTR.hookLegendsEnemyTrees <- function()
+gt.Const.PTR.modLegendsEnemyTrees <- function()
 {
 	while (this.Const.Perks.BeastsTree.Tree.len() < 7)
 	{
@@ -110,7 +110,7 @@ gt.Const.PTR.hookLegendsEnemyTrees <- function()
 	];
 }
 
-gt.Const.PTR.hookTraitsTrees <- function()
+gt.Const.PTR.modTraitsTrees <- function()
 {
 	local emptyArray = [];
 	while (this.Const.Perks.AgileTree.Tree.len() < 7)
@@ -282,7 +282,7 @@ gt.Const.PTR.hookTraitsTrees <- function()
 	}
 }
 
-gt.Const.PTR.hookClassTrees <- function()
+gt.Const.PTR.modClassTrees <- function()
 {
 	local emptyArray = [];
 
@@ -490,7 +490,7 @@ gt.Const.PTR.hookClassTrees <- function()
 	}
 }
 
-gt.Const.PTR.hookWeaponTrees <- function()
+gt.Const.PTR.modWeaponTrees <- function()
 {
 	local emptyArray = [];
 	while (this.Const.Perks.AxeTree.Tree.len() < 7)

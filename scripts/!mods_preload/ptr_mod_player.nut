@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.PTR.hookPlayer <- function()
+gt.Const.PTR.modPlayer <- function()
 {
 	::mods_hookClass("entity/tactical/player", function(o) {
 		::mods_override(o, "updateLevel", function()

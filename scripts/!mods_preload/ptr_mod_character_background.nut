@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.PTR.hookCharacterBackground <- function()
+gt.Const.PTR.modCharacterBackground <- function()
 {
 	this.Const.Perks.TraitsTrees.getBaseAttributes = function()
 	{

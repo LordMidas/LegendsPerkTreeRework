@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.PTR.hookSkill <- function()
+gt.Const.PTR.modSkill <- function()
 {
 	::mods_hookRootClass("skills/skill", function(o) {
 		local oldgetHitFactors = ::mods_getMember(o, "getHitFactors");
