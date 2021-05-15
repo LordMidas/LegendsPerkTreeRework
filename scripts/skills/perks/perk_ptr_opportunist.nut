@@ -16,62 +16,65 @@ this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
 	function isInEffect()
-	{		
+	{
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		
+
 		if (weapon == null || weapon.getCategories().find("Throwing Weapon") == null)
 		{
 			return false;
 		}
-		
+
 		return true;
 	}
-	
+
 	function onUpdate( _properties )
 	{
 		if (!this.m.IsCombatStarted)
 		{
 			return;
 		}
-		
+
 		local actor = this.getContainer().getActor();
-		
+
 		if (actor.m.IsMoving)
 		{
 			local tile = actor.getTile();
-			
-			if (tile == null || !tile.IsCorpseSpawned || this.m.UsedTiles.find(tile) != null)
+
+			if (tile == null || !tile.IsCorpseSpawned || this.m.UsedTiles.find(tile.ID) != null)
 			{
 				return;
 			}
-			
+
 			if (actor.getAlliedFactions().find(tile.Properties.get("Corpse").Faction) != null)
 			{
 				return;
 			}
-			
+
 			local weapon = actor.getMainhandItem();
-			
+
 			if (weapon == null || weapon.getCategories().find("Throwing Weapon") == null)
 			{
 				return;
 			}
+
 			weapon.setAmmo(this.Math.min(weapon.m.AmmoMax, weapon.m.Ammo + 1));
-			this.m.UsedTiles.push(tile);
-			actor.setActionPoints(this.Math.min(actor.getActionPointsMax(), actor.getActionPoints() + 4));			
+
+			actor.setActionPoints(this.Math.min(actor.getActionPointsMax(), actor.getActionPoints() + 4));
 			actor.setDirty(true);
-			this.spawnIcon("perk_ptr_opportunist", this.m.Container.getActor().getTile());
+			this.spawnIcon("perk_ptr_opportunist", tile);
+
+			this.m.UsedTiles.push(tile.ID);
 		}
 	}
-	
+
 	function onCombatStarted()
 	{
 		this.m.IsCombatStarted = true;
-		this.m.UsedTiles.clear();		
+		this.m.UsedTiles.clear();
 	}
-	
+
 	function onCombatFinished()
 	{
 		this.skill.onCombatFinished();
@@ -79,4 +82,3 @@ this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 		this.m.UsedTiles.clear();
 	}
 });
-
