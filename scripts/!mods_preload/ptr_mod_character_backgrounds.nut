@@ -471,18 +471,19 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 0.5, Tree = this.Const.Perks.SpearTree}
 			],
 			Profession = [
-			[
-				{Weight = 6, Tree = this.Const.Perks.MilitiaProfessionTree},
-				{Weight = 6, Tree = this.Const.Perks.ButcherProfessionTree},
-				{Weight = 6, Tree = this.Const.Perks.BlacksmithProfessionTree},
-				{Weight = 6, Tree = this.Const.Perks.MinerProfessionTree},
-				{Weight = 6, Tree = this.Const.Perks.FarmerProfessionTree},
-				{Weight = 6, Tree = this.Const.Perks.DiggerProfessionTree},
-				{Weight = 6, Tree = this.Const.Perks.LumberjackProfessionTree},
-				{Weight = 6, Tree = this.Const.Perks.LaborerProfessionTree},
-				{Weight = 6, Tree = this.Const.Perks.SoldierProfessionTree},
-				{Weight = 1, Tree = this.Const.Perks.JugglerProfessionTree},
-				{Weight = 43, Tree = this.Const.Perks.NoTree},
+				[
+					{Weight = 6, Tree = this.Const.Perks.MilitiaProfessionTree},
+					{Weight = 6, Tree = this.Const.Perks.ButcherProfessionTree},
+					{Weight = 6, Tree = this.Const.Perks.BlacksmithProfessionTree},
+					{Weight = 6, Tree = this.Const.Perks.MinerProfessionTree},
+					{Weight = 6, Tree = this.Const.Perks.FarmerProfessionTree},
+					{Weight = 6, Tree = this.Const.Perks.DiggerProfessionTree},
+					{Weight = 6, Tree = this.Const.Perks.LumberjackProfessionTree},
+					{Weight = 6, Tree = this.Const.Perks.LaborerProfessionTree},
+					{Weight = 6, Tree = this.Const.Perks.SoldierProfessionTree},
+					{Weight = 1, Tree = this.Const.Perks.JugglerProfessionTree},
+					{Weight = 43, Tree = this.Const.Perks.NoTree}
+				]
 			],
 			Defense = [
 				[{Weight = 100, Tree = this.Const.Perks.HeavyArmorTree}]
@@ -513,18 +514,19 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 0.5, Tree = this.Const.Perks.SpearTree}
 			],
 			Profession = [
-			[
-				{Weight = 6, Tree = this.Const.Perks.MilitiaProfessionTree},
-				{Weight = 6, Tree = this.Const.Perks.ButcherProfessionTree},
-				{Weight = 6, Tree = this.Const.Perks.BlacksmithProfessionTree},
-				{Weight = 6, Tree = this.Const.Perks.MinerProfessionTree},
-				{Weight = 6, Tree = this.Const.Perks.FarmerProfessionTree},
-				{Weight = 6, Tree = this.Const.Perks.DiggerProfessionTree},
-				{Weight = 6, Tree = this.Const.Perks.LumberjackProfessionTree},
-				{Weight = 6, Tree = this.Const.Perks.LaborerProfessionTree},
-				{Weight = 6, Tree = this.Const.Perks.SoldierProfessionTree},
-				{Weight = 1, Tree = this.Const.Perks.JugglerProfessionTree},
-				{Weight = 43, Tree = this.Const.Perks.NoTree}
+				[
+					{Weight = 6, Tree = this.Const.Perks.MilitiaProfessionTree},
+					{Weight = 6, Tree = this.Const.Perks.ButcherProfessionTree},
+					{Weight = 6, Tree = this.Const.Perks.BlacksmithProfessionTree},
+					{Weight = 6, Tree = this.Const.Perks.MinerProfessionTree},
+					{Weight = 6, Tree = this.Const.Perks.FarmerProfessionTree},
+					{Weight = 6, Tree = this.Const.Perks.DiggerProfessionTree},
+					{Weight = 6, Tree = this.Const.Perks.LumberjackProfessionTree},
+					{Weight = 6, Tree = this.Const.Perks.LaborerProfessionTree},
+					{Weight = 6, Tree = this.Const.Perks.SoldierProfessionTree},
+					{Weight = 1, Tree = this.Const.Perks.JugglerProfessionTree},
+					{Weight = 43, Tree = this.Const.Perks.NoTree}
+				]
 			],
 			Defense = [
 				[{Weight = 100, Tree = this.Const.Perks.HeavyArmorTree}]
@@ -1581,7 +1583,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				[{Weight = 100, Tree = this.Const.Perks.SoldierProfessionTree}]
 			],
 			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.TrainedTrees}]
+				[{Weight = 100, Tree = this.Const.Perks.TrainedTree}]
 			],
 		};
 	});
