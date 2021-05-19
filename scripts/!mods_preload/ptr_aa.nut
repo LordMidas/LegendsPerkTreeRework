@@ -23,8 +23,8 @@ local modID = "mod_legends_PTR";
 	gt.Const.PTR.modClassTrees();
 	gt.Const.PTR.modLegendsEnemyTrees();
 
-	gt.Const.PTR.createProfessionTrees();
 	gt.Const.PTR.createStylesTrees();
+	gt.Const.PTR.createProfessionTrees();
 
 	gt.Const.PTR.modCharacterBackground();
 	gt.Const.PTR.modCharacterBackgrounds();
