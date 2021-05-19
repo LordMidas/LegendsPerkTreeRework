@@ -52,13 +52,13 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 					{Weight = 12, Tree = this.Const.Perks.ApothecaryProfessionTree},
 					{Weight = 12, Tree = this.Const.Perks.LaborerProfessionTree},
 					{Weight = 12, Tree = this.Const.Perks.ServiceProfessionTree},
-					{Weight = 28, Tree = null},
+					{Weight = 28, Tree = this.Const.Perks.NoTree},
 				]
 			],
 			Traits = [
 				[
 					{Weight = 75, Tree = this.Const.Perks.TalentedTree},
-					{Weight = 25, Tree = null},
+					{Weight = 25, Tree = this.Const.Perks.NoTree},
 				]
 			],
 			Defense = [
@@ -183,7 +183,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			],
 			Profession = [
 				[
-					{Weight = 90, Tree = null},
+					{Weight = 90, Tree = this.Const.Perks.NoTree},
 					{Weight = 10, Tree = this.Const.Perks.RandomTree}
 				]
 			],
@@ -269,7 +269,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			],
 			Class = [
 				[
-					{Weight = 50, Tree = null},
+					{Weight = 50, Tree = this.Const.Perks.NoTree},
 					{Weight = 50, Tree = this.Const.Perks.MenderClassTree}
 				]
 			],
@@ -390,7 +390,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 					{Weight = 6, Tree = this.Const.Perks.LaborerProfessionTree},
 					{Weight = 6, Tree = this.Const.Perks.SoldierProfessionTree},
 					{Weight = 1, Tree = this.Const.Perks.JugglerProfessionTree},
-					{Weight = 43, Tree = null},
+					{Weight = 43, Tree = this.Const.Perks.NoTree},
 				]
 			],
 			Weapon = [
@@ -436,7 +436,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 					{Weight = 6, Tree = this.Const.Perks.LaborerProfessionTree},
 					{Weight = 6, Tree = this.Const.Perks.SoldierProfessionTree},
 					{Weight = 1, Tree = this.Const.Perks.JugglerProfessionTree},
-					{Weight = 43, Tree = null},
+					{Weight = 43, Tree = this.Const.Perks.NoTree},
 				]
 			],
 			Weapon = [
@@ -482,7 +482,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Weight = 6, Tree = this.Const.Perks.LaborerProfessionTree},
 				{Weight = 6, Tree = this.Const.Perks.SoldierProfessionTree},
 				{Weight = 1, Tree = this.Const.Perks.JugglerProfessionTree},
-				{Weight = 43, Tree = null},
+				{Weight = 43, Tree = this.Const.Perks.NoTree},
 			],
 			Defense = [
 				[{Weight = 100, Tree = this.Const.Perks.HeavyArmorTree}]
@@ -524,7 +524,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Weight = 6, Tree = this.Const.Perks.LaborerProfessionTree},
 				{Weight = 6, Tree = this.Const.Perks.SoldierProfessionTree},
 				{Weight = 1, Tree = this.Const.Perks.JugglerProfessionTree},
-				{Weight = 43, Tree = null},
+				{Weight = 43, Tree = this.Const.Perks.NoTree},
 			],
 			Defense = [
 				[{Weight = 100, Tree = this.Const.Perks.HeavyArmorTree}]
@@ -844,7 +844,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 					{Weight = 6, Tree = this.Const.Perks.SoldierProfessionTree},
 					{Weight = 37, Tree = this.Const.Perks.ServiceProfessionTree},
 					{Weight = 1, Tree = this.Const.Perks.JugglerProfessionTree},
-					{Weight = 6, Tree = null}
+					{Weight = 6, Tree = this.Const.Perks.NoTree}
 				]
 			]
 		};
@@ -871,7 +871,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 					{Weight = 6, Tree = this.Const.Perks.SoldierProfessionTree},
 					{Weight = 37, Tree = this.Const.Perks.ServiceProfessionTree},
 					{Weight = 1, Tree = this.Const.Perks.JugglerProfessionTree},
-					{Weight = 6, Tree = null}
+					{Weight = 6, Tree = this.Const.Perks.NoTree}
 				]
 			]
 		};
@@ -971,7 +971,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			],
 			Class = [
 				[
-					{Weight = 50, Tree = null},
+					{Weight = 50, Tree = this.Const.Perks.NoTree},
 					{Weight = 50, Tree = this.Const.Perks.MenderClassTree}
 				]
 			],
@@ -1225,7 +1225,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 					{Weight = 30, Tree = this.Const.Perks.ButcherProfessionTree},
 					{Weight = 30, Tree = this.Const.Perks.LaborerProfessionTree},
 					{Weight = 10, Tree = this.Const.Perks.TraderProfessionTree},
-					{Weight = 30, Tree = null}
+					{Weight = 30, Tree = this.Const.Perks.NoTree}
 				]
 			],
 			Class = [
@@ -1252,7 +1252,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 					{Weight = 30, Tree = this.Const.Perks.ButcherProfessionTree},
 					{Weight = 30, Tree = this.Const.Perks.LaborerProfessionTree},
 					{Weight = 10, Tree = this.Const.Perks.TraderProfessionTree},
-					{Weight = 30, Tree = null}
+					{Weight = 30, Tree = this.Const.Perks.NoTree}
 				]
 			],
 			Class = [
@@ -1556,7 +1556,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 					{Weight = 0.25, Tree = this.Const.Perks.MinstrelProfessionTree},
 					{Weight = 0.25, Tree = this.Const.Perks.AssassinProfessionTree},
 					{Weight = 0.25, Tree = this.Const.Perks.ApothecaryProfessionTree},
-					{Weight = 39, Tree = null}
+					{Weight = 39, Tree = this.Const.Perks.NoTree}
 				]
 			]
 		};
@@ -2727,7 +2727,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				[
 					{Weight = 60, Tree = this.Const.Perks.SoldierProfessionTree},
 					{Weight = 25, Tree = this.Const.Perks.RaiderProfessionTree},
-					{Weight = 15, Tree = null}
+					{Weight = 15, Tree = this.Const.Perks.NoTree}
 				]
 			],
 			Styles = [
@@ -3058,7 +3058,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			Profession = [
 				[
 					{Weight = 25, Tree = this.Const.Perks.HolyManProfessionTree},
-					{Weight = 75, Tree = null},
+					{Weight = 75, Tree = this.Const.Perks.NoTree},
 				]
 			],
 			Class = [
