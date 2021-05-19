@@ -2926,6 +2926,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 1.5, Tree = this.Const.Perks.AgileTree},
 				{Multiplier = 1.25, Tree = this.Const.Perks.TalentedTree},
 				{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},
+				{Multiplier = 2, Tree = this.Const.Perks.OneHandedTree},
 				{Multiplier = 3, Tree = this.Const.Perks.DaggerTree}
 			],
 			Traits = [
@@ -2949,6 +2950,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 1.5, Tree = this.Const.Perks.AgileTree},
 				{Multiplier = 1.25, Tree = this.Const.Perks.TalentedTree},
 				{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},
+				{Multiplier = 2, Tree = this.Const.Perks.OneHandedTree},
 				{Multiplier = 3, Tree = this.Const.Perks.DaggerTree}
 			],
 			Traits = [
