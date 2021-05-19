@@ -50,7 +50,8 @@ gt.Const.PTR.modCharacterBackground <- function()
 			Class = 1,
 			ClassChance = 0.01,
 			Magic = 1,
-			MagicChance = 0
+			MagicChance = 0,
+			Styles = 2
 		};
 		o.m.PerkTreeDynamicMinsMagic = {
 			//Profession = 1,
@@ -62,7 +63,8 @@ gt.Const.PTR.modCharacterBackground <- function()
 			Class = 1,
 			ClassChance = 0.01,
 			Magic = 1,
-			MagicChance = 0.001
+			MagicChance = 0.001,
+			Styles = 2
 		};
 		o.m.PerkTreeDynamicMinsBeast = {
 			//Profession = 1,
@@ -74,7 +76,8 @@ gt.Const.PTR.modCharacterBackground <- function()
 			Class = 1,
 			ClassChance = 0.02,
 			Magic = 1,
-			MagicChance = 0.001
+			MagicChance = 0.001,
+			Styles = 2
 		};
 	});
 }
