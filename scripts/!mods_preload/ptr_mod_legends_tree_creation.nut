@@ -689,18 +689,13 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 		local hasMeleeWeaponTree = false;
 		foreach (treeEntry in _localMap.Weapon)
 		{
-			if (this.Const.Perks.RangedWeaponTrees.Tree.find(treeEntry.Tree) != null)
+			if (!hasRangedWeaponTree && this.Const.Perks.RangedWeaponTrees.Tree.find(treeEntry.Tree) != null)
 			{
 				hasRangedWeaponTree = true;
 			}
-			if (this.Const.Perks.MeleeWeaponTrees.Tree.find(treeEntry.Tree) != null)
+			if (!hasMeleeWeaponTree && this.Const.Perks.MeleeWeaponTrees.Tree.find(treeEntry.Tree) != null)
 			{
 				hasMeleeWeaponTree = true;
-			}
-
-			if (hasRangedWeaponTree && hasMeleeWeaponTree)
-			{
-				break;
 			}
 		}
 
