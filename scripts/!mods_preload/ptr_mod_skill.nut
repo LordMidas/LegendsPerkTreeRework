@@ -2,7 +2,9 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modSkill <- function()
 {
-	::mods_hookRootClass("skills/skill", function(o) {
+	::mods_hookBaseClass("skills/skill", function(o) {
+		o = o[o.SuperName];
+		
 		local oldgetHitFactors = ::mods_getMember(o, "getHitFactors");
 		::mods_override(o, "getHitFactors", function(_targetTile)
 		{
