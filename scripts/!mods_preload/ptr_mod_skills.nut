@@ -29,6 +29,82 @@ gt.Const.PTR.modSkills <- function()
 			}
 		}
 
+		local oldonUse = o.onUse;
+		o.onUse = function( _user, _targetTile )
+		{
+			local ret = oldOnUse(_user, _targetTile);
+
+			if (ret)
+			{
+				this.Time.scheduleEvent(this.TimeUnit.Real, 250, this.onApply.bindenv(this), {
+					Skill = this,
+					User = _user,
+					TargetTile = _targetTile
+				});
+			}
+
+			return ret;
+		}
+
+		o.onApply <- function ( _data )
+		{
+			local targets = [];
+			targets.push(_data.TargetTile);
+
+			this.Sound.play(this.m.SoundOnHit[this.Math.rand(0, this.m.SoundOnHit.len() - 1)], 1.0, _data.TargetTile.Pos);
+			local p = {
+				Type = "fire",
+				Tooltip = "Fire rages here, melting armor and flesh alike",
+				IsPositive = false,
+				IsAppliedAtRoundStart = false,
+				IsAppliedAtTurnEnd = true,
+				IsAppliedOnMovement = false,
+				IsAppliedOnEnter = false,
+				IsByPlayer = _data.User.isPlayerControlled(),
+				Timeout = this.Time.getRound() + 1,
+				Callback = this.Const.Tactical.Common.onApplyFire,
+				function Applicable( _a )
+				{
+					return true;
+				}
+			};
+
+			foreach( tile in targets )
+			{
+				if (tile.Subtype != this.Const.Tactical.TerrainSubtype.Snow && tile.Subtype != this.Const.Tactical.TerrainSubtype.LightSnow && tile.Type != this.Const.Tactical.TerrainType.ShallowWater && tile.Type != this.Const.Tactical.TerrainType.DeepWater)
+				{
+					if (tile.Properties.Effect != null && tile.Properties.Effect.Type == "fire")
+					{
+						tile.Properties.Effect.Timeout = this.Time.getRound() + 2;
+					}
+					else
+					{
+						if (tile.Properties.Effect != null)
+						{
+							this.Tactical.Entities.removeTileEffect(tile);
+						}
+
+						tile.Properties.Effect = clone p;
+						local particles = [];
+
+						for( local i = 0; i < this.Const.Tactical.FireParticles.len(); i = ++i )
+						{
+							particles.push(this.Tactical.spawnParticleEffect(true, this.Const.Tactical.FireParticles[i].Brushes, tile, this.Const.Tactical.FireParticles[i].Delay, this.Const.Tactical.FireParticles[i].Quantity, this.Const.Tactical.FireParticles[i].LifeTimeQuantity, this.Const.Tactical.FireParticles[i].SpawnRate, this.Const.Tactical.FireParticles[i].Stages));
+						}
+
+						this.Tactical.Entities.addTileEffect(tile, tile.Properties.Effect, particles);
+						tile.clear(this.Const.Tactical.DetailFlag.Scorchmark);
+						tile.spawnDetail("impact_decal", this.Const.Tactical.DetailFlag.Scorchmark, false, true);
+					}
+				}
+
+				if (tile.IsOccupiedByActor)
+				{
+					this.Const.Tactical.Common.onApplyFire(tile, tile.getEntity());
+				}
+			}
+		}
+
 		local oldonTargetHit = o.onTargetHit;
 		o.onTargetHit = function( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 		{
