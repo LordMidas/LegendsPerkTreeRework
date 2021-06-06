@@ -1,5 +1,7 @@
 this.perk_ptr_deep_impact <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		ArmorEffectivenessMult = 0.25
+	},
 	function create()
 	{
 		this.m.ID = "perk.ptr_deep_impact";
@@ -19,14 +21,13 @@ this.perk_ptr_deep_impact <- this.inherit("scripts/skills/skill", {
 		{
 			return;
 		}
-		
+
 		local weapon = this.getContainer().getActor().getMainhandItem();
 		if (weapon == null)
 		{
 			return;
 		}
-		
-		_properties.ThresholdToInflictInjuryMult *= 1.0 - (0.1 * weapon.getArmorDamageMult());
+
+		_properties.ThresholdToInflictInjuryMult *= 1.0 - (this.m.ArmorEffectivenessMult * weapon.getArmorDamageMult());
 	}
 });
-
