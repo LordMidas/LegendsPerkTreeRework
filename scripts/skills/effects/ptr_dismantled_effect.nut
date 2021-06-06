@@ -1,6 +1,6 @@
 this.ptr_dismantled_effect <- this.inherit("scripts/skills/skill", {
 	m = {
-		DamageIncrease = 10,
+		DamageIncrease = 15,
 		BodyHitCount = 0,
 		HeadHitCount = 0
 	},
@@ -8,7 +8,7 @@ this.ptr_dismantled_effect <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "effects.ptr_dismantled";
 		this.m.Name = "Dismantled Armor";
-		this.m.Description = "This character\'s armor is falling apart, taking increased damage for the remainder of the combat.";
+		this.m.Description = "This character\'s armor is falling apart, causing increaesd damage to go through armor for the remainder of the combat.";
 		this.m.Icon = "skills/ptr_dismantled_effect.png";
 		//this.m.IconMini = "ptr_dismantled_effect_mini";
 		this.m.Overlay = "ptr_dismantled_effect";
@@ -44,27 +44,27 @@ this.ptr_dismantled_effect <- this.inherit("scripts/skills/skill", {
 				text = this.getDescription()
 			}
 		];
-		
+
+		if (this.m.HeadHitCount > 0)
+		{
+			tooltip.push({
+				id = 10,
+				type = "text",
+				icon = "ui/icons/direct_damage.png",
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + (this.m.BodyHitCount * this.m.DamageIncrease) + "%[/color] Damage Received through Head Armor"
+			});
+		}
+
 		if (this.m.BodyHitCount > 0)
 		{
 			tooltip.push({
 				id = 10,
 				type = "text",
-				icon = "ui/icons/armor_damage.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + (this.m.BodyHitCount * this.m.DamageIncrease) + "%[/color] Body Armor Damage received"
+				icon = "ui/icons/direct_damage.png",
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + (this.m.HeadHitCount * this.m.DamageIncrease) + "%[/color] Damage Received through Body Armor"
 			});
 		}
-		
-		if (this.m.BodyHitCount > 0)
-		{
-			tooltip.push({
-				id = 10,
-				type = "text",
-				icon = "ui/icons/armor_damage.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + (this.m.HeadHitCount * this.m.DamageIncrease) + "%[/color] Head Armor Damage received"
-			});
-		}
-		
+
 		return tooltip;
 	}
 
@@ -79,9 +79,9 @@ this.ptr_dismantled_effect <- this.inherit("scripts/skills/skill", {
 		{
 			return;
 		}
-		
+
 		local count = 0;
-		
+
 		if (__hitInfo.BodyPart == this.Const.BodyPart.Body)
 		{
 			count = this.m.BodyHitCount;
@@ -90,8 +90,7 @@ this.ptr_dismantled_effect <- this.inherit("scripts/skills/skill", {
 		{
 			count = this.m.HeadHitCount;
 		}
-		
-		_properties.DamageReceivedArmorMult *= 1.0 + (count * this.m.DamageIncrease * 0.01);
+
+		_properties.DamageReceivedDirectMult *= 1.0 + (count * this.m.DamageIncrease * 0.01);
 	}
 });
-
