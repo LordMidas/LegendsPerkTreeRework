@@ -14,7 +14,7 @@ gt.Const.PTR.modSkills <- function()
 				_properties.ThreatOnHit += this.Math.min(20, this.Math.max(0, _properties.getRangedSkill() * 0.2));
 				if (this.m.FieldsChangedByFlamingArrows == false)
 				{
-					this.m.Description = "A focused and carefully aimed shot with a good outlook of hitting its intended target even at a distance. Can additionally cause burning injuries and will always trigger a morale check for the enemy upon a successful hit. Can not be used while engaged in melee.";
+					this.m.Description = "A focused and carefully aimed shot with a good outlook of hitting its intended target even at a distance. On a successful hit, will light the target tile on fire and trigger a morale check for the target. Can not be used while engaged in melee.";
 					this.m.InjuriesOnBody = this.Const.Injury.BurningAndPiercingBody;
 					this.m.InjuriesOnHead = this.Const.Injury.BurningAndPiercingHead;
 					this.m.FieldsChangedByFlamingArrows = true;
