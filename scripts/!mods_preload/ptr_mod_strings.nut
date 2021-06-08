@@ -146,7 +146,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRHybridization <- "Hybridization";
 	gt.Const.Strings.PerkDescription.PTRHybridization <- "Gain [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of your Base Melee Skill as Ranged Skill and [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of your Base Ranged Skill as Melee Skill.\n[color=#0b0084]From the Throwing perk group[/color]";
 	gt.Const.Strings.PerkName.PTRMomentum <- "Momentum";
-	gt.Const.Strings.PerkDescription.PTRMomentum <- "Requires Throwing Weapon. Throwing weapons do [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] damage per tile moved before throwing.\n[color=#0b0084]From the Throwing perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRMomentum <- "Requires Throwing Weapon. Throwing weapons do [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] damage per tile moved towards the target before throwing.\n[color=#0b0084]From the Throwing perk group[/color]";
 	gt.Const.Strings.PerkName.PTROpportunist <- "Opportunist";
 	gt.Const.Strings.PerkDescription.PTROpportunist <- "The first time you stand over an enemy's corpse, gain [color=" + this.Const.UI.Color.PositiveValue + "]1[/color] ammo and restore [color=" + this.Const.UI.Color.PositiveValue + "]4[/color] Action Points.\n[color=#0b0084]From the Throwing perk group[/color]";
 	gt.Const.Strings.PerkName.PTRNailedIt <- "Nailed It";
