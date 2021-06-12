@@ -21,4 +21,9 @@ this.perk_ptr_ranged_supremacy <- this.inherit("scripts/skills/skill", {
 		}
 		_properties.RangedSkill += 10;
 	}
+
+	function onUpdate(_properties)
+	{
+		_properties.Vision += 1;		
+	}
 });
