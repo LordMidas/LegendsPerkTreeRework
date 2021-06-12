@@ -1,6 +1,6 @@
 this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 	m = {
-		ThurstSkill = null,
+		ThrustSkill = null,
 		DamageReductionPercentage = 50
 	},
 	function create()
