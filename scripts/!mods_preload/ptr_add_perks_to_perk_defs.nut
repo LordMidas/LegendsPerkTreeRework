@@ -724,6 +724,33 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_rising_star.png",
 			IconDisabled = "ui/perks/ptr_rising_star_bw.png",
 			Const = "PTRRisingStar"
+		},
+		{
+			ID = "perk.ptr_target_practice",
+			Script = "scripts/skills/perks/perk_ptr_target_practice",
+			Name = this.Const.Strings.PerkName.PTRRisingStar,
+			Tooltip = this.Const.Strings.PerkDescription.PTRRisingStar,
+			Icon = "ui/perks/ptr_target_practice.png",
+			IconDisabled = "ui/perks/ptr_target_practice_bw.png",
+			Const = "PTRTargetPractice"
+		},
+		{
+			ID = "perk.ptr_swordlike",
+			Script = "scripts/skills/perks/perk_ptr_swordlike",
+			Name = this.Const.Strings.PerkName.PTRSwordlike,
+			Tooltip = this.Const.Strings.PerkDescription.PTRSwordlike,
+			Icon = "ui/perks/ptr_swordlike.png",
+			IconDisabled = "ui/perks/ptr_swordlike_bw.png",
+			Const = "PTRSwordlike"
+		},
+		{
+			ID = "perk.ptr_sanguinary",
+			Script = "scripts/skills/perks/perk_ptr_sanguinary",
+			Name = this.Const.Strings.PerkName.PTRSanguinary,
+			Tooltip = this.Const.Strings.PerkDescription.PTRSanguinary,
+			Icon = "ui/perks/ptr_sanguinary.png",
+			IconDisabled = "ui/perks/ptr_sanguinary_bw.png",
+			Const = "PTRSanguinary"
 		}
 	];
 
