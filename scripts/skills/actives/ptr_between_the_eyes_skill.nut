@@ -17,7 +17,7 @@ this.ptr_between_the_eyes_skill <- this.inherit("scripts/skills/skill", {
 		this.m.IsAttack = false;
 		this.m.IsIgnoredAsAOO = true;
 		this.m.ActionPointCost = 1;
-		this.m.FatigueCost = 30;
+		this.m.FatigueCost = 15;
 		this.m.MinRange = 0;
 		this.m.MaxRange = 0;
 	}
@@ -30,7 +30,7 @@ this.ptr_between_the_eyes_skill <- this.inherit("scripts/skills/skill", {
 	function getTooltip()
 	{
 		local ret = this.skill.getDefaultUtilityTooltip();
-		
+
 		return ret;
 	}
 
@@ -38,7 +38,7 @@ this.ptr_between_the_eyes_skill <- this.inherit("scripts/skills/skill", {
 	{
 		return this.skill.isUsable() && !this.getContainer().getActor().getSkills().hasSkill("effects.ptr_between_the_eyes_attack");
 	}
-	
+
 	function isHidden()
 	{
 		return !this.getContainer().getActor().isArmedWithMeleeWeapon();
@@ -50,4 +50,3 @@ this.ptr_between_the_eyes_skill <- this.inherit("scripts/skills/skill", {
 		return true;
 	}
 });
-
