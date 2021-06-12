@@ -24,8 +24,8 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRHipShooter <- "Hip Shooter";
 	gt.Const.Strings.PerkDescription.PTRHipShooter <- "Requires Bow. Each subsequent Quick Shot requires [color=" + this.Const.UI.Color.NegativeValue + "]1[/color] less Action Point to a minimum of [color=" + this.Const.UI.Color.PositiveValue + "]2[/color].\n[color=#0b0084]From the Bow perk group[/color]";
 
-	gt.Const.Strings.PerkName.PTRSwordLike <- "Swordlike";
-	gt.Const.Strings.PerkDescription.PTRSwordLike <- "Cleave gains [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance ot hit.\n[color=#0b0084]From the Cleaver perk group[/color]";
+	gt.Const.Strings.PerkName.PTRSwordlike <- "Swordlike";
+	gt.Const.Strings.PerkDescription.PTRSwordlike <- "Cleave gains [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance ot hit.\n[color=#0b0084]From the Cleaver perk group[/color]";
 	gt.Const.Strings.PerkName.PTROpenWounds <- "Deep Cuts";
 	gt.Const.Strings.PerkDescription.PTROpenWounds <- "Requires cutting-type attack. Every second attack against the same target will inflict an additional stack of Bleeding.\n[color=#0b0084]From the Cleaver perk group[/color]";
 	gt.Const.Strings.PerkName.PTRSanguinary <- "Sanguinary";
