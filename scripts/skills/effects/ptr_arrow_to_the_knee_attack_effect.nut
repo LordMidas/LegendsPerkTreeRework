@@ -4,7 +4,7 @@ this.ptr_arrow_to_the_knee_attack_effect <- this.inherit("scripts/skills/skill",
 	{
 		this.m.ID = "effects.ptr_arrow_to_the_knee_attack";
 		this.m.Name = "Arrow to the Knee";
-		this.m.Description = "This character is aiming their next ranged attack at their target's knee, attempting to reduce their defenses and mobility.";
+		this.m.Description = "This character is aiming their ranged attacks at their targets' knees, attempting to reduce their defenses and mobility.";
 		this.m.Icon = "ui/perks/ptr_arrow_to_the_knee.png";
 		//this.m.IconMini = "ptr_arrow_to_the_knee_attack_effect_mini";
 		this.m.SoundOnHit = [
@@ -38,6 +38,12 @@ this.ptr_arrow_to_the_knee_attack_effect <- this.inherit("scripts/skills/skill",
 			{
 				id = 10,
 				type = "text",
+				icon = "ui/icons/damage_dealt.png",
+				text = "-[color=" + this.Const.UI.Color.NegativeValue + "]50%[/color] Ranged Damage dealt."
+			},
+			{
+				id = 10,
+				type = "text",
 				icon = "ui/icons/special.png",
 				text = "Target will have [color=" + this.Const.UI.Color.NegativeValue + "]-10%[/color] Melee and Ranged defense for 1 turn."
 			},
@@ -46,10 +52,15 @@ this.ptr_arrow_to_the_knee_attack_effect <- this.inherit("scripts/skills/skill",
 				type = "text",
 				icon = "ui/icons/special.png",
 				text = "Target will require [color=" + this.Const.UI.Color.NegativeValue + "]2[/color] additional Action Points per tile moved for 1 turn."
-			}
+			}			
 		];
 	}
-
+	
+	function onUpdate( _properties )
+	{
+		_properties.RangedDamageMult *= 0.5;
+	}
+	
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
 		if (!this.isGarbage() && _skill.isAttack() && _targetEntity.isAlive() && !_targetEntity.isDying())
@@ -64,12 +75,10 @@ this.ptr_arrow_to_the_knee_attack_effect <- this.inherit("scripts/skills/skill",
 			local effect = this.new("scripts/skills/effects/ptr_arrow_to_the_knee_debuff_effect");
 			_targetEntity.getSkills().add(effect);
 		}
-
-		this.removeSelf();
 	}
-
-	function onTargetMissed( _skill, _targetEntity )
+	
+	function onTurnEnd()
 	{
 		this.removeSelf();
-	}
+	}			
 });
