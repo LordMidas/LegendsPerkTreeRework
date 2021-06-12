@@ -141,8 +141,8 @@ gt.Const.PTR.modTraitsTrees <- function()
 	{
 		this.Const.Perks.ViciousTree.Tree.push(emptyArray);
 	}
-	this.Const.Perks.ViciousTree.Tree[0] = [this.Const.Perks.PerkDefs.FastAdaption];
-	this.Const.Perks.ViciousTree.Tree[1] = [];
+	this.Const.Perks.ViciousTree.Tree[0] = [this.Const.Perks.PerkDefs.CripplingStrikes];
+	this.Const.Perks.ViciousTree.Tree[1] = [this.Const.Perks.PerkDefs.CoupDeGrace];
 	this.Const.Perks.ViciousTree.Tree[2] = [this.Const.Perks.PerkDefs.Debilitate];
 	this.Const.Perks.ViciousTree.Tree[3] = [];
 	this.Const.Perks.ViciousTree.Tree[4] = [this.Const.Perks.PerkDefs.LoneWolf];
@@ -177,7 +177,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	{
 		this.Const.Perks.CalmTree.Tree.push(emptyArray);
 	}
-	this.Const.Perks.CalmTree.Tree[0] = [];
+	this.Const.Perks.CalmTree.Tree[0] = [this.Const.Perks.PerkDefs.FastAdaption];
 	this.Const.Perks.CalmTree.Tree[1] = [this.Const.Perks.PerkDefs.LegendTrueBeliever];
 	this.Const.Perks.CalmTree.Tree[2] = [this.Const.Perks.PerkDefs.FortifiedMind];
 	this.Const.Perks.CalmTree.Tree[3] = [this.Const.Perks.PerkDefs.LegendPeaceful];
