@@ -67,6 +67,11 @@ gt.Const.PTR.modSkills <- function()
 				this.m.ActionPointCost -= 1;
 			}
 
+			if (this.getContainer().hasSkill("perk.ptr_ranged_supremacy"))
+			{
+				this.m.MaxRange += 1;
+			}
+
 			if (this.getContainer().hasSkill("perk.ptr_flaming_arrows"))
 			{
 				_properties.ThreatOnHit += this.Math.min(20, this.Math.max(0, _properties.getRangedSkill() * 0.2));
@@ -289,6 +294,11 @@ gt.Const.PTR.modSkills <- function()
 			if (this.getContainer().hasSkill("effects.ptr_hip_shooter"))
 			{
 				this.m.ActionPointCost = this.Math.max(2, this.m.ActionPointCost - this.m.UsedCount);
+			}
+
+			if (this.getContainer().hasSkill("perk.ptr_ranged_supremacy"))
+			{
+				this.m.MaxRange += 1;
 			}
 		}
 
