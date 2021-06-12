@@ -33,7 +33,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRBloodlust <- "Bloodlust";
 	gt.Const.Strings.PerkDescription.PTRBloodlust <- "When adjacent to Bleeding enemies, skills build up [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] less Fatigue for each stack of Bleeding. Additionally, Fatigue Recovery is increased by [color=" + this.Const.UI.Color.PositiveValue + "]+1[/color] per stack of Bleeding on adjacent enemies at the end of your Turn.\n[color=#0b0084]From the Cleaver perk group[/color]";
 	gt.Const.Strings.PerkName.PTRBloodbath <- "Bloodbath";
-	gt.Const.Strings.PerkDescription.PTRBloodbath <- "Fatalities instantly restore 3 Action Points. Has no limit on how many times it can proc per turn.\n[color=#0b0084]From the Cleaver perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRBloodbath <- "Fatalities instantly restore [color=" + this.Const.UI.Color.PositiveValue + "]3[/color] Action Points. Has no limit on how many times it can proc per turn.\n[color=#0b0084]From the Cleaver perk group[/color]";
 	gt.Const.Strings.PerkName.PTRMauler <- "Mauler";
 	gt.Const.Strings.PerkDescription.PTRMauler <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Cleaver[/color]\n\nAttacks do more damage, the less armor your target has. This bonus is [color=" + this.Const.UI.Color.PositiveValue + "]+35%[/color] damage at no armor, and [color=" + this.Const.UI.Color.PositiveValue + "]+0%[/color] damage at 100% armor remaining.\n[color=#0b0084]From the Cleaver perk group[/color]";
 
