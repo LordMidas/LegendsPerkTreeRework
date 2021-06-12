@@ -728,8 +728,8 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 		{
 			ID = "perk.ptr_target_practice",
 			Script = "scripts/skills/perks/perk_ptr_target_practice",
-			Name = this.Const.Strings.PerkName.PTRRisingStar,
-			Tooltip = this.Const.Strings.PerkDescription.PTRRisingStar,
+			Name = this.Const.Strings.PerkName.PTRTargetPractice,
+			Tooltip = this.Const.Strings.PerkDescription.PTRTargetPractice,
 			Icon = "ui/perks/ptr_target_practice.png",
 			IconDisabled = "ui/perks/ptr_target_practice_bw.png",
 			Const = "PTRTargetPractice"
