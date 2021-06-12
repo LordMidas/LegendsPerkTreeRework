@@ -62,6 +62,11 @@ gt.Const.PTR.modSkills <- function()
 		o.onAfterUpdate = function( _properties )
 		{
 			oldOnAfterUpdate(_properties);
+			if (this.getContainer().hasSkill("perk.ptr_target_practice"))
+			{
+				this.m.ActionPointCost -= 1;
+			}
+
 			if (this.getContainer().hasSkill("perk.ptr_flaming_arrows"))
 			{
 				_properties.ThreatOnHit += this.Math.min(20, this.Math.max(0, _properties.getRangedSkill() * 0.2));
