@@ -510,7 +510,7 @@ gt.Const.PTR.modWeaponTrees <- function()
 	{
 		this.Const.Perks.BowTree.Tree.push(emptyArray);
 	}
-	this.Const.Perks.BowTree.Tree[0] = [this.Const.Perks.PerkDefs.LegendMarkTarget];
+	this.Const.Perks.BowTree.Tree[0] = [this.Const.Perks.PerkDefs.PTRTargetPractice];
 	this.Const.Perks.BowTree.Tree[1] = [this.Const.Perks.PerkDefs.PTRRangedSupremacy];
 	this.Const.Perks.BowTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRArrowToTheKnee];
 	this.Const.Perks.BowTree.Tree[3] = [this.Const.Perks.PerkDefs.SpecBow];
@@ -522,9 +522,9 @@ gt.Const.PTR.modWeaponTrees <- function()
 	{
 		this.Const.Perks.CleaverTree.Tree.push(emptyArray);
 	}
-	this.Const.Perks.CleaverTree.Tree[0] = [this.Const.Perks.PerkDefs.CripplingStrikes];
-	this.Const.Perks.CleaverTree.Tree[1] = [this.Const.Perks.PerkDefs.CoupDeGrace];
+	this.Const.Perks.CleaverTree.Tree[0] = [this.Const.Perks.PerkDefs.PTRSwordlike];
 	this.Const.Perks.CleaverTree.Tree[2] = [this.Const.Perks.PerkDefs.PTROpenWounds];
+	this.Const.Perks.CleaverTree.Tree[1] = [this.Const.Perks.PerkDefs.PTRSanguinary];
 	this.Const.Perks.CleaverTree.Tree[3] = [this.Const.Perks.PerkDefs.SpecCleaver];
 	this.Const.Perks.CleaverTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRBloodlust];
 	this.Const.Perks.CleaverTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRBloodbath];
@@ -667,9 +667,9 @@ gt.Const.PTR.modWeaponTrees <- function()
 	}
 	this.Const.Perks.StavesTree.SelfExpertiseMultiplier <- this.Const.Perks.Expertise.High;
 	this.Const.Perks.StavesTree.SelfWeightMultiplier <- 3;
-	this.Const.Perks.StavesTree.Tree[0] = [this.Const.Perks.PerkDefs.PTREasyTarget];
+	this.Const.Perks.StavesTree.Tree[0] = [this.Const.Perks.PerkDefs.LegendSpecStaffSkill];
 	this.Const.Perks.StavesTree.Tree[1] = [this.Const.Perks.PerkDefs.LegendOnslaught];
-	this.Const.Perks.StavesTree.Tree[2] = [this.Const.Perks.PerkDefs.LegendSpecStaffSkill];
+	this.Const.Perks.StavesTree.Tree[2] = [this.Const.Perks.PerkDefs.PTREasyTarget];
 	this.Const.Perks.StavesTree.Tree[3] = [this.Const.Perks.PerkDefs.LegendMasteryStaves];
 	this.Const.Perks.StavesTree.Tree[4] = [this.Const.Perks.PerkDefs.LegendSpecStaffStun];
 	this.Const.Perks.StavesTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRWearThemDown];
