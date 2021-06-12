@@ -243,6 +243,8 @@ gt.Const.PTR.modSkills <- function()
 	});
 
 	::mods_hookNewObject("skills/actives/thrust", function(o) {
+		o.m.ThrustCount <- 0;
+
 		local oldOnAfterUpdate = o.onAfterUpdate;
 		o.onAfterUpdate = function( _properties )
 		{
@@ -270,6 +272,31 @@ gt.Const.PTR.modSkills <- function()
 					this.m.MaxRange += 1;
 				}
 			}
+
+			if (this.getContainer().hasSkill("perk.ptr_king_of_all_weapons"))
+			{
+				if (this.m.ThrustCount > 0 || this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
+				{
+					return;
+				}
+
+				this.m.FatigueCostMult = 0;
+				this.m.ActionPointCost = 0;
+				_properties.MeleeDamageMult *= 0.5;
+			}
+		}
+
+		local onUse = o.onUse;
+		o.onUse = function ( _user, _targetTile )
+		{
+			local ret = onUse(_user, _targetTile);
+			this.m.ThrustCount++;
+			return ret;
+		}
+
+		o.onTurnStart()
+		{
+			this.m.ThrustCount = 0;
 		}
 	});
 
