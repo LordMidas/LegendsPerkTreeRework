@@ -275,7 +275,7 @@ gt.Const.PTR.modSkills <- function()
 
 			if (this.getContainer().hasSkill("perk.ptr_king_of_all_weapons"))
 			{
-				if (this.m.ThrustCount > 0 || this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
+				if (!actor.isPlacedOnMap() || this.m.ThrustCount > 0 || this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
 				{
 					return;
 				}
