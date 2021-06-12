@@ -67,24 +67,17 @@ this.ptr_staff_sweep_skill <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.FatigueCostMult = _properties.IsSpecializedInStaves ? this.Const.Combat.WeaponSpecFatigueMult : 1.0;
 	}
-	
+
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		if (_skill != this || !_targetEntity.isAlive())
+		if (_skill != this || !_targetEntity.isAlive() || _targetEntity.isDying())
 		{
 			return;
 		}
-		
+
 		local attacker = this.getContainer().getActor();
-		
-		_targetEntity.getSkills().add(this.new("scripts/skills/effects/staggered_effect"));
-		
-		if (!attacker.isHiddenToPlayer() && _targetEntity.getTile().IsVisibleForPlayer)
-		{
-			this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(attacker) + " has staggered " + this.Const.UI.getColorizedEntityName(_targetEntity));
-		}
-		
-		if (!_targetEntity.getCurrentProperties().IsImmuneToStun)
+
+		if (!_targetEntity.getCurrentProperties().IsImmuneToStun && this.getContainer().hasSkill("perk.legend_mastery_staff_stun"))
 		{
 			_targetEntity.getSkills().add(this.new("scripts/skills/effects/dazed_effect"));
 
@@ -102,7 +95,7 @@ this.ptr_staff_sweep_skill <- this.inherit("scripts/skills/skill", {
 		local ownTile = _user.getTile();
 		local dir = ownTile.getDirectionTo(_targetTile);
 		ret = this.attackEntity(_user, _targetTile.getEntity());
-		
+
 		if (!_user.isAlive() || _user.isDying())
 		{
 			return ret;
@@ -183,4 +176,3 @@ this.ptr_staff_sweep_skill <- this.inherit("scripts/skills/skill", {
 	}
 
 });
-
