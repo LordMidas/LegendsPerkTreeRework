@@ -16,11 +16,11 @@ gt.Const.PTR.modActor <- function()
 					_killer.setDirty(true);
 					_skill.spawnIcon("ptr_bloodbath", _killer.getTile());
 				}
-				
+
 				local sanguinaryPerk = _killer.getSkills().getSkillByID("perk.ptr_sanguinary");
 				if (sanguinaryPerk != null)
 				{
-					local fatigueCostRefund = this.Math.floor(_skill.getFatigueCost() * (1.0 - sanguinaryPerk.m.FatigueCostRefundPercentage);	
+					local fatigueCostRefund = this.Math.floor(_skill.getFatigueCost() * (1.0 - sanguinaryPerk.m.FatigueCostRefundPercentage));
 					_killer.setFatigue(this.Math.max(0, actor.getFatigue() - fatigueCostRefund));
 				}
 			}
