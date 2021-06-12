@@ -294,7 +294,7 @@ gt.Const.PTR.modSkills <- function()
 			return ret;
 		}
 
-		o.onTurnStart()
+		o.onTurnStart <- function()
 		{
 			this.m.ThrustCount = 0;
 		}
