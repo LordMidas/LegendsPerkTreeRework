@@ -18,7 +18,7 @@ this.perk_ptr_easy_target <- this.inherit("scripts/skills/skill", {
 
 	function onAfterUpdate(_properties)
 	{
-		local weapon = this.getConatiner().getActor().getMainhandItem();
+		local weapon = this.getContainer().getActor().getMainhandItem();
 		if (weapon == null && weapon.getCategories().find("Staff") == null)
 		{
 			return;
@@ -27,7 +27,7 @@ this.perk_ptr_easy_target <- this.inherit("scripts/skills/skill", {
 		local skills = this.getContainer().getAllSkillsOfType(this.Const.SkillType.Active);
 		foreach (s in skills)
 		{
-			if (s.isAttack() && s.IsWeaponSkill())
+			if (s.isAttack() && s.m.IsWeaponSkill)
 			{
 				s.m.FatigueCostMult *= 0.85;
 			}
