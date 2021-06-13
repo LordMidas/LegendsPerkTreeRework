@@ -1,3 +1,7 @@
+==== Ver 0.6.4 ====
+- Added Tactician Class tree (Perks: Mark Target, Shields Up, Hold the Line, Push Forward).
+- Background descriptions will now be properly shown in the tooltip of the background in the recruitment screen. These descriptions have been improved over Legends whereby it now shows all of the "rolled" trees and not only the hard-coded ones.
+
 ==== Ver 0.6.3 ====
 - Rising Star XP gain buffed to 50%.
 - The Rush of Battle moved to Trained tree, row 6 (from row 7).
