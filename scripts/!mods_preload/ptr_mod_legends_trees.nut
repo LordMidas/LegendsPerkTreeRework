@@ -474,6 +474,44 @@ gt.Const.PTR.modClassTrees <- function()
 	this.Const.Perks.HoundmasterClassTree.Tree[5] = [this.Const.Perks.PerkDefs.LegendPackleader];
 	this.Const.Perks.HoundmasterClassTree.Tree[6] = [this.Const.Perks.PerkDefs.LegendDogMaster];
 
+	gt.Const.Perks.TacticianClassTree <- {
+		ID = "TacticianClassTree",
+		Descriptions = [
+			"is skilled in battlefield tactics"
+		],
+		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
+		WeightMultipliers = [
+			{Multiplier = 2, Tree = this.Const.Perks.OrganisedTree},
+			{Multiplier = 3, Tree = this.Const.Perks.SergeantClassTree},
+			{Multiplier = 0.5, Tree = this.Const.Perks.HeavyArmorTree},
+			{Multiplier = 0.75, Tree = this.Const.Perks.MediumArmorTree},
+			{Multiplier = 5, Tree = this.Const.Perks.PolearmTree},
+			{Multiplier = 0.25, Tree = this.Const.Perks.BowTree},
+			{Multiplier = 0.25, Tree = this.Const.Perks.SlingsTree},
+			{Multiplier = 0.75, Tree = this.Const.Perks.CrossbowTree},
+		],
+		ExpertiseMultipliers = [
+
+		],
+		Tree = [
+			[
+				gt.Const.Perks.PerkDefs.LegendMarkTarget
+			],
+			[],
+			[],
+			[
+				gt.Const.Perks.PerkDefs.LegendShieldsUp
+			],
+			[
+				gt.Const.Perks.PerkDefs.LegendHoldTheLine
+			],
+			[
+				gt.Const.Perks.PerkDefs.LegendForwardPush
+			],
+			[]
+		]
+	};
+
 	gt.Const.Perks.ClassTrees.Tree = [
 		gt.Const.Perks.SergeantClassTree,
 		gt.Const.Perks.HealerClassTree,
