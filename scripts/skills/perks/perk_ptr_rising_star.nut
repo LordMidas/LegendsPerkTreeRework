@@ -17,7 +17,7 @@ this.perk_ptr_rising_star <- this.inherit("scripts/skills/skill", {
 	{
 		if (this.getContainer().getActor().getLevel() < 13)
 		{
-			_properties.XPGainMult *= 1.25;
+			_properties.XPGainMult *= 1.5;
 		}
 		else
 		{
@@ -25,4 +25,3 @@ this.perk_ptr_rising_star <- this.inherit("scripts/skills/skill", {
 		}
 	}
 });
-
