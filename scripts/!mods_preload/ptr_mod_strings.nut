@@ -180,6 +180,8 @@ gt.Const.PTR.modStrings <- function()
 
 	gt.Const.Strings.PerkName.PTRTheRushOfBattle <- "The Rush of Battle";
 	gt.Const.Strings.PerkDescription.PTRTheRushOfBattle <- "When dodging or getting hit by an attack, gain a stacking [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color] reduction to the Fatigue Cost of  skills during your next turn, up to a maximum of [color=" + this.Const.UI.Color.PositiveValue + "]20%[/color].\n[color=#0b0084]From the Warrior perk group[/color]";
+	gt.Const.Strings.PerkDescription.PerfectFocus = "Unlocks the Perfect Focus skill, which doubles your Action Points for your current turn, but makes you Exhausted on your next turn. Exhausted lowers damage, increases Fatigue build-up, and halves the Action Points available during that turn.\n[color=#0b0084]From the Vicious perk group[/color]";
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.PerfectFocus].Tooltip = gt.Const.Strings.PerkDescription.PerfectFocus;
 
 	gt.Const.Strings.PerkName.PTRPersonalArmor <- "Personal Armor";
 	gt.Const.Strings.PerkDescription.PTRPersonalArmor <- "Give your own armor some of that special treatment. Damage to armor is reduced by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color].\n[color=#0b0084]From the Blacksmith perk group[/color]";
