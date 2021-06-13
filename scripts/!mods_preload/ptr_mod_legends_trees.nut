@@ -215,7 +215,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	}
 	this.Const.Perks.OrganisedTree.Tree[0] = [this.Const.Perks.PerkDefs.BagsAndBelts];
 	this.Const.Perks.OrganisedTree.Tree[1] = [];
-	this.Const.Perks.OrganisedTree.Tree[2] = [this.Const.Perks.PerkDefs.LegendBlendIn];
+	this.Const.Perks.OrganisedTree.Tree[2] = [gt.Const.Perks.PerkDefs.LegendEfficientPacking];
 	this.Const.Perks.OrganisedTree.Tree[3] = [];
 	this.Const.Perks.OrganisedTree.Tree[4] = [this.Const.Perks.PerkDefs.LegendSkillfulStacking];
 	this.Const.Perks.OrganisedTree.Tree[5] = [this.Const.Perks.PerkDefs.LegendPacifist];
@@ -627,7 +627,7 @@ gt.Const.PTR.modWeaponTrees <- function()
 	this.Const.Perks.SpearTree.SelfExpertiseMultiplier <- this.Const.Perks.Expertise.High;
 	this.Const.Perks.SpearTree.SelfWeightMultiplier <- 5;
 	this.Const.Perks.SpearTree.Tree[0] = [this.Const.Perks.PerkDefs.PTRPointyEnd];
-	this.Const.Perks.SpearTree.Tree[1] = [this.Const.Perks.PerkDefs.PTRImpaler];
+	this.Const.Perks.SpearTree.Tree[1] = [this.Const.Perks.PerkDefs.LegendSpecSpearWall];
 	this.Const.Perks.SpearTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRThroughTheGaps];
 	this.Const.Perks.SpearTree.Tree[3] = [this.Const.Perks.PerkDefs.SpecSpear];
 	this.Const.Perks.SpearTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRTwoForOne];
