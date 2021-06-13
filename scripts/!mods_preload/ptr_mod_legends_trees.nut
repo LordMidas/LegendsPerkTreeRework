@@ -167,8 +167,8 @@ gt.Const.PTR.modTraitsTrees <- function()
 	}
 	this.Const.Perks.IntelligentTree.Tree[0] = [this.Const.Perks.PerkDefs.Student];
 	this.Const.Perks.IntelligentTree.Tree[1] = [this.Const.Perks.PerkDefs.Gifted];
-	this.Const.Perks.IntelligentTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRDiscoveredTalent];
-	this.Const.Perks.IntelligentTree.Tree[3] = [];
+	this.Const.Perks.IntelligentTree.Tree[2] = [];
+	this.Const.Perks.IntelligentTree.Tree[3] = [this.Const.Perks.PerkDefs.PTRDiscoveredTalent];
 	this.Const.Perks.IntelligentTree.Tree[4] = [];
 	this.Const.Perks.IntelligentTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRKnowTheirWeakness];
 	this.Const.Perks.IntelligentTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRRisingStar];
