@@ -18,14 +18,16 @@ local modID = "mod_legends_PTR";
 	gt.Const.PTR.modLegendsPerkTreeCreationSystem();
 
 	gt.Const.PTR.addPerksToPerkDefs();
+
+	gt.Const.PTR.createStylesTrees();
+	gt.Const.PTR.createProfessionTrees();
+	gt.Const.PTR.createClassTrees();
+
 	gt.Const.PTR.modDefenseTrees();
 	gt.Const.PTR.modWeaponTrees();
 	gt.Const.PTR.modTraitsTrees();
 	gt.Const.PTR.modClassTrees();
 	gt.Const.PTR.modLegendsEnemyTrees();
-
-	gt.Const.PTR.createStylesTrees();
-	gt.Const.PTR.createProfessionTrees();
 
 	gt.Const.PTR.modCharacterBackground();
 	gt.Const.PTR.modCharacterBackgrounds();
