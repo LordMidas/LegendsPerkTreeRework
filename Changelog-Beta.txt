@@ -1,0 +1,5 @@
+==== Ver 0.6.3 ====
+- Rising Star XP gain buffed to 50%.
+- The Rush of Battle moved to Trained tree, row 6 (from row 7).
+- Perfect Focus moved to Trained tree, row 7 (from Calm row 7).
+- Perfect Focus reworked: Now costs 0 AP and doubles your AP for one turn. Will make you Exhausted on your next turn. Exhausted is a new effect that lowers damage by 50%, increases Fatigue build-up by 100%, and sets your Action Points to half for one turn.
