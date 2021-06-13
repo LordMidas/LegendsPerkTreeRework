@@ -1,6 +1,6 @@
 this.perk_ptr_discovered_talent <- this.inherit("scripts/skills/skill", {
 	m = {
-		IsSpent = false
+		IsApplied = false
 	},
 	function create()
 	{
@@ -17,28 +17,32 @@ this.perk_ptr_discovered_talent <- this.inherit("scripts/skills/skill", {
 
 	function onAdded()
 	{
-		if (this.m.IsSpent)
+		if (this.m.IsApplied)
 		{
 			return;
 		}
 
-		foreach (talent in this.getContainer().getActor().getTalents())
+		this.logInfo("discovering talent");
+
+		local actor = this.getContainer().getActor();
+		local talents = actor.getTalents();
+		for (local i = 0; i < talents.len(); i++)
 		{
-			talent++;
+			if (talents[i] < 3)
+			{
+				talents[i] += 1;
+			}
 		}
 
-		this.m.IsSpent = true;
-	}
+		actor.m.LevelUps += 1;
+		actor.fillAttributeLevelUpValues(1);
 
-	function onSerialize(_out)
-	{
-		this.skill.onSerialize(_out);
-		_out.writeBool(this.m.IsSpent);
+		this.m.IsApplied = true;
 	}
 
 	function onDeserialize(_in)
 	{
 		this.skill.onDeserialize(_in);
-		this.m.IsSpent = _in.readBool();
+		this.m.IsApplied = true;
 	}
 });
