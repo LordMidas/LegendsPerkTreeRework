@@ -751,6 +751,15 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_sanguinary.png",
 			IconDisabled = "ui/perks/ptr_sanguinary_bw.png",
 			Const = "PTRSanguinary"
+		},
+		{
+			ID = "perk.ptr_discovered_talent",
+			Script = "scripts/skills/perks/perk_ptr_discovered_talent",
+			Name = this.Const.Strings.PerkName.PTRDiscoveredTalent,
+			Tooltip = this.Const.Strings.PerkDescription.PTRDiscoveredTalent,
+			Icon = "ui/perks/ptr_discovered_talent.png",
+			IconDisabled = "ui/perks/ptr_discovered_talent_bw.png",
+			Const = "PTRDiscoveredTalent"
 		}
 	];
 
