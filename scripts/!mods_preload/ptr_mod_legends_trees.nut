@@ -481,7 +481,8 @@ gt.Const.PTR.modClassTrees <- function()
 		gt.Const.Perks.ChefClassTree,
 		gt.Const.Perks.MenderClassTree,
 		gt.Const.Perks.ClerkClassTree,
-		gt.Const.Perks.HoundmasterClassTree
+		gt.Const.Perks.HoundmasterClassTree,
+		gt.Const.Perks.TacticianClassTree
 	];
 
 	foreach (tree in this.Const.Perks.ClassTrees.Tree)
