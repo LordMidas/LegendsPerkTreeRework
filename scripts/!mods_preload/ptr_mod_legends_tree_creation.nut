@@ -6,7 +6,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 	gt.Const.Perks.NoTree <- {
 		ID = "NoTree",
 		Descriptions = [
-			"none"
+			""
 		],
 		Tree = [
 			[],
@@ -757,7 +757,8 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 
 		return {
 			Tree = dynamicTree,
-			Attributes = attributes
+			Attributes = attributes,
+			TreeMap = _localMap
 		};
 	};
 
