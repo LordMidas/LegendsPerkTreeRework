@@ -3,7 +3,7 @@ local gt = this.getroottable();
 gt.Const.PTR <- {};
 
 local modID = "mod_legends_PTR";
-::mods_registerMod(modID, 1.0, "Perk Trees Rework 0.6.4");
+::mods_registerMod(modID, 1.0, "Perk Trees Rework 0.6.5");
 
 ::mods_queue(modID, "mod_legends, mod_MSU, mod_fencerPerk", function()
 {
