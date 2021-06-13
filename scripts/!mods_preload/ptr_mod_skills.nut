@@ -474,9 +474,9 @@ gt.Const.PTR.modSkills <- function()
 		}
 	});
 
-	::mods_hookExactClass("skills/actives/perfect_focus"), function(o) {
+	::mods_hookNewObject("skills/actives/perfect_focus", function(o) {
 		o.m.ActionPointCost = 0;
-		o.m.getTooltip = function()
+		o.getTooltip = function()
 		{
 			local tooltip = this.skill.getDefaultUtilityTooltip();
 
@@ -500,14 +500,17 @@ gt.Const.PTR.modSkills <- function()
 					}
 				);
 			}
+
+			return tooltip;
 		}
-		o.m.isUsable = function()
+
+		o.isUsable = function()
 		{
 			return this.skill.isUsable() && !this.getContainer().hasSkill("effects.perfect_focus") && !this.getContainer().hasSkill("effects.ptr_exhausted");
 		}
 	});
 
-	::mods_hookExactClass("skills/effects/perfect_focus_effect", function(o) {
+	::mods_hookNewObject("skills/effects/perfect_focus_effect", function(o) {
 		o.m.StartingAPFraction <- 1;
 		o.m.Description = "This character has achieved perfect focus as if time itself were to stand still, gaining additional Action Points for this turn."
 
@@ -529,6 +532,7 @@ gt.Const.PTR.modSkills <- function()
 
 		o.onTurnEnd <- function()
 		{
+			this.removeSelf();
 			this.getContainer().add(this.new("scripts/skills/effects/ptr_exhausted_effect"));
 		}
 	});
