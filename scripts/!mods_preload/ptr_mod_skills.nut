@@ -92,10 +92,10 @@ gt.Const.PTR.modSkills <- function()
 			}
 		}
 
-		local oldonUse = o.onUse;
+		local onUse = o.onUse;
 		o.onUse = function( _user, _targetTile )
 		{
-			local ret = oldOnUse(_user, _targetTile);
+			local ret = onUse(_user, _targetTile);
 
 			if (ret)
 			{
@@ -471,6 +471,65 @@ gt.Const.PTR.modSkills <- function()
 			{
 				_properties.BraveryMult *= 1.25;
 			}
+		}
+	});
+
+	::mods_hookExactClass("skills/actives/perfect_focus"), function(o) {
+		o.m.ActionPointCost = 0;
+		o.m.getTooltip = function()
+		{
+			local tooltip = this.skill.getDefaultUtilityTooltip();
+
+			tooltip.push(
+				{
+					id = 10,
+					type = "text",
+					icon = "ui/icons/special.png",
+					text = "Your Action Points will be doubled for the remainder of this turn."
+				}
+			);
+
+			if (this.getContainer().hasSkill("effects.ptr_exhausted"))
+			{
+				tooltip.push(
+					{
+						id = 10,
+						type = "text",
+						icon = "ui/icons/warning.png",
+						text = "Not usable when Exhausted"
+					}
+				);
+			}
+		}
+		o.m.isUsable = function()
+		{
+			return this.skill.isUsable() && !this.getContainer().hasSkill("effects.perfect_focus") && !this.getContainer().hasSkill("effects.ptr_exhausted");
+		}
+	});
+
+	::mods_hookExactClass("skills/effects/perfect_focus_effect", function(o) {
+		o.m.StartingAPFraction <- 1;
+		o.m.Description = "This character has achieved perfect focus as if time itself were to stand still, gaining additional Action Points for this turn."
+
+		o.onAdded <- function()
+		{
+			local actor = this.getContainer().getActor();
+			this.m.StartingAPFraction = actor.getActionPoints() / actor.getActionPointsMax();
+			actor.getCurrentProperties().ActionPointsMult = 2.0;
+			actor.setActionPoints(actor.getActionPointsMax() * this.m.StartingAPFraction);
+		}
+
+		o.onUpdate = function (_properties)
+		{
+			if (!this.isGarbage())
+			{
+				_properties.ActionPointsMult = 2.0;
+			}
+		}
+
+		o.onTurnEnd <- function()
+		{
+			this.getContainer().add(this.new("scripts/skills/effects/ptr_exhausted_effect"));
 		}
 	});
 }
