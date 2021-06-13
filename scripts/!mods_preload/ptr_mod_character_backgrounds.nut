@@ -2378,6 +2378,9 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 6, Tree = this.Const.Perks.AgileTree},
 				{Multiplier = 2, Tree = this.Const.Perks.UnstoppableTree}
 			],
+			Weapon = [
+				[{Weight = 100, Tree = this.Const.Perks.SlingsTree}]
+			],
 			Profession = [
 				[
 					{Weight = 50, Tree = this.Const.Perks.LaborerProfessionTree},
