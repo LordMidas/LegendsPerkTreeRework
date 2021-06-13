@@ -167,6 +167,8 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.LegendAssuredConquest = "Resolve is increased by [color=" + this.Const.UI.Color.PositiveValue + "]25%[/color] when at Confident morale.\n[color=#0b0084]From the Vicious perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendAssuredConquest].Tooltip = gt.Const.Strings.PerkDescription.LegendAssuredConquest;
 
+	gt.Const.Strings.PerkName.PTRDiscoveredTalent <- "Discovered Talent";
+	gt.Const.Strings.PerkDescription.PTRDiscoveredTalent <- "Adds [color=" + this.Const.UI.Color.PositiveValue + "]1[/color] Star to the talents in all attributes.\n[color=#0b0084]From the Talented perk group[/color]";
 	gt.Const.Strings.PerkName.PTRKnowTheirWeakness <- "Know their Weakness";
 	gt.Const.Strings.PerkDescription.PTRKnowTheirWeakness <- "After killing an enemy, Melee Skill is increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] and Ranged Skill by [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color], up to a maximum of [color=" + this.Const.UI.Color.PositiveValue + "]30%[/color] for each. The bonus drops by [color=" + this.Const.UI.Color.NegativeValue + "]5%[/color] if you get hit.\n[color=#0b0084]From the Talented perk group[/color]";
 	gt.Const.Strings.PerkName.PTRRisingStar <- "Rising Star";
