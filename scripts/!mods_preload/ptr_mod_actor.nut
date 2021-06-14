@@ -33,6 +33,7 @@ gt.Const.PTR.modActor <- function()
 			this.getSkills().add(this.new("scripts/skills/effects/ptr_formidable_approach_debuff_effect"));
 			this.getSkills().add(this.new("scripts/skills/effects/ptr_follow_up_proccer_effect"));
 			this.getSkills().add(this.new("scripts/skills/effects/ptr_bolstered_effect"));
+			this.getSkills().add(this.new("scripts/skills/effects/ptr_undead_injury_receiver_effect"));
 		}
 
 		o.getSurroundedCount = function()
