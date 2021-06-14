@@ -12,13 +12,14 @@ local modID = "mod_legends_PTR";
 	gt.Const.PTR.modItemContainer();
 	gt.Const.PTR.modActor();
 	gt.Const.PTR.modPlayer();
-	//gt.Const.PTR.hookPerks();
 	gt.Const.PTR.modSkills();
 	gt.Const.PTR.modWeapons();
 	gt.Const.PTR.modItems();
+
 	gt.Const.PTR.modLegendsPerkTreeCreationSystem();
 
 	gt.Const.PTR.addPerksToPerkDefs();
+
 	gt.Const.PTR.modDefenseTrees();
 	gt.Const.PTR.modWeaponTrees();
 	gt.Const.PTR.modTraitsTrees();
@@ -31,4 +32,6 @@ local modID = "mod_legends_PTR";
 	gt.Const.PTR.modCharacterBackgrounds();
 
 	gt.Const.PTR.modLegendsEnemyTrees();
+
+	gt.Const.PTR.modEnemies();
 });
