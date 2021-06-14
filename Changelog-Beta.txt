@@ -1,3 +1,12 @@
+==== Ver 0.6.6 ====
+MAJOR CHANGES:
+- Axe tree rearranged: Heft is now tier 2, and Dismemberment is tier 3.
+- Dismemberment buffed: Now lowers injury threshold by 35% of your Maximum Damage.
+- Deep Impact should now apply relevant blunt injuries to Undead. Ghosts are exempt from this.
+
+FIXES:
+- Dismemberment should now correctly apply relevant cutting injuries to Undead. Ghosts are exempt from this.
+
 ==== Ver 0.6.5 ====
 - Added Discovered Talent perk to Talented tree row 4. The perk adds 1 star to all talents, and instantly gives a levelup with normal rolls with talents.
 
