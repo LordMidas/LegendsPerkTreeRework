@@ -40,7 +40,7 @@ this.perk_ptr_deep_impact <- this.inherit("scripts/skills/skill", {
 
 		local targetFlags = _targetEntity.getFlags();
 
-		if (!flags.has("undead"))
+		if (!targetFlags.has("undead"))
 		{
 			return;
 		}
