@@ -23,7 +23,7 @@ this.ptr_undead_injury_receiver_effect <- this.inherit("scripts/skills/skill", {
 			return false;
 		}
 
-		foreach (flag in this.Const.PTR.Injuries.ForceUndeadInjuryExemptFlags)
+		foreach (flag in this.Const.Injury.PTRForceUndeadInjuryExemptFlags)
 		{
 			if (flags.has(flag))
 			{
