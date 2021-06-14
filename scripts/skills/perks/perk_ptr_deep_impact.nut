@@ -30,4 +30,29 @@ this.perk_ptr_deep_impact <- this.inherit("scripts/skills/skill", {
 
 		_properties.ThresholdToInflictInjuryMult *= 1.0 - (this.m.ArmorEffectivenessMult * weapon.getArmorDamageMult());
 	}
+
+	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
+	{
+		if (!_skill.hasBluntDamage())
+		{
+			return;
+		}
+
+		local targetFlags = _targetEntity.getFlags();
+
+		if (!flags.has("undead"))
+		{
+			return;
+		}
+
+		foreach (flag in this.Const.Injury.PTRForceUndeadInjuryExemptFlags)
+		{
+			if (targetFlags.has(flag))
+			{
+				return;
+			}
+		}
+
+		_hitInfo.Injuries = this.Const.Injury.getArrayOfRelevantUndeadInjuries(_skill, _targetEntity, _hitInfo);
+	}
 });
