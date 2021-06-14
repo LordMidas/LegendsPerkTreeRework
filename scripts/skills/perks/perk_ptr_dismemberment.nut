@@ -1,5 +1,7 @@
 this.perk_ptr_dismemberment <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		PercentageOfMaximumDamage = 35
+	},
 	function create()
 	{
 		this.m.ID = "perk.ptr_dismemberment";
@@ -7,7 +9,7 @@ this.perk_ptr_dismemberment <- this.inherit("scripts/skills/skill", {
 		this.m.Description = this.Const.Strings.PerkDescription.PTRDismemberment;
 		this.m.Icon = "ui/perks/ptr_dismemberment.png";
 		this.m.Type = this.Const.SkillType.Perk;
-		this.m.Order = this.Const.SkillOrder.Perk;
+		this.m.Order = this.Const.SkillOrder.VeryLast;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
@@ -17,7 +19,7 @@ this.perk_ptr_dismemberment <- this.inherit("scripts/skills/skill", {
 	{
 		if (_skill.isAttack() && _skill.hasCuttingDamage())
 		{
-			_properties.ThresholdToInflictInjuryMult *= 0.85;
+			_properties.ThresholdToInflictInjuryMult *= 1.0 - (this.m.PercentageOfMaximumDamage * 0.01 * _properties.getDamageRegularMax());
 		}
 	}
 
@@ -35,7 +37,7 @@ this.perk_ptr_dismemberment <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		foreach (flag in this.Const.PTR.Injuries.ForceUndeadInjuryExemptFlags)
+		foreach (flag in this.Const.Injury.PTRForceUndeadInjuryExemptFlags)
 		{
 			if (targetFlags.has(flag))
 			{
@@ -43,23 +45,6 @@ this.perk_ptr_dismemberment <- this.inherit("scripts/skills/skill", {
 			}
 		}
 
-		if (bodyPart == this.Const.BodyPart.Body && _skill.m.InjuriesOnBody != null)
-		{
-			injuries = this.Const.PTR.Injuries.InjuriesOnBodySkeleton;
-			if (!targetFlags.has("skeleton"))
-			{
-				injuries.extend(this.Const.PTR.Injuries.InjuriesOnBodyUndead);
-			}
-		}
-		else if (bodyPart == this.Const.BodyPart.Head && _skill.m.InjuriesOnHead != null)
-		{
-			injuries = this.Const.PTR.Injuries.InjuriesOnHeadUndead;
-			if (!targetFlags.has("skeleton"))
-			{
-				injuries.extend(this.Const.PTR.Injuries.InjuriesOnHeadUndead);
-			}
-		}
-
-		_hitInfo.Injuries = injuries;
+		_hitInfo.Injuries = this.Const.Injury.getArrayOfRelevantUndeadInjuries(_skill, _targetEntity, _hitInfo);
 	}
 });
