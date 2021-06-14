@@ -537,8 +537,8 @@ gt.Const.PTR.modWeaponTrees <- function()
 		this.Const.Perks.AxeTree.Tree.push(emptyArray);
 	}
 	this.Const.Perks.AxeTree.Tree[0] = [this.Const.Perks.PerkDefs.LegendSmashingShields];
-	this.Const.Perks.AxeTree.Tree[1] = [this.Const.Perks.PerkDefs.PTRDismemberment];
-	this.Const.Perks.AxeTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRHeft];
+	this.Const.Perks.AxeTree.Tree[1] = [this.Const.Perks.PerkDefs.PTRHeft];
+	this.Const.Perks.AxeTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRDismemberment];
 	this.Const.Perks.AxeTree.Tree[3] = [this.Const.Perks.PerkDefs.SpecAxe];
 	this.Const.Perks.AxeTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRBetweenTheEyes];
 	this.Const.Perks.AxeTree.Tree[5] = [this.Const.Perks.PerkDefs.SunderingStrikes];
