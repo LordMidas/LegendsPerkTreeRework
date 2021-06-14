@@ -3,7 +3,7 @@ local gt = this.getroottable();
 gt.Const.PTR.modStrings <- function()
 {
 	gt.Const.Strings.PerkName.PTRDismemberment <- "Dismemberment";
-	gt.Const.Strings.PerkDescription.PTRDismemberment <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Damage Type: Cutting[/color]\n\nCutting attacks have a [color=" + this.Const.UI.Color.NegativeValue + "]15%[/color] lower damage threshold to inflict injuries. Cutting attacks can now inflict injuries on Undead.\n[color=#0b0084]From the Axe perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRDismemberment <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Damage Type: Cutting[/color]\n\nThe threshold to inflict injuries is reduced by a percentage equal to [color=" + this.Const.UI.Color.NegativeValue + "]35%[/color] of your Maximum Damage. Cutting attacks can now inflict injuries on Undead.\n[color=#0b0084]From the Axe perk group[/color]";
 	gt.Const.Strings.PerkName.PTRHeft <- "Heft";
 	gt.Const.Strings.PerkDescription.PTRHeft <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Axe[/color]\n\nMaximum Damage is increased by [color=" + this.Const.UI.Color.PositiveValue + "]+20[/color] when using One-Handed Axes and by [color=" + this.Const.UI.Color.PositiveValue + "]+40[/color] when using Two-Handed Axes.\n[color=#0b0084]From the Axe perk group[/color]";
 	gt.Const.Strings.PerkName.PTRBetweenTheEyes <- "Between the Eyes";
