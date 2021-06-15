@@ -97,7 +97,7 @@ gt.Const.PTR.modSkills <- function()
 		{
 			local ret = onUse(_user, _targetTile);
 
-			if (ret)
+			if (ret && this.getContainer().hasSkill("perk.ptr_flaming_arrows"))
 			{
 				this.Time.scheduleEvent(this.TimeUnit.Real, 250, this.onApply.bindenv(this), {
 					Skill = this,
