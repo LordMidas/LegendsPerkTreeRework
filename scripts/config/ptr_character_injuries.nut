@@ -119,6 +119,7 @@ gt.Const.Injury.PTRBluntHeadUndead.extend([
 gt.Const.Injury.getArrayOfRelevantUndeadInjuries <- function( _skill, _targetEntity, _hitInfo )
 {
   local targetFlags = _targetEntity.getFlags();
+  local injuries = [];
 
   if (_hitInfo.BodyPart == this.Const.BodyPart.Body && _skill.m.InjuriesOnBody != null)
   {
