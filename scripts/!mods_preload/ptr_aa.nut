@@ -9,6 +9,7 @@ local modID = "mod_legends_PTR";
 {
 	gt.Const.PTR.modStrings();
 	gt.Const.PTR.modSkill();
+	gt.Const.PTR.modSkillContainer();
 	gt.Const.PTR.modItemContainer();
 	gt.Const.PTR.modActor();
 	gt.Const.PTR.modPlayer();
