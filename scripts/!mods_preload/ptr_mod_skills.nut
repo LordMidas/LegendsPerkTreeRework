@@ -2,7 +2,7 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modSkills <- function()
 {
-	::mods_hookNewObject("skills/actives/perk_legend_onslaught", function(o) {
+	::mods_hookNewObject("skills/perks/perk_legend_onslaught", function(o) {
 		o.onTargetHit = function( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 		{
 			if (!_targetEntity.isAlive() || _targetEntity.isDying())
