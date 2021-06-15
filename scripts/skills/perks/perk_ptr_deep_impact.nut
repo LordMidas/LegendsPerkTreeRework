@@ -1,6 +1,7 @@
 this.perk_ptr_deep_impact <- this.inherit("scripts/skills/skill", {
 	m = {
-		ArmorEffectivenessMult = 0.25
+		ArmorEffectivenessMult = 0.25,
+		IsForceEnabled = false
 	},
 	function create()
 	{
@@ -15,15 +16,24 @@ this.perk_ptr_deep_impact <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
-	function onAnySkillUsed( _skill, _targetEntity, _properties )
+	function isEnabled(_skill)
 	{
-		if (!_skill.isAttack() || !_skill.hasBluntDamage())
+		if (this.m.IsForceEnabled)
 		{
-			return;
+			return true;
 		}
 
-		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon == null)
+		if(!_skill.hasBluntDamage())
+		{
+			return false;
+		}
+
+		return true;
+	}
+
+	function onAnySkillUsed( _skill, _targetEntity, _properties )
+	{
+		if (!_skill.isAttack() || !this.isEnabled(_skill))
 		{
 			return;
 		}
@@ -33,7 +43,7 @@ this.perk_ptr_deep_impact <- this.inherit("scripts/skills/skill", {
 
 	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
 	{
-		if (!_skill.hasBluntDamage() || !_targetEntity.getFlags().has("undead") || !this.Const.Injury.PTR.isUndeadEntityValidForInjuries(_targetEntity))
+		if (!_skill.isAttack() || !this.isEnabled(_skill) || !_targetEntity.getFlags().has("undead") || !this.Const.Injury.PTR.isUndeadEntityValidForInjuries(_targetEntity))
 		{
 			return;
 		}

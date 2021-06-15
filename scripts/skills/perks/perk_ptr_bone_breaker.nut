@@ -1,6 +1,7 @@
 this.perk_ptr_bone_breaker <- this.inherit("scripts/skills/skill", {
 	m = {
-		BonusVsUndead = 1.15
+		BonusVsUndead = 1.15,
+		IsForceEnabled = false
 	},
 	function create()
 	{
@@ -15,25 +16,39 @@ this.perk_ptr_bone_breaker <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
+	function isEnabled(_skill, _weapon)
+	{
+		if (this.m.IsForceEnabled)
+		{
+			return true;
+		}
+
+		if (!_skill.hasBluntDamage())
+		{
+			return false;
+		}
+
+		if(_weapon == null || !_weapon.isItemType(this.Const.Items.ItemType.TwoHanded) || _weapon.getCategories().find("Mace") == null)
+		{
+			return false;
+		}
+
+		return true;
+	}
+
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
-		if (_targetEntity == null || !_skill.isAttack() || _skill.m.InjuriesOnBody != this.Const.Injury.BluntBody)
+		if (_targetEntity == null || !_skill.isAttack() || !_targetEntity.getFlags().has("undead"))
 		{
 			return;
 		}
 
-		local actor = this.getContainer().getActor();
-		local weapon = actor.getMainhandItem();
-
-		if (weapon == null || weapon.getCategories().find("Mace") == null)
+		if (!this.isEnabled(_skill, this.getContainer().getActor().getMainhandItem()))
 		{
 			return;
 		}
 
-		if (_targetEntity.getFlags().has("undead"))
-		{
-			_properties.DamageTotalMult *= this.m.BonusVsUndead;
-		}
+		_properties.DamageTotalMult *= this.m.BonusVsUndead;
 	}
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
@@ -44,13 +59,8 @@ this.perk_ptr_bone_breaker <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		if (!_skill.isAttack() || !_skill.hasBluntDamage())
-		{
-			return;
-		}
-
 		local weapon = actor.getMainhandItem();
-		if (weapon == null || !weapon.isItemType(this.Const.Items.ItemType.TwoHanded) || weapon.getCategories().find("Mace") == null)
+		if (!this.isEnabled(_skill, weapon))
 		{
 			return;
 		}
