@@ -1,6 +1,7 @@
 this.perk_ptr_mauler <- this.inherit("scripts/skills/skill", {
 	m = {
-		MaxBonus = 35
+		MaxBonus = 35,
+		IsForceEnabled = false
 	},
 	function create()
 	{
@@ -14,28 +15,37 @@ this.perk_ptr_mauler <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
+	function isEnabled()
+	{
+		if (this.m.IsForceEnabled)
+		{
+			return true;
+		}
+
+		local weapon = this.getContainer().getActor().getMainhandItem();
+		if(weapon == null || weapon.getCategories().find("Cleaver") == null)
+		{
+			return false;
+		}
+
+		return true;
+	}
+
 	function getBonus( _targetEntity )
 	{
 		local remainingArmorFraction = _targetEntity.getRemainingArmorFraction();
-		
+
 		return 0.01 * this.m.MaxBonus * (1.0 - remainingArmorFraction);
 	}
 
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
-		if (!_skill.isAttack() || _targetEntity == null)
-		{
-			return;
-		}
-		
-		local weapon = this.getContainer().getActor().getMainhandItem();		
-		if(weapon == null || weapon.getCategories().find("Cleaver") == null)
+		if (!_skill.isAttack() || _targetEntity == null || !this.isEnabled())
 		{
 			return;
 		}
 
-		_properties.DamageTotalMult *= 1.0 + this.getBonus(_targetEntity);		
-	} 
+		_properties.DamageTotalMult *= 1.0 + this.getBonus(_targetEntity);
+	}
 });
-
