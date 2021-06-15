@@ -55,21 +55,7 @@ this.perk_ptr_easy_target <- this.inherit("scripts/skills/skill", {
 			chance = 66;
 		}
 
-		local skills = _targetEntity.getSkills().m.Skills;
-		local count = 0;
-
-		foreach (skill in skills)
-		{
-			if (skill.isGarbage())
-			{
-				continue;
-			}
-
-			if (skill.getID() == "effects.sleeping" || skill.getID() == "effects.stunned" || skill.getID() == "effects.dazed" || skill.getID() == "effects.legend_dazed" || skill.getID() == "effects.net" || skill.getID() == "effects.legend_grappled" || skill.getID() == "effects.staggered" || skill.getID() == "effects.web" || skill.getID() == "effects.legend_baffled" || skill.getID() == "effects.rooted" || skill.getID() == "effects.distracted" || skill.getID() == "effects.debilitated" || skill.getID() == "effects.insect_swarm")
-			{
-				count++;
-			}
-		}
+		local count = _targetEntity.getSkills().getArrayOfNegativeStatusEffects().len();
 
 		if (count >= 2)
 		{

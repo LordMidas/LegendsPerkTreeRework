@@ -20,21 +20,7 @@ this.perk_ptr_wear_them_down <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		local skills = _attacker.getSkills().m.Skills;
-		local count = 0;
-
-		foreach (skill in skills)
-		{
-			if (skill.isGarbage())
-			{
-				continue;
-			}
-
-			if (skill.getID() == "effects.sleeping" || skill.getID() == "effects.stunned" || skill.getID() == "effects.dazed" || skill.getID() == "effects.legend_dazed" || skill.getID() == "effects.net" || skill.getID() == "effects.legend_grappled" || skill.getID() == "effects.staggered" || skill.getID() == "effects.web" || skill.getID() == "effects.legend_baffled" || skill.getID() == "effects.rooted" || skill.getID() == "effects.distracted" || skill.getID() == "effects.debilitated" || skill.getID() == "effects.insect_swarm")
-			{
-				count++;
-			}
-		}
+		local count = _targetEntity.getSkills().getArrayOfNegativeStatusEffects().len();
 
 		_properties.RerollDefenseChance += 20 * count;
 	}
