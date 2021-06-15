@@ -60,6 +60,12 @@ this.perk_ptr_bone_breaker <- this.inherit("scripts/skills/skill", {
 			if (_targetEntity.m.CurrentProperties.IsAffectedByInjuries && _targetEntity.m.IsAbleToDie && _targetEntity.m.CurrentProperties.ThresholdToReceiveInjuryMult != 0)
 			{
 				local injuries = _bodyPart == this.Const.BodyPart.Head ? this.Const.Injury.BluntHead : this.Const.Injury.BluntBody;
+
+				if (_targetEntity.getFlags().has("undead") && this.Const.Injury.PTR.isUndeadEntityValidForInjuries(_targetEntity))
+				{
+					injuries = this.Const.Injury.PTR.getArrayOfRelevantUndeadInjuries(_skill, _targetEntity, _bodyPart);
+				}
+
 				local potentialInjuries = [];
 
 				foreach( inj in injuries )
