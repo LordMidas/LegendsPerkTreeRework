@@ -33,26 +33,11 @@ this.perk_ptr_deep_impact <- this.inherit("scripts/skills/skill", {
 
 	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
 	{
-		if (!_skill.hasBluntDamage())
+		if (!_skill.hasBluntDamage() || !_targetEntity.getFlags().has("undead") || !this.Const.Injury.PTR.isUndeadEntityValidForInjuries(_targetEntity))
 		{
 			return;
 		}
 
-		local targetFlags = _targetEntity.getFlags();
-
-		if (!targetFlags.has("undead"))
-		{
-			return;
-		}
-
-		foreach (flag in this.Const.Injury.PTRForceUndeadInjuryExemptFlags)
-		{
-			if (targetFlags.has(flag))
-			{
-				return;
-			}
-		}
-
-		_hitInfo.Injuries = this.Const.Injury.getArrayOfRelevantUndeadInjuries(_skill, _targetEntity, _hitInfo);
+		_hitInfo.Injuries = this.Const.Injury.getArrayOfRelevantUndeadInjuries(_skill, _targetEntity, _hitInfo.BodyPart);
 	}
 });

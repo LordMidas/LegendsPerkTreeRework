@@ -25,26 +25,11 @@ this.perk_ptr_dismemberment <- this.inherit("scripts/skills/skill", {
 
 	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
 	{
-		if (!_skill.hasCuttingDamage())
+		if (!_skill.hasCuttingDamage() || !_targetEntity.getFlags().has("undead") || !this.Const.Injury.PTR.isUndeadEntityValidForInjuries(_targetEntity))
 		{
 			return;
 		}
 
-		local targetFlags = _targetEntity.getFlags();
-
-		if (!targetFlags.has("undead"))
-		{
-			return;
-		}
-
-		foreach (flag in this.Const.Injury.PTRForceUndeadInjuryExemptFlags)
-		{
-			if (targetFlags.has(flag))
-			{
-				return;
-			}
-		}
-
-		_hitInfo.Injuries = this.Const.Injury.getArrayOfRelevantUndeadInjuries(_skill, _targetEntity, _hitInfo);
+		_hitInfo.Injuries = this.Const.Injury.getArrayOfRelevantUndeadInjuries(_skill, _targetEntity, _hitInfo.BodyPart);
 	}
 });
