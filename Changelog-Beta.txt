@@ -1,3 +1,8 @@
+==== Ver 0.6.7 ====
+- Fixed hang/crash when attacking an Undead target while having the Dismember perk.
+- Fixed Aimed Shot lighting the tile on fire even without the Flaming Arrows perk.
+- Fixed Onslaught. It should now properly work as intended with Staves.
+
 ==== Ver 0.6.6 ====
 MAJOR CHANGES:
 - Axe tree rearranged: Heft is now tier 2, and Dismemberment is tier 3.
