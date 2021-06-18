@@ -1,6 +1,7 @@
 this.perk_ptr_cull <- this.inherit("scripts/skills/skill", {
 	m = {
-		SkillCount = 0
+		SkillCount = 0,
+		IsForceEnabled = false
 	},
 	function create()
 	{
@@ -14,7 +15,28 @@ this.perk_ptr_cull <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
+	function isEnabled(_skill)
+	{
+		if (this.m.IsForceEnabled)
+		{
+			return true;
+		}
+
+		local weapon = this.getContainer().getActor().getMainhandItem();
+		if(weapon == null || weapon.getApplicableMasteries()[0] != this.Const.WMS.Mastery.Axe)
+		{
+			return false;
+		}
+
+		if (!_skill.hasCuttingDamage() || !_skill.m.IsWeaponSkill)
+		{
+			return false;
+		}
+
+		return true;
+	}
+
 	function getThreshold(_weapon)
 	{
 		if (_weapon.isItemType(this.Const.Items.ItemType.OneHanded))
@@ -25,20 +47,19 @@ this.perk_ptr_cull <- this.inherit("scripts/skills/skill", {
 		{
 			return 0.4;
 		}
-		
+
 		return 0;
 	}
-	
+
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
 		if (_bodyPart != this.Const.BodyPart.Head)
 		{
 			return;
 		}
-		
+
 		local actor = this.getContainer().getActor();
-		
-		if (!_skill.isAttack() || !_skill.m.IsWeaponSkill || !_skill.hasCuttingDamage() || !_targetEntity.isAlive() || _targetEntity.isAlliedWith(actor))
+		if (!_skill.isAttack() || !this.isEnabled(_skill) || !_targetEntity.isAlive() || _targetEntity.isAlliedWith(actor))
 		{
 			return;
 		}
@@ -46,20 +67,18 @@ this.perk_ptr_cull <- this.inherit("scripts/skills/skill", {
 		if (this.m.SkillCount == this.Const.SkillCounter)
 		{
 			return;
-		}				
-		this.m.SkillCount = this.Const.SkillCounter;		
-	
-		local weapon = actor.getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);
-		
-		if (weapon != null && weapon.m.Categories.find("Axe") != null)
+		}
+
+		this.m.SkillCount = this.Const.SkillCounter;
+
+		local threshold = this.getThreshold(actor.getMainhandItem());
+		if (_targetEntity.getHitpoints() / (_targetEntity.getHitpointsMax() * 1.0) < threshold)
 		{
-			local threshold = this.getThreshold(weapon);
-			
-			if (_targetEntity.getHitpoints() / (_targetEntity.getHitpointsMax() * 1.0) < threshold)
+			_targetEntity.kill(actor, _skill)
+			if (!actor.isHiddenToPlayer() && _targetEntity.getTile().IsVisibleForPlayer)
 			{
-				_targetEntity.kill(actor, _skill)
+				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " has culled " + this.Const.UI.getColorizedEntityName(_targetEntity));
 			}
-		}		
+		}
 	}
 });
-
