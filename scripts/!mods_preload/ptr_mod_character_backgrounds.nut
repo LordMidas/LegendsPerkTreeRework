@@ -2185,7 +2185,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			Defense = [
 				[{Weight = 100, Tree = this.Const.Perks.ShieldTree}]
 			],
-			StylesTrees = [
+			Styles = [
 				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}]
 			]
 		};
