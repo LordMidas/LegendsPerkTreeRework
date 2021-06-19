@@ -77,6 +77,17 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 			});
 		}
 
+		local weapon = actor.getMainhandItem();
+		if (weapon == null || (!actor.isDoubleGrippingWeapon() && weapon.isItemType(this.Const.Items.ItemType.TwoHanded))
+		{
+			tooltip.push({
+				id = 9,
+				type = "text",
+				icon = "ui/tooltips/warning.png",
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]Requires a Two-Handed Sword or a One-Handed Sword with the Offhand free[/color]"
+			});
+		}
+
 		if (actor.getCurrentProperties().IsRooted)
 		{
 			tooltip.push({
@@ -90,7 +101,7 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 		if(actor.isPlacedOnMap() && !this.anAdjacentEmptyTileHasAdjacentEnemy(actor.getTile()))
 		{
 			tooltip.push({
-				id = 10,
+				id = 9,
 				type = "text",
 				icon = "ui/tooltips/warning.png",
 				text = "[color=" + this.Const.UI.Color.NegativeValue + "]Requires an empty tile adjacent to an enemy[/color]"
@@ -100,7 +111,7 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 		if(this.m.IsSpent)
 		{
 			tooltip.push({
-				id = 10,
+				id = 9,
 				type = "text",
 				icon = "ui/tooltips/warning.png",
 				text = "[color=" + this.Const.UI.Color.NegativeValue + "]Can only be used immediately after a successful attack[/color]"
@@ -163,50 +174,24 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 
 	function isUsable()
 	{
-		if (!this.m.IsSpent && this.skill.isUsable() && !this.getContainer().getActor().getCurrentProperties().IsRooted)
-		{
-			local myTile = this.getContainer().getActor().getTile();
-			/* local hasAdjacentEnemy = false;
-			local anAdjacentTileHasAdjacentEnemy = false;
-
-			for( local i = 0; i < 6; i++ )
-			{
-				if (myTile.hasNextTile(i))
-				{
-					local nextTile = myTile.getNextTile(i);
-
-					if (nextTile.IsEmpty && this.tileHasAdjacentEnemy(nextTile) && !(this.Math.abs(nextTile.Level - myTile.Level) > 1))
-					{
-						anAdjacentTileHasAdjacentEnemy = true;
-					}
-
-					if (nextTile.IsOccupiedByActor && !(this.Math.abs(nextTile.Level - myTile.Level) > 1))
-					{
-						local entity = nextTile.getEntity();
-
-						if (!entity.getCurrentProperties().IsStunned && !entity.isAlliedWith(this.getContainer().getActor()))
-						{
-							hasAdjacentEnemy = true;
-						}
-					}
-				}
-			}
-
-			hasAdjacentEnemy = true;
-			if (hasAdjacentEnemy && anAdjacentTileHasAdjacentEnemy)
-			{
-				return true;
-			} */
-
-			if (this.anAdjacentEmptyTileHasAdjacentEnemy(myTile))
-			{
-				return true;
-			}
-		}
-		else
+		if (this.m.IsSpent || !this.skill.isUsable() || this.getContainer().getActor().getCurrentProperties().IsRooted)
 		{
 			return false;
 		}
+
+		local weapon = this.getContainer().getActor().getMainhandItem();
+		if (weapon == null || (!actor.isDoubleGrippingWeapon() && weapon.isItemType(this.Const.Items.ItemType.TwoHanded))
+		{
+			return false;
+		}
+
+		local myTile = this.getContainer().getActor().getTile();
+		if (this.anAdjacentEmptyTileHasAdjacentEnemy(myTile))
+		{
+			return true;
+		}
+
+		return false;
 	}
 
 	function onVerifyTarget( _originTile, _targetTile )
