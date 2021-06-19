@@ -45,8 +45,8 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.PTRPowerShot <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Crossbow or Firearm[/color]\n\nAttacks from crossbows and firearms have a [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] chance to inflict Stagger for one turn.\n[color=#0b0084]From the Crossbow perk group[/color]";
 	gt.Const.Strings.PerkName.PTRIronSights <- "Iron Sights";
 	gt.Const.Strings.PerkDescription.PTRIronSights <- "Ranged attacks have an additional [color=" + this.Const.UI.Color.PositiveValue + "]+15%[/color] chance to hit the head.\n[color=#0b0084]From the Crossbow perk group[/color]";
-	gt.Const.Strings.PerkName.PTRWindlassTraining <- "Windlass Training";
-	gt.Const.Strings.PerkDescription.PTRWindlassTraining <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Crossbow[/color]\n\nThe Action Point Cost of reloading a crossbow is reduced by [color=" + this.Const.UI.Color.NegativeValue + "]1[/color].\n[color=#0b0084]From the Crossbow perk group[/color]";
+	gt.Const.Strings.PerkName.PTRWindlassTraining <- "Muscle Memory";
+	gt.Const.Strings.PerkDescription.PTRWindlassTraining <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Crossbow or Firearm[/color]\n\nThe Action Point Cost of reloading a crossbow is reduced by [color=" + this.Const.UI.Color.NegativeValue + "]1[/color] and that of reloading a Handgonne is reduced by [color=" + this.Const.UI.Color.NegativeValue + "]2[/color].\n[color=#0b0084]From the Crossbow perk group[/color]";
 
 	gt.Const.Strings.PerkName.PTRBetweenTheRibs <- "Between the Ribs";
 	gt.Const.Strings.PerkDescription.PTRBetweenTheRibs <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Dagger[/color]\n\nWhen using daggers, gain [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] damage per ally surrounding the target.\n[color=#0b0084]From the Dagger perk group[/color]";
@@ -107,7 +107,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.PTRPatience <- "Gain [color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] Ranged Skill as long as you have not moved during your turn.\n[color=#0b0084]From the Sling perk group[/color]";
 	gt.Const.Strings.PerkName.PTRHeavyProjectiles <- "Heavy Projectiles";
 	gt.Const.Strings.PerkDescription.PTRHeavyProjectiles <- "Ranged attacks have a chance to apply the Dazed effect. The chance is [color=" + this.Const.UI.Color.PositiveValue + "]100%[/color] on a hit to the head and [color=" + this.Const.UI.Color.PositiveValue + "]25%[/color] on a hit to the body. Ignores target's immunity.\n[color=#0b0084]From the Sling perk group[/color]";
-	gt.Const.Strings.PerkName.PTRSniper <- "Sniper";
+	gt.Const.Strings.PerkName.PTRSniper <- "Death From Afar";
 	gt.Const.Strings.PerkDescription.PTRSniper <- "Damage from Ranged attacks is increased by [color=" + this.Const.UI.Color.PositiveValue + "]2%[/color] per tile the target is away from you.\n[color=#0b0084]From the Sling perk group[/color]";
 
 	gt.Const.Strings.PerkName.PTRPointyEnd <- "Pointy End";
@@ -117,11 +117,11 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRThroughTheGaps <- "Through the Gaps";
 	gt.Const.Strings.PerkDescription.PTRThroughTheGaps <- "Piercing attacks ignore an additional [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of the target's armor.\n[color=#0b0084]From the Spear perk group[/color]";
 	gt.Const.Strings.PerkName.PTRTwoForOne <- "Two for One";
-	gt.Const.Strings.PerkDescription.PTRTwoForOne <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Spear, One-Handed[/color]\n\nWhen using a One-Handed Spear, with the off-hand free, the Action Point cost of Thrust is reduced to [color=" + this.Const.UI.Color.NegativeValue + "]3[/color].\n[color=#0b0084]From the Spear perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRTwoForOne <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Spear[/color]\n\nWhen using a spear, the Action Point cost of Thrust, Prong and Glaive Slash is reduced to [color=" + this.Const.UI.Color.NegativeValue + "]3[/color].\n[color=#0b0084]From the Spear perk group[/color]";
 	gt.Const.Strings.PerkName.PTRABetterGrip <- "A Better Grip";
-	gt.Const.Strings.PerkDescription.PTRABetterGrip <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Spear, One-Handed[/color]\n\nWhen using a One-Handed Spear, with the off-hand free, the range of Thrust is increased to [color=" + this.Const.UI.Color.PositiveValue + "]2[/color] and you gain benefit from Reach Advantage.\n[color=#0b0084]From the Spear perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRABetterGrip <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Spear[/color]\n\nOne-Handed Spears and Glaives now benefit from Reach Advantage if you have that perk. When using a One-Handed Spear, with the Off-Hand free, the range of Thrust is increased to [color=" + this.Const.UI.Color.PositiveValue + "]2[/color] tiles. When using Two-Handed Spears, Melee Damage is increased by [color=" + this.Const.UI.Color.PositiveValue + "]25%[/color].\n[color=#0b0084]From the Spear perk group[/color]";
 	gt.Const.Strings.PerkName.PTRKingOfAllWeapons <- "King of all Weapons";
-	gt.Const.Strings.PerkDescription.PTRKingOfAllWeapons <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Spear[/color]\n\nWhen using a spear, the first Thrust during your turn costs no action Points and builds no Fatigue, but does [color=" + this.Const.UI.Color.NegativeValue + "]50%[/color] reduced damage.\n[color=#0b0084]From the Spear perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRKingOfAllWeapons <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Spear[/color]\n\nWhen using a Spear, the first Thrust or Prong during your turn costs no action Points and builds no Fatigue, but does [color=" + this.Const.UI.Color.NegativeValue + "]50%[/color] reduced damage.\n[color=#0b0084]From the Spear perk group[/color]";
 
 	gt.Const.Strings.PerkName.PTRVersatileWeapon <- "Versatile Weapon";
 	gt.Const.Strings.PerkDescription.PTRVersatileWeapon <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Sword[/color]\n\nWhen wielding a sword, gain [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] damage, [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] armor penetration and [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] armor effectiveness.\n[color=#0b0084]From the Sword perk group[/color]";
@@ -130,7 +130,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRTempo <- "Tempo";
 	gt.Const.Strings.PerkDescription.PTRTempo <- "Every attack against a target who acts after you in the current round increases your Initiative by [color=" + this.Const.UI.Color.PositiveValue + "]+15[/color]. The bonus lasts until the start of your next turn.\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Strings.PerkName.PTRKata <- "Kata";
-	gt.Const.Strings.PerkDescription.PTRKata <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Sword[/color]\n\nUnlocks the Kata Step skill which, immediately after a successful attack, allows you to move one tile ignoring zone of control with reduced Action Point cost. However, the target tile for the movement must be adjacent to an enemy.\n[color=#0b0084]From the Sword perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRKata <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Sword[/color]\n\nUnlocks the Kata Step skill which, immediately after a successful attack, allows you to move one tile ignoring zone of control with reduced Action Point cost. However, the target tile for the movement must be adjacent to an enemy.\n\nOnly works with Two-Handed Swords or when Double Gripping a One-Handed Sword.\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Strings.PerkName.PTREnGarde <- "En garde";
 	gt.Const.Strings.PerkDescription.PTREnGarde <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Sword[/color]\n\nWhen wielding a sword, if you have not moved from your position during your turn, use Riposte freely at the end of your turn if your weapon has Riposte. If your weapon does not have Riposte, gain [color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] Melee Defense instead until the start of your next turn.\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Strings.PerkName.PTRBloodyHarvest <- "Bloody Harvest";
@@ -164,6 +164,8 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRSurvivalInstinct <- "Survival Instinct";
 	gt.Const.Strings.PerkDescription.PTRSurvivalInstinct <- "Melee and Ranged Defense are increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] for one turn whenever you get hit. Does not stack from multiple hits.\n[color=#0b0084]From the Resilient perk group[/color]";
 
+	gt.Const.Strings.PerkDescription.CoupDeGrace = "Inflict additional [color=" + this.Const.UI.Color.PositiveValue + "]20%[/color] damage against targets that have sustained any injury effects, like a broken arm. Also grants [color=" + this.Const.UI.Color.NegativeValue + "]+20%[/color] damage against targets who are stunned, netted, sleeping or debilitated.\n[color=#0b0084]From the Vicious perk group[/color]";
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.CoupDeGrace].Tooltip = gt.Const.Strings.PerkDescription.CoupDeGrace;
 	gt.Const.Strings.PerkDescription.LegendAssuredConquest = "Resolve is increased by [color=" + this.Const.UI.Color.PositiveValue + "]25%[/color] when at Confident morale.\n[color=#0b0084]From the Vicious perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendAssuredConquest].Tooltip = gt.Const.Strings.PerkDescription.LegendAssuredConquest;
 
@@ -194,4 +196,252 @@ gt.Const.PTR.modStrings <- function()
 
 	gt.Const.Strings.PerkName.PTRWearsItWell <- "Wears it Well";
 	gt.Const.Strings.PerkDescription.PTRWearsItWell <- "Fatigue Recovery is increased by [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color] of your current Maximum Fatigue.\n[color=#0b0084]From the Large perk group[/color]";
+
+	gt.Const.Strings.PerkDescription.LegendClarity = "A well honed mind can perceive more in each instant, making time appear slower in key instants of need. Grants [color=" + this.Const.UI.Color.PositiveValue + "]+1[/color] Action Point. Does not work if you have Berserk or are dazed, drunk, hungover, taunted, staggered, horrified, concused or fleeing. Gain an additional [color=" + this.Const.UI.Color.PositiveValue + "]+1[/color] Action Point if under the effect of potions that improve cognition: Iron Will, Lionheart, Cat, Recovery or Hexen Ichor. \n[color=#0b0084]From the Calm perk group[/color]";
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendClarity].Tooltip = gt.Const.Strings.PerkDescription.LegendClarity;
+
+	gt.Const.Strings.PerkDescription.BattleForged = "Specialize in heavy armor! Armor damage taken is reduced by a percentage equal to [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color] of the current total armor value of both body and head armor. The heavier your armor and helmet, the more you benefit.\n\nDoes not affect damage from mental attacks or status effects, but can help to avoid receiving them. \n[color=#0b0084]From the Heavy Armor perk group[/color]";
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.BattleForged].Tooltip = gt.Const.Strings.PerkDescription.BattleForged;
+
+	local changePerkGroupInTooltip = function (_tooltip, _newPerkGroup = "")
+	{
+		local strArray = split(_tooltip, "[");
+
+		strArray.pop();
+		strArray.apply(@(a) a += "[" );
+
+		strArray[strArray.len()-1] = "[color=#0b0084]From the " + _newPerkGroup + " perk group[/color]";
+
+		local ret = "";
+		foreach (s in strArray)
+		{
+			ret += s;
+		}
+
+		return ret;
+	};
+
+	gt.Const.Strings.PerkDescription.NineLives = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.NineLives, "Resilient");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.NineLives].Tooltip = gt.Const.Strings.PerkDescription.NineLives;
+	gt.Const.Strings.PerkDescription.SteelBrow = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.SteelBrow, "Resilient");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.SteelBrow].Tooltip = gt.Const.Strings.PerkDescription.SteelBrow;
+	gt.Const.Strings.PerkDescription.HoldOut = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.HoldOut, "Resilient");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.HoldOut].Tooltip = gt.Const.Strings.PerkDescription.HoldOut;
+	gt.Const.Strings.PerkDescription.LastStand = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LastStand, "Resilient");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LastStand].Tooltip = gt.Const.Strings.PerkDescription.LastStand;
+
+	gt.Const.Strings.PerkDescription.SunderingStrikes = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.SunderingStrikes, "Axe, Blacksmith, and Miner");
+	gt.Const.Strings.PerkDescription.SunderingStrikes += "s";
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.SunderingStrikes].Tooltip = gt.Const.Strings.PerkDescription.SunderingStrikes;
+
+	gt.Const.Strings.PerkDescription.Overwhelm = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Overwhelm, "Dagger");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Overwhelm].Tooltip = gt.Const.Strings.PerkDescription.Overwhelm;
+
+	gt.Const.Strings.PerkDescription.PushTheAdvantage += "\n[color=#0b0084]From the Mace perk group[/color]"
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.PushTheAdvantage].Tooltip = gt.Const.Strings.PerkDescription.PushTheAdvantage;
+
+	gt.Const.Strings.PerkDescription.Lookout = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Lookout, "Sling");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Lookout].Tooltip = gt.Const.Strings.PerkDescription.Lookout;
+
+	gt.Const.Strings.PerkDescription.LegendOnslaught = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendOnslaught, "Staff");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendOnslaught].Tooltip = gt.Const.Strings.PerkDescription.LegendOnslaught;
+
+	gt.Const.Strings.PerkDescription.Rebound = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Rebound, "Agile");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Rebound].Tooltip = gt.Const.Strings.PerkDescription.Rebound;
+
+	gt.Const.Strings.PerkDescription.LoneWolf = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LoneWolf, "Vicious");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LoneWolf].Tooltip = gt.Const.Strings.PerkDescription.LoneWolf;
+	gt.Const.Strings.PerkDescription.Fearsome = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Fearsome, "Vicious");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Fearsome].Tooltip = gt.Const.Strings.PerkDescription.Fearsome;
+
+	gt.Const.Strings.PerkDescription.Backstabber = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Backstabber, "Dagger perk group and Devious");
+	gt.Const.Strings.PerkDescription.Backstabber += "s";
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Backstabber].Tooltip = gt.Const.Strings.PerkDescription.Backstabber;
+
+	gt.Const.Strings.PerkDescription.LegendUntouchable += "\n[color=#0b0084]From the Devious perk group[/color]"
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendUntouchable].Tooltip = gt.Const.Strings.PerkDescription.LegendUntouchable;
+
+	gt.Const.Strings.PerkDescription.Student = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Student, "Talented");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Student].Tooltip = gt.Const.Strings.PerkDescription.Student;
+	gt.Const.Strings.PerkDescription.Gifted = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Gifted, "Talented");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Gifted].Tooltip = gt.Const.Strings.PerkDescription.Gifted;
+
+	gt.Const.Strings.PerkDescription.FastAdaption = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.FastAdaption, "Calm");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.FastAdaption].Tooltip = gt.Const.Strings.PerkDescription.FastAdaption;
+	gt.Const.Strings.PerkDescription.LegendTrueBeliever = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendTrueBeliever, "Calm");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendTrueBeliever].Tooltip = gt.Const.Strings.PerkDescription.LegendTrueBeliever;
+	gt.Const.Strings.PerkDescription.FortifiedMind = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.FortifiedMind, "Calm");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.FortifiedMind].Tooltip = gt.Const.Strings.PerkDescription.FortifiedMind;
+	gt.Const.Strings.PerkDescription.LegendMindOverBody = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendMindOverBody, "Calm");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendMindOverBody].Tooltip = gt.Const.Strings.PerkDescription.LegendMindOverBody;
+
+	gt.Const.Strings.PerkDescription.LegendAlert = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendAlert, "Fast");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendAlert].Tooltip = gt.Const.Strings.PerkDescription.LegendAlert;
+	gt.Const.Strings.PerkDescription.Relentless = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Relentless, "Fast");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Relentless].Tooltip = gt.Const.Strings.PerkDescription.Relentless;
+	gt.Const.Strings.PerkDescription.LegendSecondWind = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendSecondWind, "Fast");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSecondWind].Tooltip = gt.Const.Strings.PerkDescription.LegendSecondWind;
+	gt.Const.Strings.PerkDescription.BattleFlow = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.BattleFlow, "Fast");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.BattleFlow].Tooltip = gt.Const.Strings.PerkDescription.BattleFlow;
+
+	gt.Const.Strings.PerkDescription.LegendComposure = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendComposure, "Large");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendComposure].Tooltip = gt.Const.Strings.PerkDescription.LegendComposure;
+	gt.Const.Strings.PerkDescription.Steadfast = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Steadfast, "Large");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Steadfast].Tooltip = gt.Const.Strings.PerkDescription.Steadfast;
+	gt.Const.Strings.PerkDescription.Stalwart = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Stalwart, "Large");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Stalwart].Tooltip = gt.Const.Strings.PerkDescription.Stalwart;
+
+	gt.Const.Strings.PerkDescription.Recover = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Recover, "Sturdy");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Recover].Tooltip = gt.Const.Strings.PerkDescription.Recover;
+	gt.Const.Strings.PerkDescription.Taunt = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Taunt, "Sturdy");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Taunt].Tooltip = gt.Const.Strings.PerkDescription.Taunt;
+	gt.Const.Strings.PerkDescription.ReturnFavor = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.ReturnFavor, "Sturdy");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.ReturnFavor].Tooltip = gt.Const.Strings.PerkDescription.ReturnFavor;
+	gt.Const.Strings.PerkDescription.Vengeance = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Vengeance, "Sturdy");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Vengeance].Tooltip = gt.Const.Strings.PerkDescription.Vengeance;
+	gt.Const.Strings.PerkDescription.Indomitable = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Indomitable, "Sturdy");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Indomitable].Tooltip = gt.Const.Strings.PerkDescription.Indomitable;
+
+	gt.Const.Strings.PerkDescription.Adrenalin = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Adrenalin, "Unstoppable");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Adrenalin].Tooltip = gt.Const.Strings.PerkDescription.Adrenalin;
+	gt.Const.Strings.PerkDescription.Berserk = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Berserk, "Unstoppable");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Berserk].Tooltip = gt.Const.Strings.PerkDescription.Berserk;
+	gt.Const.Strings.PerkDescription.KillingFrenzy = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.KillingFrenzy, "Unstoppable");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.KillingFrenzy].Tooltip = gt.Const.Strings.PerkDescription.KillingFrenzy;
+
+	gt.Const.Strings.PerkDescription.LegendCheerOn = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendCheerOn, "Sergeant");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendCheerOn].Tooltip = gt.Const.Strings.PerkDescription.LegendCheerOn;
+	gt.Const.Strings.PerkDescription.RallyTheTroops = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.RallyTheTroops, "Sergeant");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.RallyTheTroops].Tooltip = gt.Const.Strings.PerkDescription.RallyTheTroops;
+	gt.Const.Strings.PerkDescription.InspiringPresence = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.InspiringPresence, "Sergeant");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.InspiringPresence].Tooltip = gt.Const.Strings.PerkDescription.InspiringPresence;
+	gt.Const.Strings.PerkDescription.Inspire = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Inspire, "Sergeant");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Inspire].Tooltip = gt.Const.Strings.PerkDescription.Inspire;
+
+	gt.Const.Strings.PerkDescription.LegendSpecBandage += "\n[color=#0b0084]From the Healer perk group[/color]"
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSpecBandage].Tooltip = gt.Const.Strings.PerkDescription.LegendSpecBandage;
+
+	gt.Const.Strings.PerkDescription.LegendNetRepair += "\n[color=#0b0084]From the Trapper perk group[/color]"
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendNetRepair].Tooltip = gt.Const.Strings.PerkDescription.LegendNetRepair;
+	gt.Const.Strings.PerkDescription.LegendNetCasting += "\n[color=#0b0084]From the Trapper perk group[/color]"
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendNetCasting].Tooltip = gt.Const.Strings.PerkDescription.LegendNetCasting;
+	gt.Const.Strings.PerkDescription.LegendMasteryNets = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendMasteryNets, "Trapper");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendMasteryNets].Tooltip = gt.Const.Strings.PerkDescription.LegendMasteryNets;
+	gt.Const.Strings.PerkDescription.LegendEscapeArtist = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendEscapeArtist, "Trapper");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendEscapeArtist].Tooltip = gt.Const.Strings.PerkDescription.LegendEscapeArtist;
+
+	gt.Const.Strings.PerkDescription.LegendToolsDrawers = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendToolsDrawers, "Mender");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendToolsDrawers].Tooltip = gt.Const.Strings.PerkDescription.LegendToolsDrawers;
+	gt.Const.Strings.PerkDescription.LegendToolsSpares = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendToolsSpares, "Mender");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendToolsSpares].Tooltip = gt.Const.Strings.PerkDescription.LegendToolsSpares;
+
+	gt.Const.Strings.PerkDescription.LegendPaymaster = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendPaymaster, "Clerk");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendPaymaster].Tooltip = gt.Const.Strings.PerkDescription.LegendPaymaster;
+	gt.Const.Strings.PerkDescription.LegendDangerPay += "\n[color=#0b0084]From the Clerk perk group[/color]"
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendDangerPay].Tooltip = gt.Const.Strings.PerkDescription.LegendDangerPay;
+	gt.Const.Strings.PerkDescription.LegendBribe = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendBribe, "Clerk");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendBribe].Tooltip = gt.Const.Strings.PerkDescription.LegendBribe;
+
+	gt.Const.Strings.PerkDescription.LegendDogWhisperer = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendDogWhisperer, "Houndmaster");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendDogWhisperer].Tooltip = gt.Const.Strings.PerkDescription.LegendDogWhisperer;
+	gt.Const.Strings.PerkDescription.LegendDogBreeder = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendDogBreeder, "Houndmaster");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendDogBreeder].Tooltip = gt.Const.Strings.PerkDescription.LegendDogBreeder;
+	gt.Const.Strings.PerkDescription.LegendDogHandling = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendDogHandling, "Houndmaster");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendDogHandling].Tooltip = gt.Const.Strings.PerkDescription.LegendDogHandling;
+	gt.Const.Strings.PerkDescription.LegendPackleader = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendPackleader, "Houndmaster");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendPackleader].Tooltip = gt.Const.Strings.PerkDescription.LegendPackleader;
+
+	gt.Const.Strings.PerkDescription.LegendMarkTarget += "\n[color=#0b0084]From the Tactician perk group[/color]"
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendMarkTarget].Tooltip = gt.Const.Strings.PerkDescription.LegendMarkTarget;
+	gt.Const.Strings.PerkDescription.LegendShieldsUp += "\n[color=#0b0084]From the Tactician perk group[/color]"
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendShieldsUp].Tooltip = gt.Const.Strings.PerkDescription.LegendShieldsUp;
+	gt.Const.Strings.PerkDescription.LegendHoldTheLine += "\n[color=#0b0084]From the Tactician perk group[/color]"
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendHoldTheLine].Tooltip = gt.Const.Strings.PerkDescription.LegendHoldTheLine;
+	gt.Const.Strings.PerkDescription.LegendForwardPush += "\n[color=#0b0084]From the Tactician perk group[/color]"
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendForwardPush].Tooltip = gt.Const.Strings.PerkDescription.LegendForwardPush;
+
+	gt.Const.Strings.PerkDescription.LegendSpecialistKnifeSkill = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendSpecialistKnifeSkill, "Assassin");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSpecialistKnifeSkill].Tooltip = gt.Const.Strings.PerkDescription.LegendSpecialistKnifeSkill;
+	gt.Const.Strings.PerkDescription.LegendSpecialistKnifeDamage = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendSpecialistKnifeDamage, "Assassin");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSpecialistKnifeDamage].Tooltip = gt.Const.Strings.PerkDescription.LegendSpecialistKnifeDamage;
+
+	gt.Const.Strings.PerkDescription.LegendHidden = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendHidden, "Devious and Assassin");
+	gt.Const.Strings.PerkDescription.LegendHidden += "s";
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendHidden].Tooltip = gt.Const.Strings.PerkDescription.LegendHidden;
+
+	gt.Const.Strings.PerkDescription.LegendAssassinate = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendAssassinate, "Assassin");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendAssassinate].Tooltip = gt.Const.Strings.PerkDescription.LegendAssassinate;
+
+	gt.Const.Strings.PerkDescription.LegendPrepareBleed += "\n[color=#0b0084]From the Butcher perk group[/color]"
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendPrepareBleed].Tooltip = gt.Const.Strings.PerkDescription.LegendPrepareBleed;
+	gt.Const.Strings.PerkDescription.LegendPrepareGraze += "\n[color=#0b0084]From the Butcher and Cultist perk groups[/color]"
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendPrepareGraze].Tooltip = gt.Const.Strings.PerkDescription.LegendPrepareGraze;
+	gt.Const.Strings.PerkDescription.LegendSlaughter += "\n[color=#0b0084]From the Butcher perk group[/color]"
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSlaughter].Tooltip = gt.Const.Strings.PerkDescription.LegendSlaughter;
+
+	gt.Const.Strings.PerkDescription.LegendSpecialistShortbowSkill = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendSpecialistShortbowSkill, "Hunter");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSpecialistShortbowSkill].Tooltip = gt.Const.Strings.PerkDescription.LegendSpecialistShortbowSkill;
+	gt.Const.Strings.PerkDescription.LegendSpecialistShortbowDamage = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendSpecialistShortbowDamage, "Hunter");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSpecialistShortbowDamage].Tooltip = gt.Const.Strings.PerkDescription.LegendSpecialistShortbowDamage;
+
+	gt.Const.Strings.PerkDescription.LegendSpecialistShovelSkill = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendSpecialistShovelSkill, "Digger");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSpecialistShovelSkill].Tooltip = gt.Const.Strings.PerkDescription.LegendSpecialistShovelSkill;
+	gt.Const.Strings.PerkDescription.LegendSpecialistShovelDamage = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendSpecialistShovelDamage, "Digger");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSpecialistShovelDamage].Tooltip = gt.Const.Strings.PerkDescription.LegendSpecialistShovelDamage;
+	gt.Const.Strings.PerkDescription.LegendResurrectionist += "\n[color=#0b0084]From the Digger perk group[/color]"
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendResurrectionist].Tooltip = gt.Const.Strings.PerkDescription.LegendResurrectionist;
+
+	gt.Const.Strings.PerkDescription.LegendWoodworking = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendWoodworking, "Lumberjack");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendWoodworking].Tooltip = gt.Const.Strings.PerkDescription.LegendWoodworking;
+
+	gt.Const.Strings.PerkDescription.LegendSpecialistSickleSkill = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendSpecialistSickleSkill, "Apothecary");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSpecialistSickleSkill].Tooltip = gt.Const.Strings.PerkDescription.LegendSpecialistSickleSkill;
+	gt.Const.Strings.PerkDescription.LegendSpecialistSickleDamage = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendSpecialistSickleDamage, "Apothecary");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSpecialistSickleDamage].Tooltip = gt.Const.Strings.PerkDescription.LegendSpecialistSickleDamage;
+
+	gt.Const.Strings.PerkDescription.LegendHairSplitter += "\n[color=#0b0084]From the Juggler perk group[/color]"
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendHairSplitter].Tooltip = gt.Const.Strings.PerkDescription.LegendHairSplitter;
+	gt.Const.Strings.PerkDescription.LegendLeap += "\n[color=#0b0084]From the Juggler perk group[/color]"
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendLeap].Tooltip = gt.Const.Strings.PerkDescription.LegendLeap;
+	gt.Const.Strings.PerkDescription.LegendTumble += "\n[color=#0b0084]From the Juggler perk group[/color]"
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendTumble].Tooltip = gt.Const.Strings.PerkDescription.LegendTumble;
+
+	gt.Const.Strings.PerkDescription.LegendSpecialistLuteSkill += "\n[color=#0b0084]From the Minstrel perk group[/color]"
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSpecialistLuteSkill].Tooltip = gt.Const.Strings.PerkDescription.LegendSpecialistLuteSkill;
+	gt.Const.Strings.PerkDescription.LegendSpecialistLuteDamage += "\n[color=#0b0084]From the Minstrel perk group[/color]"
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSpecialistLuteDamage].Tooltip = gt.Const.Strings.PerkDescription.LegendSpecialistLuteDamage;
+	gt.Const.Strings.PerkDescription.LegendDaze = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendDaze, "Minstrel");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendDaze].Tooltip = gt.Const.Strings.PerkDescription.LegendDaze;
+	gt.Const.Strings.PerkDescription.LegendEntice = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendEntice, "Minstrel");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendEntice].Tooltip = gt.Const.Strings.PerkDescription.LegendEntice;
+	gt.Const.Strings.PerkDescription.LegendPush += "\n[color=#0b0084]From the Minstrel perk group[/color]"
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendPush].Tooltip = gt.Const.Strings.PerkDescription.LegendPush;
+	gt.Const.Strings.PerkDescription.LegendDrumsOfWar = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendDrumsOfWar, "Minstrel");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendDrumsOfWar].Tooltip = gt.Const.Strings.PerkDescription.LegendDrumsOfWar;
+	gt.Const.Strings.PerkDescription.LegendDrumsOfLife = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendDrumsOfLife, "Minstrel");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendDrumsOfLife].Tooltip = gt.Const.Strings.PerkDescription.LegendDrumsOfLife;
+
+	gt.Const.Strings.PerkDescription.LegendTrueBeliever = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendTrueBeliever, "Holy Man");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendTrueBeliever].Tooltip = gt.Const.Strings.PerkDescription.LegendTrueBeliever;
+	gt.Const.Strings.PerkDescription.LegendPrayerOfFaith = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendPrayerOfFaith, "Holy Man");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendPrayerOfFaith].Tooltip = gt.Const.Strings.PerkDescription.LegendPrayerOfFaith;
+	gt.Const.Strings.PerkDescription.LegendPrayerOfLife = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendPrayerOfLife, "Holy Man");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendPrayerOfLife].Tooltip = gt.Const.Strings.PerkDescription.LegendPrayerOfLife;
+	gt.Const.Strings.PerkDescription.LegendHolyFlame = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendHolyFlame, "Holy Man");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendHolyFlame].Tooltip = gt.Const.Strings.PerkDescription.LegendHolyFlame;
+
+
+	gt.Const.Strings.PerkDescription.LegendSpecCultHood += "\n[color=#0b0084]From the Cultist perk group[/color]"
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSpecCultHood].Tooltip = gt.Const.Strings.PerkDescription.LegendSpecCultHood;
+	gt.Const.Strings.PerkDescription.LegendSpecCultArmor += "\n[color=#0b0084]From the Cultist perk group[/color]"
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSpecCultArmor].Tooltip = gt.Const.Strings.PerkDescription.LegendSpecCultArmor;
+	gt.Const.Strings.PerkDescription.LegendLacerate += "\n[color=#0b0084]From the Cultist perk group[/color]"
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendLacerate].Tooltip = gt.Const.Strings.PerkDescription.LegendLacerate;
+
+	gt.Const.Strings.PerkDescription.LegendBarterConvincing = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendBarterConvincing, "Trader");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendBarterConvincing].Tooltip = gt.Const.Strings.PerkDescription.LegendBarterConvincing;
+	gt.Const.Strings.PerkDescription.LegendBarterTrustworthy = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendBarterTrustworthy, "Trader");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendBarterTrustworthy].Tooltip = gt.Const.Strings.PerkDescription.LegendBarterTrustworthy;
+	gt.Const.Strings.PerkDescription.LegendBarterGreed = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendBarterGreed, "Trader");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendBarterGreed].Tooltip = gt.Const.Strings.PerkDescription.LegendBarterGreed;
 }
