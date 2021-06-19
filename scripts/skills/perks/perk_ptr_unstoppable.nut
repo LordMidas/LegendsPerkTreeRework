@@ -41,8 +41,8 @@ this.perk_ptr_unstoppable <- this.inherit("scripts/skills/skill", {
 		tooltip.push({
 			id = 10,
 			type = "text",
-			icon = "ui/icons/hitchance.png",
-			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getBonus() + "[/color] Ranged Skill"
+			icon = "ui/icons/damage_dealt.png",
+			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getBonus() + "%[/color] Melee Damage"
 		});
 
 		return tooltip;
@@ -87,7 +87,7 @@ this.perk_ptr_unstoppable <- this.inherit("scripts/skills/skill", {
 	{
 		local bonus = this.getBonus();
 		_properties.MeleeSkill += bonus;
-		_properties.RangedSkill += bonus;
+		_properties.MeleeDamageMult *= 1.0 + (bonus * 0.01);
 	}
 
 	function onCombatStarted()
