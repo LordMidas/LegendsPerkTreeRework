@@ -5,7 +5,7 @@ gt.Const.PTR <- {};
 local modID = "mod_legends_PTR";
 ::mods_registerMod(modID, 1.0, "Perk Trees Rework 0.6.7");
 
-::mods_queue(modID, "mod_legends, mod_MSU, mod_fencerPerk", function()
+::mods_queue(modID, "mod_legends, mod_MSU, mod_fencerPerk, mod_WMS, mod_mediumArmorRework", function()
 {
 	gt.Const.PTR.modStrings();
 	gt.Const.PTR.modSkill();
