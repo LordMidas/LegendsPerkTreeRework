@@ -72,5 +72,20 @@ gt.Const.PTR.modActor <- function()
 
 			return this.Math.max(0, c - 1 - this.m.CurrentProperties.StartSurroundCountAt);
 		}
+
+		local checkMorale = o.checkMorale;
+		o.checkMorale = function( _change, _difficulty, _type = this.Const.MoraleCheckType.Default, _showIconBeforeMoraleIcon = "", _noNewLine = false )
+		{
+			if (this.isAlive() && !this.isDying() && _change > 0)
+			{
+				local skill = this.m.Skills.getSkillByID("perk.perk_legend_assured_conquest");
+				if (skill != null)
+				{
+					_difficulty += skill.getBonusResAtPositiveMoraleCheck();
+				}
+			}
+
+			return checkMorale( _change, _difficulty, _type, _showIconBeforeMoraleIcon, _noNewLine );
+		}
 	});
 }
