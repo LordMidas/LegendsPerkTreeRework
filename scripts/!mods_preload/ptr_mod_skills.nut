@@ -230,17 +230,17 @@ gt.Const.PTR.modSkills <- function()
 		}
 	});
 
-	::mods_hookNewObject("skills/actives/reload_bolt", function(o) {
-		local oldOnAfterUpdate = o.onAfterUpdate;
-		o.onAfterUpdate = function( _properties )
-		{
-			oldOnAfterUpdate(_properties);
-			if (this.getContainer().hasSkill("perk.ptr_windlass_training"))
-			{
-				this.m.ActionPointCost -= 1;
-			}
-		}
-	});
+	# ::mods_hookNewObject("skills/actives/reload_bolt", function(o) {
+	# 	local oldOnAfterUpdate = o.onAfterUpdate;
+	# 	o.onAfterUpdate = function( _properties )
+	# 	{
+	# 		oldOnAfterUpdate(_properties);
+	# 		if (this.getContainer().hasSkill("perk.ptr_windlass_training"))
+	# 		{
+	# 			this.m.ActionPointCost -= 1;
+	# 		}
+	# 	}
+	# });
 
 	# ::mods_hookNewObject("skills/actives/thrust", function(o) {
 	# 	o.m.ThrustCount <- 0;
