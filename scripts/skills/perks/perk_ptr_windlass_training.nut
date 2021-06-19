@@ -13,5 +13,18 @@ this.perk_ptr_windlass_training <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
-});
+	function onAfterUpdate(_properties)
+	{
+		local reloadBolt = this.getContainer().getSkillByID("actives.reload_bolt");
+		if (reloadBolt != null)
+		{
+			reloadBolt.m.ActionPointCost -= 1;
+		}
 
+		local reloadHandgonne = this.getContainer().getSkillByID("reload_handgonne_skill");
+		if (reloadHandgonne != null)
+		{
+			reloadHandgonne.m.ActionPointCost -= 2;
+		}
+	}
+});
