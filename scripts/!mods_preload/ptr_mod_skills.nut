@@ -242,63 +242,60 @@ gt.Const.PTR.modSkills <- function()
 		}
 	});
 
-	::mods_hookNewObject("skills/actives/thrust", function(o) {
-		o.m.ThrustCount <- 0;
-
-		local oldOnAfterUpdate = o.onAfterUpdate;
-		o.onAfterUpdate = function( _properties )
-		{
-			oldOnAfterUpdate(_properties);
-
-			local actor = this.getContainer().getActor();
-			local weapon = actor.getMainhandItem();
-			if (weapon == null && weapon.getCategories().find("Spear") == null)
-			{
-				return;
-			}
-
-			if (this.getContainer().hasSkill("perk.ptr_two_for_one"))
-			{
-				if (actor.isDoubleGrippingWeapon())
-				{
-					this.m.ActionPointCost -= 1;
-				}
-			}
-
-			if (this.getContainer().hasSkill("perk.ptr_a_better_grip"))
-			{
-				if (actor.isDoubleGrippingWeapon())
-				{
-					this.m.MaxRange += 1;
-				}
-			}
-
-			if (this.getContainer().hasSkill("perk.ptr_king_of_all_weapons"))
-			{
-				if (!actor.isPlacedOnMap() || this.m.ThrustCount > 0 || this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
-				{
-					return;
-				}
-
-				this.m.FatigueCostMult = 0;
-				this.m.ActionPointCost = 0;
-				_properties.MeleeDamageMult *= 0.5;
-			}
-		}
-
-		local onUse = o.onUse;
-		o.onUse = function ( _user, _targetTile )
-		{
-			local ret = onUse(_user, _targetTile);
-			this.m.ThrustCount++;
-			return ret;
-		}
-
-		o.onTurnStart <- function()
-		{
-			this.m.ThrustCount = 0;
-		}
-	});
+	# ::mods_hookNewObject("skills/actives/thrust", function(o) {
+	# 	o.m.ThrustCount <- 0;
+	#
+	# 	local oldOnAfterUpdate = o.onAfterUpdate;
+	# 	o.onAfterUpdate = function( _properties )
+	# 	{
+	# 		oldOnAfterUpdate(_properties);
+	#
+	# 		local actor = this.getContainer().getActor();
+	# 		local weapon = actor.getMainhandItem();
+	# 		if (weapon == null && weapon.getCategories().find("Spear") == null)
+	# 		{
+	# 			return;
+	# 		}
+	#
+	# 		# if (this.getContainer().hasSkill("perk.ptr_two_for_one"))
+	# 		# {
+	# 		# 	this.m.ActionPointCost -= 1;
+	# 		# }
+	#
+	# 		# if (this.getContainer().hasSkill("perk.ptr_a_better_grip"))
+	# 		# {
+	# 		# 	if (actor.isDoubleGrippingWeapon())
+	# 		# 	{
+	# 		# 		this.m.MaxRange += 1;
+	# 		# 	}
+	# 		# }
+	#
+	# 		# if (this.getContainer().hasSkill("perk.ptr_king_of_all_weapons"))
+	# 		# {
+	# 		# 	if (!actor.isPlacedOnMap() || this.m.ThrustCount > 0 || this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
+	# 		# 	{
+	# 		# 		return;
+	# 		# 	}
+	# 		#
+	# 		# 	this.m.FatigueCostMult = 0;
+	# 		# 	this.m.ActionPointCost = 0;
+	# 		# 	_properties.MeleeDamageMult *= 0.5;
+	# 		# }
+	# 	}
+	#
+	# 	# local onUse = o.onUse;
+	# 	# o.onUse = function ( _user, _targetTile )
+	# 	# {
+	# 	# 	local ret = onUse(_user, _targetTile);
+	# 	# 	this.m.ThrustCount++;
+	# 	# 	return ret;
+	# 	# }
+	# 	#
+	# 	# o.onTurnStart <- function()
+	# 	# {
+	# 	# 	this.m.ThrustCount = 0;
+	# 	# }
+	# });
 
 	::mods_hookNewObject("skills/actives/quick_shot", function(o) {
 		o.m.UsedCount <- 0;
@@ -469,8 +466,17 @@ gt.Const.PTR.modSkills <- function()
 		{
 			if (this.getContainer().getActor().getMoraleState() == this.Const.MoraleState.Confident)
 			{
-				_properties.BraveryMult *= 1.25;
+				_properties.BraveryMult *= 1.1;
+				_properties.MeleeSkillMult *= 1.05;
+				_properties.RangedSkillMult *= 1.05;
+				_properties.MeleeDefenseMult *= 1.05;
+				_properties.RangedDefenseMult *= 1.05;
 			}
+		}
+
+		o.getBonusResAtPositiveMoraleCheck <- function()
+		{
+			return this.getContainer().getActor().getMoraleState() == this.Const.MoraleState.Confident ? 20 : 10;
 		}
 	});
 
@@ -534,6 +540,26 @@ gt.Const.PTR.modSkills <- function()
 		{
 			this.removeSelf();
 			this.getContainer().add(this.new("scripts/skills/effects/ptr_exhausted_effect"));
+		}
+	});
+
+	::mods_hookNewObject("skills/perks/perk_coup_de_grace", function(o) {
+		o.onAnySkillUsed = function ( _skill, _targetEntity, _properties )
+		{
+			if (_targetEntity == null)
+			{
+				return;
+			}
+
+			if (_skill.isAttack() && _targetEntity.getSkills().hasSkillOfType(this.Const.SkillType.TemporaryInjury))
+			{
+				_properties.DamageTotalMult *= 1.2;
+			}
+
+			if (_targetEntity.getSkills().hasSkill("effects.stunned") || _targetEntity.getSkills().hasSkill("effects.net") || _targetEntity.getSkills().hasSkill("effects.sleeping") || _targetEntity.getSkills().hasSkill("effects.debilitated"))
+			{
+				_properties.DamageTotalMult *= 1.2;
+			}
 		}
 	});
 }
