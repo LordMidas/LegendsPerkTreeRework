@@ -447,7 +447,9 @@ gt.Const.PTR.modClassTrees <- function()
 			[],
 			[],
 			[],
-			[]
+			[
+				gt.Const.Perks.PerkDefs.LegendFieldRepairs
+			]
 		]
 	};
 
