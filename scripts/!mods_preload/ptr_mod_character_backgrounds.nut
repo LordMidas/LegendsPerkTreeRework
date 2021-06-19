@@ -9,6 +9,8 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			WeightMultipliers = [
 				{ Multiplier = 0.25, Tree = this.Const.Perks.OrganisedTree },
 				{ Multiplier = 0.25, Tree = this.Const.Perks.DeviousTree },
+				{ Multiplier = 3, Tree = this.Const.Perks.SergeantClassTree },
+				{ Multiplier = 3, Tree = this.Const.Perks.TacticianClassTree },
 				{ Multiplier = 0.33, Tree = this.Const.Perks.LightArmorTree },
 				{ Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree },
 				{ Multiplier = 3, Tree = this.Const.Perks.HeavyArmorTree },
@@ -20,7 +22,8 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{ Multiplier = 1.25, Tree = this.Const.Perks.TrainedTree }
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.SergeantClassTree}]
+				[{Weight = 50, Tree = this.Const.Perks.SergeantClassTree}],
+				[{Weight = 50, Tree = this.Const.Perks.TacticianClassTree}],
 			],
 			Defense = [
 				[
@@ -42,8 +45,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
-				{ Multiplier = 5, Tree = this.Const.Perks.OrganisedTree },
-				{ Multiplier = 1.5, Tree = this.Const.Perks.ClerkClassTree }
 			],
 			Profession = [
 				[
@@ -131,10 +132,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				[
 					{Weight = 50, Tree = this.Const.Perks.LargeTree},
 					{Weight = 50, Tree = this.Const.Perks.AgileTree}
-				],
-				[
-					{Weight = 50, Tree = this.Const.Perks.SturdyTree},
-					{Weight = 50, Tree = this.Const.Perks.FastTree}
 				]
 			],
 			Styles = [
@@ -156,6 +153,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 1.5, Tree = this.Const.Perks.HeavyArmorTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.CalmTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.OrganisedTree},
+				{Multiplier = 2, Tree = this.Const.Perks.TacticianClassTree},
 				{Multiplier = 0.1, Tree = this.Const.Perks.SlingsTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.BowTree}
 				{Multiplier = 0.5, Tree = this.Const.Perks.SpearTree},
@@ -236,7 +234,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
-				{Multiplier = 2, Tree = this.Const.Perks.AgileTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.ResilientTree},
 				{Multiplier = 0.25, Tree = this.Const.Perks.LargeTree},
 				{Multiplier = 0.25, Tree = this.Const.Perks.SturdyTree},
@@ -371,6 +368,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 0.25, Tree = this.Const.Perks.OrganisedTree},
 				{Multiplier = 0.25, Tree = this.Const.Perks.DeviousTree},
 				{Multiplier = 2, Tree = this.Const.Perks.SergeantClassTree},
+				{Multiplier = 2, Tree = this.Const.Perks.TacticianClassTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.ClerkClassTree},
 				{Multiplier = 3, Tree = this.Const.Perks.HeavyArmorTree},
 				{Multiplier = 3, Tree = this.Const.Perks.MediumArmorTree},
@@ -417,6 +415,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 0.25, Tree = this.Const.Perks.OrganisedTree},
 				{Multiplier = 0.25, Tree = this.Const.Perks.DeviousTree},
 				{Multiplier = 2, Tree = this.Const.Perks.SergeantClassTree},
+				{Multiplier = 2, Tree = this.Const.Perks.TacticianClassTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.ClerkClassTree},
 				{Multiplier = 3, Tree = this.Const.Perks.HeavyArmorTree},
 				{Multiplier = 3, Tree = this.Const.Perks.MediumArmorTree},
@@ -721,9 +720,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
-				{Multiplier = 1.5, Tree = this.Const.Perks.LargeTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.SturdyTree},
 				{Multiplier = 0.25, Tree = this.Const.Perks.TalentedTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.TrainedTree},
 				{Multiplier = 1.25, Tree = this.Const.Perks.OrganisedTree},
@@ -749,9 +745,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
-				{Multiplier = 1.5, Tree = this.Const.Perks.LargeTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.SturdyTree},
 				{Multiplier = 0.25, Tree = this.Const.Perks.TalentedTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.TrainedTree},
 				{Multiplier = 1.25, Tree = this.Const.Perks.OrganisedTree},
@@ -810,6 +803,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 0.5, Tree = this.Const.Perks.CalmTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.OrganisedTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.SergeantClassTree},
+				{Multiplier = 1.5, Tree = this.Const.Perks.TacticianClassTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.BowTree},
 				{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},
 				{Multiplier = 2, Tree = this.Const.Perks.HeavyArmorTree},
@@ -885,16 +879,8 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
-				{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.FastTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.AgileTree},
-				{Multiplier = 2, Tree = this.Const.Perks.LargeTree},
-				{Multiplier = 2, Tree = this.Const.Perks.SturdyTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.ClerkClassTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.MenderClassTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.LightArmorTree},
-				{Multiplier = 2, Tree = this.Const.Perks.TwoHandedTree}
+				{Multiplier = 0.5, Tree = this.Const.Perks.LightArmorTree}
 			],
 			Profession = [
 				[
@@ -916,6 +902,8 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 0.25, Tree = this.Const.Perks.LargeTree},
 				{Multiplier = 0.25, Tree = this.Const.Perks.SturdyTree},
 				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
+				{Multiplier = 3, Tree = this.Const.Perks.SergeantClassTree},
+				{Multiplier = 3, Tree = this.Const.Perks.TacticianClassTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.ShieldTree},
 				{Multiplier = 1.5, Tree = this.Const.Perks.ThrowingTree},
 				{Multiplier = 0.33, Tree = this.Const.Perks.SlingsTree},
@@ -1000,9 +988,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
-				{Multiplier = 1.5, Tree = this.Const.Perks.LargeTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.SturdyTree},
 				{Multiplier = 0.25, Tree = this.Const.Perks.TalentedTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.TrainedTree},
 				{Multiplier = 1.25, Tree = this.Const.Perks.OrganisedTree},
@@ -1031,6 +1016,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 0.5, Tree = this.Const.Perks.CalmTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.OrganisedTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.SergeantClassTree},
+				{Multiplier = 1.5, Tree = this.Const.Perks.TacticianClassTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.BowTree},
 				{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},
 				{Multiplier = 2, Tree = this.Const.Perks.HeavyArmorTree},
@@ -1053,16 +1039,8 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
-				{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.FastTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.AgileTree},
-				{Multiplier = 2, Tree = this.Const.Perks.LargeTree},
-				{Multiplier = 2, Tree = this.Const.Perks.SturdyTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.ClerkClassTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.MenderClassTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.LightArmorTree},
-				{Multiplier = 2, Tree = this.Const.Perks.TwoHandedTree}
+				{Multiplier = 0.5, Tree = this.Const.Perks.LightArmorTree}
 			],
 			Profession = [
 				[
@@ -1084,8 +1062,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 1.5, Tree = this.Const.Perks.ResilientTree},
 				{Multiplier = 1.5, Tree = this.Const.Perks.SturdyTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.TrainedTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.ClerkClassTree}
+				{Multiplier = 1.5, Tree = this.Const.Perks.OrganisedTree}
 			],
 			Profession = [
 				[{Weight = 100, Tree = this.Const.Perks.LaborerProfessionTree}]
@@ -1111,8 +1088,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			],
 			WeightMultipliers = [
 				{Multiplier = 1.25, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 2, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 3, Tree = this.Const.Perks.ClerkClassTree}
+				{Multiplier = 2, Tree = this.Const.Perks.OrganisedTree}
 			],
 			Profession = [
 				[{Weight = 100, Tree = this.Const.Perks.ServiceProfessionTree}]
@@ -1159,6 +1135,9 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			],
 			Profession = [
 				[{Weight = 100, Tree = this.Const.Perks.ServiceProfessionTree}]
+			],
+			Class = [
+				[{Weight = 100, Tree = this.Const.Perks.MenderClassTree}]
 			]
 		};
 	});
@@ -1401,6 +1380,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.TalentedTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.CalmTree},
+				{Multiplier = 2, Tree = this.Const.Perks.TacticianClassTree},
 				{Multiplier = 2, Tree = this.Const.Perks.MediumArmorTree},
 				{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},
 				{Multiplier = 0.1, Tree = this.Const.Perks.LightArmorTree},
@@ -1436,6 +1416,9 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			Traits = [
 				[{Weight = 100, Tree = this.Const.Perks.TalentedTree}],
 				[{Weight = 100, Tree = this.Const.Perks.CalmTree}]
+			],
+			Class = [
+				[{Weight = 100, Tree = this.Const.Perks.TacticianClassTree}],
 			]
 		};
 	});
@@ -1454,6 +1437,9 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			Traits = [
 				[{Weight = 100, Tree = this.Const.Perks.TalentedTree}],
 				[{Weight = 100, Tree = this.Const.Perks.CalmTree}]
+			],
+			Class = [
+				[{Weight = 100, Tree = this.Const.Perks.TacticianClassTree}],
 			]
 		};
 	});
@@ -1496,8 +1482,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
-				{Multiplier = 8, Tree = this.Const.Perks.AgileTree},
-				{Multiplier = 8, Tree = this.Const.Perks.FastTree},
 				{Multiplier = 2, Tree = this.Const.Perks.TalentedTree}
 			],
 			Profession = [
@@ -1517,8 +1501,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
-				{Multiplier = 8, Tree = this.Const.Perks.AgileTree},
-				{Multiplier = 8, Tree = this.Const.Perks.FastTree},
 				{Multiplier = 2, Tree = this.Const.Perks.TalentedTree}
 			],
 			Profession = [
@@ -1588,6 +1570,9 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			Traits = [
 				[{Weight = 100, Tree = this.Const.Perks.TrainedTree}]
 			],
+			Class = [
+				[{Weight = 100, Tree = this.Const.Perks.TacticianClassTree}]
+			]
 			Styles = [
 				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
 				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
@@ -2345,6 +2330,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 2, Tree = this.Const.Perks.TrapperClassTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.OrganisedTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.HealerClassTree},
+				{Multiplier = 2, Tree = this.Const.Perks.TacticianClassTree},
 				{Multiplier = 4, Tree = this.Const.Perks.CleaverTree},
 				{Multiplier = 0.33, Tree = this.Const.Perks.CrossbowTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.BowTree},
@@ -2353,6 +2339,9 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			],
 			Profession = [
 				[{Weight = 100, Tree = this.Const.Perks.RaiderProfessionTree}]
+			],
+			Class = [
+				[{Weight = 100, Tree = this.Const.Perks.TrapperClassTree}]
 			]
 		};
 	});
@@ -2414,6 +2403,11 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
+				{Multiplier = 1.5, Tree = this.Const.Perks.LargeTree},
+				{Multiplier = 1.5, Tree = this.Const.Perks.ResilientTree},
+				{Multiplier = 1.5, Tree = this.Const.Perks.SturdyTree},
+				{Multiplier = 0.5, Tree = this.Const.Perks.TrainedTree},
+				{Multiplier = 1.5, Tree = this.Const.Perks.OrganisedTree}
 			],
 			Profession = [
 				[{Weight = 100, Tree = this.Const.Perks.LaborerProfessionTree}]
@@ -2526,6 +2520,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			WeightMultipliers = [
 				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
 				{Multiplier = 0.25, Tree = this.Const.Perks.DeviousTree},
+				{Multiplier = 2, Tree = this.Const.Perks.TacticianClassTree},
 				{Multiplier = 3, Tree = this.Const.Perks.HeavyArmorTree},
 				{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},
 				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
@@ -2718,7 +2713,8 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				[{Weight = 100, Tree = this.Const.Perks.SoldierProfessionTree}]
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.SergeantClassTree}]
+				[{Weight = 100, Tree = this.Const.Perks.SergeantClassTree}],
+				[{Weight = 100, Tree = this.Const.Perks.TacticianClassTree}]
 			]
 		};
 	});
@@ -2754,6 +2750,8 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
+				{Multiplier = 1.5, Tree = this.Const.Perks.TalentedTree},
+				{Multiplier = 2, Tree = this.Const.Perks.OrganisedTree},
 			],
 			Profession = [
 				[{Weight = 60, Tree = this.Const.Perks.ServiceProfessionTree}]
@@ -2766,6 +2764,8 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
+				{Multiplier = 1.5, Tree = this.Const.Perks.TalentedTree},
+				{Multiplier = 2, Tree = this.Const.Perks.OrganisedTree},
 			],
 			Profession = [
 				[{Weight = 60, Tree = this.Const.Perks.ServiceProfessionTree}]
@@ -2860,7 +2860,11 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				[{Weight = 60, Tree = this.Const.Perks.SoldierProfessionTree}]
 			],
 			Class = [
-				[{Weight = 60, Tree = this.Const.Perks.SergeantClassTree}]
+				[{Weight = 100, Tree = this.Const.Perks.SergeantClassTree}],
+				[
+					{Weight = 25, Tree = this.Const.Perks.SergeantClassTree},
+					{Weight = 75, Tree = this.Const.Perks.NoTree},
+				]
 			],
 			Weapon = [
 				[{Weight = 100, Tree = this.Const.Perks.PolearmTree}],
@@ -2907,9 +2911,14 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
+				{Multiplier = 1.5, Tree = this.Const.Perks.TalentedTree},
+				{Multiplier = 1.5, Tree = this.Const.Perks.OrganisedTree},
 			],
 			Profession = [
-				[{Weight = 60, Tree = this.Const.Perks.ServiceProfessionTree}]
+				[{Weight = 100, Tree = this.Const.Perks.ServiceProfessionTree}]
+			],
+			Class = [
+				[{Weight = 100, Tree = this.Const.Perks.MenderClassTree}]
 			]
 		};
 	});
@@ -2919,9 +2928,14 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
+				{Multiplier = 1.5, Tree = this.Const.Perks.TalentedTree},
+				{Multiplier = 1.5, Tree = this.Const.Perks.OrganisedTree},
 			],
 			Profession = [
-				[{Weight = 60, Tree = this.Const.Perks.ServiceProfessionTree}]
+				[{Weight = 100, Tree = this.Const.Perks.ServiceProfessionTree}]
+			],
+			Class = [
+				[{Weight = 100, Tree = this.Const.Perks.MenderClassTree}]
 			]
 		};
 	});
@@ -3002,6 +3016,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 2, Tree = this.Const.Perks.SturdyTree},
 				{Multiplier = 2, Tree = this.Const.Perks.UnstoppableTree},
 				{Multiplier = 0.4, Tree = this.Const.Perks.TrainedTree},
+				{Multiplier = 0, Tree = this.Const.Perks.TacticianClassTree},
 				{Multiplier = 3, Tree = this.Const.Perks.HeavyArmorTree},
 				{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},
 				{Multiplier = 3, Tree = this.Const.Perks.MaceTree},
@@ -3035,6 +3050,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 2, Tree = this.Const.Perks.SturdyTree},
 				{Multiplier = 2, Tree = this.Const.Perks.UnstoppableTree},
 				{Multiplier = 0.4, Tree = this.Const.Perks.TrainedTree},
+				{Multiplier = 0, Tree = this.Const.Perks.TacticianClassTree},
 				{Multiplier = 3, Tree = this.Const.Perks.HeavyArmorTree},
 				{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},
 				{Multiplier = 3, Tree = this.Const.Perks.MaceTree},
