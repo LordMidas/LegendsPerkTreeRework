@@ -2,6 +2,17 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modCharacterBackgrounds <- function()
 {
+	local addPerkTreesToCustomPerkTree = function (_treeToAdd, _customPerkTree)
+	{
+		for (local i = 0; i <= 6; i++)
+		{
+			foreach (perk in _treeToAdd.Tree[i])
+			{
+				_customPerkTree[i].push(perk);
+			}
+		}
+	};
+
 	::mods_hookNewObject("skills/backgrounds/adventurous_noble_background", function(o) {
 		o.m.PerkTreeDynamic = {
 			ExpertiseMultipliers = [
@@ -651,14 +662,42 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		};
 	});
 
-	/* ::mods_hookNewObject("skills/backgrounds/crucified_background", function(o) {
+	::mods_hookNewObject("skills/backgrounds/crucified_background", function(o) {
 		o.m.PerkTreeDynamic = {
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
+				{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
+				{Multiplier = 0.25, Tree = this.Const.Perks.ViciousTree},
+				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
+				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
+				{Multiplier = 0, Tree = this.Const.Perks.LightArmorTree},
+				{Multiplier = 1.33, Tree = this.Const.Perks.ShieldTree},
+				{Multiplier = 0.5, Tree = this.Const.Perks.DaggerTree},
+				{Multiplier = 2, Tree = this.Const.Perks.SwordTree},
+				{Multiplier = 2, Tree = this.Const.Perks.MaceTree},
+				{Multiplier = 2, Tree = this.Const.Perks.FlailTree},
+				{Multiplier = 2, Tree = this.Const.Perks.HammerTree},
+				{Multiplier = 0.33, Tree = this.Const.Perks.PolearmTree},
+				{Multiplier = 0, Tree = this.Const.Perks.ThrowingTree},
+				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
+				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
+				{Multiplier = 0, Tree = this.Const.Perks.SlingsTree},
+				{Multiplier = 0.5, Tree = this.Const.Perks.SpearTree}
+			],
+			Profession = [
+				[{Weight = 100, Tree = this.Const.Perks.HolyManProfessionTree}],
+				[{Weight = 100, Tree = this.Const.Perks.SoldierProfessionTree}]
+			],
+			Defense = [
+				[{Weight = 100, Tree = this.Const.Perks.HeavyArmorTree}]
+			],
+			Styles = [
+				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
+				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
 			]
 		};
-	}); */
+	});
 
 	::mods_hookNewObject("skills/backgrounds/crusader_background", function(o) {
 		o.m.PerkTreeDynamic = {
@@ -1580,14 +1619,44 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		};
 	});
 
-	/* ::mods_hookNewObject("skills/backgrounds/legend_ancient_summoner_background", function(o) {
+	::mods_hookNewObject("skills/backgrounds/legend_ancient_summoner_background", function(o) {
 		o.m.PerkTreeDynamic = {
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
+				{Multiplier = 0.5, Tree = this.Const.Perks.SwordTree},
+				{Multiplier = 0.25, Tree = this.Const.Perks.AxeTree},
+				{Multiplier = 2, Tree = this.Const.Perks.DaggerTree},
+				{Multiplier = 0.2, Tree = this.Const.Perks.ChefClassTree},
+			],
+			Profession = [
+				[{Weight = 100, Tree = this.Const.Perks.ButcherProfessionTree}]
+			],
+			Traits = [
+				[{Weight = 100, Tree = this.Const.Perks.ViciousTree}],
+				[{Weight = 100, Tree = this.Const.Perks.CalmTree}],
+				[{Weight = 100, Tree = this.Const.Perks.TalentedTree}],
+				[{Weight = 100, Tree = this.Const.Perks.UnstoppableTree}]
+			],
+			Class = [
+				[{Weight = 100, Tree = this.Const.Perks.HealerClassTree}]
+			],
+			Defense = [
+				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}],
+				[{Weight = 100, Tree = this.Const.Perks.MediumArmorTree}],
+			],
+			Weapon = [
+				[{Weight = 100, Tree = this.Const.Perks.StavesTree}]
+			],
+			Styles = [
+				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
+				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+			],
+			Magic = [
+				[{Weight = 100, Tree = this.Const.Perks.BasicNecroMagicTree}]
 			]
 		};
-	}); */
+	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_assassin_background", function(o) {
 		o.m.PerkTreeDynamic = {
@@ -1601,50 +1670,128 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		};
 	});
 
-	/* ::mods_hookNewObject("skills/backgrounds/legend_assassin_commander_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
-			WeightMultipliers = [
-			]
-		};
-	}); */
+	::mods_hookNewObject("skills/backgrounds/legend_assassin_commander_background", function(o) {
+		addPerkTreesToCustomPerkTree(this.Const.Perks.DaggerTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.SwordTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.PolearmTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.BowTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ThrowingTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.CrossbowTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.FistsClassTree, o.m.CustomPerkTree);
 
-	/* ::mods_hookNewObject("skills/backgrounds/legend_astrologist_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
-			WeightMultipliers = [
-			]
-		};
-	}); */
+		addPerkTreesToCustomPerkTree(this.Const.Perks.AssassinProfessionTree, o.m.CustomPerkTree);
 
-	/* ::mods_hookNewObject("skills/backgrounds/legend_beggar_commander_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
-			WeightMultipliers = [
-			]
-		};
-	}); */
+		addPerkTreesToCustomPerkTree(this.Const.Perks.AgileTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.FastTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ViciousTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.DeviousTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.UnstoppableTree, o.m.CustomPerkTree);
 
-	/* ::mods_hookNewObject("skills/backgrounds/legend_berserker_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
-			WeightMultipliers = [
-			]
-		};
-	}); */
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TrapperClassTree, o.m.CustomPerkTree);
 
-	/* ::mods_hookNewObject("skills/backgrounds/legend_berserker_commander_background", function(o) {
+		addPerkTreesToCustomPerkTree(this.Const.Perks.MediumArmorTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
+
+		addPerkTreesToCustomPerkTree(this.Const.Perks.OneHandedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.RangedTree, o.m.CustomPerkTree);
+
+		o.m.CustomPerkTree[5].push(this.Const.Perks.PerkDefs.PTRKnowTheirWeakness);
+	});
+
+	::mods_hookNewObject("skills/backgrounds/legend_astrologist_background", function(o) {
 		o.m.PerkTreeDynamic = {
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
+				{Multiplier = 5, Tree = this.Const.Perks.TalentedTree},
+				{Multiplier = 1.66, Tree = this.Const.Perks.OrganisedTree},
+				{Multiplier = 5, Tree = this.Const.Perks.StavesTree}
+			],
+			Profession = [
+				[{Weight = 100, Tree = this.Const.Perks.ServiceProfessionTree}]
+			],
+			Magic = [
+				[{Weight = 100, Tree = this.Const.Perks.PremonitionMagicTree}]
 			]
 		};
-	}); */
+	});
+
+	::mods_hookNewObject("skills/backgrounds/legend_beggar_commander_background", function(o) {
+		addPerkTreesToCustomPerkTree(this.Const.Perks.PauperProfessionTree, o.m.CustomPerkTree);
+	});
+
+	::mods_hookNewObject("skills/backgrounds/legend_beggar_commander_op_background", function(o) {
+		addPerkTreesToCustomPerkTree(this.Const.Perks.PauperProfessionTree, o.m.CustomPerkTree);
+	});
+
+	::mods_hookNewObject("skills/backgrounds/legend_berserker_background", function(o) {
+		o.m.PerkTreeDynamic = {
+			ExpertiseMultipliers = [
+			],
+			WeightMultipliers = [
+				{Multiplier = 0, Tree = this.Const.Perks.TalentedTree},
+				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
+				{Multiplier = 0, Tree = this.Const.Perks.CalmTree},
+				{Multiplier = 0, Tree = this.Const.Perks.OrganisedTree},
+				{Multiplier = 0, Tree = this.Const.Perks.TrainedTree},
+				{Multiplier = 0.5, Tree = this.Const.Perks.SergeantClassTree},
+				{Multiplier = 0.2, Tree = this.Const.Perks.HealerClassTree},
+				{Multiplier = 0, Tree = this.Const.Perks.TacticianClassTree},
+				{Multiplier = 0.1, Tree = this.Const.Perks.DaggerTree},
+				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
+				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
+				{Multiplier = 0.66, Tree = this.Const.Perks.SwordTree},
+				{Multiplier = 0.25, Tree = this.Const.Perks.PolearmTree},
+				{Multiplier = 0, Tree = this.Const.Perks.SlingsTree},
+				{Multiplier = 0.25, Tree = this.Const.Perks.ThrowingTree},
+				{Multiplier = 0.5, Tree = this.Const.Perks.SpearTree},
+				{Multiplier = 0.5, Tree = this.Const.Perks.StavesTree},
+				{Multiplier = 0, Tree = this.Const.Perks.ShieldTree},
+				{Multiplier = 3, Tree = this.Const.Perks.HeavyArmorTree}
+			],
+			Traits = [
+				[{Weight = 100, Tree = this.Const.Perks.ViciousTree}],
+				[{Weight = 100, Tree = this.Const.Perks.ResilientTree}],
+				[{Weight = 100, Tree = this.Const.Perks.LargeTree}],
+				[{Weight = 100, Tree = this.Const.Perks.SturdyTree}],
+				[{Weight = 100, Tree = this.Const.Perks.UnstoppableTree}]
+			]
+			Magic = [
+				[{Weight = 100, Tree = this.Const.Perks.BerserkerMagicTree}]
+			],
+			Styles = [
+				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
+				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+			]
+		};
+	});
+
+	::mods_hookNewObject("skills/backgrounds/legend_berserker_commander_background", function(o) {
+		addPerkTreesToCustomPerkTree(this.Const.Perks.MaceTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.FlailTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.HammerTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.AxeTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.CleaverTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.SwordTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ThrowingTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ViciousTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ResilientTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.LargeTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.SturdyTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.UnstoppableTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.HoundmasterClassTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.HeavyArmorTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.MediumArmorTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.OneHandedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
+
+		o.m.CustomPerkTree[2].push(this.Const.Perks.PerkDefs.Sprint);
+		o.m.CustomPerkTree[5].push(this.Const.Perks.PerkDefs.PTRKnowTheirWeakness);
+		o.m.CustomPerkTree[5].push(this.Const.Perks.PerkDefs.PTRFreshAndFurious);
+	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_blacksmith_background", function(o) {
 		o.m.PerkTreeDynamic = {
@@ -1676,14 +1823,26 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		};
 	});
 
-	/* ::mods_hookNewObject("skills/backgrounds/legend_cannibal_background", function(o) {
+	::mods_hookNewObject("skills/backgrounds/legend_cannibal_background", function(o) {
 		o.m.PerkTreeDynamic = {
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
+			],
+			Profession = [
+				[{Weight = 100, Tree = this.Const.Perks.ButcherProfessionTree}]
+			]
+			Traits = [
+				[{Weight = 100, Tree = this.Const.Perks.ViciousTree}]
+			],
+			Class = [
+				[{Weight = 100, Tree = this.Const.Perks.ChefClassTree}]
+			],
+			Styles = [
+				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}]
 			]
 		};
-	}); */
+	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_conjurer_background", function(o) {
 		o.m.PerkTreeDynamic = {
@@ -1729,18 +1888,36 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			Styles = [
 				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
 				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
-			],
+			]
 		};
 	});
 
-	/* ::mods_hookNewObject("skills/backgrounds/legend_crusader_commander_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
-			WeightMultipliers = [
-			]
-		};
-	}); */
+	::mods_hookNewObject("skills/backgrounds/legend_crusader_commander_background", function(o) {
+		addPerkTreesToCustomPerkTree(this.Const.Perks.CleaverTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.FlailTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.HammerTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.MaceTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.PolearmTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.SwordTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.HolyManProfessionTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.SoldierProfessionTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ResilientTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ViciousTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.CalmTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.LargeTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.SturdyTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.UnstoppableTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TrainedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.SergeantClassTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.HealerClassTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.HeavyArmorTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ShieldTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.OneHandedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
+
+		o.m.CustomPerkTree[4].push(this.Const.Perks.PerkDefs.LegendSecondWind);
+		o.m.CustomPerkTree[5].push(this.Const.Perks.PerkDefs.PTRKnowTheirWeakness);
+	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_death_summoner_background", function(o) {
 		o.m.PerkTreeDynamic = {
@@ -1769,23 +1946,44 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		};
 	}); */
 
-	/* ::mods_hookNewObject("skills/backgrounds/legend_druid_background", function(o) {
+	::mods_hookNewObject("skills/backgrounds/legend_druid_background", function(o) {
 		o.m.PerkTreeDynamic = {
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
+			],
+			Profession = [
+				[{Weight = 100, Tree = this.Const.Perks.ApothecaryProfessionTree}]
+			],
+			Traits = [
+				[{Weight = 100, Tree = this.Const.Perks.ResilientTree}]
+			],
+			Weapon = [
+				[{Weight = 100, Tree = this.Const.Perks.StavesTree}]
+			]
+			Defense = [
+				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+			],
+			Magic = [
+				[{Weight = 100, Tree = this.Const.Perks.DruidMagicTree}]
+			],
+			Styles = [
+				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
 			]
 		};
-	}); */
+	});
 
-	/* ::mods_hookNewObject("skills/backgrounds/legend_druid_commander_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
-			WeightMultipliers = [
-			]
-		};
-	}); */
+	::mods_hookNewObject("skills/backgrounds/legend_druid_commander_background", function(o) {
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ResilientTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.HoundmasterClassTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
+
+		o.m.CustomPerkTree[5].push(this.Const.Perks.PerkDefs.PTRUnstoppable);
+		o.m.CustomPerkTree[5].push(this.Const.Perks.PerkDefs.PTRFreshAndFurious);
+		o.m.CustomPerkTree[5].push(this.Const.Perks.PerkDefs.PTRTheRushOfBattle);
+		o.m.CustomPerkTree[6].push(this.Const.Perks.PerkDefs.PerfectFocus);
+	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_enchanter_background", function(o) {
 		o.m.PerkTreeDynamic = {
@@ -1805,23 +2003,38 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		};
 	}); */
 
-	/* ::mods_hookNewObject("skills/backgrounds/legend_female_beggar_commander_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
-			WeightMultipliers = [
-			]
-		};
-	}); */
+	::mods_hookNewObject("skills/backgrounds/legend_female_beggar_commander_background", function(o) {
+		addPerkTreesToCustomPerkTree(this.Const.Perks.PauperProfessionTree, o.m.CustomPerkTree);
+	});
 
-	/* ::mods_hookNewObject("skills/backgrounds/legend_female_inventor_commander_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
-			WeightMultipliers = [
-			]
-		};
-	}); */
+	::mods_hookNewObject("skills/backgrounds/legend_female_inventor_commander_background", function(o) {
+		addPerkTreesToCustomPerkTree(this.Const.Perks.AxeTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.BowTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.CleaverTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.CrossbowTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.DaggerTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.FlailTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.HammerTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.MaceTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.PolearmTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.SlingsTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.SpearTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.SwordTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ThrowingTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ServiceProfessionTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.OrganisedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TalentedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.CalmTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.MenderClassTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.HealerClassTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.MediumArmorTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ShieldTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.OneHandedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.RangedTree, o.m.CustomPerkTree);
+	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_healer_background", function(o) {
 		o.m.PerkTreeDynamic = {
@@ -1889,14 +2102,33 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		};
 	}); */
 
-	/* ::mods_hookNewObject("skills/backgrounds/legend_illusionist_background", function(o) {
+	::mods_hookNewObject("skills/backgrounds/legend_illusionist_background", function(o) {
 		o.m.PerkTreeDynamic = {
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
+				{Multiplier = 3, Tree = this.Const.Perks.DeviousTree}
+			],
+			Magic = [
+				[{Weight = 100, Tree = this.Const.Perks.IllusionistMagicTree}]
+			],
+			Traits = [
+				[{Weight = 100, Tree = this.Const.Perks.FastTree}],
+				[{Weight = 100, Tree = this.Const.Perks.TalentedTree}]
+			],
+			Weapon = [
+				[{Weight = 100, Tree = this.Const.Perks.StavesTree}],
+				[{Weight = 100, Tree = this.Const.Perks.ThrowingTree}]
+			]
+			Defense = [
+				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+			],
+			Styles = [
+				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}],
+				[{Weight = 100, Tree = this.Const.Perks.RangedTree}]
 			]
 		};
-	}); */
+	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_inventor_background", function(o) {
 		o.m.PerkTreeDynamic = {
@@ -1914,13 +2146,34 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		};
 	});
 
-	/* ::mods_hookNewObject("skills/backgrounds/legend_inventor_commander_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
-
-		};
-	}); */
+	::mods_hookNewObject("skills/backgrounds/legend_inventor_commander_background", function(o) {
+		addPerkTreesToCustomPerkTree(this.Const.Perks.AxeTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.BowTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.CleaverTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.CrossbowTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.DaggerTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.FlailTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.HammerTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.MaceTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.PolearmTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.SlingsTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.SpearTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.SwordTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ThrowingTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ServiceProfessionTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.OrganisedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TalentedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.CalmTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.MenderClassTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.HealerClassTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.MediumArmorTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ShieldTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.OneHandedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.RangedTree, o.m.CustomPerkTree);
+	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_ironmonger_background", function(o) {
 		o.m.PerkTreeDynamic = {
@@ -1959,49 +2212,129 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		};
 	});
 
-	/* ::mods_hookNewObject("skills/backgrounds/legend_necromancer_background", function(o) {
+ ::mods_hookNewObject("skills/backgrounds/legend_necromancer_background", function(o) {
 		o.m.PerkTreeDynamic = {
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
+				{Multiplier = 0.5, Tree = this.Const.Perks.SwordTree},
+				{Multiplier = 0.25, Tree = this.Const.Perks.AxeTree},
+				{Multiplier = 2, Tree = this.Const.Perks.DaggerTree},
+				{Multiplier = 0.2, Tree = this.Const.Perks.ChefClassTree}
+			],
+			Profession = [
+				[{Weight = 100, Tree = this.Const.Perks.ButcherProfessionTree}]
+			],
+			Traits = [
+				[{Weight = 100, Tree = this.Const.Perks.ViciousTree}],
+				[{Weight = 100, Tree = this.Const.Perks.CalmTree}],
+				[{Weight = 100, Tree = this.Const.Perks.TalentedTree}],
+				[{Weight = 100, Tree = this.Const.Perks.UnstoppableTree}]
+			],
+			Class = [
+				[{Weight = 100, Tree = this.Const.Perks.HealerClassTree}]
+			],
+			Defense = [
+				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+			],
+			Weapon = [
+				[{Weight = 100, Tree = this.Const.Perks.StavesTree}]
+			],
+			Styles = [
+				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+			],
+			Magic = [
+				[{Weight = 100, Tree = this.Const.Perks.BasicNecroMagicTree}]
 			]
 		};
-	}); */
+	});
 
-	/* ::mods_hookNewObject("skills/backgrounds/legend_necrosavant_background", function(o) {
+	::mods_hookNewObject("skills/backgrounds/legend_necrosavant_background", function(o) {
 		o.m.PerkTreeDynamic = {
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
+				{Multiplier = 0.2, Tree = this.Const.Perks.OrganisedTree},
+				{Multiplier = 3, Tree = this.Const.Perks.FastTree},
+				{Multiplier = 3, Tree = this.Const.Perks.AgileTree},
+				{Multiplier = 0.2, Tree = this.Const.Perks.ChefClassTree},
+				{Multiplier = 0, Tree = this.Const.Perks.ShieldTree},
+				{Multiplier = 0, Tree = this.Const.Perks.HeavyArmorTree},
+				{Multiplier = 3, Tree = this.Const.Perks.DaggerTree},
+				{Multiplier = 2, Tree = this.Const.Perks.SwordTree},
+				{Multiplier = 0.5, Tree = this.Const.Perks.AxeTree}
+			],
+			Profession = [
+				[{Weight = 100, Tree = this.Const.Perks.ButcherProfessionTree}]
+			],
+			Traits = [
+				[{Weight = 100, Tree = this.Const.Perks.ViciousTree}],
+				[{Weight = 100, Tree = this.Const.Perks.UnstoppableTree}],
+				[{Weight = 100, Tree = this.Const.Perks.ResilientTree}]
+			],
+			Class = [
+				[{Weight = 100, Tree = this.Const.Perks.HealerClassTree}]
+			],
+			Defense = [
+				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+			],
+			Styles = [
+				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
+				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+			],
+			Magic = [
+				[{Weight = 100, Tree = this.Const.Perks.VampireMagicTree}]
 			]
 		};
-	}); */
+	});
 
-	/* ::mods_hookNewObject("skills/backgrounds/legend_necro_background", function(o) {
+	::mods_hookNewObject("skills/backgrounds/legend_necro_background", function(o) {
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ButcherProfessionTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ViciousTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.CalmTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TalentedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.UnstoppableTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.HealerClassTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.MediumArmorTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.OneHandedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.RangedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.DaggerTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.MaceTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ThrowingTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.PolearmTree, o.m.CustomPerkTree);
+
+		o.m.CustomPerkTree[5].push(this.Const.Perks.PerkDefs.LegendAssuredConquest);
+	});
+
+	::mods_hookNewObject("skills/backgrounds/legend_necro_commander_background", function(o) {
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ButcherProfessionTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ViciousTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.CalmTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TalentedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.UnstoppableTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.HealerClassTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.MediumArmorTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.OneHandedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.DaggerTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.MaceTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ThrowingTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.PolearmTree, o.m.CustomPerkTree);
+
+		o.m.CustomPerkTree[5].push(this.Const.Perks.PerkDefs.LegendAssuredConquest);
+	});
+
+ 	::mods_hookNewObject("skills/backgrounds/legend_noble_2h", function(o) {
 		o.m.PerkTreeDynamic = {
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
-			]
-		};
-	}); */
-
-	/* ::mods_hookNewObject("skills/backgrounds/legend_necro_commander_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
-			WeightMultipliers = [
-			]
-		};
-	}); */
-
-	/* ::mods_hookNewObject("skills/backgrounds/legend_noble_2h", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
-			WeightMultipliers = [
-				{Multiplier = 0.33, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 3, Tree = this.Const.Perks.HeavyArmorTree},
+				{Multiplier = 0, Tree = this.Const.Perks.ShieldTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.DeviousTree},
 				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
 				{Multiplier = 0.2, Tree = this.Const.Perks.BowTree},
@@ -2012,65 +2345,135 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 0.5, Tree = this.Const.Perks.SpearTree}
 			],
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.HunterProfessionTree}]
+				[{Weight = 100, Tree = this.Const.Perks.SoldierProfessionTree}]
+			],
+			Styles = [
+				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+			],
+		};
+	});
+
+	::mods_hookNewObject("skills/backgrounds/legend_noble_background", function(o) {
+		o.m.PerkTreeDynamic = {
+			ExpertiseMultipliers = [
+			],
+			WeightMultipliers = [
+				{Multiplier = 0.5, Tree = this.Const.Perks.DeviousTree},
+				{Multiplier = 0, Tree = this.Const.Perks.ShieldTree},
+				{Multiplier = 2, Tree = this.Const.Perks.TrainedTree},
+				{Multiplier = 2, Tree = this.Const.Perks.ViciousTree}
 			],
 			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.AgileTree}]
+				[{Weight = 100, Tree = this.Const.Perks.CalmTree}]
+			],
+			Class = [
+				[{Weight = 100, Tree = this.Const.Perks.SergeantClassTree}],
+				[{Weight = 100, Tree = this.Const.Perks.TacticianClassTree}]
+			],
+			Weapon = [
+				[{Weight = 100, Tree = this.Const.Perks.PolearmTree}],
+			],
+			Styles = [
+				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+			]
+		};
+	});
+
+	::mods_hookNewObject("skills/backgrounds/legend_noble_commander_background", function(o) {
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ViciousTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TalentedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.CalmTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.OrganisedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.UnstoppableTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TrainedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.SergeantClassTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TacticianClassTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.MediumArmorTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ShieldTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.PolearmTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.SwordTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.DaggerTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.CrossbowTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ThrowingTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.OneHandedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.RangedTree, o.m.CustomPerkTree);
+	});
+
+	::mods_hookNewObject("skills/backgrounds/legend_noble_event_background", function(o) {
+		o.m.PerkTreeDynamic = {
+			ExpertiseMultipliers = [
+			],
+			WeightMultipliers = [
+				{Multiplier = 0.5, Tree = this.Const.Perks.DeviousTree},
+				{Multiplier = 0, Tree = this.Const.Perks.ShieldTree},
+				{Multiplier = 2, Tree = this.Const.Perks.TrainedTree},
+				{Multiplier = 2, Tree = this.Const.Perks.ViciousTree}
+			],
+			Traits = [
+				[{Weight = 100, Tree = this.Const.Perks.CalmTree}]
+			],
+			Class = [
+				[{Weight = 100, Tree = this.Const.Perks.SergeantClassTree}],
+				[{Weight = 100, Tree = this.Const.Perks.TacticianClassTree}]
+			],
+			Weapon = [
+				[{Weight = 100, Tree = this.Const.Perks.PolearmTree}],
+			],
+			Styles = [
+				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+			]
+		};
+	});
+
+	::mods_hookNewObject("skills/backgrounds/legend_noble_ranged", function(o) {
+		o.m.PerkTreeDynamic = {
+			ExpertiseMultipliers = [
+			],
+			WeightMultipliers = [
+				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree}
+				{Multiplier = 0.5, Tree = this.Const.Perks.DeviousTree}
+			],
+			Profession = [
+				[{Weight = 100, Tree = this.Const.Perks.HunterProfessionTree}]
 			],
 			Defense = [
 				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
 			],
-			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.SlingsTree}],
-				[{Weight = 100, Tree = this.Const.Perks.ThrowingTree}],
+			Styles = [
+				[{Weight = 100, Tree = this.Const.Perks.RangedTree}],
+				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}]
 			]
 		};
-	}); */
+	});
 
-	/* ::mods_hookNewObject("skills/backgrounds/legend_noble_background", function(o) {
+	::mods_hookNewObject("skills/backgrounds/legend_noble_shield", function(o) {
 		o.m.PerkTreeDynamic = {
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
-			]
-		};
-	}); */
-
-	/* ::mods_hookNewObject("skills/backgrounds/legend_noble_commander_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
+				{Multiplier = 0.5, Tree = this.Const.Perks.DeviousTree},
+				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
+				{Multiplier = 0.2, Tree = this.Const.Perks.BowTree},
+				{Multiplier = 0.33, Tree = this.Const.Perks.CrossbowTree},
+				{Multiplier = 0, Tree = this.Const.Perks.SlingsTree},
+				{Multiplier = 0.5, Tree = this.Const.Perks.DaggerTree},
+				{Multiplier = 0.33, Tree = this.Const.Perks.ThrowingTree},
+				{Multiplier = 0.5, Tree = this.Const.Perks.SpearTree}
 			],
-			WeightMultipliers = [
-			]
-		};
-	}); */
-
-	/* ::mods_hookNewObject("skills/backgrounds/legend_noble_event_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
+			Profession = [
+				[{Weight = 100, Tree = this.Const.Perks.SoldierProfessionTree}]
 			],
-			WeightMultipliers = [
+			Defense = [
+				[{Weight = 100, Tree = this.Const.Perks.ShieldTree}]
+			]
+			Styles = [
+				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}]
 			]
 		};
-	}); */
-
-	/* ::mods_hookNewObject("skills/backgrounds/legend_noble_ranged", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
-			WeightMultipliers = [
-			]
-		};
-	}); */
-
-	/* ::mods_hookNewObject("skills/backgrounds/legend_noble_shield", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
-			WeightMultipliers = [
-			]
-		};
-	}); */
+	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_nun_background", function(o) {
 		o.m.PerkTreeDynamic = {
@@ -2140,14 +2543,28 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		};
 	});
 
-	/* ::mods_hookNewObject("skills/backgrounds/legend_ranger_commander_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
-			WeightMultipliers = [
-			]
-		};
-	}); */
+	::mods_hookNewObject("skills/backgrounds/legend_ranger_commander_background", function(o) {
+		addPerkTreesToCustomPerkTree(this.Const.Perks.HunterProfessionTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.AgileTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.FastTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ViciousTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.UnstoppableTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.DeviousTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TrapperClassTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.RangedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.OneHandedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.BowTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.CrossbowTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.SlingsTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ThrowingTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.DaggerTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.SwordTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.SpearTree, o.m.CustomPerkTree);
+
+		o.m.CustomPerkTree[5].push(this.Const.Perks.PerkDefs.PTRKnowTheirWeakness);
+	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_runesmith_background", function(o) {
 		o.m.PerkTreeDynamic = {
@@ -2229,14 +2646,31 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		};
 	});
 
-	/* ::mods_hookNewObject("skills/backgrounds/legend_trader_commander_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
-			WeightMultipliers = [
-			]
-		};
-	}); */
+	::mods_hookNewObject("skills/backgrounds/legend_trader_commander_background", function(o) {
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TraderProfessionTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.DeviousTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TalentedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.CalmTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.OrganisedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ChefClassTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.MenderClassTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ClerkClassTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TacticianClassTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.MediumArmorTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.HeavyArmorTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.OneHandedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.RangedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.CrossbowTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.PolearmTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ThrowingTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.DaggerTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
+
+		o.m.CustomPerkTree[5].push(this.Const.Perks.PerkDefs.PTRKnowTheirWeakness);
+		o.m.CustomPerkTree[6].push(this.Const.Perks.PerkDefs.PerfectFocus);
+	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_transmuter_background", function(o) {
 		o.m.PerkTreeDynamic = {
@@ -2247,50 +2681,95 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		};
 	}); */
 
-	/* ::mods_hookNewObject("skills/backgrounds/legend_vala_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
-			WeightMultipliers = [
-			]
-		};
-	}); */
+ ::mods_hookNewObject("skills/backgrounds/legend_vala_background", function(o) {
+		 addPerkTreesToCustomPerkTree(this.Const.Perks.ValaChantMagicTree, o.m.CustomPerkTree);
+		 addPerkTreesToCustomPerkTree(this.Const.Perks.ValaTranceMagicTree, o.m.CustomPerkTree);
+		 addPerkTreesToCustomPerkTree(this.Const.Perks.CalmTree, o.m.CustomPerkTree);
+		 addPerkTreesToCustomPerkTree(this.Const.Perks.TalentedTree, o.m.CustomPerkTree);
+		 addPerkTreesToCustomPerkTree(this.Const.Perks.SergeantClassTree, o.m.CustomPerkTree);
+		 addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
+		 addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
+		 addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
+	});
 
-	/* ::mods_hookNewObject("skills/backgrounds/legend_vala_commander_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
-			WeightMultipliers = [
-			]
-		};
-	}); */
+	::mods_hookNewObject("skills/backgrounds/legend_vala_commander_background", function(o) {
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ValaChantMagicTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ValaTranceMagicTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.CalmTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TalentedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.SergeantClassTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
+	});
 
-	/* ::mods_hookNewObject("skills/backgrounds/legend_warlock_background", function(o) {
+	::mods_hookNewObject("skills/backgrounds/legend_warlock_background", function(o) {
 		o.m.PerkTreeDynamic = {
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
+				{Multiplier = 0, Tree = this.Const.Perks.OrganisedTree},
+				{Multiplier = 0.2, Tree = this.Const.Perks.ChefClassTree},
+				{Multiplier = 0.5, Tree = this.Const.Perks.SwordTree},
+				{Multiplier = 0.25, Tree = this.Const.Perks.AxeTree}
+			],
+			Profession = [
+				[{Weight = 100, Tree = this.Const.Perks.ButcherProfessionTree}]
+			],
+			Traits = [
+				[{Weight = 100, Tree = this.Const.Perks.ViciousTree}],
+				[{Weight = 100, Tree = this.Const.Perks.CalmTree}],
+				[{Weight = 100, Tree = this.Const.Perks.TalentedTree}],
+				[{Weight = 100, Tree = this.Const.Perks.UnstoppableTree}]
+			],
+			Class = [
+				[{Weight = 100, Tree = this.Const.Perks.HealerClassTree}]
+			],
+			Weapon = [
+				[{Weight = 100, Tree = this.Const.Perks.StavesTree}]
+			],
+			Defense = [
+				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+			],
+			Styles = [
+				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+			],
+			Magic = [
+				[{Weight = 100, Tree = this.Const.Perks.WarlockMagicTree}]
 			]
 		};
-	}); */
+	});
 
-	/* ::mods_hookNewObject("skills/backgrounds/legend_witch_background", function(o) {
+	::mods_hookNewObject("skills/backgrounds/legend_witch_background", function(o) {
 		o.m.PerkTreeDynamic = {
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
+			],
+			Traits = [
+				[{Weight = 100, Tree = this.Const.Perks.TalentedTree}],
+				[{Weight = 100, Tree = this.Const.Perks.CalmTree}]
+			],
+			Defense = [
+				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+			],
+			Weapon = [
+				[{Weight = 100, Tree = this.Const.Perks.StavesTree}]
+			],
+			Styles = [
+				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+			],
+			Magic = [
+				[{Weight = 100, Tree = this.Const.Perks.EvocationMagicTree}]
 			]
 		};
-	}); */
+	});
 
-	/* ::mods_hookNewObject("skills/backgrounds/legend_witch_commander_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
-			WeightMultipliers = [
-			]
-		};
-	}); */
+	::mods_hookNewObject("skills/backgrounds/legend_witch_commander_background", function(o) {
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TalentedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
+	});
 
 	::mods_hookNewObject("skills/backgrounds/lumberjack_background", function(o) {
 		o.m.PerkTreeDynamic = {
@@ -2304,23 +2783,39 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		};
 	});
 
-	/* ::mods_hookNewObject("skills/backgrounds/mage_background", function(o) {
+	::mods_hookNewObject("skills/backgrounds/mage_background", function(o) {
 		o.m.PerkTreeDynamic = {
 			ExpertiseMultipliers = [
 			],
 			WeightMultipliers = [
+				{Multiplier = 0.5, Tree = this.Const.Perks.ResilientTree},
+				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
+				{Multiplier = 0.5, Tree = this.Const.Perks.SturdyTree},
+				{Multiplier = 0.5, Tree = this.Const.Perks.TrainedTree}
+			],
+			Traits = [
+				[{Weight = 100, Tree = this.Const.Perks.FastTree}],
+				[{Weight = 100, Tree = this.Const.Perks.TalentedTree}]
+			],
+			Defense = [
+				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+			],
+			Weapon = [
+				[{Weight = 100, Tree = this.Const.Perks.StavesTree}]
 			]
 		};
-	}); */
+	});
 
-	/* ::mods_hookNewObject("skills/backgrounds/mage_legend_mage_commander_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
-			WeightMultipliers = [
-			]
-		};
-	}); */
+	::mods_hookNewObject("skills/backgrounds/mage_legend_mage_commander_background", function(o) {
+		addPerkTreesToCustomPerkTree(this.Const.Perks.FastTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TalentedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.OneHandedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.RangedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.DaggerTree, o.m.CustomPerkTree);
+	});
 
 	::mods_hookNewObject("skills/backgrounds/manhunter_background", function(o) {
 		o.m.PerkTreeDynamic = {
@@ -3097,6 +3592,91 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			]
 			Styles = [
 				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+			]
+		};
+	});
+
+	::mods_hookNewObject("skills/backgrounds/legend_alchemist_background", function(o) {
+		o.m.PerkTreeDynamic = {
+			ExpertiseMultipliers = [
+			],
+			WeightMultipliers = [
+			],
+			Profession = [
+				[{Weight = 100, Tree = this.Const.Perks.ApothecaryProfessionTree}],
+				[{Weight = 100, Tree = this.Const.Perks.TraderProfessionTree}]
+			]
+		};
+	});
+
+	::mods_hookNewObject("skills/backgrounds/legend_dervish_background", function(o) {
+		o.m.PerkTreeDynamic = {
+			ExpertiseMultipliers = [
+			],
+			WeightMultipliers = [
+				{Multiplier = 5, Tree = this.Const.Perks.ViciousTree},
+				{Multiplier = 5, Tree = this.Const.Perks.UnstoppableTree},
+				{Multiplier = 5, Tree = this.Const.Perks.TrainedTree},
+				{Multiplier = 2, Tree = this.Const.Perks.LightArmorTree},
+				{Multiplier = 2, Tree = this.Const.Perks.MediumArmorTree},
+				{Multiplier = 0.33, Tree = this.Const.Perks.ShieldTree},
+				{Multiplier = 3, Tree = this.Const.Perks.TwoHandedTree},
+				{Multiplier = 3, Tree = this.Const.Perks.SwordTree},
+				{Multiplier = 3, Tree = this.Const.Perks.CleaverTree},
+				{Multiplier = 0.5, Tree = this.Const.Perks.BowTree},
+				{Multiplier = 0.33, Tree = this.Const.Perks.CrossbowTree},
+				{Multiplier = 0.5, Tree = this.Const.Perks.SlingsTree}
+			],
+			Profession = [
+				[{Weight = 100, Tree = this.Const.Perks.HolyManProfessionTree}]
+			],
+			Class = [
+				[{Weight = 100, Tree = this.Const.Perks.SergeantClassTree}]
+			],
+			Styles = [
+				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}]
+			]
+		};
+	});
+
+	::mods_hookNewObject("skills/backgrounds/legend_muladi_background", function(o) {
+		o.m.PerkTreeDynamic = {
+			ExpertiseMultipliers = [
+			],
+			WeightMultipliers = [
+				{Multiplier = 2, Tree = this.Const.Perks.ResilientTree}
+			],
+			Profession = [
+				[{Weight = 100, Tree = this.Const.Perks.HunterProfessionTree}]
+			],
+			Traits = [
+				[{Weight = 100, Tree = this.Const.Perks.AgileTree}]
+			],
+			Class = [
+				[{Weight = 100, Tree = this.Const.Perks.HoundmasterClassTree}]
+			]
+		};
+	});
+
+	::mods_hookNewObject("skills/backgrounds/legend_qiyan_background", function(o) {
+		o.m.PerkTreeDynamic = {
+			ExpertiseMultipliers = [
+			],
+			WeightMultipliers = [
+				{Multiplier = 3, Tree = this.Const.Perks.ViciousTree},
+				{Multiplier = 2, Tree = this.Const.Perks.AgileTree},
+				{Multiplier = 2, Tree = this.Const.Perks.FastTree},
+				{Multiplier = 3, Tree = this.Const.Perks.LightArmorTree},
+				{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},
+				{Multiplier = 5, Tree = this.Const.Perks.DaggerTree},
+				{Multiplier = 2, Tree = this.Const.Perks.SwordTree},
+				{Multiplier = 2, Tree = this.Const.Perks.ThrowingTree}
+			],
+			Profession = [
+				[{Weight = 100, Tree = this.Const.Perks.MinstrelProfessionTree}]
+			],
+			Styles = [
+				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}]
 			]
 		};
 	});
