@@ -38,7 +38,7 @@ gt.Const.PTR.modSkillContainer <- function()
 
 		o.addTreeOfEquippedWeapon <- function(_maxTier = 7)
 		{
-			local weapon = _entity.getMainhandItem();
+			local weapon = this.getActor().getMainhandItem();
 			if (weapon == null)
 			{
 				return;
@@ -105,12 +105,12 @@ gt.Const.PTR.modSkillContainer <- function()
 		{
 			for (local i = 0; i < _maxTier; i++)
 			{
-				foreach (row in tree.Tree)
+				foreach (row in _tree.Tree)
 				{
 					foreach (perk in row)
 					{
-						local perkScript = gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs[perk]].Script;
-						this.m.Skills.add(this.new(perkScript));
+						local perkScript = gt.Const.Perks.PerkDefObjects[perk].Script;
+						this.add(this.new(perkScript));
 					}
 				}
 			}
