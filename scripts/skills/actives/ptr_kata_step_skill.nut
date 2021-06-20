@@ -179,13 +179,14 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 			return false;
 		}
 
-		local weapon = this.getContainer().getActor().getMainhandItem();
+		local actor = this.getContainer().getActor();
+		local weapon = actor.getMainhandItem();
 		if (weapon == null || (!actor.isDoubleGrippingWeapon() && weapon.isItemType(this.Const.Items.ItemType.TwoHanded)))
 		{
 			return false;
 		}
 
-		local myTile = this.getContainer().getActor().getTile();
+		local myTile = actor.getTile();
 		if (this.anAdjacentEmptyTileHasAdjacentEnemy(myTile))
 		{
 			return true;
