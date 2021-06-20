@@ -17,62 +17,71 @@ this.perk_ptr_patience <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
 	function isHidden()
 	{
 		return this.m.HasMoved || !this.m.IsCombatStarted;
 	}
-	
+
 	function getDescription()
 	{
 		return "This character has not moved yet and can take his time to get a better aim for ranged attacks.";
 	}
-	
+
 	function getTooltip()
 	{
 		local tooltip = this.skill.getTooltip();
-		
+
 		tooltip.push({
 			id = 10,
 			type = "text",
 			icon = "ui/icons/ranged_skill.png",
 			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getBonus() + "[/color] Ranged Skill"
 		});
-		
-		return tooltip;		
+
+		return tooltip;
 	}
-	
+
 	function getBonus()
 	{
 		return this.m.HasMoved ? 0 : this.m.Bonus;
 	}
-	
+
 	function onUpdate ( _properties )
 	{
 		if (!this.m.IsCombatStarted || this.m.HasMoved)
 		{
 			return;
 		}
-		
+
 		if (this.m.HasMoved == false && this.getContainer().getActor().m.IsMoving)
 		{
 			this.m.HasMoved = true;
 		}
-		
+
 		_properties.RangedSkill += this.getBonus();
 	}
-	
+
 	function onTurnStart()
 	{
 		this.m.HasMoved = false;
 	}
-	
+
+	function onAdded()
+	{
+		if (this.getContainer().getActor().isPlacedOnMap())
+		{
+			this.m.IsCombatStarted = true;
+			this.m.HasMoved = false;
+		}
+	}
+
 	function onCombatStarted()
 	{
 		this.m.IsCombatStarted = true;
 		this.m.HasMoved = false;
 	}
-	
+
 	function onCombatFinished()
 	{
 		this.skill.onCombatFinished();
@@ -80,4 +89,3 @@ this.perk_ptr_patience <- this.inherit("scripts/skills/skill", {
 		this.m.HasMoved = false;
 	}
 });
-

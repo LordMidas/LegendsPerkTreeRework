@@ -17,5 +17,12 @@ this.perk_ptr_entrenched <- this.inherit("scripts/skills/skill", {
 	{
 		this.getContainer().add(this.new("scripts/skills/effects/ptr_entrenched_effect"));
 	}
-});
 
+	function onAdded()
+	{
+		if (this.getContainer().getActor().isPlacedOnMap())
+		{
+			this.getContainer().add(this.new("scripts/skills/effects/ptr_entrenched_effect"));
+		}
+	}
+});

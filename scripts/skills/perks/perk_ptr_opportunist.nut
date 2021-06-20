@@ -69,6 +69,14 @@ this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
+	function onAdded()
+	{
+		if (this.getContainer().getActor().isPlacedOnMap())
+		{
+			this.m.IsCombatStarted = true;
+		}
+	}
+
 	function onCombatStarted()
 	{
 		this.m.IsCombatStarted = true;
