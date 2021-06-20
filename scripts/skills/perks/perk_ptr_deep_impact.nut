@@ -28,6 +28,12 @@ this.perk_ptr_deep_impact <- this.inherit("scripts/skills/skill", {
 			return false;
 		}
 
+		local weapon = this.getContainer().getActor().getMainhandItem();
+		if (weapon == null)
+		{
+			return false;
+		}
+
 		return true;
 	}
 
@@ -38,6 +44,7 @@ this.perk_ptr_deep_impact <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
+		local weapon = this.getContainer().getActor().getMainhandItem();
 		_properties.ThresholdToInflictInjuryMult *= 1.0 - (this.m.ArmorEffectivenessMult * weapon.getArmorDamageMult());
 	}
 
