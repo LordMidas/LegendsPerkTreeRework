@@ -15,7 +15,8 @@ this.perk_ptr_a_better_grip <- this.inherit("scripts/skills/skill", {
 
 	function onAfterUpdate(_properties)
 	{
-		local weapon = this.getContainer().getActor().getMainhandItem();
+		local actor = this.getContainer().getActor();
+		local weapon = actor.getMainhandItem();
 		if (weapon == null || weapon.getCategories().find("Spear") == null)
 		{
 			return;
