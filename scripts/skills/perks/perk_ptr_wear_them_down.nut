@@ -20,7 +20,7 @@ this.perk_ptr_wear_them_down <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		local count = _targetEntity.getSkills().getArrayOfNegativeStatusEffects().len();
+		local count = _attacker.getSkills().getArrayOfNegativeStatusEffects().len();
 
 		_properties.RerollDefenseChance += 20 * count;
 	}
