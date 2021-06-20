@@ -22,6 +22,11 @@ this.perk_ptr_wear_them_down <- this.inherit("scripts/skills/skill", {
 
 		local count = _attacker.getSkills().getArrayOfNegativeStatusEffects().len();
 
+		if (_attacker.getSkills().hasSkill("effects.ptr_worn_down"))
+		{
+			count++;
+		}
+
 		_properties.RerollDefenseChance += 20 * count;
 	}
 
