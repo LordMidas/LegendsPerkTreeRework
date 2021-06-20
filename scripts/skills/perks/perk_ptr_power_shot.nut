@@ -21,14 +21,14 @@ this.perk_ptr_power_shot <- this.inherit("scripts/skills/skill", {
 		{
 			return;
 		}
-		
+
 		local roll = this.Math.rand(1, 100);
-		
+
 		if (roll <= this.m.Chance)
-		{			
+		{
 			local effect = this.new("scripts/skills/effects/staggered_effect");
-			effect.m.TurnsLeft = 1;
 			_targetEntity.getSkills().add(effect);
+			effect.m.TurnsLeft = 1;
 			
 			if (!this.getContainer().getActor().isHiddenToPlayer() && _targetEntity.getTile().IsVisibleForPlayer)
 			{
@@ -37,4 +37,3 @@ this.perk_ptr_power_shot <- this.inherit("scripts/skills/skill", {
 		}
 	}
 });
-
