@@ -105,13 +105,10 @@ gt.Const.PTR.modSkillContainer <- function()
 		{
 			for (local i = 0; i < _maxTier; i++)
 			{
-				foreach (row in _tree.Tree)
+				foreach (perk in _tree.Tree[i])
 				{
-					foreach (perk in row)
-					{
-						local perkScript = gt.Const.Perks.PerkDefObjects[perk].Script;
-						this.add(this.new(perkScript));
-					}
+					local perkScript = gt.Const.Perks.PerkDefObjects[perk].Script;
+					this.add(this.new(perkScript));
 				}
 			}
 		}
