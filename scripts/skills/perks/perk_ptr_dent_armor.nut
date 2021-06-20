@@ -49,6 +49,11 @@ this.perk_ptr_dent_armor <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
+		if (targetArmorItem.getArmorMax() <= 200)
+		{
+			return;
+		}
+
 		local weapon = actor.getMainhandItem();
 		if (!this.isEnabled(_skill, weapon))
 		{
