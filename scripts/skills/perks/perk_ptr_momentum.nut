@@ -54,6 +54,15 @@ this.perk_ptr_momentum <- this.inherit("scripts/skills/skill", {
 		this.m.CurrTile = this.getContainer().getActor().getTile();
 	}
 
+	function onAdded()
+	{
+		if (this.getContainer().getActor().isPlacedOnMap())
+		{
+			this.m.PrevTile = this.getContainer().getActor().getTile();
+			this.m.CurrTile = this.getContainer().getActor().getTile();
+		}
+	}
+
 	function onCombatStarted()
 	{
 		this.m.PrevTile = this.getContainer().getActor().getTile();

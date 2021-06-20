@@ -12,10 +12,17 @@ this.perk_ptr_hip_shooter <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
 	function onCombatStarted()
 	{
 		this.getContainer().add(this.new("scripts/skills/effects/ptr_hip_shooter_effect"));
 	}
-});
 
+	function onAdded()
+	{
+		if (this.getContainer().getActor().isPlacedOnMap())
+		{
+			this.getContainer().add(this.new("scripts/skills/effects/ptr_hip_shooter_effect"));
+		}
+	}
+});

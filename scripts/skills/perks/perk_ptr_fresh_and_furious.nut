@@ -61,6 +61,14 @@ this.perk_ptr_fresh_and_furious <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
+	function onAdded()
+	{
+		if (this.getContainer().getActor().isPlacedOnMap())
+		{
+			this.m.IsInCombat = true;
+		}
+	}
+
 	function onCombatStarted()
 	{
 		this.m.IsInCombat = true;
