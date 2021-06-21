@@ -1,5 +1,10 @@
 ===================
-==== Ver 0.7.0 ====
+==== Ver 0.7.2 ====
+===================
+- Fixed Kata Step being usable with a one-handed sword and shield.
+
+===================
+==== Ver 0.7.1 ====
 ===================
 = MAJOR CHANGES =
 - Allocated new perks to a large number of enemies, including bandits, undead, beasts, noble armies, barbarians, and southerners. Many enemies are still pending.
