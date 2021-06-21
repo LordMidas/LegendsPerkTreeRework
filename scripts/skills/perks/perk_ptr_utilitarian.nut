@@ -96,7 +96,7 @@ this.perk_ptr_utilitarian <- this.inherit("scripts/skills/skill", {
 		}
 
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon == null || weapon.m.MaxRange != 2 || !weapon.isItemType(this.Const.Items.ItemType.TwoHanded) || !weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon))
+		if (weapon == null || weapon.getRangeMax() != 2 || !weapon.isItemType(this.Const.Items.ItemType.TwoHanded) || !weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon))
 		{
 			return false;
 		}
