@@ -34,7 +34,7 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 	function onAdded()
 	{
 		this.m.IsSpent = true;
-		
+
 		local actor = this.getContainer().getActor();
 		if (actor.isPlayerControlled())
 		{
@@ -80,7 +80,7 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 		}
 
 		local weapon = actor.getMainhandItem();
-		if (weapon == null || (!actor.isDoubleGrippingWeapon() && weapon.isItemType(this.Const.Items.ItemType.TwoHanded)))
+		if (weapon == null || (!actor.isDoubleGrippingWeapon() && !weapon.isItemType(this.Const.Items.ItemType.TwoHanded)))
 		{
 			tooltip.push({
 				id = 9,
@@ -183,7 +183,7 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 
 		local actor = this.getContainer().getActor();
 		local weapon = actor.getMainhandItem();
-		if (weapon == null || (!actor.isDoubleGrippingWeapon() && weapon.isItemType(this.Const.Items.ItemType.TwoHanded)))
+		if (weapon == null || (!actor.isDoubleGrippingWeapon() && !weapon.isItemType(this.Const.Items.ItemType.TwoHanded)))
 		{
 			return false;
 		}
