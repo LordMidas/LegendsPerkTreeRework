@@ -769,6 +769,15 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_survival_instinct.png",
 			IconDisabled = "ui/perks/ptr_survival_instinct_bw.png",
 			Const = "PTRSurvivalInstinct"
+		},
+		{
+			ID = "perk.ptr_utilitarian",
+			Script = "scripts/skills/perks/perk_ptr_utilitarian",
+			Name = this.Const.Strings.PerkName.PTRUtilitarian,
+			Tooltip = this.Const.Strings.PerkDescription.PTRUtilitarian,
+			Icon = "ui/perks/ptr_utilitarian.png",
+			IconDisabled = "ui/perks/ptr_utilitarian_bw.png",
+			Const = "PTRUtilitarian"
 		}
 	];
 
