@@ -1,4 +1,9 @@
 ===================
+==== Ver 0.7.3 ====
+===================
+- Fixed Momentum causing the battle to freeze when using throwing weapons.
+
+===================
 ==== Ver 0.7.2 ====
 ===================
 - Fixed Kata Step being usable with a one-handed sword and shield.
