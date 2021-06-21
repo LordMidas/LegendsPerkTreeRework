@@ -109,7 +109,7 @@ this.ptr_formidable_approach_debuff_effect <- this.inherit("scripts/skills/skill
 				}
 
 				local enemyPerk = enemy.getSkills().getSkillByID("perk.ptr_formidable_approach");
-				if (enemyPerk != null && enemyPerk.isInEffect())
+				if (enemyPerk != null && enemyPerk.isEnabled())
 				{
 					this.m.CurrentEnemies.push(enemy);
 				}
