@@ -1,9 +1,37 @@
+===================
+==== Ver 0.7.0 ====
+===================
+= MAJOR CHANGES =
+- Allocated new perks to a large number of enemies, including bandits, undead, beasts, noble armies, barbarians, and southerners. Many enemies are still pending.
+- Back to Basics reworked: Now grants 5% bonus to all attributes and increases XP gain by 5%.
+- Bone Breaker will now check for target being Undead when deciding which injury to apply.
+- Glaives are now categorized as Sword/Spear.
+- Sniper renamed to Death From Afar.
+- Kata Step tweaked: Now requires a Two-Handed Sword or a One-Handed Sword with the Offhand free.
+- Two for One tweaked: Now reduces AP cost of Prong and Glaive Slash in addition to Thrust.
+- A Better Grip tweaked: When using a shield with a spear or glaive, gain +5 Melee Skill and +10 Melee Defense. When using a one-handed spear with the offhand free, the range of thrust is increased to 2 tiles. With the offhand free, one-handed spears and glaives now benefit from the Reach Advantage perk. When using two-handed spears, melee damage is increased by 25%.
+- King of All Weapons tweaked: Now also allows affects Prong.
+- Updated all relevant perk tooltips to now show their correct perk group in PTR.
+- Pointy End description shows the damage type required i.e. Piercing, Melee.
+- Fixed Know their Weakness sometimes giving negative effects.
+- Modding: Bone Breaker, Deep Impact, Dent Armor, Dismantle, Mauler, and Cull can now be force enabled by using the this.m.IsForceEnabled boolean even if the actor does not fulfill the requirements.
+
+= FIXES =
+- Fixed saved games being unable to be loaded due to a typo in shieldmaiden background.
+- Fixed a bug in the Easy Target perk.
+- Fixed some staves not getting the Staff Sweep skill.
+- Rising Star description now properly says 50% instead of 25%.
+
+===================
 ==== Ver 0.6.7 ====
+===================
 - Fixed hang/crash when attacking an Undead target while having the Dismember perk.
 - Fixed Aimed Shot lighting the tile on fire even without the Flaming Arrows perk.
 - Fixed Onslaught. It should now properly work as intended with Staves.
 
+===================
 ==== Ver 0.6.6 ====
+===================
 MAJOR CHANGES:
 - Axe tree rearranged: Heft is now tier 2, and Dismemberment is tier 3.
 - Dismemberment buffed: Now lowers injury threshold by 35% of your Maximum Damage.
@@ -12,14 +40,20 @@ MAJOR CHANGES:
 FIXES:
 - Dismemberment should now correctly apply relevant cutting injuries to Undead. Ghosts are exempt from this.
 
+===================
 ==== Ver 0.6.5 ====
+===================
 - Added Discovered Talent perk to Talented tree row 4. The perk adds 1 star to all talents, and instantly gives a levelup with normal rolls with talents.
 
+===================
 ==== Ver 0.6.4 ====
+===================
 - Added Tactician Class tree (Perks: Mark Target, Shields Up, Hold the Line, Push Forward).
 - Background descriptions will now be properly shown in the tooltip of the background in the recruitment screen. These descriptions have been improved over Legends whereby it now shows all of the "rolled" trees and not only the hard-coded ones.
 
+===================
 ==== Ver 0.6.3 ====
+===================
 - Rising Star XP gain buffed to 50%.
 - The Rush of Battle moved to Trained tree, row 6 (from row 7).
 - Perfect Focus moved to Trained tree, row 7 (from Calm row 7).
