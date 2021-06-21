@@ -1,6 +1,7 @@
 this.perk_ptr_survival_instinct <- this.inherit("scripts/skills/skill", {
 	m = {
-		Stacks = 0
+		Stacks = 0,
+		BonusPerStack = 5
 	},
 	function create()
 	{
@@ -15,7 +16,7 @@ this.perk_ptr_survival_instinct <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = true;
 	}
-	
+
 	function isHidden()
 	{
 		return this.m.Stacks == 0;
@@ -25,28 +26,28 @@ this.perk_ptr_survival_instinct <- this.inherit("scripts/skills/skill", {
 	{
 		return "This character\'s senses are heightened when faced with mortal danger.";
 	}
-	
+
 	function getTooltip()
 	{
 		local tooltip = this.skill.getTooltip();
-		
+
 		tooltip.extend(
 			[
 				{
 					id = 10,
 					type = "text",
 					icon = "ui/icons/melee_defense.png",
-					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.Bonus + "%[/color] Melee Defense"
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.Bonus + "[/color] Melee Defense"
 				},
 				{
 					id = 10,
 					type = "text",
 					icon = "ui/icons/ranged_defense.png",
-					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.Bonus + "%[/color] Ranged Defense"
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.Bonus + "[/color] Ranged Defense"
 				}
 			]
 		);
-		
+
 		return tooltip;
 	}
 
@@ -56,15 +57,15 @@ this.perk_ptr_survival_instinct <- this.inherit("scripts/skills/skill", {
 		{
 			return;
 		}
-		
-		this.m.Stacks = 1;
+
+		this.m.Stacks += 1;
 	}
 
 	function onUpdate( _properties )
 	{
-		local bonus = 1.0 + (this.m.Stacks * 0.1);
-		_properties.MeleeDefenseMult *= bonus;
-		_properties.RangedDefenseMult *= bonus;		
+		local bonus = this.m.Stacks * this.m.BonusPerStack;
+		_properties.MeleeDefense += bonus;
+		_properties.RangedDefense += bonus;
 	}
 
 	function onTurnStart()
@@ -83,5 +84,3 @@ this.perk_ptr_survival_instinct <- this.inherit("scripts/skills/skill", {
 		this.m.Stacks = 0;
 	}
 });
-
-
