@@ -70,7 +70,7 @@ this.perk_ptr_know_their_weakness <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		this.m.Stacks--;
+		this.m.Stacks = this.Math.max(0, this.m.Stacks - 1);
 	}
 
 	function onUpdate( _properties )
