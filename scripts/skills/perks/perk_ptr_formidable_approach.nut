@@ -29,12 +29,11 @@ this.perk_ptr_formidable_approach <- this.inherit("scripts/skills/skill", {
 		}
 
 		local weapon = actor.getMainhandItem();
-		if (weapon == null || !weapon.isItemType(this.Const.Items.ItemType.TwoHanded) || !weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon))
+		if (weapon == null || !(weapon.isItemType(this.Const.Items.ItemType.TwoHanded) && weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon)))
 		{
 			return false;
 		}
-		
+
 		return true;
 	}
 });
-
