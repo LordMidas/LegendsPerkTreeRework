@@ -1,6 +1,16 @@
 ===================
 ==== Ver 0.7.3 ====
 ===================
+- Moved Bloody Harvest to t2 of two-handed weapons tree.
+- Moved Formidable Approach to t3 of two-handed weapons tree.
+- Formidable Approach tweaked: When wielding a two-handed weapon, reduce the Melee Skill and Melee Defense of any enemy who enters your zone of control by 10% of your Melee Skill. The debuff lasts until the enemy exists your zone of control or successfully hits you. Only has half the effect against enemies with Two-Handed weapons and does not work if the enemy also has this perk.
+- New perk in t5 Polearm tree, "Utilitarian": When using a two-handed weapon with a range of two tiles, and wearing head and body armor with a total penalty to Maximum Fatigue up to -15, gain +10 Melee Skill and 15% Fatigue Cost reduction for all skills. For every 2 points of armor Fatigue above -15, these bonuses drop by 1, and you gain +1% Melee Damage.
+- Added the Formidable Approach perk to several beasts such as Unholds and Lindwurm.
+- Updated the perks of Lindwurms and Unholds.
+
+===================
+==== Ver 0.7.3 ====
+===================
 - Fixed Momentum causing the battle to freeze when using throwing weapons.
 
 ===================
