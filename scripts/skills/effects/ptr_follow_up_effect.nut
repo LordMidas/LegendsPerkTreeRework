@@ -1,6 +1,7 @@
 this.ptr_follow_up_effect <- this.inherit("scripts/skills/skill", {
 	m = {
 		DamageMalus = 50,
+		DamageMalusIncreasePerProc = 10,
 		ProcCount = 0
 	},
 	function create()
@@ -24,7 +25,7 @@ this.ptr_follow_up_effect <- this.inherit("scripts/skills/skill", {
 					id = 10,
 					type = "text",
 					icon = "ui/icons/damage_dealt.png",
-					text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + (100 - this.getCurrentMalus()) + "%[/color] Damage inflicted"
+					text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + this.getCurrentMalus() + "%[/color] Damage inflicted"
 				}
 			);
 
@@ -87,12 +88,12 @@ this.ptr_follow_up_effect <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		_properties.DamageTotalMult *= this.getCurrentMalus() / 100.0;
+		_properties.DamageTotalMult *= (100 - this.getCurrentMalus()) / 100.0;
 	}
 
 	function getCurrentMalus()
 	{
-		return this.Math.maxf(10, this.m.DamageMalus - (this.m.ProcCount * 10));
+		return this.Math.min(90, this.m.DamageMalus + (this.m.ProcCount * this.m.DamageMalusIncreasePerProc));
 	}
 
 	function onTurnStart()
