@@ -135,7 +135,7 @@ this.perk_ptr_utilitarian <- this.inherit("scripts/skills/skill", {
 
 		_properties.MeleeSkill += this.getMeleeSkillBonus(fat);
 		_properties.FatigueEffectMult *= 1.0 - this.getFatigueReductionBonus(fat) * 0.01;
-		_properties.MeleeDamageMult *= this.getDamageBonus(fat);
+		_properties.MeleeDamageMult *= 1.0 + this.getDamageBonus(fat) * 0.01;
 	}
 
 	function getMeleeSkillBonus(_armorFat)
