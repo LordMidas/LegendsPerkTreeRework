@@ -126,6 +126,11 @@ this.perk_ptr_utilitarian <- this.inherit("scripts/skills/skill", {
 
 	function onUpdate(_properties)
 	{
+		if (!this.isEnabled())
+		{
+			return;
+		}
+
 		local fat = this.getTotalArmorFat();
 
 		_properties.MeleeSkill += this.getMeleeSkillBonus(fat);
