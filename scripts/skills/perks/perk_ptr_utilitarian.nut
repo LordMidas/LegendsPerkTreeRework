@@ -56,7 +56,7 @@ this.perk_ptr_utilitarian <- this.inherit("scripts/skills/skill", {
 				id = 10,
 				type = "text",
 				icon = "ui/icons/fatigue.png",
-				text = "Skills build up [color=" + this.Const.UI.Color.PositiveValue + "]-" + fatReductionBonus + "[/color] Fatigue"
+				text = "Skills build up [color=" + this.Const.UI.Color.PositiveValue + "]-" + fatReductionBonus + "%[/color] Fatigue"
 			});
 		}
 		else if (fatReductionBonus < 0)
@@ -65,7 +65,7 @@ this.perk_ptr_utilitarian <- this.inherit("scripts/skills/skill", {
 				id = 10,
 				type = "text",
 				icon = "ui/icons/melee_skill.png",
-				text = "Skills build up [color=" + this.Const.UI.Color.NegativeValue + "]+" + fatReductionBonus + "[/color] Fatigue"
+				text = "Skills build up [color=" + this.Const.UI.Color.NegativeValue + "]+" + fatReductionBonus + "%[/color] Fatigue"
 			});
 		}
 
