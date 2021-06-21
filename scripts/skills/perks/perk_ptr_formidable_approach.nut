@@ -1,5 +1,7 @@
 this.perk_ptr_formidable_approach <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		IsForceEnabled = false
+	},
 	function create()
 	{
 		this.m.ID = "perk.ptr_formidable_approach";
@@ -12,15 +14,20 @@ this.perk_ptr_formidable_approach <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
-	function isInEffect()
+
+	function isEnabled()
 	{
-		local actor = this.getContainer().getActor();		
+		local actor = this.getContainer().getActor();
 		if (actor == null)
 		{
 			return false;
 		}
-		
+
+		if (this.m.IsForceEnabled)
+		{
+			return true;
+		}
+
 		local weapon = actor.getMainhandItem();
 		if (weapon == null || !weapon.isItemType(this.Const.Items.ItemType.TwoHanded) || !weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon))
 		{
