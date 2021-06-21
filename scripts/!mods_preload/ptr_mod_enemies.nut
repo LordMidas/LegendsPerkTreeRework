@@ -23,7 +23,7 @@ gt.Const.PTR.modEnemies <- function()
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_battleforged"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_battle_forged"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_close_combat_archer"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_assured_conquest"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_rebound"));
@@ -39,7 +39,7 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_fast_adaptation"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_fast_adaption"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_killing_frenzy"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_vengeance"));
 			}
@@ -172,7 +172,7 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_close_combat_archer"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_target_practice"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bloody_harvest"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_fast_adaptation"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_fast_adaption"));
 				this.m.Skills.addTreeOfEquippedWeapon(5);
 			}
 		}
@@ -219,7 +219,7 @@ gt.Const.PTR.modEnemies <- function()
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_fast_adaptation"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_fast_adaption"));
 			}
 		}
 	});
@@ -603,7 +603,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_bullseye"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_rotation"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_recover"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_battleforged"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_battle_forged"));
 			//this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_lithe"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_quick_hands"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_close_combat_archer"));
@@ -1225,7 +1225,7 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			onInit();
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_fearsome"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_battleforged"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_battle_forged"));
 			this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
 			this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
 
@@ -1263,7 +1263,7 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			onInit();
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_fearsome"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_battleforged"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_battle_forged"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_personal_armor"));
 			this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
 			this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
@@ -1607,7 +1607,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/assassin", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/assassin", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -1615,7 +1615,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/barbarian_beastmaster", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/barbarian_beastmaster", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -1624,13 +1624,13 @@ gt.Const.PTR.modEnemies <- function()
 	# });
 
 
-	::mods_hookExactClass("entity/tactical/enemies/humans/barbarian_champion", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/barbarian_champion", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.addTree(this.Const.Perks.OneHandedTree);
-			this.m.Skills.addTree(this.Const.Perks.TwoHandedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
 
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_the_rush_of_battle"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_know_their_weakness"));
@@ -1659,13 +1659,13 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	::mods_hookExactClass("entity/tactical/enemies/humans/barbarian_chosen", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/barbarian_chosen", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.addTree(this.Const.Perks.OneHandedTree);
-			this.m.Skills.addTree(this.Const.Perks.TwoHandedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
 
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_the_rush_of_battle"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_know_their_weakness"));
@@ -1698,7 +1698,7 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/barbarian_drummer", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/barbarian_drummer", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -1706,7 +1706,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/barbarian_madman", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/barbarian_madman", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -1714,13 +1714,13 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 
-	::mods_hookExactClass("entity/tactical/enemies/humans/barbarian_marauder", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/barbarian_marauder", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.addTree(this.Const.Perks.OneHandedTree);
-			this.m.Skills.addTree(this.Const.Perks.TwoHandedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_the_rush_of_battle"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_momentum"));
@@ -1742,7 +1742,7 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	::mods_hookExactClass("entity/tactical/enemies/humans/barbarian_thrall", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/barbarian_thrall", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
@@ -1762,7 +1762,7 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/bounty_hunter", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/bounty_hunter", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -1770,7 +1770,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/bounty_hunter_ranged", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/bounty_hunter_ranged", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -1778,7 +1778,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/caravan_guard", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/caravan_guard", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -1786,7 +1786,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/caravan_hand", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/caravan_hand", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -1794,7 +1794,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 
-	::mods_hookExactClass("entity/tactical/enemies/humans/conscript", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/conscript", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
@@ -1821,7 +1821,7 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	::mods_hookExactClass("entity/tactical/enemies/humans/conscript_polearm", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/conscript_polearm", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
@@ -1844,7 +1844,7 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/councilman", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/councilman", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -1852,7 +1852,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 
-	::mods_hookExactClass("entity/tactical/enemies/humans/desert_devil", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/desert_devil", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
@@ -1909,7 +1909,7 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	::mods_hookExactClass("entity/tactical/enemies/humans/desert_stalker", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/desert_stalker", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
@@ -1942,7 +1942,7 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/engineer", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/engineer", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -1950,7 +1950,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/envoy", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/envoy", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -1958,7 +1958,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 
-	::mods_hookExactClass("entity/tactical/enemies/humans/executioner", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/executioner", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
@@ -1989,7 +1989,7 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/firstborn", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/firstborn", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -1997,7 +1997,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/gladiator", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/gladiator", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -2005,7 +2005,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 
-	::mods_hookExactClass("entity/tactical/enemies/humans/gunner", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/gunner", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
@@ -2034,13 +2034,13 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	::mods_hookExactClass("entity/tactical/enemies/humans/hedge_knight", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/hedge_knight", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.addTree(this.Const.Perks.OneHandedTree);
-			this.m.Skills.addTree(this.Const.Perks.TwoHandedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_personal_armor"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_know_their_weakness"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
@@ -2062,16 +2062,16 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	::mods_hookExactClass("entity/tactical/enemies/humans/knight", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/knight", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
 			onInit();
 			this.m.Skills.removeByID("perk.legend_forceful_swing");
 
-			this.m.Skills.addTree(this.Const.Perks.OneHandedTree);
-			this.m.Skills.addTree(this.Const.Perks.TwoHandedTree);
-			this.m.Skills.addTree(this.Const.Perks.TrainedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.TrainedTree);
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_assured_conquest"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_personal_armor"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_unstoppable"));
@@ -2093,7 +2093,7 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	::mods_hookExactClass("entity/tactical/enemies/humans/legend_noble_fencer", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/legend_noble_fencer", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
@@ -2101,9 +2101,9 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.removeByID("perk.footwork");
 			this.m.Skills.removeByID("perk.feint");
 
-			this.m.Skills.addTree(this.Const.Perks.OneHandedTree);
-			this.m.Skills.addTree(this.Const.Perks.TwoHandedTree);
-			this.m.Skills.addTree(this.Const.Perks.TrainedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.TrainedTree);
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_assured_conquest"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_pathfinder"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_lone_wolf"));
@@ -2129,13 +2129,13 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	::mods_hookExactClass("entity/tactical/enemies/humans/legend_noble_halberdier", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/legend_noble_halberdier", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.addTree(this.Const.Perks.TwoHandedTree);
-			this.m.Skills.addTree(this.Const.Perks.TrainedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.TrainedTree);
 
 			this.m.Skills.removeByID("perk.underdog");
 			this.m.Skills.removeByID("perk.ptr_bloodlust");
@@ -2161,7 +2161,7 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	::mods_hookExactClass("entity/tactical/enemies/humans/legend_noble_slinger", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/legend_noble_slinger", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
@@ -2169,7 +2169,7 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/legend_peasant_blacksmith", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/legend_peasant_blacksmith", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -2177,7 +2177,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/legend_peasant_butcher", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/legend_peasant_butcher", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -2185,7 +2185,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/legend_peasant_farmhand", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/legend_peasant_farmhand", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -2193,7 +2193,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/legend_peasant_miner", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/legend_peasant_miner", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -2201,7 +2201,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/legend_peasant_minstrel", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/legend_peasant_minstrel", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -2209,7 +2209,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/legend_peasant_monk", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/legend_peasant_monk", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -2217,7 +2217,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/legend_peasant_poacher", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/legend_peasant_poacher", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -2225,7 +2225,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/legend_peasant_squire", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/legend_peasant_squire", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -2233,7 +2233,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/legend_peasant_witchhunter", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/legend_peasant_witchhunter", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -2241,7 +2241,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/legend_peasant_woodsman", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/legend_peasant_woodsman", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -2249,7 +2249,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 
-	::mods_hookExactClass("entity/tactical/enemies/humans/master_archer", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/master_archer", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
@@ -2257,7 +2257,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.getBaseProperties().Vision = 7;
 			this.getBaseProperties().IsSpecializedInCrossbows = true;
 
-			this.m.Skills.addTree(this.Const.Perks.RangedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.RangedTree);
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_through_the_ranks"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_ranged_supremacy"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_entrenched"));
@@ -2280,13 +2280,13 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	::mods_hookExactClass("entity/tactical/enemies/humans/mercenary", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/mercenary", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.addTree(this.Const.Perks.TwoHandedTree);
-			this.m.Skills.addTree(this.Const.Perks.OneHandedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
 
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_shield_expert"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_quick_hands"));
@@ -2301,7 +2301,7 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				this.m.Skills.addTree(this.Const.Perks.ThrowingTree);
+				this.m.Skills.addPerkTree(this.Const.Perks.ThrowingTree);
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_hold_out"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
@@ -2330,7 +2330,7 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	::mods_hookExactClass("entity/tactical/enemies/humans/mercenary_low", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/mercenary_low", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
@@ -2347,7 +2347,7 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_berserk"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_bullseye"));
-				this.m.Skills.addTree(this.Const.Perks.OneHandedTree);
+				this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
 			}
 		}
 
@@ -2372,13 +2372,13 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	::mods_hookExactClass("entity/tactical/enemies/humans/mercenary_ranged", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/mercenary_ranged", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
 			onInit();
 			this.m.Skills.addTreeOfEquippedWeapon();
-			this.m.Skills.addTree(this.Const.Perks.RangedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.RangedTree);
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_ranged_supremacy"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_entrenched"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_through_the_ranks"));
@@ -2408,7 +2408,7 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/militia", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/militia", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -2416,7 +2416,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/militia_captain", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/militia_captain", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -2424,7 +2424,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/militia_guest", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/militia_guest", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -2432,7 +2432,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/militia_guest_ranged", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/militia_guest_ranged", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -2440,7 +2440,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/militia_ranged", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/militia_ranged", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -2448,7 +2448,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/militia_veteran", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/militia_veteran", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -2456,7 +2456,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/noble", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/noble", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -2464,16 +2464,16 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	::mods_hookExactClass("entity/tactical/enemies/humans/noble_arbalester", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/noble_arbalester", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.addTree(this.Const.Perks.RangedTree);
-			this.m.Skills.addTree(this.Const.Perks.TrainedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.RangedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.TrainedTree);
 			this.m.Skills.removeByID("perk.underdog");
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_assured_conquest"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_battleforged"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_battle_forged"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_know_their_weakness"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
@@ -2492,14 +2492,14 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	::mods_hookExactClass("entity/tactical/enemies/humans/noble_billman", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/noble_billman", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
 			onInit();
 			this.getBaseProperties().IsSpecializedInPolearms = true;
-			this.m.Skills.addTree(this.Const.Perks.TwoHandedTree);
-			this.m.Skills.addTree(this.Const.Perks.TrainedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.TrainedTree);
 			this.m.Skills.removeByID("perk.underdog");
 
 			this.m.Skills.removeByID("perk.ptr_bloodlust");
@@ -2525,12 +2525,12 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	::mods_hookExactClass("entity/tactical/enemies/humans/noble_footman", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/noble_footman", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.addTree(this.Const.Perks.OneHandedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
 
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_assured_conquest"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_smashing_shields"));
@@ -2540,7 +2540,7 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				this.m.Skills.addTree(this.Const.Perks.TrainedTree);
+				this.m.Skills.addPerkTree(this.Const.Perks.TrainedTree);
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_overwhelm"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_rattle"));
@@ -2557,13 +2557,13 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	::mods_hookExactClass("entity/tactical/enemies/humans/noble_greatsword", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/noble_greatsword", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.addTree(this.Const.Perks.TwoHandedTree);
-			this.m.Skills.addTree(this.Const.Perks.TrainedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.TrainedTree);
 
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_assured_conquest"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_coup_de_grace"));
@@ -2574,7 +2574,7 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				this.m.Skills.addTree(this.Const.Perks.TrainedTree);
+				this.m.Skills.addPerkTree(this.Const.Perks.TrainedTree);
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_vengeance"));
 				this.m.Skills.removeByID("perk.underdog");
@@ -2593,16 +2593,16 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	::mods_hookExactClass("entity/tactical/enemies/humans/noble_sergeant", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/noble_sergeant", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.addTree(this.Const.Perks.TwoHandedTree);
-			this.m.Skills.addTree(this.Const.Perks.OneHandedTree);
-			this.m.Skills.addTree(this.Const.Perks.TrainedTree);
-			this.m.Skills.addTree(this.Const.Perks.TacticianClassTree);
-			this.m.Skills.addTree(this.Const.Perks.SergeantClassTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.TrainedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.TacticianClassTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.SergeantClassTree);
 
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_assured_conquest"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_clarity"));
@@ -2614,7 +2614,7 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				this.m.Skills.addTree(this.Const.Perks.TrainedTree);
+				this.m.Skills.addPerkTree(this.Const.Perks.TrainedTree);
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_vengeance"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_second_wind"));
 			}
@@ -2628,7 +2628,7 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	::mods_hookExactClass("entity/tactical/enemies/humans/nomad_archer", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/nomad_archer", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
@@ -2662,7 +2662,7 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	::mods_hookExactClass("entity/tactical/enemies/humans/nomad_cutthroat", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/nomad_cutthroat", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
@@ -2673,7 +2673,7 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_fast_adaptation"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_fast_adaption"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_underdog"));
 				this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
 			}
@@ -2700,7 +2700,7 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	::mods_hookExactClass("entity/tactical/enemies/humans/nomad_leader", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/nomad_leader", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
@@ -2726,11 +2726,11 @@ gt.Const.PTR.modEnemies <- function()
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_battleforged"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_battle_forged"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_composure"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_backstabber"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_underdog"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_fast_adaptation"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_fast_adaption"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_killing_frenzy"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_vengeance"));
 			}
@@ -2762,7 +2762,7 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	::mods_hookExactClass("entity/tactical/enemies/humans/nomad_outlaw", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/nomad_outlaw", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
@@ -2772,9 +2772,9 @@ gt.Const.PTR.modEnemies <- function()
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_relentless"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_close_combat_archer"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_fast_adaptation"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_fast_adaption"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_backstabber"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_battleforged"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_battle_forged"));
 				this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
 			}
 		}
@@ -2801,7 +2801,7 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	::mods_hookExactClass("entity/tactical/enemies/humans/nomad_slinger", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/nomad_slinger", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
@@ -2847,7 +2847,7 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	::mods_hookExactClass("entity/tactical/enemies/humans/officer", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/officer", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
@@ -2898,7 +2898,7 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/peasant", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/peasant", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -2906,7 +2906,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/peasant_armed", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/peasant_armed", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -2914,7 +2914,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/peasant_armed_infected", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/peasant_armed_infected", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -2922,7 +2922,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/peasant_southern", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/peasant_southern", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -2930,7 +2930,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/sato_manhunter", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/sato_manhunter", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -2938,7 +2938,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/sato_manhunter_ranged", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/sato_manhunter_ranged", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -2946,7 +2946,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/sato_manhunter_veteran", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/sato_manhunter_veteran", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -2954,7 +2954,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/sato_manhunter_veteran_ranged", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/sato_manhunter_veteran_ranged", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -2962,7 +2962,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/slave", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/slave", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -2970,7 +2970,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/standard_bearer", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/standard_bearer", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -2978,12 +2978,12 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	::mods_hookExactClass("entity/tactical/enemies/humans/swordmaster", function(o) {
+	::mods_hookExactClass("entity/tactical/humans/swordmaster", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.addTree(this.Const.Perks.OneHandedTree);
+			this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
 
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_overwhelm"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_relentless"));
@@ -3031,7 +3031,7 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/vizier", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/vizier", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
@@ -3039,7 +3039,7 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/humans/wildman", function(o) {
+	# ::mods_hookExactClass("entity/tactical/humans/wildman", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
 	# 	{
