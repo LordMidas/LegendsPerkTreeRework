@@ -8,30 +8,65 @@ this.perk_ptr_swift_stabs <- this.inherit("scripts/skills/skill", {
 		this.m.Name = this.Const.Strings.PerkName.PTRSwiftStabs;
 		this.m.Description = this.Const.Strings.PerkDescription.PTRSwiftStabs;
 		this.m.Icon = "ui/perks/ptr_swift_stabs.png";
-		this.m.Type = this.Const.SkillType.Perk;
-		this.m.Order = this.Const.SkillOrder.Perk;
+		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
+		this.m.Order = this.Const.SkillOrder.VeryLast;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
-	}	
-	
+	}
+
+	function isHidden()
+	{
+		return this.m.Skill == null;
+	}
+
+	function getDescription()
+	{
+		return "This character has successfully found an opening in the target's armor and can quickly deliver several deadly stabs.";
+	}
+
+	function getTooltip()
+	{
+		local tooltip = this.skill.getTooltip();
+
+		tooltip.push({
+			id = 10,
+			type = "text",
+			icon = "ui/icons/action_points.png",
+			text = "The Action Point cost of " + this.m.Skill.getName() + " is reduced"
+		});
+
+		return tooltip;
+	}
+
+	function onTurnStart()
+	{
+		this.m.Skill = null;
+	}
+
+	function onCombatFinished()
+	{
+		this.skill.onCombatFinished();
+		this.m.Skill = null;
+	}
+
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		if (_skill.getID() != "actives.puncture")
+		if (_skill.getID() != "actives.puncture" && _skill.getID() != "actives.deathblow")
 		{
 			return;
 		}
-		
-		local actor = this.getContainer().getActor();
-		local weapon = actor.getMainhandItem();		
-		if (weapon == null || weapon.getCategories().find("Dagger") == null)
+
+		this.m.Skill = _skill;
+	}
+
+	function onAfterUpdate(_properties)
+	{
+		if (this.m.Skill == null || this.m.Skill.m.ActionPointCost <= 2)
 		{
 			return;
 		}
-		
-		if (!this.getContainer().hasSkill("effects.ptr_swift_stabs"))
-		{
-			this.getContainer().add(this.new("scripts/skills/effects/ptr_swift_stabs_effect"));
-		}
+
+		this.m.Skill.m.ActionPointCost = this.Math.max(2, this.m.Skill.m.ActionPointCost - 2);
 	}
 });
