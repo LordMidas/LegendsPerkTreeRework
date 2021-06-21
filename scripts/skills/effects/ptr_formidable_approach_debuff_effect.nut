@@ -1,5 +1,6 @@
 this.ptr_formidable_approach_debuff_effect <- this.inherit("scripts/skills/skill", {
 	m = {
+		IsForceEnabled = false,
 		CurrentEnemies = [],
 		CurrentMalus = 0,
 		MalusFactor = 0.1
@@ -8,11 +9,12 @@ this.ptr_formidable_approach_debuff_effect <- this.inherit("scripts/skills/skill
 	{
 		this.m.ID = "effects.ptr_formidable_approach_debuff";
 		this.m.Name = "Formidable Approach";
-		this.m.Description = "This character is wielding a one-handed weapon, and has entered the zone of control of a large weapon wielder. Melee Skill and Melee Defense will be reduced until exiting this zone of control or successfully hitting the two-handed weapon wielder.";
+		this.m.Description = "This character has entered the zone of control of a formidable opponent. Melee Skill and Melee Defense will be reduced until exiting this zone of control or successfully hitting the opponent.";
 		this.m.Icon = "ui/perks/ptr_formidable_approach.png";
 		//this.m.IconMini = "ptr_formidable_approach_debuff_effect_mini";
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;
+		this.m.IsStacking = false;
 		this.m.IsHidden = true;
 	}
 
@@ -33,13 +35,13 @@ this.ptr_formidable_approach_debuff_effect <- this.inherit("scripts/skills/skill
 				id = 10,
 				type = "text",
 				icon = "ui/icons/melee_skill.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + this.m.CurrentMalus + "%[/color] Melee Skill"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + this.m.CurrentMalus + "[/color] Melee Skill"
 			},
 			{
 				id = 10,
 				type = "text",
 				icon = "ui/icons/melee_defense.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + this.m.CurrentMalus + "%[/color] Melee Defense"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + this.m.CurrentMalus + "[/color] Melee Defense"
 			}
 		];
 	}
@@ -49,14 +51,35 @@ this.ptr_formidable_approach_debuff_effect <- this.inherit("scripts/skills/skill
 		return this.m.CurrentMalus == 0;
 	}
 
+	function isEnabled()
+	{
+		if (this.m.IsForceEnabled)
+		{
+			return true;
+		}
+
+		if (this.getContainer().hasSkill("perk.ptr_formidable_approach"))
+		{
+			return false;
+		}
+
+		return true;
+	}
+
 	function getCurrentMalus()
 	{
+		local indices = [];
 		foreach (i, enemy in this.m.CurrentEnemies)
 		{
-			if (!enemy.isAlive())
+			if (!enemy.isAlive() || enemy.isDying())
 			{
-				this.m.CurrentEnemies.remove(i);
+				indices.push(i);
 			}
+		}
+
+		foreach (idx in indices)
+		{
+			this.m.CurrentEnemies.remove(idx);
 		}
 
 		if (this.m.CurrentEnemies.len() == 0)
@@ -64,8 +87,7 @@ this.ptr_formidable_approach_debuff_effect <- this.inherit("scripts/skills/skill
 			return 0;
 		}
 
-		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon != null && weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon) && weapon.isItemType(this.Const.Items.ItemType.TwoHanded))
+		if (!this.isEnabled())
 		{
 			return 0;
 		}
@@ -74,18 +96,17 @@ this.ptr_formidable_approach_debuff_effect <- this.inherit("scripts/skills/skill
 		foreach (enemy in this.m.CurrentEnemies)
 		{
 			local enemyMeleeSkill = enemy.getCurrentProperties().getMeleeSkill();
-			if (enemyMeleeSkill > meleeSkill)
-			{
-				meleeSkill = enemyMeleeSkill;
-			}
+			meleeSkill = this.Math.max(meleeSkill, enemyMeleeSkill);
 		}
 
-		return meleeSkill * this.m.MalusFactor;
+		local malusfactor = this.getContainer().getActor().isArmedWithTwoHandedWeapon() ? this.m.MalusFactor / 2 : this.m.MalusFactor;
+
+		return meleeSkill * malusfactor;
 	}
 
 	function updateMalus()
 	{
-		this.m.CurrentMalus = this.getCurrentMalus();
+		this.m.CurrentMalus = this.Math.floor(this.getCurrentMalus());
 	}
 
 	function onUpdate( _properties )
@@ -94,11 +115,6 @@ this.ptr_formidable_approach_debuff_effect <- this.inherit("scripts/skills/skill
 		if (actor.m.IsMoving)
 		{
 			this.m.CurrentEnemies.clear();
-
-			if (!actor.isArmedWithOneHandedWeapon())
-			{
-				return;
-			}
 
 			local adjacentEnemies = actor.getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.Enemy);
 			foreach (enemy in adjacentEnemies)
@@ -117,6 +133,9 @@ this.ptr_formidable_approach_debuff_effect <- this.inherit("scripts/skills/skill
 		}
 
 		this.updateMalus();
+
+		_properties.MeleeSkill -= this.m.CurrentMalus;
+		_properties.MeleeDefense -= this.m.CurrentMalus;
 	}
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
