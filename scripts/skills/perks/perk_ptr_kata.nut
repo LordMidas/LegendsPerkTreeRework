@@ -22,24 +22,4 @@ this.perk_ptr_kata <- this.inherit("scripts/skills/skill", {
 	{
 		this.getContainer().removeByID("actives.ptr_kata_step");
 	}
-
-	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
-	{
-		if (!_skill.isAttack())
-		{
-			return;
-		}
-
-		local actor = this.getContainer().getActor();
-		local weapon = actor.getMainhandItem();
-		if (weapon == null || weapon.getCategories().find("Sword") == null)
-		{
-			return;
-		}
-
-		if (this.getContainer().hasSkill("actives.ptr_kata_step"))
-		{
-
-		}
-	}
 });
