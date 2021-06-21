@@ -78,16 +78,12 @@ gt.Const.PTR.modSkills <- function()
 				if (this.m.FieldsChangedByFlamingArrows == false)
 				{
 					this.m.Description = "A focused and carefully aimed shot with a good outlook of hitting its intended target even at a distance. On a successful hit, will light the target tile on fire and trigger a morale check for the target. Can not be used while engaged in melee.";
-					this.m.InjuriesOnBody = this.Const.Injury.BurningAndPiercingBody;
-					this.m.InjuriesOnHead = this.Const.Injury.BurningAndPiercingHead;
 					this.m.FieldsChangedByFlamingArrows = true;
 				}
 			}
 			else if (this.m.FieldsChangedByFlamingArrows)
 			{
 				this.m.resetField("Description");
-				this.m.resetField("InjuriesOnBody");
-				this.m.resetField("InjuriesOnHead");
 				this.m.FieldsChangedByFlamingArrows = false;
 			}
 		}
@@ -230,73 +226,6 @@ gt.Const.PTR.modSkills <- function()
 		}
 	});
 
-	# ::mods_hookNewObject("skills/actives/reload_bolt", function(o) {
-	# 	local oldOnAfterUpdate = o.onAfterUpdate;
-	# 	o.onAfterUpdate = function( _properties )
-	# 	{
-	# 		oldOnAfterUpdate(_properties);
-	# 		if (this.getContainer().hasSkill("perk.ptr_windlass_training"))
-	# 		{
-	# 			this.m.ActionPointCost -= 1;
-	# 		}
-	# 	}
-	# });
-
-	# ::mods_hookNewObject("skills/actives/thrust", function(o) {
-	# 	o.m.ThrustCount <- 0;
-	#
-	# 	local oldOnAfterUpdate = o.onAfterUpdate;
-	# 	o.onAfterUpdate = function( _properties )
-	# 	{
-	# 		oldOnAfterUpdate(_properties);
-	#
-	# 		local actor = this.getContainer().getActor();
-	# 		local weapon = actor.getMainhandItem();
-	# 		if (weapon == null && weapon.getCategories().find("Spear") == null)
-	# 		{
-	# 			return;
-	# 		}
-	#
-	# 		# if (this.getContainer().hasSkill("perk.ptr_two_for_one"))
-	# 		# {
-	# 		# 	this.m.ActionPointCost -= 1;
-	# 		# }
-	#
-	# 		# if (this.getContainer().hasSkill("perk.ptr_a_better_grip"))
-	# 		# {
-	# 		# 	if (actor.isDoubleGrippingWeapon())
-	# 		# 	{
-	# 		# 		this.m.MaxRange += 1;
-	# 		# 	}
-	# 		# }
-	#
-	# 		# if (this.getContainer().hasSkill("perk.ptr_king_of_all_weapons"))
-	# 		# {
-	# 		# 	if (!actor.isPlacedOnMap() || this.m.ThrustCount > 0 || this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
-	# 		# 	{
-	# 		# 		return;
-	# 		# 	}
-	# 		#
-	# 		# 	this.m.FatigueCostMult = 0;
-	# 		# 	this.m.ActionPointCost = 0;
-	# 		# 	_properties.MeleeDamageMult *= 0.5;
-	# 		# }
-	# 	}
-	#
-	# 	# local onUse = o.onUse;
-	# 	# o.onUse = function ( _user, _targetTile )
-	# 	# {
-	# 	# 	local ret = onUse(_user, _targetTile);
-	# 	# 	this.m.ThrustCount++;
-	# 	# 	return ret;
-	# 	# }
-	# 	#
-	# 	# o.onTurnStart <- function()
-	# 	# {
-	# 	# 	this.m.ThrustCount = 0;
-	# 	# }
-	# });
-
 	::mods_hookNewObject("skills/actives/quick_shot", function(o) {
 		o.m.UsedCount <- 0;
 		local oldOnUse = o.onUse;
@@ -306,7 +235,10 @@ gt.Const.PTR.modSkills <- function()
 			this.m.UsedCount++;
 			if (this.getContainer().hasSkill("effects.ptr_hip_shooter"))
 			{
-				this.m.ActionPointCost = this.Math.max(2, this.m.ActionPointCost - this.m.UsedCount);
+				if (this.m.ActionPointCost > 2)
+				{
+					this.m.ActionPointCost = this.Math.max(2, this.m.ActionPointCost - this.m.UsedCount);
+				}
 			}
 			return result;
 		}
@@ -317,7 +249,10 @@ gt.Const.PTR.modSkills <- function()
 			oldonAfterUpdate(_properties);
 			if (this.getContainer().hasSkill("effects.ptr_hip_shooter"))
 			{
-				this.m.ActionPointCost = this.Math.max(2, this.m.ActionPointCost - this.m.UsedCount);
+				if (this.m.ActionPointCost > 2)
+				{
+					this.m.ActionPointCost = this.Math.max(2, this.m.ActionPointCost - this.m.UsedCount);
+				}
 			}
 
 			if (this.getContainer().hasSkill("perk.ptr_ranged_supremacy"))
@@ -343,103 +278,20 @@ gt.Const.PTR.modSkills <- function()
 		}
 	});
 
-	::mods_hookNewObject("skills/actives/puncture", function(o) {
-		local oldOnUse = o.onUse;
-		o.onUse = function( _user, _targetTile )
-		{
-			local success = oldOnUse( _user, _targetTile );
-			if (success && !this.getContainer().hasSkill("effects.ptr_swift_stabs"))
-			{
-				this.getContainer().add(this.new("scripts/skills/effects/ptr_swift_stabs_effect"));
-			}
-			return success;
-		}
-
-		local oldonAfterUpdate = o.onAfterUpdate;
-		o.onAfterUpdate = function( _properties )
-		{
-			oldonAfterUpdate(_properties);
-			if (this.getContainer().hasSkill("effect.ptr_swift_stabs"))
-			{
-				this.m.ActionPointCost -= 1;
-			}
-		}
-	});
-
-	::mods_hookNewObject("skills/actives/deathblow_skill", function(o) {
-		local oldOnUse = o.onUse;
-		o.onUse = function( _user, _targetTile )
-		{
-			local success = oldOnUse( _user, _targetTile );
-			if (success && !this.getContainer().hasSkill("effects.ptr_swift_stabs"))
-			{
-				this.getContainer().add(this.new("scripts/skills/effects/ptr_swift_stabs_effect"));
-			}
-			return success;
-		}
-
-		local oldonAfterUpdate = o.onAfterUpdate;
-		o.onAfterUpdate = function( _properties )
-		{
-			oldonAfterUpdate(_properties);
-			if (this.getContainer().hasSkill("effect.ptr_swift_stabs"))
-			{
-				this.m.ActionPointCost -= 1;
-			}
-		}
-	});
-
-	::mods_hookNewObject("skills/actives/legend_cheer_on_skill", function(o) {
-		local oldisUsable = o.isUsable;
-		o.isUsable = function( )
-		{
-			return this.skill.isUsable();
-		}
-	});
-
-	::mods_hookNewObject("skills/actives/legend_prepare_knockback_skill", function(o) {
-		o.isUsable = function()
-		{
-			return this.skill.isUsable();
-		}
-	});
-
-	::mods_hookNewObject("skills/effects/dodge_effect", function(o) {
-		o.m.Bonus <- 0;
-
-		o.getTooltip = function ()
-		{
-			local tooltip = this.skill.getTooltip();
-			tooltip.extend(
-				[
-					{
-						id = 10,
-						type = "text",
-						icon = "ui/icons/melee_defense.png",
-						text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.Bonus + "[/color] Melee Defense"
-					},
-					{
-						id = 11,
-						type = "text",
-						icon = "ui/icons/ranged_defense.png",
-						text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.Bonus + "[/color] Ranged Defense"
-					}
-				]);
-
-			return tooltip;
-		}
-
-		o.onUpdate = function(_properties)
-		{
-		}
-
-		o.onAfterUpdate <- function (_properties)
-		{
-			this.m.Bonus = this.Math.floor(this.getContainer().getActor().getInitiative() * 0.15);
-			_properties.MeleeDefense += this.Math.max(0, this.m.Bonus);
-			_properties.RangedDefense += this.Math.max(0, this.m.Bonus);
-		}
-	});
+	# ::mods_hookNewObject("skills/actives/legend_cheer_on_skill", function(o) {
+	# 	local oldisUsable = o.isUsable;
+	# 	o.isUsable = function( )
+	# 	{
+	# 		return this.skill.isUsable();
+	# 	}
+	# });
+	#
+	# ::mods_hookNewObject("skills/actives/legend_prepare_knockback_skill", function(o) {
+	# 	o.isUsable = function()
+	# 	{
+	# 		return this.skill.isUsable();
+	# 	}
+	# });
 
 	::mods_hookNewObject("skills/perks/perk_legend_smackdown", function(o) {
 		local oldonTargetHit = o.onTargetHit;
@@ -538,8 +390,8 @@ gt.Const.PTR.modSkills <- function()
 
 		o.onTurnEnd <- function()
 		{
-			this.removeSelf();
 			this.getContainer().add(this.new("scripts/skills/effects/ptr_exhausted_effect"));
+			this.removeSelf();
 		}
 	});
 
