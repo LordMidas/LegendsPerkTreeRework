@@ -1,3 +1,9 @@
+====================
+==== Ver 0.7.5a ====
+====================
+- Fixed typo in tooltip of Formidable Approach perk.
+- Fixed the ranger background in adventuring party origin not getting the new perks.
+
 ===================
 ==== Ver 0.7.5 ====
 ===================
