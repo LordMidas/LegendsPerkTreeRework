@@ -680,9 +680,9 @@ gt.Const.PTR.modEnemies <- function()
 		o.onInit = function()
 		{
 			onInit();
-			local maulerSkill = this.new("scripts/skills/perks/perk_ptr_mauler");
-			maulerSkill.m.IsForceEnabled = true;
-			this.m.Skills.add(maulerSkill);
+			local maulerPerk = this.new("scripts/skills/perks/perk_ptr_mauler");
+			maulerPerk.m.IsForceEnabled = true;
+			this.m.Skills.add(maulerPerk);
 		}
 	});
 
@@ -876,12 +876,12 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			onInit();
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
-			this.m.Skills.addPerkTree(this.Const.Perks.HammerTree, 6);
-
-			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
-			{
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_dent_armor"));
-			}
+			local faPerk = this.new("scripts/skills/perks/perk_ptr_formidable_approach");
+			faPerk.m.IsForceEnabled = true;
+			this.m.Skills.add(faPerk);
+			this.m.Skills.addPerkTree(this.Const.Perks.HammerTree);
+			this.m.Skills.getSkillByID("perk.ptr_dismantle").m.IsForceEnabled = true;
+			this.m.Skills.getSkillByID("perk.ptr_dent_armor").m.IsForceEnabled = true;
 		}
 	});
 
@@ -978,22 +978,44 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 
-	# ::mods_hookExactClass("entity/tactical/enemies/lindwurm", function(o) {
-	# 	local onInit = o.onInit;
-	# 	o.onInit = function()
-	# 	{
-	# 		onInit();
-	# 	}
-	# });
-	#
-	# ::mods_hookExactClass("entity/tactical/enemies/lindwurm_tail", function(o) {
-	# 	local onInit = o.onInit;
-	# 	o.onInit = function()
-	# 	{
-	# 		onInit();
-	# 	}
-	# });
-	#
+	::mods_hookExactClass("entity/tactical/enemies/lindwurm", function(o) {
+		local onInit = o.onInit;
+		o.onInit = function()
+		{
+			onInit();
+			this.m.Skills.addPerkTree(this.Const.Perks.AxeTree);
+
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
+
+			local faPerk = this.new("scripts/skills/perks/perk_ptr_formidable_approach");
+			faPerk.m.IsForceEnabled = true;
+			this.m.Skills.add(faPerk);
+
+			local softMetalPerk = this.new("scripts/skills/perks/perk_ptr_soft_metal");
+			softMetalPerk.m.IsForceEnabled = true;
+			this.m.Skills.add(softMetalPerk);
+
+			local dentArmorPerk = this.new("scripts/skills/perks/perk_ptr_dent_armor");
+			dentArmorPerk.m.IsForceEnabled = true;
+			this.m.Skills.add(dentArmorPerk);
+			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+			{
+				local maulerPerk = this.new("scripts/skills/perks/perk_ptr_mauler");
+				maulerPerk.m.IsForceEnabled = true;
+				this.m.Skills.add(maulerPerk);
+			}
+		}
+	});
+
+	::mods_hookExactClass("entity/tactical/enemies/lindwurm_tail", function(o) {
+		local onInit = o.onInit;
+		o.onInit = function()
+		{
+			onInit();
+			this.m.Skills.addPerkTree(this.Const.Perks.HammerTree, 4);
+		}
+	});
+
 	# ::mods_hookExactClass("entity/tactical/enemies/necromancer", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
@@ -1394,10 +1416,16 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			onInit();
 			this.m.Skills.addPerkTree(this.Const.Perks.HammerTree, 6);
+			this.m.Skills.getSkillByID("perk.ptr_dismantle").m.IsForceEnabled = true;
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
+			local faPerk = this.new("scripts/skills/perks/perk_ptr_formidable_approach");
+			faPerk.m.IsForceEnabled = true;
+			this.m.Skills.add(faPerk);
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_dent_armor"));
+				local dentArmorPerk = this.new("scripts/skills/perks/perk_ptr_dent_armor");
+				dentArmorPerk.m.IsForceEnabled = true;
+				this.m.Skills.add(dentArmorPerk);
 			}
 		}
 	});
@@ -1410,13 +1438,25 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/unhold_bog", function(o) {
-	# 	local onInit = o.onInit;
-	# 	o.onInit = function()
-	# 	{
-	# 		onInit();
-	# 	}
-	# });
+	::mods_hookExactClass("entity/tactical/enemies/unhold_bog", function(o) {
+		local onInit = o.onInit;
+		o.onInit = function()
+		{
+			onInit();
+			this.m.Skills.addPerkTree(this.Const.Perks.HammerTree, 6);
+			this.m.Skills.getSkillByID("perk.ptr_dismantle").m.IsForceEnabled = true;
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
+			local faPerk = this.new("scripts/skills/perks/perk_ptr_formidable_approach");
+			faPerk.m.IsForceEnabled = true;
+			this.m.Skills.add(faPerk);
+			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+			{
+				local dentArmorPerk = this.new("scripts/skills/perks/perk_ptr_dent_armor");
+				dentArmorPerk.m.IsForceEnabled = true;
+				this.m.Skills.add(dentArmorPerk);
+			}
+		}
+	});
 
 	::mods_hookExactClass("entity/tactical/enemies/unhold_frost", function(o) {
 		local onInit = o.onInit;
@@ -1424,6 +1464,13 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			onInit();
 			this.m.Skills.removeByID("perk.legend_muscularity");
+			this.m.Skills.addPerkTree(this.Const.Perks.HammerTree);
+			this.m.Skills.getSkillByID("perk.ptr_dismantle").m.IsForceEnabled = true;
+			this.m.Skills.getSkillByID("perk.ptr_dent_armor").m.IsForceEnabled = true;
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
+			local faPerk = this.new("scripts/skills/perks/perk_ptr_formidable_approach");
+			faPerk.m.IsForceEnabled = true;
+			this.m.Skills.add(faPerk);
 		}
 	});
 
@@ -1491,9 +1538,9 @@ gt.Const.PTR.modEnemies <- function()
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_fearsome"));
-				local maulerSkill = this.new("scripts/skills/perks/perk_ptr_mauler");
-				maulerSkill.m.IsForceEnabled = true;
-				this.m.Skills.add(maulerSkill);
+				local maulerPerk = this.new("scripts/skills/perks/perk_ptr_mauler");
+				maulerPerk.m.IsForceEnabled = true;
+				this.m.Skills.add(maulerPerk);
 			}
 		}
 	});
@@ -1510,9 +1557,9 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				local cullSkill = this.new("scripts/skills/perks/perk_ptr_cull");
-				cullSkill.m.IsForceEnabled = true;
-				this.m.Skills.add(cullSkill);
+				local cullPerk = this.new("scripts/skills/perks/perk_ptr_cull");
+				cullPerk.m.IsForceEnabled = true;
+				this.m.Skills.add(cullPerk);
 			}
 		}
 	});
@@ -1543,9 +1590,9 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bear_down"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_coup_de_grace"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_shield_expert"));
-			local maulerSkill = this.new("scripts/skills/perks/perk_ptr_mauler");
-			maulerSkill.m.IsForceEnabled = true;
-			this.m.Skills.add(maulerSkill);
+			local maulerPerk = this.new("scripts/skills/perks/perk_ptr_mauler");
+			maulerPerk.m.IsForceEnabled = true;
+			this.m.Skills.add(maulerPerk);
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_hold_out"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_soft_metal"));
 			this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
@@ -1592,9 +1639,9 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_vengeance"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_steel_brow"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_fearsome"));
-				local maulerSkill = this.new("scripts/skills/perks/perk_ptr_mauler");
-				maulerSkill.m.IsForceEnabled = true;
-				this.m.Skills.add(maulerSkill);
+				local maulerPerk = this.new("scripts/skills/perks/perk_ptr_mauler");
+				maulerPerk.m.IsForceEnabled = true;
+				this.m.Skills.add(maulerPerk);
 			}
 		}
 	});
@@ -1888,9 +1935,9 @@ gt.Const.PTR.modEnemies <- function()
 			if (ret)
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_double_strike"));
-				local cullSkill = this.new("scripts/skills/perks/perk_ptr_cull");
-				cullSkill.m.IsForceEnabled = true;
-				this.m.Skills.add(cullSkill);
+				local cullPerk = this.new("scripts/skills/perks/perk_ptr_cull");
+				cullPerk.m.IsForceEnabled = true;
+				this.m.Skills.add(cullPerk);
 
 				if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 				{
@@ -3016,9 +3063,9 @@ gt.Const.PTR.modEnemies <- function()
 			if (ret)
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_double_strike"));
-				local cullSkill = this.new("scripts/skills/perks/perk_ptr_cull");
-				cullSkill.m.IsForceEnabled = true;
-				this.m.Skills.add(cullSkill);
+				local cullPerk = this.new("scripts/skills/perks/perk_ptr_cull");
+				cullPerk.m.IsForceEnabled = true;
+				this.m.Skills.add(cullPerk);
 
 				if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 				{
