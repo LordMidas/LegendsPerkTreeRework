@@ -13,6 +13,19 @@ this.perk_ptr_a_better_grip <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
+	function onUpdate(_properties)
+	{
+		local actor = this.getContainer().getActor();
+		local weapon = actor.getMainhandItem();
+		if (weapon == null || weapon.getCategories().find("Spear") == null || !actor.isArmedWithShield())
+		{
+			return;
+		}
+
+		_properties.MeleeSkill += 5;
+		_properties.MeleeDefense += 10;
+	}
+
 	function onAfterUpdate(_properties)
 	{
 		local actor = this.getContainer().getActor();
