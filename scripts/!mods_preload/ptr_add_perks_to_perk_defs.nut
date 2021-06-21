@@ -760,6 +760,15 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_discovered_talent.png",
 			IconDisabled = "ui/perks/ptr_discovered_talent_bw.png",
 			Const = "PTRDiscoveredTalent"
+		},
+		{
+			ID = "perk.ptr_survival_instinct",
+			Script = "scripts/skills/perks/perk_ptr_survival_instinct",
+			Name = this.Const.Strings.PerkName.PTRSurvivalInstinct,
+			Tooltip = this.Const.Strings.PerkDescription.PTRSurvivalInstinct,
+			Icon = "ui/perks/ptr_survival_instinct.png",
+			IconDisabled = "ui/perks/ptr_survival_instinct_bw.png",
+			Const = "PTRSurvivalInstinct"
 		}
 	];
 
