@@ -29,9 +29,11 @@ gt.Const.PTR.createStylesTrees <- function()
 		],
 		Tree = [
 			[],
-			[],
 			[
 				gt.Const.Perks.PerkDefs.PTRBloodyHarvest
+			],
+			[
+				gt.Const.Perks.PerkDefs.PTRFormidableApproach
 			],
 			[],
 			[
