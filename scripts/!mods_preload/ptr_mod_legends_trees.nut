@@ -655,7 +655,7 @@ gt.Const.PTR.modWeaponTrees <- function()
 	this.Const.Perks.PolearmTree.Tree[1] = [this.Const.Perks.PerkDefs.PTRLeverage];
 	this.Const.Perks.PolearmTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRIntimidate];
 	this.Const.Perks.PolearmTree.Tree[3] = [this.Const.Perks.PerkDefs.SpecPolearm];
-	this.Const.Perks.PolearmTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRFormidableApproach];
+	this.Const.Perks.PolearmTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRUtilitarian];
 	this.Const.Perks.PolearmTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRFollowUp];
 	this.Const.Perks.PolearmTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRLongReach];
 
