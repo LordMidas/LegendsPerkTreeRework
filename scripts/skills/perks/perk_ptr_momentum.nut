@@ -2,7 +2,8 @@ this.perk_ptr_momentum <- this.inherit("scripts/skills/skill", {
 	m = {
 		BonusPerTile = 10,
 		PrevTile = null,
-		CurrTile = null
+		CurrTile = null,
+		TargetTile = null
 	},
 	function create()
 	{
@@ -19,6 +20,18 @@ this.perk_ptr_momentum <- this.inherit("scripts/skills/skill", {
 
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
+		if (_targetEntity == null || !_targetEntity.isPlacedOnMap())
+		{
+			return;
+		}
+
+		this.m.TargetTile = _targetEntity.getTile();
+
+		if (this.m.TargetTile == null)
+		{
+			return;
+		}
+
 		local bonus = this.getBonus();
 
 		if (bonus == 0 || !_skill.isAttack() || !_skill.isRanged())
@@ -26,19 +39,19 @@ this.perk_ptr_momentum <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
+		local weapon = this.getContainer().getActor().getMainhandItem();
+		if (weapon == null || weapon.getCategories().find("Throwing Weapon") == null)
+		{
+			return;
+		}
+
 		_properties.RangedDamageMult *= 1.0 + (this.getBonus() * 0.01);
 	}
 
-	function getBonus(_targetTile)
+	function getBonus()
 	{
 		local actor = this.getContainer().getActor();
-		if (this.m.PrevTile == null || this.m.CurrTile == null || !actor.isPlacedOnMap() || actor.getTile() == null)
-		{
-			return 0;
-		}
-
-		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon == null || weapon.getCategories().find("Throwing Weapon") == null)
+		if (this.m.PrevTile == null || this.m.CurrTile == null || this.m.TargetTile == null || !actor.isPlacedOnMap() || actor.getTile() == null)
 		{
 			return 0;
 		}
@@ -52,6 +65,7 @@ this.perk_ptr_momentum <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.PrevTile = this.getContainer().getActor().getTile();
 		this.m.CurrTile = this.getContainer().getActor().getTile();
+		this.m.TargetTile = null;
 	}
 
 	function onAdded()
@@ -60,6 +74,7 @@ this.perk_ptr_momentum <- this.inherit("scripts/skills/skill", {
 		{
 			this.m.PrevTile = this.getContainer().getActor().getTile();
 			this.m.CurrTile = this.getContainer().getActor().getTile();
+			this.m.TargetTile = null;
 		}
 	}
 
@@ -67,6 +82,7 @@ this.perk_ptr_momentum <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.PrevTile = this.getContainer().getActor().getTile();
 		this.m.CurrTile = this.getContainer().getActor().getTile();
+		this.m.TargetTile = null;
 	}
 
 	function onCombatFinished()
@@ -74,6 +90,7 @@ this.perk_ptr_momentum <- this.inherit("scripts/skills/skill", {
 		this.skill.onCombatFinished();
 		this.m.PrevTile = null;
 		this.m.CurrTile = null;
+		this.m.TargetTile = null;
 	}
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
@@ -91,32 +108,38 @@ this.perk_ptr_momentum <- this.inherit("scripts/skills/skill", {
 
 		this.m.PrevTile = this.getContainer().getActor().getTile();
 		this.m.CurrTile = this.getContainer().getActor().getTile();
+		this.m.TargetTile = null;
 	}
 
 	function onTargetMissed( _skill, _targetEntity )
 	{
 		this.m.PrevTile = this.getContainer().getActor().getTile();
 		this.m.CurrTile = this.getContainer().getActor().getTile();
+		this.m.TargetTile = null;
 	}
 
 	function onTurnEnd()
 	{
 		this.m.PrevTile = this.getContainer().getActor().getTile();
 		this.m.CurrTile = this.getContainer().getActor().getTile();
+		this.m.TargetTile = null;
 	}
 
 	function onTurnStart()
 	{
 		this.m.PrevTile = this.getContainer().getActor().getTile();
 		this.m.CurrTile = this.getContainer().getActor().getTile();
+		this.m.TargetTile = null;
 	}
 
 	function onMovementStarted(_tile)
 	{
 		this.m.PrevTile = this.getContainer().getActor().getTile();
+		this.m.TargetTile = null;
 	}
 
 	function onMovementFinished (_tile, _numTiles) {
 		this.m.CurrTile = this.getContainer().getActor().getTile();
+		this.m.TargetTile = null;
 	}
 });
