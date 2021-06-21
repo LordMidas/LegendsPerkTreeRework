@@ -414,4 +414,28 @@ gt.Const.PTR.modSkills <- function()
 			}
 		}
 	});
+
+	::mods_hookNewObject("skills/perks/perk_legend_back_to_basics", function(o) {
+		o.m.Bonus <- 1.05;
+		if ("onDamageReceived" in o)
+		{
+			o.onDamageReceived = function( _attacker, _damageHitpoints, _damageArmor )
+			{
+				# overwrite legends function
+			}
+		}
+
+		o.onUpdate(_properties)
+		{
+			_properties.MeleeSkillMult *= this.m.Bonus;
+			_properties.RangedSkillMult *= this.m.Bonus;
+			_properties.MeleeDefenseMult *= this.m.Bonus;
+			_properties.RangedDefenseMult *= this.m.Bonus;
+			_properties.StaminaMult *= this.m.Bonus;
+			_properties.InitiativeMult *= this.m.Bonus;
+			_properties.HitpointsMult *= this.m.Bonus;
+			_properties.BraveryMult *= this.m.Bonus;
+			_properties.XPGainMult *= this.m.Bonus;
+		}
+	});
 }
