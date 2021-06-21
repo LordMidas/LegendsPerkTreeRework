@@ -425,7 +425,7 @@ gt.Const.PTR.modSkills <- function()
 			}
 		}
 
-		o.onUpdate(_properties)
+		o.onUpdate = function(_properties)
 		{
 			_properties.MeleeSkillMult *= this.m.Bonus;
 			_properties.RangedSkillMult *= this.m.Bonus;
