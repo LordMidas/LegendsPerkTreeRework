@@ -24,6 +24,11 @@ this.perk_ptr_utilitarian <- this.inherit("scripts/skills/skill", {
 		return "This character is skilled in long reach weapons and gains bonuses depending on the weight of their armor";
 	}
 
+	function isHidden()
+	{
+		return !this.isEnabled();
+	}
+
 	function getTooltip()
 	{
 		local tooltip = this.skill.getTooltip();
