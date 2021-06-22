@@ -1,4 +1,9 @@
 ===================
+==== Ver 0.7.7a ====
+===================
+- Fixed a bug in the Dismemberment perk.
+
+===================
 ==== Ver 0.7.7 ====
 ===================
 - The tooltip of Swift Stabs now correctly mentions that it works with Deathblow too.
