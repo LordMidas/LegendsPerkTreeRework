@@ -1,4 +1,10 @@
 ===================
+==== Ver 0.7.7 ====
+===================
+- The tooltip of Swift Stabs now correctly mentions that it works with Deathblow too.
+- Fixed the tooltip of the Worn Down effect not showing up.
+
+===================
 ==== Ver 0.7.6 ====
 ===================
 - Fixed the Momentum perk on AI characters causing the battle to freeze.
