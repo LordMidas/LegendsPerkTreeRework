@@ -1,5 +1,6 @@
 this.perk_ptr_power_shot <- this.inherit("scripts/skills/skill", {
 	m = {
+		IsForceEnabled = false,
 		Chance = 50
 	},
 	function create()
@@ -15,9 +16,25 @@ this.perk_ptr_power_shot <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
+	function isEnabled()
+	{
+		if (this.m.IsForceEnabled)
+		{
+			return true;
+		}
+
+		local weapon = this.getContainer().getActor().getMainhandItem();
+		if (weapon == null || (weapon.getCategories().find("Crossbow") == null && weapon.getCategories().find("Firearm") == null))
+		{
+			return false;
+		}
+
+		return true;
+	}
+
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		if (!_skill.isAttack() || !_skill.isRanged() || !_targetEntity.isAlive())
+		if (!_skill.isAttack() || !_skill.isRanged() || !_targetEntity.isAlive() || !this.isEnabled())
 		{
 			return;
 		}
@@ -29,7 +46,7 @@ this.perk_ptr_power_shot <- this.inherit("scripts/skills/skill", {
 			local effect = this.new("scripts/skills/effects/staggered_effect");
 			_targetEntity.getSkills().add(effect);
 			effect.m.TurnsLeft = 1;
-			
+
 			if (!this.getContainer().getActor().isHiddenToPlayer() && _targetEntity.getTile().IsVisibleForPlayer)
 			{
 				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(this.getContainer().getActor()) + " has staggered " + this.Const.UI.getColorizedEntityName(_targetEntity) + " for " + effect.m.TurnsLeft + " turn(s)");
