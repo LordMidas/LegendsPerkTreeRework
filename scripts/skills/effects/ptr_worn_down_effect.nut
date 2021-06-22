@@ -27,7 +27,7 @@ this.ptr_worn_down_effect <- this.inherit("scripts/skills/skill", {
 			id = 10,
 			type = "text",
 			icon = "ui/icons/fatigue.png",
-			text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + this.m.FatigueCostMultIncrease + "%[/color] Fatigue built"
+			text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + this.m.FatigueEffectMultIncrease + "%[/color] Fatigue built"
 		});
 
 		return tooltip;
