@@ -51,9 +51,9 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRBetweenTheRibs <- "Between the Ribs";
 	gt.Const.Strings.PerkDescription.PTRBetweenTheRibs <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Dagger[/color]\n\nWhen using daggers, gain [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] damage per ally surrounding the target.\n[color=#0b0084]From the Dagger perk group[/color]";
 	gt.Const.Strings.PerkName.PTRLightWeapon <- "Light Weapon";
-	gt.Const.Strings.PerkDescription.PTRLightWeapon <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Dagger[/color]\n\nWhen using a dagger, skills build up build up [color=" + this.Const.UI.Color.NegativeValue + "]10%[/color] less Fatigue and you gain [color=" + this.Const.UI.Color.PositiveValue + "]+1[/color] Action Points.\n[color=#0b0084]From the Dagger perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRLightWeapon <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Dagger[/color]\n\nWhen using a dagger, build up [color=" + this.Const.UI.Color.NegativeValue + "]10%[/color] less Fatigue and you gain [color=" + this.Const.UI.Color.PositiveValue + "]+1[/color] Action Points.\n[color=#0b0084]From the Dagger perk group[/color]";
 	gt.Const.Strings.PerkName.PTRSwiftStabs <- "Swift Stabs";
-	gt.Const.Strings.PerkDescription.PTRSwiftStabs <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Dagger[/color]\n\nA successful Puncture reduces the Action Point cost of Puncture to [color=" + this.Const.UI.Color.NegativeValue + "]2[/color] for the remainder of this turn.\n[color=#0b0084]From the Dagger perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRSwiftStabs <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Dagger[/color]\n\nA successful Puncture or Deathblow reduces the Action Point cost of the skill to [color=" + this.Const.UI.Color.NegativeValue + "]2[/color] for the remainder of this turn.\n[color=#0b0084]From the Dagger perk group[/color]";
 
 	gt.Const.Strings.PerkName.PTRSmallTarget <- "Small Target";
 	gt.Const.Strings.PerkDescription.PTRSmallTarget <- "Gain [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit the head.\n[color=#0b0084]From the Flail perk group[/color]";
