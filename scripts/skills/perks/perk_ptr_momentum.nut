@@ -56,7 +56,7 @@ this.perk_ptr_momentum <- this.inherit("scripts/skills/skill", {
 			return 0;
 		}
 
-		local distanceMoved = this.m.PrevTile.getDistanceTo(_targetTile) - this.m.CurrTile.getDistanceTo(_targetTile);
+		local distanceMoved = this.m.PrevTile.getDistanceTo(this.m.TargetTile) - this.m.CurrTile.getDistanceTo(this.m.TargetTile);
 
 		return this.Math.max(0, distanceMoved * this.m.BonusPerTile);
 	}
