@@ -183,7 +183,7 @@ gt.Const.PTR.modCharacterBackground <- function()
 					continue;
 				}
 
-				if (this.m.CustomPerkTreeMap[categoryName].len() == 1 && this.m.CustomPerkTreeMap[categoryName][0].Tree == this.Const.Perks.NoTree)
+				if (this.m.CustomPerkTreeMap[categoryName].len() == 1 && this.m.CustomPerkTreeMap[categoryName][0].Tree.ID == this.Const.Perks.NoTree.ID)
 				{
 					continue;
 				}
@@ -216,6 +216,11 @@ gt.Const.PTR.modCharacterBackground <- function()
 
 				foreach (perkTree in this.m.CustomPerkTreeMap[categoryName])
 				{
+					if (perkTree.Tree.ID == this.Const.Perks.NoTree.ID)
+					{
+						continue;
+					}
+
 					treesList.push(perkTree.Tree);
 				}
 				foreach (i in treesList)
