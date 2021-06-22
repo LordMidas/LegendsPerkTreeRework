@@ -121,7 +121,7 @@ gt.Const.Injury.getArrayOfRelevantUndeadInjuries <- function( _skill, _targetEnt
   local targetFlags = _targetEntity.getFlags();
   foreach (flag in this.Const.Injury.PTRUndeadInjuryExemptFlags)
   {
-    if (flags.has(flag))
+    if (targetFlags.has(flag))
     {
       return _hitInfo.Injuries;
     }
