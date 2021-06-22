@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.Injury.PTRForceUndeadInjuryExemptFlags <- ["ghoul", "ghost"];
+gt.Const.Injury.PTRUndeadInjuryExemptFlags <- ["ghoul", "ghost"];
 
 gt.Const.Injury.PTRCuttingBodySkeleton <- [
   {
@@ -116,33 +116,20 @@ gt.Const.Injury.PTRBluntHeadUndead.extend([
   }
 ]);
 
-gt.Const.Injury.isUndeadEntityValidForInjuries <- function(_entity)
+gt.Const.Injury.getArrayOfRelevantUndeadInjuries <- function( _skill, _targetEntity, _hitInfo )
 {
-  local flags = _entity.getFlags();
-
-  if (!flags.has("undead"))
-  {
-    this.logWarning("Trying to check validity for injuries for an entity, " + _entity.getName() + " who does not have the \'undead\' flag.")
-    return false;
-  }
-
-  foreach (flag in this.Const.Injury.PTRForceUndeadInjuryExemptFlags)
+  local targetFlags = _targetEntity.getFlags();
+  foreach (flag in this.Const.Injury.PTRUndeadInjuryExemptFlags)
   {
     if (flags.has(flag))
     {
-      return false;
+      return _hitInfo.Injuries;
     }
   }
 
-  return true;
-}
-
-gt.Const.Injury.getArrayOfRelevantUndeadInjuries <- function( _skill, _targetEntity, _bodyPart )
-{
-  local targetFlags = _targetEntity.getFlags();
   local injuries = [];
 
-  if (_bodyPart == this.Const.BodyPart.Body && _skill.m.InjuriesOnBody != null)
+  if (_hitInfo.BodyPart == this.Const.BodyPart.Body && _skill.m.InjuriesOnBody != null)
   {
     if (_skill.hasCuttingDamage())
     {
@@ -153,7 +140,7 @@ gt.Const.Injury.getArrayOfRelevantUndeadInjuries <- function( _skill, _targetEnt
       injuries = targetFlags.has("skeleton") ? this.Const.Injury.PTRBluntBodySkeleton : this.Const.Injury.PTRBluntBodyUndead;
     }
   }
-  else if (_bodyPart == this.Const.BodyPart.Head && _skill.m.InjuriesOnHead != null)
+  else if (_hitInfo.BodyPart == this.Const.BodyPart.Head && _skill.m.InjuriesOnHead != null)
   {
     if (_skill.hasCuttingDamage())
     {
