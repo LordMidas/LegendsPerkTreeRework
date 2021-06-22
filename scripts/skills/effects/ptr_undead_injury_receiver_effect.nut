@@ -14,7 +14,7 @@ this.ptr_undead_injury_receiver_effect <- this.inherit("scripts/skills/skill", {
 		this.m.IsRemovedAfterBattle = true;
 	}
 
-	function IsInEffect()
+	function isInEffect()
 	{
 		local flags = this.getContainer().getActor().getFlags();
 
@@ -36,7 +36,7 @@ this.ptr_undead_injury_receiver_effect <- this.inherit("scripts/skills/skill", {
 
 	function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
 	{
-		if (!this.IsInEffect())
+		if (!this.isInEffect())
 		{
 			return;
 		}
