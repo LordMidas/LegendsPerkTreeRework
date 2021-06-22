@@ -1,4 +1,11 @@
 ===================
+==== Ver 0.7.9 ====
+===================
+- Fixed King of all Weapons not working properly.
+- King of all Weapons now requires starting the turn with a spear equipped in order to work.
+- Fixed Two for One sometimes reducing the AP cost of Thrust to -1 when used together with King of all Weapons.
+
+===================
 ==== Ver 0.7.8 ====
 ===================
 - Fixed a bug in the Momentum perk.
