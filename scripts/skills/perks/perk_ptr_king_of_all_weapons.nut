@@ -1,5 +1,6 @@
 this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 	m = {
+		IsForceEnabled = false,
 		IsSpent = false,
 		DamageReductionPercentage = 50
 	},
@@ -23,7 +24,7 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 
 	function getDescription()
 	{
-		return "This character is highly skilled in spears and can perform a free thrust during their turn.";
+		return "This character is highly skilled in spears and can perform a free attack during their turn.";
 	}
 
 	function getTooltip()
@@ -40,15 +41,25 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 		return tooltip;
 	}
 
+	function isEnabled()
+	{
+		if (this.m.IsForceEnabled)
+		{
+			return true;
+		}
+
+		local weapon = this.getContainer().getActor().getMainhandItem();
+		if (weapon == null || weapon.getCategories().find("Spear") == null)
+		{
+			return false;
+		}
+
+		return true;
+	}
+
 	function onAfterUpdate(_properties)
 	{
 		if (this.m.IsSpent)
-		{
-			return;
-		}
-
-		local actor = this.getContainer().getActor();
-		if (!actor.isPlacedOnMap() || this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
 		{
 			return;
 		}
@@ -71,7 +82,6 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 			}
 		}
 
-		_properties.MeleeDamageMult *= this.m.DamageReductionPercentage * 0.01;
 	}
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
@@ -90,8 +100,38 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
+	function onAnySkillUsed( _skill, _targetEntity, _properties )
+	{
+		if (this.m.IsSpent)
+		{
+			return;
+		}
+
+		if (_skill.getID() != "actives.thrust" && _skill.getID() != "actives.prong")
+		{
+			return;
+		}
+
+		local actor = this.getContainer().getActor();
+		if (!actor.isPlacedOnMap() || this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
+		{
+			return;
+		}
+
+		_properties.MeleeDamageMult *= this.m.DamageReductionPercentage * 0.01;
+	}
+
 	function onTurnStart()
 	{
-		this.m.IsSpent = false;
+		if (this.isEnabled())
+		{
+			this.m.IsSpent = false;
+		}
+	}
+
+	function onCombatFinished()
+	{
+		this.skill.onCombatFinished();
+		this.m.IsSpent = true;
 	}
 });
