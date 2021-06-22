@@ -1,3 +1,13 @@
+====================
+==== Ver 0.7.10 ====
+====================
+- The description of "Deep Impact" now correctly mentions that it enables applying injuries on Undead.
+- Flaming arrows now correctly add 1 extra round of fire duration to an already burning tile, instead of adding 2 more rounds.
+- Fixed Bone Breaker not applying a second injury.
+- Fixed Sanguinary conflicting with the Bloodthirsty trait or other sources of fatality chance multipliers.
+- Fixed Power Shot working with all kinds of ranged attacks instead of only with crossbows or firearms.
+- Ghosts should no longer receive injuries.
+
 ===================
 ==== Ver 0.7.9 ====
 ===================
