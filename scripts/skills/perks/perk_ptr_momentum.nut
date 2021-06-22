@@ -132,13 +132,13 @@ this.perk_ptr_momentum <- this.inherit("scripts/skills/skill", {
 		this.m.TargetTile = null;
 	}
 
-	function onMovementStarted(_tile)
+	function onMovementStarted(_tile, _numTiles)
 	{
 		this.m.PrevTile = this.getContainer().getActor().getTile();
 		this.m.TargetTile = null;
 	}
 
-	function onMovementFinished (_tile, _numTiles) {
+	function onMovementFinished (_tile) {
 		this.m.CurrTile = this.getContainer().getActor().getTile();
 		this.m.TargetTile = null;
 	}
