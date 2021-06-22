@@ -50,11 +50,11 @@ this.perk_ptr_deep_impact <- this.inherit("scripts/skills/skill", {
 
 	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
 	{
-		if (!_skill.isAttack() || !this.isEnabled(_skill) || !_targetEntity.getFlags().has("undead") || !this.Const.Injury.PTR.isUndeadEntityValidForInjuries(_targetEntity))
+		if (!_skill.isAttack() || !this.isEnabled(_skill) || !_targetEntity.getFlags().has("undead"))
 		{
 			return;
 		}
 
-		_hitInfo.Injuries = this.Const.Injury.getArrayOfRelevantUndeadInjuries(_skill, _targetEntity, _hitInfo.BodyPart);
+		_hitInfo.Injuries = this.Const.Injury.getArrayOfRelevantUndeadInjuries(_skill, _targetEntity, _hitInfo);
 	}
 });
