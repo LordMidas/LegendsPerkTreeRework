@@ -58,7 +58,7 @@ this.ptr_undead_injury_receiver_effect <- this.inherit("scripts/skills/skill", {
 
 	function onUpdate ( _properties )
 	{
-		if (this.m.ReceiveInjuries)
+		if (this.isInEffect() && this.m.ReceiveInjuries)
 		{
 			_properties.IsAffectedByInjuries = true;
 			_properties.IsAffectedByFreshInjuries = true;
