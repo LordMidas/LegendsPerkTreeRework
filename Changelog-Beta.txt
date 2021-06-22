@@ -1,6 +1,12 @@
 ===================
-==== Ver 0.7.7a ====
+==== Ver 0.7.8 ====
 ===================
+- Fixed a bug in the Momentum perk.
+- Onslaught tooltip now mentions that it doesn't work against stun immune enemies.
+
+====================
+==== Ver 0.7.7a ====
+====================
 - Fixed a bug in the Dismemberment perk.
 
 ===================
