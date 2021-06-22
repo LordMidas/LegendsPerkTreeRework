@@ -134,7 +134,7 @@ gt.Const.PTR.modSkills <- function()
 				{
 					if (tile.Properties.Effect != null && tile.Properties.Effect.Type == "fire")
 					{
-						tile.Properties.Effect.Timeout = this.Time.getRound() + 2;
+						tile.Properties.Effect.Timeout = this.Time.getRound() + 1;
 					}
 					else
 					{
