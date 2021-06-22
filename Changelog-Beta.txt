@@ -1,3 +1,8 @@
+===================
+==== Ver 0.7.6 ====
+===================
+- Fixed the Momentum perk on AI characters causing the battle to freeze.
+
 ====================
 ==== Ver 0.7.5a ====
 ====================
