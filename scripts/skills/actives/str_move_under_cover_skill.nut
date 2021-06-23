@@ -1,9 +1,9 @@
-this.str_move_in_cover_skill <- this.inherit("scripts/skills/skill", {
+this.str_move_under_cover_skill <- this.inherit("scripts/skills/skill", {
 	m = {},
 	function create()
 	{
-		this.m.ID = "actives.str_move_in_cover";
-		this.m.Name = "Move In Cover";
+		this.m.ID = "actives.str_move_under_cover";
+		this.m.Name = "Move Under Cover";
 		this.m.Description = "Use the cover provided by a shield-bearing ally to move 1 tile ignoring Zone of Control and without triggering free attacks.";
 		this.m.Icon = "ui/perks/perk_25_active.png";
 		this.m.IconDisabled = "ui/perks/perk_25_active_sw.png";
@@ -121,9 +121,6 @@ this.str_move_in_cover_skill <- this.inherit("scripts/skills/skill", {
 	{
 		this.Tactical.getNavigator().teleport(_user, _targetTile, null, null, false);
 		this.m.IsHidden = true;
-		local coveredByAllyEffect = this.getContainer().getSkillByID("effects.str_covered_by_ally");
-		coveredByAllyEffect.onRemoved();
-		coveredByAllyEffect.removeSelf();
 		this.removeSelf();
 		return true;
 	}
