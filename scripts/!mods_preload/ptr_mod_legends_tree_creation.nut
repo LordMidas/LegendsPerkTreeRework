@@ -762,6 +762,35 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 		};
 	};
 
+	gt.Const.Perks.MergeDynamicPerkTree <- function(_tree, _map)
+	{
+		foreach( categoryName, category in _map )
+		{
+			if (this.Const.Perks.SkippedCategories.find(categoryName) != null)
+			{
+				continue;
+			}
+
+			foreach( treeEntry in category )
+			{
+				foreach( rowNumber, perksInRow in category.Tree.Tree )
+				{
+					foreach( perk in perksInRow )
+					{
+						if (this.Const.Perks.isInTree(_tree, perk))
+						{
+							continue;
+						}
+
+						_tree[rowNumber].push(perk);
+					}
+				}
+			}
+		}
+
+		return _tree;
+	}
+
 	gt.Const.Perks.getWeightedRandomTreeFromCategory <- function(_categoryName, _backgroundMap, _currentMap, _assignedCategories, _exclude = null)
 	{
 		local potentialTrees = [];
