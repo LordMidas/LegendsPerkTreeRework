@@ -22,7 +22,7 @@ this.perk_ptr_fresh_and_furious <- this.inherit("scripts/skills/skill", {
 
 	function getDescription()
 	{
-		return "This character hits harder when not Fatigued.";
+		return "This character hits harder when not fatigued.";
 	}
 
 	function getTooltip()
