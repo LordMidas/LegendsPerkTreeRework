@@ -778,6 +778,33 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_utilitarian.png",
 			IconDisabled = "ui/perks/ptr_utilitarian_bw.png",
 			Const = "PTRUtilitarian"
+		},
+		{
+			ID = "perk.str_line_breaker",
+			Script = "scripts/skills/perks/perk_str_line_breaker",
+			Name = this.Const.Strings.PerkName.STRLineBreaker,
+			Tooltip = this.Const.Strings.PerkDescription.STRLineBreaker,
+			Icon = "ui/perks/str_line_breaker.png",
+			IconDisabled = "ui/perks/str_line_breaker_bw.png",
+			Const = "STRLineBreaker"
+		},
+		{
+			ID = "perk.str_cover_ally",
+			Script = "scripts/skills/perks/perk_str_cover_ally",
+			Name = this.Const.Strings.PerkName.STRCoverAlly,
+			Tooltip = this.Const.Strings.PerkDescription.STRCoverAlly,
+			Icon = "ui/perks/str_cover_ally.png",
+			IconDisabled = "ui/perks/str_cover_ally_bw.png",
+			Const = "STRCoverAlly"
+		},
+		{
+			ID = "perk.str_phalanx",
+			Script = "scripts/skills/perks/perk_str_phalanx",
+			Name = this.Const.Strings.PerkName.STRPhalanx,
+			Tooltip = this.Const.Strings.PerkDescription.STRPhalanx,
+			Icon = "ui/perks/str_phalanx.png",
+			IconDisabled = "ui/perks/str_phalanx_bw.png",
+			Const = "STRPhalanx"
 		}
 	];
 
