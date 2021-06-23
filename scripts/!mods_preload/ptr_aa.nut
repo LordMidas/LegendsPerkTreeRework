@@ -66,6 +66,6 @@ local modID = "mod_legends_PTR";
 
 	// Shield tree rework
 	::mods_hookNewObject("ai/tactical/behaviors/ai_disengage", function (o)	{
-		o.m.PossibleSkills.push("actives.str_move_in_cover_skill");
+		o.m.PossibleSkills.push("actives.str_move_under_cover_skill");
 	});
 });

@@ -53,7 +53,7 @@ this.str_covered_by_ally_effect <- this.inherit("scripts/skills/skill", {
 	function onAdded()
 	{
 		local actor = this.getContainer().getActor();
-		local skill = this.new("scripts/skills/actives/str_move_in_cover_skill");
+		local skill = this.new("scripts/skills/actives/str_move_under_cover_skill");
 		this.m.MoveInCoverSkill = skill;
 		this.getContainer().add(skill);
 
