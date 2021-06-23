@@ -1437,7 +1437,11 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			Styles = [
 				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
 				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+			],
+			Enemy = [
+				[{Weight = 100, Tree = this.Const.Perks.SwordmastersTree}]
 			]
+
 		};
 	});
 
@@ -3400,6 +3404,9 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			Styles = [
 				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
 				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+			],
+			Enemy = [
+				[{Weight = 100, Tree = this.Const.Perks.SwordmastersTree}]
 			]
 		};
 	});
