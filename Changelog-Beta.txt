@@ -1,3 +1,17 @@
+===================
+==== Ver 0.8.0 ====
+===================
+- Reworked the entire Shield Tree.
+- Hedge Knights and Swordmasters will now always have the Favored Enemy Swordmaster perk available.
+- All AI Characters with the Rally the Troops, Push Forward, or Hold the Line perks will now make use of the abilities.
+- Heft rescaled: Now boosts maximum damage by 30% of the maximum damage of the currently equipped axe.
+- Arrow to the Knee attack: Now also reduces Ranged Skill of the attacker by -10 while the effect is active.
+- Arrow to the Knee debuff: The debuff now lasts 2 turns with the full malus on the first turn and halved malus on the second turn.
+- Fixed Deep Cuts always applying 2 stacks of bleeding.
+- Fixed Fresh and Furious not working on enemies.
+- Hopefully fixed Momentum for the last time!
+- Hopefully fixed Kingsguard transformation event breaking the perk tree.
+
 =====================
 ==== Ver 0.7.10a ====
 =====================
