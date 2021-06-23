@@ -12,22 +12,14 @@ this.perk_ptr_heft <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
 	function onUpdate(_properties)
 	{
-		local weapon = this.getContainer().getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);
-		
-		if (weapon != null && weapon.m.Categories.find("Axe") != null)
+		local weapon = this.getContainer().getActor().getMainhandItem();
+
+		if (weapon != null && weapon.getCategories().find("Axe") != null)
 		{
-			if (weapon.isItemType(this.Const.Items.ItemType.OneHanded))
-			{
-				_properties.DamageRegularMax += 20;
-			}
-			else
-			{
-				_properties.DamageRegularMax += 40;
-			}
+			_properties.DamageRegularMax += this.Math.floor(weapon.m.RegularDamageMax * 0.3);
 		}
 	}
 });
-
