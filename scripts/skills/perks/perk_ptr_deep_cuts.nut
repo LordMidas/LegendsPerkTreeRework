@@ -1,6 +1,6 @@
 this.perk_ptr_deep_cuts <- this.inherit("scripts/skills/skill", {
 	m = {
-    TargetID = -1,		
+    TargetID = -1,
 	},
 	function create()
 	{
@@ -14,30 +14,29 @@ this.perk_ptr_deep_cuts <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-  
+
   function onTurnStart()
   {
     this.m.TargetID = -1;
   }
-  
+
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
 		if (!_skill.isAttack() || !_targetEntity.isAlive() || _damageInflictedHitpoints < this.Const.Combat.MinDamageToApplyBleeding || !_skill.hasCuttingDamage())
 		{
 			return;
 		}
-    
-    if (this.m.TargetID == -1)
+
+		if (this.m.TargetID == _targetEntity.getID())
+    {
+      this.m.TargetID = -1;
+    }
+    else
     {
       this.m.TargetID = _targetEntity.getID();
       return;
     }
-    
-    if (this.m.TargetID == _targetEntity.getID())
-    {
-      this.m.TargetID = -1;
-    }
-    
+
 		local actor = this.getContainer().getActor();
     local effect = this.new("scripts/skills/effects/bleeding_effect");
 
