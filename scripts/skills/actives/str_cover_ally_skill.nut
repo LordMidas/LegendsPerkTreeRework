@@ -11,7 +11,7 @@ this.str_cover_ally_skill <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "actives.str_cover_ally";
 		this.m.Name = "Cover Ally";
-		this.m.Description = "Cover an adjacent ally, allowing them to move one tile ignoring zone of control on their turn.";
+		this.m.Description = "Cover an adjacent ally, allowing them to move one tile ignoring zone of control on their turn. Your Melee Skill, Melee Defense, Ranged Skill, and Ranged Defense will be reduced while providing cover, and if you get stunned or rooted or are no longer adjacent to the target, the cover will be lost.";
 		this.m.Icon = "skills/str_cover_ally_skill.png";
 		this.m.IconDisabled = "skills/str_cover_ally_skill_bw.png";
 		this.m.Overlay = "str_cover_ally_skill";
