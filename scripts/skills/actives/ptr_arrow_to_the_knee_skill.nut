@@ -25,7 +25,7 @@ this.ptr_arrow_to_the_knee_skill <- this.inherit("scripts/skills/skill", {
 
 	function getDescription()
 	{
-		return "Aim your next attack at the knee of your target, reducing their Melee and Ranged defense by [color=" + this.Const.UI.Color.NegativeValue + "]10%[/color] and requiring them to spend [color=" + this.Const.UI.Color.NegativeValue + "]2[/color] additional Action Points per tile moved on their turn. Missing the target will waste the effect.";
+		return "Aim your next attack at the knee of your target, reducing their Melee and Ranged defense by [color=" + this.Const.UI.Color.NegativeValue + "]10%[/color] and requiring them to spend [color=" + this.Const.UI.Color.NegativeValue + "]2[/color] additional Action Points per tile moved. The effect lasts [color=" + this.Const.UI.Color.NegativeValue + "]2[/color] turns but its effects are halved on the next turn.";
 	}
 
 	function getTooltip()
@@ -37,7 +37,7 @@ this.ptr_arrow_to_the_knee_skill <- this.inherit("scripts/skills/skill", {
 	{
 		return this.skill.isUsable() && !this.getContainer().getActor().getSkills().hasSkill("effects.ptr_arrow_to_the_knee_attack");
 	}
-	
+
 	function isHidden()
 	{
 		return !this.getContainer().getActor().isArmedWithRangedWeapon();
@@ -59,4 +59,3 @@ this.ptr_arrow_to_the_knee_skill <- this.inherit("scripts/skills/skill", {
 		this.m.Container.removeByID("effects.ptr_arrow_to_the_knee_attack");
 	}
 });
-
