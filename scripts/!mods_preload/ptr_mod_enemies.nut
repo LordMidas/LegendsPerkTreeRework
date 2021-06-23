@@ -984,6 +984,7 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			onInit();
 			this.m.Skills.addPerkTree(this.Const.Perks.AxeTree);
+			this.m.Skills.getSkillByID("perk.ptr_cull").m.IsForceEnabled = true;
 
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
 
