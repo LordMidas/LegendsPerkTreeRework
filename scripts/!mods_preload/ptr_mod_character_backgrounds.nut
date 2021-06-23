@@ -1611,7 +1611,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			],
 			Class = [
 				[{Weight = 100, Tree = this.Const.Perks.TacticianClassTree}]
-			]
+			],
 			Styles = [
 				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
 				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
