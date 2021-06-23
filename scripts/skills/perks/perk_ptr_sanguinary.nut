@@ -1,6 +1,6 @@
 this.perk_ptr_sanguinary <- this.inherit("scripts/skills/skill", {
 	m = {
-		FatigueCostRefundPercentage = 0.25
+		FatigueCostRefundPercentage = 25
 	},
 	function create()
 	{
