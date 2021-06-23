@@ -1,0 +1,156 @@
+this.str_cover_ally_skill <- this.inherit("scripts/skills/skill", {
+	m = {
+		Item = null
+	},
+	function setItem( _i )
+	{
+		this.m.Item = this.WeakTableRef(_i);
+	}
+
+	function create()
+	{
+		this.m.ID = "actives.str_cover_ally";
+		this.m.Name = "Cover Ally";
+		this.m.Description = "Cover an adjacent ally, allowing them to move one tile ignoring zone of control on their turn.";
+		this.m.Icon = "skills/str_cover_ally_skill.png";
+		this.m.IconDisabled = "skills/str_cover_ally_skill_bw.png";
+		this.m.Overlay = "str_cover_ally_skill";
+		this.m.SoundOnHit = [
+			"sounds/combat/shieldwall_01.wav",
+			"sounds/combat/shieldwall_02.wav",
+			"sounds/combat/shieldwall_03.wav"
+		];
+		this.m.Type = this.Const.SkillType.Active;
+		this.m.Order = this.Const.SkillOrder.Any;
+		this.m.IsSerialized = false;
+		this.m.IsActive = true;
+		this.m.IsTargeted = true;
+		this.m.IsStacking = false;
+		this.m.IsAttack = false;
+		this.m.IsIgnoredAsAOO = true;
+		this.m.IsUsingHitchance = false;
+		this.m.ActionPointCost = 4;
+		this.m.FatigueCost = 20;
+		this.m.MinRange = 0;
+		this.m.MaxRange = 1;
+	}
+
+	function getTooltip()
+	{
+		local ret = [
+			{
+				id = 1,
+				type = "title",
+				text = this.getName()
+			},
+			{
+				id = 2,
+				type = "description",
+				text = this.getDescription()
+			},
+			{
+				id = 3,
+				type = "text",
+				text = this.getCostString()
+			},
+			{
+				id = 7,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Allows the target to move 1 tile ignoring zone of control on their turn"
+			}
+		];
+
+		local actor = this.getContainer().getActor();
+		if (!actor.isArmedWithShield())
+		{
+		 ret.push({
+			 id = 5,
+			 type = "text",
+			 icon = "ui/tooltips/warning.png",
+			 text = "[color=" + this.Const.UI.Color.NegativeValue + "]Requires a shield[/color]"
+		 });
+		}
+
+		if (!actor.getCurrentProperties().IsRooted || actor.getCurrentProperties().IsStunned)
+		{
+			ret.push({
+				id = 10,
+				type = "text",
+				icon = "ui/icons/warning.png",
+				text = "Cannot be used while Rooted or Stunned"
+			});
+		}
+
+		if (this.getContainer().hasSkill("effects.str_covering_ally"))
+		{
+		 ret.push({
+			 id = 5,
+			 type = "text",
+			 icon = "ui/tooltips/warning.png",
+			 text = "[color=" + this.Const.UI.Color.NegativeValue + "]Cannot be used when already providing cover to an ally[/color]"
+		 });
+		}
+
+		return ret;
+	}
+
+	function isUsable()
+	{
+		local actor = this.getContainer().getActor();
+		if (!this.Tactical.isActive() || !actor.isArmedWithShield() || actor.getCurrentProperties().IsRooted || actor.getCurrentProperties().IsStunned)
+		{
+			return false;
+		}
+
+		return this.skill.isUsable() && !this.getContainer().hasSkill("effects.str_covering_ally") && this.getContainer().getActor().getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.Allied).len() != 0;
+	}
+
+	function onVerifyTarget( _originTile, _targetTile )
+	{
+		if (!this.skill.onVerifyTarget(_originTile, _targetTile))
+		{
+			return false;
+		}
+
+		local target = _targetTile.getEntity();
+
+		if (!this.m.Container.getActor().isAlliedWith(target))
+		{
+			return false;
+		}
+
+		if (target.getSkills().hasSkill("effects.str_covered_by_ally") || target.getSkills().hasSkill("effects.str_covering_ally"))
+		{
+			return false;
+		}
+
+		return true;
+	}
+
+	function onUse( _user, _targetTile )
+	{
+		local target = _targetTile.getEntity();
+		this.spawnIcon("str_covered_by_ally_effect", _targetTile);
+
+		if (!_user.isHiddenToPlayer() || _targetTile.IsVisibleForPlayer)
+		{
+			this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " provides cover to " + this.Const.UI.getColorizedEntityName(target));
+
+			if (this.m.SoundOnHit.len() != 0)
+			{
+				this.Sound.play(this.m.SoundOnHit[this.Math.rand(0, this.m.SoundOnHit.len() - 1)], this.Const.Sound.Volume.Skill * 1.2, _user.getPos());
+			}
+		}
+
+		local coveredByAllyEffect = this.new("scripts/skills/effects/str_covered_by_ally_effect");
+		coveredByAllyEffect.setCoverProvider(_user);
+		target.getSkills().add(coveredByAllyEffect);
+
+		local coveringAllyEffect = this.new("scripts/skills/effects/str_covering_ally_effect");
+		coveringAllyEffect.setAlly(target);
+		_user.getSkills().add(coveringAllyEffect);
+
+		return true;
+	}
+});
