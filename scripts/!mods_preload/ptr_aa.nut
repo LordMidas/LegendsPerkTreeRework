@@ -63,4 +63,9 @@ local modID = "mod_legends_PTR";
 	gt.Const.PTR.modLegendsEnemyTrees();
 
 	gt.Const.PTR.modEnemies();
+
+	// Shield tree rework
+	::mods_hookNewObject("ai/tactical/behaviors/ai_disengage", function (o)	{
+		o.m.PossibleSkills.push("actives.str_move_in_cover_skill");
+	});
 });

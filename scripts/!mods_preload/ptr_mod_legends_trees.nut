@@ -743,6 +743,20 @@ gt.Const.PTR.modWeaponTrees <- function()
 
 gt.Const.PTR.modDefenseTrees <- function ()
 {
+	local emptyArray = [];
+	while (this.Const.Perks.ShieldTree.Tree.len() < 7)
+	{
+		this.Const.Perks.ShieldTree.Tree.push(emptyArray);
+	}
 	gt.Const.Perks.ShieldTree.SelfWeightMultiplier <- 1.5;
+	this.Const.Perks.ShieldTree.WeightMultipliers <- [];
+	this.Const.Perks.ShieldTree.Tree[0] = [];
+	this.Const.Perks.ShieldTree.Tree[1] = [this.Const.Perks.PerkDefs.STRPhalanx];
+	this.Const.Perks.ShieldTree.Tree[2] = [this.Const.Perks.PerkDefs.ShieldExpert];
+	this.Const.Perks.ShieldTree.Tree[3] = [];
+	this.Const.Perks.ShieldTree.Tree[4] = [this.Const.Perks.PerkDefs.STRCoverAlly];
+	this.Const.Perks.ShieldTree.Tree[5] = [];
+	this.Const.Perks.ShieldTree.Tree[6] = [this.Const.Perks.PerkDefs.STRLineBreaker];
+	
 	gt.Const.Perks.HeavyArmorTree.SelfWeightMultiplier <- 0.33;
 }
