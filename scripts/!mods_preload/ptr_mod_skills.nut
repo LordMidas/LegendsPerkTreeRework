@@ -2,6 +2,69 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modSkills <- function()
 {
+	::mods_hookNewObject("skills/actives/legend_hold_the_line", function(o) {
+		local onAdded = ::mods_getMember(o, "onAdded");
+		o.onAdded <- function()
+		{
+			onAdded();
+			local actor = this.getContainer().getActor();
+			if (actor.isPlayerControlled())
+			{
+				return;
+			}
+
+			local agent = actor.getAIAgent();
+
+			if (agent.findBehavior(this.Const.AI.Behavior.ID.BoostStamina) == null)
+			{
+				agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_boost_stamina"));
+				agent.finalizeBehaviors();
+			}
+		}
+	});
+
+	::mods_hookNewObject("skills/actives/legend_push_forward", function(o) {
+		local onAdded = ::mods_getMember(o, "onAdded");
+		o.onAdded <- function()
+		{
+			onAdded();
+			local actor = this.getContainer().getActor();
+			if (actor.isPlayerControlled())
+			{
+				return;
+			}
+
+			local agent = actor.getAIAgent();
+
+			if (agent.findBehavior(this.Const.AI.Behavior.ID.BoostStamina) == null)
+			{
+				agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_boost_stamina"));
+				agent.finalizeBehaviors();
+			}
+		}
+	});
+
+	::mods_hookNewObject("skills/actives/rally_the_troops", function(o) {
+		local onAdded = ::mods_getMember(o, "onAdded");
+		o.onAdded <- function()
+		{
+			onAdded();
+			local actor = this.getContainer().getActor();
+			if (actor.isPlayerControlled())
+			{
+				return;
+			}
+
+			local agent = actor.getAIAgent();
+
+			if (agent.findBehavior(this.Const.AI.Behavior.ID.Rally) == null)
+			{
+				agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_rally"));
+				agent.finalizeBehaviors();
+			}
+		}
+	});
+
 	::mods_hookNewObject("skills/perks/perk_legend_onslaught", function(o) {
 		o.onTargetHit = function( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 		{
