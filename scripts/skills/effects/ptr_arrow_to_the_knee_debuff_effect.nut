@@ -21,7 +21,7 @@ this.ptr_arrow_to_the_knee_debuff_effect <- this.inherit("scripts/skills/skill",
 	function getTooltip()
 	{
 		local tooltip = this.skill.getTooltip();
-		local defenseMalus = this.m.TurnsLeft * this.m.DefMalusPercentagePerTurnLeft * 0.01;
+		local defenseMalus = this.m.TurnsLeft * this.m.DefMalusPercentagePerTurnLeft;
 		local APMalus = this.m.TurnsLeft * this.m.MovementAPCostAdditionalPerTurnLeft;
 		tooltip.extend(
 			[
