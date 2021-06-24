@@ -48,7 +48,7 @@ gt.Const.PTR.modSkills <- function()
 
 	::mods_hookNewObject("skills/perks/perk_legend_clarity", function(o) {
 		o.m.Type = this.Const.SkillType.Perk;
-		o.onUpdate = function()
+		o.onUpdate = function(_properties)
 		{
 			local actor = this.getContainer().getActor();
 
