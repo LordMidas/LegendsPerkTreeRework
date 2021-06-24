@@ -81,7 +81,7 @@ this.ai_ptr_arrow_to_the_knee <- this.inherit("scripts/ai/tactical/behavior", {
 
 		this.m.Target = bestTarget.Target;
 
-		return this.Const.AI.Behavior.Score.ArrowToTheKnee * score;
+		return this.Const.AI.Behavior.Score.PTRArrowToTheKnee * score;
 	}
 
 	function onExecute( _entity )
