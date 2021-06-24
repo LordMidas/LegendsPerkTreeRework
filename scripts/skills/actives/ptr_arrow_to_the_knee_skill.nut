@@ -45,6 +45,23 @@ this.ptr_arrow_to_the_knee_skill <- this.inherit("scripts/skills/skill", {
 		return tooltip;
 	}
 
+	function onAdded()
+	{
+		local actor = this.getContainer().getActor();
+		if (actor.isPlayerControlled())
+		{
+			return;
+		}
+
+		local agent = actor.getAIAgent();
+
+		if (agent.findBehavior(this.Const.AI.Behavior.ID.ArrowToTheKnee) == null)
+		{
+			agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_arrow_to_the_knee"));
+			agent.finalizeBehaviors();
+		}
+	}
+
 	function isUsable()
 	{
 		local actor = this.getContainer().getActor();
