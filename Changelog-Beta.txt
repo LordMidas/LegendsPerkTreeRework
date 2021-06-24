@@ -1,4 +1,9 @@
 ====================
+==== Ver 0.8.2b =====
+====================
+- Fixed again some enemies not getting proper PTR perks and/or causing crash.
+
+====================
 ==== Ver 0.8.2a =====
 ====================
 - Hotfix: forgot to add the gfx folder in previous version.
