@@ -1,4 +1,4 @@
-this.ai_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
+this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 	m = {
 		TargetTile = null,
 		TargetActor = null,
@@ -9,8 +9,8 @@ this.ai_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 	},
 	function create()
 	{
-		this.m.ID = this.Const.AI.Behavior.ID.KataStep;
-		this.m.Order = this.Const.AI.Behavior.Order.KataStep;
+		this.m.ID = this.Const.AI.Behavior.ID.PTRKataStep;
+		this.m.Order = this.Const.AI.Behavior.Order.PTRKataStep;
 		this.m.IsThreaded = true;
 		this.behavior.create();
 	}
@@ -585,7 +585,7 @@ this.ai_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 				// }
 			// }
 
-			return this.Const.AI.Behavior.Score.KataStep * score * this.getProperties().BehaviorMult[this.m.ID] * this.Math.minf(2.0, 1.0 / this.getProperties().OverallDefensivenessMult);
+			return this.Const.AI.Behavior.Score.PTRKataStep * score * this.getProperties().BehaviorMult[this.m.ID] * this.Math.minf(2.0, 1.0 / this.getProperties().OverallDefensivenessMult);
 		}
 
 		return this.Const.AI.Behavior.Score.Zero;
