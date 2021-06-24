@@ -34,8 +34,10 @@ this.perk_ptr_discovered_talent <- this.inherit("scripts/skills/skill", {
 			}
 		}
 
+
 		actor.m.LevelUps += 1;
-		actor.fillAttributeLevelUpValues(1);
+		actor.m.Attributes.clear();
+		actor.fillAttributeLevelUpValues(this.Const.XP.MaxLevelWithPerkpoints - actor.getLevel() + actor.m.LevelUps);
 
 		this.m.IsApplied = true;
 	}
