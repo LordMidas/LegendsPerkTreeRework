@@ -30,8 +30,8 @@ this.ptr_follow_up_skill <- this.inherit("scripts/skills/skill", {
 	function getTooltip()
 	{
 		local ret = this.skill.getDefaultUtilityTooltip();
-		
-		local actor = this.getContainer().getActor();		
+
+		local actor = this.getContainer().getActor();
 		if (actor.isEngagedInMelee())
 		{
 			ret.push({
@@ -39,10 +39,10 @@ this.ptr_follow_up_skill <- this.inherit("scripts/skills/skill", {
 				type = "text",
 				icon = "ui/icons/warning.png",
 				text = "Not usable when engaged in melee."
-			});		
+			});
 		}
-		
-		local weapon = actor.getMainhandItem();		
+
+		local weapon = actor.getMainhandItem();
 		if (weapon == null || !weapon.isItemType(this.Const.Items.ItemType.TwoHanded) || !weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon))
 		{
 			ret.push({
@@ -50,25 +50,42 @@ this.ptr_follow_up_skill <- this.inherit("scripts/skills/skill", {
 				type = "text",
 				icon = "ui/icons/warning.png",
 				text = "Only usable with Two-Handed Melee weapons."
-			});		
+			});
 		}
-		
+
 		return ret;
+	}
+
+	function onAdded()
+	{
+		local actor = this.getContainer().getActor();
+		if (actor.isPlayerControlled())
+		{
+			return;
+		}
+
+		local agent = actor.getAIAgent();
+
+		if (agent.findBehavior(this.Const.AI.Behavior.ID.PTRFollowUp) == null)
+		{
+			agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_follow_up"));
+			agent.finalizeBehaviors();
+		}
 	}
 
 	function isUsable()
 	{
 		local actor = this.getContainer().getActor();
 		local weapon = actor.getMainhandItem();
-		
+
 		if (actor.isEngagedInMelee() || weapon == null || !weapon.isItemType(this.Const.Items.ItemType.TwoHanded) || !weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon))
 		{
 			return false;
 		}
-		
+
 		return this.skill.isUsable() && !this.getContainer().hasSkill("effects.ptr_follow_up");
 	}
-	
+
 	function isHidden()
 	{
 		return !this.getContainer().getActor().isArmedWithMeleeWeapon();
@@ -80,4 +97,3 @@ this.ptr_follow_up_skill <- this.inherit("scripts/skills/skill", {
 		return true;
 	}
 });
-
