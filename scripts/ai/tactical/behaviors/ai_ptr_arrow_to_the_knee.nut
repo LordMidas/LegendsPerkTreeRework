@@ -1,10 +1,10 @@
-this.ai_arrow_to_the_knee <- this.inherit("scripts/ai/tactical/behavior", {
+this.ai_ptr_arrow_to_the_knee <- this.inherit("scripts/ai/tactical/behavior", {
 	m = {
 		Target = null,
 		AttackSkill = null,
 		Skill = null,
 		PossibleSkills = [
-			//"actives.ptr_arrow_to_the_knee"
+			"actives.ptr_arrow_to_the_knee"
 		],
 		UsableWithSkills = [
 			"actives.quick_shot",
@@ -15,8 +15,8 @@ this.ai_arrow_to_the_knee <- this.inherit("scripts/ai/tactical/behavior", {
 	},
 	function create()
 	{
-		this.m.ID = this.Const.AI.Behavior.ID.ArrowToTheKnee;
-		this.m.Order = this.Const.AI.Behavior.Order.ArrowToTheKnee;
+		this.m.ID = this.Const.AI.Behavior.ID.PTRArrowToTheKnee;
+		this.m.Order = this.Const.AI.Behavior.Order.PTRArrowToTheKnee;
 		this.behavior.create();
 	}
 
@@ -67,7 +67,6 @@ this.ai_arrow_to_the_knee <- this.inherit("scripts/ai/tactical/behavior", {
 
 		if (skills.len() == 0)
 		{
-			this.logInfo("Arrow to the Knee: No usable skill");
 			return this.Const.AI.Behavior.Score.Zero;
 		}
 
@@ -77,13 +76,10 @@ this.ai_arrow_to_the_knee <- this.inherit("scripts/ai/tactical/behavior", {
 
 		if (bestTarget.Target == null)
 		{
-			this.logInfo("Arrow to the Knee: No best target, returning 0 score");
 			return this.Const.AI.Behavior.Score.Zero;
 		}
 
 		this.m.Target = bestTarget.Target;
-
-		this.logInfo("Arrow to the Knee: Target picked sucessfully: " + bestTarget.Target.getName());
 
 		return this.Const.AI.Behavior.Score.ArrowToTheKnee * score;
 	}
@@ -98,8 +94,10 @@ this.ai_arrow_to_the_knee <- this.inherit("scripts/ai/tactical/behavior", {
 
 		if (this.m.Target != null && this.getAgent().getForcedOpponent() == null)
 		{
-			this.logInfo("Using Arrow to the Knee against " + this.m.Target.getName());
-			# this.getAgent().setForcedOpponent(this.m.Target);
+			if (this.Const.AI.VerboseMode)
+			{
+				this.logInfo("* " + _entity.getName() + ": Using " + this.m.Skill.getName() + " against " + this.m.Target.getName() + "!");
+			}
 			local e = _entity.getSkills().getSkillByID("effects.ptr_arrow_to_the_knee_attack");
 			if (e != null)
 			{
@@ -128,6 +126,14 @@ this.ai_arrow_to_the_knee <- this.inherit("scripts/ai/tactical/behavior", {
 		}
 
 		local apRequiredForAttack = this.m.AttackSkill != null ? this.m.AttackSkill.getActionPointCost() : 4;
+		if (this.m.Skill.getActionPointCost() + apRequiredForAttack > _entity.getActionPoints())
+		{
+			if (this.Const.AI.VerboseMode)
+			{
+				this.logInfo("* " + _entity.getName() + "No point in using Arrow to the Knee because I will not have any AP left to attack");
+			}
+			return ret;
+		}
 		local myTile = _entity.getTile();
 		local targets = this.queryTargetsInMeleeRange(this.m.AttackSkill.getMinRange(), this.m.AttackSkill.getMaxRange() + (this.m.AttackSkill.isRanged() ? myTile.Level : 0), this.m.AttackSkill.getMaxLevelDifference());
 		local bestTarget;
@@ -135,7 +141,6 @@ this.ai_arrow_to_the_knee <- this.inherit("scripts/ai/tactical/behavior", {
 
 		foreach( target in targets )
 		{
-			this.logInfo("Arrow to the Knee: evaluating target: " + target.getName());
 			if (target.isNonCombatant())
 			{
 				continue;
@@ -143,13 +148,11 @@ this.ai_arrow_to_the_knee <- this.inherit("scripts/ai/tactical/behavior", {
 
 			if (target.isArmedWithShield() || target.isArmedWithRangedWeapon())
 			{
-				this.logInfo("Arrow to the Knee: Skipping " + target.getName() + " as he is armed with a shield or ranged weapon");
 				continue;
 			}
 
 			if (target.getSkills().hasSkill("effects.ptr_arrow_to_the_knee_debuff") || target.getSkills().hasSkillOfType(this.Const.SkillType.TemporaryInjury))
 			{
-				this.logInfo("Arrow to the Knee: Skipping " + target.getName() + " as he already took an arrow to the knee or is already injured");
 				continue;
 			}
 
@@ -157,13 +160,8 @@ this.ai_arrow_to_the_knee <- this.inherit("scripts/ai/tactical/behavior", {
 			{
 				if (target.getMoraleState() == this.Const.MoraleState.Fleeing)
 				{
-					this.logInfo("Arrow to the Knee: Skipping " + target.getName() + " as he is already fleeing");
 					continue;
 				}
-
-				# for( ; target.getFatigue() >= target.getFatigueMax() - 5;  )
-				# {
-				# }
 
 				if (target.getCurrentProperties().IsStunned || !target.getCurrentProperties().IsAbleToUseWeaponSkills || target.getSkills().hasSkill("effects.dazed") || target.getSkills().hasSkill("effects.distracted"))
 				{
@@ -174,7 +172,6 @@ this.ai_arrow_to_the_knee <- this.inherit("scripts/ai/tactical/behavior", {
 
 				if (zoc > 0)
 				{
-					this.logInfo("Arrow to the Knee: Skipping " + target.getName() + " as he is already engaged in melee");
 					continue;
 				}
 
@@ -220,7 +217,6 @@ this.ai_arrow_to_the_knee <- this.inherit("scripts/ai/tactical/behavior", {
 					{
 						if (target.getActorsWithinDistanceAsArray(2, this.Const.FactionRelation.Enemy).len() > 0)
 						{
-							this.logInfo("Skipping " + target.getName() + " as he has a reach weapon with a target already within striking distance");
 							continue;
 						}
 						score *= 0.5;
@@ -285,7 +281,7 @@ this.ai_arrow_to_the_knee <- this.inherit("scripts/ai/tactical/behavior", {
 				foreach (ally in myAlliesInTargetsRange)
 				{
 					local distance = ally.getTile().getDistanceTo(targetTile);
-					if (distance <= distanceToClosestAlly)
+					if (distance <= distanceToClosestAlly && !(distance == distanceToClosestAlly && isClosestAllyRanged))
 					{
 						isClosestAllyRanged = false;
 						distanceToClosestAlly = distance;
@@ -295,7 +291,6 @@ this.ai_arrow_to_the_knee <- this.inherit("scripts/ai/tactical/behavior", {
 						}
 					}
 				}
-				# && !(distance == distanceToClosestAlly && isClosestAllyRanged)
 
 				if (isClosestAllyRanged)
 				{
