@@ -1,5 +1,8 @@
 this.ptr_arrow_to_the_knee_attack_effect <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		AIForcedTarget = null,
+		AIForcedSkill = null
+	},
 	function create()
 	{
 		this.m.ID = "effects.ptr_arrow_to_the_knee_attack";
