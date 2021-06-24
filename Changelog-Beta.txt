@@ -1,4 +1,13 @@
 ====================
+==== Ver 0.8.2 ====
+====================
+- Arrow to the Knee is no longer usable when engaged in melee.
+- Fixed some enemies not getting proper PTR perks and/or causing crash.
+- Clarity should now be properly working as described. Plus, it will no longer appear as a Status Effect.
+- Battleforged should now be properly working as described.
+- Fixed a typo in the description of Utilitarian.
+
+====================
 ==== Ver 0.8.1a ====
 ====================
 - Removed Nimble and Muscularity from Orc Berserkers.
