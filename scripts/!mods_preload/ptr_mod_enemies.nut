@@ -2370,8 +2370,8 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.addTreeOfEquippedWeapon();
 			this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
 			this.m.Skills.addPerkTree(this.Const.Perks.ThrowingTree);
-			this.m.Skills.add(this.new("scripts/skills/perk_ptr_the_rush_of_battle"));
-			this.m.Skills.add(this.new("scripts/skills/perk_legend_smashing_shields"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_the_rush_of_battle"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_smashing_shields"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -2401,7 +2401,7 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_personal_armor"));
 				if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 				{
-					this.m.Skills.add(this.new("scripts/skills/perk_last_stand"));
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_last_stand"));
 				}
 			}
 
