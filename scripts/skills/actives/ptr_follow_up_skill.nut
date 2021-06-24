@@ -68,7 +68,7 @@ this.ptr_follow_up_skill <- this.inherit("scripts/skills/skill", {
 
 		if (agent.findBehavior(this.Const.AI.Behavior.ID.PTRFollowUp) == null)
 		{
-			agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_follow_up"));
+			agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_ptr_follow_up"));
 			agent.finalizeBehaviors();
 		}
 	}

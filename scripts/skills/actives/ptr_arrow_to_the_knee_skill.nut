@@ -55,9 +55,9 @@ this.ptr_arrow_to_the_knee_skill <- this.inherit("scripts/skills/skill", {
 
 		local agent = actor.getAIAgent();
 
-		if (agent.findBehavior(this.Const.AI.Behavior.ID.ArrowToTheKnee) == null)
+		if (agent.findBehavior(this.Const.AI.Behavior.ID.PTRArrowToTheKnee) == null)
 		{
-			agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_arrow_to_the_knee"));
+			agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_ptr_arrow_to_the_knee"));
 			agent.finalizeBehaviors();
 		}
 	}
