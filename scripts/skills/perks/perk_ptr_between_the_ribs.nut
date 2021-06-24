@@ -1,5 +1,6 @@
 this.perk_ptr_between_the_ribs <- this.inherit("scripts/skills/skill", {
 	m = {
+		IsForceEnabled = false,
 		DamageBonusPerSurroundCount = 0.05
 	},
 	function create()
@@ -14,20 +15,35 @@ this.perk_ptr_between_the_ribs <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
+	function isEnabled()
+	{
+		if (this.m.IsForceEnabled)
+		{
+			return true;
+		}
+
+		local weapon = this.getContainer().getActor().getMainhandItem();
+		if (weapon == null || weapon.getCategories().find("Dagger") == null)
+		{
+			return false;
+		}
+
+		return true;
+	}
+
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
 		if (!_skill.isAttack() || _targetEntity == null || _targetEntity.getCurrentProperties().IsImmuneToSurrounding || _targetEntity.isAlliedWith(this.getContainer().getActor()))
 		{
 			return;
 		}
-		
-		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon == null || weapon.getCategories().find("Dagger") == null)
+
+		if (!this.isEnabled())
 		{
 			return;
 		}
-	
+
 		local count = _targetEntity.getSurroundedCount();
 		_properties.DamageTotalMult *= 1.0 + (this.m.DamageBonusPerSurroundCount * count);
 	}

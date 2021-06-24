@@ -1,5 +1,7 @@
 this.perk_ptr_light_weapon <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		IsForceEnabled = false
+	},
 	function create()
 	{
 		this.m.ID = "perk.ptr_light_weapon";
@@ -12,16 +14,31 @@ this.perk_ptr_light_weapon <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
+	function isEnabled()
+	{
+		if (this.m.IsForceEnabled)
+		{
+			return true;
+		}
+
+		local weapon = this.getContainer().getActor().getMainhandItem();
+		if (weapon == null || weapon.getCategories().find("Dagger") == null)
+		{
+			return false;
+		}
+
+		return true;
+	}
+
 	function onUpdate( _properties )
 	{
-		local weapon = this.getContainer().getActor().getMainhandItem();		
-		if (weapon == null || weapon.getCategories().find("Dagger") == null)
+		if (!this.isEnabled())
 		{
 			return;
 		}
-		
-		_properties.ActionPoints += 1;		
+
+		_properties.ActionPoints += 1;
 		_properties.FatigueEffectMult *= 0.9;
 	}
 });
