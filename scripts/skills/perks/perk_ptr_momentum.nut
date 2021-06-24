@@ -96,11 +96,11 @@ this.perk_ptr_momentum <- this.inherit("scripts/skills/skill", {
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
 		local bonus = this.getBonus();
-
+		
 		local actor = this.getContainer().getActor();
 		if (bonus > 0)
 		{
-			if (!actor.isHiddenToPlayer() && _targetEntity.getTile().IsVisibleForPlayer)
+			if (!actor.isHiddenToPlayer() && this.m.TargetTile.IsVisibleForPlayer)
 			{
 				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " dealt +" + bonus + "% Damage due to Momentum");
 			}
