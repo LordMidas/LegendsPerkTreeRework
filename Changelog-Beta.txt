@@ -1,4 +1,10 @@
 ===================
+==== Ver 0.8.1 ====
+===================
+- Gave PTR perks to more enemy types and did some rebalancing.
+- Hopefully really fixed Momentum this time!
+
+===================
 ==== Ver 0.8.0 ====
 ===================
 - Reworked the entire Shield Tree.
