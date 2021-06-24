@@ -261,6 +261,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	{
 		this.Const.Perks.TrainedTree.Tree.push(emptyArray);
 	}
+	this.Const.Perks.TrainedTree.SelfWeightMultiplier <- 0.5;
 	this.Const.Perks.TrainedTree.Tree[0] = [this.Const.Perks.PerkDefs.LegendBackToBasics];
 	this.Const.Perks.TrainedTree.Tree[1] = [];
 	this.Const.Perks.TrainedTree.Tree[2] = [this.Const.Perks.PerkDefs.Rotation];
@@ -271,6 +272,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 
 	this.Const.Perks.ResilientTree <- this.Const.Perks.IndestructibleTree;
 	this.Const.Perks.TalentedTree <- this.Const.Perks.IntelligentTree;
+	this.Const.Perks.TalentedTree.SelfWeightMultiplier <- 0.5;
 	this.Const.Perks.UnstoppableTree <- this.Const.Perks.FitTree;
 
 	gt.Const.Perks.TraitsTrees.Tree = [
@@ -757,6 +759,6 @@ gt.Const.PTR.modDefenseTrees <- function ()
 	this.Const.Perks.ShieldTree.Tree[4] = [this.Const.Perks.PerkDefs.STRCoverAlly];
 	this.Const.Perks.ShieldTree.Tree[5] = [];
 	this.Const.Perks.ShieldTree.Tree[6] = [this.Const.Perks.PerkDefs.STRLineBreaker];
-	
+
 	gt.Const.Perks.HeavyArmorTree.SelfWeightMultiplier <- 0.33;
 }
