@@ -1,5 +1,7 @@
 this.perk_ptr_soft_metal <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		IsForceEnabled = false
+	},
 	function create()
 	{
 		this.m.ID = "perk.ptr_soft_metal";
@@ -12,10 +14,25 @@ this.perk_ptr_soft_metal <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
+	function isEnabled(_skill)
+	{
+		if (this.m.IsForceEnabled)
+		{
+			return true;
+		}
+
+		if (!_skill.hasBluntDamage())
+		{
+			return false;
+		}
+
+		return true;
+	}
+
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
-		if (_targetEntity != null && _skill.isAttack() && _skill.m.InjuriesOnBody == this.Const.Injury.BluntBody)
+		if (_targetEntity != null && _skill.isAttack() && this.isEnabled(_skill))
 		{
 			local remArmorFraction = _targetEntity.getRemainingArmorFraction();
 			local weapon = this.getContainer().getActor().getMainhandItem();
@@ -24,4 +41,3 @@ this.perk_ptr_soft_metal <- this.inherit("scripts/skills/skill", {
 		}
 	}
 });
-
