@@ -30,12 +30,25 @@ this.ptr_arrow_to_the_knee_skill <- this.inherit("scripts/skills/skill", {
 
 	function getTooltip()
 	{
-		return this.skill.getDefaultUtilityTooltip();
+		local tooltip = this.skill.getDefaultUtilityTooltip();
+
+		if (this.getContainer().getActor().isEngagedInMelee())
+		{
+			tooltip.push({
+				id = 7,
+				type = "text",
+				icon = "ui/icons/warning.png",
+				text = "Not usable when engaged in melee."
+			});
+		}
+
+		return tooltip;
 	}
 
 	function isUsable()
 	{
-		return this.skill.isUsable() && !this.getContainer().getActor().getSkills().hasSkill("effects.ptr_arrow_to_the_knee_attack");
+		local actor = this.getContainer().getActor();
+		return this.skill.isUsable() && !this.getContainer().hasSkill("effects.ptr_arrow_to_the_knee_attack") && !actor.isEngagedInMelee();
 	}
 
 	function isHidden()
