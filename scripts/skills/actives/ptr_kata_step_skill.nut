@@ -43,9 +43,9 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 
 		local agent = actor.getAIAgent();
 
-		if (agent.findBehavior(this.Const.AI.Behavior.ID.KataStep) == null)
+		if (agent.findBehavior(this.Const.AI.Behavior.ID.PTRKataStep) == null)
 		{
-			agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_kata_step"));
+			agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_ptr_kata_step"));
 			agent.finalizeBehaviors();
 		}
 	}
