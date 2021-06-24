@@ -137,7 +137,7 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_backstabber"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_relentless"));
-				this.m.Skills.add(this.new("scripts/skills/perks/ptr_strength_in_numbers"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
 			}
 		}
 	});
@@ -621,7 +621,7 @@ gt.Const.PTR.modEnemies <- function()
 			onInit();
 
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_sundering_strikes"));
-			this.m.Skills.add(this.new("scripts/skills/perks/ptr_strength_in_numbers"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
 			local softMetalPerk = this.new("scripts/skills/perks/perk_ptr_soft_metal");
 			softMetalPerk.m.IsForceEnabled = true;
 			this.m.Skills.add(softMetalPerk);
@@ -2370,8 +2370,8 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.addTreeOfEquippedWeapon();
 			this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
 			this.m.Skills.addPerkTree(this.Const.Perks.ThrowingTree);
-			this.m.Skills.add(this.new("scripts/skills/traits/perk_ptr_the_rush_of_battle"));
-			this.m.Skills.add(this.new("scripts/skills/traits/perk_legend_smashing_shields"));
+			this.m.Skills.add(this.new("scripts/skills/perk_ptr_the_rush_of_battle"));
+			this.m.Skills.add(this.new("scripts/skills/perk_legend_smashing_shields"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -2401,7 +2401,7 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_personal_armor"));
 				if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 				{
-					this.m.Skills.add(this.new("scripts/skills/traits/perk_last_stand"));
+					this.m.Skills.add(this.new("scripts/skills/perk_last_stand"));
 				}
 			}
 
@@ -3388,22 +3388,22 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.addPerkTree(this.Const.Perks.TacticianClassTree);
 			this.m.Skills.addPerkTree(this.Const.Perks.SergeantClassTree);
 
-			this.m.Skills.add(this.new("scripts/skills/effects/perk_legend_assured_conquest"));
-			this.m.Skills.add(this.new("scripts/skills/effects/perk_steel_brow"));
-			this.m.Skills.add(this.new("scripts/skills/effects/perk_legend_clarity"));
-			this.m.Skills.add(this.new("scripts/skills/effects/perk_ptr_personal_armor"));
-			this.m.Skills.add(this.new("scripts/skills/effects/perk_ptr_know_their_weakness"));
-			this.m.Skills.add(this.new("scripts/skills/effects/perk_rally_the_troops"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_assured_conquest"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_steel_brow"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_clarity"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_personal_armor"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_know_their_weakness"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_rally_the_troops"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				this.m.Skills.add(this.new("scripts/skills/effects/perk_last_stand"));
-				this.m.Skills.add(this.new("scripts/skills/effects/perk_legend_composure"));
-				this.m.Skills.add(this.new("scripts/skills/effects/perk_full_force"));
-				this.m.Skills.add(this.new("scripts/skills/effects/perk_fortified_mind"));
-				this.m.Skills.add(this.new("scripts/skills/effects/perk_vengeance"));
-				this.m.Skills.add(this.new("scripts/skills/effects/perk_legend_second_wind"));
-				this.m.Skills.add(this.new("scripts/skills/effects/perk_legend_mind_over_body"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_last_stand"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_composure"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_full_force"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_fortified_mind"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_vengeance"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_second_wind"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_mind_over_body"));
 				this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
 			}
 		}
@@ -3414,7 +3414,7 @@ gt.Const.PTR.modEnemies <- function()
 			local ret = makeMiniboss();
 			if (ret)
 			{
-				this.m.Skills.add(this.new("scripts/skills/effects/perk_legend_mind_over_body"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_mind_over_body"));
 			}
 
 			return ret;
@@ -3433,8 +3433,8 @@ gt.Const.PTR.modEnemies <- function()
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.add(this.new("scripts/skills/effects/perk_ptr_strength_in_numbers"));
-			this.m.Skills.add(this.new("scripts/skills/effects/perk_ptr_survival_instinct"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
 		}
 	});
 
@@ -3443,8 +3443,8 @@ gt.Const.PTR.modEnemies <- function()
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.add(this.new("scripts/skills/effects/perk_ptr_strength_in_numbers"));
-			this.m.Skills.add(this.new("scripts/skills/effects/perk_ptr_survival_instinct"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
 		}
 	});
 	#
@@ -3461,11 +3461,11 @@ gt.Const.PTR.modEnemies <- function()
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.add(this.new("scripts/skills/effects/perk_ptr_strength_in_numbers"));
-			this.m.Skills.add(this.new("scripts/skills/effects/perk_ptr_survival_instinct"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				this.m.Skills.add(this.new("scripts/skills/effects/perk_nimble"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_nimble"));
 				this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
 			}
 		}
