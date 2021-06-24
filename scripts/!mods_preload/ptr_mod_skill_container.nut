@@ -82,7 +82,7 @@ gt.Const.PTR.modSkillContainer <- function()
 					tree = this.Const.Perks.PolearmTree;
 					break;
 				case this.Const.WMS.Mastery.Sling:
-					tree = this.Const.Perks.SlingTree;
+					tree = this.Const.Perks.SlingsTree;
 					break;
 				case this.Const.WMS.Mastery.Spear:
 					tree = this.Const.Perks.SpearTree;
