@@ -127,8 +127,8 @@ gt.Const.PTR.modActor <- function()
 				promisedPotentialDetails.WillSucceed <- promisedPotentialSkill.m.WillSucceed;
 				if (promisedPotentialSkill.m.IsSpent && promisedPotentialSkill.m.WillSucceed)
 				{
-					promisedPotentialDetails.hasPunchingBag <- this.getSkills().hasSkill("perk.perk_ptr_punching_bag");
-					promisedPotentialDetails.hasTraumaSurvivor <- this.getSkills().hasSkill("perk.perk_ptr_trauma_survivor");
+					promisedPotentialDetails.hasPunchingBag <- this.getSkills().hasSkill("perk.ptr_punching_bag");
+					promisedPotentialDetails.hasTraumaSurvivor <- this.getSkills().hasSkill("perk.ptr_trauma_survivor");
 				}
 			}
 
@@ -221,6 +221,10 @@ gt.Const.PTR.modActor <- function()
 						this.resetPerks();
 
 						this.improveMood(1.0, "Realized potential");
+					}
+					else
+					{
+						perk.updatePerkVisuals();
 					}
 				}
 			}
