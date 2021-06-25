@@ -53,7 +53,7 @@ this.perk_ptr_survival_instinct <- this.inherit("scripts/skills/skill", {
 
 	function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
 	{
-		if (!_skill.isAttack() || _attacker == null || _attacker.getID() == this.getContainer().getActor().getID())
+		if (_skill == null || !_skill.isAttack() || _attacker == null || _attacker.getID() == this.getContainer().getActor().getID())
 		{
 			return;
 		}
