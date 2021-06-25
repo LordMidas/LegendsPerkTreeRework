@@ -8,7 +8,7 @@
 		o.m.BloodPoolScale = 1.25;
 		o.m.RiderID <- "";
 	}
-	this.logInfo("legends hook called");
+	this.logInfo("actor.nut Legends hook called");
 	o.onRender <- function ()
 	{
 		if (this.m.IsRaisingShield)
