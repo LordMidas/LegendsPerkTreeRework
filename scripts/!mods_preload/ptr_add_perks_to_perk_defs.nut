@@ -805,6 +805,33 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/str_phalanx.png",
 			IconDisabled = "ui/perks/str_phalanx_bw.png",
 			Const = "STRPhalanx"
+		},
+		{
+			ID = "perk.ptr_promised_potential",
+			Script = "scripts/skills/perks/perk_ptr_promised_potential",
+			Name = this.Const.Strings.PerkName.PTRPromisedPotential,
+			Tooltip = this.Const.Strings.PerkDescription.PTRPromisedPotential,
+			Icon = "ui/perks/ptr_promised_potential.png",
+			IconDisabled = "ui/perks/ptr_promised_potential_bw.png",
+			Const = "PTRPromisedPotential"
+		},
+		{
+			ID = "perk.ptr_punching_bag",
+			Script = "scripts/skills/perks/perk_ptr_punching_bag",
+			Name = this.Const.Strings.PerkName.PTRPunchingBag,
+			Tooltip = this.Const.Strings.PerkDescription.PTRPunchingBag,
+			Icon = "ui/perks/ptr_punching_bag.png",
+			IconDisabled = "ui/perks/ptr_punching_bag_bw.png",
+			Const = "PTRPunchingBag"
+		},
+		{
+			ID = "perk.ptr_trauma_survivor",
+			Script = "scripts/skills/perks/perk_ptr_trauma_survivor",
+			Name = this.Const.Strings.PerkName.PTRTraumaSurvivor,
+			Tooltip = this.Const.Strings.PerkDescription.PTRTraumaSurvivor,
+			Icon = "ui/perks/ptr_trauma_survivor.png",
+			IconDisabled = "ui/perks/ptr_trauma_survivor_bw.png",
+			Const = "PTRTraumaSurvivor"
 		}
 	];
 
