@@ -672,11 +672,17 @@ gt.Const.PTR.createProfessionTrees <- function()
 
 		],
 		Tree = [
+			[
+				gt.Const.Perks.PerkDefs.PTRPromisedPotential
+			],
 			[],
+			[
+				gt.Const.Perks.PerkDefs.PTRPunchingBag
+			],
 			[],
-			[],
-			[],
-			[],
+			[
+				gt.Const.Perks.PerkDefs.PTRTraumaSurvivor
+			],
 			[],
 			[]
 		]
