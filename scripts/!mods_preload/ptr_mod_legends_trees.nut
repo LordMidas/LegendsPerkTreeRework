@@ -261,7 +261,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	{
 		this.Const.Perks.TrainedTree.Tree.push(emptyArray);
 	}
-	this.Const.Perks.TrainedTree.SelfWeightMultiplier <- 0.5;
+	this.Const.Perks.TrainedTree.SelfWeightMultiplier <- 0.75;
 	this.Const.Perks.TrainedTree.Tree[0] = [this.Const.Perks.PerkDefs.LegendBackToBasics];
 	this.Const.Perks.TrainedTree.Tree[1] = [];
 	this.Const.Perks.TrainedTree.Tree[2] = [this.Const.Perks.PerkDefs.Rotation];
