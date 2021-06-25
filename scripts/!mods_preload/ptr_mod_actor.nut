@@ -99,5 +99,80 @@ gt.Const.PTR.modActor <- function()
 
 			return checkMorale( _change, _difficulty, _type, _showIconBeforeMoraleIcon, _noNewLine );
 		}
+		this.logInfo("actor.nut PTR hook called");
+
+		local resetPerks = o.resetPerks;
+		o.resetPerks = function()
+		{
+			local hasDiscoveredTalent = false;
+			if (this.getSkills().hasSkill("perk.ptr_discovered_talent"))
+			{
+				hasDiscoveredTalent = true;
+			}
+
+			local hasRisingStar = false;
+			if (this.getSkills().hasSkill("perk.ptr_rising_star"))
+			{
+				hasRisingStar = true;
+			}
+
+			local hasPromisedPotential = false;
+			local promisedPotentialSkill = this.getSkills().getSkillByID("perk.ptr_promised_potential");
+			local promisedPotentialDetails = {};
+			if (promisedPotentialSkill != null)
+			{
+				this.logInfo("storing promised potential");
+				hasPromisedPotential = true;
+				promisedPotentialDetails.IsSpent <- promisedPotentialSkill.m.IsSpent;
+				promisedPotentialDetails.WillSucceed <- promisedPotentialSkill.m.WillSucceed;
+				if (promisedPotentialSkill.m.IsSpent && promisedPotentialSkill.m.WillSucceed)
+				{
+					promisedPotentialDetails.hasPunchingBag <- this.getSkills().hasSkill("perk.perk_ptr_punching_bag");
+					promisedPotentialDetails.hasTraumaSurvivor <- this.getSkills().hasSkill("perk.perk_ptr_trauma_survivor");
+				}
+			}
+
+			resetPerks();
+
+			if (hasDiscoveredTalent)
+			{
+				this.m.PerkPoints -= 1;
+				this.m.PerkPointsSpent += 1;
+				local dtPerk = this.new("scripts/skills/perks/perk_ptr_discovered_talent");
+				dtPerk.m.IsApplied = true;
+				this.getSkills().add(dtPerk);
+			}
+
+			if (hasRisingStar)
+			{
+				this.m.PerkPoints -= 1;
+				this.m.PerkPointsSpent += 1;
+				this.getSkills().add(this.new("scripts/skills/perks/perk_ptr_rising_star"));
+			}
+
+			if (hasPromisedPotential)
+			{
+				this.logInfo("adding promised potential");
+				this.m.PerkPoints -= 1;
+				this.m.PerkPointsSpent += 1;
+				local p = this.new("scripts/skills/perks/perk_ptr_promised_potential");
+				p.m.IsSet = true;
+				p.m.IsSpent = promisedPotentialDetails.IsSpent;
+				p.m.WillSucceed = promisedPotentialDetails.WillSucceed;
+				this.getSkills().add(p);
+
+				if (promisedPotentialDetails.hasPunchingBag)
+				{
+					this.m.PerkPointsSpent += 1;
+					this.getSkills().add(this.new("scripts/skills/perks/perk_ptr_punching_bag"));
+				}
+
+				if (promisedPotentialDetails.hasTraumaSurvivor)
+				{
+					this.m.PerkPointsSpent += 1;
+					this.getSkills().add(this.new("scripts/skills/perks/perk_ptr_trauma_survivor"));
+				}
+			}
+		}
 	});
 }
