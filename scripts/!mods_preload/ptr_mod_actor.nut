@@ -76,12 +76,24 @@ gt.Const.PTR.modActor <- function()
 		local checkMorale = o.checkMorale;
 		o.checkMorale = function( _change, _difficulty, _type = this.Const.MoraleCheckType.Default, _showIconBeforeMoraleIcon = "", _noNewLine = false )
 		{
-			if (this.isAlive() && !this.isDying() && _change > 0)
+			if (this.isAlive() && !this.isDying())
 			{
-				local skill = this.m.Skills.getSkillByID("perk.perk_legend_assured_conquest");
-				if (skill != null)
+				if (_change > 0)
 				{
-					_difficulty += skill.getBonusResAtPositiveMoraleCheck();
+					local acSkill = this.m.Skills.getSkillByID("perk.perk_legend_assured_conquest");
+					if (acSkill != null)
+					{
+						_difficulty += acSkill.getBonusResAtPositiveMoraleCheck();
+					}
+				}
+
+				if (_change < 0 && _type = this.Const.MoraleCheckType.MentalAttack)
+				{
+					local tsSkill = this.m.Skills.getSkillByID("perk.perk_ptr_trauma_survivor");
+					if (tsSkill != null)
+					{
+						_difficulty += tsSkill.getBonusRes();
+					}
 				}
 			}
 
