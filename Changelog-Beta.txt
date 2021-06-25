@@ -1,10 +1,21 @@
 ====================
-==== Ver 0.8.2b =====
+==== Ver 0.8.3 =====
+====================
+- The Talented perk group is now much rarer than before.
+- The Trained perk group is now slightly rarer than before.
+- AI will now make use of the 'Arrow to the Knee' and 'Follow Up' skills.
+- Fixed Nomad Slingers causing a crash.
+- Fixed Hyenas not getting the Soft Metal perk, which also messed up them getting some other perks.
+- Fixed Clarity bugging out when picking it.
+- Fixed Discovered Talent not applying the increased talents to other level ups.
+
+====================
+==== Ver 0.8.2b ====
 ====================
 - Fixed again some enemies not getting proper PTR perks and/or causing crash.
 
 ====================
-==== Ver 0.8.2a =====
+==== Ver 0.8.2a ====
 ====================
 - Hotfix: forgot to add the gfx folder in previous version.
 
