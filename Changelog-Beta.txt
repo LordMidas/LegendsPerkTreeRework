@@ -1,4 +1,11 @@
 ====================
+==== Ver 0.8.4 =====
+====================
+- The Trained perk group now less rare than before.
+- Fixed the Kingsguard event for sure this time.
+- Fixed Two for One perk description to now correctly mention that it reduces the Action Point cost by 1, instead of setting it to 3 for all the skills mentioned.
+
+====================
 ==== Ver 0.8.3 =====
 ====================
 - The Talented perk group is now rarer than before.
