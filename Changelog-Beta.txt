@@ -1,4 +1,10 @@
 ====================
+==== Ver 0.9.0 =====
+====================
+- Added new perks to the Pauper profession tree: "Promised Potential", "Punching Bag", and "Trauma Survivor".
+- Fixed the Survival Instinct perk sometimes causing the game to freeze when the combat is in the fleeing phase.
+
+====================
 ==== Ver 0.8.4 =====
 ====================
 - The Trained perk group now less rare than before.
