@@ -766,14 +766,9 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 	{
 		foreach( categoryName, category in _map )
 		{
-			if (this.Const.Perks.SkippedCategories.find(categoryName) != null)
-			{
-				continue;
-			}
-
 			foreach( treeEntry in category )
 			{
-				foreach( rowNumber, perksInRow in category.Tree.Tree )
+				foreach( rowNumber, perksInRow in treeEntry.Tree.Tree )
 				{
 					foreach( perk in perksInRow )
 					{

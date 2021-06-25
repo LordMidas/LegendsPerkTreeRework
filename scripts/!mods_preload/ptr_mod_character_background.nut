@@ -235,6 +235,36 @@ gt.Const.PTR.modCharacterBackground <- function()
 			return text;
 		}
 
+		o.getMins <- function()
+		{
+			local mins = this.m.PerkTreeDynamicMins;
+
+			if (this.World.Assets.getOrigin().getID() == "scenario.beast_hunters")
+			{
+				mins = this.m.PerkTreeDynamicMinsBeast;
+			}
+			else if (this.LegendsMod.Configs().LegendMagicEnabled())
+			{
+				mins = this.m.PerkTreeDynamicMinsMagic;
+			}
+
+			return mins;
+		}
+
+		o.rebuildPerkTree = function (_tree)
+		{
+			this.m.CustomPerkTree = _tree;
+
+			if (this.World.Assets.isLegendPerkTrees())
+			{
+				this.m.CustomPerkTree = this.Const.Perks.MergeDynamicPerkTree(_tree, this.Const.Perks.GetDynamicPerkTree(this.getMins(), this.m.PerkTreeDynamic).TreeMap);
+			}
+
+			local pT = this.Const.Perks.BuildCustomPerkTree(this.m.CustomPerkTree);
+			this.m.PerkTree = pT.Tree;
+			this.m.PerkTreeMap = pT.Map;
+		}
+
 		local onSerialize = o.onSerialize;
 		o.onSerialize = function(_out)
 		{
