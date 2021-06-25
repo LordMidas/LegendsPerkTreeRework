@@ -2,8 +2,8 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modPlayer <- function()
 {
-	::mods_hookClass("entity/tactical/player", function(o) {
-		::mods_override(o, "updateLevel", function()
+	::mods_hookExactClass("entity/tactical/player", function(o) {
+		o.updateLevel = function()
 		{
 			while (this.m.Level < this.Const.LevelXP.len() && this.m.XP >= this.Const.LevelXP[this.m.Level])
 			{
@@ -15,9 +15,17 @@ gt.Const.PTR.modPlayer <- function()
 					++this.m.PerkPoints;
 				}
 
-				if ((this.m.Level == 11 || this.m.Level == 7 && this.World.Assets.getOrigin().getID() == "scenario.manhunters" && this.getBackground().getID() == "background.slave") && this.m.Skills.hasSkill("perk.student"))
+				if ((this.m.Level == 11 || this.m.Level == 7 && this.World.Assets.getOrigin().getID() == "scenario.manhunters" && this.getBackground().getID() == "background.slave"))
 				{
-					++this.m.PerkPoints;
+					if (this.m.Skills.hasSkill("perk.student"))
+					{
+						++this.m.PerkPoints;
+					}
+					local promisedPotential = this.m.Skills.getSkillByID("perk.ptr_promised_potential");
+					if (promisedPotential.m.WillSucceed)
+					{
+						++this.m.PerkPoints;
+					}
 				}
 
 				if (this.m.Level == 13 && this.m.Skills.hasSkill("perk.ptr_rising_star"))
@@ -43,6 +51,6 @@ gt.Const.PTR.modPlayer <- function()
 					this.updateAchievement("TooStubbornToDie", 1, 1);
 				}
 			}
-		});
+		}
 	});
 }
