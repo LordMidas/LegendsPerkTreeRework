@@ -210,6 +210,17 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRWearsItWell <- "Wears it Well";
 	gt.Const.Strings.PerkDescription.PTRWearsItWell <- "Fatigue Recovery is increased by [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color] of your current Maximum Fatigue.\n[color=#0b0084]From the Large perk group[/color]";
 
+	gt.Const.Strings.PerkName.PTRPromisedPotential <- "Promised Potential";
+	gt.Const.Strings.PerkDescription.PTRPromisedPotential <- "This perk remains inert until level 11. Upon reaching level 11, it has a [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] chance of being replaced with \'Realized Potential\' which changes this character\'s background to Sellsword, increases all attributes by [color=" + this.Const.UI.Color.PositiveValue + "]+15[/color], and refunds all perk points, including the one spent on this perk. If unsuccessful, it is replaced by \'Failed Potential\' which does nothing.\n\nThe success chance is reduced by [color=" + this.Const.UI.Color.NegativeValue + "]-10%[/color] per perk point already spent before picking this perk. Perks obtained due to starting origin do not count towards reducing this chance.\n[color=#0b0084]From the Pauper perk group[/color]";
+	gt.Const.Strings.PerkName.PTRRealizedPotential <- "Realized Potential";
+	gt.Const.Strings.PerkDescription.PTRRealizedPotential <- "From rags to riches! This character has truly come a long way. Who was once a dreg of society and is now a full-fledged mercenary.\n\nAll perk points have been refunded, and attributes increased.\n[color=#0b0084]From the Pauper perk group[/color]";
+	gt.Const.Strings.PerkName.PTRFailedPotential <- "Failed Potential";
+	gt.Const.Strings.PerkDescription.PTRFailedPotential <- "This character looked promising, but either due to bad luck or simply lack of talent, they have not shown the potential you thought they had. This perk does nothing.\n[color=#0b0084]From the Pauper perk group[/color]";
+	gt.Const.Strings.PerkName.PTRPunchingBag <- "Punching Bag";
+	gt.Const.Strings.PerkDescription.PTRPunchingBag <- "This character is used to be beaten down. Trigger no Morale check on receiving damage.\n\nIf Realized Potential is a success, this perk will become permanent and the perk point will be refunded.\n[color=#0b0084]From the Pauper perk group[/color]";
+	gt.Const.Strings.PerkName.PTRTraumaSurvivor <- "Trauma Survivor";
+	gt.Const.Strings.PerkDescription.PTRTraumaSurvivor <- "This character\'s life has been a living hell, and they have gained a certain resilience. Resolve is increased by [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] against fear, panic and mind control effects.\n\nIf Realized Potential is a success, this perk will become permanent and the perk point will be refunded.\n[color=#0b0084]From the Pauper perk group[/color]";
+
 	gt.Const.Strings.PerkDescription.LegendClarity = "A well honed mind can perceive more in each instant, making time appear slower in key instants of need. Grants [color=" + this.Const.UI.Color.PositiveValue + "]+1[/color] Action Point. Does not work if you have Berserk or are dazed, drunk, hungover, taunted, staggered, horrified, concused or fleeing. Gain an additional [color=" + this.Const.UI.Color.PositiveValue + "]+1[/color] Action Point if under the effect of potions that improve cognition: Iron Will, Lionheart, Cat, Recovery or Hexen Ichor. \n[color=#0b0084]From the Calm perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendClarity].Tooltip = gt.Const.Strings.PerkDescription.LegendClarity;
 
