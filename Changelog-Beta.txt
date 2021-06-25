@@ -1,8 +1,8 @@
 ====================
 ==== Ver 0.8.3 =====
 ====================
-- The Talented perk group is now much rarer than before.
-- The Trained perk group is now slightly rarer than before.
+- The Talented perk group is now rarer than before.
+- The Trained perk group is now rarer than before.
 - AI will now make use of the 'Arrow to the Knee' and 'Follow Up' skills.
 - Fixed Nomad Slingers causing a crash.
 - Fixed Hyenas not getting the Soft Metal perk, which also messed up them getting some other perks.
