@@ -12,13 +12,12 @@ this.perk_ptr_through_the_gaps <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
-		if (_skill.isAttack() && _skill.m.InjuriesOnBody == this.Const.Injury.PiercingBody)
+		if (_targetEntity != null && _skill.isAttack() && !_skill.isRanged() && _skill.hasPiercingDamage())
 		{
 			_properties.DamageDirectAdd += 0.1;
 		}
 	}
 });
-
