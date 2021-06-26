@@ -8,7 +8,7 @@ gt.Const.PTR.modActor <- function()
 		o.onDeath = function( _killer, _skill, _tile, _fatalityType )
 		{
 			oldOnDeath(_killer, _skill, _tile, _fatalityType);
-			if (_fatalityType != this.Const.FatalityType.None && this.Tactical.TurnSequenceBar.getActiveEntity() != null && _killer != null && this.Tactical.TurnSequenceBar.getActiveEntity().getID() == _killer.getID())
+			if (_fatalityType != this.Const.FatalityType.None && _killer != null && this.Tactical.TurnSequenceBar.getActiveEntity() != null && this.Tactical.TurnSequenceBar.getActiveEntity().getID() == _killer.getID())
 			{
 				if (_killer.getSkills().hasSkill("perk.ptr_bloodbath"))
 				{
@@ -21,7 +21,7 @@ gt.Const.PTR.modActor <- function()
 				if (sanguinaryPerk != null)
 				{
 					local fatigueCostRefund = this.Math.floor(_skill.getFatigueCost() * sanguinaryPerk.m.FatigueCostRefundPercentage * 0.01);
-					_killer.setFatigue(this.Math.max(0, actor.getFatigue() - fatigueCostRefund));
+					_killer.setFatigue(this.Math.max(0, _killer.getFatigue() - fatigueCostRefund));
 				}
 			}
 		}
