@@ -21,8 +21,9 @@ gt.Const.PTR.modPlayer <- function()
 					{
 						++this.m.PerkPoints;
 					}
+					
 					local promisedPotential = this.m.Skills.getSkillByID("perk.ptr_promised_potential");
-					if (promisedPotential.m.WillSucceed)
+					if (promisedPotential != null && promisedPotential.m.WillSucceed)
 					{
 						++this.m.PerkPoints;
 					}
