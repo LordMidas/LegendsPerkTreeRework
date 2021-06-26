@@ -883,7 +883,11 @@ gt.Const.PTR.modEnemies <- function()
 		o.assignRandomEquipment = function()
 		{
 			assignRandomEquipment();
-			this.m.Skills.addTreeOfEquippedWeapon(3);
+			if (this.isArmedWithMeleeWeapon())
+			{
+				this.m.Skills.addTreeOfEquippedWeapon(3);
+			}
+
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_str_phalanx"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_hip_shooter"));
 		}
