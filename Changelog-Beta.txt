@@ -1,3 +1,9 @@
+=====================
+==== Ver 0.9.0a =====
+=====================
+- Fixed a crash/freeze when a bro levels up after a battle in some cases.
+- Fixed Heft tooltip to now correctly mention 30% instead of 33%.
+
 ====================
 ==== Ver 0.9.0 =====
 ====================
