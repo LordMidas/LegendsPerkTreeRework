@@ -59,7 +59,7 @@ this.perk_ptr_cull <- this.inherit("scripts/skills/skill", {
 		}
 
 		local actor = this.getContainer().getActor();
-		if (!_skill.isAttack() || !this.isEnabled(_skill) || !_targetEntity.isAlive() || _targetEntity.isAlliedWith(actor))
+		if (!_skill.isAttack() || !_targetEntity.isAlive() || _targetEntity.isDying() || _targetEntity.isAlliedWith(actor) || !this.isEnabled(_skill))
 		{
 			return;
 		}
@@ -74,11 +74,11 @@ this.perk_ptr_cull <- this.inherit("scripts/skills/skill", {
 		local threshold = this.getThreshold(actor.getMainhandItem());
 		if (_targetEntity.getHitpoints() / (_targetEntity.getHitpointsMax() * 1.0) < threshold)
 		{
-			_targetEntity.kill(actor, _skill)
 			if (!actor.isHiddenToPlayer() && _targetEntity.getTile().IsVisibleForPlayer)
 			{
-				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " has culled " + this.Const.UI.getColorizedEntityName(_targetEntity));
+				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " is going to cull " + this.Const.UI.getColorizedEntityName(_targetEntity));
 			}
+			_targetEntity.kill(actor, _skill);
 		}
 	}
 });
