@@ -1,4 +1,15 @@
 =====================
+==== Ver 0.9.2 ======
+=====================
+- Feint (Sword group t2) now only works with Melee attacks.
+- Through the Gaps (Spear group t3) now only works with Melee attacks.
+- Improved Sanguinary description to mention that the refund is based on the Base Fatigue Cost of the skill and not the reduced cost after all reductions from other perks and effects.
+- Improved the description of Feint to mention the same as above.
+- Fixed a bug in Phalanx which may have caused it to work in more situations than intended.
+- Fixed a bug in Cull which may have caused a crash when this perk killed an enemy.
+- Fixed a bug in Sanguinary which did not refund the cost of the skill properly.
+
+=====================
 ==== Ver 0.9.1 ======
 =====================
 - Made the "Organized" perk group less rare on several ranged oriented backgrounds.
