@@ -23,7 +23,7 @@ this.perk_ptr_tunnel_vision <- this.inherit("scripts/skills/skill", {
 
 	function onAdded()
 	{
-		if (this.getContainer().getActor().isPlacedOnMap())
+		if ("State" in this.Tactical)
 		{
 			if (!this.World.getTime().IsDaytime)
 			{

@@ -41,14 +41,6 @@ this.perk_ptr_fresh_and_furious <- this.inherit("scripts/skills/skill", {
 		return tooltip;
 	}
 
-	function onAdded()
-	{
-		if (this.getContainer().getActor().isPlacedOnMap())
-		{
-			this.m.IsInCombat = true;
-		}
-	}
-
 	function getBonus()
 	{
 		if (!this.m.IsInCombat)
@@ -71,7 +63,7 @@ this.perk_ptr_fresh_and_furious <- this.inherit("scripts/skills/skill", {
 
 	function onAdded()
 	{
-		if (this.getContainer().getActor().isPlacedOnMap())
+		if ("State" in this.Tactical)
 		{
 			this.m.IsInCombat = true;
 		}

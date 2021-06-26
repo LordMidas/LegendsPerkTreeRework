@@ -69,7 +69,7 @@ this.perk_ptr_patience <- this.inherit("scripts/skills/skill", {
 
 	function onAdded()
 	{
-		if (this.getContainer().getActor().isPlacedOnMap())
+		if ("State" in this.Tactical)
 		{
 			this.m.IsCombatStarted = true;
 			this.m.HasMoved = false;
