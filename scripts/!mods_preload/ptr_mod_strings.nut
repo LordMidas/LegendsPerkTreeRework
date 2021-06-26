@@ -38,7 +38,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTROpenWounds <- "Deep Cuts";
 	gt.Const.Strings.PerkDescription.PTROpenWounds <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Damage Type: Cutting[/color]\n\nEvery second attack against the same target will inflict an additional stack of Bleeding.\n[color=#0b0084]From the Cleaver perk group[/color]";
 	gt.Const.Strings.PerkName.PTRSanguinary <- "Sanguinary";
-	gt.Const.Strings.PerkDescription.PTRSanguinary <- "The chance to inflict fatalities is increased by [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color]. Fatalities refund [color=" + this.Const.UI.Color.PositiveValue + "]25%[/color] of the Fatigue Cost of the skill used.\n[color=#0b0084]From the Cleaver perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRSanguinary <- "The chance to inflict fatalities is increased by [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color]. Fatalities refund [color=" + this.Const.UI.Color.NegativeValue + "]25%[/color] of the Base Fatigue Cost of the skill used.\n[color=#0b0084]From the Cleaver perk group[/color]";
 	gt.Const.Strings.PerkName.PTRBloodlust <- "Bloodlust";
 	gt.Const.Strings.PerkDescription.PTRBloodlust <- "When adjacent to Bleeding enemies, skills build up [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] less Fatigue for each stack of Bleeding. Additionally, Fatigue Recovery is increased by [color=" + this.Const.UI.Color.PositiveValue + "]+1[/color] per stack of Bleeding on adjacent enemies at the end of your turn.\n[color=#0b0084]From the Cleaver perk group[/color]";
 	gt.Const.Strings.PerkName.PTRBloodbath <- "Bloodbath";
@@ -124,7 +124,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRImpaler <- "Impaler";
 	gt.Const.Strings.PerkDescription.PTRImpaler <- "Piercing attacks have a [color=" + this.Const.UI.Color.NegativeValue + "]15%[/color] lower damage threshold to inflict injury.\n[color=#0b0084]From the Spear perk group[/color]";
 	gt.Const.Strings.PerkName.PTRThroughTheGaps <- "Through the Gaps";
-	gt.Const.Strings.PerkDescription.PTRThroughTheGaps <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Damage Type: Piercing[/color]\n\nPiercing attacks ignore an additional [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of the target's armor.\n[color=#0b0084]From the Spear perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRThroughTheGaps <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Damage Type: Piercing, Melee[/color]\n\nMelee piercing attacks ignore an additional [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of the target's armor.\n[color=#0b0084]From the Spear perk group[/color]";
 	gt.Const.Strings.PerkName.PTRTwoForOne <- "Two for One";
 	gt.Const.Strings.PerkDescription.PTRTwoForOne <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Spear[/color]\n\nWhen using a spear, the Action Point cost of Thrust, Prong and Glaive Slash is reduced by [color=" + this.Const.UI.Color.NegativeValue + "]1[/color].\n[color=#0b0084]From the Spear perk group[/color]";
 	gt.Const.Strings.PerkName.PTRABetterGrip <- "A Better Grip";
@@ -134,6 +134,8 @@ gt.Const.PTR.modStrings <- function()
 
 	gt.Const.Strings.PerkName.PTRVersatileWeapon <- "Versatile Weapon";
 	gt.Const.Strings.PerkDescription.PTRVersatileWeapon <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Sword[/color]\n\nWhen wielding a sword, gain [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] damage, [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] armor penetration and [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] armor effectiveness.\n[color=#0b0084]From the Sword perk group[/color]";
+	gt.Const.Strings.PerkDescription.Feint = "[color=" + this.Const.UI.Color.NegativeValue + "]Required Attack Type: Melee[/color]\n\nIf an attack misses, [color=" + this.Const.UI.Color.NegativeValue + "]20%[/color] of the Base Fatigue Cost of the skill is refunded, and you leave your opponent parried, lowering their defenses by [color=" + this.Const.UI.Color.NegativeValue + "]-10[/color].\n[color=#0b0084]From the Sword perk group[/color]",
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Feint].Tooltip = gt.Const.Strings.PerkDescription.Feint;
 	gt.Const.Strings.PerkName.PTRHeightenedReflexes <- "Heightened Reflexes";
 	gt.Const.Strings.PerkDescription.PTRHeightenedReflexes <- "Gain [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] of your Base Melee Defense as Initiative.\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Strings.PerkName.PTRTempo <- "Tempo";
@@ -279,9 +281,6 @@ gt.Const.PTR.modStrings <- function()
 
 	gt.Const.Strings.PerkDescription.Lookout = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Lookout, "Sling");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Lookout].Tooltip = gt.Const.Strings.PerkDescription.Lookout;
-
-	gt.Const.Strings.PerkDescription.Feint = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Feint, "Sword");
-	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Feint].Tooltip = gt.Const.Strings.PerkDescription.Feint;
 
 	gt.Const.Strings.PerkDescription.LegendOnslaught = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendOnslaught, "Staff");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendOnslaught].Tooltip = gt.Const.Strings.PerkDescription.LegendOnslaught;
