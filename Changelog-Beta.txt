@@ -1,4 +1,12 @@
 =====================
+==== Ver 0.9.1 ======
+=====================
+- Made the "Organized" perk group less rare on several ranged oriented backgrounds.
+- The Ranger and Ranger Commander backgrounds will now always have the Bags and Belts perk.
+- Fixed Embalmed Slaves getting more perks than intended if they spawned with a bow.
+- Fixed some perks not getting activated on enemies. These include: Fresh and Furious, Entrenched, Patience, Hip Shooter, Tunnel Vision, and Whack a' Smack.
+
+=====================
 ==== Ver 0.9.0a =====
 =====================
 - Fixed a crash/freeze when a bro levels up after a battle in some cases.
