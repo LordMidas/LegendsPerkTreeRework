@@ -47,7 +47,7 @@ this.perk_ptr_promised_potential <- this.inherit("scripts/skills/skill", {
 
 	function onUpdate(_properties)
 	{
-		if (this.m.IsSpent && !this.m.VisualsUpdated)
+		if (this.m.IsSpent && !this.m.IsVisualsUpdated)
 		{
 			this.updatePerkVisuals();
 		}
