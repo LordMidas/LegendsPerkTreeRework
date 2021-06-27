@@ -14,7 +14,7 @@ gt.Const.PTR.modActor <- function()
 				{
 					_killer.setActionPoints(this.Math.min(_killer.getActionPointsMax(), _killer.getActionPoints() + 3));
 					_killer.setDirty(true);
-					_skill.spawnIcon("ptr_bloodbath", _killer.getTile());
+					_skill.spawnIcon("perk_ptr_bloodbath", _killer.getTile());
 				}
 
 				local sanguinaryPerk = _killer.getSkills().getSkillByID("perk.ptr_sanguinary");
