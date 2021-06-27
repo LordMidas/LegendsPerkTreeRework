@@ -4,7 +4,8 @@ this.perk_ptr_promised_potential <- this.inherit("scripts/skills/skill", {
 		ChanceToSucceed = 50,
 		IsSet = false,
 		IsSpent = false,
-		WillSucceed = true
+		WillSucceed = true,
+		IsVisualsUpdated = false
 	},
 	function create()
 	{
@@ -40,15 +41,20 @@ this.perk_ptr_promised_potential <- this.inherit("scripts/skills/skill", {
 				}
 			}
 		}
+
+		this.m.IsVisualsUpdated = true;
+	}
+
+	function onUpdate(_properties)
+	{
+		if (this.m.IsSpent && !this.m.VisualsUpdated)
+		{
+			this.updatePerkVisuals();
+		}
 	}
 
 	function onAdded()
 	{
-		if (this.m.IsSpent)
-		{
-			this.updatePerkVisuals();
-		}
-
 		if (this.m.IsSet)
 		{
 			return;
