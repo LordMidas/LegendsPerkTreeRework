@@ -9,7 +9,7 @@ this.ptr_follow_up_effect <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "effects.ptr_follow_up";
 		this.m.Name = "Follow Up";
-		this.m.Description = "Every time an enemy gets hit in this character\'s attack range by an ally, this character gains a free attack that does reduced damage. These free attacks can be used during this character\'s turn. This effect is immediately removed if this character moves or is engaged in Melee.";
+		this.m.Description = "Every time an enemy gets hit in this character\'s attack range by an ally, this character gains a free attack that does reduced damage. These free attacks can be used during this character\'s turn. This effect ends immediately if this character moves or is engaged in Melee.";
 		this.m.Icon = "ui/perks/ptr_follow_up.png";
 		//this.m.IconMini = "ptr_follow_up_effect_mini";
 		this.m.Type = this.Const.SkillType.StatusEffect;
@@ -72,7 +72,7 @@ this.ptr_follow_up_effect <- this.inherit("scripts/skills/skill", {
 		}
 
 		local weapon = actor.getMainhandItem();
-		if (weapon == null || weapon.getCategories().find("Polearm") == null)
+		if (weapon == null || !weapon.isItemType(this.Const.Items.ItemType.TwoHanded) || !weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon))
 		{
 			return false;
 		}
