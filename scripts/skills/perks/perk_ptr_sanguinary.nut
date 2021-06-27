@@ -36,7 +36,7 @@ this.perk_ptr_sanguinary <- this.inherit("scripts/skills/skill", {
 		if (this.m.IsTargetBleeding)
 		{
 			local actor = this.getContainer().getActor();
-			actor.setMoraleState(this.Math.max(this.Const.MoraleState.Confident, actor.getMoraleState() + 1));
+			actor.setMoraleState(this.Math.min(this.Const.MoraleState.Confident, actor.getMoraleState() + 1));
 		}
 	}
 });
