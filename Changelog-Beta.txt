@@ -1,4 +1,9 @@
 =====================
+==== Ver 0.9.3 ======
+=====================
+- Fixed Flail Spinner causing a chain reaction with 3-headed Flails. The skill has been refactored in code and now works with specific skills only i.e. the Flail, Lash, Cascade, Hail, and Pound skills.
+
+=====================
 ==== Ver 0.9.2 ======
 =====================
 - Feint (Sword group t2) now only works with Melee attacks.
