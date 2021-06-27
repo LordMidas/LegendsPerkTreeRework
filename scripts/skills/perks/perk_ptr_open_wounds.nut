@@ -1,6 +1,7 @@
 this.perk_ptr_open_wounds <- this.inherit("scripts/skills/skill", {
 	m = {
-		ChanceOtherWeapon = 25
+    TargetID = -1,
+		NumInjuriesBefore = 0
 	},
 	function create()
 	{
@@ -15,46 +16,54 @@ this.perk_ptr_open_wounds <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
+  function onTurnStart()
+  {
+    this.m.TargetID = -1;
+  }
+
+	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
+	{
+		if (this.m.TargetID == _targetEntity.getID())
+    {
+      return;
+    }
+    else
+    {
+      this.m.NumInjuriesBefore = _targetEntity.getSkills().getAllSkillsOfType(this.Const.SkillType.TemporaryInjury).len();
+		}
+	}
+
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		if (!_skill.isAttack() || !_targetEntity.isAlive() || _damageInflictedHitpoints < this.Const.Combat.MinDamageToApplyBleeding || !_targetEntity.getSkills().hasSkillOfType(this.Const.SkillType.TemporaryInjury))
+		if (!_skill.isAttack() || !_skill.hasCuttingDamage() || !_targetEntity.isAlive() || _targetEntity.isDying() || _targetEntity.getCurrentProperties().IsImmuneToBleeding || _damageInflictedHitpoints < this.Const.Combat.MinDamageToApplyBleeding)
 		{
 			return;
 		}
 
-		if (_skill.m.InjuriesOnBody == this.Const.Injury.CuttingBody || _skill.m.InjuriesOnBody == this.Const.Injury.PiercingBody)
+		if (this.m.TargetID == _targetEntity.getID())
+    {
+      this.m.TargetID = -1;
+    }
+    else
+    {
+      this.m.TargetID = _targetEntity.getID();
+      return;
+    }
+
+		local actor = this.getContainer().getActor();
+    local effect = this.new("scripts/skills/effects/bleeding_effect");
+
+    if (actor.getFaction() == this.Const.Faction.Player)
+    {
+      effect.setActor(this.getContainer().getActor());
+    }
+
+    local skillID = _skill.getID();
+    if (_targetEntity.getSkills().getAllSkillsOfType(this.Const.SkillType.TemporaryInjury).len() > this.m.NumInjuriesBefore)
 		{
-			local actor = this.getContainer().getActor();
-			local weapon = actor.getMainhandItem();
-
-			local isCleaver = false;
-			if (weapon != null && weapon.getCategories().find("Cleaver") != null)
-			{
-				isCleaver = true;
-			}
-
-			local roll = this.Math.rand(1, 100);
-			if (isCleaver || roll <= this.m.ChanceOtherWeapon)
-			{
-				local effect = this.new("scripts/skills/effects/bleeding_effect");
-
-				if (actor.getFaction() == this.Const.Faction.Player)
-				{
-					effect.setActor(this.getContainer().getActor());
-				}
-
-				local skillID = _skill.getID();
-				if (skillID == "actives.cleave" || skillID == "actives.whip")
-				{
-					effect.setDamage(actor.getCurrentProperties().IsSpecializedInCleavers ? 10 : 5);
-				}
-				else if (skillID == "actives.hyena_bite_skill")
-				{
-					effect.setDamage(actor.isHigh() ? 10 : 5);
-				}
-
-				_targetEntity.getSkills().add(effect);
-			}
+			effect.setDamage(10);
 		}
+
+    _targetEntity.getSkills().add(effect);
 	}
 });
