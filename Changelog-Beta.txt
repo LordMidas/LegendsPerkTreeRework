@@ -1,4 +1,9 @@
 ======================
+==== Ver 0.9.3d ======
+======================
+- Fixed a crash when starting a battle against goblins with a miniboss Goblin Fighter.
+
+======================
 ==== Ver 0.9.3c ======
 ======================
 - Really fixed the bug in Promised Potential.
