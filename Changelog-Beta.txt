@@ -1,7 +1,18 @@
 =====================
 ==== Ver 0.9.3 ======
 =====================
+== Balance ==
+- At Legendary Difficulty, the following enemies no longer have the Vengeance perk: Zweihander, Ancient Honorguard (except if bodyguard), Armored Wiedeganger, Barbarian Chosen, Nomad Executioner, Orc Warrior, Fallen Hero.
+- Removed the base armor penetration bonus that master archers have in vanilla (they had a 25% bonus).
+
+== Perks ==
 - Follow Up skill reworked (due to AI crashing issues): Until your next turn, any enemy in your attack range who gets hit by an ally adds 1 charge to this effect. During your next turn, you can use your primary attack skill freely for as many times as you have charges. These free attacks do -50% damage and an additional -10% for each next attack. Once all charges are used up the effect expires and you return back to the usual costs and damage of your attack. If at any point, you move from your position, or are engaged in Melee, this effect ends immediately and all charges are lost.
+- Sanguinary tweaked: In addition to the previous effects, attacking bleeding targets improves this character's morale by 1 level and inflicting a fatality immediately sets the Morale to Confident.
+- Deep Cuts tweaked: Every second attack against the same target applies an additional stack of bleeding of 5 damage. This damage is increased to 10 if any of these two attacks inflicted an injury.
+- Bloodlust tweaked: Every attack against a bleeding target reduces current Fatigue by 5% per stack of bleeding on the target, and increases Fatigue Recovery by +1 per stack of Bleeding on the target.
+- Improved the tooltip of the Survival Instinct effect. It now shows the number of stacks in the effect's name.
+
+== Fixes ==
 - Fixed Flail Spinner causing a chain reaction with 3-headed Flails. The skill has been refactored in code and now works with specific skills only i.e. the Flail, Lash, Cascade, Hail, and Pound skills.
 - Fixed Follow Up sometimes causing issues with vanilla AI evaluation when it procced and killed a target. The perk has been reworked to allow this fix as mentioned above.
 
