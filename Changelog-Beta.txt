@@ -1,4 +1,10 @@
 ======================
+==== Ver 0.9.3b ======
+======================
+- Changed Serpents perks on Legendary difficulty: No longer have Vengeance and Light Weapon (so now they can't attack 2 times per turn), and instead gain poison attack for 4 attacks.
+- Fixed a bug in the Promised Potential perk that made saved games with the perk unable to be loaded after level 11.
+
+======================
 ==== Ver 0.9.3a ======
 ======================
 - Fixed a bug with the Sanguinary perk when killing an enemy.
