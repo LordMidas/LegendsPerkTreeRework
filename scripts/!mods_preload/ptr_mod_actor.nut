@@ -22,6 +22,10 @@ gt.Const.PTR.modActor <- function()
 				{
 					local fatigueCostRefund = this.Math.floor(_skill.getFatigueCost() * sanguinaryPerk.m.FatigueCostRefundPercentage * 0.01);
 					_killer.setFatigue(this.Math.max(0, _killer.getFatigue() - fatigueCostRefund));
+					if (_killer.getMoraleState() != this.Const.MoraleState.Ignore && _killer.getMoraleState() != this.Const.MoraleState.Fleeing)
+					{
+						_killer.setMoraleState(this.Const.MoraleState.Confident);
+					}
 				}
 			}
 		}
