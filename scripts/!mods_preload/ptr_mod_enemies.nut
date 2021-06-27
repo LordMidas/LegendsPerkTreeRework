@@ -1408,11 +1408,10 @@ gt.Const.PTR.modEnemies <- function()
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_vengeance"));
+				local poisonEffect = this.new("scripts/skills/effects/poison_coat_effect");
+				poisonEffect.m.Name = "Serpent Venom";
+				this.m.Skills.add(poisonEffect);
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_adrenalin"));
-				local lightWeaponPerk = this.new("scripts/skills/perks/perk_ptr_light_weapon");
-				lightWeaponPerk.m.IsForceEnabled = true;
-				this.m.Skills.add(lightWeaponPerk);
 			}
 		}
 	});
