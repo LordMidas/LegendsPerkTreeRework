@@ -17,6 +17,11 @@ this.perk_ptr_survival_instinct <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = true;
 	}
 
+	function getName()
+	{
+		return this.m.Stacks == 0 ? this.m.Name : this.m.Name + " x(" + this.m.Stacks + ")";
+	}
+
 	function isHidden()
 	{
 		return this.m.Stacks == 0;
