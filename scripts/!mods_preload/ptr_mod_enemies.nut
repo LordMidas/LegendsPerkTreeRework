@@ -508,7 +508,7 @@ gt.Const.PTR.modEnemies <- function()
 			{
 				this.m.Skills.addTreeOfEquippedWeapon();
 				this.m.Skills.addPerkTree(this.Const.Perks.DaggerTree);
-				this.m.Skills.addPerkTree(this.Const.Perks.OneHanded);
+				this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
 				this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
 				this.m.Skills.addPerkTree(this.Const.Perks.ThrowingTree, 4);
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_overwhelm"));
