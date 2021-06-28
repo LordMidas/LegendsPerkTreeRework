@@ -1,4 +1,12 @@
 ======================
+==== Ver 0.9.3e ======
+======================
+- Rearranged the Clerk perk group: Paymaster is now t6 and Bribe is t7.
+- Unstoppable now shows the number of stacks in the tooltip's name.
+- Fixed Sanguinary causing issues in battles when an Undead attacker attacked a bleeding target.
+- Fixed Flail Spinner causing crash when the first attack killed the target.
+
+======================
 ==== Ver 0.9.3d ======
 ======================
 - Fixed a crash when starting a battle against goblins with a miniboss Goblin Fighter.
