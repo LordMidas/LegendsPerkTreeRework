@@ -24,7 +24,7 @@ this.perk_ptr_flail_spinner <- this.inherit("scripts/skills/skill", {
 			return ret;
 		}
 
-		if (this.Tactical.TurnSequenceBar.getActiveEntity().getID() == _user.getID() && (!_user.isHiddenToPlayer() || _targetTile.IsVisibleForPlayer))
+		if (this.Tactical.TurnSequenceBar.getActiveEntity().getID() != null && this.Tactical.TurnSequenceBar.getActiveEntity().getID() == _user.getID() && (!_user.isHiddenToPlayer() || _targetTile.IsVisibleForPlayer))
 		{
 			if (!_user.isHiddenToPlayer() && _targetTile.IsVisibleForPlayer)
 			{

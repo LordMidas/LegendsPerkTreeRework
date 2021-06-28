@@ -11,7 +11,7 @@ gt.Const.PTR.modSkills <- function()
 
 			if (!target.isAlive())
 			{
-				return;
+				return ret;
 			}
 
 			local flailSpinnerPerk = this.getContainer().getSkillByID("perk.ptr_flail_spinner");
@@ -33,7 +33,7 @@ gt.Const.PTR.modSkills <- function()
 
 			if (!target.isAlive())
 			{
-				return;
+				return ret;
 			}
 
 			local flailSpinnerPerk = this.getContainer().getSkillByID("perk.ptr_flail_spinner");
@@ -55,7 +55,7 @@ gt.Const.PTR.modSkills <- function()
 
 			if (!target.isAlive())
 			{
-				return;
+				return ret;
 			}
 
 			local flailSpinnerPerk = this.getContainer().getSkillByID("perk.ptr_flail_spinner");
@@ -77,7 +77,7 @@ gt.Const.PTR.modSkills <- function()
 
 			if (!target.isAlive())
 			{
-				return;
+				return ret;
 			}
 
 			local flailSpinnerPerk = this.getContainer().getSkillByID("perk.ptr_flail_spinner");
@@ -99,7 +99,7 @@ gt.Const.PTR.modSkills <- function()
 
 			if (!target.isAlive())
 			{
-				return;
+				return ret;
 			}
 
 			local flailSpinnerPerk = this.getContainer().getSkillByID("perk.ptr_flail_spinner");
@@ -121,7 +121,7 @@ gt.Const.PTR.modSkills <- function()
 
 			if (!target.isAlive())
 			{
-				return;
+				return ret;
 			}
 
 			local flailSpinnerPerk = this.getContainer().getSkillByID("perk.ptr_flail_spinner");
@@ -143,7 +143,7 @@ gt.Const.PTR.modSkills <- function()
 
 			if (!target.isAlive())
 			{
-				return;
+				return ret;
 			}
 
 			local flailSpinnerPerk = this.getContainer().getSkillByID("perk.ptr_flail_spinner");
