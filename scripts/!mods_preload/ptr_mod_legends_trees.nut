@@ -464,16 +464,16 @@ gt.Const.PTR.modClassTrees <- function()
 			[],
 			[],
 			[],
-			[
-				gt.Const.Perks.PerkDefs.LegendPaymaster
-			],
+			[],
 			[
 				gt.Const.Perks.PerkDefs.LegendDangerPay
 			],
 			[
-				gt.Const.Perks.PerkDefs.LegendBribe
+				gt.Const.Perks.PerkDefs.LegendPaymaster
 			],
-			[]
+			[
+				gt.Const.Perks.PerkDefs.LegendBribe
+			]
 		]
 	};
 
