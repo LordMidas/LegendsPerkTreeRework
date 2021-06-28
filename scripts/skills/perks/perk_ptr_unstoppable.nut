@@ -17,6 +17,11 @@ this.perk_ptr_unstoppable <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = true;
 	}
 
+	function getName()
+	{
+		return this.m.Stacks == 0 ? this.m.Name : this.m.Name + " (x" + this.m.Stacks + ")";
+	}
+
 	function getDescription()
 	{
 		return "This character\'s attacks seem to not miss at all.";
