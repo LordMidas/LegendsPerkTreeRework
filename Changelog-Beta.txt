@@ -1,4 +1,9 @@
 ======================
+==== Ver 0.9.3f ======
+======================
+- Fixed a crash when a bro with a flail killed a fleeing enemy.
+
+======================
 ==== Ver 0.9.3e ======
 ======================
 - Rearranged the Clerk perk group: Paymaster is now t6 and Bribe is t7.
