@@ -6,8 +6,8 @@ gt.Const.PTR.modSkills <- function()
 		local onUse = o.onUse;
 		o.onUse = function( _user, _targetTile )
 		{
-			local ret = onUse( _user, _targetTile );
 			local target = _targetTile.getEntity();
+			local ret = onUse( _user, _targetTile );
 
 			if (!target.isAlive())
 			{
@@ -28,8 +28,8 @@ gt.Const.PTR.modSkills <- function()
 		local onUse = o.onUse;
 		o.onUse = function( _user, _targetTile )
 		{
-			local ret = onUse( _user, _targetTile );
 			local target = _targetTile.getEntity();
+			local ret = onUse( _user, _targetTile );
 
 			if (!target.isAlive())
 			{
@@ -50,8 +50,8 @@ gt.Const.PTR.modSkills <- function()
 		local onUse = o.onUse;
 		o.onUse = function( _user, _targetTile )
 		{
-			local ret = onUse( _user, _targetTile );
 			local target = _targetTile.getEntity();
+			local ret = onUse( _user, _targetTile );
 
 			if (!target.isAlive())
 			{
@@ -72,8 +72,8 @@ gt.Const.PTR.modSkills <- function()
 		local onUse = o.onUse;
 		o.onUse = function( _user, _targetTile )
 		{
-			local ret = onUse( _user, _targetTile );
 			local target = _targetTile.getEntity();
+			local ret = onUse( _user, _targetTile );
 
 			if (!target.isAlive())
 			{
@@ -94,8 +94,8 @@ gt.Const.PTR.modSkills <- function()
 		local onUse = o.onUse;
 		o.onUse = function( _user, _targetTile )
 		{
-			local ret = onUse( _user, _targetTile );
 			local target = _targetTile.getEntity();
+			local ret = onUse( _user, _targetTile );
 
 			if (!target.isAlive())
 			{
@@ -116,8 +116,8 @@ gt.Const.PTR.modSkills <- function()
 		local onUse = o.onUse;
 		o.onUse = function( _user, _targetTile )
 		{
-			local ret = onUse( _user, _targetTile );
 			local target = _targetTile.getEntity();
+			local ret = onUse( _user, _targetTile );
 
 			if (!target.isAlive())
 			{
@@ -138,8 +138,8 @@ gt.Const.PTR.modSkills <- function()
 		local onUse = o.onUse;
 		o.onUse = function( _user, _targetTile )
 		{
-			local ret = onUse( _user, _targetTile );
 			local target = _targetTile.getEntity();
+			local ret = onUse( _user, _targetTile );
 
 			if (!target.isAlive())
 			{
