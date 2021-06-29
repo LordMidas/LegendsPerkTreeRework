@@ -1,4 +1,9 @@
 ======================
+==== Ver 0.9.3g ======
+======================
+- Fixed the Unstoppable perk sometimes causing the battle to freeze upon taking damage, as the game thought the damage came from a "null" skill.
+
+======================
 ==== Ver 0.9.3f ======
 ======================
 - Fixed a crash when a bro with a flail killed a fleeing enemy.
