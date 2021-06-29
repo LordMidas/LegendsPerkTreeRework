@@ -51,7 +51,7 @@ this.ptr_dismantled_effect <- this.inherit("scripts/skills/skill", {
 				id = 10,
 				type = "text",
 				icon = "ui/icons/direct_damage.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + (this.m.HeadHitCount * this.m.DamageIncrease) + "%[/color] Damage Received through Head Armor"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]+" + (this.m.HeadHitCount * this.m.DamageIncrease) + "%[/color] Damage received through Head Armor"
 			});
 		}
 
@@ -61,7 +61,7 @@ this.ptr_dismantled_effect <- this.inherit("scripts/skills/skill", {
 				id = 10,
 				type = "text",
 				icon = "ui/icons/direct_damage.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + (this.m.BodyHitCount * this.m.DamageIncrease) + "%[/color] Damage Received through Body Armor"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]+" + (this.m.BodyHitCount * this.m.DamageIncrease) + "%[/color] Damage received through Body Armor"
 			});
 		}
 
@@ -75,7 +75,7 @@ this.ptr_dismantled_effect <- this.inherit("scripts/skills/skill", {
 
 	function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
 	{
-		if (_skill == null || !_skill.isAttack() || _attacker != null || _attacker.getID() == this.getContainer().getActor().getID())
+		if (_skill == null || !_skill.isAttack() || _attacker == null || _attacker.getID() == this.getContainer().getActor().getID())
 		{
 			return;
 		}
