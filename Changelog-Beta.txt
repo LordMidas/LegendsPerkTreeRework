@@ -1,4 +1,30 @@
 ======================
+==== Ver 0.10.0 ======
+======================
+== Major changes ==
+- Removed Unstoppable Force from t7 Heavy Armor perk group.
+- New t7 Heavy Armor perk: "Man of Steel". Reduces armor penetrating damage to Hitpoints received from ranged attacks by up to 30%. The bonus increases exponentially with total head and body armor of higher maximum durability.
+- Reworked "Freedom of Movement": Now provides 5 + 10% of your Maximum Fatigue after gear as a constant bonus to Melee Skill and Melee Defense. The bonus decreases exponentially when wearing armor heavier than -15 fatigue.
+- Moved Freedom of Movement to t5 of the Light Armor perk group.
+- Moved Strength in Numbers from Militia perk group t7 to t2.
+- Reduced the probability of the Spear, Sword, Crossbow, and Staff perk groups overall, to allow for more variety in recruits.
+- Increased the chances of recruits with the Hunter perk group to also have the Dagger and Devious perk groups.
+- Increased the chances of recruits with the Apothecary perk group to also have the Calm perk group.
+
+== Balance ==
+- Removed the "Vengeance" perk from all remaining enemies who still had that perk. No enemies have this perk now.
+- Removed several accuracy and damage perks from a lot of ranged enemies. This will hopefully make them feel less obnoxious.
+- Added "Man of Steel" to some enemies.
+- Removed the "Alert" perk from goblin fighters.
+
+== Fixes ==
+- Removed Marksmanship and Berserk from goblin fighters. These perks were not intended on them.
+- Made it clear in the tooltip of Promised Potential that a successful Realized Potential also unlocks new perk groups.
+- Fixed Cull always considering every hit a headshot for its killing threshold calculation when using the Split Man skill of 2H Axes.
+- Fixed a typo in the Dismantled armor effect tooltip.
+- Fixed a bug in the Dismantled armor effect which may have prevented it from receiving the increased damage.
+
+======================
 ==== Ver 0.9.3g ======
 ======================
 - Fixed the Unstoppable perk sometimes causing the battle to freeze upon taking damage, as the game thought the damage came from a "null" skill.
