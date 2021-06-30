@@ -5,7 +5,7 @@ gt.Const.PTR.modSkills <- function()
 	::mods_hookNewObject("skills/perks/perk_legend_freedom_of_movement", function(o) {
 		o.getDescription = function()
 		{
-			"Owing to their light-weight armor, this character is gaining increased mobility and can strike more accurately."
+			return "Owing to their light-weight armor, this character is gaining increased mobility and can strike more accurately."
 		}
 
 		o.getTooltip = function()
@@ -16,14 +16,14 @@ gt.Const.PTR.modSkills <- function()
 				id = 6,
 				type = "text",
 				icon = "ui/icons/melee_skill.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]-" + bonus + "[/color] Melee Skill"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + bonus + "[/color] Melee Skill"
 			});
 
 			tooltip.push({
 				id = 6,
 				type = "text",
 				icon = "ui/icons/melee_defense.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]-" + bonus + "[/color] Melee Defense"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + bonus + "[/color] Melee Defense"
 			});
 
 			return tooltip;
@@ -55,7 +55,7 @@ gt.Const.PTR.modSkills <- function()
 			fat = this.Math.min(0, fat + 15);
 			local maxFatMult = this.Math.maxf(0, 0.1 - this.Math.pow(this.Math.abs(fat), 1.23) * 0.01);
 
-			return 5 + actor.getFatigueMax() * maxFatMult;
+			return this.Math.floor(5 + actor.getFatigueMax() * maxFatMult);
 		}
 
 		o.onUpdate <- function(_properties)
