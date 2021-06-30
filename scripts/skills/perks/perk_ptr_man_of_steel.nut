@@ -16,10 +16,10 @@ this.perk_ptr_man_of_steel <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
-	o.getReductionPercentage <- function()
+	function getReductionPercentage()
 	{
 		local armor = this.getContainer().getActor().getArmorMax(this.Const.BodyPart.Head) + this.getContainer().getActor().getArmorMax(this.Const.BodyPart.Body);
-		return this.Math.min(this.m.MaxReduction, this.Math.floor(this.Math.pow(armor/100.0, this.m.ScalingFactor));
+		return this.Math.min(this.m.MaxReduction, this.Math.floor(this.Math.pow(armor/100.0, this.m.ScalingFactor)));
 	}
 
 	function isHidden()
