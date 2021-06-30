@@ -260,16 +260,16 @@ gt.Const.PTR.createProfessionTrees <- function()
 			[
 				gt.Const.Perks.PerkDefs.LegendSpecialistMilitiaSkill
 			],
-			[],
+			[
+				gt.Const.Perks.PerkDefs.PTRStrengthInNumbers
+			],
 			[
 				gt.Const.Perks.PerkDefs.LegendSpecialistMilitiaDamage
 			],
 			[],
 			[],
 			[],
-			[
-				gt.Const.Perks.PerkDefs.PTRStrengthInNumbers
-			]
+			[]
 		]
 	};
 
