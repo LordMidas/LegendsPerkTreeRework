@@ -82,7 +82,7 @@ this.ptr_dismantled_effect <- this.inherit("scripts/skills/skill", {
 
 		local count = 0;
 
-		if (__hitInfo.BodyPart == this.Const.BodyPart.Body)
+		if (_hitInfo.BodyPart == this.Const.BodyPart.Body)
 		{
 			count = this.m.BodyHitCount;
 		}
