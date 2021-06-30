@@ -750,7 +750,7 @@ gt.Const.PTR.modDefenseTrees <- function ()
 	{
 		this.Const.Perks.ShieldTree.Tree.push(emptyArray);
 	}
-	gt.Const.Perks.ShieldTree.SelfWeightMultiplier <- 1.5;
+	gt.Const.Perks.ShieldTree.SelfWeightMultiplier <- 1.25;
 	this.Const.Perks.ShieldTree.WeightMultipliers <- [];
 	this.Const.Perks.ShieldTree.Tree[0] = [];
 	this.Const.Perks.ShieldTree.Tree[1] = [this.Const.Perks.PerkDefs.STRPhalanx];
@@ -773,4 +773,17 @@ gt.Const.PTR.modDefenseTrees <- function ()
 	this.Const.Perks.HeavyArmorTree.Tree[4] = [];
 	this.Const.Perks.HeavyArmorTree.Tree[5] = [this.Const.Perks.PerkDefs.BattleForged];
 	this.Const.Perks.HeavyArmorTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRManOfSteel];
+
+	while (this.Const.Perks.LightArmorTree.Tree.len() < 7)
+	{
+		this.Const.Perks.LightArmorTree.Tree.push(emptyArray);
+	}
+	this.Const.Perks.LightArmorTree.WeightMultipliers <- [];
+	this.Const.Perks.LightArmorTree.Tree[0] = [];
+	this.Const.Perks.LightArmorTree.Tree[1] = [this.Const.Perks.PerkDefs.Dodge];
+	this.Const.Perks.LightArmorTree.Tree[2] = [this.Const.Perks.PerkDefs.Relentless];
+	this.Const.Perks.LightArmorTree.Tree[3] = [];
+	this.Const.Perks.LightArmorTree.Tree[4] = [this.Const.Perks.PerkDefs.LegendFreedomOfMovement];
+	this.Const.Perks.LightArmorTree.Tree[5] = [this.Const.Perks.PerkDefs.Nimble];
+	this.Const.Perks.LightArmorTree.Tree[6] = [];
 }
