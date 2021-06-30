@@ -1,7 +1,8 @@
 this.perk_ptr_cull <- this.inherit("scripts/skills/skill", {
 	m = {
+		IsForceEnabled = false,
 		SkillCount = 0,
-		IsForceEnabled = false
+		LastTargetID = 0
 	},
 	function create()
 	{
@@ -37,9 +38,10 @@ this.perk_ptr_cull <- this.inherit("scripts/skills/skill", {
 		return true;
 	}
 
-	function getThreshold(_weapon)
+	function getThreshold()
 	{
-		if (_weapon.isItemType(this.Const.Items.ItemType.OneHanded))
+		local weapon = this.getContainer().getActor().getMainhandItem();
+		if (weapon == null || weapon.isItemType(this.Const.Items.ItemType.OneHanded))
 		{
 			return 0.2;
 		}
@@ -64,14 +66,15 @@ this.perk_ptr_cull <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		if (this.m.SkillCount == this.Const.SkillCounter)
+		if (this.m.SkillCount == this.Const.SkillCounter && this.m.LastTargetID == _targetEntity.getID())
 		{
 			return;
 		}
 
 		this.m.SkillCount = this.Const.SkillCounter;
+		this.m.LastTargetID = _targetEntity.getID();
 
-		local threshold = this.getThreshold(actor.getMainhandItem());
+		local threshold = this.getThreshold();
 		if (_targetEntity.getHitpoints() / (_targetEntity.getHitpointsMax() * 1.0) < threshold)
 		{
 			if (!actor.isHiddenToPlayer() && _targetEntity.getTile().IsVisibleForPlayer)
