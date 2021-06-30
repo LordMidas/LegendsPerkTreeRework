@@ -223,6 +223,9 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRTraumaSurvivor <- "Trauma Survivor";
 	gt.Const.Strings.PerkDescription.PTRTraumaSurvivor <- "This character\'s life has been a living hell, and they have gained a certain resilience. Resolve is increased by [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] against fear, panic and mind control effects.\n\nIf Realized Potential is a success, this perk becomes permanent and the perk point is refunded.\n[color=#0b0084]From the Pauper perk group[/color]";
 
+	gt.Const.Strings.PerkName.PTRManOfSteel <- "Man of Steel";
+	gt.Const.Strings.PerkDescription.PTRManOfSteel <- "Armor penetrating damage to Hitpoints received from Ranged attacks is reduced by up to [color=" + this.Const.UI.Color.PositiveValue + "]30%[/color]. This bonus increases exponentially by wearing head and body armor of higher Maximum Durability.\n[color=#0b0084]From the Heavy Armor perk group[/color]";
+
 	gt.Const.Strings.PerkDescription.LegendClarity = "A well honed mind can perceive more in each instant, making time appear slower in key instants of need. Grants [color=" + this.Const.UI.Color.PositiveValue + "]+1[/color] Action Point. Does not work if you have Berserk or are dazed, drunk, hungover, taunted, staggered, horrified, concused or fleeing. Gain an additional [color=" + this.Const.UI.Color.PositiveValue + "]+1[/color] Action Point if under the effect of potions that improve cognition: Iron Will, Lionheart, Cat, Recovery or Hexen Ichor. \n[color=#0b0084]From the Calm perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendClarity].Tooltip = gt.Const.Strings.PerkDescription.LegendClarity;
 
