@@ -41,7 +41,6 @@ gt.Const.PTR.modEnemies <- function()
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_fast_adaption"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_killing_frenzy"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_vengeance"));
 			}
 		}
 
@@ -778,7 +777,6 @@ gt.Const.PTR.modEnemies <- function()
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_unstoppable"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_personal_armor"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_vengeance"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_second_wind"));
 			}
 		}
@@ -957,7 +955,6 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_vengeance"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_relentless"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_steel_brow"));
 			}
@@ -1493,7 +1490,6 @@ gt.Const.PTR.modEnemies <- function()
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_overwhelm"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_vengeance"));
 			}
 		}
 
@@ -2437,6 +2433,7 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			onInit();
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_windlass_training"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_through_the_ranks"));
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_power_shot"));
@@ -3317,7 +3314,6 @@ gt.Const.PTR.modEnemies <- function()
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.addPerkTree(this.Const.Perks.TrainedTree);
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_vengeance"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_second_wind"));
 			}
 		}
@@ -3424,7 +3420,6 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_underdog"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_fast_adaption"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_killing_frenzy"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_vengeance"));
 			}
 		}
 
@@ -3536,7 +3531,6 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_composure"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_full_force"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_fortified_mind"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_vengeance"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_second_wind"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_mind_over_body"));
 				this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
