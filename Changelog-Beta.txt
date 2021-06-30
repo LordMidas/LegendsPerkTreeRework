@@ -1,4 +1,9 @@
 ======================
+==== Ver 0.10.1 ======
+======================
+- Fixed a bug in the Dismantled Effect which caused the target to no longer receive hits.
+
+======================
 ==== Ver 0.10.0 ======
 ======================
 == Major changes ==
