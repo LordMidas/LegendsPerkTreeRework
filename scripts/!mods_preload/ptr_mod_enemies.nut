@@ -825,13 +825,14 @@ gt.Const.PTR.modEnemies <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookExactClass("entity/tactical/enemies/legend_demon_hound", function(o) {
-	# 	local onInit = o.onInit;
-	# 	o.onInit = function()
-	# 	{
-	# 		onInit();
-	# 	}
-	# });
+	::mods_hookExactClass("entity/tactical/enemies/legend_demon_hound", function(o) {
+		local onInit = o.onInit;
+		o.onInit = function()
+		{
+			onInit();
+			this.m.Skills.removeByID("perk.nimble");
+		}
+	});
 	#
 	# ::mods_hookExactClass("entity/tactical/enemies/legend_greenwood_schrat", function(o) {
 	# 	local onInit = o.onInit;
