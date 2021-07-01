@@ -1,4 +1,12 @@
 ======================
+==== Ver 0.10.2 ======
+======================
+- The description of the Dismantle perk now makes it clear that the increased damage the target receives is from all sources.
+- Removed the "Nimble" perk from Höllenhund.
+- Fixed "Through the Gaps" not showing the increased armor ignore damage in the tooltip of skills (it was working properly, just the tooltip wasn't updated).
+- Fixed Nomad slingers not properly getting Sling Mastery.
+
+======================
 ==== Ver 0.10.1 ======
 ======================
 - Fixed a bug in the Dismantled Effect which caused the target to no longer receive hits.
