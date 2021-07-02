@@ -2,6 +2,48 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modSkills <- function()
 {
+	::mods_hookNewObject("skills/actives/legend_push_forward", function(o) {
+		local onAdded = ::mods_getMember(o, "onAdded");
+		o.onAdded <- function()
+		{
+			onAdded();
+			local actor = this.getContainer().getActor();
+			if (actor.isPlayerControlled())
+			{
+				return;
+			}
+
+			local agent = actor.getAIAgent();
+
+			if (agent.findBehavior(this.Const.AI.Behavior.ID.LegendPushForward) == null)
+			{
+				agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_legend_push_forward"));
+				agent.finalizeBehaviors();
+			}
+		}
+	});
+
+	::mods_hookNewObject("skills/actives/legend_hold_the_line", function(o) {
+		local onAdded = ::mods_getMember(o, "onAdded");
+		o.onAdded <- function()
+		{
+			onAdded();
+			local actor = this.getContainer().getActor();
+			if (actor.isPlayerControlled())
+			{
+				return;
+			}
+
+			local agent = actor.getAIAgent();
+
+			if (agent.findBehavior(this.Const.AI.Behavior.ID.LegendHoldTheLine) == null)
+			{
+				agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_legend_hold_the_line"));
+				agent.finalizeBehaviors();
+			}
+		}
+	});
+
 	::mods_hookNewObject("skills/perks/perk_legend_freedom_of_movement", function(o) {
 		o.getDescription = function()
 		{
@@ -309,48 +351,6 @@ gt.Const.PTR.modSkills <- function()
 			if (agent.findBehavior(this.Const.AI.Behavior.ID.Adrenaline) == null)
 			{
 				agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_adrenaline"));
-				agent.finalizeBehaviors();
-			}
-		}
-	});
-
-	::mods_hookNewObject("skills/actives/legend_hold_the_line", function(o) {
-		local onAdded = ::mods_getMember(o, "onAdded");
-		o.onAdded <- function()
-		{
-			onAdded();
-			local actor = this.getContainer().getActor();
-			if (actor.isPlayerControlled())
-			{
-				return;
-			}
-
-			local agent = actor.getAIAgent();
-
-			if (agent.findBehavior(this.Const.AI.Behavior.ID.BoostStamina) == null)
-			{
-				agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_boost_stamina"));
-				agent.finalizeBehaviors();
-			}
-		}
-	});
-
-	::mods_hookNewObject("skills/actives/legend_push_forward", function(o) {
-		local onAdded = ::mods_getMember(o, "onAdded");
-		o.onAdded <- function()
-		{
-			onAdded();
-			local actor = this.getContainer().getActor();
-			if (actor.isPlayerControlled())
-			{
-				return;
-			}
-
-			local agent = actor.getAIAgent();
-
-			if (agent.findBehavior(this.Const.AI.Behavior.ID.BoostStamina) == null)
-			{
-				agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_boost_stamina"));
 				agent.finalizeBehaviors();
 			}
 		}

@@ -16,6 +16,20 @@ gt.Const.PTR.modAI <- function()
 		}
 	});
 
+	::mods_hookNewObject("ai/tactical/behaviors/ai_boost_stamina", function ( o ) {
+			local idx1 = o.m.PossibleSkills.find("actives.legend_push_forward");
+			if (idx1 != null)
+			{
+				o.m.PossibleSkills.remove(idx1);
+			}
+
+			local idx2 = o.m.PossibleSkills.find("actives.legend_hold_the_line");
+			if (idx2 != null)
+			{
+				o.m.PossibleSkills.remove(idx2);
+			}
+		});
+
 	::mods_hookNewObject("ai/tactical/behaviors/ai_attack_bow", function(o) {
 		local onEvaluate = o.onEvaluate;
 		o.onEvaluate = function(_entity)
