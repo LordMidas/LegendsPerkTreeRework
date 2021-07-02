@@ -1,4 +1,12 @@
 ======================
+==== Ver 0.10.3 ======
+======================
+- Added new AI behaviors for the "Hold the Line" and "Push Forward" skills. Still may not be perfect, so please provide feedback on how "intelligent" it feels now.
+- Removed the "Protect" AI behavior from Brigand Leaders, Brigand Warlords, Nomad Leaders, and Knights. Now these elite enemies will no longer waste time protecting their ranged units.
+- Made some improvements to Arrow to the Knee AI. Now it will be less likely to use the Arrow to the Knee skill against targets of low Melee Skill.
+- Hopefully fixed an AI "soft-lock" when using Arrow to the Knee.
+
+======================
 ==== Ver 0.10.2 ======
 ======================
 - The description of the Dismantle perk now makes it clear that the increased damage the target receives is from all sources.
