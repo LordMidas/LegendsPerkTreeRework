@@ -832,6 +832,15 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_trauma_survivor.png",
 			IconDisabled = "ui/perks/ptr_trauma_survivor_bw.png",
 			Const = "PTRTraumaSurvivor"
+		},
+		{
+			ID = "perk.ptr_man_of_steel",
+			Script = "scripts/skills/perks/perk_ptr_man_of_steel",
+			Name = this.Const.Strings.PerkName.PTRManOfSteel,
+			Tooltip = this.Const.Strings.PerkDescription.PTRManOfSteel,
+			Icon = "ui/perks/ptr_man_of_steel.png",
+			IconDisabled = "ui/perks/ptr_man_of_steel_bw.png",
+			Const = "PTRManOfSteel"
 		}
 	];
 

@@ -464,16 +464,16 @@ gt.Const.PTR.modClassTrees <- function()
 			[],
 			[],
 			[],
-			[
-				gt.Const.Perks.PerkDefs.LegendPaymaster
-			],
+			[],
 			[
 				gt.Const.Perks.PerkDefs.LegendDangerPay
 			],
 			[
-				gt.Const.Perks.PerkDefs.LegendBribe
+				gt.Const.Perks.PerkDefs.LegendPaymaster
 			],
-			[]
+			[
+				gt.Const.Perks.PerkDefs.LegendBribe
+			]
 		]
 	};
 
@@ -560,11 +560,11 @@ gt.Const.PTR.modWeaponTrees <- function()
 	this.Const.Perks.AxeTree.Tree[5] = [this.Const.Perks.PerkDefs.SunderingStrikes];
 	this.Const.Perks.AxeTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRCull];
 
-	this.Const.Perks.BowTree.SelfWeightMultiplier <- 0.5;
 	while (this.Const.Perks.BowTree.Tree.len() < 7)
 	{
 		this.Const.Perks.BowTree.Tree.push(emptyArray);
 	}
+	this.Const.Perks.BowTree.SelfWeightMultiplier <- 0.5;
 	this.Const.Perks.BowTree.Tree[0] = [this.Const.Perks.PerkDefs.PTRTargetPractice];
 	this.Const.Perks.BowTree.Tree[1] = [this.Const.Perks.PerkDefs.PTRRangedSupremacy];
 	this.Const.Perks.BowTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRArrowToTheKnee];
@@ -585,12 +585,12 @@ gt.Const.PTR.modWeaponTrees <- function()
 	this.Const.Perks.CleaverTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRBloodbath];
 	this.Const.Perks.CleaverTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRMauler];
 
-	this.Const.Perks.CrossbowTree.SelfWeightMultiplier <- 1.5;
+
 	while (this.Const.Perks.CrossbowTree.Tree.len() < 7)
 	{
 		this.Const.Perks.CrossbowTree.Tree.push(emptyArray);
 	}
-	this.Const.Perks.CrossbowTree.SelfWeightMultiplier <- 10;
+	this.Const.Perks.CrossbowTree.SelfWeightMultiplier <- 1.5;
 	this.Const.Perks.CrossbowTree.SelfExpertiseMultiplier <- this.Const.Perks.Expertise.High;
 	this.Const.Perks.CrossbowTree.Tree[0] = [this.Const.Perks.PerkDefs.PTRThroughTheRanks];
 	this.Const.Perks.CrossbowTree.Tree[1] = [this.Const.Perks.PerkDefs.PTREntrenched];
@@ -674,13 +674,13 @@ gt.Const.PTR.modWeaponTrees <- function()
 	this.Const.Perks.SlingsTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRHeavyProjectiles];
 	this.Const.Perks.SlingsTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRSniper];
 
-	this.Const.Perks.SpearTree.SelfWeightMultiplier <- 2;
 	while (this.Const.Perks.SpearTree.Tree.len() < 7)
 	{
 		this.Const.Perks.SpearTree.Tree.push(emptyArray);
 	}
+	this.Const.Perks.SpearTree.SelfWeightMultiplier <- 2;
 	this.Const.Perks.SpearTree.SelfExpertiseMultiplier <- this.Const.Perks.Expertise.High;
-	this.Const.Perks.SpearTree.SelfWeightMultiplier <- 5;
+	this.Const.Perks.SpearTree.SelfWeightMultiplier <- 2;
 	this.Const.Perks.SpearTree.Tree[0] = [this.Const.Perks.PerkDefs.PTRPointyEnd];
 	this.Const.Perks.SpearTree.Tree[1] = [this.Const.Perks.PerkDefs.LegendSpecSpearWall];
 	this.Const.Perks.SpearTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRThroughTheGaps];
@@ -689,13 +689,12 @@ gt.Const.PTR.modWeaponTrees <- function()
 	this.Const.Perks.SpearTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRABetterGrip];
 	this.Const.Perks.SpearTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRKingOfAllWeapons];
 
-	this.Const.Perks.SwordTree.SelfWeightMultiplier <- 1.5;
 	while (this.Const.Perks.SwordTree.Tree.len() < 7)
 	{
 		this.Const.Perks.SwordTree.Tree.push(emptyArray);
 	}
 	this.Const.Perks.SwordTree.SelfExpertiseMultiplier <- this.Const.Perks.Expertise.High;
-	this.Const.Perks.SwordTree.SelfWeightMultiplier <- 3;
+	this.Const.Perks.SwordTree.SelfWeightMultiplier <- 1.5;
 	this.Const.Perks.SwordTree.Tree[0] = [this.Const.Perks.PerkDefs.PTRVersatileWeapon];
 	this.Const.Perks.SwordTree.Tree[1] = [this.Const.Perks.PerkDefs.Feint];
 	this.Const.Perks.SwordTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRHeightenedReflexes];
@@ -720,8 +719,7 @@ gt.Const.PTR.modWeaponTrees <- function()
 	{
 		this.Const.Perks.StavesTree.Tree.push(emptyArray);
 	}
-	this.Const.Perks.StavesTree.SelfExpertiseMultiplier <- this.Const.Perks.Expertise.High;
-	this.Const.Perks.StavesTree.SelfWeightMultiplier <- 3;
+	this.Const.Perks.StavesTree.SelfExpertiseMultiplier <- this.Const.Perks.Expertise.High;	
 	this.Const.Perks.StavesTree.Tree[0] = [this.Const.Perks.PerkDefs.LegendSpecStaffSkill];
 	this.Const.Perks.StavesTree.Tree[1] = [this.Const.Perks.PerkDefs.LegendOnslaught];
 	this.Const.Perks.StavesTree.Tree[2] = [this.Const.Perks.PerkDefs.PTREasyTarget];
@@ -750,7 +748,7 @@ gt.Const.PTR.modDefenseTrees <- function ()
 	{
 		this.Const.Perks.ShieldTree.Tree.push(emptyArray);
 	}
-	gt.Const.Perks.ShieldTree.SelfWeightMultiplier <- 1.5;
+	gt.Const.Perks.ShieldTree.SelfWeightMultiplier <- 1.25;
 	this.Const.Perks.ShieldTree.WeightMultipliers <- [];
 	this.Const.Perks.ShieldTree.Tree[0] = [];
 	this.Const.Perks.ShieldTree.Tree[1] = [this.Const.Perks.PerkDefs.STRPhalanx];
@@ -760,5 +758,30 @@ gt.Const.PTR.modDefenseTrees <- function ()
 	this.Const.Perks.ShieldTree.Tree[5] = [];
 	this.Const.Perks.ShieldTree.Tree[6] = [this.Const.Perks.PerkDefs.STRLineBreaker];
 
+	while (this.Const.Perks.HeavyArmorTree.Tree.len() < 7)
+	{
+		this.Const.Perks.HeavyArmorTree.Tree.push(emptyArray);
+	}
 	gt.Const.Perks.HeavyArmorTree.SelfWeightMultiplier <- 0.33;
+	this.Const.Perks.HeavyArmorTree.WeightMultipliers <- [];
+	this.Const.Perks.HeavyArmorTree.Tree[0] = [];
+	this.Const.Perks.HeavyArmorTree.Tree[1] = [];
+	this.Const.Perks.HeavyArmorTree.Tree[2] = [this.Const.Perks.PerkDefs.Brawny];
+	this.Const.Perks.HeavyArmorTree.Tree[3] = [];
+	this.Const.Perks.HeavyArmorTree.Tree[4] = [];
+	this.Const.Perks.HeavyArmorTree.Tree[5] = [this.Const.Perks.PerkDefs.BattleForged];
+	this.Const.Perks.HeavyArmorTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRManOfSteel];
+
+	while (this.Const.Perks.LightArmorTree.Tree.len() < 7)
+	{
+		this.Const.Perks.LightArmorTree.Tree.push(emptyArray);
+	}
+	this.Const.Perks.LightArmorTree.WeightMultipliers <- [];
+	this.Const.Perks.LightArmorTree.Tree[0] = [];
+	this.Const.Perks.LightArmorTree.Tree[1] = [this.Const.Perks.PerkDefs.Dodge];
+	this.Const.Perks.LightArmorTree.Tree[2] = [this.Const.Perks.PerkDefs.Relentless];
+	this.Const.Perks.LightArmorTree.Tree[3] = [];
+	this.Const.Perks.LightArmorTree.Tree[4] = [this.Const.Perks.PerkDefs.LegendFreedomOfMovement];
+	this.Const.Perks.LightArmorTree.Tree[5] = [this.Const.Perks.PerkDefs.Nimble];
+	this.Const.Perks.LightArmorTree.Tree[6] = [];
 }

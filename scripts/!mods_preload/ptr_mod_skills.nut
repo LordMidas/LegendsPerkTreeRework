@@ -2,6 +2,277 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modSkills <- function()
 {
+	::mods_hookNewObject("skills/actives/legend_push_forward", function(o) {
+		local onAdded = ::mods_getMember(o, "onAdded");
+		o.onAdded <- function()
+		{
+			onAdded();
+			local actor = this.getContainer().getActor();
+			if (actor.isPlayerControlled())
+			{
+				return;
+			}
+
+			local agent = actor.getAIAgent();
+
+			if (agent.findBehavior(this.Const.AI.Behavior.ID.LegendPushForward) == null)
+			{
+				agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_legend_push_forward"));
+				agent.finalizeBehaviors();
+			}
+		}
+	});
+
+	::mods_hookNewObject("skills/actives/legend_hold_the_line", function(o) {
+		local onAdded = ::mods_getMember(o, "onAdded");
+		o.onAdded <- function()
+		{
+			onAdded();
+			local actor = this.getContainer().getActor();
+			if (actor.isPlayerControlled())
+			{
+				return;
+			}
+
+			local agent = actor.getAIAgent();
+
+			if (agent.findBehavior(this.Const.AI.Behavior.ID.LegendHoldTheLine) == null)
+			{
+				agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_legend_hold_the_line"));
+				agent.finalizeBehaviors();
+			}
+		}
+	});
+
+	::mods_hookNewObject("skills/perks/perk_legend_freedom_of_movement", function(o) {
+		o.getDescription = function()
+		{
+			return "Owing to their light-weight armor, this character is gaining increased mobility and can strike more accurately."
+		}
+
+		o.getTooltip = function()
+		{
+			local tooltip = this.skill.getTooltip();
+			local bonus = this.getBonus();
+			tooltip.push({
+				id = 6,
+				type = "text",
+				icon = "ui/icons/melee_skill.png",
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + bonus + "[/color] Melee Skill"
+			});
+
+			tooltip.push({
+				id = 6,
+				type = "text",
+				icon = "ui/icons/melee_defense.png",
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + bonus + "[/color] Melee Defense"
+			});
+
+			return tooltip;
+		}
+
+		o.onBeforeDamageReceived = function( _attacker, _skill, _hitInfo, _properties )
+		{
+		}
+
+		o.getBonus <- function()
+		{
+			local actor = this.getContainer().getActor();
+
+			local fat = 0;
+			local body = this.getContainer().getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Body);
+			local head = this.getContainer().getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Head);
+
+			if (body != null)
+			{
+				fat = fat + body.getStaminaModifier();
+			}
+
+			if (head != null)
+			{
+				fat = fat + head.getStaminaModifier();
+			}
+
+			// Because staminaModifiers are negative!
+			fat = this.Math.min(0, fat + 15);
+			local maxFatMult = this.Math.maxf(0, 0.1 - this.Math.pow(this.Math.abs(fat), 1.23) * 0.01);
+
+			return this.Math.floor(5 + actor.getFatigueMax() * maxFatMult);
+		}
+
+		o.onUpdate <- function(_properties)
+		{
+			local bonus = this.getBonus();
+			_properties.MeleeSkill += bonus;
+			_properties.MeleeDefense += bonus;
+		}
+	});
+
+	::mods_hookNewObject("skills/actives/flail_skill", function(o) {
+		local onUse = o.onUse;
+		o.onUse = function( _user, _targetTile )
+		{
+			local target = _targetTile.getEntity();
+			local ret = onUse( _user, _targetTile );
+
+			if (!target.isAlive())
+			{
+				return ret;
+			}
+
+			local flailSpinnerPerk = this.getContainer().getSkillByID("perk.ptr_flail_spinner");
+			if (flailSpinnerPerk != null)
+			{
+				ret = flailSpinnerPerk.spinFlail(onUse, _user, _targetTile, target, this) || ret;
+			}
+
+			return ret;
+		}
+	});
+
+	::mods_hookNewObject("skills/actives/lash_skill", function(o) {
+		local onUse = o.onUse;
+		o.onUse = function( _user, _targetTile )
+		{
+			local target = _targetTile.getEntity();
+			local ret = onUse( _user, _targetTile );
+
+			if (!target.isAlive())
+			{
+				return ret;
+			}
+
+			local flailSpinnerPerk = this.getContainer().getSkillByID("perk.ptr_flail_spinner");
+			if (flailSpinnerPerk != null)
+			{
+				ret = flailSpinnerPerk.spinFlail(onUse, _user, _targetTile, target, this) || ret;
+			}
+
+			return ret;
+		}
+	});
+
+	::mods_hookNewObject("skills/actives/cascade_skill", function(o) {
+		local onUse = o.onUse;
+		o.onUse = function( _user, _targetTile )
+		{
+			local target = _targetTile.getEntity();
+			local ret = onUse( _user, _targetTile );
+
+			if (!target.isAlive())
+			{
+				return ret;
+			}
+
+			local flailSpinnerPerk = this.getContainer().getSkillByID("perk.ptr_flail_spinner");
+			if (flailSpinnerPerk != null)
+			{
+				ret = flailSpinnerPerk.spinFlail(onUse, _user, _targetTile, target, this) || ret;
+			}
+
+			return ret;
+		}
+	});
+
+	::mods_hookNewObject("skills/actives/hail_skill", function(o) {
+		local onUse = o.onUse;
+		o.onUse = function( _user, _targetTile )
+		{
+			local target = _targetTile.getEntity();
+			local ret = onUse( _user, _targetTile );
+
+			if (!target.isAlive())
+			{
+				return ret;
+			}
+
+			local flailSpinnerPerk = this.getContainer().getSkillByID("perk.ptr_flail_spinner");
+			if (flailSpinnerPerk != null)
+			{
+				ret = flailSpinnerPerk.spinFlail(onUse, _user, _targetTile, target, this) || ret;
+			}
+
+			return ret;
+		}
+	});
+
+	::mods_hookNewObject("skills/actives/pound", function(o) {
+		local onUse = o.onUse;
+		o.onUse = function( _user, _targetTile )
+		{
+			local target = _targetTile.getEntity();
+			local ret = onUse( _user, _targetTile );
+
+			if (!target.isAlive())
+			{
+				return ret;
+			}
+
+			local flailSpinnerPerk = this.getContainer().getSkillByID("perk.ptr_flail_spinner");
+			if (flailSpinnerPerk != null)
+			{
+				ret = flailSpinnerPerk.spinFlail(onUse, _user, _targetTile, target, this) || ret;
+			}
+
+			return ret;
+		}
+	});
+
+	::mods_hookNewObject("skills/actives/legend_ranged_flail_skill", function(o) {
+		local onUse = o.onUse;
+		o.onUse = function( _user, _targetTile )
+		{
+			local target = _targetTile.getEntity();
+			local ret = onUse( _user, _targetTile );
+
+			if (!target.isAlive())
+			{
+				return ret;
+			}
+
+			local flailSpinnerPerk = this.getContainer().getSkillByID("perk.ptr_flail_spinner");
+			if (flailSpinnerPerk != null)
+			{
+				ret = flailSpinnerPerk.spinFlail(onUse, _user, _targetTile, target, this) || ret;
+			}
+
+			return ret;
+		}
+	});
+
+	::mods_hookNewObject("skills/actives/legend_ranged_lash_skill", function(o) {
+		local onUse = o.onUse;
+		o.onUse = function( _user, _targetTile )
+		{
+			local target = _targetTile.getEntity();
+			local ret = onUse( _user, _targetTile );
+
+			if (!target.isAlive())
+			{
+				return ret;
+			}
+
+			local flailSpinnerPerk = this.getContainer().getSkillByID("perk.ptr_flail_spinner");
+			if (flailSpinnerPerk != null)
+			{
+				ret = flailSpinnerPerk.spinFlail(onUse, _user, _targetTile, target, this) || ret;
+			}
+
+			return ret;
+		}
+	});
+
+	::mods_hookNewObject("skills/perks/perk_feint", function(o) {
+		local onTargetMissed = o.onTargetMissed;
+		o.onTargetMissed = function( _skill, _targetEntity )
+		{
+			if (_skill.isRanged())
+			{
+				return;
+			}
+			onTargetMissed( _skill, _targetEntity );
+		}
+	});
 	::mods_hookNewObject("skills/perks/perk_battle_forged", function(o) {
 		o.getReductionPercentage <- function()
 		{
@@ -80,48 +351,6 @@ gt.Const.PTR.modSkills <- function()
 			if (agent.findBehavior(this.Const.AI.Behavior.ID.Adrenaline) == null)
 			{
 				agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_adrenaline"));
-				agent.finalizeBehaviors();
-			}
-		}
-	});
-
-	::mods_hookNewObject("skills/actives/legend_hold_the_line", function(o) {
-		local onAdded = ::mods_getMember(o, "onAdded");
-		o.onAdded <- function()
-		{
-			onAdded();
-			local actor = this.getContainer().getActor();
-			if (actor.isPlayerControlled())
-			{
-				return;
-			}
-
-			local agent = actor.getAIAgent();
-
-			if (agent.findBehavior(this.Const.AI.Behavior.ID.BoostStamina) == null)
-			{
-				agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_boost_stamina"));
-				agent.finalizeBehaviors();
-			}
-		}
-	});
-
-	::mods_hookNewObject("skills/actives/legend_push_forward", function(o) {
-		local onAdded = ::mods_getMember(o, "onAdded");
-		o.onAdded <- function()
-		{
-			onAdded();
-			local actor = this.getContainer().getActor();
-			if (actor.isPlayerControlled())
-			{
-				return;
-			}
-
-			local agent = actor.getAIAgent();
-
-			if (agent.findBehavior(this.Const.AI.Behavior.ID.BoostStamina) == null)
-			{
-				agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_boost_stamina"));
 				agent.finalizeBehaviors();
 			}
 		}

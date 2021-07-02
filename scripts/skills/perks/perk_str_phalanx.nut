@@ -55,7 +55,7 @@ this.perk_str_phalanx <- this.inherit("scripts/skills/skill", {
 		this.m.Count = 0;
 
 		local actor = this.getContainer().getActor();
-		if (!actor.isArmedWithShield || !actor.isEngagedInMelee())
+		if (!actor.isArmedWithShield() || !actor.isEngagedInMelee())
 		{
 			return;
 		}

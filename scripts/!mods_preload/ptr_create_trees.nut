@@ -260,16 +260,16 @@ gt.Const.PTR.createProfessionTrees <- function()
 			[
 				gt.Const.Perks.PerkDefs.LegendSpecialistMilitiaSkill
 			],
-			[],
+			[
+				gt.Const.Perks.PerkDefs.PTRStrengthInNumbers
+			],
 			[
 				gt.Const.Perks.PerkDefs.LegendSpecialistMilitiaDamage
 			],
 			[],
 			[],
 			[],
-			[
-				gt.Const.Perks.PerkDefs.PTRStrengthInNumbers
-			]
+			[]
 		]
 	};
 
@@ -358,8 +358,10 @@ gt.Const.PTR.createProfessionTrees <- function()
 			{Multiplier = 1000, Tree = this.Const.Perks.BowTree},
 			{Multiplier = 1000, Tree = this.Const.Perks.CrossbowTree},
 			{Multiplier = 5, Tree = this.Const.Perks.LightArmorTree},
+			{Multiplier = 2, Tree = this.Const.Perks.DeviousTree},
 			{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},
 			{Multiplier = 1000, Tree = this.Const.Perks.RangedTree},
+			{Multiplier = 2, Tree = this.Const.Perks.DaggerTree},
 			{Multiplier = 3, Tree = this.Const.Perks.SlingsTree},
 			{Multiplier = 3, Tree = this.Const.Perks.ThrowingTree},
 		],
@@ -455,6 +457,7 @@ gt.Const.PTR.createProfessionTrees <- function()
 		WeightMultipliers = [
 			{Multiplier = 10, Tree = this.Const.Perks.OrganisedTree},
 			{Multiplier = 10, Tree = this.Const.Perks.TalentedTree},
+			{Multiplier = 5, Tree = this.Const.Perks.CalmTree},
 			{Multiplier = 1000, Tree = this.Const.Perks.HealerClassTree},
 			{Multiplier = 1000, Tree = this.Const.Perks.CleaverTree},
 			{Multiplier = 1000, Tree = this.Const.Perks.SwordTree},

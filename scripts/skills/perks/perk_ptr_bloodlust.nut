@@ -1,7 +1,7 @@
 this.perk_ptr_bloodlust <- this.inherit("scripts/skills/skill", {
 	m = {
 		Count = 0,
-		FatigueCostReductionPerCount = 10
+		FatigueReductionPercentage = 5,
 	},
 	function create()
 	{
@@ -21,32 +21,29 @@ this.perk_ptr_bloodlust <- this.inherit("scripts/skills/skill", {
 	{
 		return "This character gains increased vigor when next to bleeding enemies.";
 	}
-	
+
 	function isHidden()
 	{
 		return this.m.Count == 0;
 	}
-	
-	function updateCount()
+
+	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
 	{
-		this.m.Count = 0;
-		
-		local adjacentEnemies = this.getContainer().getActor().getActorsAtDistanceAsArray(1, this.Const.FactionRelation.Enemy);				
-		foreach (enemy in adjacentEnemies)
+		this.m.Count = _targetEntity.getSkills().getAllSkillsByID("effects.bleeding").len();
+	}
+
+	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
+	{
+		if (!_targetEntity.isAlive() || _targetEntity.isDying())
 		{
-			local stacks = enemy.getSkills().getAllSkillsByID("effects.bleeding");
-			foreach (stack in stacks)
-			{			
-				this.m.Count++;
-			}
+			return;
 		}
+
+		local actor = this.getContainer().getActor();
+
+		actor.setFatigue(this.Math.max(0, actor.getFatigue() - actor.getFatigue() * (this.m.Count * this.m.FatigueReductionPercentage * 0.01)));
 	}
-	
-	function getBonus()
-	{
-		return this.m.Count * this.m.FatigueCostReductionPerCount;
-	}
-	
+
 	function getTooltip()
 	{
 		return [
@@ -64,37 +61,15 @@ this.perk_ptr_bloodlust <- this.inherit("scripts/skills/skill", {
 				id = 10,
 				type = "text",
 				icon = "ui/icons/fatigue.png",
-				text = "Fatigue Cost of skills is reduced by [color=" + this.Const.UI.Color.PositiveValue + "]" + this.getBonus() + "%[/color]"
-			},
-			{
-				id = 10,
-				type = "text",
-				icon = "ui/icons/fatigue.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.Count + "[/color] Fatigue Recovery per turn"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.Count + "[/color] Fatigue Recovery on the next turn"
 			},
 		];
 	}
 
-	function onUpdate( _properties )
-	{
-		this.updateCount();
-		local bonus = this.getBonus();
-		if (bonus > 0)
-		{
-			_properties.FatigueEffectMult *= 1.0 - (bonus * 0.01);
-		}
-	}
-	
-	function onTurnEnd()
-	{
-		this.updateCount();
-	}
-	
 	function onTurnStart()
 	{
 		local actor = this.getContainer().getActor();
 		actor.setFatigue(this.Math.max(0, actor.getFatigue() - this.m.Count));
-		this.updateCount();
+		this.m.Count = 0;
 	}
 });
-

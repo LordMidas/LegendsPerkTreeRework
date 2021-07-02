@@ -20,7 +20,7 @@ this.perk_ptr_entrenched <- this.inherit("scripts/skills/skill", {
 
 	function onAdded()
 	{
-		if (this.getContainer().getActor().isPlacedOnMap())
+		if ("State" in this.Tactical)
 		{
 			this.getContainer().add(this.new("scripts/skills/effects/ptr_entrenched_effect"));
 		}

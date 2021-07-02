@@ -135,31 +135,7 @@ this.ptr_realize_potential_event <- this.inherit("scripts/events/event", {
 
 	function onUpdateScore()
 	{
-		if (!this.Const.DLC.Wildmen)
-		{
-			return;
-		}
-
-		local brothers = this.World.getPlayerRoster().getAll();
-		local candidate;
-
-		foreach( bro in brothers )
-		{
-			local skill = bro.getSkills().getSkillByID("perk.ptr_promised_potential");
-			if (skill != null && skill.m.IsSpent != null)
-			{
-				candidate = bro;
-				break;
-			}
-		}
-
-		if (candidate == null)
-		{
-			return;
-		}
-
-		this.m.Dude = candidate;
-		this.m.Score = 999999999;
+		this.m.Score = 0;
 	}
 
 	function onPrepareVariables( _vars )

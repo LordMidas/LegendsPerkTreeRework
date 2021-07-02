@@ -3,11 +3,11 @@ local gt = this.getroottable();
 gt.Const.PTR <- {};
 
 local modID = "mod_legends_PTR";
-::mods_registerMod(modID, 1.0, "Perk Trees Rework 0.9.0");
+::mods_registerMod(modID, 1.0, "Perk Trees Rework 0.10.3");
 
 ::mods_queue(modID, "mod_legends, mod_MSU, mod_fencerPerk, mod_WMS, mod_mediumArmorRework", function()
 {
-	# this.Const.AI.VerboseMode = true;
+	this.Const.AI.VerboseMode = true;
 	gt.setupDebugLog <- function (_enabled = false, _name = "default")
 	{
 		//keep table of mod names so that you can turn it on and off for specific mods
@@ -34,7 +34,7 @@ local modID = "mod_legends_PTR";
 			return (_str in this.debugLog && this.debugLog[_str])
 		}
 	}
-	#gt.setupDebugLog(true, modID);
+	gt.setupDebugLog(true, modID);
 
 	gt.Const.PTR.modStrings();
 	gt.Const.PTR.modSkill();

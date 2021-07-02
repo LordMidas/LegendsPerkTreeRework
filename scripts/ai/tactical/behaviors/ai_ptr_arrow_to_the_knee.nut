@@ -51,6 +51,10 @@ this.ai_ptr_arrow_to_the_knee <- this.inherit("scripts/ai/tactical/behavior", {
 		local e = _entity.getSkills().getSkillByID("effects.ptr_arrow_to_the_knee_attack");
 		if (e != null)
 		{
+			if (this.Const.AI.VerboseMode)
+			{
+				this.printDebug("Checking pre-existing arrow to the knee buff and setting its parameters to null", "mod_legends_PTR");
+			}
 			e.m.AIForcedTarget = null;
 			e.m.AIForcedSkill = null;
 		}
@@ -81,6 +85,16 @@ this.ai_ptr_arrow_to_the_knee <- this.inherit("scripts/ai/tactical/behavior", {
 
 		this.m.Target = bestTarget.Target;
 
+		if (this.Const.AI.VerboseMode)
+		{
+			this.printDebug("Chosen best target for arrow to the knee: " + this.m.Target.getName(), "mod_legends_PTR");
+		}
+
+		if (this.m.Target.getCurrentProperties().getMeleeSkill() < 80)
+		{
+			score = score * 0.5;
+		}
+
 		return this.Const.AI.Behavior.Score.PTRArrowToTheKnee * score;
 	}
 
@@ -97,6 +111,7 @@ this.ai_ptr_arrow_to_the_knee <- this.inherit("scripts/ai/tactical/behavior", {
 			if (this.Const.AI.VerboseMode)
 			{
 				this.logInfo("* " + _entity.getName() + ": Using " + this.m.Skill.getName() + " against " + this.m.Target.getName() + "!");
+				this.logInfo("* Remaining Action Points: " + _entity.getActionPoints());
 			}
 			local e = _entity.getSkills().getSkillByID("effects.ptr_arrow_to_the_knee_attack");
 			if (e != null)
@@ -123,6 +138,11 @@ this.ai_ptr_arrow_to_the_knee <- this.inherit("scripts/ai/tactical/behavior", {
 		if (this.m.AttackSkill == null)
 		{
 			return ret;
+		}
+
+		if (this.Const.AI.VerboseMode)
+		{
+			this.printDebug("Chosen attack skill for arrow to the knee: " + this.m.AttackSkill.getID(), "mod_legends_PTR");
 		}
 
 		local apRequiredForAttack = this.m.AttackSkill != null ? this.m.AttackSkill.getActionPointCost() : 4;
@@ -152,6 +172,11 @@ this.ai_ptr_arrow_to_the_knee <- this.inherit("scripts/ai/tactical/behavior", {
 			}
 
 			if (target.getSkills().hasSkill("effects.ptr_arrow_to_the_knee_debuff") || target.getSkills().hasSkillOfType(this.Const.SkillType.TemporaryInjury))
+			{
+				continue;
+			}
+
+			if (target.getCurrentProperties().getMeleeSkill() < 70)
 			{
 				continue;
 			}

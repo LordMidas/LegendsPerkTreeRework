@@ -8,20 +8,24 @@ gt.Const.PTR.modActor <- function()
 		o.onDeath = function( _killer, _skill, _tile, _fatalityType )
 		{
 			oldOnDeath(_killer, _skill, _tile, _fatalityType);
-			if (_fatalityType != this.Const.FatalityType.None && this.Tactical.TurnSequenceBar.getActiveEntity() != null && _killer != null && this.Tactical.TurnSequenceBar.getActiveEntity().getID() == _killer.getID())
+			if (_fatalityType != this.Const.FatalityType.None && _killer != null && this.Tactical.TurnSequenceBar.getActiveEntity() != null && this.Tactical.TurnSequenceBar.getActiveEntity().getID() == _killer.getID())
 			{
 				if (_killer.getSkills().hasSkill("perk.ptr_bloodbath"))
 				{
 					_killer.setActionPoints(this.Math.min(_killer.getActionPointsMax(), _killer.getActionPoints() + 3));
 					_killer.setDirty(true);
-					_skill.spawnIcon("ptr_bloodbath", _killer.getTile());
+					_skill.spawnIcon("perk_ptr_bloodbath", _killer.getTile());
 				}
 
 				local sanguinaryPerk = _killer.getSkills().getSkillByID("perk.ptr_sanguinary");
 				if (sanguinaryPerk != null)
 				{
 					local fatigueCostRefund = this.Math.floor(_skill.getFatigueCost() * sanguinaryPerk.m.FatigueCostRefundPercentage * 0.01);
-					_killer.setFatigue(this.Math.max(0, actor.getFatigue() - fatigueCostRefund));
+					_killer.setFatigue(this.Math.max(0, _killer.getFatigue() - fatigueCostRefund));
+					if (_killer.getMoraleState() < this.Const.MoraleState.Confident && _killer.getMoraleState() != this.Const.MoraleState.Fleeing)
+					{
+						_killer.setMoraleState(this.Const.MoraleState.Confident);
+					}
 				}
 			}
 		}

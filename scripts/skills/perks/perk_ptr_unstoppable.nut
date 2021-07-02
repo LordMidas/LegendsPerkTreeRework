@@ -17,6 +17,11 @@ this.perk_ptr_unstoppable <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = true;
 	}
 
+	function getName()
+	{
+		return this.m.Stacks == 0 ? this.m.Name : this.m.Name + " (x" + this.m.Stacks + ")";
+	}
+
 	function getDescription()
 	{
 		return "This character\'s attacks seem to not miss at all.";
@@ -50,7 +55,7 @@ this.perk_ptr_unstoppable <- this.inherit("scripts/skills/skill", {
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		if (!_skill.isAttack() || _targetEntity == null || _targetEntity.isAlliedWith(this.getContainer().getActor()))
+		if (_skill == null || !_skill.isAttack() || _targetEntity == null || _targetEntity.isAlliedWith(this.getContainer().getActor()))
 		{
 			return;
 		}
@@ -60,7 +65,7 @@ this.perk_ptr_unstoppable <- this.inherit("scripts/skills/skill", {
 
 	function onTargetMissed( _skill, _targetEntity )
 	{
-		if (!_skill.isAttack() || _targetEntity == null || _targetEntity.isAlliedWith(this.getContainer().getActor()))
+		if (_skill == null || !_skill.isAttack() || _targetEntity == null || _targetEntity.isAlliedWith(this.getContainer().getActor()))
 		{
 			return;
 		}
@@ -68,9 +73,9 @@ this.perk_ptr_unstoppable <- this.inherit("scripts/skills/skill", {
 		this.m.Stacks = this.Math.floor(this.m.Stacks / 2);
 	}
 
-	function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
+	function onDamageReceived( _attacker, _damageHitpoints, _damageArmor )
 	{
-		if (!_skill.isAttack() || _attacker = this.getContainer().getActor())
+		if (_attacker == null || _attacker == this.getContainer().getActor())
 		{
 			return;
 		}

@@ -1,7 +1,6 @@
 this.perk_ptr_flail_spinner <- this.inherit("scripts/skills/skill", {
 	m = {
-		Chance = 50,
-		IsSpinning = false
+		Chance = 50
 	},
 	function create()
 	{
@@ -15,96 +14,41 @@ this.perk_ptr_flail_spinner <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
-	function spinFlail(_skill, _user, _target)
+
+	function spinFlail (_onUse, _user, _targetTile, _targetEntity, _skill)
 	{
-		if (this.m.IsSpinning)
+		local ret = false;
+
+		if (this.Math.rand(1,100) > this.m.Chance)
 		{
-			return;
-		}		
-					
-		local roll = this.Math.rand(1, 100);				
-		if (roll > this.m.Chance)
-		{
-			return;
+			return ret;
 		}
-		
-		local targetTile = _target.getTile();
-		
-		if (targetTile != null && (!_user.isHiddenToPlayer() || _targetTile.IsVisibleForPlayer))
-		{					
-			this.m.IsSpinning = true;
-			//this.m.IsDoingAttackMove = false;
-			this.getContainer().setBusy(true);
-			
-			local info = { SkillToUse = _skill, Perk = this };
-			this.Time.scheduleEvent(this.TimeUnit.Virtual, 300, function ( _info )
+
+		if (this.Tactical.TurnSequenceBar.getActiveEntity().getID() != null && this.Tactical.TurnSequenceBar.getActiveEntity().getID() == _user.getID() && (!_user.isHiddenToPlayer() || _targetTile.IsVisibleForPlayer))
+		{
+			if (!_user.isHiddenToPlayer() && _targetTile.IsVisibleForPlayer)
 			{
-				if (_target.isAlive())
+				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " is spinning the Flail");
+			}
+			_skill.getContainer().setBusy(true);
+			this.Time.scheduleEvent(this.TimeUnit.Virtual, 300, function ( _skill )
+			{
+				if (_targetEntity.isAlive())
 				{
-					//_info.SkillToUse.attackEntity(_user, _target);
-					_info.SkillToUse.useForFree(targetTile);
+					ret = _onUse(_user, _targetTile) || ret;
 				}
 
-				//_info.SkillToUse.m.IsDoingAttackMove = true;						
-				_info.SkillToUse.getContainer().setBusy(false);
-				_info.Perk.m.IsSpinning = false;
-			}.bindenv( info ), info);					
+				_skill.getContainer().setBusy(false);
+			}.bindenv(_skill), _skill);
 		}
 		else
-		{			
-			if (_target.isAlive())
+		{
+			if (_targetEntity.isAlive())
 			{
-				this.m.IsSpinning = true;
-				//_skillToUse.attackEntity(_user, _target);
-				_skill.useForFree(targetTile);
-				this.m.IsSpinning = false;
+				ret = _onUse(_user, _targetTile) || ret;
 			}
-		}		
-	}
-	
-	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
-	{
-		if (this.m.IsSpinning || !_targetEntity.isAlive() || _targetEntity.isDying() || !_skill.isAttack() || _skill.isRanged() || _skill.isAOE())
-		{			
-			return;			
 		}
-		
-		local actor = this.getContainer().getActor();
-		if (this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
-		{
-			return;
-		}
-		
-		local weapon = actor.getMainhandItem();		
-		if (weapon == null || weapon.getCategories().find("Flail") == null)
-		{
-			return;
-		}
-		
-		this.spinFlail(_skill, this.getContainer().getActor(), _targetEntity);							
-	} 
-	
-	function onTargetMissed( _skill, _targetEntity )
-	{
-		if (this.m.IsSpinning || !_targetEntity.isAlive() || _targetEntity.isDying() || !_skill.isAttack() || _skill.isRanged() || _skill.isAOE())
-		{			
-			return;			
-		}
-		
-		local actor = this.getContainer().getActor();
-		if (this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
-		{
-			return;
-		}
-		
-		local weapon = actor.getMainhandItem();			
-		if (weapon == null || weapon.getCategories().find("Flail") == null)
-		{
-			return;
-		}
-		
-		this.spinFlail(_skill, this.getContainer().getActor(), _targetEntity);			
+
+		return ret;
 	}
 });
-

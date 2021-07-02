@@ -1,6 +1,6 @@
 this.perk_ptr_sanguinary <- this.inherit("scripts/skills/skill", {
 	m = {
-		FatigueCostRefundPercentage = 25
+		FatigueCostRefundPercentage = 25		
 	},
 	function create()
 	{
@@ -18,5 +18,17 @@ this.perk_ptr_sanguinary <- this.inherit("scripts/skills/skill", {
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
 		_properties.FatalityChanceMult *= 1.5;
+	}
+
+	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
+	{
+		if (_targetEntity.getSkills().hasSkill("effects.bleeding"))
+		{
+			local actor = this.getContainer().getActor();
+			if (actor.getMoraleState() < this.Const.MoraleState.Confident && actor.getMoraleState() != this.Const.MoraleState.Fleeing)
+			{
+				actor.setMoraleState(actor.getMoraleState() + 1);
+			}
+		}
 	}
 });

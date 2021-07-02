@@ -8,7 +8,7 @@ this.ptr_dismantled_effect <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "effects.ptr_dismantled";
 		this.m.Name = "Dismantled Armor";
-		this.m.Description = "This character\'s armor is falling apart, causing increaesd damage to go through armor for the remainder of the combat.";
+		this.m.Description = "This character\'s armor is falling apart, causing increased damage to go through armor for the remainder of the combat.";
 		this.m.Icon = "skills/ptr_dismantled_effect.png";
 		//this.m.IconMini = "ptr_dismantled_effect_mini";
 		this.m.Overlay = "ptr_dismantled_effect";
@@ -51,7 +51,7 @@ this.ptr_dismantled_effect <- this.inherit("scripts/skills/skill", {
 				id = 10,
 				type = "text",
 				icon = "ui/icons/direct_damage.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + (this.m.BodyHitCount * this.m.DamageIncrease) + "%[/color] Damage Received through Head Armor"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]+" + (this.m.HeadHitCount * this.m.DamageIncrease) + "%[/color] Damage received through Head Armor"
 			});
 		}
 
@@ -61,7 +61,7 @@ this.ptr_dismantled_effect <- this.inherit("scripts/skills/skill", {
 				id = 10,
 				type = "text",
 				icon = "ui/icons/direct_damage.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + (this.m.HeadHitCount * this.m.DamageIncrease) + "%[/color] Damage Received through Body Armor"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]+" + (this.m.BodyHitCount * this.m.DamageIncrease) + "%[/color] Damage received through Body Armor"
 			});
 		}
 
@@ -75,14 +75,14 @@ this.ptr_dismantled_effect <- this.inherit("scripts/skills/skill", {
 
 	function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
 	{
-		if (_skill == null || !_skill.isAttack() || _attacker != null || _attacker.getID() == this.getContainer().getActor().getID())
+		if (_skill == null || !_skill.isAttack() || _attacker == null || _attacker.getID() == this.getContainer().getActor().getID())
 		{
 			return;
 		}
 
 		local count = 0;
 
-		if (__hitInfo.BodyPart == this.Const.BodyPart.Body)
+		if (_hitInfo.BodyPart == this.Const.BodyPart.Body)
 		{
 			count = this.m.BodyHitCount;
 		}

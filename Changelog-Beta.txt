@@ -1,3 +1,132 @@
+======================
+==== Ver 0.10.3 ======
+======================
+- Added new AI behaviors for the "Hold the Line" and "Push Forward" skills. Still may not be perfect, so please provide feedback on how "intelligent" it feels now.
+- Removed the "Protect" AI behavior from Brigand Leaders, Brigand Warlords, Nomad Leaders, and Knights. Now these elite enemies will no longer waste time protecting their ranged units.
+- Made some improvements to Arrow to the Knee AI. Now it will be less likely to use the Arrow to the Knee skill against targets of low Melee Skill.
+- Hopefully fixed an AI "soft-lock" when using Arrow to the Knee.
+
+======================
+==== Ver 0.10.2 ======
+======================
+- The description of the Dismantle perk now makes it clear that the increased damage the target receives is from all sources.
+- Removed the "Nimble" perk from Höllenhund.
+- Fixed "Through the Gaps" not showing the increased armor ignore damage in the tooltip of skills (it was working properly, just the tooltip wasn't updated).
+- Fixed Nomad slingers not properly getting Sling Mastery.
+
+======================
+==== Ver 0.10.1 ======
+======================
+- Fixed a bug in the Dismantled Effect which caused the target to no longer receive hits.
+
+======================
+==== Ver 0.10.0 ======
+======================
+== Major changes ==
+- Removed Unstoppable Force from t7 Heavy Armor perk group.
+- New t7 Heavy Armor perk: "Man of Steel". Reduces armor penetrating damage to Hitpoints received from ranged attacks by up to 30%. The bonus increases exponentially with total head and body armor of higher maximum durability.
+- Reworked "Freedom of Movement": Now provides 5 + 10% of your Maximum Fatigue after gear as a constant bonus to Melee Skill and Melee Defense. The bonus decreases exponentially when wearing armor heavier than -15 fatigue.
+- Moved Freedom of Movement to t5 of the Light Armor perk group.
+- Moved Strength in Numbers from Militia perk group t7 to t2.
+- Reduced the probability of the Spear, Sword, Crossbow, and Staff perk groups overall, to allow for more variety in recruits.
+- Increased the chances of recruits with the Hunter perk group to also have the Dagger and Devious perk groups.
+- Increased the chances of recruits with the Apothecary perk group to also have the Calm perk group.
+
+== Balance ==
+- Removed the "Vengeance" perk from all remaining enemies who still had that perk. No enemies have this perk now.
+- Removed several accuracy and damage perks from a lot of ranged enemies. This will hopefully make them feel less obnoxious.
+- Added "Man of Steel" to some enemies.
+- Removed the "Alert" perk from goblin fighters.
+
+== Fixes ==
+- Removed Marksmanship and Berserk from goblin fighters. These perks were not intended on them.
+- Made it clear in the tooltip of Promised Potential that a successful Realized Potential also unlocks new perk groups.
+- Fixed Cull always considering every hit a headshot for its killing threshold calculation when using the Split Man skill of 2H Axes.
+- Fixed a typo in the Dismantled armor effect tooltip.
+- Fixed a bug in the Dismantled armor effect which may have prevented it from receiving the increased damage.
+
+======================
+==== Ver 0.9.3g ======
+======================
+- Fixed the Unstoppable perk sometimes causing the battle to freeze upon taking damage, as the game thought the damage came from a "null" skill.
+
+======================
+==== Ver 0.9.3f ======
+======================
+- Fixed a crash when a bro with a flail killed a fleeing enemy.
+
+======================
+==== Ver 0.9.3e ======
+======================
+- Rearranged the Clerk perk group: Paymaster is now t6 and Bribe is t7.
+- Unstoppable now shows the number of stacks in the tooltip's name.
+- Fixed Sanguinary causing issues in battles when an Undead attacker attacked a bleeding target.
+- Fixed Flail Spinner causing crash when the first attack killed the target.
+
+======================
+==== Ver 0.9.3d ======
+======================
+- Fixed a crash when starting a battle against goblins with a miniboss Goblin Fighter.
+
+======================
+==== Ver 0.9.3c ======
+======================
+- Really fixed the bug in Promised Potential.
+
+======================
+==== Ver 0.9.3b ======
+======================
+- Changed Serpents perks on Legendary difficulty: No longer have Vengeance and Light Weapon (so now they can't attack 2 times per turn), and instead gain poison attack for 4 attacks.
+- Fixed a bug in the Promised Potential perk that made saved games with the perk unable to be loaded after level 11.
+
+======================
+==== Ver 0.9.3a ======
+======================
+- Fixed a bug with the Sanguinary perk when killing an enemy.
+
+=====================
+==== Ver 0.9.3 ======
+=====================
+== Balance ==
+- At Legendary Difficulty, the following enemies no longer have the Vengeance perk: Zweihander, Ancient Honorguard (except if bodyguard), Armored Wiedeganger, Barbarian Chosen, Nomad Executioner, Orc Warrior, Fallen Hero.
+- Removed the base armor penetration bonus that master archers have in vanilla (they had a 25% bonus).
+
+== Perks ==
+- Follow Up skill reworked (due to AI crashing issues): Until your next turn, any enemy in your attack range who gets hit by an ally adds 1 charge to this effect. During your next turn, you can use your primary attack skill freely for as many times as you have charges. These free attacks do -50% damage and an additional -10% for each next attack. Once all charges are used up the effect expires and you return back to the usual costs and damage of your attack. If at any point, you move from your position, or are engaged in Melee, this effect ends immediately and all charges are lost.
+- Sanguinary tweaked: In addition to the previous effects, attacking bleeding targets improves this character's morale by 1 level and inflicting a fatality immediately sets the Morale to Confident.
+- Deep Cuts tweaked: Every second attack against the same target applies an additional stack of bleeding of 5 damage. This damage is increased to 10 if any of these two attacks inflicted an injury.
+- Bloodlust tweaked: Every attack against a bleeding target reduces current Fatigue by 5% per stack of bleeding on the target, and increases Fatigue Recovery by +1 per stack of Bleeding on the target.
+- Improved the tooltip of the Survival Instinct effect. It now shows the number of stacks in the effect's name.
+
+== Fixes ==
+- Fixed Flail Spinner causing a chain reaction with 3-headed Flails. The skill has been refactored in code and now works with specific skills only i.e. the Flail, Lash, Cascade, Hail, and Pound skills.
+- Fixed Follow Up sometimes causing issues with vanilla AI evaluation when it procced and killed a target. The perk has been reworked to allow this fix as mentioned above.
+
+=====================
+==== Ver 0.9.2 ======
+=====================
+- Feint (Sword group t2) now only works with Melee attacks.
+- Through the Gaps (Spear group t3) now only works with Melee attacks.
+- Improved Sanguinary description to mention that the refund is based on the Base Fatigue Cost of the skill and not the reduced cost after all reductions from other perks and effects.
+- Improved the description of Feint to mention the same as above.
+- Fixed a bug in Phalanx which may have caused it to work in more situations than intended.
+- Fixed a bug in Cull which may have caused a crash when this perk killed an enemy.
+- Fixed a bug in Sanguinary which did not refund the cost of the skill properly.
+
+=====================
+==== Ver 0.9.1 ======
+=====================
+- Made the "Organized" perk group less rare on several ranged oriented backgrounds.
+- The Ranger and Ranger Commander backgrounds will now always have the Bags and Belts perk.
+- Fixed Embalmed Slaves getting more perks than intended if they spawned with a bow.
+- Fixed some perks not getting activated on enemies. These include: Fresh and Furious, Entrenched, Patience, Hip Shooter, Tunnel Vision, and Whack a' Smack.
+
+=====================
+==== Ver 0.9.0a =====
+=====================
+- Fixed a crash/freeze when a bro levels up after a battle in some cases.
+- Fixed Heft tooltip to now correctly mention 30% instead of 33%.
+
 ====================
 ==== Ver 0.9.0 =====
 ====================
