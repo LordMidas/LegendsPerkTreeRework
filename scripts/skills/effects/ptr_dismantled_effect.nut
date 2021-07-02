@@ -8,7 +8,7 @@ this.ptr_dismantled_effect <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "effects.ptr_dismantled";
 		this.m.Name = "Dismantled Armor";
-		this.m.Description = "This character\'s armor is falling apart, causing increaesd damage to go through armor for the remainder of the combat.";
+		this.m.Description = "This character\'s armor is falling apart, causing increased damage to go through armor for the remainder of the combat.";
 		this.m.Icon = "skills/ptr_dismantled_effect.png";
 		//this.m.IconMini = "ptr_dismantled_effect_mini";
 		this.m.Overlay = "ptr_dismantled_effect";
