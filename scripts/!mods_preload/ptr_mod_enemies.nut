@@ -43,6 +43,14 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_fast_adaption"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_killing_frenzy"));
 			}
+
+			local agent = actor.getAIAgent();
+
+			if (agent.findBehavior(this.Const.AI.Behavior.ID.Protect) != null)
+			{
+				agent.removeBehavior(this.Const.AI.Behavior.ID.Protect);
+				agent.finalizeBehaviors();
+			}
 		}
 
 		local assignRandomEquipment = o.assignRandomEquipment;
@@ -778,6 +786,14 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_unstoppable"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_personal_armor"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_second_wind"));
+			}
+
+			local agent = actor.getAIAgent();
+
+			if (agent.findBehavior(this.Const.AI.Behavior.ID.Protect) != null)
+			{
+				agent.removeBehavior(this.Const.AI.Behavior.ID.Protect);
+				agent.finalizeBehaviors();
 			}
 		}
 
@@ -2511,6 +2527,14 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_muscularity"));
 			}
+
+			local agent = actor.getAIAgent();
+
+			if (agent.findBehavior(this.Const.AI.Behavior.ID.Protect) != null)
+			{
+				agent.removeBehavior(this.Const.AI.Behavior.ID.Protect);
+				agent.finalizeBehaviors();
+			}
 		}
 
 		local assignRandomEquipment = o.assignRandomEquipment;
@@ -3440,6 +3464,14 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_underdog"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_fast_adaption"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_killing_frenzy"));
+			}
+
+			local agent = actor.getAIAgent();
+
+			if (agent.findBehavior(this.Const.AI.Behavior.ID.Protect) != null)
+			{
+				agent.removeBehavior(this.Const.AI.Behavior.ID.Protect);
+				agent.finalizeBehaviors();
 			}
 		}
 
