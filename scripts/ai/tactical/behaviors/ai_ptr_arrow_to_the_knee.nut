@@ -90,6 +90,11 @@ this.ai_ptr_arrow_to_the_knee <- this.inherit("scripts/ai/tactical/behavior", {
 			this.printDebug("Chosen best target for arrow to the knee: " + this.m.Target.getName(), "mod_legends_PTR");
 		}
 
+		if (this.m.Target.getCurrentProperties().getMeleeSkill() < 80)
+		{
+			score = score * 0.5;
+		}
+
 		return this.Const.AI.Behavior.Score.PTRArrowToTheKnee * score;
 	}
 
@@ -167,6 +172,11 @@ this.ai_ptr_arrow_to_the_knee <- this.inherit("scripts/ai/tactical/behavior", {
 			}
 
 			if (target.getSkills().hasSkill("effects.ptr_arrow_to_the_knee_debuff") || target.getSkills().hasSkillOfType(this.Const.SkillType.TemporaryInjury))
+			{
+				continue;
+			}
+
+			if (target.getCurrentProperties().getMeleeSkill() < 70)
 			{
 				continue;
 			}
