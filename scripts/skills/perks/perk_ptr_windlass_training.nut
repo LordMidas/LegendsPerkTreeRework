@@ -21,8 +21,8 @@ this.perk_ptr_windlass_training <- this.inherit("scripts/skills/skill", {
 			reloadBolt.m.ActionPointCost -= 1;
 		}
 
-		local reloadHandgonne = this.getContainer().getSkillByID("reload_handgonne_skill");
-		if (reloadHandgonne != null && reloadBolt.m.ActionPointCost > 1)
+		local reloadHandgonne = this.getContainer().getSkillByID("actives.reload_handgonne");
+		if (reloadHandgonne != null && reloadHandgonne.m.ActionPointCost > 1)
 		{
 			reloadHandgonne.m.ActionPointCost -= 2;
 		}
