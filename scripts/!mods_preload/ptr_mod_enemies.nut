@@ -3279,6 +3279,11 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_hold_out"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_the_rush_of_battle"));
 
+			if (this.Math.rand(1,100) <= 20)
+			{
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_str_line_breaker"));
+			}
+
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.addPerkTree(this.Const.Perks.TrainedTree);
