@@ -235,9 +235,9 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.PTRFruitsOfLabor <- "Hitpoints, Maximum Fatigue, and Initiative are increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] each.\n[color=#0b0084]From the Laborer perk group[/color]";
 
 	gt.Const.Strings.PerkName.PTRExudeConfidence <- "Exude Confidence";
-	gt.Const.Strings.PerkDescription.PTRExudeConfidence <- "At the start of your turn, improve the Morale of adjacent allies by 1 as long as their Morale state is lower than yours.\n[color=#0b0084]From the Soldier perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRExudeConfidence <- "At the start of your turn, improve the Morale state of adjacent allies by [color=" + this.Const.UI.Color.PositiveValue + "]1[/color] as long as their Morale state is lower than yours.\n[color=#0b0084]From the Soldier perk group[/color]";
 	gt.Const.Strings.PerkName.PTRProfessional <- "Professional";
-	gt.Const.Strings.PerkDescription.PTRProfessional <- "Grants the benefits of the Duelist, Shield Expert, Reach Advantage, and Bloody Harvest perks without requiring these perks to be picked.\n[color=#0b0084]From the Soldier perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRProfessional <- "Grants the benefits of the Duelist, Exploit Opening, Reach Advantage, and Bloody Harvest perks without requiring these perks to be picked.\n[color=#0b0084]From the Soldier perk group[/color]";
 
 	gt.Const.Strings.PerkDescription.LegendFreedomOfMovement = "Being unencumbered allows you to move and strike with great accuracy. Melee Skill and Melee Defense are increased by [color=" + this.Const.UI.Color.PositiveValue + "]+5[/color] and by an additional [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of your Maximum Fatigue after gear. These bonuses drop exponentially when wearing head and body armor with a total penalty to Maximum Fatigue greater than [color=" + this.Const.UI.Color.NegativeValue + "]-15[/color]. Always provides at least [color=" + this.Const.UI.Color.PositiveValue + "]+5[/color] to Melee Skill and Melee Defense.\n[color=#0b0084]From the Light Armor perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendFreedomOfMovement].Tooltip = gt.Const.Strings.PerkDescription.LegendFreedomOfMovement;
