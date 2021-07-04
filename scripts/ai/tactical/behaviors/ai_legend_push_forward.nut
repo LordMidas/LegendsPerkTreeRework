@@ -37,38 +37,34 @@ this.ai_legend_push_forward <- this.inherit("scripts/ai/tactical/behavior", {
 		}
 
 		score = score * this.getFatigueScoreMult(this.m.Skill);
-		local actors = this.Tactical.Entities.getInstancesOfFaction(_entity.getFaction());
+		local enemies = _entity.getActorsWithinDistanceAsArray(6, this.Const.FactionRelation.Enemy);
+		local allies = _entity.getActorsWithinDistanceAsArray(4, this.Const.FactionRelation.SameFaction);
 		local myTile = _entity.getTile();
 		local useScore = 0.0;
 		local numTargets = 0;
 
-		foreach( a in actors )
+		if (allies.len() <= 1)
 		{
-			# a.getID() == _entity.getID()
-			if (a.getSkills().hasSkill("effects.legend_pushing_forward"))
+			return this.Const.AI.Behavior.Score.Zero;
+		}
+
+		foreach( ally in allies )
+		{
+			if (!ally.hasZoneOfControl())
 			{
 				continue;
 			}
 
-			local thisScore = 0;
-			local distance = a.getTile().getDistanceTo(myTile);
+			local allyAttack = ally.getSkills().getAttackOfOpportunity();
 
-			if (distance > 4)
+			local bestTarget = this.queryBestMeleeTarget(ally, allyAttack, enemies);
+
+			if (bestTarget.Target == null || bestTarget.Target.getFaction() != _entity.getFaction() || bestTarget.Target.getSkills().hasSkill("effects.legend_pushing_forward"))
 			{
 				continue;
 			}
 
-			local allyAttack = a.getSkills().getAttackOfOpportunity();
-			if (allyAttack == null)
-			{
-				continue;
-			}
-
-			local targets = this.queryTargetsInMeleeRange(allyAttack.getMinRange(), allyAttack.getMaxRange(), allyAttack.getMaxLevelDifference(), a.getTile());
-			foreach (target in targets)
-			{
-				thisScore += allyAttack.getHitchance(target);
-			}
+			local thisScore = allyAttack.getHitchance(bestTarget.Target);
 
 			numTargets++;
 
@@ -80,7 +76,7 @@ this.ai_legend_push_forward <- this.inherit("scripts/ai/tactical/behavior", {
 			return this.Const.AI.Behavior.Score.Zero;
 		}
 
-		score = score * (useScore * 0.01 * 0.5);
+		score = score * (useScore * 0.01);
 		return this.Const.AI.Behavior.Score.LegendPushForward * score;
 	}
 

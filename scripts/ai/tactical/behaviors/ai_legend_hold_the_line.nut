@@ -37,55 +37,41 @@ this.ai_legend_hold_the_line <- this.inherit("scripts/ai/tactical/behavior", {
 		}
 
 		score = score * this.getFatigueScoreMult(this.m.Skill);
-		local actors = this.Tactical.Entities.getInstancesOfFaction(_entity.getFaction());
+		local enemies = _entity.getActorsWithinDistanceAsArray(6, this.Const.FactionRelation.Enemy);
+		local allies = _entity.getActorsWithinDistanceAsArray(4, this.Const.FactionRelation.SameFaction);
 		local myTile = _entity.getTile();
 		local useScore = 0.0;
 		local numTargets = 0;
 
-		foreach( a in actors )
+		foreach( enemy in enemies )
 		{
-			# a.getID() == _entity.getID()
-			if (a.getSkills().hasSkill("effects.legend_holding_the_line"))
+			if (!enemy.hasZoneOfControl())
 			{
 				continue;
 			}
 
-			local thisScore = 0;
-			local distance = a.getTile().getDistanceTo(myTile);
+			local enemyAttack = enemy.getSkills().getAttackOfOpportunity();
 
-			if (distance > 4)
+			local bestTarget = this.queryBestMeleeTarget(enemy, enemyAttack, allies);
+
+			if (bestTarget.Target == null || bestTarget.Target.getFaction() != _entity.getFaction() || bestTarget.getMoraleState() == this.Const.MoraleState.Fleeing || bestTarget.Target.getSkills().hasSkill("effects.legend_holding_the_line"))
 			{
 				continue;
 			}
 
-			local enemiesWithinTwoTiles = a.getActorsWithinDistanceAsArray(2, this.Const.FactionRelation.Enemy);
-			foreach (enemy in enemiesWithinTwoTiles)
-			{
-				if (!enemy.hasZoneOfControl())
-				{
-					continue;
-				}
-
-				local enemyAttack = enemy.getSkills().getAttackOfOpportunity();
-				if (enemyAttack == null || !enemyAttack.isUsableOn(a.getTile()))
-				{
-					continue;
-				}
-
-				thisScore += enemyAttack.getHitchance(a);
-			}
+			local thisScore = enemyAttack.getHitchance(bestTarget.Target);
 
 			numTargets++;
 
 			useScore = useScore + thisScore;
 		}
 
-		if (numTargets == 0)
+		if (numTargets <= 1)
 		{
 			return this.Const.AI.Behavior.Score.Zero;
 		}
 
-		score = score * (useScore * 0.01 * 0.5);
+		score = score * (useScore * 0.01);
 		return this.Const.AI.Behavior.Score.LegendHoldTheLine * score;
 	}
 
