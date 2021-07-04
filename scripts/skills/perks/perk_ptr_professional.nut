@@ -1,6 +1,7 @@
 this.perk_ptr_professional <- this.inherit("scripts/skills/skill", {
 	m = {
-		IsSpent = false
+		IsSpent = false,
+		this.m.PerksAdded = 0
 	},
 	function create()
 	{
@@ -25,21 +26,25 @@ this.perk_ptr_professional <- this.inherit("scripts/skills/skill", {
 		if (!this.getContainer().hasSkill("perk.duelist"))
 		{
 			this.getContainer().add(this.new("scripts/skills/perks/perk_duelist"));
+			this.m.PerksAdded++;
 		}
 
 		if (!this.getContainer().hasSkill("perk.ptr_exploit_opening"))
 		{
 			this.getContainer().add(this.new("scripts/skills/perks/perk_ptr_exploit_opening"));
+			this.m.PerksAdded++;
 		}
 
 		if (!this.getContainer().hasSkill("perk.reach_advantage"))
 		{
 			this.getContainer().add(this.new("scripts/skills/perks/perk_reach_advantage"));
+			this.m.PerksAdded++;
 		}
 
 		if (!this.getContainer().hasSkill("perk.ptr_bloody_harvest"))
 		{
 			this.getContainer().add(this.new("scripts/skills/perks/perk_ptr_bloody_harvest"));
+			this.m.PerksAdded++;
 		}
 
 		this.m.IsSpent = true;
@@ -53,9 +58,16 @@ this.perk_ptr_professional <- this.inherit("scripts/skills/skill", {
 		this.getContainer().removeByID("perk.perk_ptr_bloody_harvest");
 	}
 
+	function onSerialize(_out)
+	{
+		this.skill.onSerialize(_out);
+		_out.writeU8(this.m.PerksAdded);
+	}
+
 	function onDeserialize(_in)
 	{
 		this.skill.onDeserialize(_in);
 		this.m.IsSpent = true;
+		this.m.PerksAdded = _in.readU8();
 	}
 });

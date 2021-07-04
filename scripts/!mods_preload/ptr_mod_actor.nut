@@ -137,6 +137,15 @@ gt.Const.PTR.modActor <- function()
 				}
 			}
 
+			local hasProfessional = false;
+			local professionalPerk = this.getSkills().getSkillByID("perk.ptr_professional");
+			local professionalAddedPerks = 0;
+			if (professionalPerk != null)
+			{
+				hasProfessional = true;
+				professionalAddedPerks = professionalPerk.m.PerksAdded;
+			}
+
 			resetPerks();
 
 			if (hasDiscoveredTalent)
@@ -177,6 +186,11 @@ gt.Const.PTR.modActor <- function()
 					this.m.PerkPointsSpent += 1;
 					this.getSkills().add(this.new("scripts/skills/perks/perk_ptr_trauma_survivor"));
 				}
+			}
+
+			if (hasProfessional)
+			{
+				this.m.PerkPoints -= professionalAddedPerks;
 			}
 		}
 
