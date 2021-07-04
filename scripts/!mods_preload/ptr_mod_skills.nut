@@ -2,6 +2,42 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modSkills <- function()
 {
+	::mods_hookNewObject("skills/perks/perk_duelist", function(o) {
+		o.onUpdate = function(_properties)
+		{
+			local items = this.getContainer().getActor().getItems();
+			local off = items.getItemAtSlot(this.Const.ItemSlot.Offhand);
+
+			if (off == null && !items.hasBlockedSlot(this.Const.ItemSlot.Offhand) ||
+			 		off != null && (off.isItemType(this.Const.Items.ItemType.Tool) ||
+												 (this.getContainer().hasSkill("perk.ptr_offhand_training") && (off.getID().find("buckler") != null || off.getID().find("parrying_dagger") != null)))
+					)
+			{
+				_properties.DamageDirectAdd += 0.25;
+			}
+		}
+	});
+
+	::mods_hookNewObject("skills/effects/duelist_defense_effect", function(o) {
+		local isEnabled = o.isEnabled;
+		o.isEnabled = function()
+		{
+			local ret = isEnabled();
+			if (!ret)
+			{
+				local items = this.getContainer().getActor().getItems();
+				local off = items.getItemAtSlot(this.Const.ItemSlot.Offhand);
+
+				if (off != null && this.getContainer().hasSkill("perk.ptr_offhand_training") && (off.getID().find("buckler") != null || off.getID().find("parrying_dagger") != null))
+				{
+					ret = true;
+				}
+			}
+
+			return ret;
+		}
+	});
+
 	::mods_hookNewObject("skills/actives/legend_push_forward", function(o) {
 		local onAdded = ::mods_getMember(o, "onAdded");
 		o.onAdded <- function()

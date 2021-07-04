@@ -70,12 +70,14 @@ this.perk_ptr_promised_potential <- this.inherit("scripts/skills/skill", {
 
 	function onSerialize(_out)
 	{
+		this.skill.onSerialize(_out);
 		_out.writeBool(this.m.IsSpent);
 		_out.writeBool(this.m.WillSucceed);
 	}
 
 	function onDeserialize(_in)
 	{
+		this.skill.onDeserialize(_in);
 		this.m.IsSet = true;
 		this.m.IsSpent = _in.readBool();
 		this.m.WillSucceed = _in.readBool();
