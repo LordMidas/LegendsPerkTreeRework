@@ -1,17 +1,29 @@
 ======================
+==== Ver 0.11.1 ======
+======================
+- Exploit Opening will now show a plus icon in the chance to hit tooltip if it is applicable on the target.
+- Fixed an issue with Exploit Opening which resulted in it not giving the bonus as intended.
+
+======================
 ==== Ver 0.11.0 ======
 ======================
+== Major Changes ==
 - NOTE: You require the updated version of Duelist Defense. Get the latest version from Nexus.
 - New Perk: "Exploit Opening" t3 One-Handed Weapons perk group. An enemy who misses a Melee attack against you gains the Exploitable Opening effect which gives you +10% chance to hit against them.
 - New Perk: "Offhand Training" t7 One-Handed Weapons perk group. Using a Buckler or Parrying Dagger in the offhand no longer disables the bonus from the Duelist perk.
 - New Perk: "Exude Confidence" t5 Soldier perk group. At the start of your turn, increase the Morale state of adjacent allies by 1 as long as your Morale state is higher than theirs.
-- New Perk: "Professional" t7 Soldier perk group. Grants the bonuses of Duelist, Exploit Opening, Reach Advantage, and Bloody Harvest without having to pick those perks.
+- New Perk: "Professional" t7 Soldier perk group. Unlocks the Duelist, Exploit Opening, Reach Advantage, and Bloody Harvest perks without having to pick those perks.
 - New Perk: "Fruits of Labor" t1 Laborer perk group. Increases Hitpoints, Maximum Fatigue and Initiative by 10% each.
 - Soft Metal tweaked: Hammers now get the bonus at 100% armor remaining and other blunt weapons get it at 60% armor remaining.
-- Noble Footmen now have a 20% to have the Linebreaker perk.
-- Knights and Bandit Warlords have the Exude Confidence perk now. Additionally, at Legendary difficulty Nomad Leaders and Bandit Leaders have this perk too.
 - Greatly increased the chance of favored enemy perks on all recruits. The type of favored enemy will be mostly random.
 - Sanguinary will now spawn an icon when it results in a Morale increase.
+- Made some tweaks to the Hold the Line and Push Forward AI.
+
+== Balance ==
+- Noble Footmen now have a 20% to have the Linebreaker perk.
+- Knights and Bandit Warlords have the Exude Confidence perk now. Additionally, at Legendary difficulty Nomad Leaders and Bandit Leaders have this perk too.
+
+== Fixes ==
 - Fixed Muscle Memory not working for the Reload Handgonne skill.
 - Fixed Bone Breaker sometimes proccing even when the conditions weren't fulfilled.
 
