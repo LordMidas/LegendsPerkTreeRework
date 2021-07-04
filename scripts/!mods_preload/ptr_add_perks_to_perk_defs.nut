@@ -841,6 +841,51 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_man_of_steel.png",
 			IconDisabled = "ui/perks/ptr_man_of_steel_bw.png",
 			Const = "PTRManOfSteel"
+		},
+		{
+			ID = "perk.ptr_fruits_of_labor",
+			Script = "scripts/skills/perks/perk_ptr_fruits_of_labor",
+			Name = this.Const.Strings.PerkName.PTRFruitsOfLabor,
+			Tooltip = this.Const.Strings.PerkDescription.PTRFruitsOfLabor,
+			Icon = "ui/perks/ptr_fruits_of_labor.png",
+			IconDisabled = "ui/perks/ptr_fruits_of_labor_bw.png",
+			Const = "PTRFruitsOfLabor"
+		},
+		{
+			ID = "perk.ptr_professional",
+			Script = "scripts/skills/perks/perk_ptr_professional",
+			Name = this.Const.Strings.PerkName.PTRProfessional,
+			Tooltip = this.Const.Strings.PerkDescription.PTRProfessional,
+			Icon = "ui/perks/ptr_professional.png",
+			IconDisabled = "ui/perks/ptr_professional_bw.png",
+			Const = "PTRProfessional"
+		},
+		{
+			ID = "perk.ptr_offhand_training",
+			Script = "scripts/skills/perks/perk_ptr_offhand_training",
+			Name = this.Const.Strings.PerkName.PTROffhandTraining,
+			Tooltip = this.Const.Strings.PerkDescription.PTROffhandTraining,
+			Icon = "ui/perks/ptr_offhand_training.png",
+			IconDisabled = "ui/perks/ptr_offhand_training_bw.png",
+			Const = "PTROffhandTraining"
+		},
+		{
+			ID = "perk.ptr_exude_confidence",
+			Script = "scripts/skills/perks/perk_ptr_exude_confidence",
+			Name = this.Const.Strings.PerkName.PTRExudeConfidence,
+			Tooltip = this.Const.Strings.PerkDescription.PTRExudeConfidence,
+			Icon = "ui/perks/ptr_exude_confidence.png",
+			IconDisabled = "ui/perks/ptr_exude_confidence_bw.png",
+			Const = "PTRExudeConfidence"
+		},
+		{
+			ID = "perk.ptr_exploit_opening",
+			Script = "scripts/skills/perks/perk_ptr_exploit_opening",
+			Name = this.Const.Strings.PerkName.PTRExploitOpening,
+			Tooltip = this.Const.Strings.PerkDescription.PTRExploitOpening,
+			Icon = "ui/perks/ptr_exploit_opening.png",
+			IconDisabled = "ui/perks/ptr_exploit_opening_bw.png",
+			Const = "PTRExploitOpening"
 		}
 	];
 

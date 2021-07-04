@@ -14,11 +14,15 @@ gt.Const.PTR.createStylesTrees <- function()
 				gt.Const.Perks.PerkDefs.ShieldExpert
 			],
 			[],
-			[],
+			[
+				gt.Const.Perks.PerkDefs.PTRExploitOpening
+			],
 			[
 				gt.Const.Perks.PerkDefs.Duelist
 			],
-			[]
+			[
+				gt.Const.Perks.PerkDefs.PTROffhandTraining
+			]
 		]
 	};
 
@@ -708,7 +712,9 @@ gt.Const.PTR.createProfessionTrees <- function()
 
 		],
 		Tree = [
-			[],
+			[
+				gt.Const.Perks.PerkDefs.PTRFruitsOfLabor
+			],
 			[],
 			[],
 			[],
@@ -787,9 +793,13 @@ gt.Const.PTR.createProfessionTrees <- function()
 			[],
 			[],
 			[],
+			[
+				gt.Const.Perks.PerkDefs.PTRExudeConfidence
+			],
 			[],
-			[],
-			[]
+			[
+				gt.Const.Perks.PerkDefs.PTRProfessional
+			]
 		]
 	};
 
