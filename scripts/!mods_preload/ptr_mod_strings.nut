@@ -82,7 +82,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRDeepImpact <- "Deep Impact";
 	gt.Const.Strings.PerkDescription.PTRDeepImpact <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Damage Type: Blunt[/color]\n\nThe threshold to inflict injury from blunt damage attacks is reduced by [color=" + this.Const.UI.Color.PositiveValue + "]25%[/color] of the currently equipped weapon's armor effectiveness. Blunt attacks can now apply injuries to the Undead.\n[color=#0b0084]From the Hammer perk group[/color]";
 	gt.Const.Strings.PerkName.PTRSoftMetal <- "Soft Metal";
-	gt.Const.Strings.PerkDescription.PTRSoftMetal <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Damage Type: Blunt[/color]\n\When using Hammers an additional [color=" + this.Const.UI.Color.NegativeValue + "]+10%[/color] of the damage ignores armor. When using other blunt weapons, this bonus becomes active when the remaining combined head and body armor durability of the target is less than [color=" + this.Const.UI.Color.NegativeValue + "]60%[/color].\n[color=#0b0084]From the Hammer perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRSoftMetal <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Damage Type: Blunt[/color]\n\nWhen using Hammers an additional [color=" + this.Const.UI.Color.NegativeValue + "]+10%[/color] of the damage ignores armor. When using other blunt weapons, this bonus becomes active when the remaining combined head and body armor durability of the target is less than [color=" + this.Const.UI.Color.NegativeValue + "]60%[/color].\n[color=#0b0084]From the Hammer perk group[/color]";
 	gt.Const.Strings.PerkName.PTRDismantle <- "Dismantle";
 	gt.Const.Strings.PerkDescription.PTRDismantle <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Hammer[/color]\n\nEvery successful hit with a hammer causes the target to receive a stacking [color=" + this.Const.UI.Color.NegativeValue + "]+15%[/color] ([color=" + this.Const.UI.Color.NegativeValue + "]+30%[/color] for Two-Handed hammers) increased damage ignoring armor from all sources for the remainder of the combat.\n[color=#0b0084]From the Hammer perk group[/color]";
 	gt.Const.Strings.PerkName.PTRDentArmor <- "Dent Armor";
@@ -225,6 +225,19 @@ gt.Const.PTR.modStrings <- function()
 
 	gt.Const.Strings.PerkName.PTRManOfSteel <- "Man of Steel";
 	gt.Const.Strings.PerkDescription.PTRManOfSteel <- "Armor penetrating damage to Hitpoints received from Ranged attacks is reduced by up to [color=" + this.Const.UI.Color.PositiveValue + "]30%[/color]. This bonus increases exponentially by wearing head and body armor of higher Maximum Durability.\n[color=#0b0084]From the Heavy Armor perk group[/color]";
+
+	gt.Const.Strings.PerkName.PTRExploitOpening <- "Exploit Opening";
+	gt.Const.Strings.PerkDescription.PTRExploitOpening <- "Whenever an opponent misses a Melee attack against you, they are affected by the \'Exploitable Opening\' effect until their next turn, which gives you [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit against them.\n[color=#0b0084]From the One-Handed Weapons perk group[/color]";
+	gt.Const.Strings.PerkName.PTROffhandTraining <- "Offhand Training";
+	gt.Const.Strings.PerkDescription.PTROffhandTraining <- "Equipping a Buckler or Parrying Dagger in the offhand no longer disables the armor penetration bonus from the Duelist perk.\n[color=#0b0084]From the One-Handed Weapons perk group[/color]";
+
+	gt.Const.Strings.PerkName.PTRFruitsOfLabor <- "Fruits of Labor";
+	gt.Const.Strings.PerkDescription.PTRFruitsOfLabor <- "Hitpoints, Maximum Fatigue, and Initiative are increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] each.\n[color=#0b0084]From the Laborer perk group[/color]";
+
+	gt.Const.Strings.PerkName.PTRExudeConfidence <- "Exude Confidence";
+	gt.Const.Strings.PerkDescription.PTRExudeConfidence <- "At the start of your turn, improve the Morale of adjacent allies by 1 as long as their Morale state is lower than yours.\n[color=#0b0084]From the Soldier perk group[/color]";
+	gt.Const.Strings.PerkName.PTRProfessional <- "Professional";
+	gt.Const.Strings.PerkDescription.PTRProfessional <- "Grants the benefits of the Duelist, Shield Expert, Reach Advantage, and Bloody Harvest perks without requiring these perks to be picked.\n[color=#0b0084]From the Soldier perk group[/color]";
 
 	gt.Const.Strings.PerkDescription.LegendFreedomOfMovement = "Being unencumbered allows you to move and strike with great accuracy. Melee Skill and Melee Defense are increased by [color=" + this.Const.UI.Color.PositiveValue + "]+5[/color] and by an additional [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of your Maximum Fatigue after gear. These bonuses drop exponentially when wearing head and body armor with a total penalty to Maximum Fatigue greater than [color=" + this.Const.UI.Color.NegativeValue + "]-15[/color]. Always provides at least [color=" + this.Const.UI.Color.PositiveValue + "]+5[/color] to Melee Skill and Melee Defense.\n[color=#0b0084]From the Light Armor perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendFreedomOfMovement].Tooltip = gt.Const.Strings.PerkDescription.LegendFreedomOfMovement;
