@@ -25,6 +25,7 @@ gt.Const.PTR.modActor <- function()
 					if (_killer.getMoraleState() < this.Const.MoraleState.Confident && _killer.getMoraleState() != this.Const.MoraleState.Fleeing)
 					{
 						_killer.setMoraleState(this.Const.MoraleState.Confident);
+						_skill.spawnIcon("perk_ptr_sanguinary", _killer.getTile());
 					}
 				}
 			}

@@ -28,6 +28,7 @@ this.perk_ptr_sanguinary <- this.inherit("scripts/skills/skill", {
 			if (actor.getMoraleState() < this.Const.MoraleState.Confident && actor.getMoraleState() != this.Const.MoraleState.Fleeing)
 			{
 				actor.setMoraleState(actor.getMoraleState() + 1);
+				this.spawnIcon("perk_ptr_sanguinary", actor.getTile());
 			}
 		}
 	}
