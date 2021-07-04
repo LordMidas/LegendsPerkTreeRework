@@ -61,6 +61,8 @@ this.perk_ptr_bone_breaker <- this.inherit("scripts/skills/skill", {
 
 	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
 	{
+		this.m.InjuryPool = null;
+		this.m.IsTargetValid = false;
 		local weapon = this.getContainer().getActor().getMainhandItem();
 
 		if (!_skill.isAttack() || !this.isEnabled(_skill, weapon))
@@ -144,8 +146,5 @@ this.perk_ptr_bone_breaker <- this.inherit("scripts/skills/skill", {
 				_targetEntity.onUpdateInjuryLayer();
 			}
 		}
-
-		this.m.InjuryPool = null;
-		this.m.IsTargetValid = false;
 	}
 });
