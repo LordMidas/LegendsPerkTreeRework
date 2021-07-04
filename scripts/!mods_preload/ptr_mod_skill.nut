@@ -4,7 +4,7 @@ gt.Const.PTR.modSkill <- function()
 {
 	::mods_hookBaseClass("skills/skill", function(o) {
 		o = o[o.SuperName];
-		
+
 		local oldgetHitFactors = ::mods_getMember(o, "getHitFactors");
 		::mods_override(o, "getHitFactors", function(_targetTile)
 		{
@@ -28,6 +28,18 @@ gt.Const.PTR.modSkill <- function()
 					icon = "ui/tooltips/positive.png",
 					text = "Ranged Supremacy"
 				});
+			}
+
+			if (targetEntity != null)
+			{
+				local exploitableOpening = targetEntity.getSkills().getSkillByID("effects.ptr_exploitable_opening");
+				if (exploitableOpening != null && exploitableOpening.hasOpponent(this.getContainer().getActor()) && this.getContainer().hasSkill("perk.ptr_exploit_opening"))
+				{
+					ret.push({
+						icon = "ui/tooltips/positive.png",
+						text = "Exploit Opening"
+					});
+				}
 			}
 
 			return ret;
