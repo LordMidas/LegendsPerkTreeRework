@@ -1,4 +1,15 @@
 ======================
+==== Ver 0.11.2 ======
+======================
+- Should now be compatible with Legends version 15.0.1.15b.
+- Unstoppable now has a cap of 10 stacks.
+- The Exploit Opening perk description now properly shows that it requires a One-Handed Melee weapon.
+- The Offhand Training perk description now properly shows that it requires a Buckler or Parrying Dagger.
+- Fixed several lock-ups during battle caused by the Exploit Opening perk.
+- Fixed the Professional perk not being pickable.
+- Fixed a lock-up during battle due to the AI Hold the Line behavior bugging out.
+
+======================
 ==== Ver 0.11.1 ======
 ======================
 - Exploit Opening will now show a plus icon in the chance to hit tooltip if it is applicable on the target.

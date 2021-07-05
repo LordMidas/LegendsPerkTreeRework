@@ -69,7 +69,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRHeadSmasher <- "Head Smasher";
 	gt.Const.Strings.PerkDescription.PTRHeadSmasher <- "The damage reduction from the target's Steel Brow perk is reduced from [color=" + this.Const.UI.Color.NegativeValue + "]100%[/color] to [color=" + this.Const.UI.Color.NegativeValue + "]75%[/color]. Damage inflicted from hits to the head is increased by [color=" + this.Const.UI.Color.PositiveValue + "]15%[/color].\n[color=#0b0084]From the Flail perk group[/color]";
 	gt.Const.Strings.PerkName.PTRFlailSpinner <- "Flail Spinner";
-	gt.Const.Strings.PerkDescription.PTRFlailSpinner <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Flail[/color]\n\nAttacks with flails have a [color=" + this.Const.UI.Color.PositiveValue + "]+50%[/color] chance to do a free extra attack.\n[color=#0b0084]From the Flail perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRFlailSpinner <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Flail[/color]\n\nAttacks with flails have a [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] chance to do a free extra attack.\n[color=#0b0084]From the Flail perk group[/color]";
 	gt.Const.Strings.PerkName.PTRDeadlyPrecision <- "Deadly Precision";
 	gt.Const.Strings.PerkDescription.PTRDeadlyPrecision <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Flail[/color]\n\nWhen using flails, an additional random [color=" + this.Const.UI.Color.PositiveValue + "]0-25%[/color] of damage ignores armor.\n[color=#0b0084]From the Flail perk group[/color]";
 	gt.Const.Strings.PerkName.PTRFromAllSides <- "From all Sides";
@@ -193,7 +193,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.PTRFreshAndFurious <- "Damage is increased by [color=" + this.Const.UI.Color.PositiveValue + "]+25%[/color] when at [color=" + this.Const.UI.Color.PositiveValue + "]0%[/color] Fatigue. This bonus reduces to [color=" + this.Const.UI.Color.NegativeValue + "]0%[/color] when your Fatigue approaches [color=" + this.Const.UI.Color.NegativeValue + "]30%[/color] of Maximum Fatigue.\n[color=#0b0084]From the Fast perk group[/color]";
 
 	gt.Const.Strings.PerkName.PTRUnstoppable <- "Unstoppable";
-	gt.Const.Strings.PerkDescription.PTRUnstoppable <- "Gain [color=" + this.Const.UI.Color.PositiveValue + "]+5[/color] Melee Skill and and [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] Melee Damage for every successful attack. You lose half of the bonus if you miss an attack, and all of it if you get hit.\n[color=#0b0084]From the Unstoppable perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRUnstoppable <- "Gain [color=" + this.Const.UI.Color.PositiveValue + "]+5[/color] Melee Skill and and [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] Melee Damage for every successful attack, up to a maximum of 10 consecutive attacks. You lose half of the bonus if you miss an attack, and all of it if you get hit.\n[color=#0b0084]From the Unstoppable perk group[/color]";
 
 	gt.Const.Strings.PerkDescription.LegendBackToBasics = "All attributes are increased by [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color]. Additionally, XP gain is increased by [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color].\n[color=#0b0084]From the Trained perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendBackToBasics].Tooltip = gt.Const.Strings.PerkDescription.LegendBackToBasics;
@@ -227,9 +227,9 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.PTRManOfSteel <- "Armor penetrating damage to Hitpoints received from Ranged attacks is reduced by up to [color=" + this.Const.UI.Color.PositiveValue + "]30%[/color]. This bonus increases exponentially by wearing head and body armor of higher Maximum Durability.\n[color=#0b0084]From the Heavy Armor perk group[/color]";
 
 	gt.Const.Strings.PerkName.PTRExploitOpening <- "Exploit Opening";
-	gt.Const.Strings.PerkDescription.PTRExploitOpening <- "Whenever an opponent misses a Melee attack against you, they are affected by the \'Exploitable Opening\' effect until their next turn, which gives you [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit against them.\n[color=#0b0084]From the One-Handed Weapons perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRExploitOpening <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: One-Handed, Melee[/color]Whenever an opponent misses a Melee attack against you, they are affected by the \'Exploitable Opening\' effect until their next turn, which gives you [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit against them.\n[color=#0b0084]From the One-Handed Weapons perk group[/color]";
 	gt.Const.Strings.PerkName.PTROffhandTraining <- "Offhand Training";
-	gt.Const.Strings.PerkDescription.PTROffhandTraining <- "Equipping a Buckler or Parrying Dagger in the offhand no longer disables the armor penetration bonus from the Duelist perk.\n[color=#0b0084]From the One-Handed Weapons perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTROffhandTraining <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Shield Type: Buckler or Parrying Dagger[/color]Equipping a Buckler or Parrying Dagger in the offhand no longer disables the armor penetration bonus from the Duelist perk.\n[color=#0b0084]From the One-Handed Weapons perk group[/color]";
 
 	gt.Const.Strings.PerkName.PTRFruitsOfLabor <- "Fruits of Labor";
 	gt.Const.Strings.PerkDescription.PTRFruitsOfLabor <- "Hitpoints, Maximum Fatigue, and Initiative are increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] each.\n[color=#0b0084]From the Laborer perk group[/color]";
