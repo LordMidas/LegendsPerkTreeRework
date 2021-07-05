@@ -1,7 +1,8 @@
 this.perk_ptr_unstoppable <- this.inherit("scripts/skills/skill", {
 	m = {
 		Stacks = 0,
-		BonusPerStack = 5
+		BonusPerStack = 5,
+		MaxStacks = 10
 	},
 	function create()
 	{
@@ -60,7 +61,7 @@ this.perk_ptr_unstoppable <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		this.m.Stacks++;
+		this.m.Stacks = this.Math.min(this.m.MaxStacks, this.m.Stacks + 1);
 	}
 
 	function onTargetMissed( _skill, _targetEntity )
