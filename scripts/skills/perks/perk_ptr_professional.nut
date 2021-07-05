@@ -1,7 +1,7 @@
 this.perk_ptr_professional <- this.inherit("scripts/skills/skill", {
 	m = {
 		IsSpent = false,
-		this.m.PerksAdded = 0
+		PerksAdded = 0
 	},
 	function create()
 	{
