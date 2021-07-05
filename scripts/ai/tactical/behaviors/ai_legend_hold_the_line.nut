@@ -54,7 +54,7 @@ this.ai_legend_hold_the_line <- this.inherit("scripts/ai/tactical/behavior", {
 
 			local bestTarget = this.queryBestMeleeTarget(enemy, enemyAttack, allies);
 
-			if (bestTarget.Target == null || bestTarget.Target.getFaction() != _entity.getFaction() || bestTarget.getMoraleState() == this.Const.MoraleState.Fleeing || bestTarget.Target.getSkills().hasSkill("effects.legend_holding_the_line"))
+			if (bestTarget.Target == null || bestTarget.Target.getFaction() != _entity.getFaction() || bestTarget.Target.getMoraleState() == this.Const.MoraleState.Fleeing || bestTarget.Target.getSkills().hasSkill("effects.legend_holding_the_line"))
 			{
 				continue;
 			}
