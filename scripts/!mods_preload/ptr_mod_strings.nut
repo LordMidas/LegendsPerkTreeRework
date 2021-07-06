@@ -183,7 +183,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendAssuredConquest].Tooltip = gt.Const.Strings.PerkDescription.LegendAssuredConquest;
 
 	gt.Const.Strings.PerkName.PTRDiscoveredTalent <- "Discovered Talent";
-	gt.Const.Strings.PerkDescription.PTRDiscoveredTalent <- "Gain [color=" + this.Const.UI.Color.PositiveValue + "]1[/color] Star to the talents in all attributes and then instantly gain a levelup to increase this character's attributes using normal rolls with talents.\n\nCannot increase the talent in an attribute beyond [color=" + this.Const.UI.Color.NegativeValue + "]3[/color] stars.\n[color=#0b0084]From the Talented perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRDiscoveredTalent <- "Gain [color=" + this.Const.UI.Color.PositiveValue + "]1[/color] Star to the talents in all attributes. If this character currently has no pending attribute levelups, instantly gain a levelup to increase this character's attributes using normal rolls with talents.\n\nCannot increase the talent in an attribute beyond [color=" + this.Const.UI.Color.NegativeValue + "]3[/color] stars.\n[color=#0b0084]From the Talented perk group[/color]";
 	gt.Const.Strings.PerkName.PTRKnowTheirWeakness <- "Know their Weakness";
 	gt.Const.Strings.PerkDescription.PTRKnowTheirWeakness <- "After killing an enemy, Melee Skill is increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] and Ranged Skill by [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color], up to a maximum of [color=" + this.Const.UI.Color.PositiveValue + "]30%[/color] for each. The bonus drops by [color=" + this.Const.UI.Color.NegativeValue + "]5%[/color] if you get hit.\n[color=#0b0084]From the Talented perk group[/color]";
 	gt.Const.Strings.PerkName.PTRRisingStar <- "Rising Star";
@@ -245,8 +245,11 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.LegendClarity = "A well honed mind can perceive more in each instant, making time appear slower in key instants of need. Grants [color=" + this.Const.UI.Color.PositiveValue + "]+1[/color] Action Point. Does not work if you have Berserk or are dazed, drunk, hungover, taunted, staggered, horrified, concused or fleeing. Gain an additional [color=" + this.Const.UI.Color.PositiveValue + "]+1[/color] Action Point if under the effect of potions that improve cognition: Iron Will, Lionheart, Cat, Recovery or Hexen Ichor. \n[color=#0b0084]From the Calm perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendClarity].Tooltip = gt.Const.Strings.PerkDescription.LegendClarity;
 
-	gt.Const.Strings.PerkDescription.BattleForged = "Specialize in heavy armor! Armor damage taken is reduced by a percentage equal to [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color] of the current total armor value of both body and head armor. The heavier your armor and helmet, the more you benefit.\n\nDoes not affect damage from mental attacks or status effects, but can help to avoid receiving them. \n[color=#0b0084]From the Heavy Armor perk group[/color]";
+	gt.Const.Strings.PerkDescription.BattleForged = "Specialize in heavy armor! Armor damage taken is reduced by a percentage equal to [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color] of the current total armor value of both body and head armor. The heavier your armor and helmet, the more you benefit.\n\nDoes not affect damage from mental attacks or status effects, but can help to avoid receiving them.\n[color=#0b0084]From the Heavy Armor perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.BattleForged].Tooltip = gt.Const.Strings.PerkDescription.BattleForged;
+
+	gt.Const.Strings.PerkDescription.LastStand = "Gain [color=" + this.Const.UI.Color.PositiveValue + "]+1[/color] additional Melee and Ranged Defense for every [color=" + this.Const.UI.Color.NegativeValue + "]2%[/color] of missing hitpoints below [color=" + this.Const.UI.Color.NegativeValue + "]66%[/color]. When below [color=" + this.Const.UI.Color.NegativeValue + "]40%[/color] health this character becomes immune to the effects of subsequent injuries, and is not upset by health losses.\n[color=#0b0084]From the Resilient perk group[/color]"
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LastStand].Tooltip = gt.Const.Strings.PerkDescription.LastStand;
 
 	local changePerkGroupInTooltip = function (_tooltip, _newPerkGroup = "")
 	{
@@ -285,8 +288,8 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.NineLives].Tooltip = gt.Const.Strings.PerkDescription.NineLives;
 	gt.Const.Strings.PerkDescription.HoldOut = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.HoldOut, "Resilient");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.HoldOut].Tooltip = gt.Const.Strings.PerkDescription.HoldOut;
-	gt.Const.Strings.PerkDescription.LastStand = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LastStand, "Resilient");
-	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LastStand].Tooltip = gt.Const.Strings.PerkDescription.LastStand;
+	# gt.Const.Strings.PerkDescription.LastStand = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LastStand, "Resilient");
+	# gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LastStand].Tooltip = gt.Const.Strings.PerkDescription.LastStand;
 
 	gt.Const.Strings.PerkDescription.SunderingStrikes = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.SunderingStrikes, "Axe, Blacksmith, and Miner");
 	gt.Const.Strings.PerkDescription.SunderingStrikes += "[color=#0b0084]s[/color]";

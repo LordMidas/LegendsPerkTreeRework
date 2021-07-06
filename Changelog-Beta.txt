@@ -1,4 +1,13 @@
 ======================
+==== Ver 0.11.3 ======
+======================
+- Now compatible with Legends version 15.0.1.15c.
+- Made the Talented perk group rarer.
+- Discovered Talent: Will always increase the talent stars, but now only provides a levelup of its own IF there are no pending attribute levelups. Effectively, this should discourage storing up previous levelups to retroactively gain the benefit from the increased talent stars from this perk.
+- Last Stand: The injury immune effect now starts at 40% remaining HP (up from 33%), but will now only make the character immune to injuries received after this threshold was reached. Injuries received before this threshold will remain active.
+- AI should no longer use the Push Forward skill if it is alone.
+
+======================
 ==== Ver 0.11.2 ======
 ======================
 - Should now be compatible with Legends version 15.0.1.15b.

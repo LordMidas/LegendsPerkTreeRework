@@ -71,7 +71,7 @@ this.ai_legend_push_forward <- this.inherit("scripts/ai/tactical/behavior", {
 			useScore = useScore + thisScore;
 		}
 
-		if (numTargets == 0)
+		if (numTargets <= 1)
 		{
 			return this.Const.AI.Behavior.Score.Zero;
 		}
