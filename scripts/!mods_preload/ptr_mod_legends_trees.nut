@@ -272,7 +272,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 
 	this.Const.Perks.ResilientTree <- this.Const.Perks.IndestructibleTree;
 	this.Const.Perks.TalentedTree <- this.Const.Perks.IntelligentTree;
-	this.Const.Perks.TalentedTree.SelfWeightMultiplier <- 0.5;
+	this.Const.Perks.TalentedTree.SelfWeightMultiplier <- 0.25;
 	this.Const.Perks.UnstoppableTree <- this.Const.Perks.FitTree;
 
 	gt.Const.Perks.TraitsTrees.Tree = [
