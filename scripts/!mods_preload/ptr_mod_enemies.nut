@@ -2620,13 +2620,12 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			onInit();
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_specialist_sling_skill"));
-			this.m.Skills.add(this.new("scripts/skills/perks/legend_specialist_sling_damage"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_specialist_sling_damage"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_mastery_slings"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_through_the_ranks"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
-			{
-				this.m.Skills.add(this.new("scripts/skills/perks/"));
+			{				
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_sniper"));
 			}
 		}
