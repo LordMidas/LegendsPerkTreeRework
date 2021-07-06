@@ -1,4 +1,9 @@
 ======================
+==== Ver 0.11.4 ======
+======================
+- Fixed a calculation mistake in Last Stand.
+
+======================
 ==== Ver 0.11.3 ======
 ======================
 - Now compatible with Legends version 15.0.1.15c.

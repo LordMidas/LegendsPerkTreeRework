@@ -6,17 +6,15 @@ gt.Const.PTR.modSkills <- function()
 		o.m.IsSpent <- false;
 		o.onUpdate = function(_properties)
 		{
-			local maxHP = this.getContainer().getActor().getHitpointsMax();
-			local currentHP = this.getContainer().getActor().getHitpoints();
-			local currentPercent = currentHP / (maxHP * 1.0);
+			local currentPercent = this.getContainer().getActor().getHitpointsPct();
 			local bonus = 0;
 
-			if (currentPercent <= 66)
+			if (currentPercent < 0.66)
 			{
-				bonus = this.Math.floor((66 - currentPercent) / 2.0);
+				bonus = this.Math.floor(100 * (0.66 - currentPercent) / 2.0);
 			}
 
-			if (currentPercent <= 40)
+			if (currentPercent < 0.4)
 			{
 				if (!this.m.IsSpent)
 				{
