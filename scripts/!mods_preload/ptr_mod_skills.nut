@@ -2,6 +2,46 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modSkills <- function()
 {
+	::mods_hookNewObject("skills/perks/perk_last_stand", function(o) {
+		o.m.IsSpent <- false;
+		o.onUpdate = function(_properties)
+		{
+			local maxHP = this.getContainer().getActor().getHitpointsMax();
+			local currentHP = this.getContainer().getActor().getHitpoints();
+			local currentPercent = currentHP / (maxHP * 1.0);
+			local bonus = 0;
+
+			if (currentPercent <= 66)
+			{
+				bonus = this.Math.floor((66 - currentPercent) / 2.0);
+			}
+
+			if (currentPercent <= 40)
+			{
+				if (!this.m.IsSpent)
+				{
+					this.m.IsSpent = true;
+					local injuries = this.getContainer().getAllSkillsOfType(this.Const.SkillType.TemporaryInjury);
+					foreach (injury in injuries)
+					{
+						injury.m.IsFresh = false;
+					}
+				}
+				_properties.IsAffectedByFreshInjuries = false;
+				_properties.IsAffectedByLosingHitpoints = false;
+			}
+
+			_properties.MeleeDefense += bonus;
+			_properties.RangedDefense += bonus;
+		}
+
+		o.onCombatFinished <- function()
+		{
+			this.skill.onCombatFinished();
+			this.m.IsSpent = false;
+		}
+	});
+
 	::mods_hookNewObject("skills/perks/perk_duelist", function(o) {
 		o.onUpdate = function(_properties)
 		{
