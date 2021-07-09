@@ -182,159 +182,42 @@ gt.Const.PTR.modSkills <- function()
 		}
 	});
 
-	::mods_hookNewObject("skills/actives/flail_skill", function(o) {
-		local onUse = o.onUse;
-		o.onUse = function( _user, _targetTile )
-		{
-			local target = _targetTile.getEntity();
-			local ret = onUse( _user, _targetTile );
+	local flailSpinningSkills = [
+		"skills/actives/flail_skill",
+		"skills/actives/lash_skill",
+		"skills/actives/cascade_skill",
+		"skills/actives/hail_skill",
+		"skills/actives/pound",
+		"skills/actives/legend_ranged_flail_skill",
+		"skills/actives/legend_ranged_lash_skill",
+		"skills/actives/legend_chain_flail_skill",
+		"skills/actives/legend_chain_lash_skill"
+	];
 
-			if (!target.isAlive())
+	foreach (skill in flailSpinningSkills)
+	{
+		::mods_hookNewObject(skill, function(o) {
+			local onUse = o.onUse;
+			o.onUse = function( _user, _targetTile )
 			{
+				local target = _targetTile.getEntity();
+				local ret = onUse( _user, _targetTile );
+
+				if (!target.isAlive())
+				{
+					return ret;
+				}
+
+				local flailSpinnerPerk = this.getContainer().getSkillByID("perk.ptr_flail_spinner");
+				if (flailSpinnerPerk != null)
+				{
+					ret = flailSpinnerPerk.spinFlail(onUse, _user, _targetTile, target, this) || ret;
+				}
+
 				return ret;
 			}
-
-			local flailSpinnerPerk = this.getContainer().getSkillByID("perk.ptr_flail_spinner");
-			if (flailSpinnerPerk != null)
-			{
-				ret = flailSpinnerPerk.spinFlail(onUse, _user, _targetTile, target, this) || ret;
-			}
-
-			return ret;
-		}
-	});
-
-	::mods_hookNewObject("skills/actives/lash_skill", function(o) {
-		local onUse = o.onUse;
-		o.onUse = function( _user, _targetTile )
-		{
-			local target = _targetTile.getEntity();
-			local ret = onUse( _user, _targetTile );
-
-			if (!target.isAlive())
-			{
-				return ret;
-			}
-
-			local flailSpinnerPerk = this.getContainer().getSkillByID("perk.ptr_flail_spinner");
-			if (flailSpinnerPerk != null)
-			{
-				ret = flailSpinnerPerk.spinFlail(onUse, _user, _targetTile, target, this) || ret;
-			}
-
-			return ret;
-		}
-	});
-
-	::mods_hookNewObject("skills/actives/cascade_skill", function(o) {
-		local onUse = o.onUse;
-		o.onUse = function( _user, _targetTile )
-		{
-			local target = _targetTile.getEntity();
-			local ret = onUse( _user, _targetTile );
-
-			if (!target.isAlive())
-			{
-				return ret;
-			}
-
-			local flailSpinnerPerk = this.getContainer().getSkillByID("perk.ptr_flail_spinner");
-			if (flailSpinnerPerk != null)
-			{
-				ret = flailSpinnerPerk.spinFlail(onUse, _user, _targetTile, target, this) || ret;
-			}
-
-			return ret;
-		}
-	});
-
-	::mods_hookNewObject("skills/actives/hail_skill", function(o) {
-		local onUse = o.onUse;
-		o.onUse = function( _user, _targetTile )
-		{
-			local target = _targetTile.getEntity();
-			local ret = onUse( _user, _targetTile );
-
-			if (!target.isAlive())
-			{
-				return ret;
-			}
-
-			local flailSpinnerPerk = this.getContainer().getSkillByID("perk.ptr_flail_spinner");
-			if (flailSpinnerPerk != null)
-			{
-				ret = flailSpinnerPerk.spinFlail(onUse, _user, _targetTile, target, this) || ret;
-			}
-
-			return ret;
-		}
-	});
-
-	::mods_hookNewObject("skills/actives/pound", function(o) {
-		local onUse = o.onUse;
-		o.onUse = function( _user, _targetTile )
-		{
-			local target = _targetTile.getEntity();
-			local ret = onUse( _user, _targetTile );
-
-			if (!target.isAlive())
-			{
-				return ret;
-			}
-
-			local flailSpinnerPerk = this.getContainer().getSkillByID("perk.ptr_flail_spinner");
-			if (flailSpinnerPerk != null)
-			{
-				ret = flailSpinnerPerk.spinFlail(onUse, _user, _targetTile, target, this) || ret;
-			}
-
-			return ret;
-		}
-	});
-
-	::mods_hookNewObject("skills/actives/legend_ranged_flail_skill", function(o) {
-		local onUse = o.onUse;
-		o.onUse = function( _user, _targetTile )
-		{
-			local target = _targetTile.getEntity();
-			local ret = onUse( _user, _targetTile );
-
-			if (!target.isAlive())
-			{
-				return ret;
-			}
-
-			local flailSpinnerPerk = this.getContainer().getSkillByID("perk.ptr_flail_spinner");
-			if (flailSpinnerPerk != null)
-			{
-				ret = flailSpinnerPerk.spinFlail(onUse, _user, _targetTile, target, this) || ret;
-			}
-
-			return ret;
-		}
-	});
-
-	::mods_hookNewObject("skills/actives/legend_ranged_lash_skill", function(o) {
-		local onUse = o.onUse;
-		o.onUse = function( _user, _targetTile )
-		{
-			local target = _targetTile.getEntity();
-			local ret = onUse( _user, _targetTile );
-
-			if (!target.isAlive())
-			{
-				return ret;
-			}
-
-			local flailSpinnerPerk = this.getContainer().getSkillByID("perk.ptr_flail_spinner");
-			if (flailSpinnerPerk != null)
-			{
-				ret = flailSpinnerPerk.spinFlail(onUse, _user, _targetTile, target, this) || ret;
-			}
-
-			return ret;
-		}
-	});
+		});
+	}
 
 	::mods_hookNewObject("skills/perks/perk_feint", function(o) {
 		local onTargetMissed = o.onTargetMissed;

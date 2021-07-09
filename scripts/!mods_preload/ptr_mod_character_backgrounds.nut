@@ -2696,7 +2696,8 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		 addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
 	});
 
-	::mods_hookNewObject("skills/backgrounds/legend_vala_commander_background", function(o) {
+	::mods_hookNewObject("skills/backgrounds/legend_vala_commander_background", function(o) {		
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ValaSpiritMagicTree, o.m.CustomPerkTree);
 		addPerkTreesToCustomPerkTree(this.Const.Perks.ValaChantMagicTree, o.m.CustomPerkTree);
 		addPerkTreesToCustomPerkTree(this.Const.Perks.ValaTranceMagicTree, o.m.CustomPerkTree);
 		addPerkTreesToCustomPerkTree(this.Const.Perks.CalmTree, o.m.CustomPerkTree);

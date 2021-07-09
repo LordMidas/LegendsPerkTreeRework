@@ -126,7 +126,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	this.Const.Perks.AgileTree.Tree[3] = [];
 	this.Const.Perks.AgileTree.Tree[4] = [this.Const.Perks.PerkDefs.Footwork];
 	this.Const.Perks.AgileTree.Tree[5] = [];
-	this.Const.Perks.AgileTree.Tree[6] = [this.Const.Perks.PerkDefs.Rebound];
+	this.Const.Perks.AgileTree.Tree[6] = [this.Const.Perks.PerkDefs.BattleFlow];
 
 	while (this.Const.Perks.IndestructibleTree.Tree.len() < 7)
 	{
@@ -138,7 +138,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	this.Const.Perks.IndestructibleTree.Tree[3] = [];
 	this.Const.Perks.IndestructibleTree.Tree[4] = [];
 	this.Const.Perks.IndestructibleTree.Tree[5] = [];
-	this.Const.Perks.IndestructibleTree.Tree[6] = [this.Const.Perks.PerkDefs.Rebound];
+	this.Const.Perks.IndestructibleTree.Tree[6] = [this.Const.Perks.PerkDefs.LastStand];
 
 	while (this.Const.Perks.ViciousTree.Tree.len() < 7)
 	{
@@ -201,7 +201,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	this.Const.Perks.FastTree.Tree[3] = [];
 	this.Const.Perks.FastTree.Tree[4] = [this.Const.Perks.PerkDefs.LegendSecondWind];
 	this.Const.Perks.FastTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRFreshAndFurious];
-	this.Const.Perks.FastTree.Tree[6] = [this.Const.Perks.PerkDefs.BattleFlow];
+	this.Const.Perks.FastTree.Tree[6] = [this.Const.Perks.PerkDefs.Rebound];
 
 	while (this.Const.Perks.LargeTree.Tree.len() < 7)
 	{
@@ -719,7 +719,7 @@ gt.Const.PTR.modWeaponTrees <- function()
 	{
 		this.Const.Perks.StavesTree.Tree.push(emptyArray);
 	}
-	this.Const.Perks.StavesTree.SelfExpertiseMultiplier <- this.Const.Perks.Expertise.High;	
+	this.Const.Perks.StavesTree.SelfExpertiseMultiplier <- this.Const.Perks.Expertise.High;
 	this.Const.Perks.StavesTree.Tree[0] = [this.Const.Perks.PerkDefs.LegendSpecStaffSkill];
 	this.Const.Perks.StavesTree.Tree[1] = [this.Const.Perks.PerkDefs.LegendOnslaught];
 	this.Const.Perks.StavesTree.Tree[2] = [this.Const.Perks.PerkDefs.PTREasyTarget];
