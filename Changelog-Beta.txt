@@ -1,4 +1,15 @@
 ======================
+==== Ver 0.11.5 ======
+======================
+- The Vala Commander will now have the Warden perks regardless of if magic is enabled or not.
+- The Exhausted effect will now round down the AP after halving. This means that with a Maximum AP of 9, you will start the turn with 4 AP and with a Maximum AP of 10, you will start with 5.
+- Fixed Noble Slingers not getting their perks properly.
+- Fixed t7 Resilient tree wrongly providing Rebound instead of Last Stand.
+- Fixed t7 Fast Tree wrongly providing Rebound instead of Battle Flow.
+- Fixed t7 Agile Tree wrongly providing Battle Flow instead of Rebound.
+- Fixed Flail Spinner not working with the Chain Flail and Chain Lash skills.
+
+======================
 ==== Ver 0.11.4 ======
 ======================
 - Fixed a calculation mistake in Last Stand.
