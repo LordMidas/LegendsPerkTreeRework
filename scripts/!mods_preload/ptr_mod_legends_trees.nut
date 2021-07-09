@@ -138,7 +138,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	this.Const.Perks.IndestructibleTree.Tree[3] = [];
 	this.Const.Perks.IndestructibleTree.Tree[4] = [];
 	this.Const.Perks.IndestructibleTree.Tree[5] = [];
-	this.Const.Perks.IndestructibleTree.Tree[6] = [this.Const.Perks.PerkDefs.Rebound];
+	this.Const.Perks.IndestructibleTree.Tree[6] = [this.Const.Perks.PerkDefs.LastStand];
 
 	while (this.Const.Perks.ViciousTree.Tree.len() < 7)
 	{
@@ -719,7 +719,7 @@ gt.Const.PTR.modWeaponTrees <- function()
 	{
 		this.Const.Perks.StavesTree.Tree.push(emptyArray);
 	}
-	this.Const.Perks.StavesTree.SelfExpertiseMultiplier <- this.Const.Perks.Expertise.High;	
+	this.Const.Perks.StavesTree.SelfExpertiseMultiplier <- this.Const.Perks.Expertise.High;
 	this.Const.Perks.StavesTree.Tree[0] = [this.Const.Perks.PerkDefs.LegendSpecStaffSkill];
 	this.Const.Perks.StavesTree.Tree[1] = [this.Const.Perks.PerkDefs.LegendOnslaught];
 	this.Const.Perks.StavesTree.Tree[2] = [this.Const.Perks.PerkDefs.PTREasyTarget];
