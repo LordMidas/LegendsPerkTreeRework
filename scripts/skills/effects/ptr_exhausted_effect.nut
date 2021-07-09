@@ -64,7 +64,7 @@ this.ptr_exhausted_effect <- this.inherit("scripts/skills/skill", {
 	function onTurnStart()
 	{
 		local actor = this.getContainer().getActor();
-		actor.setActionPoints(actor.getActionPointsMax() * this.m.StartingAPMalus * 0.01);
+		actor.setActionPoints(this.Math.floor(actor.getActionPointsMax() * this.m.StartingAPMalus * 0.01));
 	}
 
 	function onTurnEnd()
