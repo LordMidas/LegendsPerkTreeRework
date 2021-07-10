@@ -472,6 +472,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_tempo"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_mastery_nets"));
+			this.m.Skills.removeByID("perk.nimble");
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -509,6 +510,7 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.addPerkTree(this.Const.Perks.ThrowingTree, 4);
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_overwhelm"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_fortified_mind"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_nimble"));
 			}
 
 			return ret;
@@ -2625,7 +2627,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_through_the_ranks"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
-			{				
+			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_sniper"));
 			}
 		}
