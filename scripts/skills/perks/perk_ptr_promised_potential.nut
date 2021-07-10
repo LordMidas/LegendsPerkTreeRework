@@ -78,8 +78,13 @@ this.perk_ptr_promised_potential <- this.inherit("scripts/skills/skill", {
 	function onDeserialize(_in)
 	{
 		this.skill.onDeserialize(_in);
+
 		this.m.IsSet = true;
-		this.m.IsSpent = _in.readBool();
-		this.m.WillSucceed = _in.readBool();
+		
+		if (this.Const.PTR.Version >= 1)
+		{
+			this.m.IsSpent = _in.readBool();
+			this.m.WillSucceed = _in.readBool();
+		}
 	}
 });

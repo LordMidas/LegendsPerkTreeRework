@@ -67,7 +67,12 @@ this.perk_ptr_professional <- this.inherit("scripts/skills/skill", {
 	function onDeserialize(_in)
 	{
 		this.skill.onDeserialize(_in);
+
 		this.m.IsSpent = true;
-		this.m.PerksAdded = _in.readU8();
+
+		if (this.Const.PTR.Version >= 1)
+		{
+			this.m.PerksAdded = _in.readU8();
+		}
 	}
 });

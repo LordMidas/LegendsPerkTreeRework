@@ -296,34 +296,37 @@ gt.Const.PTR.modCharacterBackground <- function()
 		{
 			onDeserialize(_in);
 
-			local mapSize = _in.readU8();
-			if (mapSize == 0)
+			if (this.Const.PTR.Version >= 1)
 			{
-				this.m.CustomPerkTreeMap = null;
-			}
-			else
-			{
-				this.m.CustomPerkTreeMap = {};
-				for (local i = 0; i < mapSize; i++)
+				local mapSize = _in.readU8();
+				if (mapSize == 0)
 				{
-					local categoryName = _in.readString();
-					local category = [];
-
-					local categorySize = _in.readU8();
-					for (local j = 0; j < categorySize; j++)
+					this.m.CustomPerkTreeMap = null;
+				}
+				else
+				{
+					this.m.CustomPerkTreeMap = {};
+					for (local i = 0; i < mapSize; i++)
 					{
-						local expertise = _in.readU8();
-						local treeID = _in.readString();
-						foreach (t in this.Const.Perks[categoryName + "Trees"].Tree)
+						local categoryName = _in.readString();
+						local category = [];
+
+						local categorySize = _in.readU8();
+						for (local j = 0; j < categorySize; j++)
 						{
-							if (t.ID == treeID)
+							local expertise = _in.readU8();
+							local treeID = _in.readString();
+							foreach (t in this.Const.Perks[categoryName + "Trees"].Tree)
 							{
-								category.push({Expertise = expertise, Tree = t});
+								if (t.ID == treeID)
+								{
+									category.push({Expertise = expertise, Tree = t});
+								}
 							}
 						}
-					}
 
-					this.m.CustomPerkTreeMap[categoryName] <- category;
+						this.m.CustomPerkTreeMap[categoryName] <- category;
+					}
 				}
 			}
 		}
