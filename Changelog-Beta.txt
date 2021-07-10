@@ -1,4 +1,9 @@
 ======================
+==== Ver 0.11.6 ======
+======================
+- Should now be compatible with mods which add other backgrounds e.g. the Magic Mod Trio mod. Although such backgrounds will not be assigned the perk groups in a weighted random way, but rather in the way programmed by the respective mod. Except the Styles trees, which will be assigned by PTR because they contain some essential perks (e.g. duelist, reach advantage etc.) unless these perks are already assigned by the other mod.
+
+======================
 ==== Ver 0.11.5 ======
 ======================
 - The Vala Commander will now have the Warden perks regardless of if magic is enabled or not.
