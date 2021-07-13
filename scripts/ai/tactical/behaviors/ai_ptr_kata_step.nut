@@ -46,6 +46,15 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 			return this.Const.AI.Behavior.Score.Zero;
 		}
 
+		local attackSkill = _entity.getSkills().getAttackOfOpportunity();
+		local enGarde = _entity.getSkills().getSkillByID("perk.ptr_en_garde");
+		if (enGarde != null && !enGarde.m.HasMoved && attackSkill != null &&
+			  ((this.m.Skill.getActionPointCost() + attackSkill.getActionPointCost() > _entity.getActionPoints()) || this.m.Skill.getFatigueCost() + attackSkill.getFatigueCost() + _entity.getFatigue() > _entity.getFatigueMax())
+			 )
+		{
+			return this.Const.AI.Behavior.Score.Zero;
+		}
+
 		score = score * this.getFatigueScoreMult(this.m.Skill);
 
 		local targets = this.queryTargetsInMeleeRange(this.m.Skill.getMinRange(), this.m.Skill.getMaxRange() + 1, this.m.Skill.getMaxLevelDifference());
