@@ -1064,7 +1064,9 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(faPerk);
 			this.m.Skills.addPerkTree(this.Const.Perks.HammerTree);
 			this.m.Skills.getSkillByID("perk.ptr_dismantle").m.IsForceEnabled = true;
-			this.m.Skills.getSkillByID("perk.ptr_dent_armor").m.IsForceEnabled = true;
+			local dentArmorPerk = this.m.Skills.getSkillByID("perk.ptr_dent_armor");
+			dentArmorPerk.m.IsForceEnabled = true;
+			dentArmorPerk.m.IsForceTwoHanded = true;
 		}
 	});
 
@@ -1203,6 +1205,7 @@ gt.Const.PTR.modEnemies <- function()
 
 			local dentArmorPerk = this.new("scripts/skills/perks/perk_ptr_dent_armor");
 			dentArmorPerk.m.IsForceEnabled = true;
+			dentArmorPerk.m.IsForceTwoHanded = true;
 			this.m.Skills.add(dentArmorPerk);
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -1667,6 +1670,7 @@ gt.Const.PTR.modEnemies <- function()
 			{
 				local dentArmorPerk = this.new("scripts/skills/perks/perk_ptr_dent_armor");
 				dentArmorPerk.m.IsForceEnabled = true;
+				dentArmorPerk.m.IsForceTwoHanded = true;
 				this.m.Skills.add(dentArmorPerk);
 			}
 		}
@@ -1695,6 +1699,7 @@ gt.Const.PTR.modEnemies <- function()
 			{
 				local dentArmorPerk = this.new("scripts/skills/perks/perk_ptr_dent_armor");
 				dentArmorPerk.m.IsForceEnabled = true;
+				dentArmorPerk.m.IsForceTwoHanded = true;
 				this.m.Skills.add(dentArmorPerk);
 			}
 		}
@@ -1706,10 +1711,15 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			onInit();
 			this.m.Skills.removeByID("perk.legend_muscularity");
+
 			this.m.Skills.addPerkTree(this.Const.Perks.HammerTree);
 			this.m.Skills.getSkillByID("perk.ptr_dismantle").m.IsForceEnabled = true;
-			this.m.Skills.getSkillByID("perk.ptr_dent_armor").m.IsForceEnabled = true;
+			local dentArmorPerk = this.m.Skills.getSkillByID("perk.ptr_dent_armor");
+			dentArmorPerk.m.IsForceEnabled = true;
+			dentArmorPerk.m.IsForceTwoHanded = true;
+
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
+
 			local faPerk = this.new("scripts/skills/perks/perk_ptr_formidable_approach");
 			faPerk.m.IsForceEnabled = true;
 			this.m.Skills.add(faPerk);
