@@ -23,6 +23,15 @@ this.perk_ptr_discovered_talent <- this.inherit("scripts/skills/skill", {
 		}
 
 		local actor = this.getContainer().getActor();
+
+		if (actor.m.LevelUps > 0)
+		{
+			actor.m.PerkPoints += 1;
+			actor.m.PerkPointsSpent -= 1;
+			this.removeSelf();
+			return;
+		}
+
 		local talents = actor.getTalents();
 		for (local i = 0; i < talents.len(); i++)
 		{
@@ -32,12 +41,9 @@ this.perk_ptr_discovered_talent <- this.inherit("scripts/skills/skill", {
 			}
 		}
 
-		if (actor.m.LevelUps == 0)
-		{
-			actor.m.LevelUps += 1;
-			actor.m.Attributes.clear();
-			actor.fillAttributeLevelUpValues(this.Const.XP.MaxLevelWithPerkpoints - actor.getLevel() + actor.m.LevelUps);
-		}
+		actor.m.LevelUps += 1;
+		actor.m.Attributes.clear();
+		actor.fillAttributeLevelUpValues(this.Const.XP.MaxLevelWithPerkpoints - actor.getLevel() + actor.m.LevelUps);
 
 		this.m.IsApplied = true;
 	}
