@@ -19,7 +19,8 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 		]
 	};
 
-	gt.Const.Perks.OrderOfAssignment <- ["Profession", "Traits", "Class", "Defense", "Weapon"];
+	gt.Const.Perks.FirstAssignedCategories <- ["Profession", "Enemy", "Traits", "Class", "Defense", "Weapon"];
+	gt.Const.Perks.LastAssignedCategories <- ["Styles"];
 	gt.Const.Perks.SkippedCategories <- ["WeightMultipliers", "ExpertiseMultipliers"];
 	gt.Const.Perks.MultiplierTypes <- ["Weight", "Expertise"];
 	gt.Const.Perks.Expertise <- {
@@ -28,6 +29,12 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 		Medium = 1,
 		High = 0.5,
 		Full = 0
+	};
+
+	gt.Const.Perks.PerkTreeMinsChances <- {
+		Enemy1 = 95,
+		Enemy2 = 4,
+		Enemy3 = 1
 	};
 
 	gt.Const.Perks.ConvertLegendsMapToPTR <- function ( _map )
@@ -153,65 +160,19 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 			}
 		}
 
-		foreach (categoryName in this.Const.Perks.OrderOfAssignment)
-		{
-			if (!(categoryName in _localMap))
-			{
-				_localMap[categoryName] <- [];
-			}
-
-			if (!(categoryName in _map))
-			{
-				continue;
-			}
-
-			local treeListsInCategory = _map[categoryName];
-
-			addTreesFromMapCategory(categoryName,treeListsInCategory);
-		}
-
-		foreach (categoryName, treeListsInCategory in _map)
-		{
-			if (this.Const.Perks.SkippedCategories.find(categoryName) != null || this.Const.Perks.OrderOfAssignment.find(categoryName) != null)
-			{
-				continue;
-			}
-
-			if (!(categoryName in _localMap))
-			{
-				_localMap[categoryName] <- [];
-			}
-
-			addTreesFromMapCategory(categoryName, treeListsInCategory);
-		}
-
-		foreach (categoryName, v in _mins)
-		{
-			if (categoryName == "EnemyChance" || categoryName == "ClassChance" || categoryName == "MagicChance")
-			{
-				continue;
-			}
-
-			if (!(categoryName in _localMap))
-			{
-				_localMap[categoryName] <- [];
-			}
-		}
-
 		local assignMins = function(_categoryName)
 		{
-			local count = _mins[_categoryName] - _localMap[_categoryName].len();
-			for (local i = 0; i < count; i++)
+			local r = this.Math.rand(0, 100);
+			for (local i = _localMap[_categoryName].len(); i < _mins[_categoryName]; i++)
 			{
-				local r = this.Math.rand(0, 100);
-				if (_categoryName == "Enemy" && r > _mins.EnemyChance * 100.0)
+				if (_categoryName == "Enemy")
 				{
-					continue;
+					if ((i == 0 && r > this.Const.Perks.PerkTreeMinsChances.Enemy1) || (i == 1 && r > this.Const.Perks.PerkTreeMinsChances.Enemy2) || (i == 2 && r > this.Const.Perks.PerkTreeMinsChances.Enemy3))
+					{
+						continue;
+					}
 				}
-				// if (_categoryName == "Class" && r > _mins.ClassChance * 100.0)
-				// {
-					// continue;
-				// }
+
 				if (_categoryName == "Magic" && r > _mins.MagicChance * 100.0)
 				{
 					continue;
@@ -233,56 +194,81 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 			}
 		}
 
-		foreach (categoryName in this.Const.Perks.OrderOfAssignment)
+		local orderOfAssignment = clone this.Const.Perks.FirstAssignedCategories;
+
+		foreach (categoryName, treeListsInCategory in _map)
 		{
-			if (categoryName == "Styles" || this.Const.Perks.SkippedCategories.find(categoryName) != null || !(categoryName in _mins))
+			if (this.Const.Perks.SkippedCategories.find(categoryName) != null || this.Const.Perks.FirstAssignedCategories.find(categoryName) != null || this.Const.Perks.LastAssignedCategories.find(categoryName) != null)
 			{
 				continue;
 			}
 
-			assignMins(categoryName);
+			orderOfAssignment.push(categoryName);
 		}
 
-		foreach (categoryName, treeListsInCategory in _localMap)
+		foreach (categoryName, v in _mins)
 		{
-			if (categoryName == "Styles" || (this.Const.Perks.SkippedCategories.find(categoryName) != null) || !(categoryName in _mins) || this.Const.Perks.OrderOfAssignment.find(categoryName) != null)
+			if (orderOfAssignment.find(categoryName) != null || this.Const.Perks.FirstAssignedCategories.find(categoryName) != null || this.Const.Perks.LastAssignedCategories.find(categoryName) != null)
 			{
 				continue;
 			}
 
-			assignMins(categoryName);
-		}
-
-		if (!("Styles" in _localMap))
-		{
-			_localMap.Styles <- [];
-		}
-
-		local hasRangedWeaponTree = false;
-		local hasMeleeWeaponTree = false;
-		foreach (treeEntry in _localMap.Weapon)
-		{
-			if (!hasRangedWeaponTree && this.Const.Perks.RangedWeaponTrees.Tree.find(treeEntry.Tree) != null)
+			if (categoryName == "EnemyChance" || categoryName == "ClassChance" || categoryName == "MagicChance")
 			{
-				hasRangedWeaponTree = true;
+				continue;
 			}
-			if (!hasMeleeWeaponTree && this.Const.Perks.MeleeWeaponTrees.Tree.find(treeEntry.Tree) != null)
+
+			orderOfAssignment.push(categoryName);
+		}
+
+		orderOfAssignment.extend(this.Const.Perks.LastAssignedCategories);
+
+		foreach (categoryName in orderOfAssignment)
+		{
+			if (!(categoryName in _localMap))
 			{
-				hasMeleeWeaponTree = true;
+				_localMap[categoryName] <- [];
+			}
+
+			if (categoryName in _map)
+			{
+				local treeListsInCategory = _map[categoryName];
+
+				addTreesFromMapCategory(categoryName,treeListsInCategory);
+			}
+
+			if (categoryName in _mins)
+			{
+				if (categoryName == "Styles")
+				{
+					local hasRangedWeaponTree = false;
+					local hasMeleeWeaponTree = false;
+					foreach (treeEntry in _localMap.Weapon)
+					{
+						if (!hasRangedWeaponTree && this.Const.Perks.RangedWeaponTrees.Tree.find(treeEntry.Tree) != null)
+						{
+							hasRangedWeaponTree = true;
+						}
+						if (!hasMeleeWeaponTree && this.Const.Perks.MeleeWeaponTrees.Tree.find(treeEntry.Tree) != null)
+						{
+							hasMeleeWeaponTree = true;
+						}
+					}
+
+					if (!hasRangedWeaponTree)
+					{
+						_map.WeightMultipliers.push({Multiplier = 0, Tree = this.Const.Perks.RangedTree});
+					}
+					if (!hasMeleeWeaponTree)
+					{
+						_map.WeightMultipliers.push({Multiplier = 0, Tree = this.Const.Perks.OneHandedTree});
+						_map.WeightMultipliers.push({Multiplier = 0, Tree = this.Const.Perks.TwoHandedTree});
+					}
+				}
+
+				assignMins(categoryName);
 			}
 		}
-
-		if (!hasRangedWeaponTree)
-		{
-			_map.WeightMultipliers.push({Multiplier = 0, Tree = this.Const.Perks.RangedTree});
-		}
-		if (!hasMeleeWeaponTree)
-		{
-			_map.WeightMultipliers.push({Multiplier = 0, Tree = this.Const.Perks.OneHandedTree});
-			_map.WeightMultipliers.push({Multiplier = 0, Tree = this.Const.Perks.TwoHandedTree});
-		}
-
-		assignMins("Styles");
 
 		foreach( categoryName, category in _localMap )
 		{
