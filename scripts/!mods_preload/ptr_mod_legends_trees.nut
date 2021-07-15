@@ -1,11 +1,29 @@
 local gt = this.getroottable();
 
+gt.Const.PTR.overwriteTree <- function(_tree, _newSetup, _weightMultipliers)
+{
+	local emptyArray = [];
+	while (_tree.Tree.len() < 7)
+	{
+		_tree.Tree.push(emptyArray);
+	}
+
+	_tree.WeightMultipliers <- _weightMultipliers;
+}
+
 gt.Const.PTR.modLegendsEnemyTrees <- function()
 {
+	local emptyArray = [];
+
+	# Beasts Tree
 	while (this.Const.Perks.BeastsTree.Tree.len() < 7)
 	{
 		this.Const.Perks.BeastsTree.Tree.push(emptyArray);
 	}
+	this.Const.Perks.BeastsTree.WeightMultipliers <- [
+		{Multiplier = 1.5, Tree = this.Const.Perks.SwordTree},
+		{Multiplier = 1.5, Tree = this.Const.Perks.SpearTree},
+	];
 	this.Const.Perks.BeastsTree.Tree[0] = [];
 	this.Const.Perks.BeastsTree.Tree[1] = [];
 	this.Const.Perks.BeastsTree.Tree[2] = [];
@@ -19,10 +37,86 @@ gt.Const.PTR.modLegendsEnemyTrees <- function()
 	this.Const.Perks.BeastsTree.Tree[5] = [];
 	this.Const.Perks.BeastsTree.Tree[6] = [];
 
+	# Ghoul Tree
+	while (this.Const.Perks.GhoulTree.Tree.len() < 7)
+	{
+		this.Const.Perks.GhoulTree.Tree.push(emptyArray);
+	}
+	this.Const.Perks.GhoulTree.WeightMultipliers <- [
+		{Multiplier = 2, Tree = this.Const.Perks.SwordTree}
+	];
+	this.Const.Perks.GhoulTree.Tree[0] = [];
+	this.Const.Perks.GhoulTree.Tree[1] = [];
+	this.Const.Perks.GhoulTree.Tree[2] = [];
+	this.Const.Perks.GhoulTree.Tree[3] = [
+		gt.Const.Perks.PerkDefs.LegendFavouredEnemyGhoul
+	];
+	this.Const.Perks.GhoulTree.Tree[4] = [];
+	this.Const.Perks.GhoulTree.Tree[5] = [];
+	this.Const.Perks.GhoulTree.Tree[6] = [];
+
+	# DirewolfTree
+	while (this.Const.Perks.DirewolfTree.Tree.len() < 7)
+	{
+		this.Const.Perks.DirewolfTree.Tree.push(emptyArray);
+	}
+	this.Const.Perks.DirewolfTree.WeightMultipliers <- [
+		{Multiplier = 2, Tree = this.Const.Perks.SpearTree}
+	];
+	this.Const.Perks.DirewolfTree.Tree[0] = [];
+	this.Const.Perks.DirewolfTree.Tree[1] = [];
+	this.Const.Perks.DirewolfTree.Tree[2] = [];
+	this.Const.Perks.DirewolfTree.Tree[3] = [
+		gt.Const.Perks.PerkDefs.LegendFavouredEnemyDirewolf
+	];
+	this.Const.Perks.DirewolfTree.Tree[4] = [];
+	this.Const.Perks.DirewolfTree.Tree[5] = [];
+	this.Const.Perks.DirewolfTree.Tree[6] = [];
+
+	# SpiderTree
+	while (this.Const.Perks.SpiderTree.Tree.len() < 7)
+	{
+		this.Const.Perks.SpiderTree.Tree.push(emptyArray);
+	}
+	this.Const.Perks.SpiderTree.WeightMultipliers <- [
+		{Multiplier = 2, Tree = this.Const.Perks.SpearTree}
+	];
+	this.Const.Perks.SpiderTree.Tree[0] = [];
+	this.Const.Perks.SpiderTree.Tree[1] = [];
+	this.Const.Perks.SpiderTree.Tree[2] = [];
+	this.Const.Perks.SpiderTree.Tree[3] = [
+		gt.Const.Perks.PerkDefs.LegendFavouredEnemySpider
+	];
+	this.Const.Perks.SpiderTree.Tree[4] = [];
+	this.Const.Perks.SpiderTree.Tree[5] = [];
+	this.Const.Perks.SpiderTree.Tree[6] = [];
+
+	# LindwurmTree
+	while (this.Const.Perks.LindwurmTree.Tree.len() < 7)
+	{
+		this.Const.Perks.LindwurmTree.Tree.push(emptyArray);
+	}
+	this.Const.Perks.LindwurmTree.WeightMultipliers <- [
+		{Multiplier = 2, Tree = this.Const.Perks.PolearmTree}
+	];
+	this.Const.Perks.LindwurmTree.Tree[0] = [];
+	this.Const.Perks.LindwurmTree.Tree[1] = [];
+	this.Const.Perks.LindwurmTree.Tree[2] = [];
+	this.Const.Perks.LindwurmTree.Tree[3] = [
+		gt.Const.Perks.PerkDefs.LegendFavouredEnemyLindwurm
+	];
+	this.Const.Perks.LindwurmTree.Tree[4] = [];
+	this.Const.Perks.LindwurmTree.Tree[5] = [];
+	this.Const.Perks.LindwurmTree.Tree[6] = [];
+
+	# MysticTree
 	while (this.Const.Perks.MysticTree.Tree.len() < 7)
 	{
 		this.Const.Perks.MysticTree.Tree.push(emptyArray);
 	}
+	this.Const.Perks.MysticTree.WeightMultipliers <- [
+		{Multiplier = 2, Tree = this.Const.Perks.TalentedTree}
+	];
 	this.Const.Perks.MysticTree.Tree[0] = [];
 	this.Const.Perks.MysticTree.Tree[1] = [];
 	this.Const.Perks.MysticTree.Tree[2] = [];
@@ -35,10 +129,69 @@ gt.Const.PTR.modLegendsEnemyTrees <- function()
 	this.Const.Perks.MysticTree.Tree[5] = [];
 	this.Const.Perks.MysticTree.Tree[6] = [];
 
+	# SchratTree
+	while (this.Const.Perks.SchratTree.Tree.len() < 7)
+	{
+		this.Const.Perks.SchratTree.Tree.push(emptyArray);
+	}
+	this.Const.Perks.SchratTree.WeightMultipliers <- [
+		{Multiplier = 2, Tree = this.Const.Perks.AxeTree}
+	];
+	this.Const.Perks.SchratTree.Tree[0] = [];
+	this.Const.Perks.SchratTree.Tree[1] = [];
+	this.Const.Perks.SchratTree.Tree[2] = [];
+	this.Const.Perks.SchratTree.Tree[3] = [
+		gt.Const.Perks.PerkDefs.LegendFavouredEnemySchrat
+	];
+	this.Const.Perks.SchratTree.Tree[4] = [];
+	this.Const.Perks.SchratTree.Tree[5] = [];
+	this.Const.Perks.SchratTree.Tree[6] = [];
+
+	# HexenTree
+	while (this.Const.Perks.HexenTree.Tree.len() < 7)
+	{
+		this.Const.Perks.HexenTree.Tree.push(emptyArray);
+	}
+	this.Const.Perks.HexenTree.WeightMultipliers <- [
+		{Multiplier = 2, Tree = this.Const.Perks.CalmTree}
+	];
+	this.Const.Perks.HexenTree.Tree[0] = [];
+	this.Const.Perks.HexenTree.Tree[1] = [];
+	this.Const.Perks.HexenTree.Tree[2] = [];
+	this.Const.Perks.HexenTree.Tree[3] = [
+		gt.Const.Perks.PerkDefs.LegendFavouredEnemyHexen
+	];
+	this.Const.Perks.HexenTree.Tree[4] = [];
+	this.Const.Perks.HexenTree.Tree[5] = [];
+	this.Const.Perks.HexenTree.Tree[6] = [];
+
+	# AlpTree
+	while (this.Const.Perks.AlpTree.Tree.len() < 7)
+	{
+		this.Const.Perks.AlpTree.Tree.push(emptyArray);
+	}
+	this.Const.Perks.AlpTree.WeightMultipliers <- [
+		{Multiplier = 2, Tree = this.Const.Perks.HoundmasterClassTree}
+	];
+	this.Const.Perks.AlpTree.Tree[0] = [];
+	this.Const.Perks.AlpTree.Tree[1] = [];
+	this.Const.Perks.AlpTree.Tree[2] = [];
+	this.Const.Perks.AlpTree.Tree[3] = [
+		gt.Const.Perks.PerkDefs.LegendFavouredEnemyAlps
+	];
+	this.Const.Perks.AlpTree.Tree[4] = [];
+	this.Const.Perks.AlpTree.Tree[5] = [];
+	this.Const.Perks.AlpTree.Tree[6] = [];
+
+	# UndeadTree
 	while (this.Const.Perks.UndeadTree.Tree.len() < 7)
 	{
 		this.Const.Perks.UndeadTree.Tree.push(emptyArray);
 	}
+	this.Const.Perks.UndeadTree.WeightMultipliers <- [
+		{Multiplier = 1.5, Tree = this.Const.Perks.MaceTree},
+		{Multiplier = 1.5, Tree = this.Const.Perks.CleaverTree},
+	];
 	this.Const.Perks.UndeadTree.Tree[0] = [];
 	this.Const.Perks.UndeadTree.Tree[1] = [];
 	this.Const.Perks.UndeadTree.Tree[2] = [];
@@ -51,10 +204,69 @@ gt.Const.PTR.modLegendsEnemyTrees <- function()
 	this.Const.Perks.UndeadTree.Tree[5] = [];
 	this.Const.Perks.UndeadTree.Tree[6] = [];
 
+	# SkeletonTree
+	while (this.Const.Perks.SkeletonTree.Tree.len() < 7)
+	{
+		this.Const.Perks.SkeletonTree.Tree.push(emptyArray);
+	}
+	this.Const.Perks.SkeletonTree.WeightMultipliers <- [
+		{Multiplier = 2, Tree = this.Const.Perks.MaceTree}
+	];
+	this.Const.Perks.SkeletonTree.Tree[0] = [];
+	this.Const.Perks.SkeletonTree.Tree[1] = [];
+	this.Const.Perks.SkeletonTree.Tree[2] = [];
+	this.Const.Perks.SkeletonTree.Tree[3] = [
+		gt.Const.Perks.PerkDefs.LegendFavouredEnemySkeleton
+	];
+	this.Const.Perks.SkeletonTree.Tree[4] = [];
+	this.Const.Perks.SkeletonTree.Tree[5] = [];
+	this.Const.Perks.SkeletonTree.Tree[6] = [];
+
+	# ZombieTree
+	while (this.Const.Perks.ZombieTree.Tree.len() < 7)
+	{
+		this.Const.Perks.ZombieTree.Tree.push(emptyArray);
+	}
+	this.Const.Perks.ZombieTree.WeightMultipliers <- [
+		{Multiplier = 2, Tree = this.Const.Perks.CleaverTree}
+	];
+	this.Const.Perks.ZombieTree.Tree[0] = [];
+	this.Const.Perks.ZombieTree.Tree[1] = [];
+	this.Const.Perks.ZombieTree.Tree[2] = [];
+	this.Const.Perks.ZombieTree.Tree[3] = [
+		gt.Const.Perks.PerkDefs.LegendFavouredEnemyZombie
+	];
+	this.Const.Perks.ZombieTree.Tree[4] = [];
+	this.Const.Perks.ZombieTree.Tree[5] = [];
+	this.Const.Perks.ZombieTree.Tree[6] = [];
+
+	# VampireTree
+	while (this.Const.Perks.VampireTree.Tree.len() < 7)
+	{
+		this.Const.Perks.VampireTree.Tree.push(emptyArray);
+	}
+	this.Const.Perks.VampireTree.WeightMultipliers <- [
+		{Multiplier = 2, Tree = this.Const.Perks.TrapperClassTree}
+	];
+	this.Const.Perks.VampireTree.Tree[0] = [];
+	this.Const.Perks.VampireTree.Tree[1] = [];
+	this.Const.Perks.VampireTree.Tree[2] = [];
+	this.Const.Perks.VampireTree.Tree[3] = [
+		gt.Const.Perks.PerkDefs.LegendFavouredEnemyVampire
+	];
+	this.Const.Perks.VampireTree.Tree[4] = [];
+	this.Const.Perks.VampireTree.Tree[5] = [];
+	this.Const.Perks.VampireTree.Tree[6] = [];
+
+	# OrcsTree
 	while (this.Const.Perks.OrcsTree.Tree.len() < 7)
 	{
 		this.Const.Perks.OrcsTree.Tree.push(emptyArray);
 	}
+	this.Const.Perks.OrcsTree.WeightMultipliers <- [
+		{Multiplier = 1.5, Tree = this.Const.Perks.AgileTree}
+		{Multiplier = 1.5, Tree = this.Const.Perks.SturdyTree}
+	];
 	this.Const.Perks.OrcsTree.Tree[0] = [];
 	this.Const.Perks.OrcsTree.Tree[1] = [];
 	this.Const.Perks.OrcsTree.Tree[2] = [];
@@ -67,10 +279,68 @@ gt.Const.PTR.modLegendsEnemyTrees <- function()
 	this.Const.Perks.OrcsTree.Tree[5] = [];
 	this.Const.Perks.OrcsTree.Tree[6] = [];
 
+	# OrcTree
+	while (this.Const.Perks.OrcTree.Tree.len() < 7)
+	{
+		this.Const.Perks.OrcTree.Tree.push(emptyArray);
+	}
+	this.Const.Perks.OrcTree.WeightMultipliers <- [
+		{Multiplier = 2, Tree = this.Const.Perks.HammerTree}
+	];
+	this.Const.Perks.OrcTree.Tree[0] = [];
+	this.Const.Perks.OrcTree.Tree[1] = [];
+	this.Const.Perks.OrcTree.Tree[2] = [];
+	this.Const.Perks.OrcTree.Tree[3] = [
+		gt.Const.Perks.PerkDefs.LegendFavouredEnemyOrk
+	];
+	this.Const.Perks.OrcTree.Tree[4] = [];
+	this.Const.Perks.OrcTree.Tree[5] = [];
+	this.Const.Perks.OrcTree.Tree[6] = [];
+
+	# GoblinTree
+	while (this.Const.Perks.GoblinTree.Tree.len() < 7)
+	{
+		this.Const.Perks.GoblinTree.Tree.push(emptyArray);
+	}
+	this.Const.Perks.GoblinTree.WeightMultipliers <- [
+		{Multiplier = 2, Tree = this.Const.Perks.AgileTree}
+	];
+	this.Const.Perks.GoblinTree.Tree[0] = [];
+	this.Const.Perks.GoblinTree.Tree[1] = [];
+	this.Const.Perks.GoblinTree.Tree[2] = [];
+	this.Const.Perks.GoblinTree.Tree[3] = [
+		gt.Const.Perks.PerkDefs.LegendFavouredEnemyGoblin
+	];
+	this.Const.Perks.GoblinTree.Tree[4] = [];
+	this.Const.Perks.GoblinTree.Tree[5] = [];
+	this.Const.Perks.GoblinTree.Tree[6] = [];
+
+	# UnholdTree
+	while (this.Const.Perks.UnholdTree.Tree.len() < 7)
+	{
+		this.Const.Perks.UnholdTree.Tree.push(emptyArray);
+	}
+	this.Const.Perks.UnholdTree.WeightMultipliers <- [
+		{Multiplier = 2, Tree = this.Const.Perks.SturdyTree}
+	];
+	this.Const.Perks.UnholdTree.Tree[0] = [];
+	this.Const.Perks.UnholdTree.Tree[1] = [];
+	this.Const.Perks.UnholdTree.Tree[2] = [];
+	this.Const.Perks.UnholdTree.Tree[3] = [
+		gt.Const.Perks.PerkDefs.LegendFavouredEnemyUnhold
+	];
+	this.Const.Perks.UnholdTree.Tree[4] = [];
+	this.Const.Perks.UnholdTree.Tree[5] = [];
+	this.Const.Perks.UnholdTree.Tree[6] = [];
+
+	# CivilizationTree
 	while (this.Const.Perks.CivilizationTree.Tree.len() < 7)
 	{
 		this.Const.Perks.CivilizationTree.Tree.push(emptyArray);
 	}
+	this.Const.Perks.CivilizationTree.WeightMultipliers <- [
+		{Multiplier = 2, Tree = this.Const.Perks.TrainedTree}
+	];
 	this.Const.Perks.CivilizationTree.Tree[0] = [];
 	this.Const.Perks.CivilizationTree.Tree[1] = [];
 	this.Const.Perks.CivilizationTree.Tree[2] = [];
@@ -84,10 +354,87 @@ gt.Const.PTR.modLegendsEnemyTrees <- function()
 	this.Const.Perks.CivilizationTree.Tree[5] = [];
 	this.Const.Perks.CivilizationTree.Tree[6] = [];
 
+	# CaravanTree
+	while (this.Const.Perks.CaravanTree.Tree.len() < 7)
+	{
+		this.Const.Perks.CaravanTree.Tree.push(emptyArray);
+	}
+	this.Const.Perks.CaravanTree.WeightMultipliers <- [
+		{Multiplier = 2, Tree = this.Const.Perks.UnstoppableTree}
+	];
+	this.Const.Perks.CaravanTree.Tree[0] = [];
+	this.Const.Perks.CaravanTree.Tree[1] = [];
+	this.Const.Perks.CaravanTree.Tree[2] = [];
+	this.Const.Perks.CaravanTree.Tree[3] = [
+		gt.Const.Perks.PerkDefs.LegendFavouredEnemyCaravan
+	];
+	this.Const.Perks.CaravanTree.Tree[4] = [];
+	this.Const.Perks.CaravanTree.Tree[5] = [];
+	this.Const.Perks.CaravanTree.Tree[6] = [];
+
+	# MercenaryTree
+	while (this.Const.Perks.MercenaryTree.Tree.len() < 7)
+	{
+		this.Const.Perks.MercenaryTree.Tree.push(emptyArray);
+	}
+	this.Const.Perks.MercenaryTree.WeightMultipliers <- [
+		{Multiplier = 2, Tree = this.Const.Perks.TrainedTree}
+	];
+	this.Const.Perks.MercenaryTree.Tree[0] = [];
+	this.Const.Perks.MercenaryTree.Tree[1] = [];
+	this.Const.Perks.MercenaryTree.Tree[2] = [];
+	this.Const.Perks.MercenaryTree.Tree[3] = [
+		gt.Const.Perks.PerkDefs.LegendFavouredEnemyMercenary
+	];
+	this.Const.Perks.MercenaryTree.Tree[4] = [];
+	this.Const.Perks.MercenaryTree.Tree[5] = [];
+	this.Const.Perks.MercenaryTree.Tree[6] = [];
+
+	# NoblesTree
+	while (this.Const.Perks.NoblesTree.Tree.len() < 7)
+	{
+		this.Const.Perks.NoblesTree.Tree.push(emptyArray);
+	}
+	this.Const.Perks.NoblesTree.WeightMultipliers <- [
+		{Multiplier = 2, Tree = this.Const.Perks.TrainedTree}
+	];
+	this.Const.Perks.NoblesTree.Tree[0] = [];
+	this.Const.Perks.NoblesTree.Tree[1] = [];
+	this.Const.Perks.NoblesTree.Tree[2] = [];
+	this.Const.Perks.NoblesTree.Tree[3] = [
+		gt.Const.Perks.PerkDefs.LegendFavouredEnemyNoble
+	];
+	this.Const.Perks.NoblesTree.Tree[4] = [];
+	this.Const.Perks.NoblesTree.Tree[5] = [];
+	this.Const.Perks.NoblesTree.Tree[6] = [];
+
+	# SouthernersTree
+	while (this.Const.Perks.SouthernersTree.Tree.len() < 7)
+	{
+		this.Const.Perks.SouthernersTree.Tree.push(emptyArray);
+	}
+	this.Const.Perks.SouthernersTree.WeightMultipliers <- [
+		{Multiplier = 2, Tree = this.Const.Perks.TrainedTree}
+	];
+	this.Const.Perks.SouthernersTree.Tree[0] = [];
+	this.Const.Perks.SouthernersTree.Tree[1] = [];
+	this.Const.Perks.SouthernersTree.Tree[2] = [];
+	this.Const.Perks.SouthernersTree.Tree[3] = [
+		gt.Const.Perks.PerkDefs.LegendFavouredEnemySoutherner
+	];
+	this.Const.Perks.SouthernersTree.Tree[4] = [];
+	this.Const.Perks.SouthernersTree.Tree[5] = [];
+	this.Const.Perks.SouthernersTree.Tree[6] = [];
+
+	# OutlandersTree
 	while (this.Const.Perks.OutlandersTree.Tree.len() < 7)
 	{
 		this.Const.Perks.OutlandersTree.Tree.push(emptyArray);
 	}
+	this.Const.Perks.OutlandersTree.WeightMultipliers <- [
+		{Multiplier = 2, Tree = this.Const.Perks.FlailTree},
+		{Multiplier = 2, Tree = this.Const.Perks.ViciousTree}
+	];
 	this.Const.Perks.OutlandersTree.Tree[0] = [];
 	this.Const.Perks.OutlandersTree.Tree[1] = [];
 	this.Const.Perks.OutlandersTree.Tree[2] = [];
@@ -100,14 +447,96 @@ gt.Const.PTR.modLegendsEnemyTrees <- function()
 	this.Const.Perks.OutlandersTree.Tree[5] = [];
 	this.Const.Perks.OutlandersTree.Tree[6] = [];
 
-	this.Const.Perks.EnemyTrees.Tree = [
-		this.Const.Perks.BeastsTree,
-		this.Const.Perks.MysticTree,
-		this.Const.Perks.UndeadTree,
-		this.Const.Perks.OrcsTree,
-		this.Const.Perks.CivilizationTree,
-		this.Const.Perks.OutlandersTree
+	# BanditTree
+	while (this.Const.Perks.BanditTree.Tree.len() < 7)
+	{
+		this.Const.Perks.BanditTree.Tree.push(emptyArray);
+	}
+	this.Const.Perks.BanditTree.WeightMultipliers <- [
+		{Multiplier = 2, Tree = this.Const.Perks.FlailTree}
 	];
+	this.Const.Perks.BanditTree.Tree[0] = [];
+	this.Const.Perks.BanditTree.Tree[1] = [];
+	this.Const.Perks.BanditTree.Tree[2] = [];
+	this.Const.Perks.BanditTree.Tree[3] = [
+		gt.Const.Perks.PerkDefs.LegendFavouredEnemyBandit
+	];
+	this.Const.Perks.BanditTree.Tree[4] = [];
+	this.Const.Perks.BanditTree.Tree[5] = [];
+	this.Const.Perks.BanditTree.Tree[6] = [];
+
+	# NomadsTree
+	while (this.Const.Perks.NomadsTree.Tree.len() < 7)
+	{
+		this.Const.Perks.NomadsTree.Tree.push(emptyArray);
+	}
+	this.Const.Perks.NomadsTree.WeightMultipliers <- [
+		{Multiplier = 2, Tree = this.Const.Perks.FlailTree}
+	];
+	this.Const.Perks.NomadsTree.Tree[0] = [];
+	this.Const.Perks.NomadsTree.Tree[1] = [];
+	this.Const.Perks.NomadsTree.Tree[2] = [];
+	this.Const.Perks.NomadsTree.Tree[3] = [
+		gt.Const.Perks.PerkDefs.LegendFavouredEnemyNomad
+	];
+	this.Const.Perks.NomadsTree.Tree[4] = [];
+	this.Const.Perks.NomadsTree.Tree[5] = [];
+	this.Const.Perks.NomadsTree.Tree[6] = [];
+
+	# BarbarianTree
+	while (this.Const.Perks.BarbarianTree.Tree.len() < 7)
+	{
+		this.Const.Perks.BarbarianTree.Tree.push(emptyArray);
+	}
+	this.Const.Perks.BarbarianTree.WeightMultipliers <- [
+		{Multiplier = 2, Tree = this.Const.Perks.ViciousTree}
+	];
+	this.Const.Perks.BarbarianTree.Tree[0] = [];
+	this.Const.Perks.BarbarianTree.Tree[1] = [];
+	this.Const.Perks.BarbarianTree.Tree[2] = [];
+	this.Const.Perks.BarbarianTree.Tree[3] = [
+		gt.Const.Perks.PerkDefs.LegendFavouredEnemyNomad
+	];
+	this.Const.Perks.BarbarianTree.Tree[4] = [];
+	this.Const.Perks.BarbarianTree.Tree[5] = [];
+	this.Const.Perks.BarbarianTree.Tree[6] = [];
+
+	# ArchersTree
+	while (this.Const.Perks.ArchersTree.Tree.len() < 7)
+	{
+		this.Const.Perks.ArchersTree.Tree.push(emptyArray);
+	}
+	this.Const.Perks.ArchersTree.WeightMultipliers <- [
+		{Multiplier = 2, Tree = this.Const.Perks.BowTree},
+		{Multiplier = 2, Tree = this.Const.Perks.RangedTree}
+	];
+	this.Const.Perks.ArchersTree.Tree[0] = [];
+	this.Const.Perks.ArchersTree.Tree[1] = [];
+	this.Const.Perks.ArchersTree.Tree[2] = [];
+	this.Const.Perks.ArchersTree.Tree[3] = [
+		gt.Const.Perks.PerkDefs.LegendFavouredEnemyArcher
+	];
+	this.Const.Perks.ArchersTree.Tree[4] = [];
+	this.Const.Perks.ArchersTree.Tree[5] = [];
+	this.Const.Perks.ArchersTree.Tree[6] = [];
+
+	# SwordmastersTree
+	while (this.Const.Perks.SwordmastersTree.Tree.len() < 7)
+	{
+		this.Const.Perks.SwordmastersTree.Tree.push(emptyArray);
+	}
+	this.Const.Perks.SwordmastersTree.WeightMultipliers <- [
+		{Multiplier = 2, Tree = this.Const.Perks.TrapperClassTree}
+	];
+	this.Const.Perks.SwordmastersTree.Tree[0] = [];
+	this.Const.Perks.SwordmastersTree.Tree[1] = [];
+	this.Const.Perks.SwordmastersTree.Tree[2] = [];
+	this.Const.Perks.SwordmastersTree.Tree[3] = [
+		gt.Const.Perks.PerkDefs.LegendFavouredEnemySwordmaster
+	];
+	this.Const.Perks.SwordmastersTree.Tree[4] = [];
+	this.Const.Perks.SwordmastersTree.Tree[5] = [];
+	this.Const.Perks.SwordmastersTree.Tree[6] = [];
 }
 
 gt.Const.PTR.modTraitsTrees <- function()
