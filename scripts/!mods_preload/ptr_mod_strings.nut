@@ -11,6 +11,8 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.STRCoverAlly <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Item Type: Shield[/color]\n\nUnlocks the \'Cover Ally\' skill which allows you to target an ally to allow them to move [color=" + this.Const.UI.Color.PositiveValue + "]1[/color] tile ignoring Zone of Control on their turn.\n[color=#0b0084]From the Shield perk group[/color]";
 	// end shield tree rework
 
+	gt.Const.Strings.PerkDescription.LegendSmashingShields = "Abilities targeting shields do [color=" + this.Const.UI.Color.PositiveValue + "]+15%[/color] damage. If a shield is destroyed using Split Shield, [color=" + this.Const.UI.Color.PositiveValue + "]4[/color] Action Points are immediately regained.\n[color=#0b0084]From the Axe perk group[/color]";
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSmashingShields].Tooltip = gt.Const.Strings.PerkDescription.LegendSmashingShields;
 	gt.Const.Strings.PerkName.PTRDismemberment <- "Dismemberment";
 	gt.Const.Strings.PerkDescription.PTRDismemberment <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Damage Type: Cutting[/color]\n\nThe threshold to inflict injuries is reduced by a percentage equal to [color=" + this.Const.UI.Color.NegativeValue + "]35%[/color] of your Maximum Damage. Cutting attacks can now inflict injuries on Undead.\n[color=#0b0084]From the Axe perk group[/color]";
 	gt.Const.Strings.PerkName.PTRHeft <- "Heft";
