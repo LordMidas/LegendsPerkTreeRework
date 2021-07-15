@@ -43,6 +43,12 @@ gt.Const.PTR.modSkills <- function()
 	::mods_hookNewObject("skills/perks/perk_duelist", function(o) {
 		o.onUpdate = function(_properties)
 		{
+			local weapon = this.getContainer().getActor().getMainhandItem();
+			if (weapon != null && weapon.getApplicableMasteries().find(this.Const.WMS.Mastery.Throwing) != null)
+			{
+				return;
+			}
+
 			local items = this.getContainer().getActor().getItems();
 			local off = items.getItemAtSlot(this.Const.ItemSlot.Offhand);
 
@@ -73,6 +79,59 @@ gt.Const.PTR.modSkills <- function()
 			}
 
 			return ret;
+		}
+	});
+
+	::mods_hookExactClass("skills/perks/perk_close_combat_archer", function(o) {
+		o.m.IsForceEnabled <- false;
+
+		o.isEnabled <- function()
+		{
+			if (this.m.IsForceEnabled)
+			{
+				return true;
+			}
+
+			local weapon = this.getContainer().getMainhandItem();
+			if (weapon == null || weapon.getApplicableMasteries().find(this.Const.WMS.Mastery.Throwing) == null)
+			{
+				return false;
+			}
+
+			return true;
+		}
+
+		o.onAnySkillUsed = function( _skill, _targetEntity, _properties )
+		{
+			if (_targetEntity == null || !_skill.isRanged() || !this.isEnabled())
+			{
+				return;
+			}
+
+			local actor = this.getContainer().getActor();
+			local distance = _targetEntity.getTile().getDistanceTo(actor.getTile());
+			if (distance > 3)
+			{
+				return;
+			}
+
+			local meleeSkill = actor.getCurrentProperties().getMeleeSkill();
+			local rangedSkill = actor.getCurrentProperties().getRangedSkill();
+
+			local hitChanceBonus = this.Math.floor(0.5 * meleeSkill * (distance == 2 ? 1.0 : 0.5));
+			local directDamageBonus = this.Math.floor(0.2 * rangedSkill * (distance == 2 ? 1.0 : 0.5));
+			local armorDamageBonus = directDamageBonus * 2;
+
+			_properties.RangedSkill += hitChanceBonus;
+
+			if (_skill.hasPiercingDamage())
+			{
+				_properties.DamageDirectAdd += directDamageBonus;
+			}
+			else if (_skill.hasCuttingDamage())
+			{
+				_properties.DamageArmorMult += armorDamageBonus;
+			}
 		}
 	});
 
