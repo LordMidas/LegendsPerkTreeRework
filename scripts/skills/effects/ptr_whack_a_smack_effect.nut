@@ -58,7 +58,7 @@ this.ptr_whack_a_smack_effect <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		_properties.MeleeSkill -= _skill.hasBluntDamage(true) ? this.m.MeleeSkillMalus : this.m.MeleeSkillMalus * 2;
+		_properties.MeleeSkill -= this.m.MeleeSkillMalus;
 
 		if (_properties.IsSpecializedInStaffStun)
 		{

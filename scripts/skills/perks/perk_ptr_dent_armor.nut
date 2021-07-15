@@ -1,6 +1,9 @@
 this.perk_ptr_dent_armor <- this.inherit("scripts/skills/skill", {
 	m = {
-		IsForceEnabled = false
+		IsForceEnabled = false,
+		IsForceTwoHanded = false,
+		ChanceOneHanded = 33,
+		ChanceTwoHanded = 66
 	},
 	function create()
 	{
@@ -60,8 +63,10 @@ this.perk_ptr_dent_armor <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
+		local isTwoHanded = this.m.IsForceTwoHanded || (weapon != null && weapon.isItemType(this.Const.Items.ItemType.TwoHanded));
+
 		local roll = this.Math.rand(1, 100);
-		if (roll <= 25 || (roll <= 50 && weapon != null && weapon.isItemType(this.Const.Items.ItemType.TwoHanded)))
+		if (roll <= this.m.ChanceOneHanded || (roll <= this.m.ChanceTwoHanded && isTwoHanded))
 		{
 			_targetEntity.getSkills().add(this.new("scripts/skills/effects/ptr_dented_armor_effect"));
 		}

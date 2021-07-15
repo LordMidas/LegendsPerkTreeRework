@@ -14,12 +14,12 @@ this.perk_ptr_en_garde <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
 	function onTurnStart()
 	{
 		this.m.HasMoved = false;
 	}
-	
+
 	function onUpdate( _properties )
 	{
 		if (this.getContainer().getActor().m.IsMoving)
@@ -27,21 +27,27 @@ this.perk_ptr_en_garde <- this.inherit("scripts/skills/skill", {
 			this.m.HasMoved = true;
 		}
 	}
-	
+
 	function onTurnEnd()
 	{
 		if (this.m.HasMoved)
 		{
 			return;
 		}
-		
-		local actor = this.getContainer().getActor();		
-		local weapon = actor.getMainhandItem();		
-		if (!actor.isPlacedOnMap() || weapon == null || weapon.getCategories().find("Sword") == null)
+
+		local actor = this.getContainer().getActor();
+
+		if (actor.getMoraleState() == this.Const.MoraleState.Fleeing)
 		{
 			return;
 		}
 		
+		local weapon = actor.getMainhandItem();
+		if (!actor.isPlacedOnMap() || weapon == null || weapon.getCategories().find("Sword") == null)
+		{
+			return;
+		}
+
 		if (!("State" in this.Tactical) || this.Tactical.State.isBattleEnded() || this.Tactical.State.isAutoRetreat())
 		{
 			return;
@@ -51,8 +57,8 @@ this.perk_ptr_en_garde <- this.inherit("scripts/skills/skill", {
 		{
 			return;
 		}
-		
-		local skill = this.getContainer().getSkillByID("actives.riposte");		
+
+		local skill = this.getContainer().getSkillByID("actives.riposte");
 		if (skill != null)
 		{
 			skill.useForFree(actor.getTile());
@@ -63,4 +69,3 @@ this.perk_ptr_en_garde <- this.inherit("scripts/skills/skill", {
 		}
 	}
 });
-

@@ -72,12 +72,20 @@ this.perk_ptr_the_rush_of_battle <- this.inherit("scripts/skills/skill", {
 		{
 			return;
 		}
-		_properties.FatigueEffectMult *= 1.0 - this.getBonus() / 100.0;
+		_properties.FatigueEffectMult *= 1.0 - this.getBonus() * 0.01;
 	}
 
 	function onTurnEnd()
 	{
 		this.m.Stacks = 0;
+	}
+
+	function onTurnStart()
+	{
+		if (this.m.Stacks > 0)
+		{
+			this.getContainer().getActor().getCurrentProperties().FatigueEffectMult *= 1.0 - this.getBonus() * 0.01;
+		}
 	}
 
 	function onCombatStarted()

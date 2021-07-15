@@ -1,4 +1,26 @@
 ======================
+==== Ver 0.12.0 ======
+======================
+== MAJOR CHANGES ==
+- Favored Enemy perks have now been added to the weighted random perk tree system. Favored enemy perks will appear on t4 of the perk tree. Most characters will get 1 favored enemy. Rarely some characters will get 2 favored enemies, and very rarely some will get 3.
+- Smashing Shields reworked: Abilities targeting shields do +15% damage. If a shield is destroyed using Split Shield, 4 Action Points are immediately regained. Hopefully this makes the perk less obnoxious on enemies and more attractive for players than before.
+- Glaives are now 2H weapons categorized as Sword/Spear. They are a hybrid between sword and spear with a bias toward sword. They now have the skills: Glaive Slash, Spearwall, Riposte.
+- Swordstaves are now categorized as Spear/Sword. They are a hybrid between spear and sword with a bias towards spear. They now have the skills: Thrust, Spearwall, Split.
+- The Legendary Mage Swordstaff is exempt from the above changes.
+- Dent Armor: Increased the chance with two-handed hammers to 66% and with one-handed hammers to 33%.
+- Discovered Talent can no longer be picked if you have pending level-ups to assign.
+- Promised Potential can no longer be picked on the Kingsguard, even if he has the perk available. This is a temporary solution, ideally he shouldn't have the perk available.
+
+== BALANCE ==
+- Removed Nimble from Goblin Fighter. The Miniboss (Champion) version still retains the perk.
+- Unholds and Lindwurms now use the 66% chance version of Dent Armor.
+
+== FIXES ==
+- Fixed the tooltip of the The Rush of Battle perk to mention "Soldier" perk group instead of "Warrior".
+- Fixed The Rush of Battle not applying its fatigue cost reduction at the start of a character's turn, until the character used a skill first.
+- Fixed En Garde triggering Riposte even when Fleeing.
+
+======================
 ==== Ver 0.11.6 ======
 ======================
 - Should now be compatible with mods which add other backgrounds e.g. the Magic Mod Trio mod. Although such backgrounds will not be assigned the perk groups in a weighted random way, but rather in the way programmed by the respective mod. Except the Styles trees, which will be assigned by PTR because they contain some essential perks (e.g. duelist, reach advantage etc.) unless these perks are already assigned by the other mod.
