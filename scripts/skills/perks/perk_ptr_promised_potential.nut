@@ -60,6 +60,16 @@ this.perk_ptr_promised_potential <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
+		local actor = this.getContainer().getActor();
+
+		if (actor.getFlags().get("IsKingsGuard"))
+		{
+			actor.m.PerkPoints += 1;
+			actor.m.PerkPointsSpent -= 1;
+			this.removeSelf();
+			return;
+		}
+
 		if (this.Math.rand(1, 100) > this.m.ChanceToSucceed - (this.getContainer().getActor().getPerkPointsSpent() * 10))
 		{
 			this.m.WillSucceed = false;
@@ -80,7 +90,7 @@ this.perk_ptr_promised_potential <- this.inherit("scripts/skills/skill", {
 		this.skill.onDeserialize(_in);
 
 		this.m.IsSet = true;
-		
+
 		if (this.Const.PTR.Version >= 1)
 		{
 			this.m.IsSpent = _in.readBool();
