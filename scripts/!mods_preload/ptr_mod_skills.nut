@@ -114,7 +114,7 @@ gt.Const.PTR.modSkills <- function()
 				return true;
 			}
 
-			local weapon = this.getContainer().getMainhandItem();
+			local weapon = this.getContainer().getActor().getMainhandItem();
 			if (weapon == null || weapon.getApplicableMasteries().find(this.Const.WMS.Mastery.Throwing) == null)
 			{
 				return false;
