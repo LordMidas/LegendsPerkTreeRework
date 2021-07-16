@@ -1,4 +1,12 @@
 ======================
+==== Ver 0.12.2 ======
+======================
+- Bloody Harvest now only works with Melee AOE attacks. The perk's tooltip has been updated to reflect this.
+- Increased the damage of all glaives by roughly 25%, as they are now Two-Handed weapons and the increased damage is a representation of the Double Grip bonus they had when One-Handed.
+- Bandit Leaders, Nomad Leaders, and Bandit Warlords now have a 2 turn cooldown for using Rally the Troops, to encourage them to do more fighting instead of rallying.
+- Fixed Swordstaves not being equipped properly.
+
+======================
 ==== Ver 0.12.1 ======
 ======================
 - Fixed using throwing weapons with the Close Combat Archer perk causing a softlock in the battle.

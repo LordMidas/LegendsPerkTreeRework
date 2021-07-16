@@ -2,6 +2,41 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modSkills <- function()
 {
+	::mods_hookExactClass("skills/actives/rally_the_troops", function(o) {
+		o.m.TurnsRemaining <- 0;
+
+		local onUse = o.onUse;
+		o.onUse = function( _user, _targetTile )
+		{
+			local ret = onUse( _user, _targetTile );
+
+			if (ret && (this.m.Type == this.Const.EntityType.BanditLeader || this.m.Type == this.Const.EntityType.NomadLeader || this.m.Type == this.Const.EntityType.BanditWarlord))
+			{
+				this.m.TurnsRemaining = 3;
+			}
+
+			return ret;
+		}
+
+		local isUsable = o.isUsable;
+		o.isUsable = function()
+		{
+			local ret = isUsable();
+
+			if (ret && this.m.TurnsRemaining > 0)
+			{
+					return false;
+			}
+
+			return ret;
+		}
+
+		o.onTurnEnd <- function()
+		{
+			this.m.TurnsRemaining = this.Math.max(0, this.m.TurnsRemaining - 1);
+		}
+	});
+
 	::mods_hookExactClass("skills/perks/perk_legend_smashing_shields", function(o) {
 		o.m.Modifier = 1.15;
 	});
