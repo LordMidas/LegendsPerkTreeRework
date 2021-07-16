@@ -2028,7 +2028,8 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	}); */
 
 	::mods_hookNewObject("skills/backgrounds/legend_female_beggar_commander_background", function(o) {
-		addPerkTreesToCustomPerkTree(this.Const.Perks.PauperProfessionTree, o.m.CustomPerkTree);
+		o.m.CustomPerkTree[3].push(this.Const.Perks.PerkDefs.PTRPunchingBag);
+		o.m.CustomPerkTree[5].push(this.Const.Perks.PerkDefs.PTRTraumaSurvivor);
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_female_inventor_commander_background", function(o) {
