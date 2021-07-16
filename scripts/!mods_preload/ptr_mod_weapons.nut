@@ -88,7 +88,7 @@ gt.Const.PTR.modWeapons <- function()
 	foreach (glaive in glaives)
 	{
 		::mods_hookNewObject(glaive, function(o) {
-			o.m.Categories = "Sword/Spear, One-Handed";
+			o.m.Categories = "Sword/Spear, Two-Handed";
 			o.remakeApplicableMasteries();
 
 			o.m.BlockedSlotType = this.Const.ItemSlot.Offhand;
