@@ -1,4 +1,9 @@
 ======================
+==== Ver 0.12.3 ======
+======================
+- Fixed freezing/crash when entering towns.
+
+======================
 ==== Ver 0.12.2 ======
 ======================
 - Bloody Harvest now only works with Melee AOE attacks. The perk's tooltip has been updated to reflect this.
