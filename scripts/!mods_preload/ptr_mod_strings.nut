@@ -232,7 +232,7 @@ gt.Const.PTR.modStrings <- function()
 
 	gt.Const.Strings.PerkName.PTRExploitOpening <- "Exploit Opening";
 	gt.Const.Strings.PerkDescription.PTRExploitOpening <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: One-Handed, Melee[/color]\n\nWhenever an opponent misses a Melee attack against you, they are affected by the \'Exploitable Opening\' effect until their next turn, which gives you [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit against them.\n[color=#0b0084]From the One-Handed Weapons perk group[/color]";
-	gt.Const.Strings.PerkDescription.Duelist = "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: One-Handed, Melee[/color]\n\n" + gt.Const.Strings.PerkDescription.Duelist;;
+	gt.Const.Strings.PerkDescription.Duelist = "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: One-Handed, Melee[/color]\n\n" + gt.Const.Strings.PerkDescription.Duelist;
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Duelist].Tooltip = gt.Const.Strings.PerkDescription.Duelist;
 	gt.Const.Strings.PerkName.PTROffhandTraining <- "Offhand Training";
 	gt.Const.Strings.PerkDescription.PTROffhandTraining <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Shield Type: Buckler or Parrying Dagger[/color]Equipping a Buckler or Parrying Dagger in the offhand no longer disables the armor penetration bonus from the Duelist perk.\n[color=#0b0084]From the One-Handed Weapons perk group[/color]";
