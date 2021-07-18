@@ -183,11 +183,11 @@ gt.Const.PTR.modSkills <- function()
 
 			if (_skill.hasPiercingDamage())
 			{
-				_properties.DamageDirectAdd += directDamageBonus;
+				_properties.DamageDirectAdd += directDamageBonus * 0.01;
 			}
 			else if (_skill.hasCuttingDamage())
 			{
-				_properties.DamageArmorMult += armorDamageBonus;
+				_properties.DamageArmorMult += armorDamageBonus * 0.01;
 			}
 		}
 	});
