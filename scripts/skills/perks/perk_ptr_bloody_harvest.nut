@@ -12,14 +12,13 @@ this.perk_ptr_bloody_harvest <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
-		if (_skill.isAOE() && _skill.isAttack())
+		if (_skill.isAOE() && _skill.isAttack() && !_skill.isRanged())
 		{
 			_properties.MeleeSkill += 10;
 			_properties.DamageTotalMult *= 1.1;
 		}
 	}
 });
-

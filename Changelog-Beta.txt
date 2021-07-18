@@ -1,8 +1,29 @@
 ======================
+==== Ver 0.12.3 ======
+======================
+- Fixed freezing/crash when entering towns.
+
+======================
+==== Ver 0.12.2 ======
+======================
+- Bloody Harvest now only works with Melee AOE attacks. The perk's tooltip has been updated to reflect this.
+- Increased the damage of all glaives by roughly 25%, as they are now Two-Handed weapons and the increased damage is a representation of the Double Grip bonus they had when One-Handed.
+- Bandit Leaders, Nomad Leaders, and Bandit Warlords now have a 2 turn cooldown for using Rally the Troops, to encourage them to do more fighting instead of rallying.
+- Fixed Swordstaves not being equipped properly.
+
+======================
+==== Ver 0.12.1 ======
+======================
+- Fixed using throwing weapons with the Close Combat Archer perk causing a softlock in the battle.
+- Fixed the weapon tooltip of glaive saying that it is One-Handed.
+- Fixed the Female Beggar Commander still getting the Promised Potential perk.
+
+======================
 ==== Ver 0.12.0 ======
 ======================
 == MAJOR CHANGES ==
 - Favored Enemy perks have now been added to the weighted random perk tree system. Favored enemy perks will appear on t4 of the perk tree. Most characters will get 1 favored enemy. Rarely some characters will get 2 favored enemies, and very rarely some will get 3.
+- Close Combat Archer reworked: Now requires Throwing Weapon. Grants 50% of your Melee Skill as additional chance to hit at 2 tiles. With piercing type throwing weapons, grants 20% of your Ranged Skill as additional armor penetration at 2 tiles. With cutting type throwing weapons, grants 40% of your Ranged Skill as additional armor effectiveness at 2 tiles. The bonuses are halved at 3 tiles, and provide nothing at longer distances.
 - Smashing Shields reworked: Abilities targeting shields do +15% damage. If a shield is destroyed using Split Shield, 4 Action Points are immediately regained. Hopefully this makes the perk less obnoxious on enemies and more attractive for players than before.
 - Glaives are now 2H weapons categorized as Sword/Spear. They are a hybrid between sword and spear with a bias toward sword. They now have the skills: Glaive Slash, Spearwall, Riposte.
 - Swordstaves are now categorized as Spear/Sword. They are a hybrid between spear and sword with a bias towards spear. They now have the skills: Thrust, Spearwall, Split.
@@ -10,6 +31,7 @@
 - Dent Armor: Increased the chance with two-handed hammers to 66% and with one-handed hammers to 33%.
 - Discovered Talent can no longer be picked if you have pending level-ups to assign.
 - Promised Potential can no longer be picked on the Kingsguard, even if he has the perk available. This is a temporary solution, ideally he shouldn't have the perk available.
+- The Beggar Commander no longer has the Promised Potential perk.
 
 == BALANCE ==
 - Removed Nimble from Goblin Fighter. The Miniboss (Champion) version still retains the perk.

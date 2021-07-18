@@ -59,7 +59,7 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 
 	function onAfterUpdate(_properties)
 	{
-		if (this.m.IsSpent)
+		if (this.m.IsSpent || !this.isEnabled())
 		{
 			return;
 		}
