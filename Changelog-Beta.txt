@@ -1,4 +1,11 @@
 ======================
+==== Ver 0.12.4 ======
+======================
+-Edited some tooltips for clarity.
+-Fixed Assassin, Event Noble and Trader backgrounds not receiving PTR perks.
+-Fixed Close Combat Archer adding too much armor penetration.
+
+======================
 ==== Ver 0.12.3 ======
 ======================
 - Fixed freezing/crash when entering towns.
