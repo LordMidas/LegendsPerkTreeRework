@@ -257,6 +257,9 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.LastStand = "Gain [color=" + this.Const.UI.Color.PositiveValue + "]+1[/color] additional Melee and Ranged Defense for every [color=" + this.Const.UI.Color.NegativeValue + "]2%[/color] of missing hitpoints below [color=" + this.Const.UI.Color.NegativeValue + "]66%[/color]. When below [color=" + this.Const.UI.Color.NegativeValue + "]40%[/color] health this character becomes immune to the effects of subsequent injuries, and is not upset by health losses.\n[color=#0b0084]From the Resilient perk group[/color]"
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LastStand].Tooltip = gt.Const.Strings.PerkDescription.LastStand;
 
+	gt.Const.Strings.PerkDescription.Indomitable = "Unlocks the \'Indomitable\' skill which grants a [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] damage reduction and immunity to being stunned, knocked back, grabbed, swallowed or culled for one turn.\n[color=#0b0084]From the Sturdy perk group[/color]";
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Indomitable].Tooltip = gt.Const.Strings.PerkDescription.Indomitable;
+
 	local changePerkGroupInTooltip = function (_tooltip, _newPerkGroup = "")
 	{
 		local strArray = split(_tooltip, "[");
@@ -369,8 +372,6 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.ReturnFavor].Tooltip = gt.Const.Strings.PerkDescription.ReturnFavor;
 	gt.Const.Strings.PerkDescription.Vengeance = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Vengeance, "Sturdy");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Vengeance].Tooltip = gt.Const.Strings.PerkDescription.Vengeance;
-	gt.Const.Strings.PerkDescription.Indomitable = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Indomitable, "Sturdy");
-	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Indomitable].Tooltip = gt.Const.Strings.PerkDescription.Indomitable;
 
 	gt.Const.Strings.PerkDescription.Adrenalin = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Adrenalin, "Unstoppable");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Adrenalin].Tooltip = gt.Const.Strings.PerkDescription.Adrenalin;
