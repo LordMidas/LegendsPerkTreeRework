@@ -179,7 +179,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.PTRNailedIt <- "The chance to hit the head with ranged attacks is increased by [color=" + this.Const.UI.Color.PositiveValue + "]25%[/color] but reduced by [color=" + this.Const.UI.Color.NegativeValue + "]5%[/color] per tile of distance between you and the target.\n[color=#0b0084]From the Throwing perk group[/color]";
 
 	gt.Const.Strings.PerkName.PTRSurvivalInstinct <- "Survival Instinct";
-	gt.Const.Strings.PerkDescription.PTRSurvivalInstinct <- "Melee and Ranged Defense are increased by [color=" + this.Const.UI.Color.PositiveValue + "]+5[/color] whenever you get hit. The bonus lasts until the start of your next turn.\n[color=#0b0084]From the Resilient perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRSurvivalInstinct <- "Melee and Ranged Defense are increased by a stacking [color=" + this.Const.UI.Color.PositiveValue + "]+5[/color] whenever you get hit. The bonus lasts until the start of your next turn.\n[color=#0b0084]From the Resilient perk group[/color]";
 
 	gt.Const.Strings.PerkDescription.CoupDeGrace = "Inflict additional [color=" + this.Const.UI.Color.PositiveValue + "]20%[/color] damage against targets that have sustained any injury effects, like a broken arm. Also grants [color=" + this.Const.UI.Color.NegativeValue + "]+20%[/color] damage against targets who are stunned, netted, sleeping or debilitated.\n[color=#0b0084]From the Vicious perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.CoupDeGrace].Tooltip = gt.Const.Strings.PerkDescription.CoupDeGrace;
