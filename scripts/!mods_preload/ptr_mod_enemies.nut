@@ -999,6 +999,7 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			assignRandomEquipment();
 			this.m.Skills.addTreeOfEquippedWeapon();
+			this.m.Skills.removeByID("perk.ptr_kata");
 		}
 	});
 
@@ -1034,6 +1035,7 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			assignRandomEquipment();
 			this.m.Skills.addTreeOfEquippedWeapon();
+			this.m.Skills.removeByID("perk.ptr_kata");
 		}
 	});
 
@@ -1368,6 +1370,8 @@ gt.Const.PTR.modEnemies <- function()
 			{
 				this.m.Skills.addTreeOfEquippedWeapon(5);
 			}
+
+			this.m.Skills.removeByID("perk.ptr_kata");
 		}
 	});
 
