@@ -1,6 +1,7 @@
 this.perk_ptr_flail_spinner <- this.inherit("scripts/skills/skill", {
 	m = {
-		Chance = 50
+		Chance = 50,
+		DamageMult = 0.5
 	},
 	function create()
 	{
@@ -23,6 +24,8 @@ this.perk_ptr_flail_spinner <- this.inherit("scripts/skills/skill", {
 		{
 			return ret;
 		}
+
+		_user.getCurrentProperties().DamageTotalMult *= 0.5;
 
 		if (this.Tactical.TurnSequenceBar.getActiveEntity().getID() != null && this.Tactical.TurnSequenceBar.getActiveEntity().getID() == _user.getID() && (!_user.isHiddenToPlayer() || _targetTile.IsVisibleForPlayer))
 		{

@@ -71,7 +71,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRHeadSmasher <- "Head Smasher";
 	gt.Const.Strings.PerkDescription.PTRHeadSmasher <- "The damage reduction from the target's Steel Brow perk is reduced from [color=" + this.Const.UI.Color.NegativeValue + "]100%[/color] to [color=" + this.Const.UI.Color.NegativeValue + "]75%[/color]. Damage inflicted from hits to the head is increased by [color=" + this.Const.UI.Color.PositiveValue + "]15%[/color].\n[color=#0b0084]From the Flail perk group[/color]";
 	gt.Const.Strings.PerkName.PTRFlailSpinner <- "Flail Spinner";
-	gt.Const.Strings.PerkDescription.PTRFlailSpinner <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Flail[/color]\n\nAttacks with flails have a [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] chance to do a free extra attack.\n[color=#0b0084]From the Flail perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRFlailSpinner <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Flail[/color]\n\nAttacks with flails have a [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] chance to do a free extra attack. This free attack does [color=" + this.Const.UI.Color.NegativeValue + "]50%[/color] reduced damage.\n[color=#0b0084]From the Flail perk group[/color]";
 	gt.Const.Strings.PerkName.PTRDeadlyPrecision <- "Deadly Precision";
 	gt.Const.Strings.PerkDescription.PTRDeadlyPrecision <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Flail[/color]\n\nWhen using flails, an additional random [color=" + this.Const.UI.Color.PositiveValue + "]0-25%[/color] of damage ignores armor.\n[color=#0b0084]From the Flail perk group[/color]";
 	gt.Const.Strings.PerkName.PTRFromAllSides <- "From all Sides";
