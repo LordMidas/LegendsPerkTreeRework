@@ -505,6 +505,7 @@ gt.Const.PTR.modSkills <- function()
 
 	::mods_hookNewObject("skills/actives/aimed_shot", function(o) {
 		o.m.FieldsChangedByFlamingArrows <- false;
+		o.m.TargetTile <- null;
 
 		local oldOnAfterUpdate = o.onAfterUpdate;
 		o.onAfterUpdate = function( _properties )
@@ -534,23 +535,6 @@ gt.Const.PTR.modSkills <- function()
 				this.m.resetField("Description");
 				this.m.FieldsChangedByFlamingArrows = false;
 			}
-		}
-
-		local onUse = o.onUse;
-		o.onUse = function( _user, _targetTile )
-		{
-			local ret = onUse(_user, _targetTile);
-
-			if (ret && this.getContainer().hasSkill("perk.ptr_flaming_arrows"))
-			{
-				this.Time.scheduleEvent(this.TimeUnit.Real, 250, this.onApply.bindenv(this), {
-					Skill = this,
-					User = _user,
-					TargetTile = _targetTile
-				});
-			}
-
-			return ret;
 		}
 
 		o.onApply <- function ( _data )
@@ -610,12 +594,20 @@ gt.Const.PTR.modSkills <- function()
 					this.Const.Tactical.Common.onApplyFire(tile, tile.getEntity());
 				}
 			}
+
+			this.m.TargetTile = null;
 		}
 
-		local oldonTargetHit = o.onTargetHit;
+		local onBeforeTargetHit = ::mods_getMember(o, "onBeforeTargetHit");
+		o.onBeforeTargetHit = function ( _skill, _targetEntity, _hitInfo )
+		{
+			this.m.TargetTile = _targetEntity.getTile();
+		}
+
+		local onTargetHit = ::mods_getMember(o, "onTargetHit");
 		o.onTargetHit = function( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 		{
-			oldonTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor );
+			onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor );
 
 			if (_skill != this)
 			{
@@ -625,6 +617,15 @@ gt.Const.PTR.modSkills <- function()
 			if (!this.getContainer().hasSkill("perk.ptr_flaming_arrows"))
 			{
 				return;
+			}
+
+			if (this.m.TargetTile != null)
+			{
+				this.Time.scheduleEvent(this.TimeUnit.Real, 50, this.onApply.bindenv(this), {
+					Skill = this,
+					User = this.getContainer().getActor(),
+					TargetTile = this.m.TargetTile
+				});
 			}
 
 			if (_targetEntity == null || !_targetEntity.isAlive() || _targetEntity.getMoraleState() == this.Const.MoraleState.Ignore)
