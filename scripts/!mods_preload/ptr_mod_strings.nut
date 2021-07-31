@@ -236,6 +236,8 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Duelist].Tooltip = gt.Const.Strings.PerkDescription.Duelist;
 	gt.Const.Strings.PerkName.PTROffhandTraining <- "Offhand Training";
 	gt.Const.Strings.PerkDescription.PTROffhandTraining <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Shield Type: Buckler or Parrying Dagger[/color]Equipping a Buckler or Parrying Dagger in the offhand no longer disables the armor penetration bonus from the Duelist perk.\n[color=#0b0084]From the One-Handed Weapons perk group[/color]";
+	gt.Const.Strings.PerkName.PTRWeaponMaster <- "Weapon Master";
+	gt.Const.Strings.PerkDescription.PTRWeaponMaster <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: One-Handed Melee[/color]\n\nGrants mastery with all One-Handed Melee weapons. Once per turn, switching from one One-Handed Melee weapon to another costs no Action Points. Does not stack with Quick Hands.\n[color=#0b0084]From the One-Handed Weapons perk group[/color]";
 
 	gt.Const.Strings.PerkName.PTRFruitsOfLabor <- "Fruits of Labor";
 	gt.Const.Strings.PerkDescription.PTRFruitsOfLabor <- "Hitpoints, Maximum Fatigue, and Initiative are increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] each.\n[color=#0b0084]From the Laborer perk group[/color]";

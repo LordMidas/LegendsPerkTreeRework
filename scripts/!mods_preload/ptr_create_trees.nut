@@ -21,6 +21,7 @@ gt.Const.PTR.createStylesTrees <- function()
 				gt.Const.Perks.PerkDefs.Duelist
 			],
 			[
+				gt.Const.Perks.PerkDefs.PTRWeaponMaster
 			]
 		]
 	};

@@ -59,6 +59,7 @@ gt.Const.PTR.modItemContainer <- function()
 			local isShield = false;
 			local ammoItemsCount = 0;
 			local twoHandedItemsCount = 0;
+			local oneHandedItemsCount = 0;
 
 			foreach( i in _items )
 			{
@@ -100,6 +101,15 @@ gt.Const.PTR.modItemContainer <- function()
 				return 0;
 			}
 
+			if (oneHandedItemsCount >= 2)
+			{
+				local weaponMasterPerk = this.m.Actor.getSkills().getSkillByID("perk.ptr_weapon_master");
+				if (weaponMasterPerk != null && !weaponMasterPerk.m.IsSpent)
+				{
+					return 0;
+				}
+			}
+
 			return this.Const.Tactical.Settings.SwitchItemAPCost;
 		}
 
@@ -123,13 +133,24 @@ gt.Const.PTR.modItemContainer <- function()
 
 			if (ammoItemsCount < 2)
 			{
+				procQuickHands = true;
+			}
+
+			if (procQuickHands)
+			{
 				local quickHandsPerk = this.m.Actor.getSkills().getSkillByID("perk.quick_hands");
 				if (quickHandsPerk != null)
 				{
 					quickHandsPerk.m.IsSpent = true;
 				}
-			}
 
+				local weaponMasterPerk = this.m.Actor.getSkills().getSkillByID("perk.ptr_weapon_master");
+				if (weaponMasterPerk != null)
+				{
+					weaponMasterPerk.m.IsSpent = true;
+				}
+			}
+			
 			# local isShield = false;
 			# local ammoItemsCount = 0;
 			# local twoHandedItemsCount = 0;
