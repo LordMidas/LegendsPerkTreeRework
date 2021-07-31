@@ -215,6 +215,50 @@ gt.Const.PTR.modSkills <- function()
 				_properties.DamageArmorMult += armorDamageBonus * 0.01;
 			}
 		}
+
+		o.onTargetHit <- function( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
+		{
+			if (!_targetEntity.isAlive() || _targetEntity.isDying() || !this.isEnabled() || _skill == null || !_skill.isRanged() || !_skill.hasBluntDamage())
+			{
+				return;
+			}
+
+			local distance = this.getContainer().getActor().getTile().getDistanceTo(_targetEntity.getTile());
+			if (distance > 3)
+			{
+				return;
+			}
+
+			local chance = distance == 2 ? 100 : 50;
+			local roll = this.Math.rand(1, 100);
+
+			if (roll > chance)
+			{
+				return;
+			}
+
+			local staggeredEffect = _targetEntity.getSkills().getSkillByID("effects.staggered");
+			if (staggeredEffect != null && !_targetEntity.getCurrentProperties().IsImmuneToStun)
+			{
+				local effect = this.new("scripts/skills/effects/stunned_effect");
+				_targetEntity.getSkills().add(effect);
+				effect.m.TurnsLeft = 1;
+				if (!actor.isHiddenToPlayer() && _targetEntity.getTile().IsVisibleForPlayer)
+				{
+					this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " has stunned " + this.Const.UI.getColorizedEntityName(_targetEntity) + " for " + effect.m.TurnsLeft + " turn");
+				}
+			}
+			else
+			{
+				local effect = this.new("scripts/skills/effects/staggered_effect");
+				_targetEntity.getSkills().add(effect);
+				effect.m.TurnsLeft = 1;
+				if (!actor.isHiddenToPlayer() && _targetEntity.getTile().IsVisibleForPlayer)
+				{
+					this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " has staggered " + this.Const.UI.getColorizedEntityName(_targetEntity) + " for " + effect.m.TurnsLeft + " turn");
+				}
+			}
+		}
 	});
 
 	::mods_hookNewObject("skills/actives/legend_push_forward", function(o) {
