@@ -60,6 +60,9 @@ gt.Const.PTR.modItemContainer <- function()
 			local ammoItemsCount = 0;
 			local twoHandedItemsCount = 0;
 			local oneHandedItemsCount = 0;
+			local toolItemsCount = 0;
+
+			local shieldID = "";
 
 			foreach( i in _items )
 			{
@@ -71,7 +74,7 @@ gt.Const.PTR.modItemContainer <- function()
 				if (i.isItemType(this.Const.Items.ItemType.Shield))
 				{
 					isShield = true;
-					break;
+					shieldID = i.getID();
 				}
 
 				if (i.isItemType(this.Const.Items.ItemType.Ammo))
@@ -83,11 +86,30 @@ gt.Const.PTR.modItemContainer <- function()
 				{
 					twoHandedItemsCount++;
 				}
+
+				if (i.isItemType(this.Const.Items.ItemType.Tool))
+				{
+					toolItemsCount++;
+				}
 			}
 
 			if (ammoItemsCount >= 2 && this.m.Actor.getSkills().hasSkill("perk.ptr_target_practice"))
 			{
 				return 0;
+			}
+
+			local offhandTrainingPerk = this.m.Actor.getSkills().getSkillByID("perk.ptr_offhand_training");
+			if (offhandTrainingPerk != null && !offhandTrainingPerk.m.IsSpent)
+			{
+				if (toolItemsCount == 2 || (toolItemsCount == 1 && !isShield))
+				{
+					return 0;
+				}
+
+				if (isShield && (shieldID.find("buckler") != null || shieldID.find("parrying_dagger") != null) && toolItemsCount == 1)
+				{
+					return 0;
+				}
 			}
 
 			if (isShield || twoHandedItemsCount >= 2)
@@ -117,6 +139,9 @@ gt.Const.PTR.modItemContainer <- function()
 		{
 			local actionCost = this.getActionCost(_items);
 			this.m.Actor.setActionPoints(this.Math.max(0, this.m.Actor.getActionPoints() - actionCost));
+
+			local procQuickHands = false;
+
 			local ammoItemsCount = 0;
 			foreach( i in _items )
 			{
@@ -148,6 +173,12 @@ gt.Const.PTR.modItemContainer <- function()
 				if (weaponMasterPerk != null)
 				{
 					weaponMasterPerk.m.IsSpent = true;
+				}
+
+				local offhandTrainingPerk = this.m.Actor.getSkills().getSkillByID("perk.ptr_offhand_training");
+				if (offhandTrainingPerk != null)
+				{
+					offhandTrainingPerk.m.IsSpent = true;
 				}
 			}
 			
