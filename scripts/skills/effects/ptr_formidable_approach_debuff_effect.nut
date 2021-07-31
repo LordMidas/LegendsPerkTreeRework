@@ -68,19 +68,16 @@ this.ptr_formidable_approach_debuff_effect <- this.inherit("scripts/skills/skill
 
 	function getCurrentMalus()
 	{
-		local indices = [];
-		foreach (i, enemy in this.m.CurrentEnemies)
+		local currEnemies = [];
+		foreach (enemy in this.m.CurrentEnemies)
 		{
-			if (!enemy.isAlive() || enemy.isDying())
+			if (enemy.isAlive() && !enemy.isDying())
 			{
-				indices.push(i);
+				currEnemies.push(enemy);
 			}
 		}
 
-		foreach (idx in indices)
-		{
-			this.m.CurrentEnemies.remove(idx);
-		}
+		this.m.CurrentEnemies = currEnemies;
 
 		if (this.m.CurrentEnemies.len() == 0)
 		{
