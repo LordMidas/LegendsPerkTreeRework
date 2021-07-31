@@ -197,6 +197,33 @@ gt.Const.PTR.modWeapons <- function()
 		}
 	});
 
+	::mods_hookExactClass("items/weapons/spetum", function(o) {
+		local onEquip = o.onEquip;
+		o.onEquip = function()
+		{
+			onEquip();
+			this.addSkill(this.new("scripts/skills/actives/repel"));
+		}
+	});
+
+	::mods_hookExactClass("items/weapons/warfork", function(o) {
+		local onEquip = o.onEquip;
+		o.onEquip = function()
+		{
+			onEquip();
+			this.addSkill(this.new("scripts/skills/actives/repel"));
+		}
+	});
+
+	::mods_hookExactClass("items/weapons/named/named_spetum", function(o) {
+		local onEquip = o.onEquip;
+		o.onEquip = function()
+		{
+			onEquip();
+			this.addSkill(this.new("scripts/skills/actives/repel"));
+		}
+	});
+
 	# foreach (glaive in glaives)
 	# {
 	# 	::mods_hookNewObject(glaive, function(o) {
