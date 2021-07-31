@@ -2,6 +2,31 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modSkills <- function()
 {
+	::mods_hookExactClass("skills/perks/perk_quick_hands", function(o) {
+		o.m.IsSpent <- false;
+
+		o.onUpdate = function(_properties)
+		{
+		}
+
+		o.isHidden <- function()
+		{
+			local actor = this.getContainer().getActor();
+			return this.m.IsSpent || !actor.isPlayerControlled() || !actor.isPlacedOnMap();
+		}
+
+		o.onTurnStart <- function()
+		{
+			this.m.IsSpent = false;
+		}
+
+		o.onCombatFinished = function()
+		{
+			this.skill.onCombatFinished();
+			this.m.IsSpent = false;
+		}
+	});
+
 	::mods_hookExactClass("skills/actives/rally_the_troops", function(o) {
 		o.m.TurnsRemaining <- 0;
 
