@@ -1,6 +1,6 @@
 this.perk_ptr_heavy_projectiles <- this.inherit("scripts/skills/skill", {
-	m = {		
-		ChanceOnBodyHit = 25
+	m = {
+		IsForceEnabled = false
 	},
 	function create()
 	{
@@ -14,26 +14,69 @@ this.perk_ptr_heavy_projectiles <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-			
+
+	function isEnabled()
+	{
+		if (this.m.IsForceEnabled)
+		{
+			return true;
+		}
+
+		local weapon = this.getContainer().getActor().getMainhandItem();
+		if (weapon != null && weapon.getCategories().find("Sling") != null)
+		{
+			return true;
+		}
+
+		return false;
+	}
+
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		if (!_skill.isAttack() || !_skill.isRanged() || !_targetEntity.isAlive())
+		if (!_skill.isAttack() || !_skill.isRanged() || !_targetEntity.isAlive() || _targetEntity.isDying() || !this.isEnabled())
 		{
 			return;
 		}
-		
-		local roll = this.Math.rand(1, 100);
-		
-		if (_bodyPart == this.Const.BodyPart.Head || roll <= this.m.ChanceOnBodyHit)
+
+		local actor = this.getContainer().getActor();
+
+		if (_bodyPart == this.Const.BodyPart.Head)
 		{
-			_targetEntity.getSkills().add(this.new("scripts/skills/effects/dazed_effect"));
-			
-			local actor = this.getContainer().getActor();
-			if (!actor.isHiddenToPlayer() && _targetEntity.getTile().IsVisibleForPlayer)
+			if (_targetEntity.getCurrentProperties().IsImmuneToStun)
 			{
-				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + "\'s use of heavy projectiles leaves " + this.Const.UI.getColorizedEntityName(_targetEntity) + " dazed");
+				_targetEntity.getSkills().add(this.new("scripts/skills/effects/dazed_effect"));
+				if (!actor.isHiddenToPlayer() && _targetEntity.getTile().IsVisibleForPlayer)
+				{
+					this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + "\'s use of heavy projectiles leaves " + this.Const.UI.getColorizedEntityName(_targetEntity) + " dazed");
+				}
+			}
+			else
+			{
+				_targetEntity.getSkills().add(this.new("scripts/skills/effects/stunned_effect"));
+				if (!actor.isHiddenToPlayer() && _targetEntity.getTile().IsVisibleForPlayer)
+				{
+					this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + "\'s use of heavy projectiles leaves " + this.Const.UI.getColorizedEntityName(_targetEntity) + " stunned");
+				}
+			}
+		}
+		else
+		{
+			if (_targetEntity.getCurrentProperties().IsImmuneToStun)
+			{
+				_targetEntity.getSkills().add(this.new("scripts/skills/effects/legend_baffled_effect"));
+				if (!actor.isHiddenToPlayer() && _targetEntity.getTile().IsVisibleForPlayer)
+				{
+					this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + "\'s use of heavy projectiles leaves " + this.Const.UI.getColorizedEntityName(_targetEntity) + " baffled");
+				}
+			}
+			else
+			{
+				_targetEntity.getSkills().add(this.new("scripts/skills/effects/dazed_effect"));
+				if (!actor.isHiddenToPlayer() && _targetEntity.getTile().IsVisibleForPlayer)
+				{
+					this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + "\'s use of heavy projectiles leaves " + this.Const.UI.getColorizedEntityName(_targetEntity) + " dazed");
+				}
 			}
 		}
 	}
 });
-

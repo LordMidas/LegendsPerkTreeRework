@@ -117,7 +117,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRPatience <- "Patience";
 	gt.Const.Strings.PerkDescription.PTRPatience <- "Gain [color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] Ranged Skill as long as you have not moved during your turn.\n[color=#0b0084]From the Sling perk group[/color]";
 	gt.Const.Strings.PerkName.PTRHeavyProjectiles <- "Heavy Projectiles";
-	gt.Const.Strings.PerkDescription.PTRHeavyProjectiles <- "Ranged attacks have a chance to apply the Dazed effect. The chance is [color=" + this.Const.UI.Color.PositiveValue + "]100%[/color] on a hit to the head and [color=" + this.Const.UI.Color.PositiveValue + "]25%[/color] on a hit to the body. Ignores target's immunity.\n[color=#0b0084]From the Sling perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRHeavyProjectiles <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Sling[/color]\n\nRanged attacks from Slings will stun the target on a hit to the head and apply Dazed on a hit to the body. If the target is immune to stun, hits to the head instead apply Dazed and hits to the body apply Baffled.\n[color=#0b0084]From the Sling perk group[/color]";
 	gt.Const.Strings.PerkName.PTRSniper <- "Death From Afar";
 	gt.Const.Strings.PerkDescription.PTRSniper <- "Damage from Ranged attacks is increased by [color=" + this.Const.UI.Color.PositiveValue + "]2%[/color] per tile the target is away from you.\n[color=#0b0084]From the Sling perk group[/color]";
 
