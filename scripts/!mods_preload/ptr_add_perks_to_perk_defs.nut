@@ -904,6 +904,15 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_weapon_master.png",
 			IconDisabled = "ui/perks/ptr_weapon_master_bw.png",
 			Const = "PTRWeaponMaster"
+		},
+		{
+			ID = "perk.ptr_bully",
+			Script = "scripts/skills/perks/perk_ptr_bully",
+			Name = this.Const.Strings.PerkName.PTRBully,
+			Tooltip = this.Const.Strings.PerkDescription.PTRBully,
+			Icon = "ui/perks/ptr_bully.png",
+			IconDisabled = "ui/perks/ptr_bully_bw.png",
+			Const = "PTRBully"
 		}
 	];
 

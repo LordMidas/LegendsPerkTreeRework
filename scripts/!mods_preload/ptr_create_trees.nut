@@ -776,7 +776,9 @@ gt.Const.PTR.createProfessionTrees <- function()
 			[],
 			[],
 			[],
-			[],
+			[
+				gt.Const.Perks.PerkDefs.PTRBully
+			],
 			[]
 		]
 	};

@@ -242,6 +242,9 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRFruitsOfLabor <- "Fruits of Labor";
 	gt.Const.Strings.PerkDescription.PTRFruitsOfLabor <- "Hitpoints, Maximum Fatigue, and Initiative are increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] each.\n[color=#0b0084]From the Laborer perk group[/color]";
 
+	gt.Const.Strings.PerkName.PTRBully <- "Bully";
+	gt.Const.Strings.PerkDescription.PTRBully <- "Melee Damage is increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] per level of difference between your and your target\'s Morale as long as your Morale is higher than that of your target.\n[color=#0b0084]From the Raider perk group[/color]";
+
 	gt.Const.Strings.PerkName.PTRPatternRecognition <- "Pattern Recognition";
 	gt.Const.Strings.PerkDescription.PTRPatternRecognition <- "Every attack against a target and every attack against you from that target increases your Melee Skill and Melee Defense against that target by a stacking [color=" + this.Const.UI.Color.PositiveValue + "]+3[/color] per attack for the remainder of the combat.\n[color=#0b0084]From the Soldier perk group[/color]";
 	gt.Const.Strings.PerkName.PTRExudeConfidence <- "Exude Confidence";
