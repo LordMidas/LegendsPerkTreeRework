@@ -138,6 +138,8 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.PTRVersatileWeapon <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Sword[/color]\n\nWhen wielding a sword, gain [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] damage, [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] armor penetration and [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] armor effectiveness.\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Strings.PerkDescription.Feint = "[color=" + this.Const.UI.Color.NegativeValue + "]Required Attack Type: Melee[/color]\n\nIf an attack misses, [color=" + this.Const.UI.Color.NegativeValue + "]20%[/color] of the Base Fatigue Cost of the skill is refunded, and you leave your opponent parried, lowering their defenses by [color=" + this.Const.UI.Color.NegativeValue + "]-10[/color].\n[color=#0b0084]From the Sword perk group[/color]",
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Feint].Tooltip = gt.Const.Strings.PerkDescription.Feint;
+	gt.Const.Strings.PerkName.PTRExploitOpening <- "Exploit Opening";
+	gt.Const.Strings.PerkDescription.PTRExploitOpening <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: One-Handed, Melee[/color]\n\nWhenever an opponent misses a Melee attack against you, they are affected by the \'Exploitable Opening\' effect until their next turn, which gives you [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit against them.\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Strings.PerkName.PTRHeightenedReflexes <- "Heightened Reflexes";
 	gt.Const.Strings.PerkDescription.PTRHeightenedReflexes <- "Gain [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] of your Base Melee Defense as Initiative.\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Strings.PerkName.PTRTempo <- "Tempo";
@@ -230,12 +232,10 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRManOfSteel <- "Man of Steel";
 	gt.Const.Strings.PerkDescription.PTRManOfSteel <- "Armor penetrating damage to Hitpoints received from Ranged attacks is reduced by up to [color=" + this.Const.UI.Color.PositiveValue + "]30%[/color]. This bonus increases exponentially by wearing head and body armor of higher Maximum Durability.\n[color=#0b0084]From the Heavy Armor perk group[/color]";
 
-	gt.Const.Strings.PerkName.PTRExploitOpening <- "Exploit Opening";
-	gt.Const.Strings.PerkDescription.PTRExploitOpening <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: One-Handed, Melee[/color]\n\nWhenever an opponent misses a Melee attack against you, they are affected by the \'Exploitable Opening\' effect until their next turn, which gives you [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit against them.\n[color=#0b0084]From the One-Handed Weapons perk group[/color]";
-	gt.Const.Strings.PerkDescription.Duelist = "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: One-Handed, Melee[/color]\n\n" + gt.Const.Strings.PerkDescription.Duelist;
-	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Duelist].Tooltip = gt.Const.Strings.PerkDescription.Duelist;
 	gt.Const.Strings.PerkName.PTROffhandTraining <- "Offhand Training";
 	gt.Const.Strings.PerkDescription.PTROffhandTraining <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Offhand Type: Buckler, Parrying Dagger, or Tool[/color]\n\nEquipping a Buckler or Parrying Dagger in the offhand no longer disables the armor penetration bonus from the Duelist perk. Once per turn, if you have not already switched any weapon or tool, switching a tool in your offhand costs no Action Points. Also works when switching from a Buckler or Parrying Dagger to a tool. Does not stack with Quick Hands.\n[color=#0b0084]From the One-Handed Weapons perk group[/color]";
+	gt.Const.Strings.PerkDescription.Duelist = "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: One-Handed, Melee[/color]\n\n" + gt.Const.Strings.PerkDescription.Duelist;
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Duelist].Tooltip = gt.Const.Strings.PerkDescription.Duelist;
 	gt.Const.Strings.PerkName.PTRWeaponMaster <- "Weapon Master";
 	gt.Const.Strings.PerkDescription.PTRWeaponMaster <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: One-Handed Melee[/color]\n\nGrants mastery with all One-Handed Melee weapons. Once per turn, switching from one One-Handed Melee weapon to another costs no Action Points. Does not stack with Quick Hands.\n[color=#0b0084]From the One-Handed Weapons perk group[/color]";
 
