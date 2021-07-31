@@ -87,6 +87,30 @@ gt.Const.PTR.modWeapons <- function()
 	# 	"items/weapons/named/legend_named_glaive"
 	# ]
 
+	::mods_hookNewObject("items/weapons/greenskins/goblin_spear", function(o) {
+		o.m.Categories = "Sword/Spear, One-Handed";
+		o.remakeApplicableMasteries();
+
+		local onEquip = o.onEquip;
+		o.onEquip = function()
+		{
+			onEquip();
+			this.addSkill(this.new("scripts/skills/actives/riposte"));
+		}
+	});
+
+	::mods_hookNewObject("items/weapons/named/named_goblin_spear", function(o) {
+		o.m.Categories = "Sword/Spear, One-Handed";
+		o.remakeApplicableMasteries();
+
+		local onEquip = o.onEquip;
+		o.onEquip = function()
+		{
+			onEquip();
+			this.addSkill(this.new("scripts/skills/actives/riposte"));
+		}
+	});
+
 	::mods_hookNewObject("items/weapons/legend_militia_glaive", function(o) {
 		o.m.Categories = "Sword/Spear, Two-Handed";
 		o.remakeApplicableMasteries();
