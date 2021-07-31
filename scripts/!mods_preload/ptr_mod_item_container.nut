@@ -3,78 +3,135 @@ local gt = this.getroottable();
 gt.Const.PTR.modItemContainer <- function()
 {
 	::mods_hookNewObject("items/item_container", function(o) {
-		local isActionAffordable = o.isActionAffordable;
 		o.isActionAffordable = function ( _items )
 		{
-			local ret = isActionAffordable(_items);
+			local isShield = false;
+			local ammoItemsCount = 0;
+			local twoHandedItemsCount = 0;
 
-			if (!ret)
+			foreach( i in _items )
 			{
-				foreach (i in _items)
+				if (i == null)
 				{
-					if (i != null && i.isItemType(this.Const.Items.ItemType.Ammo) && this.m.Actor.getSkills().hasSkill("perk.ptr_target_practice"))
-					{
-						ret = true;
-						break;
-					}
+					continue;
+				}
+
+				if (i.isItemType(this.Const.Items.ItemType.Shield))
+				{
+					isShield = true;
+					break;
+				}
+
+				if (i.isItemType(this.Const.Items.ItemType.Ammo))
+				{
+					ammoItemsCount++;
+				}
+
+				if (i.isItemType(this.Const.Items.ItemType.TwoHanded) && i.isItemType(this.Const.Items.ItemType.MeleeWeapon))
+				{
+					twoHandedItemsCount++;
 				}
 			}
 
-			return ret;
+			if (ammoItemsCount >= 2 && this.m.Actor.getSkills().hasSkill("perk.ptr_target_practice"))
+			{
+				return true;
+			}
+
+			if (isShield || twoHandedItemsCount >= 2)
+			{
+				return this.m.Actor.getActionPoints() >= this.m.ActionCost2H;
+			}
+
+			return this.m.Actor.getActionPoints() >= this.m.ActionCost;
 		}
 
-		local getActionCost = o.getActionCost;
 		o.getActionCost = function ( _items )
 		{
-			local ret = getActionCost(_items);
+			local isShield = false;
+			local ammoItemsCount = 0;
+			local twoHandedItemsCount = 0;
 
-			if (ret != 0)
+			foreach( i in _items )
 			{
-				foreach (i in _items)
+				if (i == null)
 				{
-					if (i != null && i.isItemType(this.Const.Items.ItemType.Ammo) && this.m.Actor.getSkills().hasSkill("perk.ptr_target_practice"))
-					{
-						ret = 0;
-						break;
-					}
+					continue;
+				}
+
+				if (i.isItemType(this.Const.Items.ItemType.Ammo))
+				{
+					ammoItemsCount++;
+				}
+
+				if (i.isItemType(this.Const.Items.ItemType.Shield))
+				{
+					isShield = true;
+					break;
+				}
+
+				if (i.isItemType(this.Const.Items.ItemType.TwoHanded) && i.isItemType(this.Const.Items.ItemType.MeleeWeapon))
+				{
+					twoHandedItemsCount++;
 				}
 			}
 
-			return ret;
+			if (ammoItemsCount >= 2 && this.m.Actor.getSkills().hasSkill("perk.ptr_target_practice"))
+			{
+				return 0;
+			}
+
+			if (isShield || twoHandedItemsCount >= 2)
+			{
+				return this.m.ActionCost2H;
+			}
+
+			return this.m.ActionCost;
 		}
 
 		o.payForAction = function ( _items )
 		{
-			local twoHanded = false;
-
-			local freeForAmmo = false;
+			local isShield = false;
+			local ammoItemsCount = 0;
+			local twoHandedItemsCount = 0;
 
 			foreach( i in _items )
 			{
-				if (i != null && i.isItemType(this.Const.Items.ItemType.Ammo) && this.m.Actor.getSkills().hasSkill("perk.ptr_target_practice"))
+				if (i == null)
 				{
-					freeForAmmo = true;
+					continue;
+				}
+
+				if (i != null && i.isItemType(this.Const.Items.ItemType.Shield))
+				{
+					isShield = true;
 					break;
+				}
+
+				if (i.isItemType(this.Const.Items.ItemType.Ammo))
+				{
+					ammoItemsCount++;
+				}
+
+				if (i.isItemType(this.Const.Items.ItemType.TwoHanded) && i.isItemType(this.Const.Items.ItemType.MeleeWeapon))
+				{
+					twoHandedItemsCount++;
 				}
 			}
 
-			if (!freeForAmmo)
+			if (ammoItemsCount >= 2 && this.m.Actor.getSkills().hasSkill("perk.ptr_target_practice"))
 			{
-				foreach( i in _items )
-				{
-					if (i != null && i.isItemType(this.Const.Items.ItemType.Shield))
-					{
-						twoHanded = true;
-						break;
-					}
-				}
+				return;
+			}
 
-				this.m.Actor.setActionPoints(this.Math.max(0, this.m.Actor.getActionPoints() - (twoHanded ? this.m.ActionCost2H : this.m.ActionCost)));
-
-				if (!twoHanded)
-				{
-					this.m.ActionCost = this.Const.Tactical.Settings.SwitchItemAPCost;
-				}
+			if (isShield || twoHandedItemsCount >= 2)
+			{
+				this.m.Actor.setActionPoints(this.Math.max(0, this.m.Actor.getActionPoints() - this.m.ActionCost2H));
+			}
+			else
+			{
+				this.m.Actor.setActionPoints(this.Math.max(0, this.m.Actor.getActionPoints() - this.m.ActionCost));
+				this.m.ActionCost = this.Const.Tactical.Settings.SwitchItemAPCost;
 			}
 
 			this.m.Actor.getSkills().update();
