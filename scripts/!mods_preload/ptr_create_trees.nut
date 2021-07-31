@@ -15,13 +15,12 @@ gt.Const.PTR.createStylesTrees <- function()
 			],
 			[],
 			[
-				gt.Const.Perks.PerkDefs.PTRExploitOpening
+				gt.Const.Perks.PerkDefs.PTROffhandTraining
 			],
 			[
 				gt.Const.Perks.PerkDefs.Duelist
 			],
 			[
-				gt.Const.Perks.PerkDefs.PTROffhandTraining
 			]
 		]
 	};
