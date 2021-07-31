@@ -886,6 +886,15 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_exploit_opening.png",
 			IconDisabled = "ui/perks/ptr_exploit_opening_bw.png",
 			Const = "PTRExploitOpening"
+		},
+		{
+			ID = "perk.ptr_pattern_recognition",
+			Script = "scripts/skills/perks/perk_ptr_pattern_recognition",
+			Name = this.Const.Strings.PerkName.PTRPatternRecognition,
+			Tooltip = this.Const.Strings.PerkDescription.PTRPatternRecognition,
+			Icon = "ui/perks/ptr_pattern_recognition.png",
+			IconDisabled = "ui/perks/ptr_pattern_recognition_bw.png",
+			Const = "PTRPatternRecognition"
 		}
 	];
 

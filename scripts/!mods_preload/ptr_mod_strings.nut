@@ -240,6 +240,8 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRFruitsOfLabor <- "Fruits of Labor";
 	gt.Const.Strings.PerkDescription.PTRFruitsOfLabor <- "Hitpoints, Maximum Fatigue, and Initiative are increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] each.\n[color=#0b0084]From the Laborer perk group[/color]";
 
+	gt.Const.Strings.PerkName.PTRPatternRecognition <- "Pattern Recognition";
+	gt.Const.Strings.PerkDescription.PTRPatternRecognition <- "Every attack against a target and every attack against you from that target increases your Melee Skill and Melee Defense against that target by a stacking [color=" + this.Const.UI.Color.PositiveValue + "]+3[/color] per attack for the remainder of the combat.\n[color=#0b0084]From the Soldier perk group[/color]";
 	gt.Const.Strings.PerkName.PTRExudeConfidence <- "Exude Confidence";
 	gt.Const.Strings.PerkDescription.PTRExudeConfidence <- "At the start of your turn, improve the Morale state of adjacent allies by [color=" + this.Const.UI.Color.PositiveValue + "]1[/color] as long as their Morale state is lower than yours.\n[color=#0b0084]From the Soldier perk group[/color]";
 	gt.Const.Strings.PerkName.PTRProfessional <- "Professional";
