@@ -356,7 +356,7 @@ gt.Const.PTR.modSkills <- function()
 			fat = this.Math.min(0, fat + 15);
 			local maxFatMult = this.Math.maxf(0, 0.1 - this.Math.pow(this.Math.abs(fat), 1.23) * 0.01);
 
-			return this.Math.floor(5 + actor.getFatigueMax() * maxFatMult);
+			return this.Math.floor(actor.getFatigueMax() * maxFatMult);
 		}
 
 		o.onUpdate <- function(_properties)
