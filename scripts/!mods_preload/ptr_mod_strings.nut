@@ -139,7 +139,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.Feint = "[color=" + this.Const.UI.Color.NegativeValue + "]Required Attack Type: Melee[/color]\n\nIf an attack misses, [color=" + this.Const.UI.Color.NegativeValue + "]20%[/color] of the Base Fatigue Cost of the skill is refunded, and you leave your opponent parried, lowering their defenses by [color=" + this.Const.UI.Color.NegativeValue + "]-10[/color].\n[color=#0b0084]From the Sword perk group[/color]",
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Feint].Tooltip = gt.Const.Strings.PerkDescription.Feint;
 	gt.Const.Strings.PerkName.PTRExploitOpening <- "Exploit Opening";
-	gt.Const.Strings.PerkDescription.PTRExploitOpening <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Sword[/color]\n\nWhenever an opponent misses a Melee attack against you, they are affected by the \'Exploitable Opening\' effect until their next turn, which gives you [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit against them.\n[color=#0b0084]From the Sword perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRExploitOpening <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Sword[/color]\n\nWhenever an opponent misses a Melee attack against you, they are affected by the \'Exploitable Opening\' effect until their next turn, which gives you [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit against them.\n\nMakes the Riposte skill available on the Shamshir and One-Handed versions of Saif and Scimitar.\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Strings.PerkName.PTRHeightenedReflexes <- "Heightened Reflexes";
 	gt.Const.Strings.PerkDescription.PTRHeightenedReflexes <- "Gain [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] of your Base Melee Defense as Initiative.\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Strings.PerkName.PTRTempo <- "Tempo";
@@ -269,6 +269,17 @@ gt.Const.PTR.modStrings <- function()
 
 	gt.Const.Strings.PerkDescription.QuickHands = "Looking for this? Swapping any item in battle a free action with no Action Point cost once every turn. Does not work when swapping a shield, or when swapping from one Two-Handed weapon to another Two-Handed weapon.\n[color=#0b0084]From the Throwing perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.QuickHands].Tooltip = gt.Const.Strings.PerkDescription.QuickHands;
+
+	local specSwordArray = split(gt.Const.Strings.PerkDescription.SpecSword, "[");
+	specSwordArray.pop();
+	specSwordArray.apply(@(a) a += "[" );
+	specSwordArray.push("\n\nThe threshold to inflict injury when using a Shamshir or the One-Handed versions of Saif and Scimitar is reduced by [color=" + this.Const.UI.Color.NegativeValue + "]25%[/color].\n[color=#0b0084]From the Sword perk group[/color]");
+	gt.Const.Strings.PerkDescription.SpecSword = "";
+	foreach (s in specSwordArray)
+	{
+		gt.Const.Strings.PerkDescription.SpecSword += s;
+	}
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.SpecSword].Tooltip = gt.Const.Strings.PerkDescription.SpecSword;
 
 	local changePerkGroupInTooltip = function (_tooltip, _newPerkGroup = "")
 	{

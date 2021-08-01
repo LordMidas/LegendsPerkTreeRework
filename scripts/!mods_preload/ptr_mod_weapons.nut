@@ -224,6 +224,40 @@ gt.Const.PTR.modWeapons <- function()
 		}
 	});
 
+	local curvedSwords = [
+		"items/weapons/shamshir",
+		"items/weapons/named/named_shamshir",
+		"items/weapons/scimitar",
+		"items/weapons/saif",
+	];
+
+	foreach (sword in curvedSwords)
+	{
+		::mods_hookExactClass(sword, function(o) {
+			local onUpdateProperties = ::mods_getMember(o, "onUpdateProperties");
+			o.onUpdateProperties = function(_properties)
+			{
+				onUpdateProperties(_properties);
+				if (this.getContainer().getActor().getSkills().hasSkill("perk.mastery.sword"))
+				{
+					_properties.ThresholdToInflictInjuryMult *= 0.75;
+				}
+			}
+
+			local onEquip = o.onEquip;
+			o.onEquip = function()
+			{
+				onEquip();
+				local riposte = this.new("scripts/skills/actives/riposte");
+				riposte.isHidden <- function()
+				{
+					return this.getContainer().hasSkill("perk.ptr_exploit_opening");
+				}
+				this.addSkill(riposte);
+			}
+		});
+	}
+
 	# foreach (glaive in glaives)
 	# {
 	# 	::mods_hookNewObject(glaive, function(o) {
