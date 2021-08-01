@@ -279,6 +279,11 @@ gt.Const.PTR.modStrings <- function()
 
 		strArray[strArray.len()-1] = "color=#0b0084]From the " + _newPerkGroup + " perk group[/color]";
 
+		if (strArray[0].find("color=") != null)
+		{
+			strArray[0] = "[" + strArray[0];
+		}
+
 		local ret = "";
 		foreach (s in strArray)
 		{
