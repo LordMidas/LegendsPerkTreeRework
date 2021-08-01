@@ -31,6 +31,6 @@ this.perk_ptr_bully <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		_properties.DamageTotalMult *= 1.0 + this.m.DamageBonus * 0.01 * difference;
+		_properties.MeleeDamageMult *= 1.0 + this.m.DamageBonus * 0.01 * difference;
 	}
 });
