@@ -667,7 +667,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 		{Multiplier = 2, Tree = this.Const.Perks.LargeTree}
 	];
 	this.Const.Perks.SturdyTree.Tree[0] = [this.Const.Perks.PerkDefs.Recover];
-	this.Const.Perks.SturdyTree.Tree[1] = [];
+	this.Const.Perks.SturdyTree.Tree[1] = [this.Const.Perks.PerkDefs.SteelBrow];
 	this.Const.Perks.SturdyTree.Tree[2] = [this.Const.Perks.PerkDefs.Taunt];
 	this.Const.Perks.SturdyTree.Tree[3] = [];
 	this.Const.Perks.SturdyTree.Tree[4] = [this.Const.Perks.PerkDefs.ReturnFavor];
