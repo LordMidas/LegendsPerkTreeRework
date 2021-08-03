@@ -258,6 +258,15 @@ gt.Const.PTR.modWeapons <- function()
 		});
 	}
 
+	::mods_hookExactClass("items/weapons/throwing_spear", function(o) {
+		local create = o.create;
+		o.create = function()
+		{
+			create();
+			this.m.ShieldDamage = 52;
+		}
+	});
+
 	# foreach (glaive in glaives)
 	# {
 	# 	::mods_hookNewObject(glaive, function(o) {

@@ -273,6 +273,21 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.SpecSword += "\n\nThe threshold to inflict injury when using a Shamshir or the One-Handed versions of Saif and Scimitar is reduced by [color=" + this.Const.UI.Color.NegativeValue + "]25%[/color].\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.SpecSword].Tooltip = gt.Const.Strings.PerkDescription.SpecSword;
 
+	local throwingArray = split(gt.Const.Strings.PerkDescription.SpecThrowing, "[");
+	throwingArray.pop();
+	throwingArray.pop();
+	for (local i = 0; i < throwingArray.len() - 1; i++)
+	{
+		throwingArray[i] += "[";
+	}
+	gt.Const.Strings.PerkDescription.SpecThrowing = "";
+	foreach (s in throwingArray)
+	{
+		gt.Const.Strings.PerkDescription.SpecThrowing += s;
+	}
+	gt.Const.Strings.PerkDescription.SpecThrowing += "\nThrowing Spear now ignores the damage reduction from the target\'s Shield Expert perk.\n[color=#0b0084]From the Throwing perk group[/color]";
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.SpecThrowing].Tooltip = gt.Const.Strings.PerkDescription.SpecThrowing;
+
 	local changePerkGroupInTooltip = function (_tooltip, _newPerkGroup = "")
 	{
 		local strArray = split(_tooltip, "[");
