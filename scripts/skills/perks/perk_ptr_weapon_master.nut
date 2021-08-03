@@ -34,19 +34,6 @@ this.perk_ptr_weapon_master <- this.inherit("scripts/skills/skill", {
 			return false;
 		}
 
-		if (_properties.IsSpecializedInAxes = true ||
-				_properties.IsSpecializedInCleavers = true ||
-				_properties.IsSpecializedInDaggers = true ||
-				_properties.IsSpecializedInFlails = true ||
-				_properties.IsSpecializedInHammers = true ||
-				_properties.IsSpecializedInMaces = true ||
-				_properties.IsSpecializedInSpears = true ||
-				_properties.IsSpecializedInSwords = true
-			)
-		{
-			return false;
-		}
-
 		return true;
 	}
 
