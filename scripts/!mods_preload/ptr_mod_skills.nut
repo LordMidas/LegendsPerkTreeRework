@@ -2,6 +2,16 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modSkills <- function()
 {
+	::mods_hookExactClass("skills/perks/perk_feint", function(o) {
+		o.onAdded <- function()
+		{
+			if (!this.getContainer().getActor().isPlayerControlled())
+			{
+				this.removeSelf();
+			}
+		}
+	});
+
 	::mods_hookNewObject("skills/actives/legend_mark_target", function(o) {
 		o.m.ActionPointCost = 7;
 	});
@@ -937,7 +947,7 @@ gt.Const.PTR.modSkills <- function()
 						icon = "ui/icons/fatigue.png",
 						text = "[color=" + this.Const.UI.Color.NegativeValue + "]+" + this.getMalus() + "%[/color] Fatigue built"
 					}
-				);					
+				);
 			}
 		}
 
