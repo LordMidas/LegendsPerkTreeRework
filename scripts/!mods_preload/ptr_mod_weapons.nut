@@ -235,7 +235,7 @@ gt.Const.PTR.modWeapons <- function()
 	{
 		::mods_hookExactClass(sword, function(o) {
 			local onUpdateProperties = ::mods_getMember(o, "onUpdateProperties");
-			o.onUpdateProperties = function(_properties)
+			o.onUpdateProperties <- function(_properties)
 			{
 				onUpdateProperties(_properties);
 				if (this.getContainer().getActor().getSkills().hasSkill("perk.mastery.sword"))
