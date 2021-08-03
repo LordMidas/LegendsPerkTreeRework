@@ -697,7 +697,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	this.Const.Perks.TrainedTree.Tree[3] = [];
 	this.Const.Perks.TrainedTree.Tree[4] = [this.Const.Perks.PerkDefs.Underdog];
 	this.Const.Perks.TrainedTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRTheRushOfBattle];
-	this.Const.Perks.TrainedTree.Tree[6] = [this.Const.Perks.PerkDefs.PerfectFocus];	
+	this.Const.Perks.TrainedTree.Tree[6] = [this.Const.Perks.PerkDefs.PerfectFocus];
 
 	this.Const.Perks.ResilientTree <- this.Const.Perks.IndestructibleTree;
 	this.Const.Perks.TalentedTree <- this.Const.Perks.IntelligentTree;
@@ -1126,7 +1126,7 @@ gt.Const.PTR.modWeaponTrees <- function()
 	this.Const.Perks.SwordTree.SelfWeightMultiplier <- 1.5;
 	this.Const.Perks.SwordTree.Tree[0] = [this.Const.Perks.PerkDefs.PTRVersatileWeapon];
 	this.Const.Perks.SwordTree.Tree[1] = [this.Const.Perks.PerkDefs.PTRExploitOpening];
-	this.Const.Perks.SwordTree.Tree[2] = [];
+	this.Const.Perks.SwordTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRHeightenedReflexes];
 	this.Const.Perks.SwordTree.Tree[3] = [this.Const.Perks.PerkDefs.SpecSword];
 	this.Const.Perks.SwordTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRTempo];
 	this.Const.Perks.SwordTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRKata];
