@@ -922,20 +922,22 @@ gt.Const.PTR.modSkills <- function()
 			if (this.m.AttackCount > 0)
 			{
 				ret.push(
-				{
-					id = 10,
-					type = "text",
-					icon = "ui/icons/damage_dealt.png",
-					text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + this.getMalus() + "%[/color] Damage dealt"
-				};
+					{
+						id = 10,
+						type = "text",
+						icon = "ui/icons/damage_dealt.png",
+						text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + this.getMalus() + "%[/color] Damage dealt"
+					}
+				);
 
 				ret.push(
-				{
-					id = 10,
-					type = "text",
-					icon = "ui/icons/fatigue.png",
-					text = "[color=" + this.Const.UI.Color.NegativeValue + "]+" + this.getMalus() + "%[/color] Fatigue built"
-				};
+					{
+						id = 10,
+						type = "text",
+						icon = "ui/icons/fatigue.png",
+						text = "[color=" + this.Const.UI.Color.NegativeValue + "]+" + this.getMalus() + "%[/color] Fatigue built"
+					}
+				);					
 			}
 		}
 
