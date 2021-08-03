@@ -430,7 +430,7 @@ gt.Const.PTR.modSkills <- function()
 				local flailSpinnerPerk = this.getContainer().getSkillByID("perk.ptr_flail_spinner");
 				if (flailSpinnerPerk != null)
 				{
-					ret = flailSpinnerPerk.spinFlail(onUse, _user, _targetTile, target, this) || ret;
+					ret = flailSpinnerPerk.spinFlail(onUse, _user, _targetTile, target) || ret;
 				}
 
 				return ret;
