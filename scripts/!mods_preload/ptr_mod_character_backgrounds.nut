@@ -13,6 +13,16 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		}
 	};
 
+	local clearCustomPerkTree = function(_customPerkTree)
+	{
+		_customPerkTree.clear();
+		for (local i = 0; i < 7; i++)
+		{
+			local emptyArray;
+			_customPerkTree.push(emptyArray);
+		}
+	};
+
 	::mods_hookNewObject("skills/backgrounds/adventurous_noble_background", function(o) {
 		o.m.PerkTreeDynamic = {
 			ExpertiseMultipliers = [
@@ -1681,16 +1691,24 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_assassin_background", function(o) {
-		addPerkTreesToCustomPerkTree(this.Const.Perks.DaggerTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.SwordTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.PolearmTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.BowTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ThrowingTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.CrossbowTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.FistsClassTree, o.m.CustomPerkTree);
+		clearCustomPerkTree(o.m.CustomPerkTree);
+		o.m.CustomPerkTree[0].push(this.Const.Perks.PerkDefs.FastAdaption);
+		o.m.CustomPerkTree[0].push(this.Const.Perks.PerkDefs.BagsAndBelts);
+		o.m.CustomPerkTree[1].push(this.Const.Perks.PerkDefs.DevastatingStrikes);
+		o.m.CustomPerkTree[2].push(this.Const.Perks.PerkDefs.Rotation);
+		o.m.CustomPerkTree[3].push(this.Const.Perks.PerkDefs.LegendSpecPoison);
+		o.m.CustomPerkTree[3].push(this.Const.Perks.PerkDefs.LegendPoisonImmunity);
+		o.m.CustomPerkTree[3].push(this.Const.Perks.PerkDefs.LegendHidden);
+		o.m.CustomPerkTree[5].push(this.Const.Perks.PerkDefs.PushTheAdvantage);
+		o.m.CustomPerkTree[4].push(this.Const.Perks.PerkDefs.LegendClarity);
+		o.m.CustomPerkTree[4].push(this.Const.Perks.PerkDefs.PTRBetweenTheEyes);
+		o.m.CustomPerkTree[6].push(this.Const.Perks.PerkDefs.PerfectFocus);
 
 		addPerkTreesToCustomPerkTree(this.Const.Perks.AssassinProfessionTree, o.m.CustomPerkTree);
+
+		addPerkTreesToCustomPerkTree(this.Const.Perks.NoblesTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.SouthernersTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.SwordmastersTree, o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(this.Const.Perks.AgileTree, o.m.CustomPerkTree);
 		addPerkTreesToCustomPerkTree(this.Const.Perks.FastTree, o.m.CustomPerkTree);
@@ -1703,11 +1721,15 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		addPerkTreesToCustomPerkTree(this.Const.Perks.MediumArmorTree, o.m.CustomPerkTree);
 		addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
 
+		addPerkTreesToCustomPerkTree(this.Const.Perks.DaggerTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.SwordTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.MaceTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.PolearmTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.ThrowingTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
+
 		addPerkTreesToCustomPerkTree(this.Const.Perks.OneHandedTree, o.m.CustomPerkTree);
 		addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.RangedTree, o.m.CustomPerkTree);
-
-		o.m.CustomPerkTree[5].push(this.Const.Perks.PerkDefs.PTRKnowTheirWeakness);
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_assassin_commander_background", function(o) {
