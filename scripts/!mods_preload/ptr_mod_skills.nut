@@ -2,6 +2,10 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modSkills <- function()
 {
+	::mods_hookNewObject("skills/actives/legend_mark_target", function(o) {
+		o.m.ActionPointCost = 7;
+	});
+
 	::mods_hookExactClass("skills/actives/cleave", function(o) {
 		local getTooltip = o.getTooltip;
 		o.getTooltip = function()
@@ -902,13 +906,38 @@ gt.Const.PTR.modSkills <- function()
 
 		o.isUsable = function()
 		{
-			return this.skill.isUsable() && !this.getContainer().hasSkill("effects.perfect_focus") && !this.getContainer().hasSkill("effects.ptr_exhausted");
+			return this.skill.isUsable() && !this.getContainer().hasSkill("effects.perfect_focus") && !this.getContainer().hasSkill("effects.ptr_exhausted") && !this.getContainer().hasSkill("effects.inspired");
 		}
 	});
 
 	::mods_hookNewObject("skills/effects/perfect_focus_effect", function(o) {
 		o.m.StartingAPFraction <- 1;
+		o.m.AttackCount <- 0;
+		o.m.MalusPerCount <- 10;
 		o.m.Description = "This character has achieved perfect focus as if time itself were to stand still, gaining additional Action Points for this turn."
+
+		o.getTooltip <- function()
+		{
+			local ret = this.skill.getTooltip();
+			if (this.m.AttackCount > 0)
+			{
+				ret.push(
+				{
+					id = 10,
+					type = "text",
+					icon = "ui/icons/damage_dealt.png",
+					text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + this.getMalus() + "%[/color] Damage dealt"
+				};
+
+				ret.push(
+				{
+					id = 10,
+					type = "text",
+					icon = "ui/icons/fatigue.png",
+					text = "[color=" + this.Const.UI.Color.NegativeValue + "]+" + this.getMalus() + "%[/color] Fatigue built"
+				};
+			}
+		}
 
 		o.onAdded <- function()
 		{
@@ -930,6 +959,28 @@ gt.Const.PTR.modSkills <- function()
 		{
 			this.getContainer().add(this.new("scripts/skills/effects/ptr_exhausted_effect"));
 			this.removeSelf();
+		}
+
+		o.onTargetHit <- function( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
+		{
+			this.m.AttackCount++;
+		}
+
+		o.onTargetMissed <- function( _skill, _targetEntity )
+		{
+			this.m.AttackCount++;
+		}
+
+		o.getMalus <- function()
+		{
+			return this.m.AttackCount * this.m.MalusPerCount;
+		}
+
+		o.onAnySkillUsed <- function( _skill, _targetEntity, _properties )
+		{
+			local malus = this.getMalus() * 0.01;
+			_properties.DamageTotalMult *= 1.0 - malus;
+			_properties.FatigueEffectMult *= 1.0 + malus;
 		}
 	});
 
