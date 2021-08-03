@@ -24,14 +24,6 @@ this.perk_ptr_discovered_talent <- this.inherit("scripts/skills/skill", {
 
 		local actor = this.getContainer().getActor();
 
-		if (actor.m.LevelUps > 0)
-		{
-			actor.m.PerkPoints += 1;
-			actor.m.PerkPointsSpent -= 1;
-			this.removeSelf();
-			return;
-		}
-
 		local talents = actor.getTalents();
 		for (local i = 0; i < talents.len(); i++)
 		{
@@ -41,9 +33,27 @@ this.perk_ptr_discovered_talent <- this.inherit("scripts/skills/skill", {
 			}
 		}
 
+		local requiredLevelUpsSpent = this.getContainer().hasSkill("perk.gifted") ? 5 : 4;
+
+		if (actor.m.LevelUpsSpent < requiredLevelUpsSpent)
+		{
+			local startIndex = requiredLevelUpsSpent - actor.m.LevelUpsSpent;
+			local attributes = clone actor.m.Attributes;
+			actor.m.Attributes.clear();
+			actor.fillAttributeLevelUpValues(this.Const.XP.MaxLevelWithPerkpoints - actor.getLevel() + actor.m.LevelUps);
+			for (local i = 0; i < startIndex; i++)
+			{
+				actor.m.Attributes[i] = attributes[i];
+			}
+		}
+		else
+		{
+			actor.m.Attributes.clear();
+			actor.fillAttributeLevelUpValues(this.Const.XP.MaxLevelWithPerkpoints - actor.getLevel() + actor.m.Levelups);
+		}
+
 		actor.m.LevelUps += 1;
-		actor.m.Attributes.clear();
-		actor.fillAttributeLevelUpValues(this.Const.XP.MaxLevelWithPerkpoints - actor.getLevel() + actor.m.LevelUps);
+		actor.fillAttributeLevelUpValues(1);
 
 		this.m.IsApplied = true;
 	}

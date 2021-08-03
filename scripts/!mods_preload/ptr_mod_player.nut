@@ -3,6 +3,8 @@ local gt = this.getroottable();
 gt.Const.PTR.modPlayer <- function()
 {
 	::mods_hookExactClass("entity/tactical/player", function(o) {
+		o.m.LevelUpsSpent <- 0;
+
 		o.updateLevel = function()
 		{
 			while (this.m.Level < this.Const.LevelXP.len() && this.m.XP >= this.Const.LevelXP[this.m.Level])
@@ -21,7 +23,7 @@ gt.Const.PTR.modPlayer <- function()
 					{
 						++this.m.PerkPoints;
 					}
-					
+
 					local promisedPotential = this.m.Skills.getSkillByID("perk.ptr_promised_potential");
 					if (promisedPotential != null && promisedPotential.m.WillSucceed)
 					{
@@ -52,6 +54,13 @@ gt.Const.PTR.modPlayer <- function()
 					this.updateAchievement("TooStubbornToDie", 1, 1);
 				}
 			}
+		}
+
+		local setAttributeLevelUpValues = o.setAttributeLevelUpValues;
+		o.setAttributeLevelUpValues = function(_v)
+		{
+			setAttributeLevelUpValues(_v);
+			this.m.LevelUpsSpent++;
 		}
 	});
 }
