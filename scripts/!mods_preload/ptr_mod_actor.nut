@@ -103,8 +103,7 @@ gt.Const.PTR.modActor <- function()
 			}
 
 			return checkMorale( _change, _difficulty, _type, _showIconBeforeMoraleIcon, _noNewLine );
-		}
-		this.logInfo("actor.nut PTR hook called");
+		}		
 
 		local resetPerks = o.resetPerks;
 		o.resetPerks = function()
