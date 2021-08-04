@@ -1,4 +1,11 @@
 ======================
+==== Ver 0.13.1 ======
+======================
+- Fixed a freeze in battle when AI switched weapons while having the Offhand Training perk.
+- Fixed a bug with Flail Spinner that caused some secondary effects (e.g Stun) from skills like Pound not apply on the free attack.
+- Fixed a crash with the Unstoppable perk.
+
+======================
 ==== Ver 0.13.0 ======
 ======================
 == MAJOR CHANGES ==
@@ -15,8 +22,8 @@
 - The free attack from Flail Spinner now does 50% reduced damage.
 - Quick Hands no longer works when swapping one Two-Handed weapon with another Two-Handed weapon.
 - Offhand Training, in addition to the previous effects, now also allows you to swap tools in your offhand for free once per turn. Also allows swapping between tool and buckler/parrying dagger. Does not stack with Quick Hands.
-- Moved Offhand Training to from t7 to t5.
-- Unstoppable now only gains stacks from attacks during the attacker's turn. Can still lose stacks by missing attacks when it is not your turn. Hitting targets at 2 tiles now requires two hits to get 1 stack. The two hits do NOT have to been in a single attack. Getting hit now removes half the stacks instead of all of them.
+- Moved Offhand Training from t7 to t5.
+- Unstoppable now only gains stacks from attacks during the attacker's turn. Can still lose stacks by missing attacks when it is not your turn. Hitting targets at 2 tiles now requires two hits to get 1 stack. The two hits do NOT have to be in a single attack. Getting hit now removes half the stacks instead of all of them.
 - Perfect Focus: No longer usable when Inspired. Now gives -10% damage and +10% fatigue built for every target hit or miss under the effects of Perfect Focus. Effectively, this means that skills which can be used more times e.g. Quick Shot with Hip Shooter, as well as AOE skills are less overpowered with Perfect Focus, whereas skills which are still usable 2-4 times don't suffer that much.
 - Mark Target now costs 7 AP.
 - The Professional perk now provides Shield Expert and Weapon Master instead of Duelist and Exploit Opening.
