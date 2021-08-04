@@ -18,7 +18,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		_customPerkTree.clear();
 		for (local i = 0; i < 7; i++)
 		{
-			local emptyArray;
+			local emptyArray = [];
 			_customPerkTree.push(emptyArray);
 		}
 	};
