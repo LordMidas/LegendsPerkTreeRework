@@ -20,7 +20,7 @@ this.perk_ptr_whack_a_smack <- this.inherit("scripts/skills/skill", {
 
 	function onAdded()
 	{
-		if ("State" in this.Tactical)
+		if (("State" in this.Tactical) && this.Tactical.State != null)
 		{
 			this.getContainer().add(this.new("scripts/skills/effects/ptr_whack_a_smack_effect"));
 		}

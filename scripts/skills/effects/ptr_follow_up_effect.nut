@@ -41,15 +41,14 @@ this.ptr_follow_up_effect <- this.inherit("scripts/skills/skill", {
 				}
 			);
 
-		local weapon = actor.getMainhandItem();
-		if (weapon == null || weapon.getCategories().find("Polearm") == null)
+		if (!this.canFollowUp())
 		{
 			tooltip.push(
 					{
 						id = 10,
 						type = "text",
 						icon = "ui/tooltips/warning.png",
-						text = "Can only Follow Up when using a Polearm"
+						text = "Can only Follow Up when not engaged in Melee and wielding a Two-Handed Weapon with a range of 2 tiles"
 					}
 				);
 		}

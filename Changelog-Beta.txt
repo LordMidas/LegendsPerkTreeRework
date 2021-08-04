@@ -1,4 +1,71 @@
 ======================
+==== Ver 0.13.0 ======
+======================
+== MAJOR CHANGES ==
+- New Perk: "Weapon Master", One-Handed Weapons perk group t7. Grants mastery with all One-Handed Melee weapons and allows swapping one One-Handed weapon for another once per turn for no Action Point cost. Does not stack with Quick Hands.
+- New Perk: "Pattern Recognition", Soldier perk group t3. Every attack from or against a target grants a stacking +3 Melee Skill and +3 Melee Defense against that target for the remainder of the combat.
+- New Perk: "Bully", Raider perk group t6. Melee Damage is increased by 10% per level of Morale difference between you and your target, as long as your Morale is higher than the target's.
+- Reworked Heightened Reflexes (Sword perk group t3). This perk will be renamed in a future build. Now grants 25% of Base Melee Defense as Initiative and percentage Fatigue Cost Reduction on weapon skills, when your armor fatigue penalty is -35. For every point of deviation from -35 the bonuses increase or decrease by 1%. Armor fatigue above -35 increases the Fatigue Cost reduction bonus but reduces the Initiative bonus, and armor fatigue lower than -35 increases the Initiative bonus but reduces the Fatigue Cost reduction bonus. The bonuses can never be negative and never more than 50% of Base Melee Defense.
+- Removed Feint from Sword perk group t2.
+- Moved Exploit Opening from One-Handed Weapons perk group t5 to Sword perk group t2. In addition to the previous effects, it now adds Riposte to the southern curved swords.
+- In addition to its previous effects, Sword Mastery now reduces the threshold to inflict injury by 25% when wielding a southern curved sword.
+- Heavy Projectiles reworked: Now requires Sling. Ranged attacks from Slings that hit the head now apply Stunned and that hit the body apply Dazed. If the target is immune to Stun, then hits to the head will apply Dazed and hits to the body will apply Baffled.
+- Close Combat Archer: Now also works with Blunt type throwing weapons (e.g. Bolas). With this perk, at 2 tiles, such weapons now have a 100% chance to Stagger upon hit and if the target is already staggered, then stun. The chance is halved at 3 tiles, and is 0 at longer distances.
+- The Indomitable effect now prevents you from being Culled.
+- The free attack from Flail Spinner now does 50% reduced damage.
+- Quick Hands no longer works when swapping one Two-Handed weapon with another Two-Handed weapon.
+- Offhand Training, in addition to the previous effects, now also allows you to swap tools in your offhand for free once per turn. Also allows swapping between tool and buckler/parrying dagger. Does not stack with Quick Hands.
+- Moved Offhand Training to from t7 to t5.
+- Unstoppable now only gains stacks from attacks during the attacker's turn. Can still lose stacks by missing attacks when it is not your turn. Hitting targets at 2 tiles now requires two hits to get 1 stack. The two hits do NOT have to been in a single attack. Getting hit now removes half the stacks instead of all of them.
+- Perfect Focus: No longer usable when Inspired. Now gives -10% damage and +10% fatigue built for every target hit or miss under the effects of Perfect Focus. Effectively, this means that skills which can be used more times e.g. Quick Shot with Hip Shooter, as well as AOE skills are less overpowered with Perfect Focus, whereas skills which are still usable 2-4 times don't suffer that much.
+- Mark Target now costs 7 AP.
+- The Professional perk now provides Shield Expert and Weapon Master instead of Duelist and Exploit Opening.
+- Buffed the Shield Damage from Throwing Spear to 52. Using it with the Throwing Mastery perk now ignores the target's shield damage reduction from the Shield Mastery perk. Effectively, Throwing Spears will now almost always destroy wooden shields in one hit.
+- Overhauled many origin Commander backgrounds to now have a more sensible number of perks in their perk tree.
+
+== MINOR CHANGES ==
+- Swapping quivers using Target Practice no longer spends Quick Hands.
+- Target Practice now only works when swapping quivers. Not when picking up a quiver or putting a quiver into an empty ammo slot.
+- Freedom of Movement: Now only provides 10% of maximum fatigue after gear as bonus. No longer provides the flat or the minimum +5.
+- Goblin Spear: Now works as regular glaives, but remains One-Handed as goblin weapons are exceptionally light and agile.
+- Spetums and Warforks now also have the Repel skill.
+- Made it clear in the tooltip of the Survival Instinct perk that it is a stacking buff.
+- Made it clear in the tooltip of the Swift Stabs perk that it only works with daggers equipped in the Mainhand.
+- Made it clear in the tooltip of the Cull perk that it ignores Nine Lives on the target.
+- Added quantitative information in the tooltip of the Arrow to the Knee perk about the effects of the debuff.
+- Discovered Talent: Now can be picked regardless of pending levelups but the increased talents will only apply to levelups obtained from Level 6 onwards. This was the original intent of the perk, and finally it has been implemented that way.
+
+== AI BALANCE ==
+- Removed the Kata perk from all orcs, except Orc Berserkers.
+- AI will no longer use Arrow to the Knee.
+
+== FIXES ==
+- Fixed the game sometimes crashing/freezing when a character with the Exploit Opening perk died.
+- Fixed Steel Brow missing from the Sturdy perk group.
+- Fixed the tooltip of the Follow Up effect not showing.
+- Fixed Flaming Arrows always setting the tile on fire even when the shot missed.
+- Fixed a crash/freeze caused by the Formidable Approach perk.
+- Fixed a typo in the Follow Up perk tooltip.
+- Fixed the Perfect Focus tooltip showing that it belongs to the Vicious perk group whereas it actually belongs to the Trained perk group.
+- Fixed Perfect Focus actually showing up in the Calm perk group whereas it is supposed to be in the Trained perk group.
+- Fixed The Rush of Battle being a t7 perk, whereas it should have been a t6 perk.
+- Fixed the weird text in the beginning of the Duelist perk tooltip.
+- Fixed a crash when loading a saved game after picking the Whack a' Smack perk.
+- The tooltip of the Cleave skill now mentions the bonus chance to hit if you have the Swordlike perk.
+
+======================
+==== Ver 0.12.4 ======
+======================
+-Edited some tooltips for clarity.
+-Fixed Assassin, Event Noble and Trader backgrounds not receiving PTR perks.
+-Fixed Close Combat Archer adding too much armor penetration.
+
+======================
+==== Ver 0.12.3 ======
+======================
+- Fixed freezing/crash when entering towns.
+
+======================
 ==== Ver 0.12.2 ======
 ======================
 - Bloody Harvest now only works with Melee AOE attacks. The perk's tooltip has been updated to reflect this.

@@ -4,7 +4,7 @@ this.ai_ptr_arrow_to_the_knee <- this.inherit("scripts/ai/tactical/behavior", {
 		AttackSkill = null,
 		Skill = null,
 		PossibleSkills = [
-			"actives.ptr_arrow_to_the_knee"
+			# "actives.ptr_arrow_to_the_knee"
 		],
 		UsableWithSkills = [
 			"actives.quick_shot",

@@ -23,15 +23,15 @@ this.perk_ptr_professional <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		if (!this.getContainer().hasSkill("perk.duelist"))
+		if (!this.getContainer().hasSkill("perk.shield_expert"))
 		{
-			this.getContainer().add(this.new("scripts/skills/perks/perk_duelist"));
+			this.getContainer().add(this.new("scripts/skills/perks/perk_shield_expert"));
 			this.m.PerksAdded++;
 		}
 
-		if (!this.getContainer().hasSkill("perk.ptr_exploit_opening"))
+		if (!this.getContainer().hasSkill("perk.ptr_weapon_master"))
 		{
-			this.getContainer().add(this.new("scripts/skills/perks/perk_ptr_exploit_opening"));
+			this.getContainer().add(this.new("scripts/skills/perks/perk_ptr_weapon_master"));
 			this.m.PerksAdded++;
 		}
 
@@ -52,8 +52,8 @@ this.perk_ptr_professional <- this.inherit("scripts/skills/skill", {
 
 	function onRemoved()
 	{
-		this.getContainer().removeByID("perk.duelist");
-		this.getContainer().removeByID("perk.ptr_exploit_opening");
+		this.getContainer().removeByID("perk.shield_expert");
+		this.getContainer().removeByID("perk.ptr_weapon_master");
 		this.getContainer().removeByID("perk.reach_advantage");
 		this.getContainer().removeByID("perk.perk_ptr_bloody_harvest");
 	}

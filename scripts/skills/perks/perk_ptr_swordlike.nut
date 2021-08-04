@@ -1,5 +1,7 @@
 this.perk_ptr_swordlike <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		HitChanceBonus = 10
+	},
 	function create()
 	{
 		this.m.ID = "perk.ptr_swordlike";
@@ -12,12 +14,12 @@ this.perk_ptr_swordlike <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
 		if (_skill.getID() == "actives.cleave")
     {
-      _properties.MeleeSkill += 10;
-    }    
+      _properties.MeleeSkill += this.m.HitChanceBonus;
+    }
 	}
 });

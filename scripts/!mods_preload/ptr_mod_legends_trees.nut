@@ -615,7 +615,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	this.Const.Perks.CalmTree.Tree[3] = [this.Const.Perks.PerkDefs.LegendPeaceful];
 	this.Const.Perks.CalmTree.Tree[4] = [this.Const.Perks.PerkDefs.LegendClarity];
 	this.Const.Perks.CalmTree.Tree[5] = [this.Const.Perks.PerkDefs.LegendMindOverBody];
-	this.Const.Perks.CalmTree.Tree[6] = [this.Const.Perks.PerkDefs.PerfectFocus];
+	this.Const.Perks.CalmTree.Tree[6] = [];
 
 	while (this.Const.Perks.FastTree.Tree.len() < 7)
 	{
@@ -667,7 +667,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 		{Multiplier = 2, Tree = this.Const.Perks.LargeTree}
 	];
 	this.Const.Perks.SturdyTree.Tree[0] = [this.Const.Perks.PerkDefs.Recover];
-	this.Const.Perks.SturdyTree.Tree[1] = [];
+	this.Const.Perks.SturdyTree.Tree[1] = [this.Const.Perks.PerkDefs.SteelBrow];
 	this.Const.Perks.SturdyTree.Tree[2] = [this.Const.Perks.PerkDefs.Taunt];
 	this.Const.Perks.SturdyTree.Tree[3] = [];
 	this.Const.Perks.SturdyTree.Tree[4] = [this.Const.Perks.PerkDefs.ReturnFavor];
@@ -696,8 +696,8 @@ gt.Const.PTR.modTraitsTrees <- function()
 	this.Const.Perks.TrainedTree.Tree[2] = [this.Const.Perks.PerkDefs.Rotation];
 	this.Const.Perks.TrainedTree.Tree[3] = [];
 	this.Const.Perks.TrainedTree.Tree[4] = [this.Const.Perks.PerkDefs.Underdog];
-	this.Const.Perks.TrainedTree.Tree[5] = [];
-	this.Const.Perks.TrainedTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRTheRushOfBattle];
+	this.Const.Perks.TrainedTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRTheRushOfBattle];
+	this.Const.Perks.TrainedTree.Tree[6] = [this.Const.Perks.PerkDefs.PerfectFocus];
 
 	this.Const.Perks.ResilientTree <- this.Const.Perks.IndestructibleTree;
 	this.Const.Perks.TalentedTree <- this.Const.Perks.IntelligentTree;
@@ -1125,7 +1125,7 @@ gt.Const.PTR.modWeaponTrees <- function()
 	this.Const.Perks.SwordTree.SelfExpertiseMultiplier <- this.Const.Perks.Expertise.High;
 	this.Const.Perks.SwordTree.SelfWeightMultiplier <- 1.5;
 	this.Const.Perks.SwordTree.Tree[0] = [this.Const.Perks.PerkDefs.PTRVersatileWeapon];
-	this.Const.Perks.SwordTree.Tree[1] = [this.Const.Perks.PerkDefs.Feint];
+	this.Const.Perks.SwordTree.Tree[1] = [this.Const.Perks.PerkDefs.PTRExploitOpening];
 	this.Const.Perks.SwordTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRHeightenedReflexes];
 	this.Const.Perks.SwordTree.Tree[3] = [this.Const.Perks.PerkDefs.SpecSword];
 	this.Const.Perks.SwordTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRTempo];

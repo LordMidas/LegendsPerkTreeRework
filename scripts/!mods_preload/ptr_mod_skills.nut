@@ -2,6 +2,88 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modSkills <- function()
 {
+	::mods_hookExactClass("skills/actives/throw_spear_skill", function(o) {
+		o.m.ShieldDamage <- 0;
+		o.onAdded <- function()
+		{
+			this.m.ShieldDamage = this.getContainer().getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand).getShieldDamage();
+		}
+
+		local onAnySkillUsed = o.onAnySkillUsed;
+		o.onAnySkillUsed = function( _skill, _targetEntity, _properties )
+		{
+			onAnySkillUsed( _skill, _targetEntity, _properties );
+			if (_skill == this)
+			{
+				local weapon = this.getContainer().getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);
+				weapon.m.ShieldDamage = this.m.ShieldDamage;
+				if (_targetEntity != null && _targetEntity.getCurrentProperties().IsSpecializedInShields)
+				{
+					weapon.m.ShieldDamage *= 2;
+				}
+			}
+		}
+	});
+
+	::mods_hookExactClass("skills/perks/perk_feint", function(o) {
+		o.onAdded <- function()
+		{
+			if (!this.getContainer().getActor().isPlayerControlled())
+			{
+				this.removeSelf();
+			}
+		}
+	});
+
+	::mods_hookNewObject("skills/actives/legend_mark_target", function(o) {
+		o.m.ActionPointCost = 7;
+	});
+
+	::mods_hookExactClass("skills/actives/cleave", function(o) {
+		local getTooltip = o.getTooltip;
+		o.getTooltip = function()
+		{
+			local ret = getTooltip();
+			local swordlikePerk = this.getContainer().getSkillByID("perk.ptr_swordlike");
+			if (swordlikePerk != null)
+			{
+				ret.push({
+					id = 8,
+					type = "text",
+					icon = "ui/icons/hitchance.png",
+					text = "Has [color=" + this.Const.UI.Color.PositiveValue + "]+" + swordlikePerk.m.HitChanceBonus + "%[/color] chance to hit due to the Swordlike perk"
+				});
+			}
+
+			return ret;
+		}
+	});
+
+	::mods_hookExactClass("skills/perks/perk_quick_hands", function(o) {
+		o.m.IsSpent <- false;
+
+		o.onUpdate = function(_properties)
+		{
+		}
+
+		o.isHidden <- function()
+		{
+			local actor = this.getContainer().getActor();
+			return this.m.IsSpent || !actor.isPlayerControlled() || !actor.isPlacedOnMap();
+		}
+
+		o.onTurnStart <- function()
+		{
+			this.m.IsSpent = false;
+		}
+
+		o.onCombatFinished = function()
+		{
+			this.skill.onCombatFinished();
+			this.m.IsSpent = false;
+		}
+	});
+
 	::mods_hookExactClass("skills/actives/rally_the_troops", function(o) {
 		o.m.TurnsRemaining <- 0;
 
@@ -183,11 +265,55 @@ gt.Const.PTR.modSkills <- function()
 
 			if (_skill.hasPiercingDamage())
 			{
-				_properties.DamageDirectAdd += directDamageBonus;
+				_properties.DamageDirectAdd += directDamageBonus * 0.01;
 			}
 			else if (_skill.hasCuttingDamage())
 			{
-				_properties.DamageArmorMult += armorDamageBonus;
+				_properties.DamageArmorMult += armorDamageBonus * 0.01;
+			}
+		}
+
+		o.onTargetHit <- function( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
+		{
+			if (!_targetEntity.isAlive() || _targetEntity.isDying() || !this.isEnabled() || _skill == null || !_skill.isRanged() || !_skill.hasBluntDamage())
+			{
+				return;
+			}
+
+			local distance = this.getContainer().getActor().getTile().getDistanceTo(_targetEntity.getTile());
+			if (distance > 3)
+			{
+				return;
+			}
+
+			local chance = distance == 2 ? 100 : 50;
+			local roll = this.Math.rand(1, 100);
+
+			if (roll > chance)
+			{
+				return;
+			}
+
+			local staggeredEffect = _targetEntity.getSkills().getSkillByID("effects.staggered");
+			if (staggeredEffect != null && !_targetEntity.getCurrentProperties().IsImmuneToStun)
+			{
+				local effect = this.new("scripts/skills/effects/stunned_effect");
+				_targetEntity.getSkills().add(effect);
+				effect.m.TurnsLeft = 1;
+				if (!actor.isHiddenToPlayer() && _targetEntity.getTile().IsVisibleForPlayer)
+				{
+					this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " has stunned " + this.Const.UI.getColorizedEntityName(_targetEntity) + " for " + effect.m.TurnsLeft + " turn");
+				}
+			}
+			else
+			{
+				local effect = this.new("scripts/skills/effects/staggered_effect");
+				_targetEntity.getSkills().add(effect);
+				effect.m.TurnsLeft = 1;
+				if (!actor.isHiddenToPlayer() && _targetEntity.getTile().IsVisibleForPlayer)
+				{
+					this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " has staggered " + this.Const.UI.getColorizedEntityName(_targetEntity) + " for " + effect.m.TurnsLeft + " turn");
+				}
 			}
 		}
 	});
@@ -287,7 +413,7 @@ gt.Const.PTR.modSkills <- function()
 			fat = this.Math.min(0, fat + 15);
 			local maxFatMult = this.Math.maxf(0, 0.1 - this.Math.pow(this.Math.abs(fat), 1.23) * 0.01);
 
-			return this.Math.floor(5 + actor.getFatigueMax() * maxFatMult);
+			return this.Math.floor(actor.getFatigueMax() * maxFatMult);
 		}
 
 		o.onUpdate <- function(_properties)
@@ -327,7 +453,7 @@ gt.Const.PTR.modSkills <- function()
 				local flailSpinnerPerk = this.getContainer().getSkillByID("perk.ptr_flail_spinner");
 				if (flailSpinnerPerk != null)
 				{
-					ret = flailSpinnerPerk.spinFlail(onUse, _user, _targetTile, target, this) || ret;
+					ret = flailSpinnerPerk.spinFlail(onUse, _user, _targetTile, target) || ret;
 				}
 
 				return ret;
@@ -505,6 +631,7 @@ gt.Const.PTR.modSkills <- function()
 
 	::mods_hookNewObject("skills/actives/aimed_shot", function(o) {
 		o.m.FieldsChangedByFlamingArrows <- false;
+		o.m.TargetTile <- null;
 
 		local oldOnAfterUpdate = o.onAfterUpdate;
 		o.onAfterUpdate = function( _properties )
@@ -534,23 +661,6 @@ gt.Const.PTR.modSkills <- function()
 				this.m.resetField("Description");
 				this.m.FieldsChangedByFlamingArrows = false;
 			}
-		}
-
-		local onUse = o.onUse;
-		o.onUse = function( _user, _targetTile )
-		{
-			local ret = onUse(_user, _targetTile);
-
-			if (ret && this.getContainer().hasSkill("perk.ptr_flaming_arrows"))
-			{
-				this.Time.scheduleEvent(this.TimeUnit.Real, 250, this.onApply.bindenv(this), {
-					Skill = this,
-					User = _user,
-					TargetTile = _targetTile
-				});
-			}
-
-			return ret;
 		}
 
 		o.onApply <- function ( _data )
@@ -610,12 +720,20 @@ gt.Const.PTR.modSkills <- function()
 					this.Const.Tactical.Common.onApplyFire(tile, tile.getEntity());
 				}
 			}
+
+			this.m.TargetTile = null;
 		}
 
-		local oldonTargetHit = o.onTargetHit;
+		local onBeforeTargetHit = ::mods_getMember(o, "onBeforeTargetHit");
+		o.onBeforeTargetHit = function ( _skill, _targetEntity, _hitInfo )
+		{
+			this.m.TargetTile = _targetEntity.getTile();
+		}
+
+		local onTargetHit = ::mods_getMember(o, "onTargetHit");
 		o.onTargetHit = function( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 		{
-			oldonTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor );
+			onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor );
 
 			if (_skill != this)
 			{
@@ -625,6 +743,15 @@ gt.Const.PTR.modSkills <- function()
 			if (!this.getContainer().hasSkill("perk.ptr_flaming_arrows"))
 			{
 				return;
+			}
+
+			if (this.m.TargetTile != null)
+			{
+				this.Time.scheduleEvent(this.TimeUnit.Real, 50, this.onApply.bindenv(this), {
+					Skill = this,
+					User = this.getContainer().getActor(),
+					TargetTile = this.m.TargetTile
+				});
 			}
 
 			if (_targetEntity == null || !_targetEntity.isAlive() || _targetEntity.getMoraleState() == this.Const.MoraleState.Ignore)
@@ -812,13 +939,40 @@ gt.Const.PTR.modSkills <- function()
 
 		o.isUsable = function()
 		{
-			return this.skill.isUsable() && !this.getContainer().hasSkill("effects.perfect_focus") && !this.getContainer().hasSkill("effects.ptr_exhausted");
+			return this.skill.isUsable() && !this.getContainer().hasSkill("effects.perfect_focus") && !this.getContainer().hasSkill("effects.ptr_exhausted") && !this.getContainer().hasSkill("effects.inspired");
 		}
 	});
 
 	::mods_hookNewObject("skills/effects/perfect_focus_effect", function(o) {
 		o.m.StartingAPFraction <- 1;
+		o.m.AttackCount <- 0;
+		o.m.MalusPerCount <- 10;
 		o.m.Description = "This character has achieved perfect focus as if time itself were to stand still, gaining additional Action Points for this turn."
+
+		o.getTooltip <- function()
+		{
+			local ret = this.skill.getTooltip();
+			if (this.m.AttackCount > 0)
+			{
+				ret.push(
+					{
+						id = 10,
+						type = "text",
+						icon = "ui/icons/damage_dealt.png",
+						text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + this.getMalus() + "%[/color] Damage dealt"
+					}
+				);
+
+				ret.push(
+					{
+						id = 10,
+						type = "text",
+						icon = "ui/icons/fatigue.png",
+						text = "[color=" + this.Const.UI.Color.NegativeValue + "]+" + this.getMalus() + "%[/color] Fatigue built"
+					}
+				);
+			}
+		}
 
 		o.onAdded <- function()
 		{
@@ -840,6 +994,28 @@ gt.Const.PTR.modSkills <- function()
 		{
 			this.getContainer().add(this.new("scripts/skills/effects/ptr_exhausted_effect"));
 			this.removeSelf();
+		}
+
+		o.onTargetHit <- function( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
+		{
+			this.m.AttackCount++;
+		}
+
+		o.onTargetMissed <- function( _skill, _targetEntity )
+		{
+			this.m.AttackCount++;
+		}
+
+		o.getMalus <- function()
+		{
+			return this.m.AttackCount * this.m.MalusPerCount;
+		}
+
+		o.onAnySkillUsed <- function( _skill, _targetEntity, _properties )
+		{
+			local malus = this.getMalus() * 0.01;
+			_properties.DamageTotalMult *= 1.0 - malus;
+			_properties.FatigueEffectMult *= 1.0 + malus;
 		}
 	});
 

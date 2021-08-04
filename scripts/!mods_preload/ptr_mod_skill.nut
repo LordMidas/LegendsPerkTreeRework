@@ -51,6 +51,22 @@ gt.Const.PTR.modSkill <- function()
 				});
 			}
 
+			if (targetEntity != null)
+			{
+				local patternRecognition = targetEntity.getSkills().getSkillByID("effects.ptr_pattern_recognition");
+				if (patternRecognition != null)
+				{
+					local opponentEntry = patternRecognition.getOpponentEntry(targetEntity);
+					if (opponentEntry != null)
+					{
+						ret.push({
+							icon = "ui/tooltips/positive.png",
+							text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + (patternRecognition.m.MeleeSkillBonus * opponentEntry.Stacks) + "[/color] Pattern Recognition"
+						});
+					}
+				}
+			}
+
 			return ret;
 		});
 	});

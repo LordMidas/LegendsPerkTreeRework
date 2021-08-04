@@ -63,7 +63,7 @@ this.perk_ptr_fresh_and_furious <- this.inherit("scripts/skills/skill", {
 
 	function onAdded()
 	{
-		if ("State" in this.Tactical)
+		if (("State" in this.Tactical) && this.Tactical.State != null)
 		{
 			this.m.IsInCombat = true;
 		}

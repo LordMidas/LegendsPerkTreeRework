@@ -2,7 +2,8 @@ this.perk_ptr_unstoppable <- this.inherit("scripts/skills/skill", {
 	m = {
 		Stacks = 0,
 		BonusPerStack = 5,
-		MaxStacks = 10
+		MaxStacks = 10,
+		Distance = 0
 	},
 	function create()
 	{
@@ -54,6 +55,18 @@ this.perk_ptr_unstoppable <- this.inherit("scripts/skills/skill", {
 		return tooltip;
 	}
 
+	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
+	{
+		this.m.Distance = 0;
+
+		if (_skill == null || !_skill.isAttack() || _targetEntity == null || _targetEntity.isAlliedWith(this.getContainer().getActor()))
+		{
+			return;
+		}
+
+		this.m.Distance = _targetEntity.getTile().getDistanceTo(this.getContainer().getActor().getTile());
+	}
+
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
 		if (_skill == null || !_skill.isAttack() || _targetEntity == null || _targetEntity.isAlliedWith(this.getContainer().getActor()))
@@ -61,7 +74,14 @@ this.perk_ptr_unstoppable <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		this.m.Stacks = this.Math.min(this.m.MaxStacks, this.m.Stacks + 1);
+		if (this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != _attacker.getID())
+		{
+			return;
+		}
+
+		local stacksToAdd = this.m.Distance > 1 ? 0.5 : 1;
+
+		this.m.Stacks = this.Math.min(this.m.MaxStacks, this.m.Stacks + stacksToAdd);
 	}
 
 	function onTargetMissed( _skill, _targetEntity )
@@ -81,12 +101,12 @@ this.perk_ptr_unstoppable <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		this.m.Stacks = 0;
+		this.m.Stacks = this.Math.floor(this.m.Stacks / 2);
 	}
 
 	function getBonus()
 	{
-		return this.m.Stacks * this.m.BonusPerStack;
+		return this.Math.floor(this.m.Stacks) * this.m.BonusPerStack;
 	}
 
 	function onUpdate( _properties )

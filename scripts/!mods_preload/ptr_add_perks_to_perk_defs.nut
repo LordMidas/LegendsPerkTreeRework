@@ -886,6 +886,33 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_exploit_opening.png",
 			IconDisabled = "ui/perks/ptr_exploit_opening_bw.png",
 			Const = "PTRExploitOpening"
+		},
+		{
+			ID = "perk.ptr_pattern_recognition",
+			Script = "scripts/skills/perks/perk_ptr_pattern_recognition",
+			Name = this.Const.Strings.PerkName.PTRPatternRecognition,
+			Tooltip = this.Const.Strings.PerkDescription.PTRPatternRecognition,
+			Icon = "ui/perks/ptr_pattern_recognition.png",
+			IconDisabled = "ui/perks/ptr_pattern_recognition_bw.png",
+			Const = "PTRPatternRecognition"
+		},
+		{
+			ID = "perk.ptr_weapon_master",
+			Script = "scripts/skills/perks/perk_ptr_weapon_master",
+			Name = this.Const.Strings.PerkName.PTRWeaponMaster,
+			Tooltip = this.Const.Strings.PerkDescription.PTRWeaponMaster,
+			Icon = "ui/perks/ptr_weapon_master.png",
+			IconDisabled = "ui/perks/ptr_weapon_master_bw.png",
+			Const = "PTRWeaponMaster"
+		},
+		{
+			ID = "perk.ptr_bully",
+			Script = "scripts/skills/perks/perk_ptr_bully",
+			Name = this.Const.Strings.PerkName.PTRBully,
+			Tooltip = this.Const.Strings.PerkDescription.PTRBully,
+			Icon = "ui/perks/ptr_bully.png",
+			IconDisabled = "ui/perks/ptr_bully_bw.png",
+			Const = "PTRBully"
 		}
 	];
 

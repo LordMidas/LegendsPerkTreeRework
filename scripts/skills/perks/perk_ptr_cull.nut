@@ -55,7 +55,7 @@ this.perk_ptr_cull <- this.inherit("scripts/skills/skill", {
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		if (_bodyPart != this.Const.BodyPart.Head)
+		if (_bodyPart != this.Const.BodyPart.Head || _targetEntity.getSkills().getSkillByID("effects.indomitable"))
 		{
 			return;
 		}
