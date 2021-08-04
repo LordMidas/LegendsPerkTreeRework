@@ -26,7 +26,7 @@ this.perk_ptr_weapon_master <- this.inherit("scripts/skills/skill", {
 		return "This character is a master of One-Handed weapons and can swap one such weapon for another for free once per turn."
 	}
 
-	function isEnabled(_properties)
+	function isEnabled()
 	{
 		local weapon = this.getContainer().getActor().getMainhandItem();
 		if (weapon == null || !weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon) || !weapon.isItemType(this.Const.Items.ItemType.OneHanded))
