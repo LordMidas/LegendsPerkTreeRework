@@ -58,23 +58,25 @@ this.perk_ptr_unstoppable <- this.inherit("scripts/skills/skill", {
 	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
 	{
 		this.m.Distance = 0;
+		local actor = this.getContainer().getActor();
 
-		if (_skill == null || !_skill.isAttack() || _targetEntity == null || _targetEntity.isAlliedWith(this.getContainer().getActor()))
+		if (_skill == null || !_skill.isAttack() || _targetEntity == null || _targetEntity.isAlliedWith(actor))
 		{
 			return;
 		}
 
-		this.m.Distance = _targetEntity.getTile().getDistanceTo(this.getContainer().getActor().getTile());
+		this.m.Distance = _targetEntity.getTile().getDistanceTo(actor.getTile());
 	}
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		if (_skill == null || !_skill.isAttack() || _targetEntity == null || _targetEntity.isAlliedWith(this.getContainer().getActor()))
+		local actor = this.getContainer().getActor();
+		if (_skill == null || !_skill.isAttack() || _targetEntity == null || _targetEntity.isAlliedWith(actor))
 		{
 			return;
 		}
 
-		if (this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != _attacker.getID())
+		if (this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
 		{
 			return;
 		}
