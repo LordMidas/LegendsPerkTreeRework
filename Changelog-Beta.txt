@@ -1,4 +1,10 @@
 ======================
+==== Ver 0.13.3 ======
+======================
+- Fixed the calculated values for the Initiative and Fatigue Cost Reduction in the Heightened Reflexes Status Effect tooltip being wrong than what was being actually given by the perk.
+- Fixed the Dented Armor Status Effect saying -2% AP instead of -2 AP.
+
+======================
 ==== Ver 0.13.2 ======
 ======================
 - Fixed a freeze in combat due to the Pattern Recognition perk.
