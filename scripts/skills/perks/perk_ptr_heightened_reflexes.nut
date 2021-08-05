@@ -42,7 +42,7 @@ this.perk_ptr_heightened_reflexes <- this.inherit("scripts/skills/skill", {
 				id = 10,
 				type = "text",
 				icon = "ui/icons/initiative.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + initiativeBonus + "[/color] Initiative"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + initiativeBonus + "%[/color] Initiative"
 			});
 		}
 
