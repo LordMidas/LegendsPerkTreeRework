@@ -1,4 +1,9 @@
 ======================
+==== Ver 0.13.2 ======
+======================
+- Fixed a freeze in combat due to the Pattern Recognition perk.
+
+======================
 ==== Ver 0.13.1 ======
 ======================
 - Fixed a freeze in battle when AI switched weapons while having the Offhand Training perk.
