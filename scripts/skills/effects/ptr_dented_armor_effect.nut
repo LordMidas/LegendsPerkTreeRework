@@ -33,14 +33,13 @@ this.ptr_dented_armor_effect <- this.inherit("scripts/skills/skill", {
 				id = 10,
 				type = "text",
 				icon = "ui/icons/action_points.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + this.m.ActionPointMalus + "%[/color] Action Points"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + this.m.ActionPointMalus + "[/color] Action Points"
 			}
 		];
 	}
 
 	function onUpdate( _properties )
 	{
-		_properties.ActionPoints -= 2;		
+		_properties.ActionPoints -= 2;
 	}
 });
-
