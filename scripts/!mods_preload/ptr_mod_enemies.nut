@@ -3742,7 +3742,6 @@ gt.Const.PTR.modEnemies <- function()
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
 
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_overwhelm"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_relentless"));
@@ -3765,7 +3764,24 @@ gt.Const.PTR.modEnemies <- function()
 		o.assignRandomEquipment = function()
 		{
 			assignRandomEquipment();
+			if (this.Const.DLC.Unhold && this.Math.rand(1,100) <= 20)
+			{
+				local weapon = this.getMainhandItem();
+				if (weapon != null && weapon.getID().find("named") == null)
+				{
+					this.m.Items.unequip(this.m.Items.getItemAtSlot(this.Const.ItemSlot.Mainhand));
+					this.m.Items.equip(this.new("scripts/items/weapons/fencing_sword"));
+				}
+			}
 			this.m.Skills.addTreeOfEquippedWeapon();
+			if (this.isArmedWithOneHandedWeapon())
+			{
+				this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
+			}
+			else
+			{
+				this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
+			}
 		}
 
 		local makeMiniboss = o.makeMiniboss;
@@ -3774,6 +3790,12 @@ gt.Const.PTR.modEnemies <- function()
 			local ret = makeMiniboss();
 			if (ret)
 			{
+				if (this.Const.DLC.Unhold && this.Math.rand(1,100) <= 20)
+				{
+					this.m.Items.unequip(this.m.Items.getItemAtSlot(this.Const.ItemSlot.Mainhand));
+					this.m.Items.equip(this.new("scripts/items/weapons/named/named_fencing_sword"));
+				}
+
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_double_strike"));
 				local cullPerk = this.new("scripts/skills/perks/perk_ptr_cull");
 				cullPerk.m.IsForceEnabled = true;
