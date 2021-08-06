@@ -121,7 +121,7 @@ this.perk_ptr_heightened_reflexes <- this.inherit("scripts/skills/skill", {
 		{
 			if (s.m.IsWeaponSkill)
 			{
-				s.m.FatigueCostMult *= 1.0 - this.getFatigueReductionBonus(fat);
+				s.m.FatigueCostMult *= 1.0 - this.getFatigueReductionBonus(fat) * 0.01;
 			}
 		}
 	}
