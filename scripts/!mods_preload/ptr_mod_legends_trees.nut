@@ -694,7 +694,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	this.Const.Perks.TrainedTree.Tree[0] = [this.Const.Perks.PerkDefs.LegendBackToBasics];
 	this.Const.Perks.TrainedTree.Tree[1] = [];
 	this.Const.Perks.TrainedTree.Tree[2] = [this.Const.Perks.PerkDefs.Rotation];
-	this.Const.Perks.TrainedTree.Tree[3] = [];
+	this.Const.Perks.TrainedTree.Tree[3] = [this.Const.Perks.PerkDefs.PTRVigilant];
 	this.Const.Perks.TrainedTree.Tree[4] = [this.Const.Perks.PerkDefs.Underdog];
 	this.Const.Perks.TrainedTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRTheRushOfBattle];
 	this.Const.Perks.TrainedTree.Tree[6] = [this.Const.Perks.PerkDefs.PerfectFocus];

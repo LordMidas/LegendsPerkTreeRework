@@ -913,6 +913,33 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_bully.png",
 			IconDisabled = "ui/perks/ptr_bully_bw.png",
 			Const = "PTRBully"
+		},
+		{
+			ID = "perk.ptr_vigilant",
+			Script = "scripts/skills/perks/perk_ptr_vigilant",
+			Name = this.Const.Strings.PerkName.PTRVigilant,
+			Tooltip = this.Const.Strings.PerkDescription.PTRVigilant,
+			Icon = "ui/perks/ptr_vigilant.png",
+			IconDisabled = "ui/perks/ptr_vigilant_bw.png",
+			Const = "PTRVigilant"
+		},
+		{
+			ID = "perk.ptr_wears_it_well",
+			Script = "scripts/skills/perks/perk_ptr_wears_it_well",
+			Name = this.Const.Strings.PerkName.PTRWearsItWell,
+			Tooltip = this.Const.Strings.PerkDescription.PTRWearsItWell,
+			Icon = "ui/perks/ptr_wears_it_well.png",
+			IconDisabled = "ui/perks/ptr_wears_it_well_bw.png",
+			Const = "PTRWearsItWell"
+		},
+		{
+			ID = "perk.ptr_menacing",
+			Script = "scripts/skills/perks/perk_ptr_menacing",
+			Name = this.Const.Strings.PerkName.PTRMenacing,
+			Tooltip = this.Const.Strings.PerkDescription.PTRMenacing,
+			Icon = "ui/perks/ptr_menacing.png",
+			IconDisabled = "ui/perks/ptr_menacing_bw.png",
+			Const = "PTRMenacing"
 		}
 	];
 

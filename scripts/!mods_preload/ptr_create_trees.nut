@@ -723,7 +723,9 @@ gt.Const.PTR.createProfessionTrees <- function()
 			[],
 			[],
 			[],
-			[],
+			[
+				gt.Const.Perks.PerkDefs.PTRWearsItWell
+			],
 			[]
 		]
 	};
@@ -773,7 +775,9 @@ gt.Const.PTR.createProfessionTrees <- function()
 		Tree = [
 			[],
 			[],
-			[],
+			[
+				gt.Const.Perks.PerkDefs.PTRMenacing
+			],
 			[],
 			[],
 			[
