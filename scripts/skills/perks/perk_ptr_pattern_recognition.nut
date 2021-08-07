@@ -74,7 +74,7 @@ this.perk_ptr_pattern_recognition <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		if (_skill == null || !_skill.isAttack() || _skill.isRanged() || _attacker == null || _entity.isAlliedWith(actor))
+		if (_skill == null || !_skill.isAttack() || _skill.isRanged() || _entity == null || _entity.isAlliedWith(actor))
 		{
 			return;
 		}

@@ -105,7 +105,7 @@ this.perk_ptr_heightened_reflexes <- this.inherit("scripts/skills/skill", {
 
 		local fat = this.getTotalArmorFat();
 
-		_properties.Initiative += this.Math.floor(this.getInitiativeBonus(fat) * 0.01 * this.getContainer().getActor().getBaseProperties().getMeleeDefense());
+		_properties.Initiative += this.getInitiativeBonus(fat);
 	}
 
 	function onAfterUpdate(_properties)
@@ -121,18 +121,20 @@ this.perk_ptr_heightened_reflexes <- this.inherit("scripts/skills/skill", {
 		{
 			if (s.m.IsWeaponSkill)
 			{
-				s.m.FatigueCostMult *= 1.0 - 0.01 * this.Math.floor(this.getFatigueReductionBonus(fat) * 0.01 * this.getContainer().getActor().getBaseProperties().getMeleeDefense());
+				s.m.FatigueCostMult *= 1.0 - this.getFatigueReductionBonus(fat) * 0.01;
 			}
 		}
 	}
 
 	function getInitiativeBonus(_armorFat)
 	{
-		return this.Math.max(0, this.Math.min(this.m.InitiativeMaxBonus, this.m.InitiativeBonusAtPivot + this.m.PivotFat - _armorFat));
+		local multiplier = this.Math.max(0, this.Math.min(this.m.InitiativeMaxBonus, this.m.InitiativeBonusAtPivot + this.m.PivotFat - _armorFat))
+		return this.Math.floor(0.01 * multiplier * this.getContainer().getActor().getBaseProperties().getMeleeDefense());
 	}
 
 	function getFatigueReductionBonus(_armorFat)
 	{
-		return this.Math.max(0, this.Math.min(this.m.FatReductionMaxBonus, this.m.FatReductionBonusAtPivot + _armorFat - this.m.PivotFat));
+		local multiplier = this.Math.max(0, this.Math.min(this.m.FatReductionMaxBonus, this.m.FatReductionBonusAtPivot + _armorFat - this.m.PivotFat));
+		return this.Math.floor(0.01 * multiplier * this.getContainer().getActor().getBaseProperties().getMeleeDefense());
 	}
 });

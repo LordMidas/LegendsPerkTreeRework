@@ -203,8 +203,10 @@ gt.Const.PTR.modStrings <- function()
 
 	gt.Const.Strings.PerkDescription.LegendBackToBasics = "All attributes are increased by [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color]. Additionally, XP gain is increased by [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color].\n[color=#0b0084]From the Trained perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendBackToBasics].Tooltip = gt.Const.Strings.PerkDescription.LegendBackToBasics;
+	gt.Const.Strings.PerkName.PTRVigilant <- "Vigilant";
+	gt.Const.Strings.PerkDescription.PTRVigilant <- "At the end of your turn, gain Melee Skill and Melee Defense equal to your remaining Action Points up to a maximum of [color=" + this.Const.UI.Color.PositiveValue + "]9[/color]. The bonus lasts until the end of your next turn.\n[color=#0b0084]From the Trained perk group[/color]";
 	gt.Const.Strings.PerkName.PTRTheRushOfBattle <- "The Rush of Battle";
-	gt.Const.Strings.PerkDescription.PTRTheRushOfBattle <- "When dodging or getting hit by an attack, gain a stacking [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color] reduction to the Fatigue Cost of  skills during your next turn, up to a maximum of [color=" + this.Const.UI.Color.PositiveValue + "]20%[/color].\n[color=#0b0084]From the Soldier perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRTheRushOfBattle <- "When dodging or getting hit by an attack, gain a stacking [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color] reduction to the Fatigue Cost of  skills during your next turn, up to a maximum of [color=" + this.Const.UI.Color.PositiveValue + "]20%[/color].\n[color=#0b0084]From the Trained perk group[/color]";
 	gt.Const.Strings.PerkDescription.PerfectFocus = "Unlocks the \'Perfect Focus\' skill, which doubles your Action Points for your current turn. Each subsequent attack under this effect does a stacking [color=" + this.Const.UI.Color.NegativeValue + "]10%[/color] less Damage and builds [color=" + this.Const.UI.Color.NegativeValue + "]10%[/color] more Fatigue. On your next turn you will be Exhausted which lowers damage, increases Fatigue build-up, and reduces the Action Points available during that turn.\n\nNot usable when Inspired by an ally\'s Inspire skill.\n[color=#0b0084]From the Trained perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.PerfectFocus].Tooltip = gt.Const.Strings.PerkDescription.PerfectFocus;
 
@@ -214,9 +216,6 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.PTRStrengthInNumbers <- "Gain [color=" + this.Const.UI.Color.PositiveValue + "]+2[/color] Melee Skill, Ranged Skill, Melee  Defense and Ranged Defense for each adjacent ally.\n[color=#0b0084]From the Militia perk group[/color]";
 	gt.Const.Strings.PerkName.PTRTunnelVision <- "Tunnel Vision";
 	gt.Const.Strings.PerkDescription.PTRTunnelVision <- "At night, vision is increased by [color=" + this.Const.UI.Color.PositiveValue + "]+1[/color] and Melee Skill and Melee Defense are increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color].\n[color=#0b0084]From the Miner perk group[/color]";
-
-	gt.Const.Strings.PerkName.PTRWearsItWell <- "Wears it Well";
-	gt.Const.Strings.PerkDescription.PTRWearsItWell <- "Fatigue Recovery is increased by [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color] of your current Maximum Fatigue.\n[color=#0b0084]From the Large perk group[/color]";
 
 	gt.Const.Strings.PerkName.PTRPromisedPotential <- "Promised Potential";
 	gt.Const.Strings.PerkDescription.PTRPromisedPotential <- "This perk remains inert until level 11. Upon reaching level 11, it has a [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] chance of being replaced with \'Realized Potential\' which changes this character\'s background to Sellsword, increases all attributes by [color=" + this.Const.UI.Color.PositiveValue + "]+15[/color], unlocks new perk groups, and refunds all perk points, including the one spent on this perk. If unsuccessful, it is replaced by \'Failed Potential\' which does nothing.\n\nThe success chance is reduced by [color=" + this.Const.UI.Color.NegativeValue + "]-10%[/color] per perk point already spent before picking this perk. Perks obtained due to starting origin do not count towards reducing this chance.\n[color=#0b0084]From the Pauper perk group[/color]";
@@ -241,7 +240,11 @@ gt.Const.PTR.modStrings <- function()
 
 	gt.Const.Strings.PerkName.PTRFruitsOfLabor <- "Fruits of Labor";
 	gt.Const.Strings.PerkDescription.PTRFruitsOfLabor <- "Hitpoints, Maximum Fatigue, and Initiative are increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] each.\n[color=#0b0084]From the Laborer perk group[/color]";
+	gt.Const.Strings.PerkName.PTRWearsItWell <- "Wears it Well";
+	gt.Const.Strings.PerkDescription.PTRWearsItWell <- "Fatigue Recovery is increased by [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color] of your Maximum Fatigue after gear.\n[color=#0b0084]From the Laborer perk group[/color]";
 
+	gt.Const.Strings.PerkName.PTRMenacing <- "Menacing";
+	gt.Const.Strings.PerkDescription.PTRMenacing <- "Lower the Resolve of adjacent enemies by [color=" + this.Const.UI.Color.PositiveValue + "]-5[/color].\n[color=#0b0084]From the Raider perk group[/color]";
 	gt.Const.Strings.PerkName.PTRBully <- "Bully";
 	gt.Const.Strings.PerkDescription.PTRBully <- "Melee Damage is increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] per level of difference between your and your target\'s Morale as long as your Morale is higher than that of your target.\n[color=#0b0084]From the Raider perk group[/color]";
 
@@ -267,7 +270,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.Indomitable = "Unlocks the \'Indomitable\' skill which grants a [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] damage reduction and immunity to being stunned, knocked back, grabbed, swallowed or culled for one turn.\n[color=#0b0084]From the Sturdy perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Indomitable].Tooltip = gt.Const.Strings.PerkDescription.Indomitable;
 
-	gt.Const.Strings.PerkDescription.QuickHands = "Looking for this? Swapping any item in battle a free action with no Action Point cost once every turn. Does not work when swapping a shield, or when swapping from one Two-Handed weapon to another Two-Handed weapon.\n[color=#0b0084]From the Throwing perk group[/color]";
+	gt.Const.Strings.PerkDescription.QuickHands = "Looking for this? Swapping any item in battle a free action with no Action Point cost once every turn. Does not work when swapping a shield, or when swapping from one Two-Handed melee weapon to another Two-Handed melee weapon.\n[color=#0b0084]From the Throwing perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.QuickHands].Tooltip = gt.Const.Strings.PerkDescription.QuickHands;
 
 	gt.Const.Strings.PerkDescription.SpecSword += "\n\nThe threshold to inflict injury when using a Shamshir or the One-Handed versions of Saif and Scimitar is reduced by [color=" + this.Const.UI.Color.NegativeValue + "]25%[/color].\n[color=#0b0084]From the Sword perk group[/color]";

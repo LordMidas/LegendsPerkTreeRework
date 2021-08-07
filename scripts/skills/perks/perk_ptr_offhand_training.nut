@@ -1,5 +1,7 @@
 this.perk_ptr_offhand_training <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		IsSpent = false
+	},
 	function create()
 	{
 		this.m.ID = "perk.ptr_offhand_training";
