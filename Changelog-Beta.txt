@@ -1,4 +1,19 @@
 ======================
+==== Ver 0.13.4 ======
+======================
+- New Perk "Menacing", Raider perk group t3. Lower the Resolve of adjacent enemies by -5.
+- New Perk "Wears it Well", Laborer perk group t6. Fatigue Recovery is increased by 5% of your Maximum Fatigue after gear.
+- New perk "Vigilant", Trained perk group t4. At the end of your turn gain Melee Skill and Melee Defense equal to your remaining Action Points up to a maximum of 9. The bonus lasts until the end of your next turn.
+- Enemy Swordmasters now have a chance to spawn with Fencing Sword.
+- Added the Pattern Recognition perk to all melee Noble soldiers, Brigand Leaders, Brigand Warlords, Nomad Leaders, Hedge Knights, Executioners, Swordmasters, and Blade Dancers.
+- Added the Menacing perk to Brigand Veterans, Brigand Leaders, Brigand Warlords, Nomad Leaders, Hedge Knights, Knights, Executioners, Ancient Honor Guards, and all Orcs.
+- Added the Bully perk to all melee Brigands and Orc Young.
+- Fixed a calculation mistake in Heightened Reflexes which was reducing the Fatigue Cost of skills much more than intended.
+- Fixed Kata Step not being usable if you hit other targets in an AOE attack but miss the last target.
+- Fixed The Rush of Battle tooltip saying that it is from the Soldier perk group, whereas actually it is from the Trained perk group.
+- Improved the tooltip of the Arrow to the Knee skill to now clearly state that it applies to attacks during this turn only.
+
+======================
 ==== Ver 0.13.3 ======
 ======================
 - Fixed the calculated values for the Initiative and Fatigue Cost Reduction in the Heightened Reflexes Status Effect tooltip being wrong than what was being actually given by the perk.
