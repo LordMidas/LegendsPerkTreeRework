@@ -251,7 +251,7 @@ gt.Const.PTR.modWeapons <- function()
 				local riposte = this.new("scripts/skills/actives/riposte");
 				riposte.isHidden <- function()
 				{
-					return this.getContainer().hasSkill("perk.ptr_exploit_opening");
+					return !this.getContainer().hasSkill("perk.ptr_exploit_opening");
 				}
 				this.addSkill(riposte);
 			}
