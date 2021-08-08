@@ -1,4 +1,11 @@
 ======================
+==== Ver 0.13.5 ======
+======================
+- Fixed the Weapon Master perk not giving free swap of one-handed weapons.
+- Fixed the fact that Riposte was available on southern swords even without the Exploit Opening perk, and got removed when you picked the perk. Now it should work the other way around, as intended.
+- Fixed a case where Discovered Talent would bug out when picking the perk and didn't get activated, and caused all future levelups to be +1 only.
+
+======================
 ==== Ver 0.13.4 ======
 ======================
 - New Perk "Menacing", Raider perk group t3. Lower the Resolve of adjacent enemies by -5.
