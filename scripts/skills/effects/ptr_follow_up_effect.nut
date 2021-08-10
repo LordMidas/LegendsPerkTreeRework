@@ -125,7 +125,7 @@ this.ptr_follow_up_effect <- this.inherit("scripts/skills/skill", {
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
 		local actor = this.getContainer().getActor();
-		if (actor.isPlacedOnMap() && this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
+		if (!actor.isPlacedOnMap() || this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
 		{
 			return;
 		}
@@ -140,7 +140,7 @@ this.ptr_follow_up_effect <- this.inherit("scripts/skills/skill", {
 	function onTargetMissed( _skill, _targetEntity )
 	{
 		local actor = this.getContainer().getActor();
-		if (actor.isPlacedOnMap() && this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
+		if (!actor.isPlacedOnMap() || this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
 		{
 			return;
 		}
