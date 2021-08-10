@@ -70,7 +70,7 @@ this.ptr_dismantled_effect <- this.inherit("scripts/skills/skill", {
 
 	function onRefresh()
 	{
-		this.spawnIcon("ptr_dismantled", this.getContainer().getActor().getTile());
+		this.spawnIcon("ptr_dismantled_effect", this.getContainer().getActor().getTile());
 	}
 
 	function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
