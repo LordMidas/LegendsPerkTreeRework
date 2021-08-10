@@ -43,7 +43,7 @@ this.perk_ptr_easy_target <- this.inherit("scripts/skills/skill", {
 
 		local actor = this.getContainer().getActor();
 		local weapon = actor.getMainhandItem();
-		if (weapon == null && weapon.getCategories().find("Staff") == null)
+		if (weapon == null || weapon.getCategories().find("Staff") == null)
 		{
 			return;
 		}
