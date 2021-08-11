@@ -58,7 +58,8 @@ gt.Const.PTR.modWeapons <- function()
 
 	::mods_hookNewObject("items/weapons/legend_swordstaff", function(o) {
 		o.m.Categories = "Spear/Sword, Two-Handed";
-		o.remakeApplicableMasteries();
+		o.m.WeaponType = this.Const.WMS.WeaponType.Spear | this.Const.WMS.WeaponType.Sword;
+
 		o.onEquip = function()
 		{
 			this.weapon.onEquip();
@@ -70,7 +71,8 @@ gt.Const.PTR.modWeapons <- function()
 
 	::mods_hookNewObject("items/weapons/named/legend_named_swordstaff", function(o) {
 		o.m.Categories = "Spear/Sword, Two-Handed";
-		o.remakeApplicableMasteries();
+		o.m.WeaponType = this.Const.WMS.WeaponType.Spear | this.Const.WMS.WeaponType.Sword;
+
 		o.onEquip = function()
 		{
 			this.weapon.onEquip();
@@ -80,16 +82,9 @@ gt.Const.PTR.modWeapons <- function()
 		}
 	});
 
-	# local glaives = [
-	# 	"items/weapons/legend_militia_glaive",
-	# 	"items/weapons/legend_glaive",
-	# 	"items/weapons/legend_battle_glaive",
-	# 	"items/weapons/named/legend_named_glaive"
-	# ]
-
 	::mods_hookNewObject("items/weapons/greenskins/goblin_spear", function(o) {
 		o.m.Categories = "Sword/Spear, One-Handed";
-		o.remakeApplicableMasteries();
+		o.m.WeaponType = this.Const.WMS.WeaponType.Sword | this.Const.WMS.WeaponType.Spear;
 
 		local onEquip = o.onEquip;
 		o.onEquip = function()
@@ -101,7 +96,7 @@ gt.Const.PTR.modWeapons <- function()
 
 	::mods_hookNewObject("items/weapons/named/named_goblin_spear", function(o) {
 		o.m.Categories = "Sword/Spear, One-Handed";
-		o.remakeApplicableMasteries();
+		o.m.WeaponType = this.Const.WMS.WeaponType.Sword | this.Const.WMS.WeaponType.Spear;
 
 		local onEquip = o.onEquip;
 		o.onEquip = function()
@@ -113,7 +108,7 @@ gt.Const.PTR.modWeapons <- function()
 
 	::mods_hookNewObject("items/weapons/legend_militia_glaive", function(o) {
 		o.m.Categories = "Sword/Spear, Two-Handed";
-		o.remakeApplicableMasteries();
+		o.m.WeaponType = this.Const.WMS.WeaponType.Sword | this.Const.WMS.WeaponType.Spear;
 
 		o.m.BlockedSlotType = this.Const.ItemSlot.Offhand;
 		o.m.ItemType = this.Const.Items.ItemType.Weapon | this.Const.Items.ItemType.MeleeWeapon | this.Const.Items.ItemType.TwoHanded | this.Const.Items.ItemType.Defensive;
@@ -131,7 +126,7 @@ gt.Const.PTR.modWeapons <- function()
 
 	::mods_hookNewObject("items/weapons/legend_glaive", function(o) {
 		o.m.Categories = "Sword/Spear, Two-Handed";
-		o.remakeApplicableMasteries();
+		o.m.WeaponType = this.Const.WMS.WeaponType.Sword | this.Const.WMS.WeaponType.Spear;
 
 		o.m.BlockedSlotType = this.Const.ItemSlot.Offhand;
 		o.m.ItemType = this.Const.Items.ItemType.Weapon | this.Const.Items.ItemType.MeleeWeapon | this.Const.Items.ItemType.TwoHanded | this.Const.Items.ItemType.Defensive;
@@ -149,7 +144,7 @@ gt.Const.PTR.modWeapons <- function()
 
 	::mods_hookNewObject("items/weapons/legend_battle_glaive", function(o) {
 		o.m.Categories = "Sword/Spear, Two-Handed";
-		o.remakeApplicableMasteries();
+		o.m.WeaponType = this.Const.WMS.WeaponType.Sword | this.Const.WMS.WeaponType.Spear;
 
 		o.m.BlockedSlotType = this.Const.ItemSlot.Offhand;
 		o.m.ItemType = this.Const.Items.ItemType.Weapon | this.Const.Items.ItemType.MeleeWeapon | this.Const.Items.ItemType.TwoHanded | this.Const.Items.ItemType.Defensive;
@@ -167,7 +162,7 @@ gt.Const.PTR.modWeapons <- function()
 
 	::mods_hookNewObject("items/weapons/named/legend_named_glaive", function(o) {
 		o.m.Categories = "Sword/Spear, Two-Handed";
-		o.remakeApplicableMasteries();
+		o.m.WeaponType = this.Const.WMS.WeaponType.Sword | this.Const.WMS.WeaponType.Spear;
 
 		o.m.BlockedSlotType = this.Const.ItemSlot.Offhand;
 		o.m.ItemType = this.Const.Items.ItemType.Weapon | this.Const.Items.ItemType.MeleeWeapon | this.Const.Items.ItemType.TwoHanded | this.Const.Items.ItemType.Defensive;
@@ -266,59 +261,4 @@ gt.Const.PTR.modWeapons <- function()
 			this.m.ShieldDamage = 52;
 		}
 	});
-
-	# foreach (glaive in glaives)
-	# {
-	# 	::mods_hookNewObject(glaive, function(o) {
-	# 		o.m.Categories = "Sword/Spear, Two-Handed";
-	# 		o.remakeApplicableMasteries();
-	#
-	# 		o.m.BlockedSlotType = this.Const.ItemSlot.Offhand;
-	# 		o.m.ItemType = this.Const.Items.ItemType.Weapon | this.Const.Items.ItemType.MeleeWeapon | this.Const.Items.ItemType.TwoHanded | this.Const.Items.ItemType.Defensive;
-	# 		o.m.IsDoubleGrippable = false;
-	#
-	# 		switch (glaive)
-	# 		{
-	# 			case "items/weapons/legend_militia_glaive":
-	# 				o.m.RegularDamage = 35;
-	# 				o.m.RegularDamageMax = 50;
-	# 				break;
-	#
-	# 			case "items/weapons/legend_glaive":
-	# 				o.m.RegularDamage = 50;
-	# 				o.m.RegularDamageMax = 55;
-	# 				break;
-	#
-	# 			case "items/weapons/legend_battle_glaive":
-	# 				o.m.RegularDamage = 55;
-	# 				o.m.RegularDamageMax = 60;
-	# 				break;
-	#
-	# 			case "items/weapons/named/legend_named_glaive":
-	# 				local baseWeapon = this.new("scripts/items/weapons/legend_battle_glaive");
-	# 				o.m.Condition = baseWeapon.m.Condition;
-	# 				o.m.ConditionMax = baseWeapon.m.ConditionMax;
-	# 				o.m.RegularDamage = baseWeapon.m.RegularDamage;
-	# 				o.m.RegularDamageMax = baseWeapon.m.RegularDamageMax;
-	# 				o.m.ArmorDamageMult = baseWeapon.m.ArmorDamageMult;
-	# 				o.m.ChanceToHitHead = baseWeapon.m.ChanceToHitHead;
-	# 				o.m.DirectDamageMult = baseWeapon.m.DirectDamageMult;
-	# 				o.m.DirectDamageAdd = baseWeapon.m.DirectDamageAdd;
-	# 				o.m.StaminaModifier = baseWeapon.m.StaminaModifier;
-	# 				o.m.ShieldDamage = baseWeapon.m.ShieldDamage;
-	# 				o.m.AdditionalAccuracy = baseWeapon.m.AdditionalAccuracy;
-	# 				o.m.FatigueOnSkillUse = baseWeapon.m.FatigueOnSkillUse;
-	# 				o.m.Value = 6000;
-	# 				o.randomizeValues();
-	# 				break;
-	# 		}
-	#
-	# 		local onEquip = o.onEquip;
-	# 		o.onEquip = function()
-	# 		{
-	# 			onEquip();
-	# 			this.addSkill(this.new("scripts/skills/actives/riposte"));
-	# 		}
-	# 	});
-	# }
 }
