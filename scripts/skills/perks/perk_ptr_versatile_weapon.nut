@@ -12,19 +12,18 @@ this.perk_ptr_versatile_weapon <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
 	function onUpdate( _properties )
 	{
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		
+
 		if (weapon == null || weapon.getCategories().find("Sword") == null)
 		{
 			return;
 		}
-		
-		_properties.MeleeDamageMult += 0.05;
+
+		_properties.MeleeDamageMult *= 1.05;
 		_properties.DamageDirectAdd += 0.05;
-		_properties.DamageArmorMult += 0.05;
+		_properties.DamageArmorMult *= 1.05;
 	}
 });
-
