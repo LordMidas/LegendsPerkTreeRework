@@ -37,6 +37,8 @@ local modID = "mod_legends_PTR";
 	}
 	gt.setupDebugLog(true, modID);
 
+	gt.Const.PTR.IsExpertiseEnabled <- false;
+
 	gt.Const.PTR.modStrings();
 	gt.Const.PTR.modSkill();
 	gt.Const.PTR.modSkillContainer();

@@ -274,14 +274,22 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 		{
 			foreach( treeEntry in category )
 			{
-				// local roll = this.Math.rand(1, 100) * treeEntry.Expertise;
-				// this.logInfo("roll is : " + roll + " and perk tree is: " + treeEntry.Tree.ID + " and expertise is : " + treeEntry.Expertise);
+				if (this.Const.PTR.IsExpertiseEnabled)
+				{
+					local roll = this.Math.rand(1, 100) * treeEntry.Expertise;
+					# this.logInfo("roll is : " + roll + " and perk tree is: " + treeEntry.Tree.ID + " and expertise is : " + treeEntry.Expertise);
+				}
+
 				foreach( rowNumber, perksInRow in treeEntry.Tree.Tree )
 				{
-					// if (roll > 100 - rowNumber * 10)
-					// {
-						// break;
-					// }
+					if (this.Const.PTR.IsExpertiseEnabled)
+					{
+						if (roll > 100 - rowNumber * 10)
+						{
+							break;
+						}
+					}
+					
 					foreach( perk in perksInRow )
 					{
 						dynamicTree[rowNumber].push(perk);
