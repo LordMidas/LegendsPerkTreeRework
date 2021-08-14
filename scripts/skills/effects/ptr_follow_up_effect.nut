@@ -3,13 +3,13 @@ this.ptr_follow_up_effect <- this.inherit("scripts/skills/skill", {
 		DamageMalus = 50,
 		DamageMalusIncreasePerProc = 10,
 		ProcCount = 0,
-		Charges = 0
+		IsProccing = false
 	},
 	function create()
 	{
 		this.m.ID = "effects.ptr_follow_up";
 		this.m.Name = "Follow Up";
-		this.m.Description = "Every time an enemy gets hit in this character\'s attack range by an ally, this character gains a free attack that does reduced damage. These free attacks can be used during this character\'s turn. This effect ends immediately if this character moves or is engaged in Melee.";
+		this.m.Description = "Every time an enemy gets hit in this character\'s attack range by an ally, this character will perform a free attack against that enemy with reduced damage.";
 		this.m.Icon = "ui/perks/ptr_follow_up.png";
 		//this.m.IconMini = "ptr_follow_up_effect_mini";
 		this.m.Type = this.Const.SkillType.StatusEffect;
@@ -17,16 +17,6 @@ this.ptr_follow_up_effect <- this.inherit("scripts/skills/skill", {
 		this.m.IsActive = false;
 		this.m.IsHidden = false;
 		this.m.IsRemovedAfterBattle = true;
-	}
-
-	function isHidden()
-	{
-		return false;
-	}
-
-	function getName()
-	{
-		return this.m.Charges == 0 ? this.m.Name : this.m.Name + " (x" + this.m.Charges + ")";
 	}
 
 	function getTooltip()
@@ -87,76 +77,76 @@ this.ptr_follow_up_effect <- this.inherit("scripts/skills/skill", {
 			this.removeSelf();
 			return;
 		}
-	}
 
-	function onAfterUpdate(_properties)
-	{
 		local attack = this.getContainer().getAttackOfOpportunity();
 		if (attack == null)
 		{
 			this.removeSelf();
 			return;
 		}
-
-		if (this.m.Charges > 0)
-		{
-			attack.m.ActionPointCost = 0;
-			attack.m.FatigueCost = 0;
-		}
 	}
 
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
-		local actor = this.getContainer().getActor();
-		if (!actor.isPlacedOnMap() || this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
+		if (this.m.IsProccing)
+		{
+			_properties.DamageTotalMult *= 1.0 - this.getCurrentMalus() * 0.01;
+		}
+	}
+
+	function proc(_targetTile)
+	{
+		if (!this.canFollowUp())
 		{
 			return;
 		}
 
 		local attack = this.getContainer().getAttackOfOpportunity();
-		if (attack == null || _skill != attack)
+		if (attack != null && attack.onVerifyTarget(this.getContainer().getActor().getTile(), _targetTile))
 		{
-			return;
-		}
+			this.m.IsProccing = true;
+			local targetEntity = _targetTile.getEntity();
+			if (targetEntity == null)
+			{
+				return;
+			}
 
-		_properties.DamageTotalMult *= 1.0 - this.getCurrentMalus() * 0.01;
-	}
+			local user = this.getContainer().getActor();
+			if (!user.isHiddenToPlayer() || _targetTile.IsVisibleForPlayer)
+			{
+				this.getContainer().setBusy(true);
+				this.Time.scheduleEvent(this.TimeUnit.Virtual, 300, function ( effect )
+				{
+					if (targetEntity.isAlive() && !targetEntity.isDying())
+					{
+						if (!user.isHiddenToPlayer() && _targetTile.IsVisibleForPlayer)
+						{
+							this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(user) + " is Following Up");
+						}
 
-	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
-	{
-		local actor = this.getContainer().getActor();
-		if (!actor.isPlacedOnMap() || this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
-		{
-			return;
-		}
-		this.m.ProcCount++;
-		this.m.Charges--;
-		if (this.m.Charges < 1)
-		{
-			this.removeSelf();
-		}
-	}
+						attack.useForFree(_targetTile);						
+						effect.m.ProcCount++;
+						effect.m.IsProccing = false;
+					}
 
-	function onTargetMissed( _skill, _targetEntity )
-	{
-		local actor = this.getContainer().getActor();
-		if (!actor.isPlacedOnMap() || this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
-		{
-			return;
-		}
-		this.m.Charges--;
-		this.m.ProcCount++;
-		if (this.m.Charges < 1)
-		{
-			this.removeSelf();
+					this.getContainer().setBusy(false);
+
+				}.bindenv(this), this);
+			}
+			else
+			{
+				if (targetEntity.isAlive() && !targetEntity.isDying())
+				{
+					attack.useForFree(_targetTile);
+					this.m.ProcCount++;
+					this.m.IsProccing = false;
+				}
+			}
 		}
 	}
 
 	function onTurnStart()
 	{
-		if (!this.canFollowUp() || this.m.Charges == 0)
-		{
-			this.removeSelf();
-		}
+		this.removeSelf();
 	}
 });

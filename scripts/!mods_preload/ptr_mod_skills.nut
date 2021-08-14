@@ -2,6 +2,49 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modSkills <- function()
 {
+	::mods_hookDescendants("skills/skill", function(o) {
+		if ("create" in o)
+		{
+			local create = o.create;
+			o.create = function()
+			{
+				create();
+				if (this.isType(this.Const.SkillType.Active) && this.isAttack() && !this.isRanged())
+				{
+					local onUse = this.onUse;
+					this.onUse = function( _user, _targetTile )
+					{
+						local ret = onUse( _user, _targetTile );
+						if (ret)
+						{
+							local targetEntity = _targetTile.getEntity();
+							if (targetEntity != null && targetEntity.isAlive() && !targetEntity.isDying())
+							{
+								local allies = targetEntity.getActorsWithinDistanceAsArray(2, this.Const.FactionRelation.Enemy)
+								local actor = this.getContainer().getActor();
+								foreach (ally in allies)
+								{
+									if (ally.getID() == actor.getID() || !ally.isAlliedWith(actor))
+									{
+										continue;
+									}
+
+									local allySkill = ally.getSkills().getSkillByID("effects.ptr_follow_up");
+									if (allySkill != null)
+									{
+										allySkill.proc(_targetTile);
+									}
+								}
+							}
+						}
+
+						return ret;
+					}
+				}
+			}
+		}
+	});
+
 	::mods_hookExactClass("skills/actives/throw_spear_skill", function(o) {
 		o.m.ShieldDamage <- 0;
 		o.onAdded <- function()
