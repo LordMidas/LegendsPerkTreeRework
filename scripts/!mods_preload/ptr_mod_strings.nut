@@ -236,7 +236,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.Duelist = "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: One-Handed, Melee[/color]\n\n" + gt.Const.Strings.PerkDescription.Duelist;
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Duelist].Tooltip = gt.Const.Strings.PerkDescription.Duelist;
 	gt.Const.Strings.PerkName.PTRWeaponMaster <- "Weapon Master";
-	gt.Const.Strings.PerkDescription.PTRWeaponMaster <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: One-Handed Melee[/color]\n\nGrants mastery with all One-Handed Melee weapons. Once per turn, switching from one One-Handed Melee weapon to another costs no Action Points. Does not stack with Quick Hands.\n[color=#0b0084]From the One-Handed Weapons perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRWeaponMaster <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: One-Handed Melee[/color]\n\nGrants the bonuses of the weapon mastery perks for all One-Handed Melee weapons.\n\nOnce per turn, switching from one One-Handed Melee weapon to another costs no Action Points. Does not stack with Quick Hands.\n[color=#0b0084]From the One-Handed Weapons perk group[/color]";
 
 	gt.Const.Strings.PerkName.PTRFruitsOfLabor <- "Fruits of Labor";
 	gt.Const.Strings.PerkDescription.PTRFruitsOfLabor <- "Hitpoints, Maximum Fatigue, and Initiative are increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] each.\n[color=#0b0084]From the Laborer perk group[/color]";
