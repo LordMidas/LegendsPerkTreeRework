@@ -1,4 +1,10 @@
 ======================
+==== Ver 0.13.7 ======
+======================
+- Fixed crashes/freeze when used with WMS 1.4.0.
+- Made the tooltip of the Weapon Master perk clearer.
+
+======================
 ==== Ver 0.13.6 ======
 ======================
 - Now requires WMS v1.4.0.
