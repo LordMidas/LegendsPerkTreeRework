@@ -17,6 +17,8 @@ this.ptr_follow_up_proccer_effect <- this.inherit("scripts/skills/skill", {
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
+		return;
+		
 		if (!_skill.isAttack() || _skill.isRanged())
 		{
 			return;
