@@ -1,4 +1,15 @@
 ======================
+==== Ver 0.13.6 ======
+======================
+- Now requires WMS v1.4.0.
+- Reverted Follow Up back to its original design i.e. now causes an instant free attack on a target who gets hit by your ally. Hopefully this no longer leads to battle freezes when it kills an enemy (it used to happen sometimes, not always). If it happens, please report in #bugs.
+- The damage bonuses from versatile weapon are now multiplicative, except the armor ignore bonus which is still additive.
+- Clarified tooltip descriptions to no longer have a "+" next to bonuses which are multiplicative. For example, "gain +20% damage" is now described as "damage is increased by 20%" etc.
+- Fixed Named Shamshirs doing 0 - 0 damage.
+- Fixed the "Easy Target" perk working with all weapons instead of working only with Staves.
+- Fixed the Dismantled Armor effect icon not spawning on the target when the effect was reapplied on a target who already had the effect.
+
+======================
 ==== Ver 0.13.5 ======
 ======================
 - Fixed the Weapon Master perk not giving free swap of one-handed weapons.
