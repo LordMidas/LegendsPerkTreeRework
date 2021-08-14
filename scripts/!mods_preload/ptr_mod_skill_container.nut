@@ -44,58 +44,79 @@ gt.Const.PTR.modSkillContainer <- function()
 				return;
 			}
 
-			local am = weapon.getApplicableMasteries();
-			if (am.len() == 0)
-			{
-				return;
-			}
-
 			local tree = null;
-			switch (am[0])
+			for (local i = 0; i < 1; i++)
 			{
-				case this.Const.WMS.Mastery.Axe:
+				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Axe))
+				{
 					tree = this.Const.Perks.AxeTree;
-				break;
-				case this.Const.WMS.Mastery.Bow:
+					break;
+				}
+				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Bow))
+				{
 					tree = this.Const.Perks.BowTree;
 					break;
-				case this.Const.WMS.Mastery.Cleaver:
+				}
+				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Cleaver))
+				{
 					tree = this.Const.Perks.CleaverTree;
 					break;
-				case this.Const.WMS.Mastery.Crossbow:
-				case this.Const.WMS.Mastery.Firearm:
+				}
+				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Crossbow))
+				{
 					tree = this.Const.Perks.CrossbowTree;
 					break;
-				case this.Const.WMS.Mastery.Dagger:
+				}
+				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Dagger))
+				{
 					tree = this.Const.Perks.DaggerTree;
 					break;
-				case this.Const.WMS.Mastery.Flail:
+				}
+				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Flail))
+				{
 					tree = this.Const.Perks.FlailTree;
 					break;
-				case this.Const.WMS.Mastery.Hammer:
+				}
+				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Hammer))
+				{
 					tree = this.Const.Perks.HammerTree;
 					break;
-				case this.Const.WMS.Mastery.Mace:
+				}
+				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Mace))
+				{
 					tree = this.Const.Perks.MaceTree;
 					break;
-				case this.Const.WMS.Mastery.Polearm:
+				}
+				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Polearm))
+				{
 					tree = this.Const.Perks.PolearmTree;
 					break;
-				case this.Const.WMS.Mastery.Sling:
+				}
+				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Sling))
+				{
 					tree = this.Const.Perks.SlingsTree;
 					break;
-				case this.Const.WMS.Mastery.Spear:
+				}
+				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Spear))
+				{
 					tree = this.Const.Perks.SpearTree;
 					break;
-				case this.Const.WMS.Mastery.Sword:
+				}
+				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
+				{
 					tree = this.Const.Perks.SwordTree;
 					break;
-				case this.Const.WMS.Mastery.Staff:
+				}
+				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Staff))
+				{
 					tree = this.Const.Perks.StavesTree;
 					break;
-				case this.Const.WMS.Mastery.Throwing:
+				}
+				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Throwing))
+				{
 					tree = this.Const.Perks.ThrowingTree;
 					break;
+				}
 			}
 
 			this.addPerkTree(tree, _maxTier);

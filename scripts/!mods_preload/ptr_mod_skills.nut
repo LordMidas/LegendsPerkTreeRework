@@ -226,7 +226,7 @@ gt.Const.PTR.modSkills <- function()
 		o.onUpdate = function(_properties)
 		{
 			local weapon = this.getContainer().getActor().getMainhandItem();
-			if (weapon != null && weapon.getApplicableMasteries().find(this.Const.WMS.Mastery.Throwing) != null)
+			if (weapon != null && weapon.isWeaponType(this.Const.WMS.WeaponType.Throwing))
 			{
 				return;
 			}
@@ -275,7 +275,7 @@ gt.Const.PTR.modSkills <- function()
 			}
 
 			local weapon = this.getContainer().getActor().getMainhandItem();
-			if (weapon == null || weapon.getApplicableMasteries().find(this.Const.WMS.Mastery.Throwing) == null)
+			if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Throwing))
 			{
 				return false;
 			}

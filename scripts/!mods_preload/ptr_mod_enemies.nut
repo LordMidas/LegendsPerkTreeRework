@@ -279,16 +279,15 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
 
 			local weapon = this.getMainhandItem();
-			if (weapon != null && weapon.getApplicableMasteries().len() != 0)
+			if (weapon != null)
 			{
-				switch (weapon.getApplicableMasteries()[0])
+				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Spear) || weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
 				{
-					case this.Const.WMS.Mastery.Spear:
-					case this.Const.WMS.Mastery.Sword:
-						this.m.Skills.addTreeOfEquippedWeapon(3);
-						break;
-					default:
-						this.m.Skills.addTreeOfEquippedWeapon(2);
+					this.m.Skills.addTreeOfEquippedWeapon(3);
+				}
+				else
+				{
+					this.m.Skills.addTreeOfEquippedWeapon(2);
 				}
 			}
 
@@ -733,15 +732,11 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
 
 			local weapon = this.getMainhandItem();
-			if (weapon != null && weapon.getApplicableMasteries().len() != 0)
+			if (weapon != null)
 			{
-				switch (weapon.getApplicableMasteries()[0])
+				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
 				{
-					case this.Const.WMS.Mastery.Sword:
 						this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
-						break;
-					default:
-						break;
 				}
 			}
 
@@ -2973,14 +2968,14 @@ gt.Const.PTR.modEnemies <- function()
 			assignRandomEquipment();
 			this.m.Skills.addTreeOfEquippedWeapon();
 			local weapon = this.getMainhandItem();
-			if (weapon == null || weapon.getApplicableMasteries().len() == 0 || weapon.getApplicableMasteries()[0] != this.Const.WMS.Mastery.Sword)
+			if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
 			{
 				this.m.Skills.removeByID("perk.duelist");
 			}
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				if (weapon != null && weapon.getApplicableMasteries().len() != 0 && weapon.getApplicableMasteries()[0] == this.Const.WMS.Mastery.Polearm)
+				if (weapon != null && weapon.isWeaponType(this.Const.WMS.WeaponType.Polearm))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_crippling_strikes"));
 				}
@@ -3015,14 +3010,14 @@ gt.Const.PTR.modEnemies <- function()
 			assignRandomEquipment();
 			this.m.Skills.addTreeOfEquippedWeapon(6);
 			local weapon = this.getMainhandItem();
-			if (weapon == null || weapon.getApplicableMasteries().len() == 0 || weapon.getApplicableMasteries()[0] != this.Const.WMS.Mastery.Sword)
+			if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
 			{
 				this.m.Skills.removeByID("perk.duelist");
 			}
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				if (weapon != null && weapon.getApplicableMasteries().len() != 0 && weapon.getApplicableMasteries()[0] == this.Const.WMS.Mastery.Polearm)
+				if (weapon != null && weapon.isWeaponType(this.Const.WMS.WeaponType.Polearm))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_crippling_strikes"));
 				}
@@ -3488,16 +3483,15 @@ gt.Const.PTR.modEnemies <- function()
 			assignRandomEquipment();
 
 			local weapon = this.getMainhandItem();
-			if (weapon != null && weapon.getApplicableMasteries().len() != 0)
+			if (weapon != null)
 			{
-				switch (weapon.getApplicableMasteries()[0])
+				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Spear) || weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
 				{
-					case this.Const.WMS.Mastery.Spear:
-					case this.Const.WMS.Mastery.Sword:
-						this.m.Skills.addTreeOfEquippedWeapon(3);
-						break;
-					default:
-						this.m.Skills.addTreeOfEquippedWeapon(2);
+					this.m.Skills.addTreeOfEquippedWeapon(3);
+				}
+				else
+				{
+					this.m.Skills.addTreeOfEquippedWeapon(2);
 				}
 			}
 		}
@@ -3603,7 +3597,7 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
 				this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
 				local weapon = this.getMainhandItem();
-				if (weapon == null || weapon.getApplicableMasteries().len() == 0 || weapon.getApplicableMasteries()[0] != this.Const.WMS.Mastery.Sword)
+				if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
 				{
 					this.m.Skills.removeByID("perk.duelist");
 				}
