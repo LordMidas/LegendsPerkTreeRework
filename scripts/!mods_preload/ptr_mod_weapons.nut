@@ -228,7 +228,7 @@ gt.Const.PTR.modWeapons <- function()
 
 	foreach (sword in curvedSwords)
 	{
-		::mods_hookExactClass(sword, function(o) {
+		::mods_hookNewObject(sword, function(o) {
 			local onUpdateProperties = ::mods_getMember(o, "onUpdateProperties");
 			o.onUpdateProperties <- function(_properties)
 			{
