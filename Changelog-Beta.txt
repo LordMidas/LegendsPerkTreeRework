@@ -1,13 +1,26 @@
 ======================
+==== Ver 0.13.8 ======
+======================
+- Follow Up is now non-lethal i.e. free attacks from Follow Up can no longer kill the target. This change was done to avoid the unexplainable crash that sometimes occurs when Follow Up killed a target.
+- Enemies spawning with a Hybrid weapon will now randomly get one Weapon tree based on the categories of their weapon, instead of always getting the alphabetically first one.
+- Fixed Rebound and Battle Flow being reversed between the Fast and Agile perk groups. Rebound should now be in Agile and Battle Flow in Fast as intended.
+- Fixed a typo in the Utilitarian Status Effect tooltip showing both + and - in the tooltip with the Fatigue in some cases.
+- Fixed the perk group names in the tooltips of Hair Splitter, Leap, Tumble, Calm, Holy Man, and Field Repairs perks.
+
+== Code backend ==
+- The Fast perk group no longer has a weight to gain the Agile perk group, and the Sturdy perk group no longer has a weight to gain the Large perk group. This is a temporary thing, as it was causing some issues.
+- The Greatsword perk group in code now points directly to the Sword perk group, so we don't have to manage it separately.
+
+======================
 ==== Ver 0.13.7 ======
 ======================
-- Fixed crashes/freeze when used with WMS 1.4.0.
+- Fixed crashes/freeze when used with WMS v1.4.0+.
 - Made the tooltip of the Weapon Master perk clearer.
 
 ======================
 ==== Ver 0.13.6 ======
 ======================
-- Now requires WMS v1.4.0.
+- Now requires WMS v1.4.0 or later.
 - Reverted Follow Up back to its original design i.e. now causes an instant free attack on a target who gets hit by your ally. Hopefully this no longer leads to battle freezes when it kills an enemy (it used to happen sometimes, not always). If it happens, please report in #bugs.
 - The damage bonuses from versatile weapon are now multiplicative, except the armor ignore bonus which is still additive.
 - Clarified tooltip descriptions to no longer have a "+" next to bonuses which are multiplicative. For example, "gain +20% damage" is now described as "damage is increased by 20%" etc.
