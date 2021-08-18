@@ -9,7 +9,7 @@ this.ptr_follow_up_effect <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "effects.ptr_follow_up";
 		this.m.Name = "Follow Up";
-		this.m.Description = "Every time an enemy gets hit in this character\'s attack range by an ally, this character will perform a free attack against that enemy with reduced damage.";
+		this.m.Description = "Every time an enemy gets hit in this character\'s attack range by an ally, this character will perform a free non-lethal attack against that enemy with reduced damage.";
 		this.m.Icon = "ui/perks/ptr_follow_up.png";
 		//this.m.IconMini = "ptr_follow_up_effect_mini";
 		this.m.Type = this.Const.SkillType.StatusEffect;
@@ -104,12 +104,13 @@ this.ptr_follow_up_effect <- this.inherit("scripts/skills/skill", {
 		local attack = this.getContainer().getAttackOfOpportunity();
 		if (attack != null && attack.onVerifyTarget(this.getContainer().getActor().getTile(), _targetTile))
 		{
-			this.m.IsProccing = true;
 			local targetEntity = _targetTile.getEntity();
 			if (targetEntity == null)
 			{
 				return;
 			}
+
+
 
 			local user = this.getContainer().getActor();
 			if (!user.isHiddenToPlayer() || _targetTile.IsVisibleForPlayer)
@@ -124,9 +125,15 @@ this.ptr_follow_up_effect <- this.inherit("scripts/skills/skill", {
 							this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(user) + " is Following Up");
 						}
 
-						attack.useForFree(_targetTile);						
+						local isAbleToDie = targetEntity.m.IsAbleToDie;
+						targetEntity.m.IsAbleToDie = false;
+
+						effect.m.IsProccing = true;
+						attack.useForFree(_targetTile);
 						effect.m.ProcCount++;
 						effect.m.IsProccing = false;
+
+						targetEntity.m.IsAbleToDie = isAbleToDie;
 					}
 
 					this.getContainer().setBusy(false);
@@ -137,9 +144,15 @@ this.ptr_follow_up_effect <- this.inherit("scripts/skills/skill", {
 			{
 				if (targetEntity.isAlive() && !targetEntity.isDying())
 				{
+					local isAbleToDie = targetEntity.m.IsAbleToDie;
+					targetEntity.m.IsAbleToDie = false;
+
+					this.m.IsProccing = true;
 					attack.useForFree(_targetTile);
 					this.m.ProcCount++;
 					this.m.IsProccing = false;
+
+					targetEntity.m.IsAbleToDie = isAbleToDie;
 				}
 			}
 		}
