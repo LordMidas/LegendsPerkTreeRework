@@ -44,82 +44,71 @@ gt.Const.PTR.modSkillContainer <- function()
 				return;
 			}
 
-			local tree = null;
-			for (local i = 0; i < 1; i++)
+			local trees = [];
+
+			if (weapon.isWeaponType(this.Const.WMS.WeaponType.Axe))
 			{
-				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Axe))
-				{
-					tree = this.Const.Perks.AxeTree;
-					break;
-				}
-				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Bow))
-				{
-					tree = this.Const.Perks.BowTree;
-					break;
-				}
-				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Cleaver))
-				{
-					tree = this.Const.Perks.CleaverTree;
-					break;
-				}
-				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Crossbow))
-				{
-					tree = this.Const.Perks.CrossbowTree;
-					break;
-				}
-				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Dagger))
-				{
-					tree = this.Const.Perks.DaggerTree;
-					break;
-				}
-				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Flail))
-				{
-					tree = this.Const.Perks.FlailTree;
-					break;
-				}
-				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Hammer))
-				{
-					tree = this.Const.Perks.HammerTree;
-					break;
-				}
-				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Mace))
-				{
-					tree = this.Const.Perks.MaceTree;
-					break;
-				}
-				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Polearm))
-				{
-					tree = this.Const.Perks.PolearmTree;
-					break;
-				}
-				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Sling))
-				{
-					tree = this.Const.Perks.SlingsTree;
-					break;
-				}
-				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Spear))
-				{
-					tree = this.Const.Perks.SpearTree;
-					break;
-				}
-				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
-				{
-					tree = this.Const.Perks.SwordTree;
-					break;
-				}
-				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Staff))
-				{
-					tree = this.Const.Perks.StavesTree;
-					break;
-				}
-				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Throwing))
-				{
-					tree = this.Const.Perks.ThrowingTree;
-					break;
-				}
+				trees.push(this.Const.Perks.AxeTree);
+			}
+			if (weapon.isWeaponType(this.Const.WMS.WeaponType.Bow))
+			{
+				trees.push(this.Const.Perks.BowTree);
+			}
+			if (weapon.isWeaponType(this.Const.WMS.WeaponType.Cleaver))
+			{
+				trees.push(this.Const.Perks.CleaverTree);
+			}
+			if (weapon.isWeaponType(this.Const.WMS.WeaponType.Crossbow))
+			{
+				trees.push(this.Const.Perks.CrossbowTree);
+			}
+			if (weapon.isWeaponType(this.Const.WMS.WeaponType.Dagger))
+			{
+				trees.push(this.Const.Perks.DaggerTree);
+			}
+			if (weapon.isWeaponType(this.Const.WMS.WeaponType.Flail))
+			{
+				trees.push(this.Const.Perks.FlailTree);
+			}
+			if (weapon.isWeaponType(this.Const.WMS.WeaponType.Hammer))
+			{
+				trees.push(this.Const.Perks.HammerTree);
+			}
+			if (weapon.isWeaponType(this.Const.WMS.WeaponType.Mace))
+			{
+				trees.push(this.Const.Perks.MaceTree);
+			}
+			if (weapon.isWeaponType(this.Const.WMS.WeaponType.Polearm))
+			{
+				trees.push(this.Const.Perks.PolearmTree);
+			}
+			if (weapon.isWeaponType(this.Const.WMS.WeaponType.Sling))
+			{
+				trees.push(this.Const.Perks.SlingsTree);
+			}
+			if (weapon.isWeaponType(this.Const.WMS.WeaponType.Spear))
+			{
+				trees.push(this.Const.Perks.SpearTree);
+			}
+			if (weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
+			{
+				trees.push(this.Const.Perks.SwordTree);
+			}
+			if (weapon.isWeaponType(this.Const.WMS.WeaponType.Staff))
+			{
+				trees.push(this.Const.Perks.StavesTree);
+			}
+			if (weapon.isWeaponType(this.Const.WMS.WeaponType.Throwing))
+			{
+				trees.push(this.Const.Perks.ThrowingTree);
 			}
 
-			this.addPerkTree(tree, _maxTier);
+			if (trees.len() == 0)
+			{
+				return;
+			}
+
+			this.addPerkTree(trees[this.Math.rand(0, trees.len() - 1)], _maxTier);
 		}
 
 		o.addPerkTree <- function (_tree, _maxTier = 7)
