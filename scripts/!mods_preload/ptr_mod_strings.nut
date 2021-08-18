@@ -374,8 +374,6 @@ gt.Const.PTR.modStrings <- function()
 
 	gt.Const.Strings.PerkDescription.FastAdaption = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.FastAdaption, "Calm");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.FastAdaption].Tooltip = gt.Const.Strings.PerkDescription.FastAdaption;
-	gt.Const.Strings.PerkDescription.LegendTrueBeliever = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendTrueBeliever, "Calm");
-	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendTrueBeliever].Tooltip = gt.Const.Strings.PerkDescription.LegendTrueBeliever;
 	gt.Const.Strings.PerkDescription.FortifiedMind = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.FortifiedMind, "Calm");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.FortifiedMind].Tooltip = gt.Const.Strings.PerkDescription.FortifiedMind;
 	gt.Const.Strings.PerkDescription.LegendMindOverBody = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendMindOverBody, "Calm");
@@ -436,7 +434,9 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendMasteryNets].Tooltip = gt.Const.Strings.PerkDescription.LegendMasteryNets;
 	gt.Const.Strings.PerkDescription.LegendEscapeArtist = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendEscapeArtist, "Trapper");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendEscapeArtist].Tooltip = gt.Const.Strings.PerkDescription.LegendEscapeArtist;
-
+	
+	gt.Const.Strings.PerkDescription.LegendFieldRepairs = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendFieldRepairs, "Mender");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendFieldRepairs].Tooltip = gt.Const.Strings.PerkDescription.LegendFieldRepairs;
 	gt.Const.Strings.PerkDescription.LegendToolsDrawers = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendToolsDrawers, "Mender");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendToolsDrawers].Tooltip = gt.Const.Strings.PerkDescription.LegendToolsDrawers;
 	gt.Const.Strings.PerkDescription.LegendToolsSpares = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendToolsSpares, "Mender");
@@ -506,13 +506,6 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.LegendSpecialistSickleDamage = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendSpecialistSickleDamage, "Apothecary");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSpecialistSickleDamage].Tooltip = gt.Const.Strings.PerkDescription.LegendSpecialistSickleDamage;
 
-	gt.Const.Strings.PerkDescription.LegendHairSplitter += "\n[color=#0b0084]From the Juggler perk group[/color]"
-	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendHairSplitter].Tooltip = gt.Const.Strings.PerkDescription.LegendHairSplitter;
-	gt.Const.Strings.PerkDescription.LegendLeap += "\n[color=#0b0084]From the Juggler perk group[/color]"
-	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendLeap].Tooltip = gt.Const.Strings.PerkDescription.LegendLeap;
-	gt.Const.Strings.PerkDescription.LegendTumble += "\n[color=#0b0084]From the Juggler perk group[/color]"
-	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendTumble].Tooltip = gt.Const.Strings.PerkDescription.LegendTumble;
-
 	gt.Const.Strings.PerkDescription.LegendSpecialistLuteSkill += "\n[color=#0b0084]From the Minstrel perk group[/color]"
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSpecialistLuteSkill].Tooltip = gt.Const.Strings.PerkDescription.LegendSpecialistLuteSkill;
 	gt.Const.Strings.PerkDescription.LegendSpecialistLuteDamage += "\n[color=#0b0084]From the Minstrel perk group[/color]"
@@ -528,7 +521,8 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.LegendDrumsOfLife = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendDrumsOfLife, "Minstrel");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendDrumsOfLife].Tooltip = gt.Const.Strings.PerkDescription.LegendDrumsOfLife;
 
-	gt.Const.Strings.PerkDescription.LegendTrueBeliever = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendTrueBeliever, "Holy Man");
+	gt.Const.Strings.PerkDescription.LegendTrueBeliever = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendTrueBeliever, "Calm and Holy Man");
+	gt.Const.Strings.PerkDescription.LegendTrueBeliever += "[color=#0b0084]s[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendTrueBeliever].Tooltip = gt.Const.Strings.PerkDescription.LegendTrueBeliever;
 	gt.Const.Strings.PerkDescription.LegendPrayerOfFaith = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendPrayerOfFaith, "Holy Man");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendPrayerOfFaith].Tooltip = gt.Const.Strings.PerkDescription.LegendPrayerOfFaith;
