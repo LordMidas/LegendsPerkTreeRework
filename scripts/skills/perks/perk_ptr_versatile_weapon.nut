@@ -17,7 +17,7 @@ this.perk_ptr_versatile_weapon <- this.inherit("scripts/skills/skill", {
 	{
 		local weapon = this.getContainer().getActor().getMainhandItem();
 
-		if (weapon == null || weapon.getCategories().find("Sword") == null)
+		if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
 		{
 			return;
 		}

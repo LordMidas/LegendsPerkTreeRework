@@ -23,7 +23,7 @@ this.perk_ptr_light_weapon <- this.inherit("scripts/skills/skill", {
 		}
 
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon == null || weapon.getCategories().find("Dagger") == null)
+		if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Dagger))
 		{
 			return false;
 		}

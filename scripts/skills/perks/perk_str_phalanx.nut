@@ -40,7 +40,7 @@ this.perk_str_phalanx <- this.inherit("scripts/skills/skill", {
 		});
 
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon != null && weapon.getCategories().find("Spear") != null)
+		if (weapon != null && weapon.isWeaponType(this.Const.WMS.WeaponType.Spear))
 		{
 			tooltip.push({
 				type = "text",
@@ -85,11 +85,9 @@ this.perk_str_phalanx <- this.inherit("scripts/skills/skill", {
 		_properties.MeleeDefense += bonus;
 
 		local weapon = actor.getMainhandItem();
-		if (weapon == null || weapon.getCategories().find("Spear") == null)
+		if (weapon != null && weapon.isWeaponType(this.Const.WMS.WeaponType.Spear))
 		{
-			return;
+			_properties.MeleeSkill += bonus;
 		}
-
-		_properties.MeleeSkill += bonus;
 	}
 });

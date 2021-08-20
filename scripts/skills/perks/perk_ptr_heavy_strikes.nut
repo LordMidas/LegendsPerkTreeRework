@@ -12,24 +12,23 @@ this.perk_ptr_heavy_strikes <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		local actor = this.getContainer().getActor();		
+		local actor = this.getContainer().getActor();
 
 		if (!_targetEntity.isAlive() || _targetEntity.isDying() || _targetEntity.isAlliedWith(actor))
 		{
 			return;
 		}
-		
-		local weapon = actor.getMainhandItem();		
-		
-		if (weapon == null || weapon.getCategories().find("Mace") == null || !_skill.isAttack() || _skill.m.InjuriesOnBody != this.Const.Injury.BluntBody)
+
+		local weapon = actor.getMainhandItem();
+
+		if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Mace) || !_skill.isAttack() || _skill.m.InjuriesOnBody != this.Const.Injury.BluntBody)
 		{
 			return;
 		}
-		
+
 		_targetEntity.getSkills().add(this.new("scripts/skills/effects/legend_baffled_effect"));
 	}
 });
-

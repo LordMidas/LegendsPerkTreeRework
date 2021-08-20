@@ -257,7 +257,7 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 		}
 
 		local weapon = actor.getMainhandItem();
-		if (weapon == null || weapon.getCategories().find("Sword") == null)
+		if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
 		{
 			return;
 		}

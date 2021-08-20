@@ -17,7 +17,7 @@ this.perk_ptr_heft <- this.inherit("scripts/skills/skill", {
 	{
 		local weapon = this.getContainer().getActor().getMainhandItem();
 
-		if (weapon != null && weapon.getCategories().find("Axe") != null)
+		if (weapon != null && weapon.isWeaponType(this.Const.WMS.WeaponType.Axe))
 		{
 			_properties.DamageRegularMax += this.Math.floor(weapon.m.RegularDamageMax * 0.3);
 		}

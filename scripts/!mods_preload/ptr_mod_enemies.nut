@@ -1944,14 +1944,14 @@ gt.Const.PTR.modEnemies <- function()
 			local weapon = this.getMainhandItem();
 			if (weapon != null)
 			{
-				if (weapon.getCategories().find("Sword") != null)
+				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_versatile_weapon"));
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_heightened_reflexes"));
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_kata"));
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_mastery_sword"));
 				}
-				else if (weapon.getCategories().find("Dagger") != null)
+				else if (weapon.isWeaponType(this.Const.WMS.WeaponType.Dagger))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_between_the_ribs"));
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_light_weapon"));
@@ -1962,11 +1962,11 @@ gt.Const.PTR.modEnemies <- function()
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.addTreeOfEquippedWeapon();
-				if (weapon.getCategories().find("Sword") != null)
+				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_double_strike"));
 				}
-				else if (weapon.getCategories().find("Dagger") != null)
+				else if (weapon.isWeaponType(this.Const.WMS.WeaponType.Dagger))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_tempo"));
 				}
@@ -2147,7 +2147,7 @@ gt.Const.PTR.modEnemies <- function()
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				local weapon = this.getMainhandItem();
-				if (weapon != null && weapon.getCategories().find("Sword") != null)
+				if (weapon != null && weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
 				}
@@ -2189,7 +2189,7 @@ gt.Const.PTR.modEnemies <- function()
 			local weapon = this.getMainhandItem();
 			if (weapon != null)
 			{
-				if (weapon.getCategories().find("Bow") != null)
+				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Bow))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_ranged_supremacy"));
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_target_practice"));
@@ -2197,7 +2197,7 @@ gt.Const.PTR.modEnemies <- function()
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_mastery_bow"));
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_flaming_arrows"));
 				}
-				else if (weapon.getCategories().find("Crossbow") != null)
+				else if (weapon.isWeaponType(this.Const.WMS.WeaponType.Crossbow))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_through_the_ranks"));
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_mastery_crossbow"));
@@ -2479,7 +2479,7 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_tempo"));
 
 				local weapon = this.getMainhandItem();
-				if (weapon != null && weapon.getCategories().find("Sword") != null)
+				if (weapon != null && weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_alert"));
 				}
@@ -2823,11 +2823,11 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			assignRandomEquipment();
 			local weapon = this.getMainhandItem();
-			if (weapon != null && weapon.getCategories().find("Sword") != null)
+			if (weapon != null && weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_versatile_weapon"));
 			}
-			else if (weapon != null && weapon.getCategories().find("Flail") != null)
+			else if (weapon != null && weapon.isWeaponType(this.Const.WMS.WeaponType.Flail))
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_from_all_sides"));
 			}
@@ -2837,13 +2837,16 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				if (weapon != null && weapon.getCategories().find("Sword") != null)
+				if (weapon != null)
 				{
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_en_garde"));
-				}
-				else if (weapon != null && weapon.getCategories().find("Flail") != null)
-				{
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_flail_spinner"));
+					if (weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
+					{
+						this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_en_garde"));
+					}
+					else if (weapon.isWeaponType(this.Const.WMS.WeaponType.Flail))
+					{
+						this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_flail_spinner"));
+					}
 				}
 			}
 		}
@@ -2914,14 +2917,14 @@ gt.Const.PTR.modEnemies <- function()
 			local weapon = this.getMainhandItem();
 			if (weapon != null)
 			{
-				if (weapon.getCategories().find("Bow") != null)
+				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Bow))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_ranged_supremacy"));
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_target_practice"));
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_hip_shooter"));
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_flaming_arrows"));
 				}
-				else if (weapon.getCategories().find("Crossbow") != null)
+				else if (weapon.isWeaponType(this.Const.WMS.WeaponType.Crossbow))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_power_shot"));
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_windlass_training"));
@@ -3054,7 +3057,7 @@ gt.Const.PTR.modEnemies <- function()
 			local weapon = this.getMainhandItem();
 			if (weapon != null)
 			{
-				if (weapon.getCategories().find("Bow") != null)
+				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Bow))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_ranged_supremacy"));
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_target_practice"));
@@ -3062,7 +3065,7 @@ gt.Const.PTR.modEnemies <- function()
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_hip_shooter"));
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_flaming_arrows"));
 				}
-				else if (weapon.getCategories().find("Crossbow") != null)
+				else if (weapon.isWeaponType(this.Const.WMS.WeaponType.Crossbow))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_power_shot"));
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_windlass_training"));

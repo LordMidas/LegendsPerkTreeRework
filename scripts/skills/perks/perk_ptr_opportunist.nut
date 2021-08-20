@@ -20,7 +20,7 @@ this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 	{
 		local weapon = this.getContainer().getActor().getMainhandItem();
 
-		if (weapon == null || weapon.getCategories().find("Throwing Weapon") == null)
+		if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Throwing))
 		{
 			return false;
 		}
@@ -52,11 +52,6 @@ this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 			}
 
 			local weapon = actor.getMainhandItem();
-
-			if (weapon == null || weapon.getCategories().find("Throwing Weapon") == null)
-			{
-				return;
-			}
 
 			weapon.setAmmo(this.Math.min(weapon.m.AmmoMax, weapon.m.Ammo + 1));
 

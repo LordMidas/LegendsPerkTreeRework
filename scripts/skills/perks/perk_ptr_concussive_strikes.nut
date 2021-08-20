@@ -12,42 +12,42 @@ this.perk_ptr_concussive_strikes <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
 		if (_bodyPart != this.Const.BodyPart.Head || !_skill.isAttack())
 		{
 			return;
 		}
-		
+
 		local actor = this.getContainer().getActor();
 
 		if (!_targetEntity.isAlive() || _targetEntity.isDying() || _targetEntity.isAlliedWith(actor))
 		{
 			return;
 		}
-		
-		local weapon = actor.getMainhandItem();		
+
+		local weapon = actor.getMainhandItem();
 		if (weapon == null)
 		{
 			return;
 		}
-		
+
 		local isMace = false;
-		if (weapon.getCategories().find("Mace") != null && _skill.m.IsWeaponSkill && _skill.hasBluntDamage())
+		if (weapon.isWeaponType(this.Const.WMS.WeaponType.Mace) && _skill.m.IsWeaponSkill && _skill.hasBluntDamage())
 		{
 			isMace = true;
 		}
-		
+
 		local isTwoHanded = false;
 		if (weapon.isItemType(this.Const.Items.ItemType.TwoHanded))
 		{
 			isTwoHanded = true;
 		}
-		
+
 		local targetTile = _targetEntity.getTile();
-		
-		if (weapon.getCategories().find("Mace") != null && _skill.m.IsWeaponSkill && _skill.hasBluntDamage())
+
+		if (weapon.isWeaponType(this.Const.WMS.WeaponType.Mace) && _skill.m.IsWeaponSkill && _skill.hasBluntDamage())
 		{
 			if (weapon.isItemType(this.Const.Items.ItemType.TwoHanded))
 			{
@@ -56,19 +56,19 @@ this.perk_ptr_concussive_strikes <- this.inherit("scripts/skills/skill", {
 					if (!_targetEntity.getSkills().hasSkill("effects.stunned"))
 					{
 						_targetEntity.getSkills().add(this.new("scripts/skills/effects/stunned_effect"));
-						
+
 						if (!actor.isHiddenToPlayer() && targetTile.IsVisibleForPlayer)
 						{
 							this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " has stunned " + this.Const.UI.getColorizedEntityName(_targetEntity) + " for one turn");
 						}
 					}
 				}
-				else 
+				else
 				{
-					local effect = this.new("scripts/skills/effects/dazed_effect");					
+					local effect = this.new("scripts/skills/effects/dazed_effect");
 					_targetEntity.getSkills().add(effect);
 					effect.m.TurnsLeft = this.Math.max(1, 1 + this.getContainer().getActor().getCurrentProperties().NegativeStatusEffectDuration);
-					
+
 					if (!actor.isHiddenToPlayer() && targetTile.IsVisibleForPlayer)
 					{
 						this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " struck a blow that leaves " + this.Const.UI.getColorizedEntityName(_targetEntity) + " dazed for " + effect.m.TurnsLeft + " turns");
@@ -77,7 +77,7 @@ this.perk_ptr_concussive_strikes <- this.inherit("scripts/skills/skill", {
 			}
 			else
 			{
-				local effect = this.new("scripts/skills/effects/dazed_effect");				
+				local effect = this.new("scripts/skills/effects/dazed_effect");
 				_targetEntity.getSkills().add(effect);
 				effect.m.TurnsLeft = this.Math.max(1, 2 + this.getContainer().getActor().getCurrentProperties().NegativeStatusEffectDuration);
 				if (!actor.isHiddenToPlayer() && targetTile.IsVisibleForPlayer)
@@ -88,7 +88,7 @@ this.perk_ptr_concussive_strikes <- this.inherit("scripts/skills/skill", {
 		}
 		else
 		{
-			local effect = this.new("scripts/skills/effects/dazed_effect");			
+			local effect = this.new("scripts/skills/effects/dazed_effect");
 			_targetEntity.getSkills().add(effect);
 			effect.m.TurnsLeft = this.Math.max(1, 1 + this.getContainer().getActor().getCurrentProperties().NegativeStatusEffectDuration);
 			this.logInfo("concussive strikes added dazed effect for turns: " + effect.m.TurnsLeft);
@@ -97,7 +97,7 @@ this.perk_ptr_concussive_strikes <- this.inherit("scripts/skills/skill", {
 				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " struck a blow that leaves " + this.Const.UI.getColorizedEntityName(_targetEntity) + " dazed for " + effect.m.TurnsLeft + " turns");
 			}
 		}
-		
+
 		// if (isTwoHanded && isMace)
 		// {
 			// if (!_targetEntity.getCurrentProperties().IsImmuneToStun)
@@ -105,26 +105,26 @@ this.perk_ptr_concussive_strikes <- this.inherit("scripts/skills/skill", {
 				// if (!_targetEntity.getSkills().hasSkill("effects.stunned"))
 				// {
 					// _targetEntity.getSkills().add(this.new("scripts/skills/effects/stunned_effect"));
-					
+
 					// if (!actor.isHiddenToPlayer() && targetTile.IsVisibleForPlayer)
 					// {
 						// this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " has stunned " + this.Const.UI.getColorizedEntityName(_targetEntity) + " for one turn");
 					// }
 				// }
 			// }
-			// else 
+			// else
 			// {
 				// local effect = this.new("scripts/skills/effects/dazed_effect");
 				// effect.m.TurnsLeft = 1;
 				// _targetEntity.getSkills().add(effect);
-				
+
 				// if (!actor.isHiddenToPlayer() && targetTile.IsVisibleForPlayer)
 				// {
 					// this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " struck a blow that leaves " + this.Const.UI.getColorizedEntityName(_targetEntity) + " dazed for " + effect.m.TurnsLeft + " turns");
 				// }
 			// }
 		// }
-		// else 
+		// else
 		// {
 			// local effect = this.new("scripts/skills/effects/dazed_effect");
 			// effect.m.TurnsLeft = isMace ? 2 : 1;
@@ -136,4 +136,3 @@ this.perk_ptr_concussive_strikes <- this.inherit("scripts/skills/skill", {
 		// }
 	}
 });
-
