@@ -1,4 +1,16 @@
 ======================
+==== Ver 0.13.9 ======
+======================
+- Temporarily disabled the "Hold the Line" and "Push Forward" skills on Bandit Leaders and other similar high-tier enemies as they were using it too often, hampering their offensive output. Once we find a solution for this, this change will be reverted.
+- The Follow Up effect will now be removed when the Morale State changes to Fleeing (it didn't proc when Fleeing anyway, but now the effect is removed as well).
+- Fixed the Follow Up effect being removed on moving, as this is no longer intended in the current Follow Up implementation.
+- Fixed Phalanx status effect tooltip always showing bonus Melee Skill even when not equipping a Spear and no Melee Skill was being given by the perk.
+- Fixed the tooltip of the Survival Instinct status effect not showing up.
+
+== Code backend ==
+- Follow Up will now add an entry in the game log when it procs.
+
+======================
 ==== Ver 0.13.8 ======
 ======================
 - Follow Up is now non-lethal i.e. free attacks from Follow Up can no longer kill the target. This change was done to avoid the unexplainable crash that sometimes occurs when Follow Up killed a target.
