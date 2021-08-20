@@ -40,7 +40,7 @@ this.perk_str_phalanx <- this.inherit("scripts/skills/skill", {
 		});
 
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon != null || weapon.getCategories().find("Spear") != null)
+		if (weapon != null && weapon.getCategories().find("Spear") != null)
 		{
 			tooltip.push({
 				type = "text",
