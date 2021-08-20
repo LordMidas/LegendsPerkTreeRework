@@ -72,14 +72,7 @@ this.ptr_follow_up_effect <- this.inherit("scripts/skills/skill", {
 	function onUpdate( _properties )
 	{
 		local actor = this.getContainer().getActor();
-		if (actor.m.IsMoving || !actor.isPlacedOnMap())
-		{
-			this.removeSelf();
-			return;
-		}
-
-		local attack = this.getContainer().getAttackOfOpportunity();
-		if (attack == null)
+		if (!actor.isPlacedOnMap() || actor.getMoraleState() == this.Const.MoraleState.Fleeing)
 		{
 			this.removeSelf();
 			return;
@@ -109,9 +102,7 @@ this.ptr_follow_up_effect <- this.inherit("scripts/skills/skill", {
 			{
 				return;
 			}
-
-
-
+			
 			local user = this.getContainer().getActor();
 			if (!user.isHiddenToPlayer() || _targetTile.IsVisibleForPlayer)
 			{
