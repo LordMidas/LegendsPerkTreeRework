@@ -2,7 +2,7 @@ this.ai_legend_hold_the_line <- this.inherit("scripts/ai/tactical/behavior", {
 	m = {
 		TargetTile = null,
 		PossibleSkills = [
-			"actives.legend_hold_the_line"
+			# "actives.legend_hold_the_line"
 		],
 		Skill = null
 	},
