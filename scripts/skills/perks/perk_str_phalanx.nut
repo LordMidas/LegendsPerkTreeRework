@@ -1,6 +1,7 @@
 this.perk_str_phalanx <- this.inherit("scripts/skills/skill", {
 	m = {
-		Count = 0
+		Count = 0,
+		BonusPerCount = 5
 	},
 	function create()
 	{
@@ -29,11 +30,13 @@ this.perk_str_phalanx <- this.inherit("scripts/skills/skill", {
 	{
 		local tooltip = this.skill.getTooltip();
 
+		local bonus = this.getBonus();
+
 		tooltip.push({
 			id = 10,
 			type = "text",
 			icon = "ui/icons/melee_defense.png",
-			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + (this.m.Count * 5) + "[/color] Melee Defense"
+			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + bonus + "[/color] Melee Defense"
 		});
 
 		local weapon = this.getContainer().getActor().getMainhandItem();
@@ -43,11 +46,16 @@ this.perk_str_phalanx <- this.inherit("scripts/skills/skill", {
 				type = "text",
 				id = 10,
 				icon = "ui/icons/melee_skill.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + (this.m.Count * 5) + "[/color] Melee Skill"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + bonus + "[/color] Melee Skill"
 			});
 		}
 
 		return tooltip;
+	}
+
+	function getBonus()
+	{
+		return this.m.Count * this.m.BonusPerCount;
 	}
 
 	function onUpdate(_properties)
@@ -72,7 +80,9 @@ this.perk_str_phalanx <- this.inherit("scripts/skills/skill", {
 			this.m.Count += 1;
 		}
 
-		_properties.MeleeDefense += this.m.Count * 5;
+		local bonus = this.getBonus();
+
+		_properties.MeleeDefense += bonus;
 
 		local weapon = actor.getMainhandItem();
 		if (weapon == null || weapon.getCategories().find("Spear") == null)
@@ -80,6 +90,6 @@ this.perk_str_phalanx <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		_properties.MeleeSkill += this.m.Count * 5;
+		_properties.MeleeSkill += bonus;
 	}
 });
