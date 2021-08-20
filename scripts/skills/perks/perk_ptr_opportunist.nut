@@ -1,8 +1,7 @@
 this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 	m = {
 		APRecovered = 4,
-		UsedTiles = [],
-		IsCombatStarted = false
+		UsedTiles = []
 	},
 	function create()
 	{
@@ -31,12 +30,12 @@ this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 
 	function onUpdate( _properties )
 	{
-		if (!this.m.IsCombatStarted)
+		local actor = this.getContainer().getActor();
+
+		if (!actor.isPlacedOnMap() || !this.isInEffect())
 		{
 			return;
 		}
-
-		local actor = this.getContainer().getActor();
 
 		if (actor.m.IsMoving)
 		{
@@ -69,24 +68,14 @@ this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-	function onAdded()
-	{
-		if (this.getContainer().getActor().isPlacedOnMap())
-		{
-			this.m.IsCombatStarted = true;
-		}
-	}
-
 	function onCombatStarted()
 	{
-		this.m.IsCombatStarted = true;
 		this.m.UsedTiles.clear();
 	}
 
 	function onCombatFinished()
 	{
 		this.skill.onCombatFinished();
-		this.m.IsCombatStarted = false;
 		this.m.UsedTiles.clear();
 	}
 });
