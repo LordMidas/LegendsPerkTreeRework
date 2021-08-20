@@ -87,31 +87,39 @@ this.ptr_follow_up_effect <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-	function proc(_targetTile)
+	function proc(_targetEntity)
 	{
 		if (!this.canFollowUp())
 		{
 			return;
 		}
 
-		local attack = this.getContainer().getAttackOfOpportunity();
-		if (attack != null && attack.onVerifyTarget(this.getContainer().getActor().getTile(), _targetTile))
+		local targetTile = _targetEntity.getTile();
+		if (targetTile == null)
 		{
-			local targetEntity = _targetTile.getEntity();
+			return;
+		}
+
+		local attack = this.getContainer().getAttackOfOpportunity();
+		if (attack != null && attack.onVerifyTarget(this.getContainer().getActor().getTile(), targetTile))
+		{
+			local targetEntity = targetTile.getEntity();
 			if (targetEntity == null)
 			{
 				return;
 			}
-			
+
 			local user = this.getContainer().getActor();
-			if (!user.isHiddenToPlayer() || _targetTile.IsVisibleForPlayer)
+			if (!user.isHiddenToPlayer() || targetTile.IsVisibleForPlayer)
 			{
 				this.getContainer().setBusy(true);
 				this.Time.scheduleEvent(this.TimeUnit.Virtual, 300, function ( effect )
 				{
 					if (targetEntity.isAlive() && !targetEntity.isDying())
 					{
-						if (!user.isHiddenToPlayer() && _targetTile.IsVisibleForPlayer)
+						this.logDebug("[" + user.getName() + "] is Following Up with skill [" + attack.getName() + "] on target [" + targetEntity.getName() + "]");
+
+						if (!user.isHiddenToPlayer() && targetTile.IsVisibleForPlayer)
 						{
 							this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(user) + " is Following Up");
 						}
@@ -120,7 +128,7 @@ this.ptr_follow_up_effect <- this.inherit("scripts/skills/skill", {
 						targetEntity.m.IsAbleToDie = false;
 
 						effect.m.IsProccing = true;
-						attack.useForFree(_targetTile);
+						attack.useForFree(targetTile);
 						effect.m.ProcCount++;
 						effect.m.IsProccing = false;
 
@@ -135,11 +143,13 @@ this.ptr_follow_up_effect <- this.inherit("scripts/skills/skill", {
 			{
 				if (targetEntity.isAlive() && !targetEntity.isDying())
 				{
+					this.logDebug("[" + user.getName() + "] is Following Up with skill [" + attack.getName() + "] on target [" + targetEntity.getName() + "]");
+
 					local isAbleToDie = targetEntity.m.IsAbleToDie;
 					targetEntity.m.IsAbleToDie = false;
 
 					this.m.IsProccing = true;
-					attack.useForFree(_targetTile);
+					attack.useForFree(targetTile);
 					this.m.ProcCount++;
 					this.m.IsProccing = false;
 
