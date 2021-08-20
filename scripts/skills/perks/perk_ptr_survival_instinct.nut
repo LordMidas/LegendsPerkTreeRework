@@ -42,18 +42,23 @@ this.perk_ptr_survival_instinct <- this.inherit("scripts/skills/skill", {
 					id = 10,
 					type = "text",
 					icon = "ui/icons/melee_defense.png",
-					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.Bonus + "[/color] Melee Defense"
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getBonus() + "[/color] Melee Defense"
 				},
 				{
 					id = 10,
 					type = "text",
 					icon = "ui/icons/ranged_defense.png",
-					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.Bonus + "[/color] Ranged Defense"
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getBonus() + "[/color] Ranged Defense"
 				}
 			]
 		);
 
 		return tooltip;
+	}
+
+	function getBonus()
+	{
+		return this.m.Stacks * this.m.BonusPerStack;
 	}
 
 	function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
@@ -68,7 +73,7 @@ this.perk_ptr_survival_instinct <- this.inherit("scripts/skills/skill", {
 
 	function onUpdate( _properties )
 	{
-		local bonus = this.m.Stacks * this.m.BonusPerStack;
+		local bonus = this.getBonus();
 		_properties.MeleeDefense += bonus;
 		_properties.RangedDefense += bonus;
 	}
