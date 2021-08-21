@@ -2,6 +2,19 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modSkills <- function()
 {
+	::mods_hookExactClass("skills/perks/perk_double_strike", function(o) {
+		local onTargetHit = o.onTargetHit;
+		o.onTargetHit = function( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
+		{
+			if (_skill == null || !_skill.isAttack() || _skill.isRanged())
+			{
+				return;
+			}
+
+			onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor );
+		}
+	});
+
 	::mods_hookExactClass("skills/actives/throw_spear_skill", function(o) {
 		o.m.ShieldDamage <- 0;
 		o.onAdded <- function()
