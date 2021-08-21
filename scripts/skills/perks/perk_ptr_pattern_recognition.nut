@@ -27,11 +27,11 @@ this.perk_ptr_pattern_recognition <- this.inherit("scripts/skills/skill", {
 		return this.m.Opponents.len() == 0;
 	}
 
-	function getOpponentEntry(_entity)
+	function getOpponentEntry(_entityID)
 	{
 		foreach (opponentEntry in this.m.Opponents)
 		{
-			if (opponentEntry.Entity == _entity)
+			if (opponentEntry.EntityID == _entityID)
 			{
 				return opponentEntry;
 			}
@@ -46,7 +46,7 @@ this.perk_ptr_pattern_recognition <- this.inherit("scripts/skills/skill", {
 
 		foreach (opponentEntry in this.m.Opponents)
 		{
-			local opponent = opponentEntry.Entity;
+			local opponent = this.Tactical.getEntityByID(opponentEntry.EntityID);
 			if (opponent == null || !opponent.isPlacedOnMap() || !opponent.isAlive() || opponent.isDying())
 			{
 				continue;
@@ -81,14 +81,14 @@ this.perk_ptr_pattern_recognition <- this.inherit("scripts/skills/skill", {
 
 		foreach (opponentEntry in this.m.Opponents)
 		{
-			if (opponentEntry.Entity == _entity)
+			if (opponentEntry.EntityID == _entity.getID())
 			{
 				opponentEntry.Stacks += 1;
 				return;
 			}
 		}
 
-		this.m.Opponents.push({Entity = _entity, Stacks = 1});
+		this.m.Opponents.push({EntityID = _entity.getID(), Stacks = 1});
 	}
 
 	function onMissed( _attacker, _skill )
@@ -120,7 +120,7 @@ this.perk_ptr_pattern_recognition <- this.inherit("scripts/skills/skill", {
 	{
 		if (_targetEntity != null && _skill != null && !_skill.isRanged() && _skill.isAttack())
 		{
-			local opponentEntry = this.getOpponentEntry(_targetEntity);
+			local opponentEntry = this.getOpponentEntry(_targetEntity.getID());
 			if (opponentEntry != null)
 			{
 				_properties.MeleeSkill += this.m.MeleeSkillBonus * opponentEntry.Stacks;
@@ -132,7 +132,7 @@ this.perk_ptr_pattern_recognition <- this.inherit("scripts/skills/skill", {
 	{
 		if (_attacker != null && _skill != null && !_skill.isRanged() && _skill.isAttack())
 		{
-			local opponentEntry = this.getOpponentEntry(_attacker);
+			local opponentEntry = this.getOpponentEntry(_attacker.getID());
 			if (opponentEntry != null)
 			{
 				_properties.MeleeDefense += this.m.MeleeDefenseBonus * opponentEntry.Stacks;
