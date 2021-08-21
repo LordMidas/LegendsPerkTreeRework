@@ -44,61 +44,71 @@ gt.Const.PTR.modSkillContainer <- function()
 				return;
 			}
 
-			local am = weapon.getApplicableMasteries();
-			if (am.len() == 0)
+			local trees = [];
+
+			if (weapon.isWeaponType(this.Const.WMS.WeaponType.Axe))
+			{
+				trees.push(this.Const.Perks.AxeTree);
+			}
+			if (weapon.isWeaponType(this.Const.WMS.WeaponType.Bow))
+			{
+				trees.push(this.Const.Perks.BowTree);
+			}
+			if (weapon.isWeaponType(this.Const.WMS.WeaponType.Cleaver))
+			{
+				trees.push(this.Const.Perks.CleaverTree);
+			}
+			if (weapon.isWeaponType(this.Const.WMS.WeaponType.Crossbow))
+			{
+				trees.push(this.Const.Perks.CrossbowTree);
+			}
+			if (weapon.isWeaponType(this.Const.WMS.WeaponType.Dagger))
+			{
+				trees.push(this.Const.Perks.DaggerTree);
+			}
+			if (weapon.isWeaponType(this.Const.WMS.WeaponType.Flail))
+			{
+				trees.push(this.Const.Perks.FlailTree);
+			}
+			if (weapon.isWeaponType(this.Const.WMS.WeaponType.Hammer))
+			{
+				trees.push(this.Const.Perks.HammerTree);
+			}
+			if (weapon.isWeaponType(this.Const.WMS.WeaponType.Mace))
+			{
+				trees.push(this.Const.Perks.MaceTree);
+			}
+			if (weapon.isWeaponType(this.Const.WMS.WeaponType.Polearm))
+			{
+				trees.push(this.Const.Perks.PolearmTree);
+			}
+			if (weapon.isWeaponType(this.Const.WMS.WeaponType.Sling))
+			{
+				trees.push(this.Const.Perks.SlingsTree);
+			}
+			if (weapon.isWeaponType(this.Const.WMS.WeaponType.Spear))
+			{
+				trees.push(this.Const.Perks.SpearTree);
+			}
+			if (weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
+			{
+				trees.push(this.Const.Perks.SwordTree);
+			}
+			if (weapon.isWeaponType(this.Const.WMS.WeaponType.Staff))
+			{
+				trees.push(this.Const.Perks.StavesTree);
+			}
+			if (weapon.isWeaponType(this.Const.WMS.WeaponType.Throwing))
+			{
+				trees.push(this.Const.Perks.ThrowingTree);
+			}
+
+			if (trees.len() == 0)
 			{
 				return;
 			}
 
-			local tree = null;
-			switch (am[0])
-			{
-				case this.Const.WMS.Mastery.Axe:
-					tree = this.Const.Perks.AxeTree;
-				break;
-				case this.Const.WMS.Mastery.Bow:
-					tree = this.Const.Perks.BowTree;
-					break;
-				case this.Const.WMS.Mastery.Cleaver:
-					tree = this.Const.Perks.CleaverTree;
-					break;
-				case this.Const.WMS.Mastery.Crossbow:
-				case this.Const.WMS.Mastery.Firearm:
-					tree = this.Const.Perks.CrossbowTree;
-					break;
-				case this.Const.WMS.Mastery.Dagger:
-					tree = this.Const.Perks.DaggerTree;
-					break;
-				case this.Const.WMS.Mastery.Flail:
-					tree = this.Const.Perks.FlailTree;
-					break;
-				case this.Const.WMS.Mastery.Hammer:
-					tree = this.Const.Perks.HammerTree;
-					break;
-				case this.Const.WMS.Mastery.Mace:
-					tree = this.Const.Perks.MaceTree;
-					break;
-				case this.Const.WMS.Mastery.Polearm:
-					tree = this.Const.Perks.PolearmTree;
-					break;
-				case this.Const.WMS.Mastery.Sling:
-					tree = this.Const.Perks.SlingsTree;
-					break;
-				case this.Const.WMS.Mastery.Spear:
-					tree = this.Const.Perks.SpearTree;
-					break;
-				case this.Const.WMS.Mastery.Sword:
-					tree = this.Const.Perks.SwordTree;
-					break;
-				case this.Const.WMS.Mastery.Staff:
-					tree = this.Const.Perks.StavesTree;
-					break;
-				case this.Const.WMS.Mastery.Throwing:
-					tree = this.Const.Perks.ThrowingTree;
-					break;
-			}
-
-			this.addPerkTree(tree, _maxTier);
+			this.addPerkTree(trees[this.Math.rand(0, trees.len() - 1)], _maxTier);
 		}
 
 		o.addPerkTree <- function (_tree, _maxTier = 7)

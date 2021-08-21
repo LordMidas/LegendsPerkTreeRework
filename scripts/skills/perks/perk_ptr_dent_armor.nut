@@ -30,7 +30,7 @@ this.perk_ptr_dent_armor <- this.inherit("scripts/skills/skill", {
 			return false;
 		}
 
-		if(_weapon == null || _weapon.getCategories().find("Hammer") == null)
+		if(_weapon == null || !_weapon.isWeaponType(this.Const.WMS.WeaponType.Hammer))
 		{
 			return false;
 		}

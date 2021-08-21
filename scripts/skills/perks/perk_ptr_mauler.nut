@@ -24,7 +24,7 @@ this.perk_ptr_mauler <- this.inherit("scripts/skills/skill", {
 		}
 
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		if(weapon == null || weapon.getCategories().find("Cleaver") == null)
+		if(weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Cleaver))
 		{
 			return false;
 		}

@@ -1,4 +1,53 @@
 ======================
+==== Ver 0.13.9 ======
+======================
+- Temporarily disabled the "Hold the Line" and "Push Forward" skills on Bandit Leaders and other similar high-tier enemies as they were using it too often, hampering their offensive output. Once we find a solution for this, this change will be reverted.
+- The Follow Up effect will now be removed when the Morale State changes to Fleeing (it didn't proc when Fleeing anyway, but now the effect is removed as well).
+- Fixed the Follow Up effect being removed on moving, as this is no longer intended in the current Follow Up implementation.
+- Fixed Phalanx status effect tooltip always showing bonus Melee Skill even when not equipping a Spear and no Melee Skill was being given by the perk.
+- Fixed the tooltip of the Survival Instinct status effect not showing up.
+
+== Code backend ==
+- Follow Up will now add an entry in the game log when it procs.
+
+======================
+==== Ver 0.13.8 ======
+======================
+- Follow Up is now non-lethal i.e. free attacks from Follow Up can no longer kill the target. This change was done to avoid the unexplainable crash that sometimes occurs when Follow Up killed a target.
+- Enemies spawning with a Hybrid weapon will now randomly get one Weapon tree based on the categories of their weapon, instead of always getting the alphabetically first one.
+- Fixed Rebound and Battle Flow being reversed between the Fast and Agile perk groups. Rebound should now be in Agile and Battle Flow in Fast as intended.
+- Fixed a typo in the Utilitarian Status Effect tooltip showing both + and - in the tooltip with the Fatigue in some cases.
+- Fixed the perk group names in the tooltips of Hair Splitter, Leap, Tumble, Calm, Holy Man, and Field Repairs perks.
+
+== Code backend ==
+- The Fast perk group no longer has a weight to gain the Agile perk group, and the Sturdy perk group no longer has a weight to gain the Large perk group. This is a temporary thing, as it was causing some issues.
+- The Greatsword perk group in code now points directly to the Sword perk group, so we don't have to manage it separately.
+
+======================
+==== Ver 0.13.7 ======
+======================
+- Fixed crashes/freeze when used with WMS v1.4.0+.
+- Made the tooltip of the Weapon Master perk clearer.
+
+======================
+==== Ver 0.13.6 ======
+======================
+- Now requires WMS v1.4.0 or later.
+- Reverted Follow Up back to its original design i.e. now causes an instant free attack on a target who gets hit by your ally. Hopefully this no longer leads to battle freezes when it kills an enemy (it used to happen sometimes, not always). If it happens, please report in #bugs.
+- The damage bonuses from versatile weapon are now multiplicative, except the armor ignore bonus which is still additive.
+- Clarified tooltip descriptions to no longer have a "+" next to bonuses which are multiplicative. For example, "gain +20% damage" is now described as "damage is increased by 20%" etc.
+- Fixed Named Shamshirs doing 0 - 0 damage.
+- Fixed the "Easy Target" perk working with all weapons instead of working only with Staves.
+- Fixed the Dismantled Armor effect icon not spawning on the target when the effect was reapplied on a target who already had the effect.
+
+======================
+==== Ver 0.13.5 ======
+======================
+- Fixed the Weapon Master perk not giving free swap of one-handed weapons.
+- Fixed the fact that Riposte was available on southern swords even without the Exploit Opening perk, and got removed when you picked the perk. Now it should work the other way around, as intended.
+- Fixed a case where Discovered Talent would bug out when picking the perk and didn't get activated, and caused all future levelups to be +1 only.
+
+======================
 ==== Ver 0.13.4 ======
 ======================
 - New Perk "Menacing", Raider perk group t3. Lower the Resolve of adjacent enemies by -5.

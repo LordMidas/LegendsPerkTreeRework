@@ -40,7 +40,7 @@ this.perk_ptr_momentum <- this.inherit("scripts/skills/skill", {
 		}
 
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon == null || weapon.getCategories().find("Throwing Weapon") == null)
+		if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Throwing))
 		{
 			return;
 		}
@@ -96,7 +96,7 @@ this.perk_ptr_momentum <- this.inherit("scripts/skills/skill", {
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
 		local bonus = this.getBonus();
-		
+
 		local actor = this.getContainer().getActor();
 		if (bonus > 0)
 		{

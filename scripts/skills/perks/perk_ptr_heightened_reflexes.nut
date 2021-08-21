@@ -68,7 +68,7 @@ this.perk_ptr_heightened_reflexes <- this.inherit("scripts/skills/skill", {
 		}
 
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon == null || weapon.getCategories().find("Sword") == null)
+		if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
 		{
 			return false;
 		}

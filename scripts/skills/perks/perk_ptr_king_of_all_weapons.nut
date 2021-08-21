@@ -49,7 +49,7 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 		}
 
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon == null || weapon.getCategories().find("Spear") == null)
+		if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Spear))
 		{
 			return false;
 		}

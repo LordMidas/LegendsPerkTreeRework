@@ -29,6 +29,7 @@ this.perk_ptr_weapon_master <- this.inherit("scripts/skills/skill", {
 	function isEnabled()
 	{
 		local weapon = this.getContainer().getActor().getMainhandItem();
+
 		if (weapon == null || !weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon) || !weapon.isItemType(this.Const.Items.ItemType.OneHanded))
 		{
 			return false;
@@ -41,7 +42,6 @@ this.perk_ptr_weapon_master <- this.inherit("scripts/skills/skill", {
 	{
 		if (!this.isEnabled())
 		{
-			this.m.IsSpent = true;
 			return;
 		}
 

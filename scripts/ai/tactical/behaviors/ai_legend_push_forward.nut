@@ -2,7 +2,7 @@ this.ai_legend_push_forward <- this.inherit("scripts/ai/tactical/behavior", {
 	m = {
 		TargetTile = null,
 		PossibleSkills = [
-			"actives.legend_push_forward"
+			# "actives.legend_push_forward"
 		],
 		Skill = null
 	},

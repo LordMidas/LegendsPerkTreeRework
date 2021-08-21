@@ -12,16 +12,15 @@ this.perk_ptr_bolster <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
 	function isInEffect()
 	{
-		local weapon = this.getContainer().getActor().getMainhandItem();		
-		if (weapon == null || weapon.getCategories().find("Polearm") == null)
+		local weapon = this.getContainer().getActor().getMainhandItem();
+		if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Polearm))
 		{
 			return false;
 		}
-		
+
 		return true;
 	}
 });
-

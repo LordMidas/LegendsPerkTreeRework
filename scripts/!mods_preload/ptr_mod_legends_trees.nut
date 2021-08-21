@@ -555,7 +555,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	this.Const.Perks.AgileTree.Tree[3] = [];
 	this.Const.Perks.AgileTree.Tree[4] = [this.Const.Perks.PerkDefs.Footwork];
 	this.Const.Perks.AgileTree.Tree[5] = [];
-	this.Const.Perks.AgileTree.Tree[6] = [this.Const.Perks.PerkDefs.BattleFlow];
+	this.Const.Perks.AgileTree.Tree[6] = [this.Const.Perks.PerkDefs.Rebound];
 
 	while (this.Const.Perks.IndestructibleTree.Tree.len() < 7)
 	{
@@ -621,16 +621,16 @@ gt.Const.PTR.modTraitsTrees <- function()
 	{
 		this.Const.Perks.FastTree.Tree.push(emptyArray);
 	}
-	this.Const.Perks.FastTree.WeightMultipliers <- [
-		{Multiplier = 2, Tree = this.Const.Perks.AgileTree}
-	];
+	# this.Const.Perks.FastTree.WeightMultipliers <- [
+	# 	{Multiplier = 2, Tree = this.Const.Perks.AgileTree}
+	# ];
 	this.Const.Perks.FastTree.Tree[0] = [this.Const.Perks.PerkDefs.LegendAlert];
 	this.Const.Perks.FastTree.Tree[1] = [this.Const.Perks.PerkDefs.Anticipation];
 	this.Const.Perks.FastTree.Tree[2] = [this.Const.Perks.PerkDefs.Relentless];
 	this.Const.Perks.FastTree.Tree[3] = [];
 	this.Const.Perks.FastTree.Tree[4] = [this.Const.Perks.PerkDefs.LegendSecondWind];
 	this.Const.Perks.FastTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRFreshAndFurious];
-	this.Const.Perks.FastTree.Tree[6] = [this.Const.Perks.PerkDefs.Rebound];
+	this.Const.Perks.FastTree.Tree[6] = [this.Const.Perks.PerkDefs.BattleFlow];
 
 	while (this.Const.Perks.LargeTree.Tree.len() < 7)
 	{
@@ -663,9 +663,9 @@ gt.Const.PTR.modTraitsTrees <- function()
 	{
 		this.Const.Perks.SturdyTree.Tree.push(emptyArray);
 	}
-	this.Const.Perks.AgileTree.WeightMultipliers <- [
-		{Multiplier = 2, Tree = this.Const.Perks.LargeTree}
-	];
+	# this.Const.Perks.AgileTree.WeightMultipliers <- [
+	# 	{Multiplier = 2, Tree = this.Const.Perks.LargeTree}
+	# ];
 	this.Const.Perks.SturdyTree.Tree[0] = [this.Const.Perks.PerkDefs.Recover];
 	this.Const.Perks.SturdyTree.Tree[1] = [this.Const.Perks.PerkDefs.SteelBrow];
 	this.Const.Perks.SturdyTree.Tree[2] = [this.Const.Perks.PerkDefs.Taunt];
@@ -1132,17 +1132,18 @@ gt.Const.PTR.modWeaponTrees <- function()
 	this.Const.Perks.SwordTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRKata];
 	this.Const.Perks.SwordTree.Tree[6] = [this.Const.Perks.PerkDefs.PTREnGarde, this.Const.Perks.PerkDefs.Fencer];
 
-	while (this.Const.Perks.GreatSwordTree.Tree.len() < 7)
-	{
-		this.Const.Perks.GreatSwordTree.Tree.push(emptyArray);
-	}
-	this.Const.Perks.GreatSwordTree.Tree[0] = [this.Const.Perks.PerkDefs.PTRVersatileWeapon];
-	this.Const.Perks.GreatSwordTree.Tree[1] = [this.Const.Perks.PerkDefs.Feint];
-	this.Const.Perks.GreatSwordTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRHeightenedReflexes];
-	this.Const.Perks.GreatSwordTree.Tree[3] = [this.Const.Perks.PerkDefs.SpecSword];
-	this.Const.Perks.GreatSwordTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRTempo];
-	this.Const.Perks.GreatSwordTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRKata];
-	this.Const.Perks.GreatSwordTree.Tree[6] = [this.Const.Perks.PerkDefs.PTREnGarde, this.Const.Perks.PerkDefs.Fencer];
+	this.Const.Perks.GreatSwordTree <- this.Const.Perks.SwordTree;
+	# while (this.Const.Perks.GreatSwordTree.Tree.len() < 7)
+	# {
+	# 	this.Const.Perks.GreatSwordTree.Tree.push(emptyArray);
+	# }
+	# this.Const.Perks.GreatSwordTree.Tree[0] = [this.Const.Perks.PerkDefs.PTRVersatileWeapon];
+	# this.Const.Perks.GreatSwordTree.Tree[1] = [this.Const.Perks.PerkDefs.Feint];
+	# this.Const.Perks.GreatSwordTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRHeightenedReflexes];
+	# this.Const.Perks.GreatSwordTree.Tree[3] = [this.Const.Perks.PerkDefs.SpecSword];
+	# this.Const.Perks.GreatSwordTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRTempo];
+	# this.Const.Perks.GreatSwordTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRKata];
+	# this.Const.Perks.GreatSwordTree.Tree[6] = [this.Const.Perks.PerkDefs.PTREnGarde, this.Const.Perks.PerkDefs.Fencer];
 
 	while (this.Const.Perks.StavesTree.Tree.len() < 7)
 	{

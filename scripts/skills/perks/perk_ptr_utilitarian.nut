@@ -70,7 +70,7 @@ this.perk_ptr_utilitarian <- this.inherit("scripts/skills/skill", {
 				id = 10,
 				type = "text",
 				icon = "ui/icons/melee_skill.png",
-				text = "Skills build up [color=" + this.Const.UI.Color.NegativeValue + "]+" + fatReductionBonus + "%[/color] Fatigue"
+				text = "Skills build up [color=" + this.Const.UI.Color.NegativeValue + "]+" + this.Math.abs(fatReductionBonus) + "%[/color] Fatigue"
 			});
 		}
 

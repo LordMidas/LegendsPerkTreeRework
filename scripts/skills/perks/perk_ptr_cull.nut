@@ -25,7 +25,7 @@ this.perk_ptr_cull <- this.inherit("scripts/skills/skill", {
 		}
 
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		if(weapon == null || weapon.getApplicableMasteries()[0] != this.Const.WMS.Mastery.Axe)
+		if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Axe))
 		{
 			return false;
 		}

@@ -36,7 +36,7 @@ this.perk_ptr_soft_metal <- this.inherit("scripts/skills/skill", {
 		{
 			local remArmorFraction = _targetEntity.getRemainingArmorFraction();
 			local weapon = this.getContainer().getActor().getMainhandItem();
-			if (remArmorFraction < 0.6 || (weapon != null && weapon.getCategories().find("Hammer") != null))
+			if (remArmorFraction < 0.6 || (weapon != null && weapon.isWeaponType(this.Const.WMS.WeaponType.Hammer)))
 			_properties.DamageDirectAdd += 0.1;
 		}
 	}

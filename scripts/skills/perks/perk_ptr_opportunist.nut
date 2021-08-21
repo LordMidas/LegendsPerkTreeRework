@@ -1,8 +1,7 @@
 this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 	m = {
 		APRecovered = 4,
-		UsedTiles = [],
-		IsCombatStarted = false
+		UsedTiles = []
 	},
 	function create()
 	{
@@ -21,7 +20,7 @@ this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 	{
 		local weapon = this.getContainer().getActor().getMainhandItem();
 
-		if (weapon == null || weapon.getCategories().find("Throwing Weapon") == null)
+		if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Throwing))
 		{
 			return false;
 		}
@@ -31,12 +30,12 @@ this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 
 	function onUpdate( _properties )
 	{
-		if (!this.m.IsCombatStarted)
+		local actor = this.getContainer().getActor();
+
+		if (!actor.isPlacedOnMap() || !this.isInEffect())
 		{
 			return;
 		}
-
-		local actor = this.getContainer().getActor();
 
 		if (actor.m.IsMoving)
 		{
@@ -54,11 +53,6 @@ this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 
 			local weapon = actor.getMainhandItem();
 
-			if (weapon == null || weapon.getCategories().find("Throwing Weapon") == null)
-			{
-				return;
-			}
-
 			weapon.setAmmo(this.Math.min(weapon.m.AmmoMax, weapon.m.Ammo + 1));
 
 			actor.setActionPoints(this.Math.min(actor.getActionPointsMax(), actor.getActionPoints() + 4));
@@ -69,24 +63,14 @@ this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-	function onAdded()
-	{
-		if (this.getContainer().getActor().isPlacedOnMap())
-		{
-			this.m.IsCombatStarted = true;
-		}
-	}
-
 	function onCombatStarted()
 	{
-		this.m.IsCombatStarted = true;
 		this.m.UsedTiles.clear();
 	}
 
 	function onCombatFinished()
 	{
 		this.skill.onCombatFinished();
-		this.m.IsCombatStarted = false;
 		this.m.UsedTiles.clear();
 	}
 });

@@ -21,7 +21,7 @@ this.perk_ptr_intimidate <- this.inherit("scripts/skills/skill", {
 		{
 			return;
 		}
-		
+
 		local effect = _targetEntity.getSkills().getSkillByID("effect.ptr_intimidated");
 		if (effect == null)
 		{
@@ -59,7 +59,7 @@ this.perk_ptr_intimidate <- this.inherit("scripts/skills/skill", {
 	function isInEffect()
 	{
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon == null || weapon.getCategories().find("Polearm") == null)
+		if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Polearm))
 		{
 			return false;
 		}
