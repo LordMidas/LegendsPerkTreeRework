@@ -1,6 +1,7 @@
 this.perk_ptr_head_smasher <- this.inherit("scripts/skills/skill", {
 	m = {
-		SteelBrowRemoved = false
+		SteelBrowRemoved = false,
+		SteelBrowMultiplier = 0.75
 	},
 	function create()
 	{
@@ -14,7 +15,7 @@ this.perk_ptr_head_smasher <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
 		if (_skill.isAttack())
@@ -22,22 +23,22 @@ this.perk_ptr_head_smasher <- this.inherit("scripts/skills/skill", {
 			_properties.DamageAgainstMult[this.Const.BodyPart.Head] += 0.15;
 		}
 	}
-	
+
 	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
 	{
 		this.m.SteelBrowRemoved = false;
-		
+
 		if (_hitInfo.BodyPart == this.Const.BodyPart.Head && _targetEntity.getSkills().hasSkill("perk.steel_brow"))
 		{
 			this.m.SteelBrowRemoved = true;
-			
+
 			_targetEntity.getSkills().removeByID("perk.steel_brow");
 			local steelBrowReduction = _hitInfo.BodyDamageMult - 1.0;
-			local newReduction = steelBrowReduction * 0.75;
-			_hitInfo.BodyDamageMult = 1.0 + newReduction;			
+			local newReduction = steelBrowReduction * this.m.SteelBrowMultiplier;
+			_hitInfo.BodyDamageMult = 1.0 + (1.0 - newReduction);
 		}
 	}
-	
+
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
 		if (this.m.SteelBrowRemoved && _targetEntity.isAlive() && !_targetEntity.isDying())
@@ -46,4 +47,3 @@ this.perk_ptr_head_smasher <- this.inherit("scripts/skills/skill", {
 		}
 	}
 });
-

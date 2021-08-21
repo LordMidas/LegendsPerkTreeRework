@@ -26,35 +26,41 @@ this.perk_ptr_flail_spinner <- this.inherit("scripts/skills/skill", {
 			return ret;
 		}
 
-		if (this.Tactical.TurnSequenceBar.getActiveEntity().getID() != null && this.Tactical.TurnSequenceBar.getActiveEntity().getID() == _user.getID() && (!_user.isHiddenToPlayer() || _targetTile.IsVisibleForPlayer))
+		if (this.Tactical.TurnSequenceBar.getActiveEntity().getID() != null && this.Tactical.TurnSequenceBar.getActiveEntity().getID() == _user.getID())
 		{
-			this.getContainer().setBusy(true);
-			this.m.IsSpinningFlail = true;
-			this.Time.scheduleEvent(this.TimeUnit.Virtual, 300, function ( _skill )
+			if (!_user.isHiddenToPlayer() || _targetTile.IsVisibleForPlayer)
+			{
+				this.getContainer().setBusy(true);
+				this.Time.scheduleEvent(this.TimeUnit.Virtual, 300, function ( perk )
+				{
+					if (_targetEntity.isAlive())
+					{
+						this.logDebug("[" + _user.getName() + "] is Spinning The Flail on target [" + _targetEntity.getName() + "] with skill [" + _skill.getName() + "]");
+						if (!_user.isHiddenToPlayer() && _targetTile.IsVisibleForPlayer)
+						{
+							this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " is Spinning the Flail");
+						}
+
+						perk.m.IsSpinningFlail = true;
+
+						ret = _onUse(_user, _targetTile) || ret;
+
+						perk.m.IsSpinningFlail = false;
+					}
+
+					this.getContainer().setBusy(false);
+
+				}.bindenv(this), this);
+			}
+			else
 			{
 				if (_targetEntity.isAlive())
 				{
-					if (!_user.isHiddenToPlayer() && _targetTile.IsVisibleForPlayer)
-					{
-						this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " is spinning the Flail");
-					}
-
+					this.logDebug("[" + _user.getName() + "] is Spinning The Flail on target [" + _targetEntity.getName() + "] with skill [" + _skill.getName() + "]");
+					this.m.IsSpinningFlail = true;
 					ret = _onUse(_user, _targetTile) || ret;
-
-					_skill.getContainer().getSkillByID("perk.ptr_flail_spinner").m.IsSpinningFlail = false;
+					this.m.IsSpinningFlail = false;
 				}
-
-				this.getContainer().setBusy(false);
-
-			}.bindenv(_skill), _skill);
-		}
-		else
-		{
-			if (_targetEntity.isAlive())
-			{
-				this.m.IsSpinningFlail = true;
-				ret = _onUse(_user, _targetTile) || ret;
-				this.m.IsSpinningFlail = false;
 			}
 		}
 
