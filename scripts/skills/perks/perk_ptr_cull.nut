@@ -55,13 +55,13 @@ this.perk_ptr_cull <- this.inherit("scripts/skills/skill", {
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		if (_bodyPart != this.Const.BodyPart.Head || _targetEntity.getSkills().getSkillByID("effects.indomitable"))
+		if (_bodyPart != this.Const.BodyPart.Head || !_targetEntity.isAlive() || _targetEntity.isDying() || _targetEntity.getSkills().hasSkill("effects.indomitable"))
 		{
 			return;
 		}
 
 		local actor = this.getContainer().getActor();
-		if (!_skill.isAttack() || !_targetEntity.isAlive() || _targetEntity.isDying() || _targetEntity.isAlliedWith(actor) || !this.isEnabled(_skill))
+		if (!_skill.isAttack() || _targetEntity.isAlliedWith(actor) || !this.isEnabled(_skill))
 		{
 			return;
 		}
@@ -79,8 +79,9 @@ this.perk_ptr_cull <- this.inherit("scripts/skills/skill", {
 		{
 			if (!actor.isHiddenToPlayer() && _targetEntity.getTile().IsVisibleForPlayer)
 			{
-				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " is going to cull " + this.Const.UI.getColorizedEntityName(_targetEntity));
+				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " is going to Cull " + this.Const.UI.getColorizedEntityName(_targetEntity));
 			}
+			this.logDebug("[" + actor.getName() + "] is going to Cull target [" + _targetEntity.getName() + "] with skill [" + _skill.getName() + "]");
 			_targetEntity.kill(actor, _skill);
 		}
 	}
