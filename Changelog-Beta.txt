@@ -1,3 +1,14 @@
+=======================
+==== Ver 0.13.10 ======
+=======================
+- Fixed the Head Smasher perk reducing the target's Steel Brow damage reduction to 25% instead of reducing to 75%.
+- Fixed the Exploit Opening perk sometimes causing the battle to freeze when fighting Ifrits.
+- Fixed a potential similar error with Pattern Recognition.
+- Fixed Flail Spinner being possible to proc on Attacks of Opportunity. Now it should only proc on attacks during the attacker's turn.
+
+== Code Backend ==
+- Cull and Flail Spinner now add entries to the game debug log when they proc.
+
 ======================
 ==== Ver 0.13.9 ======
 ======================
@@ -8,7 +19,7 @@
 - Fixed the tooltip of the Survival Instinct status effect not showing up.
 
 == Code backend ==
-- Follow Up will now add an entry in the game log when it procs.
+- Follow Up will now add an entry in the game debug log when it procs.
 
 ======================
 ==== Ver 0.13.8 ======
