@@ -273,6 +273,9 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.QuickHands = "Looking for this? Swapping any item in battle a free action with no Action Point cost once every turn. Does not work when swapping a shield, or when swapping from one Two-Handed melee weapon to another Two-Handed melee weapon.\n[color=#0b0084]From the Throwing perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.QuickHands].Tooltip = gt.Const.Strings.PerkDescription.QuickHands;
 
+	gt.Const.Strings.PerkDescription.LegendRelax = "Soothe an ally, doubling their Fatigue Recovery on their next turn.\n\nCannot be used when engaged in melee or on the same target two turns in a row.";
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendRelax].Tooltip = gt.Const.Strings.PerkDescription.LegendRelax;
+
 	gt.Const.Strings.PerkDescription.DoubleStrike = "[color=" + this.Const.UI.Color.NegativeValue + "]Required Attack Type: Melee[/color]\n\n" + gt.Const.Strings.PerkDescription.DoubleStrike;
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.DoubleStrike].Tooltip = gt.Const.Strings.PerkDescription.DoubleStrike;
 
