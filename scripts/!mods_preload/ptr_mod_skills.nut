@@ -379,6 +379,8 @@ gt.Const.PTR.modSkills <- function()
 				return;
 			}
 
+			local actor = this.getContainer().getActor();
+
 			local staggeredEffect = _targetEntity.getSkills().getSkillByID("effects.staggered");
 			if (staggeredEffect != null && !_targetEntity.getCurrentProperties().IsImmuneToStun)
 			{
