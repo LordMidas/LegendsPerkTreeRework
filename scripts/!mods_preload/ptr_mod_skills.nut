@@ -511,17 +511,6 @@ gt.Const.PTR.modSkills <- function()
 		}
 	});
 
-	::mods_hookNewObject("skills/perks/perk_feint", function(o) {
-		local onTargetMissed = o.onTargetMissed;
-		o.onTargetMissed = function( _skill, _targetEntity )
-		{
-			if (_skill.isRanged())
-			{
-				return;
-			}
-			onTargetMissed( _skill, _targetEntity );
-		}
-	});
 	::mods_hookNewObject("skills/perks/perk_battle_forged", function(o) {
 		o.getReductionPercentage <- function()
 		{
