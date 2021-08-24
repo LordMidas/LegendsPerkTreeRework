@@ -1035,14 +1035,12 @@ gt.Const.PTR.modSkills <- function()
 			this.removeSelf();
 		}
 
-		o.onTargetHit <- function( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
+		o.onAnySkillExecuted <- function(_skill, _targetTile)
 		{
-			this.m.AttackCount++;
-		}
-
-		o.onTargetMissed <- function( _skill, _targetEntity )
-		{
-			this.m.AttackCount++;
+			if (_skill.isAttack())
+			{
+				this.m.AttackCount++;
+			}
 		}
 
 		o.getMalus <- function()
