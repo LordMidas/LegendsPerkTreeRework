@@ -1169,6 +1169,12 @@ gt.Const.PTR.modWeaponTrees <- function()
 	this.Const.Perks.ThrowingTree.Tree[4] = [this.Const.Perks.PerkDefs.PTROpportunist];
 	this.Const.Perks.ThrowingTree.Tree[5] = [this.Const.Perks.PerkDefs.CloseCombatArcher];
 	this.Const.Perks.ThrowingTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRNailedIt];
+
+	local idx = gt.Const.Perks.WeaponTrees.Tree.find(this.Const.Perks.GreatSwordTree);
+	if (idx != null)
+	{
+		gt.Const.Perks.WeaponTrees.Tree.remove(idx);
+	}
 }
 
 gt.Const.PTR.modDefenseTrees <- function ()
