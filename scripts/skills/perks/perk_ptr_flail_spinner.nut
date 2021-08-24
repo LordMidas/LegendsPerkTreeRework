@@ -17,33 +17,39 @@ this.perk_ptr_flail_spinner <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
-	function spinFlail (_onUse, _user, _targetTile, _targetEntity, _skill)
+	function spinFlail (_skill, _targetTile)
 	{
-		local ret = false;
-
-		if (this.Math.rand(1,100) > this.m.Chance)
+		local targetEntity = _targetTile.getEntity();
+		if (targetEntity == null)
 		{
-			return ret;
+			return;
 		}
 
-		if (this.Tactical.TurnSequenceBar.getActiveEntity().getID() != null && this.Tactical.TurnSequenceBar.getActiveEntity().getID() == _user.getID())
+		if (this.m.IsSpinningFlail || this.Math.rand(1,100) > this.m.Chance)
 		{
-			if (!_user.isHiddenToPlayer() || _targetTile.IsVisibleForPlayer)
+			return;
+		}
+
+		local user = this.getContainer().getActor();
+
+		if (this.Tactical.TurnSequenceBar.getActiveEntity().getID() != null && this.Tactical.TurnSequenceBar.getActiveEntity().getID() == user.getID())
+		{
+			if (!user.isHiddenToPlayer() || _targetTile.IsVisibleForPlayer)
 			{
 				this.getContainer().setBusy(true);
 				this.Time.scheduleEvent(this.TimeUnit.Virtual, 300, function ( perk )
 				{
-					if (_targetEntity.isAlive())
+					if (targetEntity.isAlive())
 					{
-						this.logDebug("[" + _user.getName() + "] is Spinning The Flail on target [" + _targetEntity.getName() + "] with skill [" + _skill.getName() + "]");
-						if (!_user.isHiddenToPlayer() && _targetTile.IsVisibleForPlayer)
+						this.logDebug("[" + user.getName() + "] is Spinning The Flail on target [" + targetEntity.getName() + "] with skill [" + _skill.getName() + "]");
+						if (!user.isHiddenToPlayer() && _targetTile.IsVisibleForPlayer)
 						{
-							this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " is Spinning the Flail");
+							this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(user) + " is Spinning the Flail");
 						}
 
 						perk.m.IsSpinningFlail = true;
 
-						ret = _onUse(_user, _targetTile) || ret;
+						_skill.useForFree(_targetTile);
 
 						perk.m.IsSpinningFlail = false;
 					}
@@ -54,17 +60,15 @@ this.perk_ptr_flail_spinner <- this.inherit("scripts/skills/skill", {
 			}
 			else
 			{
-				if (_targetEntity.isAlive())
+				if (targetEntity.isAlive())
 				{
-					this.logDebug("[" + _user.getName() + "] is Spinning The Flail on target [" + _targetEntity.getName() + "] with skill [" + _skill.getName() + "]");
+					this.logDebug("[" + user.getName() + "] is Spinning The Flail on target [" + targetEntity.getName() + "] with skill [" + _skill.getName() + "]");
 					this.m.IsSpinningFlail = true;
-					ret = _onUse(_user, _targetTile) || ret;
+					_skill.useForFree(_targetTile);
 					this.m.IsSpinningFlail = false;
 				}
 			}
 		}
-
-		return ret;
 	}
 
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
@@ -72,6 +76,15 @@ this.perk_ptr_flail_spinner <- this.inherit("scripts/skills/skill", {
 		if (this.m.IsSpinningFlail)
 		{
 			_properties.DamageTotalMult *= 0.5;
+		}
+	}
+
+	function onAnySkillExecuted(_skill, _targetTile)
+	{
+		local weapon = this.getContainer().getActor().getMainhandItem();
+		if (weapon != null && weapon.isWeaponType(this.Const.WMS.WeaponType.Flail) && _skill.isAttack() && _skill.m.IsWeaponSkill)
+		{
+			this.spinFlail(_skill, _targetTile);
 		}
 	}
 });

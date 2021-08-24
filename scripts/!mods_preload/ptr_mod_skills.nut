@@ -511,43 +511,6 @@ gt.Const.PTR.modSkills <- function()
 		}
 	});
 
-	local flailSpinningSkills = [
-		"skills/actives/flail_skill",
-		"skills/actives/lash_skill",
-		"skills/actives/cascade_skill",
-		"skills/actives/hail_skill",
-		"skills/actives/pound",
-		"skills/actives/legend_ranged_flail_skill",
-		"skills/actives/legend_ranged_lash_skill",
-		"skills/actives/legend_chain_flail_skill",
-		"skills/actives/legend_chain_lash_skill"
-	];
-
-	foreach (skill in flailSpinningSkills)
-	{
-		::mods_hookNewObject(skill, function(o) {
-			local onUse = o.onUse;
-			o.onUse = function( _user, _targetTile )
-			{
-				local target = _targetTile.getEntity();
-				local ret = onUse( _user, _targetTile );
-
-				if (!target.isAlive())
-				{
-					return ret;
-				}
-
-				local flailSpinnerPerk = this.getContainer().getSkillByID("perk.ptr_flail_spinner");
-				if (flailSpinnerPerk != null)
-				{
-					ret = flailSpinnerPerk.spinFlail(onUse, _user, _targetTile, target, this) || ret;
-				}
-
-				return ret;
-			}
-		});
-	}
-
 	::mods_hookNewObject("skills/perks/perk_feint", function(o) {
 		local onTargetMissed = o.onTargetMissed;
 		o.onTargetMissed = function( _skill, _targetEntity )
