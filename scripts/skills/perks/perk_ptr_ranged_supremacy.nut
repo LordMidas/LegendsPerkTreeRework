@@ -1,5 +1,7 @@
 this.perk_ptr_ranged_supremacy <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		RangedSkillBonus = 10
+	},
 	function create()
 	{
 		this.m.ID = "perk.ptr_ranged_supremacy";
@@ -13,17 +15,22 @@ this.perk_ptr_ranged_supremacy <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
+	function getRangedSkillBonus()
+	{
+		return this.m.RangedSkillBonus;
+	}
+
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
 		if (!_skill.isAttack() || !_skill.isRanged() || _targetEntity == null || !_targetEntity.isArmedWithRangedWeapon())
 		{
 			return;
 		}
-		_properties.RangedSkill += 10;
+		_properties.RangedSkill += this.getRangedSkillBonus();
 	}
 
 	function onUpdate(_properties)
 	{
-		_properties.Vision += 1;		
+		_properties.Vision += 1;
 	}
 });

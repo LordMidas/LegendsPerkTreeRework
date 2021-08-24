@@ -15,44 +15,53 @@ gt.Const.PTR.modSkill <- function()
 			local targetEntity = _targetTile.IsOccupiedByActor ? _targetTile.getEntity() : null;
 			local actor = this.getContainer().getActor();
 
-			if (targetEntity != null && !targetEntity.isArmedWithShield() && this.getContainer().hasSkill("perk.ptr_pointy_end") && this.isAttack() && !this.isRanged() && this.hasPiercingDamage())
-			{
-				ret.push({
-					icon = "ui/tooltips/positive.png",
-					text = "Pointy End"
-				});
-			}
-
-			if (targetEntity != null && targetEntity.isArmedWithRangedWeapon() && this.getContainer().hasSkill("perk.ptr_ranged_supremacy") && this.isAttack() && this.isRanged())
-			{
-				ret.push({
-					icon = "ui/tooltips/positive.png",
-					text = "Ranged Supremacy"
-				});
-			}
-
 			if (targetEntity != null)
 			{
+				if (!targetEntity.isArmedWithShield() && this.isAttack() && !this.isRanged() && this.hasPiercingDamage())
+				{
+					local pointyEndPerk = this.getContainer().getSkillByID("perk.ptr_pointy_end")
+					if (pointyEndPerk != null)
+					{
+						ret.push({
+							icon = "ui/tooltips/positive.png",
+							text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + pointyEndPerk.getBonus() + "%[/color] Pointy End"
+						});
+					}
+				}
+
+				if (targetEntity.isArmedWithRangedWeapon() && this.isAttack() && this.isRanged())
+				{
+					local rangedSupremacyPerk = this.getContainer().getSkillByID("perk.ptr_ranged_supremacy");
+					if (rangedSupremacyPerk != null)
+					{
+						ret.push({
+							icon = "ui/tooltips/positive.png",
+							text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + rangedSupremacyPerk.getRangedSkillBonus() + "%[/color] Ranged Supremacy"
+						});
+					}
+				}
+
 				local exploitableOpening = targetEntity.getSkills().getSkillByID("effects.ptr_exploitable_opening");
-				if (exploitableOpening != null && exploitableOpening.hasOpponent(this.getContainer().getActor()) && this.getContainer().hasSkill("perk.ptr_exploit_opening"))
+				if (exploitableOpening != null && exploitableOpening.hasOpponent(actor.getID()))
+				{
+					local exploitOpeningPerk = this.getContainer().getSkillByID("perk.ptr_exploit_opening")
+					if (exploitOpeningPerk != null)
+					{
+						ret.push({
+							icon = "ui/tooltips/positive.png",
+							text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + exploitOpeningPerk.getBonus() + "%[/color] Exploit Opening"
+						});
+					}
+				}
+
+				if (this.isAttack() && this.isRanged() && this.getContainer().hasSkill("perk.close_combat_archer") && targetEntity.getTile().getDistanceTo(actor.getTile()) <= 3)
 				{
 					ret.push({
 						icon = "ui/tooltips/positive.png",
-						text = "Exploit Opening"
+						text = "Close Combat Archer"
 					});
 				}
-			}
 
-			if (targetEntity != null && this.isAttack() && this.isRanged() && this.getContainer().hasSkill("perk.close_combat_archer") && targetEntity.getTile().getDistanceTo(actor.getTile()) <= 3)
-			{
-				ret.push({
-					icon = "ui/tooltips/positive.png",
-					text = "Close Combat Archer"
-				});
-			}
-
-			if (targetEntity != null)
-			{
 				local patternRecognition = targetEntity.getSkills().getSkillByID("effects.ptr_pattern_recognition");
 				if (patternRecognition != null)
 				{
@@ -61,9 +70,18 @@ gt.Const.PTR.modSkill <- function()
 					{
 						ret.push({
 							icon = "ui/tooltips/positive.png",
-							text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + (patternRecognition.m.MeleeSkillBonus * opponentEntry.Stacks) + "[/color] Pattern Recognition"
+							text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + (patternRecognition.m.MeleeSkillBonus * opponentEntry.Stacks) + "%[/color] Pattern Recognition"
 						});
 					}
+				}
+
+				local dynamicDuoPerk = this.getContainer().getSkillByID("perk.ptr_dynamic_duo");
+				if (dynamicDuoPerk != null)
+				{
+					ret.push({
+						icon = "ui/tooltips/positive.png",
+						text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + dynamicDuoPerk.getHitChanceBonus() + "%[/color] Dynamic Duo"
+					});
 				}
 			}
 
