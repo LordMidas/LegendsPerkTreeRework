@@ -36,24 +36,18 @@ this.perk_ptr_en_garde <- this.inherit("scripts/skills/skill", {
 		}
 
 		local actor = this.getContainer().getActor();
-
-		if (actor.getMoraleState() == this.Const.MoraleState.Fleeing)
+		if (!actor.isPlacedOnMap() || !actor.hasZoneOfControl())
 		{
 			return;
 		}
 
 		local weapon = actor.getMainhandItem();
-		if (!actor.isPlacedOnMap() || weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
+		if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
 		{
 			return;
 		}
 
-		if (!("State" in this.Tactical) || this.Tactical.State.isBattleEnded() || this.Tactical.State.isAutoRetreat())
-		{
-			return;
-		}
-
-		if (this.getContainer().hasSkill("effects.riposte"))
+		if (!("State" in this.Tactical) || this.Tactical.State.isBattleEnded() || this.Tactical.State.isAutoRetreat() || this.getContainer().hasSkill("effects.riposte"))
 		{
 			return;
 		}
