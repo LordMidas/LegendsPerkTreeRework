@@ -767,6 +767,7 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_backstabber"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_underdog"));
 				this.m.Skills.addPerkTree(this.Const.Perks.ThrowingTree);
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bulwark"));
 
 				this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));
 			}
@@ -794,6 +795,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_rebound"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_know_their_weakness"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_exude_confidence"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bulwark"));
 
 			this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
 			this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
@@ -1042,6 +1044,7 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_sundering_strikes"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_assured_conquest"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_coup_de_grace"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bulwark"));
 			}
 		}
 
@@ -1319,6 +1322,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_true_believer"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_the_rush_of_battle"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_head_smasher"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bulwark"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -2004,6 +2008,7 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_personal_armor"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_composure"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_battle_flow"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bulwark"));
 			}
 		}
 
@@ -2034,6 +2039,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_captain"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_rally_the_troops"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_lone_wolf"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bulwark"));
 
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
@@ -2429,6 +2435,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_fresh_and_furious"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_formidable_approach"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_man_of_steel"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bulwark"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -2537,6 +2544,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_man_of_steel"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_the_rush_of_battle"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bulwark"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -2572,6 +2580,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_man_of_steel"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_unstoppable"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_exude_confidence"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bulwark"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -2693,6 +2702,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_soft_metal"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_smackdown"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bulwark"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -2831,6 +2841,7 @@ gt.Const.PTR.modEnemies <- function()
 
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_shield_expert"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bulwark"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -2958,7 +2969,7 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_hold_out"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bulwark"));
 			}
 		}
 
@@ -3652,6 +3663,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_personal_armor"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_know_their_weakness"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_rally_the_troops"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bulwark"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
