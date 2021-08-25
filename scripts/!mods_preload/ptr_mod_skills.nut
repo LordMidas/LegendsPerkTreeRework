@@ -868,11 +868,6 @@ gt.Const.PTR.modSkills <- function()
 					this.m.ActionPointCost = this.Math.max(2, this.m.ActionPointCost - this.m.UsedCount);
 				}
 			}
-
-			if (this.getContainer().hasSkill("perk.ptr_ranged_supremacy"))
-			{
-				this.m.MaxRange += 1;
-			}
 		}
 
 		o.onTurnEnd <- function()
