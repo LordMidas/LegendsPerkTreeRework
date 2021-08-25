@@ -949,6 +949,15 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_bulwark.png",
 			IconDisabled = "ui/perks/ptr_bulwark_bw.png",
 			Const = "PTRBulwark"
+		},
+		{
+			ID = "perk.ptr_always_an_entertainer",
+			Script = "scripts/skills/perks/perk_ptr_always_an_entertainer",
+			Name = this.Const.Strings.PerkName.PTRAlwaysAnEntertainer,
+			Tooltip = this.Const.Strings.PerkDescription.PTRAlwaysAnEntertainer,
+			Icon = "ui/perks/ptr_always_an_entertainer.png",
+			IconDisabled = "ui/perks/ptr_always_an_entertainer_bw.png",
+			Const = "PTRAlwaysAnEntertainer"
 		}
 	];
 
