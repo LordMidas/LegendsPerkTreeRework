@@ -1210,7 +1210,7 @@ gt.Const.PTR.modDefenseTrees <- function ()
 	this.Const.Perks.HeavyArmorTree.Tree[3] = [];
 	this.Const.Perks.HeavyArmorTree.Tree[4] = [];
 	this.Const.Perks.HeavyArmorTree.Tree[5] = [this.Const.Perks.PerkDefs.BattleForged];
-	this.Const.Perks.HeavyArmorTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRManOfSteel];
+	this.Const.Perks.HeavyArmorTree.Tree[6] = [];
 
 	while (this.Const.Perks.LightArmorTree.Tree.len() < 7)
 	{
