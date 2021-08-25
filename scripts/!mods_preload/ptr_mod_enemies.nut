@@ -136,9 +136,21 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			assignRandomEquipment();
 			this.m.Skills.removeByType(this.Const.SkillType.Perk);
-			this.m.Skills.addTreeOfEquippedWeapon(1);
 
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bully"));
+
+			local weapon = this.getMainhandItem();
+			if (weapon != null)
+			{
+				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Hammer))
+				{
+					this.m.Skills.addTreeOfEquippedWeapon(2);
+				}
+				else
+				{
+					this.m.Skills.addTreeOfEquippedWeapon(1);
+				}
+			}
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -146,6 +158,7 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_backstabber"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_relentless"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
+				this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
 			}
 		}
 	});
