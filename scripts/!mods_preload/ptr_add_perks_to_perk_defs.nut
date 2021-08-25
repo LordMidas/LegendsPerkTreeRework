@@ -967,6 +967,15 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_paint_a_smile.png",
 			IconDisabled = "ui/perks/ptr_paint_a_smile_bw.png",
 			Const = "PTRPaintASmile"
+		},
+		{
+			ID = "perk.ptr_dynamic_duo",
+			Script = "scripts/skills/perks/perk_ptr_dynamic_duo",
+			Name = this.Const.Strings.PerkName.PTRDynamicDuo,
+			Tooltip = this.Const.Strings.PerkDescription.PTRDynamicDuo,
+			Icon = "ui/perks/ptr_dynamic_duo.png",
+			IconDisabled = "ui/perks/ptr_dynamic_duo_bw.png",
+			Const = "PTRDynamicDuo"
 		}
 	];
 
