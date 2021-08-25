@@ -977,6 +977,24 @@ gt.Const.PTR.modClassTrees <- function()
 		]
 	};
 
+	gt.Const.Perks.ScoutClassTree <- {
+		ID = "ScoutClassTree",
+		Descriptions = [
+			"has a keen eye"
+		],
+		Tree = [
+			[
+				gt.Const.Perks.PerkDefs.Lookout
+			],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[]
+		]
+	};
+
 	gt.Const.Perks.ClassTrees.Tree = [
 		gt.Const.Perks.SergeantClassTree,
 		gt.Const.Perks.HealerClassTree,
@@ -987,6 +1005,7 @@ gt.Const.PTR.modClassTrees <- function()
 		gt.Const.Perks.HoundmasterClassTree,
 		gt.Const.Perks.TacticianClassTree,
 		gt.Const.Perks.EntertainerClassTree,
+		gt.Const.Perks.ScoutClassTree
 	];
 
 	foreach (tree in this.Const.Perks.ClassTrees.Tree)
