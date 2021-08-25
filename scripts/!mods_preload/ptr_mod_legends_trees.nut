@@ -1132,7 +1132,11 @@ gt.Const.PTR.modWeaponTrees <- function()
 	this.Const.Perks.SwordTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRKata];
 	this.Const.Perks.SwordTree.Tree[6] = [this.Const.Perks.PerkDefs.PTREnGarde, this.Const.Perks.PerkDefs.Fencer];
 
-	this.Const.Perks.GreatSwordTree <- this.Const.Perks.SwordTree;
+	foreach (i, row in this.Const.Perks.GreatSwordTree.Tree)
+	{
+		row[i] = clone this.Const.Perks.SwordTree.Tree[i];
+	}
+
 	# while (this.Const.Perks.GreatSwordTree.Tree.len() < 7)
 	# {
 	# 	this.Const.Perks.GreatSwordTree.Tree.push(emptyArray);
