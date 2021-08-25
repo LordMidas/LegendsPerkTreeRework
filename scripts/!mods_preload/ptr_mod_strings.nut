@@ -258,6 +258,9 @@ gt.Const.PTR.modStrings <- function()
 
 	gt.Const.Strings.PerkName.PTRAlwaysAnEntertainer <- "Always An Entertainer";
 	gt.Const.Strings.PerkDescription.PTRAlwaysAnEntertainer <- "Once per day, when you visit a non-military settlement, gain between [color=" + this.Const.UI.Color.PositiveValue + "]20[/color] and [color=" + this.Const.UI.Color.PositiveValue + "]40[/color] gold. For each level this character is above 1, these values are increased by [color=" + this.Const.UI.Color.PositiveValue + "]+2[/color]. The values are doubled for medium-sized settlements and tripled for large settlements.\n\nIf multiple characters with this perk are present, only one of them will entertain in a given city on a given day, and the others will have to entertain in other cities.\n[color=#0b0084]From the Entertainer perk group[/color]";
+	gt.Const.Strings.PerkName.PTRPaintASmile <- "Paint a Smile";
+	gt.Const.Strings.PerkDescription.PTRPaintASmile <- "At the start of every new day, improve the Mood of the character with the lowest Mood in your roster.\n[color=#0b0084]From the Entertainer perk group[/color]";
+
 	gt.Const.Strings.PerkDescription.LegendFreedomOfMovement = "Being unencumbered allows you to move and strike with great accuracy. Melee Skill and Melee Defense are increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of your Maximum Fatigue after gear. These bonuses drop exponentially when wearing head and body armor with a total penalty to Maximum Fatigue greater than [color=" + this.Const.UI.Color.NegativeValue + "]-15[/color].\n[color=#0b0084]From the Light Armor perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendFreedomOfMovement].Tooltip = gt.Const.Strings.PerkDescription.LegendFreedomOfMovement;
 

@@ -967,13 +967,16 @@ gt.Const.PTR.modClassTrees <- function()
 				gt.Const.Perks.PerkDefs.PTRAlwaysAnEntertainer
 			],
 			[],
-			[],
+			[
+				gt.Const.Perks.PerkDefs.PTRPaintASmile
+			],
 			[],
 			[],
 			[],
 			[]
 		]
 	};
+
 	gt.Const.Perks.ClassTrees.Tree = [
 		gt.Const.Perks.SergeantClassTree,
 		gt.Const.Perks.HealerClassTree,
