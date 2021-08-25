@@ -940,6 +940,15 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_menacing.png",
 			IconDisabled = "ui/perks/ptr_menacing_bw.png",
 			Const = "PTRMenacing"
+		},
+		{
+			ID = "perk.ptr_bulwark",
+			Script = "scripts/skills/perks/perk_ptr_bulwark",
+			Name = this.Const.Strings.PerkName.PTRBulwark,
+			Tooltip = this.Const.Strings.PerkDescription.PTRBulwark,
+			Icon = "ui/perks/ptr_bulwark.png",
+			IconDisabled = "ui/perks/ptr_bulwark_bw.png",
+			Const = "PTRBulwark"
 		}
 	];
 

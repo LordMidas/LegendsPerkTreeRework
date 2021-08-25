@@ -102,6 +102,14 @@ gt.Const.PTR.modActor <- function()
 							_difficulty += tsSkill.getBonusRes();
 						}
 					}
+					else
+					{
+						local bulwark = this.m.Skills.getSkillByID("perk.ptr_bulwark")
+						if (bulwark != null)
+						{
+							_difficulty += bulwark.getBonus();
+						}
+					}
 				}
 			}
 

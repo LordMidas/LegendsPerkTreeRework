@@ -1208,7 +1208,7 @@ gt.Const.PTR.modDefenseTrees <- function ()
 	this.Const.Perks.HeavyArmorTree.Tree[1] = [];
 	this.Const.Perks.HeavyArmorTree.Tree[2] = [this.Const.Perks.PerkDefs.Brawny];
 	this.Const.Perks.HeavyArmorTree.Tree[3] = [];
-	this.Const.Perks.HeavyArmorTree.Tree[4] = [];
+	this.Const.Perks.HeavyArmorTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRBulwark];
 	this.Const.Perks.HeavyArmorTree.Tree[5] = [this.Const.Perks.PerkDefs.BattleForged];
 	this.Const.Perks.HeavyArmorTree.Tree[6] = [];
 

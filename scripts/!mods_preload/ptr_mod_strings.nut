@@ -227,6 +227,8 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRTraumaSurvivor <- "Trauma Survivor";
 	gt.Const.Strings.PerkDescription.PTRTraumaSurvivor <- "This character\'s life has been a living hell, and they have gained a certain resilience. Resolve is increased by [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] against fear, panic and mind control effects.\n\nIf Realized Potential is a success, this perk becomes permanent and the perk point is refunded.\n[color=#0b0084]From the Pauper perk group[/color]";
 
+	gt.Const.Strings.PerkName.PTRBulwark <- "Bulwark";
+	gt.Const.Strings.PerkDescription.PTRBulwark <- "Resolve is increased by [color=" + this.Const.UI.Color.PositiveValue + "]2%[/color] of the combined current durability of head and body armor. This bonus is doubled against negative morale checks except mental attacks.\n[color=#0b0084]From the Heavy Armor perk group[/color]";
 	gt.Const.Strings.PerkName.PTRManOfSteel <- "Man of Steel";
 	gt.Const.Strings.PerkDescription.PTRManOfSteel <- "Armor penetrating damage to Hitpoints received from Ranged attacks is reduced by up to [color=" + this.Const.UI.Color.PositiveValue + "]30%[/color]. This bonus increases exponentially by wearing head and body armor of higher Maximum Durability.\n[color=#0b0084]From the Heavy Armor perk group[/color]";
 
