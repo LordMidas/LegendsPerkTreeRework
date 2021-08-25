@@ -565,7 +565,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	this.Const.Perks.IndestructibleTree.Tree[1] = [this.Const.Perks.PerkDefs.PTRSurvivalInstinct];
 	this.Const.Perks.IndestructibleTree.Tree[2] = [this.Const.Perks.PerkDefs.HoldOut];
 	this.Const.Perks.IndestructibleTree.Tree[3] = [];
-	this.Const.Perks.IndestructibleTree.Tree[4] = [];
+	this.Const.Perks.IndestructibleTree.Tree[4] = [this.Const.Perks.PerkDefs.LegendSecondWind];
 	this.Const.Perks.IndestructibleTree.Tree[5] = [];
 	this.Const.Perks.IndestructibleTree.Tree[6] = [this.Const.Perks.PerkDefs.LastStand];
 
@@ -628,7 +628,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	this.Const.Perks.FastTree.Tree[1] = [this.Const.Perks.PerkDefs.Anticipation];
 	this.Const.Perks.FastTree.Tree[2] = [this.Const.Perks.PerkDefs.Relentless];
 	this.Const.Perks.FastTree.Tree[3] = [];
-	this.Const.Perks.FastTree.Tree[4] = [this.Const.Perks.PerkDefs.LegendSecondWind];
+	this.Const.Perks.FastTree.Tree[4] = [];
 	this.Const.Perks.FastTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRFreshAndFurious];
 	this.Const.Perks.FastTree.Tree[6] = [this.Const.Perks.PerkDefs.BattleFlow];
 
