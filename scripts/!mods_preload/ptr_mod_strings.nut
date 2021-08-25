@@ -33,7 +33,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRMarksmanship <- "Marksmanship";
 	gt.Const.Strings.PerkDescription.PTRMarksmanship <- "When using a Ranged weapon, gain [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of your Base Ranged Skill as additional Minimum and Maximum Damage.\n[color=#0b0084]From the Bow perk group[/color]";
 	gt.Const.Strings.PerkName.PTRHipShooter <- "Hip Shooter";
-	gt.Const.Strings.PerkDescription.PTRHipShooter <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Bow[/color]\n\nEach subsequent Quick Shot requires [color=" + this.Const.UI.Color.NegativeValue + "]1[/color] less Action Point to a minimum of [color=" + this.Const.UI.Color.PositiveValue + "]2[/color].\n[color=#0b0084]From the Bow perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRHipShooter <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Bow[/color]\n\nThe Action Point cost of Quick Shot is reduced by [color=" + this.Const.UI.Color.NegativeValue + "]1[/color], but each subsequent Quick Shot in a turn builds [color=" + this.Const.UI.Color.NegativeValue + "]10%[/color] more Fatigue.\n[color=#0b0084]From the Bow perk group[/color]";
 
 	gt.Const.Strings.PerkName.PTRSwordlike <- "Swordlike";
 	gt.Const.Strings.PerkDescription.PTRSwordlike <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Cleaver[/color]\n\nCleave gains [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit.\n[color=#0b0084]From the Cleaver perk group[/color]";

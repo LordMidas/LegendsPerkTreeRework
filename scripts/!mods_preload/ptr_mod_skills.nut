@@ -840,53 +840,6 @@ gt.Const.PTR.modSkills <- function()
 		}
 	});
 
-	::mods_hookNewObject("skills/actives/quick_shot", function(o) {
-		o.m.UsedCount <- 0;
-		local oldOnUse = o.onUse;
-		o.onUse = function( _user, _targetTile )
-		{
-			local result = oldOnUse( _user, _targetTile );
-			this.m.UsedCount++;
-			if (this.getContainer().hasSkill("effects.ptr_hip_shooter"))
-			{
-				if (this.m.ActionPointCost > 2)
-				{
-					this.m.ActionPointCost = this.Math.max(2, this.m.ActionPointCost - this.m.UsedCount);
-				}
-			}
-			return result;
-		}
-
-		local oldonAfterUpdate = o.onAfterUpdate;
-		o.onAfterUpdate = function( _properties )
-		{
-			oldonAfterUpdate(_properties);
-			if (this.getContainer().hasSkill("effects.ptr_hip_shooter"))
-			{
-				if (this.m.ActionPointCost > 2)
-				{
-					this.m.ActionPointCost = this.Math.max(2, this.m.ActionPointCost - this.m.UsedCount);
-				}
-			}
-		}
-
-		o.onTurnEnd <- function()
-		{
-			this.m.UsedCount = 0;
-		}
-
-		o.onCombatStarted <- function()
-		{
-			this.m.UsedCount = 0;
-		}
-
-		o.onCombatFinished <- function()
-		{
-			this.skill.onCombatFinished();
-			this.m.UsedCount = 0;
-		}
-	});
-
 	# ::mods_hookNewObject("skills/actives/legend_cheer_on_skill", function(o) {
 	# 	local oldisUsable = o.isUsable;
 	# 	o.isUsable = function( )
