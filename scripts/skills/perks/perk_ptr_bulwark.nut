@@ -45,7 +45,7 @@ this.perk_ptr_bulwark <- this.inherit("scripts/skills/skill", {
 	function getBonus()
 	{
 		local armor = this.getContainer().getActor().getArmor(this.Const.BodyPart.Head) + this.getContainer().getActor().getArmor(this.Const.BodyPart.Body);
-		return this.Math.floor(armor * this.m.ArmorPercentageAsBonus);
+		return this.Math.floor(armor * this.m.ArmorPercentageAsBonus * 0.01);
 	}
 
 	function onUpdate(_properties)
