@@ -22,7 +22,7 @@ this.perk_ptr_vigilant <- this.inherit("scripts/skills/skill", {
 
 	function isHidden()
 	{
-		return this.m.Bonus = 0;
+		return this.m.Bonus == 0;
 	}
 
 	function getTooltip()
@@ -39,7 +39,7 @@ this.perk_ptr_vigilant <- this.inherit("scripts/skills/skill", {
 		tooltip.push({
 			id = 10,
 			type = "text",
-			icon = "ui/icons/melee_Defense.png",
+			icon = "ui/icons/melee_defense.png",
 			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.Bonus + "[/color] Melee Defense"
 		});
 
