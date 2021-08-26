@@ -52,10 +52,15 @@ this.ptr_take_aim_skill <- this.inherit("scripts/skills/skill", {
 		this.m.Perk = this.getContainer().getSkillByID("perk.ptr_take_aim");
 	}
 
+	function isEnabled()
+	{
+		return this.m.Perk != null && this.m.Perk.isEnabled();
+	}
+
 	function isUsable()
 	{
 		local actor = this.getContainer().getActor();
-		return this.skill.isUsable() && !this.getContainer().hasSkill("effects.ptr_take_aim") && !actor.isEngagedInMelee() && this.m.Perk != null && this.m.Perk.isEnabled();
+		return this.skill.isUsable() && !this.getContainer().hasSkill("effects.ptr_take_aim") && !actor.isEngagedInMelee() && this.isEnabled();
 	}
 
 	function isHidden()

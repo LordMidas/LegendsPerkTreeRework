@@ -36,10 +36,15 @@ this.ptr_take_aim_effect <- this.inherit("scripts/skills/skill", {
 		this.m.Perk = this.getContainer().getSkillByID("perk.ptr_take_aim");
 	}
 
+	function isEnabled()
+	{
+		return this.m.Perk != null && this.m.Perk.isEnabled();
+	}
+
 	function onUpdate( _properties )
 	{
 		this.m.IsHidden = true;
-		if (this.m.Perk != null && this.m.Perk.isEnabled())
+		if (this.isEnabled())
 		{
 			this.m.IsHidden = false;
 			_properties.RangedAttackBlockedChanceMult = 0;
