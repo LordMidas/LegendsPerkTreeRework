@@ -13,6 +13,17 @@ this.perk_ptr_take_aim <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
+	function isEnabled()
+	{
+		local weapon = this.getContainer().getActor().getMainhandItem();
+		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Crossbow))
+		{
+			return false;
+		}
+
+		return true;
+	}
+
 	function onAdded()
 	{
 		this.getContainer().add(this.new("scripts/skills/actives/ptr_take_aim_skill"));
