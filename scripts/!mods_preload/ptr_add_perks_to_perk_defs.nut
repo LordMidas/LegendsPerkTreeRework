@@ -15,7 +15,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 		Const = "PTRTesting"
 	});
 
-	local axePerks = [
+	local perks = [
 		{
 			ID = "perk.ptr_dismemberment",
 			Script = "scripts/skills/perks/perk_ptr_dismemberment",
@@ -51,10 +51,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_cull.png",
 			IconDisabled = "ui/perks/ptr_cull_bw.png",
 			Const = "PTRCull"
-		}
-	];
-
-	local bowPerks = [
+		},
 		{
 			ID = "perk.ptr_arrow_to_the_knee",
 			Script = "scripts/skills/perks/perk_ptr_arrow_to_the_knee",
@@ -90,10 +87,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_hip_shooter.png",
 			IconDisabled = "ui/perks/ptr_hip_shooter_bw.png",
 			Const = "PTRHipShooter"
-		}
-	];
-
-	local cleaverPerks = [
+		},
 		{
 			ID = "perk.ptr_deep_cuts",
 			Script = "scripts/skills/perks/perk_ptr_deep_cuts",
@@ -129,10 +123,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_mauler.png",
 			IconDisabled = "ui/perks/ptr_mauler_bw.png",
 			Const = "PTRMauler"
-		}
-	];
-
-	local crossbowPerks = [
+		},
 		{
 			ID = "perk.ptr_take_aim",
 			Script = "scripts/skills/perks/perk_ptr_take_aim",
@@ -177,10 +168,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_muscle_memory.png",
 			IconDisabled = "ui/perks/ptr_muscle_memory_bw.png",
 			Const = "PTRMuscleMemory"
-		}
-	];
-
-	local daggerPerks = [
+		},
 		{
 			ID = "perk.ptr_between_the_ribs",
 			Script = "scripts/skills/perks/perk_ptr_between_the_ribs",
@@ -207,10 +195,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_swift_stabs.png",
 			IconDisabled = "ui/perks/ptr_swift_stabs_bw.png",
 			Const = "PTRSwiftStabs"
-		}
-	];
-
-	local flailPerks = [
+		},
 		{
 			ID = "perk.ptr_small_target",
 			Script = "scripts/skills/perks/perk_ptr_small_target",
@@ -255,10 +240,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_from_all_sides.png",
 			IconDisabled = "ui/perks/ptr_from_all_sides_bw.png",
 			Const = "PTRFromAllSides"
-		}
-	];
-
-	local hammerPerks = [
+		},
 		{
 			ID = "perk.ptr_rattle",
 			Script = "scripts/skills/perks/perk_ptr_rattle",
@@ -303,10 +285,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_dent_armor.png",
 			IconDisabled = "ui/perks/ptr_dent_armor_bw.png",
 			Const = "PTRDentArmor"
-		}
-	];
-
-	local macePerks = [
+		},
 		{
 			ID = "perk.ptr_push_it",
 			Script = "scripts/skills/perks/perk_ptr_push_it",
@@ -351,10 +330,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_bone_breaker.png",
 			IconDisabled = "ui/perks/ptr_bone_breaker_bw.png",
 			Const = "PTRBoneBreaker"
-		}
-	];
-
-	local polearmPerks = [
+		},
 		{
 			ID = "perk.ptr_bolster",
 			Script = "scripts/skills/perks/perk_ptr_bolster",
@@ -408,10 +384,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_long_reach.png",
 			IconDisabled = "ui/perks/ptr_long_reach_bw.png",
 			Const = "PTRLongReach"
-		}
-	];
-
-	local slingPerks = [
+		},
 		{
 			ID = "perk.ptr_patience",
 			Script = "scripts/skills/perks/perk_ptr_patience",
@@ -429,10 +402,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_heavy_projectiles.png",
 			IconDisabled = "ui/perks/ptr_heavy_projectiles_bw.png",
 			Const = "PTRHeavyProjectiles"
-		}
-	];
-
-	local spearPerks = [
+		},
 		{
 			ID = "perk.ptr_pointy_end",
 			Script = "scripts/skills/perks/perk_ptr_pointy_end",
@@ -486,10 +456,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_king_of_all_weapons.png",
 			IconDisabled = "ui/perks/ptr_king_of_all_weapons_bw.png",
 			Const = "PTRKingOfAllWeapons"
-		}
-	];
-
-	local staffPerks = [
+		},
 		{
 			ID = "perk.ptr_easy_target",
 			Script = "scripts/skills/perks/perk_ptr_easy_target",
@@ -516,10 +483,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_whack_a_smack.png",
 			IconDisabled = "ui/perks/ptr_whack_a_smack_bw.png",
 			Const = "PTRWhackASmack"
-		}
-	];
-
-	local swordPerks = [
+		},
 		{
 			ID = "perk.ptr_heightened_reflexes",
 			Script = "scripts/skills/perks/perk_ptr_heightened_reflexes",
@@ -546,10 +510,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_sweeping_strikes.png",
 			IconDisabled = "ui/perks/ptr_sweeping_strikes_bw.png",
 			Const = "PTRSweepingStrikes"
-		}
-	];
-
-	local throwingPerks = [
+		},
 		{
 			ID = "perk.ptr_hybridization",
 			Script = "scripts/skills/perks/perk_ptr_hybridization",
@@ -585,10 +546,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_nailed_it.png",
 			IconDisabled = "ui/perks/ptr_nailed_it_bw.png",
 			Const = "PTRNailedIt"
-		}
-	];
-
-	local traitsPerks = [
+		},
 		{
 			ID = "perk.ptr_fresh_and_furious",
 			Script = "scripts/skills/perks/perk_ptr_fresh_and_furious",
@@ -615,10 +573,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_know_their_weakness.png",
 			IconDisabled = "ui/perks/ptr_know_their_weakness_bw.png",
 			Const = "PTRKnowTheirWeakness"
-		}
-	];
-
-	local classPerks = [
+		},
 		{
 			ID = "perk.ptr_the_rush_of_battle",
 			Script = "scripts/skills/perks/perk_ptr_the_rush_of_battle",
@@ -627,10 +582,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_the_rush_of_battle.png",
 			IconDisabled = "ui/perks/ptr_the_rush_of_battle_bw.png",
 			Const = "PTRTheRushOfBattle"
-		}
-	];
-
-	local professionPerks = [
+		},
 		{
 			ID = "perk.ptr_personal_armor",
 			Script = "scripts/skills/perks/perk_ptr_personal_armor",
@@ -657,11 +609,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_tunnel_vision.png",
 			IconDisabled = "ui/perks/ptr_tunnel_vision_bw.png",
 			Const = "PTRTunnelVision"
-		}
-	];
-
-	// Will  be moved to their appropriate trees at the end of the development cycle.
-	local additionalPerks = [
+		},
 		{
 			ID = "perk.ptr_versatile_weapon",
 			Script = "scripts/skills/perks/perk_ptr_versatile_weapon",
@@ -979,34 +927,8 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 		}
 	];
 
-	local perkSets = [
-		axePerks,
-		bowPerks,
-		cleaverPerks,
-		crossbowPerks,
-		daggerPerks,
-		flailPerks,
-		hammerPerks,
-		macePerks,
-		polearmPerks,
-		slingPerks
-		spearPerks,
-		staffPerks,
-		swordPerks,
-		throwingPerks,
-		traitsPerks,
-		classPerks,
-		professionPerks,
-		additionalPerks
-	];
 
-	foreach (perkSet in perkSets)
-	{
-		foreach (perk in perkSet)
-		{
-			this.Const.Perks.PerkDefObjects.push(perk);
-		}
-	}
+	this.Const.Perks.PerkDefObjects.extend(perks);
 
 	this.Const.Perks.PerkDefs.clear();
 
