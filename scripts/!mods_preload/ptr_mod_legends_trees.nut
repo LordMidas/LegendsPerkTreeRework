@@ -1174,7 +1174,10 @@ gt.Const.PTR.modWeaponTrees <- function()
 
 	foreach (i, row in this.Const.Perks.GreatSwordTree.Tree)
 	{
-		row[i] = clone this.Const.Perks.SwordTree.Tree[i];
+		foreach (entry in row)
+		{
+			this.Const.Perks.GreatSwordTree.Tree[i] = entry;
+		}
 	}
 
 	# while (this.Const.Perks.GreatSwordTree.Tree.len() < 7)
