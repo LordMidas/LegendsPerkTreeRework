@@ -37,8 +37,8 @@ gt.Const.PTR.modStrings <- function()
 
 	gt.Const.Strings.PerkName.PTRSwordlike <- "Swordlike";
 	gt.Const.Strings.PerkDescription.PTRSwordlike <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Cleaver[/color]\n\nCleave gains [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit.\n[color=#0b0084]From the Cleaver perk group[/color]";
-	gt.Const.Strings.PerkName.PTROpenWounds <- "Deep Cuts";
-	gt.Const.Strings.PerkDescription.PTROpenWounds <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Damage Type: Cutting[/color]\n\nEvery second attack against the same target will inflict an additional stack of Bleeding for [color=" + this.Const.UI.Color.PositiveValue + "]5[/color] damage. If any of the two attacks inflicted an injury, this damage is increased to [color=" + this.Const.UI.Color.PositiveValue + "]10[/color].\n[color=#0b0084]From the Cleaver perk group[/color]";
+	gt.Const.Strings.PerkName.PTRDeepCuts <- "Deep Cuts";
+	gt.Const.Strings.PerkDescription.PTRDeepCuts <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Damage Type: Cutting[/color]\n\nEvery second attack against the same target will inflict an additional stack of Bleeding for [color=" + this.Const.UI.Color.PositiveValue + "]5[/color] damage. If any of the two attacks inflicted an injury, this damage is increased to [color=" + this.Const.UI.Color.PositiveValue + "]10[/color].\n[color=#0b0084]From the Cleaver perk group[/color]";
 	gt.Const.Strings.PerkName.PTRSanguinary <- "Sanguinary";
 	gt.Const.Strings.PerkDescription.PTRSanguinary <- "The chance to inflict fatalities is increased by [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color]. Fatalities refund [color=" + this.Const.UI.Color.NegativeValue + "]25%[/color] of the Base Fatigue Cost of the skill used. Every attack against a Bleeding target improves this character\'s Morale by one level, and fatalities instantly set the Morale to Confident.\n[color=#0b0084]From the Cleaver perk group[/color]";
 	gt.Const.Strings.PerkName.PTRBloodlust <- "Bloodlust";
@@ -48,16 +48,16 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRMauler <- "Mauler";
 	gt.Const.Strings.PerkDescription.PTRMauler <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Cleaver[/color]\n\nAttacks do more damage, the less armor your target has. This bonus is [color=" + this.Const.UI.Color.PositiveValue + "]35%[/color] more damage at no armor, and [color=" + this.Const.UI.Color.PositiveValue + "]0%[/color] more damage at 100% armor remaining.\n[color=#0b0084]From the Cleaver perk group[/color]";
 
-	gt.Const.Strings.PerkName.PTRThroughTheRanks <- "Through the Ranks";
-	gt.Const.Strings.PerkDescription.PTRThroughTheRanks <- "Ranged attacks have a [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] reduced chance to inflict friendly fire.\n[color=#0b0084]From the Crossbow perk group[/color]";
+	gt.Const.Strings.PerkName.PTRTakeAim <- "Through the Ranks";
+	gt.Const.Strings.PerkDescription.PTRTakeAim <- "Ranged attacks have a [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] reduced chance to inflict friendly fire.\n[color=#0b0084]From the Crossbow perk group[/color]";
 	gt.Const.Strings.PerkName.PTREntrenched <- "Entrenched";
 	gt.Const.Strings.PerkDescription.PTREntrenched <- "When using a ranged weapon and standing adjacent to an ally wielding a melee weapon who is not engaged in melee, gain [color=" + this.Const.UI.Color.PositiveValue + "]+5[/color] Ranged Skill, Ranged Defense, and Resolve. The bonus increases by [color=" + this.Const.UI.Color.PositiveValue + "]+1[/color] every turn up to a maximum of [color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] as long as you continue to start your turn adjacent to any ally wielding a melee weapon who is not engaged in melee.\n[color=#0b0084]From the Crossbow perk group[/color]";
 	gt.Const.Strings.PerkName.PTRPowerShot <- "Power Shot";
 	gt.Const.Strings.PerkDescription.PTRPowerShot <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Crossbow or Firearm[/color]\n\nAttacks from crossbows and firearms have a [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] chance to inflict Staggered for one turn.\n[color=#0b0084]From the Crossbow perk group[/color]";
 	gt.Const.Strings.PerkName.PTRIronSights <- "Iron Sights";
 	gt.Const.Strings.PerkDescription.PTRIronSights <- "Ranged attacks have an additional [color=" + this.Const.UI.Color.PositiveValue + "]+15%[/color] chance to hit the head.\n[color=#0b0084]From the Crossbow perk group[/color]";
-	gt.Const.Strings.PerkName.PTRWindlassTraining <- "Muscle Memory";
-	gt.Const.Strings.PerkDescription.PTRWindlassTraining <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Crossbow or Firearm[/color]\n\nThe Action Point Cost of reloading a crossbow is reduced by [color=" + this.Const.UI.Color.NegativeValue + "]1[/color] and that of reloading a Handgonne is reduced by [color=" + this.Const.UI.Color.NegativeValue + "]2[/color].\n[color=#0b0084]From the Crossbow perk group[/color]";
+	gt.Const.Strings.PerkName.PTRMuscleMemory <- "Muscle Memory";
+	gt.Const.Strings.PerkDescription.PTRMuscleMemory <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Crossbow or Firearm[/color]\n\nThe Action Point Cost of reloading a crossbow is reduced by [color=" + this.Const.UI.Color.NegativeValue + "]1[/color] and that of reloading a Handgonne is reduced by [color=" + this.Const.UI.Color.NegativeValue + "]2[/color].\n[color=#0b0084]From the Crossbow perk group[/color]";
 
 	gt.Const.Strings.PerkName.PTRBetweenTheRibs <- "Between the Ribs";
 	gt.Const.Strings.PerkDescription.PTRBetweenTheRibs <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Dagger[/color]\n\nWhen using daggers, attacks deal [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color] more damage per ally surrounding the target.\n[color=#0b0084]From the Dagger perk group[/color]";

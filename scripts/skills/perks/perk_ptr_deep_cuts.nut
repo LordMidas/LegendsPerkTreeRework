@@ -1,14 +1,14 @@
-this.perk_ptr_open_wounds <- this.inherit("scripts/skills/skill", {
+this.perk_ptr_deep_cuts <- this.inherit("scripts/skills/skill", {
 	m = {
     TargetID = -1,
 		NumInjuriesBefore = 0
 	},
 	function create()
 	{
-		this.m.ID = "perk.ptr_open_wounds";
-		this.m.Name = this.Const.Strings.PerkName.PTROpenWounds;
-		this.m.Description = this.Const.Strings.PerkDescription.PTROpenWounds;
-		this.m.Icon = "ui/perks/ptr_open_wounds.png";
+		this.m.ID = "perk.ptr_deep_cuts";
+		this.m.Name = this.Const.Strings.PerkName.PTRDeepCuts;
+		this.m.Description = this.Const.Strings.PerkDescription.PTRDeepCuts;
+		this.m.Icon = "ui/perks/ptr_deep_cuts.png";
 		this.m.Type = this.Const.SkillType.Perk;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;

@@ -95,13 +95,13 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 
 	local cleaverPerks = [
 		{
-			ID = "perk.ptr_open_wounds",
-			Script = "scripts/skills/perks/perk_ptr_open_wounds",
-			Name = this.Const.Strings.PerkName.PTROpenWounds,
-			Tooltip = this.Const.Strings.PerkDescription.PTROpenWounds,
-			Icon = "ui/perks/ptr_open_wounds.png",
-			IconDisabled = "ui/perks/ptr_open_wounds_bw.png",
-			Const = "PTROpenWounds"
+			ID = "perk.ptr_deep_cuts",
+			Script = "scripts/skills/perks/perk_ptr_deep_cuts",
+			Name = this.Const.Strings.PerkName.PTRDeepCuts,
+			Tooltip = this.Const.Strings.PerkDescription.PTRDeepCuts,
+			Icon = "ui/perks/ptr_deep_cuts.png",
+			IconDisabled = "ui/perks/ptr_deep_cuts_bw.png",
+			Const = "PTRDeepCuts"
 		},
 		{
 			ID = "perk.ptr_bloodlust",
@@ -134,13 +134,13 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 
 	local crossbowPerks = [
 		{
-			ID = "perk.ptr_through_the_ranks",
-			Script = "scripts/skills/perks/perk_ptr_through_the_ranks",
-			Name = this.Const.Strings.PerkName.PTRThroughTheRanks,
-			Tooltip = this.Const.Strings.PerkDescription.PTRThroughTheRanks,
-			Icon = "ui/perks/ptr_through_the_ranks.png",
-			IconDisabled = "ui/perks/ptr_through_the_ranks_bw.png",
-			Const = "PTRThroughTheRanks"
+			ID = "perk.ptr_take_aim",
+			Script = "scripts/skills/perks/perk_ptr_take_aim",
+			Name = this.Const.Strings.PerkName.PTRTakeAim,
+			Tooltip = this.Const.Strings.PerkDescription.PTRTakeAim,
+			Icon = "ui/perks/ptr_take_aim.png",
+			IconDisabled = "ui/perks/ptr_take_aim_bw.png",
+			Const = "PTRTakeAim"
 		},
 		{
 			ID = "perk.ptr_entrenched",
@@ -170,13 +170,13 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Const = "PTRIronSights"
 		},
 		{
-			ID = "perk.ptr_windlass_training",
-			Script = "scripts/skills/perks/perk_ptr_windlass_training",
-			Name = this.Const.Strings.PerkName.PTRWindlassTraining,
-			Tooltip = this.Const.Strings.PerkDescription.PTRWindlassTraining,
-			Icon = "ui/perks/ptr_windlass_training.png",
-			IconDisabled = "ui/perks/ptr_windlass_training_bw.png",
-			Const = "PTRWindlassTraining"
+			ID = "perk.ptr_muscle_memory",
+			Script = "scripts/skills/perks/perk_ptr_muscle_memory",
+			Name = this.Const.Strings.PerkName.PTRMuscleMemory,
+			Tooltip = this.Const.Strings.PerkDescription.PTRMuscleMemory,
+			Icon = "ui/perks/ptr_muscle_memory.png",
+			IconDisabled = "ui/perks/ptr_muscle_memory_bw.png",
+			Const = "PTRMuscleMemory"
 		}
 	];
 

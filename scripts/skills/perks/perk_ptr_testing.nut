@@ -11,16 +11,16 @@ this.perk_ptr_testing <- this.inherit("scripts/skills/skill", {
 			"scripts/skills/perks/perk_ptr_flaming_arrows",
 			"scripts/skills/perks/perk_ptr_hip_shooter",
 
-			"scripts/skills/perks/perk_ptr_open_wounds",
+			"scripts/skills/perks/perk_ptr_deep_cuts",
 			"scripts/skills/perks/perk_ptr_bloodlust",
 			"scripts/skills/perks/perk_ptr_bloodbath",
 			"scripts/skills/perks/perk_ptr_mauler",
 
-			"scripts/skills/perks/perk_ptr_through_the_ranks",
+			"scripts/skills/perks/perk_ptr_take_aim",
 			"scripts/skills/perks/perk_ptr_entrenched",
 			"scripts/skills/perks/perk_ptr_power_shot",
 			"scripts/skills/perks/perk_ptr_iron_sights",
-			"scripts/skills/perks/perk_ptr_windlass_training",
+			"scripts/skills/perks/perk_ptr_muscle_memory",
 
 			"scripts/skills/perks/perk_ptr_between_the_ribs",
 			"scripts/skills/perks/perk_ptr_light_weapon",

@@ -94,7 +94,7 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			onInit();
 			this.m.Skills.removeByID("perk.close_combat_archer");
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_through_the_ranks"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_take_aim"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_target_practice"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
@@ -126,7 +126,7 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_onslaught"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_anticipation"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_specialist_sling_skill"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_through_the_ranks"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_take_aim"));
 			}
 		}
 	});
@@ -359,7 +359,7 @@ gt.Const.PTR.modEnemies <- function()
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_open_wounds"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_deep_cuts"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
@@ -559,7 +559,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.addPerkTree(this.Const.Perks.SwordTree, 7);
 	 		this.m.Skills.add(this.new("scripts/skills/perks/perk_bullseye"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_through_the_ranks"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_take_aim"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_power_shot"));
 
@@ -671,7 +671,7 @@ gt.Const.PTR.modEnemies <- function()
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_open_wounds"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_deep_cuts"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -1117,7 +1117,7 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_open_wounds"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_deep_cuts"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_crippling_strikes"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bloodlust"));
 			}
@@ -1175,7 +1175,7 @@ gt.Const.PTR.modEnemies <- function()
 	 	{
 	 		onInit();
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_mastery_cleaver"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_open_wounds"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_deep_cuts"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_sanguinary"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bloodbath"));
 
@@ -2199,7 +2199,7 @@ gt.Const.PTR.modEnemies <- function()
 				}
 				else if (weapon.isWeaponType(this.Const.WMS.WeaponType.Crossbow))
 				{
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_through_the_ranks"));
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_take_aim"));
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_mastery_crossbow"));
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_iron_sights"));
 				}
@@ -2379,7 +2379,7 @@ gt.Const.PTR.modEnemies <- function()
 			onInit();
 			this.m.Skills.removeByID("perk.fast_adaption");
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_mastery_bow"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_through_the_ranks"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_take_aim"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_target_practice"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_arrow_to_the_knee"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_flaming_arrows"));
@@ -2511,8 +2511,8 @@ gt.Const.PTR.modEnemies <- function()
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_windlass_training"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_through_the_ranks"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_muscle_memory"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_take_aim"));
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_power_shot"));
@@ -2677,7 +2677,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_specialist_sling_skill"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_specialist_sling_damage"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_mastery_slings"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_through_the_ranks"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_take_aim"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -2716,7 +2716,7 @@ gt.Const.PTR.modEnemies <- function()
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_open_wounds"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_deep_cuts"));
 			}
 		}
 
@@ -2857,14 +2857,14 @@ gt.Const.PTR.modEnemies <- function()
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_through_the_ranks"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_take_aim"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_entrenched"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_iron_sights"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_versatile_weapon"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_wind_reader"));
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_windlass_training"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_muscle_memory"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_mind_over_body"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ballistics"));
 			}
@@ -2898,7 +2898,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.getBaseProperties().IsSpecializedInCrossbows = true;
 			this.getBaseProperties().DamageDirectMult = 1.0;
 
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_through_the_ranks"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_take_aim"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_know_their_weakness"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_arrow_to_the_knee"));
 
@@ -2927,7 +2927,7 @@ gt.Const.PTR.modEnemies <- function()
 				else if (weapon.isWeaponType(this.Const.WMS.WeaponType.Crossbow))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_power_shot"));
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_windlass_training"));
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_muscle_memory"));
 				}
 			}
 
@@ -3033,7 +3033,7 @@ gt.Const.PTR.modEnemies <- function()
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_through_the_ranks"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_take_aim"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_pathfinder"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_know_their_weakness"));
 			this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));
@@ -3068,7 +3068,7 @@ gt.Const.PTR.modEnemies <- function()
 				else if (weapon.isWeaponType(this.Const.WMS.WeaponType.Crossbow))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_power_shot"));
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_windlass_training"));
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_muscle_memory"));
 				}
 			}
 
@@ -3191,7 +3191,7 @@ gt.Const.PTR.modEnemies <- function()
 	 		onInit();
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_mastery_bow"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_entrenched"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_through_the_ranks"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_take_aim"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_target_practice"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
@@ -3209,7 +3209,7 @@ gt.Const.PTR.modEnemies <- function()
 	 		onInit();
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_mastery_bow"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_entrenched"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_through_the_ranks"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_take_aim"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_target_practice"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
@@ -3280,7 +3280,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_know_their_weakness"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_underdog"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_the_rush_of_battle"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_through_the_ranks"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_take_aim"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_power_shot"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_back_to_basics"));
 
@@ -3288,7 +3288,7 @@ gt.Const.PTR.modEnemies <- function()
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_nimble"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_berserk"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_windlass_training"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_muscle_memory"));
 			}
 		}
 

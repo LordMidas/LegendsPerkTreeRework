@@ -1047,7 +1047,7 @@ gt.Const.PTR.modWeaponTrees <- function()
 		this.Const.Perks.CleaverTree.Tree.push(emptyArray);
 	}
 	this.Const.Perks.CleaverTree.Tree[0] = [this.Const.Perks.PerkDefs.PTRSwordlike];
-	this.Const.Perks.CleaverTree.Tree[2] = [this.Const.Perks.PerkDefs.PTROpenWounds];
+	this.Const.Perks.CleaverTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRDeepCuts];
 	this.Const.Perks.CleaverTree.Tree[1] = [this.Const.Perks.PerkDefs.PTRSanguinary];
 	this.Const.Perks.CleaverTree.Tree[3] = [this.Const.Perks.PerkDefs.SpecCleaver];
 	this.Const.Perks.CleaverTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRBloodlust];
@@ -1061,13 +1061,13 @@ gt.Const.PTR.modWeaponTrees <- function()
 	}
 	this.Const.Perks.CrossbowTree.SelfWeightMultiplier <- 1.5;
 	this.Const.Perks.CrossbowTree.SelfExpertiseMultiplier <- this.Const.Perks.Expertise.High;
-	this.Const.Perks.CrossbowTree.Tree[0] = [this.Const.Perks.PerkDefs.PTRThroughTheRanks];
+	this.Const.Perks.CrossbowTree.Tree[0] = [this.Const.Perks.PerkDefs.PTRTakeAim];
 	this.Const.Perks.CrossbowTree.Tree[1] = [this.Const.Perks.PerkDefs.PTREntrenched];
 	this.Const.Perks.CrossbowTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRPowerShot];
 	this.Const.Perks.CrossbowTree.Tree[3] = [this.Const.Perks.PerkDefs.SpecCrossbow];
 	this.Const.Perks.CrossbowTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRIronSights];
 	this.Const.Perks.CrossbowTree.Tree[5] = [this.Const.Perks.PerkDefs.LegendPiercingShot];
-	this.Const.Perks.CrossbowTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRWindlassTraining];
+	this.Const.Perks.CrossbowTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRMuscleMemory];
 
 	while (this.Const.Perks.DaggerTree.Tree.len() < 7)
 	{
