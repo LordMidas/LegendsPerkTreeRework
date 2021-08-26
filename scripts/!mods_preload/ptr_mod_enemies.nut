@@ -339,6 +339,8 @@ gt.Const.PTR.modEnemies <- function()
 			onInit();
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_the_rush_of_battle"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_menacing"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bully"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -391,6 +393,7 @@ gt.Const.PTR.modEnemies <- function()
 			onInit();
 			this.m.Skills.add(this.new("scripts/skills/traits/iron_jaw_trait"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_unstoppable"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_menacing"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -684,6 +687,8 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			onInit();
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_open_wounds"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_menacing"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bully"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -851,9 +856,11 @@ gt.Const.PTR.modEnemies <- function()
 		o.onInit = function()
 		{
 			onInit();
+
 			local maulerPerk = this.new("scripts/skills/perks/perk_ptr_mauler");
 			maulerPerk.m.IsForceEnabled = true;
 			this.m.Skills.add(maulerPerk);
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bully"));
 		}
 	});
 
