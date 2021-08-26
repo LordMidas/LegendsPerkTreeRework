@@ -52,7 +52,7 @@ this.perk_ptr_testing <- this.inherit("scripts/skills/skill", {
 
 			"scripts/skills/perks/perk_ptr_patience",
 			"scripts/skills/perks/perk_ptr_heavy_projectiles",
-			"scripts/skills/perks/perk_ptr_sniper",
+			"scripts/skills/perks/perk_ptr_death_from_afar",
 
 			"scripts/skills/perks/perk_ptr_pointy_end",
 			"scripts/skills/perks/perk_ptr_impaler",

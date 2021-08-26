@@ -71,13 +71,13 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Const = "PTRFlamingArrows"
 		},
 		{
-			ID = "perk.ptr_sniper",
-			Script = "scripts/skills/perks/perk_ptr_sniper",
-			Name = this.Const.Strings.PerkName.PTRSniper,
-			Tooltip = this.Const.Strings.PerkDescription.PTRSniper,
-			Icon = "ui/perks/ptr_sniper.png",
-			IconDisabled = "ui/perks/ptr_sniper_bw.png",
-			Const = "PTRSniper"
+			ID = "perk.ptr_death_from_afar",
+			Script = "scripts/skills/perks/perk_ptr_death_from_afar",
+			Name = this.Const.Strings.PerkName.PTRDeathFromAfar,
+			Tooltip = this.Const.Strings.PerkDescription.PTRDeathFromAfar,
+			Icon = "ui/perks/ptr_death_from_afar.png",
+			IconDisabled = "ui/perks/ptr_death_from_afar_bw.png",
+			Const = "PTRDeathFromAfar"
 		},
 		{
 			ID = "perk.ptr_hip_shooter",

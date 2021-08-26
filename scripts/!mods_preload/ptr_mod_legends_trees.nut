@@ -1141,7 +1141,7 @@ gt.Const.PTR.modWeaponTrees <- function()
 	this.Const.Perks.SlingsTree.Tree[3] = [this.Const.Perks.PerkDefs.LegendMasterySlings];
 	this.Const.Perks.SlingsTree.Tree[4] = [this.Const.Perks.PerkDefs.LegendSpecialistSlingDamage];
 	this.Const.Perks.SlingsTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRHeavyProjectiles];
-	this.Const.Perks.SlingsTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRSniper];
+	this.Const.Perks.SlingsTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRDeathFromAfar];
 
 	while (this.Const.Perks.SpearTree.Tree.len() < 7)
 	{

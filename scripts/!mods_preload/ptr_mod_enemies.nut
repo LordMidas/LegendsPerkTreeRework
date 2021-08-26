@@ -2681,7 +2681,7 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_sniper"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_death_from_afar"));
 			}
 		}
 	});
