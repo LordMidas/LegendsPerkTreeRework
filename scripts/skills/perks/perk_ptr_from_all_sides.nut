@@ -45,6 +45,6 @@ this.perk_ptr_from_all_sides <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		targetEntity.getSkills().add(this.new("scripts/skills/effects/ptr_from_all_sides_effect");
+		targetEntity.getSkills().add(this.new("scripts/skills/effects/ptr_from_all_sides_effect"));
 	}
 });

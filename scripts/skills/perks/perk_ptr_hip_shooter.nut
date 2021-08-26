@@ -18,7 +18,7 @@ this.perk_ptr_hip_shooter <- this.inherit("scripts/skills/skill", {
 
 	function onAnySkillExecuted(_skill, _targetTile)
 	{
-		if (_skill.getID() = "actives.quick_shot")
+		if (_skill.getID() == "actives.quick_shot")
 		{
 			this.m.Count++;
 		}

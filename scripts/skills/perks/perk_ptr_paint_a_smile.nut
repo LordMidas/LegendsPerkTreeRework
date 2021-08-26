@@ -29,11 +29,6 @@ this.perk_ptr_paint_a_smile <- this.inherit("scripts/skills/skill", {
 		local saddestBro = null;
 		local mood = 999999;
 
-		for (local i = 0; i < roster.len(); i++)
-		{
-			if (roster[i].getMood() < )
-		}
-
 		foreach (bro in roster)
 		{
 			if (bro.getID() == this.getContainer().getActor().getID())
