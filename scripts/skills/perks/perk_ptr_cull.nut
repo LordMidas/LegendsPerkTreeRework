@@ -25,12 +25,12 @@ this.perk_ptr_cull <- this.inherit("scripts/skills/skill", {
 		}
 
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Axe))
+		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Axe))
 		{
 			return false;
 		}
 
-		if (!_skill.hasCuttingDamage() || !_skill.m.IsWeaponSkill)
+		if (!_skill.hasDamageType(this.Const.Damage.DamageType.Cutting) || !_skill.m.IsWeaponSkill)
 		{
 			return false;
 		}

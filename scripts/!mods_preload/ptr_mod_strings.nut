@@ -33,12 +33,12 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRMarksmanship <- "Marksmanship";
 	gt.Const.Strings.PerkDescription.PTRMarksmanship <- "When using a Ranged weapon, gain [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of your Base Ranged Skill as additional Minimum and Maximum Damage.\n[color=#0b0084]From the Bow perk group[/color]";
 	gt.Const.Strings.PerkName.PTRHipShooter <- "Hip Shooter";
-	gt.Const.Strings.PerkDescription.PTRHipShooter <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Bow[/color]\n\nEach subsequent Quick Shot requires [color=" + this.Const.UI.Color.NegativeValue + "]1[/color] less Action Point to a minimum of [color=" + this.Const.UI.Color.PositiveValue + "]2[/color].\n[color=#0b0084]From the Bow perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRHipShooter <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Bow[/color]\n\nThe Action Point cost of Quick Shot is reduced by [color=" + this.Const.UI.Color.NegativeValue + "]1[/color], but each subsequent Quick Shot in a turn builds [color=" + this.Const.UI.Color.NegativeValue + "]10%[/color] more Fatigue.\n[color=#0b0084]From the Bow perk group[/color]";
 
 	gt.Const.Strings.PerkName.PTRSwordlike <- "Swordlike";
 	gt.Const.Strings.PerkDescription.PTRSwordlike <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Cleaver[/color]\n\nCleave gains [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit.\n[color=#0b0084]From the Cleaver perk group[/color]";
-	gt.Const.Strings.PerkName.PTROpenWounds <- "Deep Cuts";
-	gt.Const.Strings.PerkDescription.PTROpenWounds <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Damage Type: Cutting[/color]\n\nEvery second attack against the same target will inflict an additional stack of Bleeding for [color=" + this.Const.UI.Color.PositiveValue + "]5[/color] damage. If any of the two attacks inflicted an injury, this damage is increased to [color=" + this.Const.UI.Color.PositiveValue + "]10[/color].\n[color=#0b0084]From the Cleaver perk group[/color]";
+	gt.Const.Strings.PerkName.PTRDeepCuts <- "Deep Cuts";
+	gt.Const.Strings.PerkDescription.PTRDeepCuts <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Damage Type: Cutting[/color]\n\nEvery second attack against the same target will inflict an additional stack of Bleeding for [color=" + this.Const.UI.Color.PositiveValue + "]5[/color] damage. If any of the two attacks inflicted an injury, this damage is increased to [color=" + this.Const.UI.Color.PositiveValue + "]10[/color].\n[color=#0b0084]From the Cleaver perk group[/color]";
 	gt.Const.Strings.PerkName.PTRSanguinary <- "Sanguinary";
 	gt.Const.Strings.PerkDescription.PTRSanguinary <- "The chance to inflict fatalities is increased by [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color]. Fatalities refund [color=" + this.Const.UI.Color.NegativeValue + "]25%[/color] of the Base Fatigue Cost of the skill used. Every attack against a Bleeding target improves this character\'s Morale by one level, and fatalities instantly set the Morale to Confident.\n[color=#0b0084]From the Cleaver perk group[/color]";
 	gt.Const.Strings.PerkName.PTRBloodlust <- "Bloodlust";
@@ -48,16 +48,18 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRMauler <- "Mauler";
 	gt.Const.Strings.PerkDescription.PTRMauler <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Cleaver[/color]\n\nAttacks do more damage, the less armor your target has. This bonus is [color=" + this.Const.UI.Color.PositiveValue + "]35%[/color] more damage at no armor, and [color=" + this.Const.UI.Color.PositiveValue + "]0%[/color] more damage at 100% armor remaining.\n[color=#0b0084]From the Cleaver perk group[/color]";
 
-	gt.Const.Strings.PerkName.PTRThroughTheRanks <- "Through the Ranks";
-	gt.Const.Strings.PerkDescription.PTRThroughTheRanks <- "Ranged attacks have a [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] reduced chance to inflict friendly fire.\n[color=#0b0084]From the Crossbow perk group[/color]";
+	gt.Const.Strings.PerkName.PTRTakeAim <- "Take Aim";
+	gt.Const.Strings.PerkDescription.PTRTakeAim <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Crossbow or Firearm[/color] Unlocks the \'Take Aim\' skill which applies to your next ranged attack during this turn. For crossbows, the attack ignores the hitchance penalty from obstacles and the shot cannot go astray. For Handgonnes the attack has its Maximum Range increased by [color=" + this.Const.UI.Color.PositiveValue + "]1[/color] and if used at a shorter range, the area of effect is increased by [color=" + this.Const.UI.Color.PositiveValue + "]1[/color] instead.\n[color=#0b0084]From the Crossbow perk group[/color]";
 	gt.Const.Strings.PerkName.PTREntrenched <- "Entrenched";
-	gt.Const.Strings.PerkDescription.PTREntrenched <- "When using a ranged weapon and standing adjacent to an ally who is not engaged in Melee, Ranged Skill, Ranged Defense, and Resolve are increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color].\n[color=#0b0084]From the Crossbow perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTREntrenched <- "When using a ranged weapon and standing adjacent to an ally wielding a melee weapon who is not engaged in melee, gain [color=" + this.Const.UI.Color.PositiveValue + "]+5[/color] Ranged Skill, Ranged Defense, and Resolve. The bonus increases by [color=" + this.Const.UI.Color.PositiveValue + "]+1[/color] every turn up to a maximum of [color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] as long as you continue to start your turn adjacent to any ally wielding a melee weapon who is not engaged in melee.\n[color=#0b0084]From the Crossbow perk group[/color]";
 	gt.Const.Strings.PerkName.PTRPowerShot <- "Power Shot";
 	gt.Const.Strings.PerkDescription.PTRPowerShot <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Crossbow or Firearm[/color]\n\nAttacks from crossbows and firearms have a [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] chance to inflict Staggered for one turn.\n[color=#0b0084]From the Crossbow perk group[/color]";
 	gt.Const.Strings.PerkName.PTRIronSights <- "Iron Sights";
 	gt.Const.Strings.PerkDescription.PTRIronSights <- "Ranged attacks have an additional [color=" + this.Const.UI.Color.PositiveValue + "]+15%[/color] chance to hit the head.\n[color=#0b0084]From the Crossbow perk group[/color]";
-	gt.Const.Strings.PerkName.PTRWindlassTraining <- "Muscle Memory";
-	gt.Const.Strings.PerkDescription.PTRWindlassTraining <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Crossbow or Firearm[/color]\n\nThe Action Point Cost of reloading a crossbow is reduced by [color=" + this.Const.UI.Color.NegativeValue + "]1[/color] and that of reloading a Handgonne is reduced by [color=" + this.Const.UI.Color.NegativeValue + "]2[/color].\n[color=#0b0084]From the Crossbow perk group[/color]";
+	gt.Const.Strings.PerkName.PTRPrimalFear <- "Primal Fear";
+	gt.Const.Strings.PerkDescription.PTRPrimalFear <- "Ranged attacks that hit the head have a [color=" + this.Const.UI.Color.PositiveValue + "]25%[/color] chance to lower the target\'s morale by [color=" + this.Const.UI.Color.NegativeValue + "]1[/color] level. This chance is [color=" + this.Const.UI.Color.PositiveValue + "]100%[/color] when using a Crossbow.\n[color=#0b0084]From the Crossbow perk group[/color]";
+	gt.Const.Strings.PerkName.PTRMuscleMemory <- "Muscle Memory";
+	gt.Const.Strings.PerkDescription.PTRMuscleMemory <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Crossbow or Firearm[/color]\n\nThe Action Point Cost of reloading a crossbow is reduced by [color=" + this.Const.UI.Color.NegativeValue + "]1[/color] and that of reloading a Handgonne is reduced by [color=" + this.Const.UI.Color.NegativeValue + "]2[/color].\n[color=#0b0084]From the Crossbow perk group[/color]";
 
 	gt.Const.Strings.PerkName.PTRBetweenTheRibs <- "Between the Ribs";
 	gt.Const.Strings.PerkDescription.PTRBetweenTheRibs <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Dagger[/color]\n\nWhen using daggers, attacks deal [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color] more damage per ally surrounding the target.\n[color=#0b0084]From the Dagger perk group[/color]";
@@ -75,8 +77,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRDeadlyPrecision <- "Deadly Precision";
 	gt.Const.Strings.PerkDescription.PTRDeadlyPrecision <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Flail[/color]\n\nWhen using flails, an additional random [color=" + this.Const.UI.Color.PositiveValue + "]0-25%[/color] of damage ignores armor.\n[color=#0b0084]From the Flail perk group[/color]";
 	gt.Const.Strings.PerkName.PTRFromAllSides <- "From all Sides";
-	gt.Const.Strings.PerkDescription.PTRFromAllSides <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Flail[/color]\n\nSuccessful hits from Flails progressively reduce the target's Melee and Ranged Defense by [color=" + this.Const.UI.Color.NegativeValue + "]5%[/color] for one turn. The effect is doubled if the attacks hit the head.\n[color=#0b0084]From the Flail perk group[/color]";
-
+	gt.Const.Strings.PerkDescription.PTRFromAllSides <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Flail[/color]\n\nSuccessful hits from Flails progressively reduce the target's Melee and Ranged Defense by a stacking [color=" + this.Const.UI.Color.NegativeValue + "]-3[/color] for one turn. The effect is doubled if the attacks hit the head. Missed attacks reduce the target\'s defense by [color=" + this.Const.UI.Color.NegativeValue + "]-1[/color] instead.\n[color=#0b0084]From the Flail perk group[/color]";
 	gt.Const.Strings.PerkDescription.LegendSmackdown = "Use your size and strength to bully your way into the prime position. Unlocks the \'Wind Up\' skill that prepares you to knock back and Baffle an opponent on your next swing. Also causes the target to spend [color=" + this.Const.UI.Color.NegativeValue + "]3[/color] additional Action Points per tile moved on their turn. \n[color=#0b0084]From the Hammer perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSmackdown].Tooltip = gt.Const.Strings.PerkDescription.LegendSmackdown;
 	gt.Const.Strings.PerkName.PTRRattle <- "Rattle";
@@ -118,8 +119,8 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.PTRPatience <- "Gain [color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] Ranged Skill as long as you have not moved during your turn.\n[color=#0b0084]From the Sling perk group[/color]";
 	gt.Const.Strings.PerkName.PTRHeavyProjectiles <- "Heavy Projectiles";
 	gt.Const.Strings.PerkDescription.PTRHeavyProjectiles <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Sling[/color]\n\nRanged attacks from Slings will stun the target on a hit to the head and apply Dazed on a hit to the body. If the target is immune to stun, hits to the head instead apply Dazed and hits to the body apply Baffled.\n[color=#0b0084]From the Sling perk group[/color]";
-	gt.Const.Strings.PerkName.PTRSniper <- "Death From Afar";
-	gt.Const.Strings.PerkDescription.PTRSniper <- "Damage from Ranged attacks is increased by [color=" + this.Const.UI.Color.PositiveValue + "]2%[/color] per tile the target is away from you.\n[color=#0b0084]From the Sling perk group[/color]";
+	gt.Const.Strings.PerkName.PTRDeathFromAfar <- "Death From Afar";
+	gt.Const.Strings.PerkDescription.PTRDeathFromAfar <- "Damage from Ranged attacks is increased by [color=" + this.Const.UI.Color.PositiveValue + "]2%[/color] per tile the target is away from you.\n[color=#0b0084]From the Sling perk group[/color]";
 
 	gt.Const.Strings.PerkName.PTRPointyEnd <- "Pointy End";
 	gt.Const.Strings.PerkDescription.PTRPointyEnd <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Damage Type: Piercing, Melee[/color]\n\nMelee piercing attacks against an enemy without a shield gain [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit.\n[color=#0b0084]From the Spear perk group[/color]";
@@ -170,7 +171,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.PTRWhackASmack <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Staff[/color]\n\nWhile wielding a staff, perform a free attack against anyone who misses an attack against you. This free attack has a [color=" + this.Const.UI.Color.NegativeValue + "]-20%[/color] chance to hit. Applies Baffled on the target if successful.\n[color=#0b0084]From the Staff perk group[/color]";
 
 	gt.Const.Strings.PerkName.PTRHybridization <- "Hybridization";
-	gt.Const.Strings.PerkDescription.PTRHybridization <- "Gain [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of your Base Melee Skill as Ranged Skill and [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of your Base Ranged Skill as Melee Skill.\n[color=#0b0084]From the Throwing perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRHybridization <- "Gain [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of your Base Ranged Skill as Melee Skill. Additionally, when wielding a Throwing Weapon, gain [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of your Base Melee Skill as Ranged Skill.\n[color=#0b0084]From the Throwing perk group[/color]";
 	gt.Const.Strings.PerkName.PTRMomentum <- "Momentum";
 	gt.Const.Strings.PerkDescription.PTRMomentum <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Throwing[/color]\n\nThrowing weapons do [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] more damage per tile moved towards the target before throwing.\n[color=#0b0084]From the Throwing perk group[/color]";
 	gt.Const.Strings.PerkName.PTROpportunist <- "Opportunist";
@@ -185,7 +186,7 @@ gt.Const.PTR.modStrings <- function()
 
 	gt.Const.Strings.PerkDescription.CoupDeGrace = "Damage against targets who have sustained any injury effects, like a broken arm is increased by [color=" + this.Const.UI.Color.PositiveValue + "]20%[/color]. Additionally, against targets who are stunned, netted, sleeping or debilitated, damage is increased by [color=" + this.Const.UI.Color.PositiveValue + "]20%[/color]. Both bonuses stack.\n[color=#0b0084]From the Vicious perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.CoupDeGrace].Tooltip = gt.Const.Strings.PerkDescription.CoupDeGrace;
-	gt.Const.Strings.PerkDescription.LegendAssuredConquest = "Resolve is increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color], and by an additional [color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] at positive morale checks. When at Confident Morale, these bonuses are doubled, and additionally Melee Skill, Ranged Skill, Melee Defense, and Ranged Defense are increased by [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color].\n[color=#0b0084]From the Vicious perk group[/color]";
+	gt.Const.Strings.PerkDescription.LegendAssuredConquest = "Resolve is increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] at all times. Additionally, at positive morale checks it is further increased by [color=" + this.Const.UI.Color.PositiveValue + "]+10[/color]. When at Confident Morale, these bonuses are doubled, and additionally Melee Skill, Ranged Skill, Melee Defense, and Ranged Defense are increased by [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color].\n[color=#0b0084]From the Vicious perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendAssuredConquest].Tooltip = gt.Const.Strings.PerkDescription.LegendAssuredConquest;
 
 	gt.Const.Strings.PerkName.PTRDiscoveredTalent <- "Discovered Talent";
@@ -195,13 +196,15 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRRisingStar <- "Rising Star";
 	gt.Const.Strings.PerkDescription.PTRRisingStar <- "Experience Gain is increased by [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] until Level 13, and by [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color] after that. At Level 13, gain [color=" + this.Const.UI.Color.PositiveValue + "]2[/color] perk points.\n[color=#0b0084]From the Talented perk group[/color]";
 
+	gt.Const.Strings.PerkName.PTRDynamicDuo <- "Dynamic Duo";
+	gt.Const.Strings.PerkDescription.PTRDynamicDuo <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Situation: Only one ally within 2 tiles who has no one within 2 tiles except you[/color]\n\nFor this perk, only characters belonging to your company are considered as allies.\n\nGain [color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] Initiative, [color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] Resolve, and [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] Melee Defense. If your ally also has this perk, these bonuses are doubled, and whenever that ally gets attacked by an enemy in melee, your next melee attack against that enemy has [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit.\n\nWhen standing adjacent to that ally, gain the Rotation skill even if you do not have the Rotation perk. The Fatigue Cost of the first use of Rotation on your turn is halved, and if your ally also has this perk, it additionally costs no Action Points.\n[color=#0b0084]From the Fast perk group[/color]";
 	gt.Const.Strings.PerkName.PTRFreshAndFurious <- "Fresh and Furious";
 	gt.Const.Strings.PerkDescription.PTRFreshAndFurious <- "Damage is increased by [color=" + this.Const.UI.Color.PositiveValue + "]25%[/color] when at [color=" + this.Const.UI.Color.PositiveValue + "]0%[/color] Fatigue. This bonus reduces to [color=" + this.Const.UI.Color.NegativeValue + "]0%[/color] when your Fatigue approaches [color=" + this.Const.UI.Color.NegativeValue + "]30%[/color] of Maximum Fatigue.\n[color=#0b0084]From the Fast perk group[/color]";
 
 	gt.Const.Strings.PerkName.PTRUnstoppable <- "Unstoppable";
 	gt.Const.Strings.PerkDescription.PTRUnstoppable <- "Gain a stacking bonus to Melee Skill and Melee Damage for every successful attack. Each stack provides [color=" + this.Const.UI.Color.PositiveValue + "]+5[/color] Melee Skill and increases Melee Damage by [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color], up to a maximum of 10 stacks. Attacks at 2 tiles range only grant a stack after two successful hits. You lose half of the stacks if you miss an attack or if you get hit.\n[color=#0b0084]From the Unstoppable perk group[/color]";
 
-	gt.Const.Strings.PerkDescription.LegendBackToBasics = "All attributes are increased by [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color]. Additionally, XP gain is increased by [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color].\n[color=#0b0084]From the Trained perk group[/color]";
+	gt.Const.Strings.PerkDescription.LegendBackToBasics = "Gain a bonus to key combat attributes depending on how far their Base Values are below a certain thershold. These attributes are increased by a percentage equal to the number of points they are below the threshold. The threshold for Melee Skill and Ranged Skill is [color=" + this.Const.UI.Color.PositiveValue + "]70[/color], and for Melee Defense, Ranged Defense, and Resolve is [color=" + this.Const.UI.Color.PositiveValue + "]40[/color].\n\nAlso grants [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] Training in camp.\n[color=#0b0084]From the Trained perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendBackToBasics].Tooltip = gt.Const.Strings.PerkDescription.LegendBackToBasics;
 	gt.Const.Strings.PerkName.PTRVigilant <- "Vigilant";
 	gt.Const.Strings.PerkDescription.PTRVigilant <- "At the end of your turn, gain Melee Skill and Melee Defense equal to your remaining Action Points up to a maximum of [color=" + this.Const.UI.Color.PositiveValue + "]9[/color]. The bonus lasts until the end of your next turn.\n[color=#0b0084]From the Trained perk group[/color]";
@@ -228,6 +231,8 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRTraumaSurvivor <- "Trauma Survivor";
 	gt.Const.Strings.PerkDescription.PTRTraumaSurvivor <- "This character\'s life has been a living hell, and they have gained a certain resilience. Resolve is increased by [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] against fear, panic and mind control effects.\n\nIf Realized Potential is a success, this perk becomes permanent and the perk point is refunded.\n[color=#0b0084]From the Pauper perk group[/color]";
 
+	gt.Const.Strings.PerkName.PTRBulwark <- "Bulwark";
+	gt.Const.Strings.PerkDescription.PTRBulwark <- "Resolve is increased by [color=" + this.Const.UI.Color.PositiveValue + "]2%[/color] of the combined current durability of head and body armor. This bonus is doubled against negative morale checks except mental attacks.\n[color=#0b0084]From the Heavy Armor perk group[/color]";
 	gt.Const.Strings.PerkName.PTRManOfSteel <- "Man of Steel";
 	gt.Const.Strings.PerkDescription.PTRManOfSteel <- "Armor penetrating damage to Hitpoints received from Ranged attacks is reduced by up to [color=" + this.Const.UI.Color.PositiveValue + "]30%[/color]. This bonus increases exponentially by wearing head and body armor of higher Maximum Durability.\n[color=#0b0084]From the Heavy Armor perk group[/color]";
 
@@ -236,7 +241,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.Duelist = "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: One-Handed, Melee[/color]\n\n" + gt.Const.Strings.PerkDescription.Duelist;
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Duelist].Tooltip = gt.Const.Strings.PerkDescription.Duelist;
 	gt.Const.Strings.PerkName.PTRWeaponMaster <- "Weapon Master";
-	gt.Const.Strings.PerkDescription.PTRWeaponMaster <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: One-Handed Melee[/color]\n\nGrants the bonuses of the weapon mastery perks for all One-Handed Melee weapons.\n\nOnce per turn, switching from one One-Handed Melee weapon to another costs no Action Points. Does not stack with Quick Hands.\n[color=#0b0084]From the One-Handed Weapons perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRWeaponMaster <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: One-Handed Melee[/color]\n\nGrants the bonuses of the weapon mastery perks for all One-Handed Melee weapons whose perk groups this character has access to.\n\nOnce per turn, switching from one One-Handed Melee weapon to another costs no Action Points. Does not stack with Quick Hands.\n\nOnly works if you have picked at least one of the following weapon mastery perks: Axe, Cleaver, Dagger, Flail, Hammer, Mace, Spear, Sword.\n[color=#0b0084]From the One-Handed Weapons perk group[/color]";
 
 	gt.Const.Strings.PerkName.PTRFruitsOfLabor <- "Fruits of Labor";
 	gt.Const.Strings.PerkDescription.PTRFruitsOfLabor <- "Hitpoints, Maximum Fatigue, and Initiative are increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] each.\n[color=#0b0084]From the Laborer perk group[/color]";
@@ -255,6 +260,11 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRProfessional <- "Professional";
 	gt.Const.Strings.PerkDescription.PTRProfessional <- "Grants the benefits of the Shield Expert, Weapon Master, Reach Advantage, and Bloody Harvest perks without requiring these perks to be picked.\n[color=#0b0084]From the Soldier perk group[/color]";
 
+	gt.Const.Strings.PerkName.PTRAlwaysAnEntertainer <- "Always An Entertainer";
+	gt.Const.Strings.PerkDescription.PTRAlwaysAnEntertainer <- "Once per day, when you visit a non-military settlement, gain between [color=" + this.Const.UI.Color.PositiveValue + "]20[/color] and [color=" + this.Const.UI.Color.PositiveValue + "]40[/color] gold. For each level this character is above 1, these values are increased by [color=" + this.Const.UI.Color.PositiveValue + "]+2[/color]. The values are doubled for medium-sized settlements and tripled for large settlements.\n\nIf multiple characters with this perk are present, only one of them will entertain in a given city on a given day, and the others will have to entertain in other cities.\n[color=#0b0084]From the Entertainer perk group[/color]";
+	gt.Const.Strings.PerkName.PTRPaintASmile <- "Paint a Smile";
+	gt.Const.Strings.PerkDescription.PTRPaintASmile <- "At the start of every new day, improve the Mood of the character with the lowest Mood in your roster.\n[color=#0b0084]From the Entertainer perk group[/color]";
+
 	gt.Const.Strings.PerkDescription.LegendFreedomOfMovement = "Being unencumbered allows you to move and strike with great accuracy. Melee Skill and Melee Defense are increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of your Maximum Fatigue after gear. These bonuses drop exponentially when wearing head and body armor with a total penalty to Maximum Fatigue greater than [color=" + this.Const.UI.Color.NegativeValue + "]-15[/color].\n[color=#0b0084]From the Light Armor perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendFreedomOfMovement].Tooltip = gt.Const.Strings.PerkDescription.LegendFreedomOfMovement;
 
@@ -272,6 +282,12 @@ gt.Const.PTR.modStrings <- function()
 
 	gt.Const.Strings.PerkDescription.QuickHands = "Looking for this? Swapping any item in battle a free action with no Action Point cost once every turn. Does not work when swapping a shield, or when swapping from one Two-Handed melee weapon to another Two-Handed melee weapon.\n[color=#0b0084]From the Throwing perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.QuickHands].Tooltip = gt.Const.Strings.PerkDescription.QuickHands;
+
+	gt.Const.Strings.PerkDescription.LegendRelax = "Soothe an ally, doubling their Fatigue Recovery on their next turn.\n\nCannot be used when engaged in melee or on the same target two turns in a row.";
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendRelax].Tooltip = gt.Const.Strings.PerkDescription.LegendRelax;
+
+	gt.Const.Strings.PerkDescription.DoubleStrike = "[color=" + this.Const.UI.Color.NegativeValue + "]Required Attack Type: Melee[/color]\n\n" + gt.Const.Strings.PerkDescription.DoubleStrike;
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.DoubleStrike].Tooltip = gt.Const.Strings.PerkDescription.DoubleStrike;
 
 	gt.Const.Strings.PerkDescription.SpecSword += "\n\nThe threshold to inflict injury when using a Shamshir or the One-Handed versions of Saif and Scimitar is reduced by [color=" + this.Const.UI.Color.NegativeValue + "]25%[/color].\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.SpecSword].Tooltip = gt.Const.Strings.PerkDescription.SpecSword;
@@ -384,7 +400,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.Relentless = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Relentless, "Fast and Light Armor");
 	gt.Const.Strings.PerkDescription.Relentless += "[color=#0b0084]s[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Relentless].Tooltip = gt.Const.Strings.PerkDescription.Relentless;
-	gt.Const.Strings.PerkDescription.LegendSecondWind = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendSecondWind, "Fast");
+	gt.Const.Strings.PerkDescription.LegendSecondWind = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendSecondWind, "Resilient");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSecondWind].Tooltip = gt.Const.Strings.PerkDescription.LegendSecondWind;
 	gt.Const.Strings.PerkDescription.BattleFlow = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.BattleFlow, "Fast");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.BattleFlow].Tooltip = gt.Const.Strings.PerkDescription.BattleFlow;
@@ -434,7 +450,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendMasteryNets].Tooltip = gt.Const.Strings.PerkDescription.LegendMasteryNets;
 	gt.Const.Strings.PerkDescription.LegendEscapeArtist = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendEscapeArtist, "Trapper");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendEscapeArtist].Tooltip = gt.Const.Strings.PerkDescription.LegendEscapeArtist;
-	
+
 	gt.Const.Strings.PerkDescription.LegendFieldRepairs = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendFieldRepairs, "Mender");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendFieldRepairs].Tooltip = gt.Const.Strings.PerkDescription.LegendFieldRepairs;
 	gt.Const.Strings.PerkDescription.LegendToolsDrawers = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendToolsDrawers, "Mender");

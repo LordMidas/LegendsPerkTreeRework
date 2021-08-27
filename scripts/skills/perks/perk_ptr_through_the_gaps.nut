@@ -15,7 +15,7 @@ this.perk_ptr_through_the_gaps <- this.inherit("scripts/skills/skill", {
 
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
-		if (_skill.isAttack() && !_skill.isRanged() && _skill.hasPiercingDamage())
+		if (_skill.isAttack() && !_skill.isRanged() && _skill.hasDamageType(this.Const.Damage.DamageType.Piercing))
 		{
 			_properties.DamageDirectAdd += 0.1;
 		}

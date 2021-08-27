@@ -22,7 +22,7 @@ this.perk_ptr_soft_metal <- this.inherit("scripts/skills/skill", {
 			return true;
 		}
 
-		if (!_skill.hasBluntDamage())
+		if (!_skill.hasDamageType(this.Const.Damage.DamageType.Blunt))
 		{
 			return false;
 		}
@@ -36,7 +36,7 @@ this.perk_ptr_soft_metal <- this.inherit("scripts/skills/skill", {
 		{
 			local remArmorFraction = _targetEntity.getRemainingArmorFraction();
 			local weapon = this.getContainer().getActor().getMainhandItem();
-			if (remArmorFraction < 0.6 || (weapon != null && weapon.isWeaponType(this.Const.WMS.WeaponType.Hammer)))
+			if (remArmorFraction < 0.6 || (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.Hammer)))
 			_properties.DamageDirectAdd += 0.1;
 		}
 	}

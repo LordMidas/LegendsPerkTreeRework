@@ -17,7 +17,7 @@ this.perk_ptr_a_better_grip <- this.inherit("scripts/skills/skill", {
 	{
 		local actor = this.getContainer().getActor();
 		local weapon = actor.getMainhandItem();
-		if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Spear) || !actor.isArmedWithShield())
+		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Spear) || !actor.isArmedWithShield())
 		{
 			return;
 		}
@@ -30,7 +30,7 @@ this.perk_ptr_a_better_grip <- this.inherit("scripts/skills/skill", {
 	{
 		local actor = this.getContainer().getActor();
 		local weapon = actor.getMainhandItem();
-		if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Spear))
+		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Spear))
 		{
 			return;
 		}

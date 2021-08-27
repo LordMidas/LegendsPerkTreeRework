@@ -1,4 +1,4 @@
-this.perk_ptr_heightened_reflexes <- this.inherit("scripts/skills/skill", {
+this.perk_ptr_fluid_weapon <- this.inherit("scripts/skills/skill", {
 	m = {
 		IsForceEnabled = false,
 		PivotFat = 35,
@@ -9,10 +9,10 @@ this.perk_ptr_heightened_reflexes <- this.inherit("scripts/skills/skill", {
 	},
 	function create()
 	{
-		this.m.ID = "perk.ptr_heightened_reflexes";
+		this.m.ID = "perk.ptr_fluid_weapon";
 		this.m.Name = this.Const.Strings.PerkName.PTRHeightenedReflexes;
 		this.m.Description = this.Const.Strings.PerkDescription.PTRHeightenedReflexes;
-		this.m.Icon = "ui/perks/ptr_heightened_reflexes.png";
+		this.m.Icon = "ui/perks/ptr_fluid_weapon.png";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.Last;
 		this.m.IsActive = false;
@@ -68,7 +68,7 @@ this.perk_ptr_heightened_reflexes <- this.inherit("scripts/skills/skill", {
 		}
 
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
+		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Sword))
 		{
 			return false;
 		}

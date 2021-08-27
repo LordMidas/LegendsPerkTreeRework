@@ -17,11 +17,6 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
-	function isHidden()
-	{
-			return this.m.IsSpent || (!this.getContainer().hasSkill("actives.thrust") && !this.getContainer().hasSkill("actives.prong"));
-	}
-
 	function getDescription()
 	{
 		return "This character is highly skilled in spears and can perform a free attack during their turn.";
@@ -35,10 +30,18 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 			id = 10,
 			type = "text",
 			icon = "ui/icons/special.png",
-			text = "The next Thrust attack costs [color=" + this.Const.UI.Color.PositiveValue + "]0[/color] Action Points, builds [color=" + this.Const.UI.Color.NegativeValue + "]0[/color] Fatigue but does [color=" + this.Const.UI.Color.NegativeValue + "]-" + this.m.DamageReductionPercentage + "%[/color] Damage"
+			text = "The next Thrust or Prong attack costs [color=" + this.Const.UI.Color.PositiveValue + "]0[/color] Action Points, builds [color=" + this.Const.UI.Color.NegativeValue + "]0[/color] Fatigue but does [color=" + this.Const.UI.Color.NegativeValue + "]-" + this.m.DamageReductionPercentage + "%[/color] Damage"
 		});
 
 		return tooltip;
+	}
+
+	function onAdded()
+	{
+		if (!this.getContainer().getActor().isPlayerControlled() && this.isEnabled())
+		{
+			this.m.IsSpent = false;
+		}
 	}
 
 	function isEnabled()
@@ -49,7 +52,7 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 		}
 
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Spear))
+		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Spear) || (!this.getContainer().hasSkill("actives.thrust") && !this.getContainer().hasSkill("actives.prong")))
 		{
 			return false;
 		}
@@ -59,10 +62,15 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 
 	function onAfterUpdate(_properties)
 	{
-		if (this.m.IsSpent || !this.isEnabled())
+		this.m.IsHidden = true;
+
+		if (this.m.IsSpent || !this.isEnabled() || !this.getContainer().getActor().isPlacedOnMap())
 		{
+			this.m.IsSpent = true;
 			return;
 		}
+
+		this.m.IsHidden = false;
 
 		local skills = [];
 		skills.push(this.getContainer().getSkillByID("actives.thrust"));
@@ -81,18 +89,9 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 				s.m.FatigueCostMult = 0;
 			}
 		}
-
 	}
 
-	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
-	{
-		if (_skill.getID() == "actives.thrust" || _skill.getID() == "actives.prong")
-		{
-			this.m.IsSpent = true;
-		}
-	}
-
-	function onTargetMissed( _skill, _targetEntity )
+	function onAnySkillExecuted(_skill, _targetTile)
 	{
 		if (_skill.getID() == "actives.thrust" || _skill.getID() == "actives.prong")
 		{
@@ -102,23 +101,21 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
-		if (this.m.IsSpent)
+		if (this.m.IsSpent || this.m.IsHidden)
 		{
 			return;
 		}
 
-		if (_skill.getID() != "actives.thrust" && _skill.getID() != "actives.prong")
+		if (_skill.getID() == "actives.thrust" || _skill.getID() == "actives.prong")
 		{
-			return;
-		}
+			local actor = this.getContainer().getActor();
+			if (!actor.isPlacedOnMap() || this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
+			{
+				return;
+			}
 
-		local actor = this.getContainer().getActor();
-		if (!actor.isPlacedOnMap() || this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
-		{
-			return;
+			_properties.MeleeDamageMult *= this.m.DamageReductionPercentage * 0.01;
 		}
-
-		_properties.MeleeDamageMult *= this.m.DamageReductionPercentage * 0.01;
 	}
 
 	function onTurnStart()

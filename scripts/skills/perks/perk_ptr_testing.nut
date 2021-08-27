@@ -11,16 +11,16 @@ this.perk_ptr_testing <- this.inherit("scripts/skills/skill", {
 			"scripts/skills/perks/perk_ptr_flaming_arrows",
 			"scripts/skills/perks/perk_ptr_hip_shooter",
 
-			"scripts/skills/perks/perk_ptr_open_wounds",
+			"scripts/skills/perks/perk_ptr_deep_cuts",
 			"scripts/skills/perks/perk_ptr_bloodlust",
 			"scripts/skills/perks/perk_ptr_bloodbath",
 			"scripts/skills/perks/perk_ptr_mauler",
 
-			"scripts/skills/perks/perk_ptr_through_the_ranks",
+			"scripts/skills/perks/perk_ptr_take_aim",
 			"scripts/skills/perks/perk_ptr_entrenched",
 			"scripts/skills/perks/perk_ptr_power_shot",
 			"scripts/skills/perks/perk_ptr_iron_sights",
-			"scripts/skills/perks/perk_ptr_windlass_training",
+			"scripts/skills/perks/perk_ptr_muscle_memory",
 
 			"scripts/skills/perks/perk_ptr_between_the_ribs",
 			"scripts/skills/perks/perk_ptr_light_weapon",
@@ -52,7 +52,7 @@ this.perk_ptr_testing <- this.inherit("scripts/skills/skill", {
 
 			"scripts/skills/perks/perk_ptr_patience",
 			"scripts/skills/perks/perk_ptr_heavy_projectiles",
-			"scripts/skills/perks/perk_ptr_sniper",
+			"scripts/skills/perks/perk_ptr_death_from_afar",
 
 			"scripts/skills/perks/perk_ptr_pointy_end",
 			"scripts/skills/perks/perk_ptr_impaler",
@@ -62,7 +62,7 @@ this.perk_ptr_testing <- this.inherit("scripts/skills/skill", {
 			"scripts/skills/perks/perk_ptr_king_of_all_weapons",
 
 			"scripts/skills/perks/perk_ptr_versatile_weapon",
-			"scripts/skills/perks/perk_ptr_heightened_reflexes",
+			"scripts/skills/perks/perk_ptr_fluid_weapon",
 			"scripts/skills/perks/perk_ptr_tempo",
 			"scripts/skills/perks/perk_ptr_kata",
 			"scripts/skills/perks/perk_ptr_en_garde",

@@ -565,7 +565,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	this.Const.Perks.IndestructibleTree.Tree[1] = [this.Const.Perks.PerkDefs.PTRSurvivalInstinct];
 	this.Const.Perks.IndestructibleTree.Tree[2] = [this.Const.Perks.PerkDefs.HoldOut];
 	this.Const.Perks.IndestructibleTree.Tree[3] = [];
-	this.Const.Perks.IndestructibleTree.Tree[4] = [];
+	this.Const.Perks.IndestructibleTree.Tree[4] = [this.Const.Perks.PerkDefs.LegendSecondWind];
 	this.Const.Perks.IndestructibleTree.Tree[5] = [];
 	this.Const.Perks.IndestructibleTree.Tree[6] = [this.Const.Perks.PerkDefs.LastStand];
 
@@ -628,7 +628,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	this.Const.Perks.FastTree.Tree[1] = [this.Const.Perks.PerkDefs.Anticipation];
 	this.Const.Perks.FastTree.Tree[2] = [this.Const.Perks.PerkDefs.Relentless];
 	this.Const.Perks.FastTree.Tree[3] = [];
-	this.Const.Perks.FastTree.Tree[4] = [this.Const.Perks.PerkDefs.LegendSecondWind];
+	this.Const.Perks.FastTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRDynamicDuo];
 	this.Const.Perks.FastTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRFreshAndFurious];
 	this.Const.Perks.FastTree.Tree[6] = [this.Const.Perks.PerkDefs.BattleFlow];
 
@@ -889,6 +889,7 @@ gt.Const.PTR.modClassTrees <- function()
 		Descriptions = [
 			"bookkeeping"
 		],
+		SelfWeightMultiplier = 0.33,
 		Tree = [
 			[],
 			[],
@@ -924,19 +925,11 @@ gt.Const.PTR.modClassTrees <- function()
 		Descriptions = [
 			"battlefield tactics"
 		],
+		SelfWeightMultiplier = 0.33,
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
-			{Multiplier = 2, Tree = this.Const.Perks.OrganisedTree},
-			{Multiplier = 3, Tree = this.Const.Perks.SergeantClassTree},
-			{Multiplier = 0.5, Tree = this.Const.Perks.HeavyArmorTree},
-			{Multiplier = 0.75, Tree = this.Const.Perks.MediumArmorTree},
-			{Multiplier = 5, Tree = this.Const.Perks.PolearmTree},
-			{Multiplier = 0.25, Tree = this.Const.Perks.BowTree},
-			{Multiplier = 0.25, Tree = this.Const.Perks.SlingsTree},
-			{Multiplier = 0.75, Tree = this.Const.Perks.CrossbowTree},
 		],
 		ExpertiseMultipliers = [
-
 		],
 		Tree = [
 			[
@@ -957,6 +950,46 @@ gt.Const.PTR.modClassTrees <- function()
 		]
 	};
 
+	gt.Const.Perks.EntertainerClassTree <- {
+		ID = "EntertainerProfessionTree",
+		Descriptions = [
+			"has an entertaining personality"
+		],
+		SelfWeightMultiplier = 0.33,
+		Tree = [
+			[
+				gt.Const.Perks.PerkDefs.PTRAlwaysAnEntertainer
+			],
+			[],
+			[
+				gt.Const.Perks.PerkDefs.PTRPaintASmile
+			],
+			[],
+			[],
+			[],
+			[]
+		]
+	};
+
+	gt.Const.Perks.ScoutClassTree <- {
+		ID = "ScoutClassTree",
+		Descriptions = [
+			"has a keen eye"
+		],
+		SelfWeightMultiplier = 0.33,
+		Tree = [
+			[
+				gt.Const.Perks.PerkDefs.Lookout
+			],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[]
+		]
+	};
+
 	gt.Const.Perks.ClassTrees.Tree = [
 		gt.Const.Perks.SergeantClassTree,
 		gt.Const.Perks.HealerClassTree,
@@ -965,7 +998,9 @@ gt.Const.PTR.modClassTrees <- function()
 		gt.Const.Perks.MenderClassTree,
 		gt.Const.Perks.ClerkClassTree,
 		gt.Const.Perks.HoundmasterClassTree,
-		gt.Const.Perks.TacticianClassTree
+		gt.Const.Perks.TacticianClassTree,
+		gt.Const.Perks.EntertainerClassTree,
+		gt.Const.Perks.ScoutClassTree
 	];
 
 	foreach (tree in this.Const.Perks.ClassTrees.Tree)
@@ -1007,7 +1042,7 @@ gt.Const.PTR.modWeaponTrees <- function()
 		this.Const.Perks.CleaverTree.Tree.push(emptyArray);
 	}
 	this.Const.Perks.CleaverTree.Tree[0] = [this.Const.Perks.PerkDefs.PTRSwordlike];
-	this.Const.Perks.CleaverTree.Tree[2] = [this.Const.Perks.PerkDefs.PTROpenWounds];
+	this.Const.Perks.CleaverTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRDeepCuts];
 	this.Const.Perks.CleaverTree.Tree[1] = [this.Const.Perks.PerkDefs.PTRSanguinary];
 	this.Const.Perks.CleaverTree.Tree[3] = [this.Const.Perks.PerkDefs.SpecCleaver];
 	this.Const.Perks.CleaverTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRBloodlust];
@@ -1021,13 +1056,13 @@ gt.Const.PTR.modWeaponTrees <- function()
 	}
 	this.Const.Perks.CrossbowTree.SelfWeightMultiplier <- 1.5;
 	this.Const.Perks.CrossbowTree.SelfExpertiseMultiplier <- this.Const.Perks.Expertise.High;
-	this.Const.Perks.CrossbowTree.Tree[0] = [this.Const.Perks.PerkDefs.PTRThroughTheRanks];
+	this.Const.Perks.CrossbowTree.Tree[0] = [this.Const.Perks.PerkDefs.PTRTakeAim];
 	this.Const.Perks.CrossbowTree.Tree[1] = [this.Const.Perks.PerkDefs.PTREntrenched];
 	this.Const.Perks.CrossbowTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRPowerShot];
 	this.Const.Perks.CrossbowTree.Tree[3] = [this.Const.Perks.PerkDefs.SpecCrossbow];
 	this.Const.Perks.CrossbowTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRIronSights];
-	this.Const.Perks.CrossbowTree.Tree[5] = [this.Const.Perks.PerkDefs.LegendPiercingShot];
-	this.Const.Perks.CrossbowTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRWindlassTraining];
+	this.Const.Perks.CrossbowTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRPrimalFear];
+	this.Const.Perks.CrossbowTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRMuscleMemory];
 
 	while (this.Const.Perks.DaggerTree.Tree.len() < 7)
 	{
@@ -1101,7 +1136,7 @@ gt.Const.PTR.modWeaponTrees <- function()
 	this.Const.Perks.SlingsTree.Tree[3] = [this.Const.Perks.PerkDefs.LegendMasterySlings];
 	this.Const.Perks.SlingsTree.Tree[4] = [this.Const.Perks.PerkDefs.LegendSpecialistSlingDamage];
 	this.Const.Perks.SlingsTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRHeavyProjectiles];
-	this.Const.Perks.SlingsTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRSniper];
+	this.Const.Perks.SlingsTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRDeathFromAfar];
 
 	while (this.Const.Perks.SpearTree.Tree.len() < 7)
 	{
@@ -1132,7 +1167,14 @@ gt.Const.PTR.modWeaponTrees <- function()
 	this.Const.Perks.SwordTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRKata];
 	this.Const.Perks.SwordTree.Tree[6] = [this.Const.Perks.PerkDefs.PTREnGarde, this.Const.Perks.PerkDefs.Fencer];
 
-	this.Const.Perks.GreatSwordTree <- this.Const.Perks.SwordTree;
+	foreach (i, row in this.Const.Perks.GreatSwordTree.Tree)
+	{
+		foreach (entry in row)
+		{
+			this.Const.Perks.GreatSwordTree.Tree[i] = entry;
+		}
+	}
+
 	# while (this.Const.Perks.GreatSwordTree.Tree.len() < 7)
 	# {
 	# 	this.Const.Perks.GreatSwordTree.Tree.push(emptyArray);
@@ -1169,6 +1211,12 @@ gt.Const.PTR.modWeaponTrees <- function()
 	this.Const.Perks.ThrowingTree.Tree[4] = [this.Const.Perks.PerkDefs.PTROpportunist];
 	this.Const.Perks.ThrowingTree.Tree[5] = [this.Const.Perks.PerkDefs.CloseCombatArcher];
 	this.Const.Perks.ThrowingTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRNailedIt];
+
+	local idx = gt.Const.Perks.WeaponTrees.Tree.find(this.Const.Perks.GreatSwordTree);
+	if (idx != null)
+	{
+		gt.Const.Perks.WeaponTrees.Tree.remove(idx);
+	}
 }
 
 gt.Const.PTR.modDefenseTrees <- function ()
@@ -1198,9 +1246,9 @@ gt.Const.PTR.modDefenseTrees <- function ()
 	this.Const.Perks.HeavyArmorTree.Tree[1] = [];
 	this.Const.Perks.HeavyArmorTree.Tree[2] = [this.Const.Perks.PerkDefs.Brawny];
 	this.Const.Perks.HeavyArmorTree.Tree[3] = [];
-	this.Const.Perks.HeavyArmorTree.Tree[4] = [];
+	this.Const.Perks.HeavyArmorTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRBulwark];
 	this.Const.Perks.HeavyArmorTree.Tree[5] = [this.Const.Perks.PerkDefs.BattleForged];
-	this.Const.Perks.HeavyArmorTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRManOfSteel];
+	this.Const.Perks.HeavyArmorTree.Tree[6] = [];
 
 	while (this.Const.Perks.LightArmorTree.Tree.len() < 7)
 	{
