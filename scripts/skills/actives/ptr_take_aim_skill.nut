@@ -27,22 +27,33 @@ this.ptr_take_aim_skill <- this.inherit("scripts/skills/skill", {
 
 	function getDescription()
 	{
-		return "Use the superior aiming of your crossbow to hit targets behind cover.";
+		return "Put additional effort into getting a better aim to hit targets behind cover with a Crossbow or to reach farther targets with a Handgonne.";
 	}
 
 	function getTooltip()
 	{
 		local tooltip = this.skill.getDefaultUtilityTooltip();
 
-		if (this.getContainer().getActor().isEngagedInMelee())
-		{
-			tooltip.push({
-				id = 7,
-				type = "text",
-				icon = "ui/icons/special.png",
-				text = "The next bolt shot during this turn ignores any hitchance penalty from obstacles, and cannot go astray."
-			});
-		}
+		tooltip.push({
+			id = 7,
+			type = "text",
+			icon = "ui/icons/special.png",
+			text = "For the next ranged attack:"
+		});
+
+		tooltip.push({
+			id = 7,
+			type = "text",
+			icon = "ui/icons/hitchance.png",
+			text = "Crossbows ignore any hitchance penalty from obstacles, and the shot cannot go astray."
+		});
+
+		tooltip.push({
+			id = 7,
+			type = "text",
+			icon = "ui/icons/hitchance.png",
+			text = "Handgonnes have their Maximum Range increased by 1 and if used at shorter range, have their area of effect increased by 1 instead."
+		});
 
 		return tooltip;
 	}
