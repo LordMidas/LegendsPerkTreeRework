@@ -12,7 +12,8 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 		IsAllyDynamicDuo = false,
 		RotationSkill = null,
 		IsRotationAdded = false,
-		IsRotationUsedThisTurn = false
+		IsRotationUsedThisTurn = false,
+		Opponents = []
 	},
 	function create()
 	{
@@ -21,7 +22,7 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 		this.m.Description = this.Const.Strings.PerkDescription.PTRDynamicDuo;
 		this.m.Icon = "ui/perks/ptr_dynamic_duo.png";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
-		this.m.Order = this.Const.SkillOrder.NonTargeted;
+		this.m.Order = this.Const.SkillOrder.BeforeLast;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
@@ -32,7 +33,7 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 		local ret = "Instead of fighting in a large formation, this character has trained to fight as a duo and gains bonuses while there is only one nearby ally."
 		if (this.m.IsAllyDynamicDuo)
 		{
-			ret += " As the ally, " + this.Tactical.getEntityByID(this.m.AllyID).getName() + " also has Dynamic Duo, the bonuses are increased.";
+			ret += " As, " + this.Tactical.getEntityByID(this.m.AllyID).getName() + " also has this perk, the bonuses are increased.";
 		}
 
 		return ret;
@@ -63,22 +64,13 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getMeleeDefenseBonus() + "%[/color] Melee Defense"
 		});
 
-		if (this.m.IsAllyDynamicDuo)
+		if (!this.m.IsRotationUsedThisTurn)
 		{
 			tooltip.push({
 				id = 10,
 				type = "text",
 				icon = "ui/icons/special.png",
-				text = "One free use of the Rotation skill per turn"
-			});
-		}
-		else
-		{
-			tooltip.push({
-				id = 10,
-				type = "text",
-				icon = "ui/icons/special.png",
-				text = "The first use of the Rotation skill has its Action Point cost halved"
+				text = "The first use of the Rotation skill this turn has its Fatigue Cost cost halved" + (this.m.IsAllyDynamicDuo ? " and costs no Action Points" : "")
 			});
 		}
 
@@ -162,7 +154,7 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 
 		foreach( a in allies )
 		{
-			if (a.getID() == actor.getID() || !a.isPlacedOnMap())
+			if (a.getID() == _actor.getID() || !a.isPlacedOnMap())
 			{
 				continue;
 			}
@@ -176,7 +168,7 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 			count++;
 			if (count > 1)
 			{
-				return null;
+				break;
 			}
 
 			if (distance <= this.m.MaxAllowedAllyDistance)
@@ -188,7 +180,7 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 
 		if (count != 1 || allyDistance > this.m.MaxAllowedAllyDistance)
 		{
-			return null;
+			ally = null;
 		}
 
 		return {Actor = ally, Distance = allyDistance};
@@ -202,7 +194,7 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 
 		local actor = this.getContainer().getActor();
 		local ally = this.getAllyIfOnlyOneWithinAOE(actor);
-		if (ally == null)
+		if (ally.Actor == null)
 		{
 			return false;
 		}
@@ -210,7 +202,7 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 		if (ally.Actor.getSkills().hasSkill("perk.ptr_dynamic_duo"))
 		{
 			local a = this.getAllyIfOnlyOneWithinAOE(ally.Actor);
-			if (a != null && a.Actor.getID() == actor.getID())
+			if (a.Actor != null && a.Actor.getID() == actor.getID())
 			{
 				this.m.IsAllyDynamicDuo = true;
 			}
@@ -222,18 +214,18 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 		return true;
 	}
 
+	function isEnabled()
+	{
+		local actor = this.getContainer().getActor();
+		return actor.isPlacedOnMap() && this.updateSituation();
+	}
+
 	function onUpdate( _properties )
 	{
 		this.m.IsHidden = true;
 
-		local actor = this.getContainer().getActor();
-		if (!actor.isPlacedOnMap() || !this.updateSituation())
+		if (!isEnabled())
 		{
-			if (this.m.RotationSkill != null && this.m.IsRotationAdded)
-			{
-				this.m.RotationSkill.removeSelf();
-			}
-
 			return;
 		}
 
@@ -243,20 +235,41 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 		_properties.Initiative += this.getInitiativeBonus();
 		_properties.MeleeDefenseMult *= 1.0 + this.getMeleeDefenseBonus();
 
-		this.m.RotationSkill = actor.getSkills().getSkillByID("actives.rotation");
+	}
+
+	function addRotationIfApplicable()
+	{
+		if (!this.isEnabled())
+		{
+			if (this.m.RotationSkill != null && this.m.IsRotationAdded)
+			{
+				this.m.RotationSkill.removeSelf();
+			}
+
+			this.m.RotationSkill = null;
+
+			return;
+		}
+
+		this.m.RotationSkill = this.getContainer().getSkillByID("actives.rotation");
 		if (this.m.RotationSkill == null)
 		{
 			local rotation = this.new("scripts/skills/actives/rotation");
-
-			rotation.onTurnEnd <- function()
-			{
-				this.removeSelf();
-			}
-
-			actor.getSkills().add(rotation);
+			this.getContainer().add(rotation);
+			rotation.saveBaseValues();
 			this.m.RotationSkill = rotation;
 			this.m.IsRotationAdded = true;
 		}
+	}
+
+	function onTurnStart()
+	{
+		this.addRotationIfApplicable();
+	}
+
+	function onMovementFinished(_tile)
+	{
+		this.addRotationIfApplicable();
 	}
 
 	function onAfterUpdate(_properties)
@@ -264,6 +277,7 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 		if (this.m.RotationSkill != null && !this.m.IsRotationUsedThisTurn)
 		{
 			this.m.RotationSkill.m.FatigueCostMult *= 0.5;
+
 			if (this.m.IsAllyDynamicDuo)
 			{
 				this.m.RotationSkill.m.ActionPointCost = 0;
