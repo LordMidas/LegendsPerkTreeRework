@@ -959,7 +959,7 @@ gt.Const.PTR.modEnemies <- function()
 			onInit();
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_feint"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_tempo"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_heightened_reflexes"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_fluid_weapon"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -1947,7 +1947,7 @@ gt.Const.PTR.modEnemies <- function()
 				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_versatile_weapon"));
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_heightened_reflexes"));
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_fluid_weapon"));
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_kata"));
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_mastery_sword"));
 				}

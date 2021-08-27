@@ -485,12 +485,12 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Const = "PTRWhackASmack"
 		},
 		{
-			ID = "perk.ptr_heightened_reflexes",
-			Script = "scripts/skills/perks/perk_ptr_heightened_reflexes",
+			ID = "perk.ptr_fluid_weapon",
+			Script = "scripts/skills/perks/perk_ptr_fluid_weapon",
 			Name = this.Const.Strings.PerkName.PTRHeightenedReflexes,
 			Tooltip = this.Const.Strings.PerkDescription.PTRHeightenedReflexes,
-			Icon = "ui/perks/ptr_heightened_reflexes.png",
-			IconDisabled = "ui/perks/ptr_heightened_reflexes_bw.png",
+			Icon = "ui/perks/ptr_fluid_weapon.png",
+			IconDisabled = "ui/perks/ptr_fluid_weapon_bw.png",
 			Const = "PTRHeightenedReflexes"
 		},
 		{

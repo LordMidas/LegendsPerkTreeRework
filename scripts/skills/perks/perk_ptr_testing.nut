@@ -62,7 +62,7 @@ this.perk_ptr_testing <- this.inherit("scripts/skills/skill", {
 			"scripts/skills/perks/perk_ptr_king_of_all_weapons",
 
 			"scripts/skills/perks/perk_ptr_versatile_weapon",
-			"scripts/skills/perks/perk_ptr_heightened_reflexes",
+			"scripts/skills/perks/perk_ptr_fluid_weapon",
 			"scripts/skills/perks/perk_ptr_tempo",
 			"scripts/skills/perks/perk_ptr_kata",
 			"scripts/skills/perks/perk_ptr_en_garde",
