@@ -109,7 +109,7 @@ gt.Const.PTR.modSkills <- function()
 			return ret;
 		}
 	});
-	
+
 	::mods_hookExactClass("skills/actives/legend_relax", function(o) {
 		o.getTooltip = function()
 		{
@@ -376,7 +376,7 @@ gt.Const.PTR.modSkills <- function()
 		o.onUpdate = function(_properties)
 		{
 			local weapon = this.getContainer().getActor().getMainhandItem();
-			if (weapon != null && weapon.isWeaponType(this.Const.WMS.WeaponType.Throwing))
+			if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.Throwing))
 			{
 				return;
 			}
@@ -425,7 +425,7 @@ gt.Const.PTR.modSkills <- function()
 			}
 
 			local weapon = this.getContainer().getActor().getMainhandItem();
-			if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Throwing))
+			if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Throwing))
 			{
 				return false;
 			}
@@ -752,7 +752,7 @@ gt.Const.PTR.modSkills <- function()
 
 			local weapon = user.getMainhandItem();
 			local chance = 50;
-			if (weapon != null && weapon.isWeaponType(this.Const.WMS.WeaponType.Staff))
+			if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.Staff))
 			{
 				chance = 100;
 			}
@@ -924,7 +924,7 @@ gt.Const.PTR.modSkills <- function()
 			}
 
 			local weapon = actor.getMainhandItem();
-			if (weapon != null && weapon.isItemType(this.Const.Items.ItemType.OneHanded) && weapon.isWeaponType(this.Const.WMS.WeaponType.Spear) && actor.isDoubleGrippingWeapon() && this.getContainer().hasSkill("perk.ptr_a_better_grip"))
+			if (weapon != null && weapon.isItemType(this.Const.Items.ItemType.OneHanded) && weapon.isWeaponType(this.Const.Items.WeaponType.Spear) && actor.isDoubleGrippingWeapon() && this.getContainer().hasSkill("perk.ptr_a_better_grip"))
 			{
 				this.m.Stacks = this.Math.min(this.m.Stacks + 1, 5);
 			}
@@ -937,7 +937,7 @@ gt.Const.PTR.modSkills <- function()
 			local actor = this.getContainer().getActor();
 			local weapon = actor.getMainhandItem();
 
-			if (weapon != null && weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon) && (weapon.isItemType(this.Const.Items.ItemType.TwoHanded) || (weapon.isWeaponType(this.Const.WMS.WeaponType.Spear) && actor.isDoubleGrippingWeapon() && this.getContainer().hasSkill("perk.ptr_a_better_grip"))))
+			if (weapon != null && weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon) && (weapon.isItemType(this.Const.Items.ItemType.TwoHanded) || (weapon.isWeaponType(this.Const.Items.WeaponType.Spear) && actor.isDoubleGrippingWeapon() && this.getContainer().hasSkill("perk.ptr_a_better_grip"))))
 			{
 				_properties.MeleeDefense += this.m.Stacks * 5;
 			}

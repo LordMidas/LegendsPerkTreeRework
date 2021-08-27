@@ -42,7 +42,7 @@ this.perk_ptr_en_garde <- this.inherit("scripts/skills/skill", {
 		}
 
 		local weapon = actor.getMainhandItem();
-		if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
+		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Sword))
 		{
 			return;
 		}

@@ -143,7 +143,7 @@ gt.Const.PTR.modEnemies <- function()
 			local weapon = this.getMainhandItem();
 			if (weapon != null)
 			{
-				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Hammer))
+				if (weapon.isWeaponType(this.Const.Items.WeaponType.Hammer))
 				{
 					this.m.Skills.addTreeOfEquippedWeapon(2);
 				}
@@ -294,7 +294,7 @@ gt.Const.PTR.modEnemies <- function()
 			local weapon = this.getMainhandItem();
 			if (weapon != null)
 			{
-				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Spear) || weapon.isWeaponType(this.Const.WMS.WeaponType.Sword) || weapon.isWeaponType(this.Const.WMS.WeaponType.Hammer))
+				if (weapon.isWeaponType(this.Const.Items.WeaponType.Spear) || weapon.isWeaponType(this.Const.Items.WeaponType.Sword) || weapon.isWeaponType(this.Const.Items.WeaponType.Hammer))
 				{
 					this.m.Skills.addTreeOfEquippedWeapon(3);
 				}
@@ -753,7 +753,7 @@ gt.Const.PTR.modEnemies <- function()
 			local weapon = this.getMainhandItem();
 			if (weapon != null)
 			{
-				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
+				if (weapon.isWeaponType(this.Const.Items.WeaponType.Sword))
 				{
 						this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
 				}
@@ -1969,13 +1969,13 @@ gt.Const.PTR.modEnemies <- function()
 			local weapon = this.getMainhandItem();
 			if (weapon != null)
 			{
-				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
+				if (weapon.isWeaponType(this.Const.Items.WeaponType.Sword))
 				{
 					this.m.Skills.addTreeOfEquippedWeapon(4);
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_kata"));
 				}
 
-				else if (weapon.isWeaponType(this.Const.WMS.WeaponType.Dagger))
+				else if (weapon.isWeaponType(this.Const.Items.WeaponType.Dagger))
 				{
 					this.m.Skills.addTreeOfEquippedWeapon(5);
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_between_the_ribs"));
@@ -1985,11 +1985,11 @@ gt.Const.PTR.modEnemies <- function()
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.addTreeOfEquippedWeapon();
-				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
+				if (weapon.isWeaponType(this.Const.Items.WeaponType.Sword))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_double_strike"));
 				}
-				else if (weapon.isWeaponType(this.Const.WMS.WeaponType.Dagger))
+				else if (weapon.isWeaponType(this.Const.Items.WeaponType.Dagger))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_tempo"));
 				}
@@ -2172,7 +2172,7 @@ gt.Const.PTR.modEnemies <- function()
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				local weapon = this.getMainhandItem();
-				if (weapon != null && weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
+				if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.Sword))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
 				}
@@ -2214,7 +2214,7 @@ gt.Const.PTR.modEnemies <- function()
 			local weapon = this.getMainhandItem();
 			if (weapon != null)
 			{
-				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Bow))
+				if (weapon.isWeaponType(this.Const.Items.WeaponType.Bow))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_ranged_supremacy"));
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_target_practice"));
@@ -2222,7 +2222,7 @@ gt.Const.PTR.modEnemies <- function()
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_mastery_bow"));
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_flaming_arrows"));
 				}
-				else if (weapon.isWeaponType(this.Const.WMS.WeaponType.Crossbow))
+				else if (weapon.isWeaponType(this.Const.Items.WeaponType.Crossbow))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_take_aim"));
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_mastery_crossbow"));
@@ -2505,7 +2505,7 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_tempo"));
 
 				local weapon = this.getMainhandItem();
-				if (weapon != null && weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
+				if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.Sword))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_alert"));
 				}
@@ -2855,11 +2855,11 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			assignRandomEquipment();
 			local weapon = this.getMainhandItem();
-			if (weapon != null && weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
+			if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.Sword))
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_versatile_weapon"));
 			}
-			else if (weapon != null && weapon.isWeaponType(this.Const.WMS.WeaponType.Flail))
+			else if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.Flail))
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_from_all_sides"));
 			}
@@ -2872,11 +2872,11 @@ gt.Const.PTR.modEnemies <- function()
 			{
 				if (weapon != null)
 				{
-					if (weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
+					if (weapon.isWeaponType(this.Const.Items.WeaponType.Sword))
 					{
 						this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_en_garde"));
 					}
-					else if (weapon.isWeaponType(this.Const.WMS.WeaponType.Flail))
+					else if (weapon.isWeaponType(this.Const.Items.WeaponType.Flail))
 					{
 						this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_flail_spinner"));
 					}
@@ -2952,14 +2952,14 @@ gt.Const.PTR.modEnemies <- function()
 			local weapon = this.getMainhandItem();
 			if (weapon != null)
 			{
-				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Bow))
+				if (weapon.isWeaponType(this.Const.Items.WeaponType.Bow))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_ranged_supremacy"));
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_target_practice"));
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_hip_shooter"));
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_flaming_arrows"));
 				}
-				else if (weapon.isWeaponType(this.Const.WMS.WeaponType.Crossbow))
+				else if (weapon.isWeaponType(this.Const.Items.WeaponType.Crossbow))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_power_shot"));
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_muscle_memory"));
@@ -3006,14 +3006,14 @@ gt.Const.PTR.modEnemies <- function()
 			assignRandomEquipment();
 			this.m.Skills.addTreeOfEquippedWeapon();
 			local weapon = this.getMainhandItem();
-			if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
+			if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Sword))
 			{
 				this.m.Skills.removeByID("perk.duelist");
 			}
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				if (weapon != null && weapon.isWeaponType(this.Const.WMS.WeaponType.Polearm))
+				if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.Polearm))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_crippling_strikes"));
 				}
@@ -3048,14 +3048,14 @@ gt.Const.PTR.modEnemies <- function()
 			assignRandomEquipment();
 			this.m.Skills.addTreeOfEquippedWeapon(6);
 			local weapon = this.getMainhandItem();
-			if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
+			if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Sword))
 			{
 				this.m.Skills.removeByID("perk.duelist");
 			}
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				if (weapon != null && weapon.isWeaponType(this.Const.WMS.WeaponType.Polearm))
+				if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.Polearm))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_crippling_strikes"));
 				}
@@ -3092,7 +3092,7 @@ gt.Const.PTR.modEnemies <- function()
 			local weapon = this.getMainhandItem();
 			if (weapon != null)
 			{
-				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Bow))
+				if (weapon.isWeaponType(this.Const.Items.WeaponType.Bow))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_ranged_supremacy"));
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_target_practice"));
@@ -3100,7 +3100,7 @@ gt.Const.PTR.modEnemies <- function()
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_hip_shooter"));
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_flaming_arrows"));
 				}
-				else if (weapon.isWeaponType(this.Const.WMS.WeaponType.Crossbow))
+				else if (weapon.isWeaponType(this.Const.Items.WeaponType.Crossbow))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_power_shot"));
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_muscle_memory"));
@@ -3529,7 +3529,7 @@ gt.Const.PTR.modEnemies <- function()
 			local weapon = this.getMainhandItem();
 			if (weapon != null)
 			{
-				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Spear) || weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
+				if (weapon.isWeaponType(this.Const.Items.WeaponType.Spear) || weapon.isWeaponType(this.Const.Items.WeaponType.Sword))
 				{
 					this.m.Skills.addTreeOfEquippedWeapon(3);
 				}
@@ -3641,7 +3641,7 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
 				this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
 				local weapon = this.getMainhandItem();
-				if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Sword))
+				if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Sword))
 				{
 					this.m.Skills.removeByID("perk.duelist");
 				}
@@ -3806,7 +3806,7 @@ gt.Const.PTR.modEnemies <- function()
 			local weapon = this.getMainhandItem();
 			if (weapon != null)
 			{
-				if (weapon.isWeaponType(this.Const.WMS.WeaponType.Hammer))
+				if (weapon.isWeaponType(this.Const.Items.WeaponType.Hammer))
 				{
 					this.m.Skills.addTreeOfEquippedWeapon(2);
 				}

@@ -24,7 +24,7 @@ this.perk_ptr_between_the_ribs <- this.inherit("scripts/skills/skill", {
 		}
 
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Dagger))
+		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Dagger))
 		{
 			return false;
 		}

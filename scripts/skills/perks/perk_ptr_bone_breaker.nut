@@ -33,7 +33,7 @@ this.perk_ptr_bone_breaker <- this.inherit("scripts/skills/skill", {
 			return false;
 		}
 
-		if(_weapon == null || !_weapon.isWeaponType(this.Const.WMS.WeaponType.Mace))
+		if(_weapon == null || !_weapon.isWeaponType(this.Const.Items.WeaponType.Mace))
 		{
 			return false;
 		}

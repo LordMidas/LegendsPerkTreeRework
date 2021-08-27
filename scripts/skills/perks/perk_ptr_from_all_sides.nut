@@ -29,7 +29,7 @@ this.perk_ptr_from_all_sides <- this.inherit("scripts/skills/skill", {
 		}
 
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Flail))
+		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Flail))
 		{
 			return false;
 		}

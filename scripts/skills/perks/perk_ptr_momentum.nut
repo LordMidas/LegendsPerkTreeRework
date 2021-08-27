@@ -27,7 +27,7 @@ this.perk_ptr_momentum <- this.inherit("scripts/skills/skill", {
 		}
 
 		local weapon = actor.getMainhandItem();
-		if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Throwing))
+		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Throwing))
 		{
 			return false;
 		}

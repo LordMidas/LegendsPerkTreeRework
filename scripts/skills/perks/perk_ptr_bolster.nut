@@ -16,7 +16,7 @@ this.perk_ptr_bolster <- this.inherit("scripts/skills/skill", {
 	function isInEffect()
 	{
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Polearm))
+		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Polearm))
 		{
 			return false;
 		}

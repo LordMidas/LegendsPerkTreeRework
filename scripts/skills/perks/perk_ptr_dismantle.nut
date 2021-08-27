@@ -27,7 +27,7 @@ this.perk_ptr_dismantle <- this.inherit("scripts/skills/skill", {
 			return false;
 		}
 
-		if(_weapon == null || !_weapon.isWeaponType(this.Const.WMS.WeaponType.Hammer))
+		if(_weapon == null || !_weapon.isWeaponType(this.Const.Items.WeaponType.Hammer))
 		{
 			return false;
 		}
