@@ -24,7 +24,7 @@ this.perk_ptr_heavy_strikes <- this.inherit("scripts/skills/skill", {
 
 		local weapon = actor.getMainhandItem();
 
-		if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Mace) || !_skill.isAttack() || _skill.m.InjuriesOnBody != this.Const.Injury.BluntBody)
+		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Mace) || !_skill.isAttack() || _skill.m.InjuriesOnBody != this.Const.Injury.BluntBody)
 		{
 			return;
 		}

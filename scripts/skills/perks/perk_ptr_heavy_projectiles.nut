@@ -23,7 +23,7 @@ this.perk_ptr_heavy_projectiles <- this.inherit("scripts/skills/skill", {
 		}
 
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon != null && weapon.isWeaponType(this.Const.WMS.WeaponType.Sling))
+		if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.Sling))
 		{
 			return true;
 		}

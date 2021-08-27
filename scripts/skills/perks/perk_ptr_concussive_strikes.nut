@@ -34,7 +34,7 @@ this.perk_ptr_concussive_strikes <- this.inherit("scripts/skills/skill", {
 		}
 
 		local isMace = false;
-		if (weapon.isWeaponType(this.Const.WMS.WeaponType.Mace) && _skill.m.IsWeaponSkill && _skill.hasBluntDamage())
+		if (weapon.isWeaponType(this.Const.Items.WeaponType.Mace) && _skill.m.IsWeaponSkill && _skill.hasDamageType(this.Const.Damage.DamageType.Blunt))
 		{
 			isMace = true;
 		}
@@ -47,7 +47,7 @@ this.perk_ptr_concussive_strikes <- this.inherit("scripts/skills/skill", {
 
 		local targetTile = _targetEntity.getTile();
 
-		if (weapon.isWeaponType(this.Const.WMS.WeaponType.Mace) && _skill.m.IsWeaponSkill && _skill.hasBluntDamage())
+		if (weapon.isWeaponType(this.Const.Items.WeaponType.Mace) && _skill.m.IsWeaponSkill && _skill.hasDamageType(this.Const.Damage.DamageType.Blunt))
 		{
 			if (weapon.isItemType(this.Const.Items.ItemType.TwoHanded))
 			{

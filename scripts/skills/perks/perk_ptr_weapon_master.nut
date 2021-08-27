@@ -9,7 +9,7 @@ this.perk_ptr_weapon_master <- this.inherit("scripts/skills/skill", {
 		this.m.Description = this.Const.Strings.PerkDescription.PTRWeaponMaster;
 		this.m.Icon = "ui/perks/ptr_weapon_master.png";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
-		this.m.Order = this.Const.SkillOrder.Perk;
+		this.m.Order = this.Const.SkillOrder.Any;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
@@ -18,7 +18,7 @@ this.perk_ptr_weapon_master <- this.inherit("scripts/skills/skill", {
 	function isHidden()
 	{
 		local actor = this.getContainer().getActor();
-		return this.m.IsSpent || !actor.isPlayerControlled() || !actor.isPlacedOnMap() || !this.isEnabled();
+		return this.m.IsSpent || !actor.isPlayerControlled() || !actor.isPlacedOnMap() || !this.isEnabled(actor.getCurrentProperties());
 	}
 
 	function getDescription()
@@ -26,11 +26,24 @@ this.perk_ptr_weapon_master <- this.inherit("scripts/skills/skill", {
 		return "This character is a master of One-Handed weapons and can swap one such weapon for another for free once per turn."
 	}
 
-	function isEnabled()
+	function isEnabled(_properties)
 	{
 		local weapon = this.getContainer().getActor().getMainhandItem();
 
 		if (weapon == null || !weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon) || !weapon.isItemType(this.Const.Items.ItemType.OneHanded))
+		{
+			return false;
+		}
+
+		if (!_properties.IsSpecializedInAxes &&
+			 	!_properties.IsSpecializedInCleavers &&
+				!_properties.IsSpecializedInDaggers &&
+				!_properties.IsSpecializedInFlails &&
+				!_properties.IsSpecializedInHammers &&
+				!_properties.IsSpecializedInMaces &&
+				!_properties.IsSpecializedInSpears &&
+				!_properties.IsSpecializedInSwords
+			 )
 		{
 			return false;
 		}
@@ -40,19 +53,56 @@ this.perk_ptr_weapon_master <- this.inherit("scripts/skills/skill", {
 
 	function onUpdate(_properties)
 	{
-		if (!this.isEnabled())
+		if (!this.isEnabled(_properties))
 		{
 			return;
 		}
 
-		_properties.IsSpecializedInAxes = true;
-		_properties.IsSpecializedInCleavers = true;
-		_properties.IsSpecializedInDaggers = true;
-		_properties.IsSpecializedInFlails = true;
-		_properties.IsSpecializedInHammers = true;
-		_properties.IsSpecializedInMaces = true;
-		_properties.IsSpecializedInSpears = true;
-		_properties.IsSpecializedInSwords = true;
+		local actor = this.getContainer().getActor();
+		if (actor.isPlayerControlled())
+		{
+			foreach (perk in actor.getBackground().m.PerkTree[3])
+			{
+				switch (perk.ID)
+				{
+					case "perk.mastery.axe":
+						_properties.IsSpecializedInAxes = true;
+						break;
+					case "perk.mastery.cleaver":
+						_properties.IsSpecializedInCleavers = true;
+						break;
+					case "perk.mastery.dagger":
+						_properties.IsSpecializedInDaggers = true;
+						break;
+					case "perk.mastery.flail":
+						_properties.IsSpecializedInFlails = true;
+						break;
+					case "perk.mastery.hammer":
+						_properties.IsSpecializedInHammers = true;
+						break;
+					case "perk.mastery.mace":
+						_properties.IsSpecializedInMaces = true;
+						break;
+					case "perk.mastery.spear":
+						_properties.IsSpecializedInSpears = true;
+						break;
+					case "perk.mastery.sword":
+						_properties.IsSpecializedInSwords = true;
+						break;
+				}
+			}
+		}
+		else
+		{
+			_properties.IsSpecializedInAxes = true;
+			_properties.IsSpecializedInCleavers = true;
+			_properties.IsSpecializedInDaggers = true;
+			_properties.IsSpecializedInFlails = true;
+			_properties.IsSpecializedInHammers = true;
+			_properties.IsSpecializedInMaces = true;
+			_properties.IsSpecializedInSpears = true;
+			_properties.IsSpecializedInSwords = true;
+		}
 	}
 
 	function onTurnStart()

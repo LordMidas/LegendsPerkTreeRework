@@ -24,7 +24,7 @@ this.perk_ptr_power_shot <- this.inherit("scripts/skills/skill", {
 		}
 
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon == null || (!weapon.isWeaponType(this.Const.WMS.WeaponType.Crossbow) && !weapon.isWeaponType(this.Const.WMS.WeaponType.Firearm)))
+		if (weapon == null || (!weapon.isWeaponType(this.Const.Items.WeaponType.Crossbow) && !weapon.isWeaponType(this.Const.Items.WeaponType.Firearm)))
 		{
 			return false;
 		}

@@ -25,12 +25,12 @@ this.perk_ptr_dent_armor <- this.inherit("scripts/skills/skill", {
 			return true;
 		}
 
-		if (!_skill.hasBluntDamage())
+		if (!_skill.hasDamageType(this.Const.Damage.DamageType.Blunt))
 		{
 			return false;
 		}
 
-		if(_weapon == null || !_weapon.isWeaponType(this.Const.WMS.WeaponType.Hammer))
+		if(_weapon == null || !_weapon.isWeaponType(this.Const.Items.WeaponType.Hammer))
 		{
 			return false;
 		}

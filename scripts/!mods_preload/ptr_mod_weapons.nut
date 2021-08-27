@@ -2,63 +2,63 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modWeapons <- function()
 {
-	::mods_hookNewObject("items/weapons/legend_staff", function(o) {
-		local oldonEquip = o.onEquip;
+	::mods_hookExactClass("items/weapons/legend_staff", function(o) {
+		local onEquip = o.onEquip;
 		o.onEquip = function()
 		{
-			oldonEquip();
+			onEquip();
 			this.addSkill(this.new("scripts/skills/actives/ptr_staff_sweep_skill"));
 		}
 	});
 
-	::mods_hookNewObject("items/weapons/legend_tipstaff", function(o) {
-		local oldonEquip = o.onEquip;
+	::mods_hookExactClass("items/weapons/legend_tipstaff", function(o) {
+		local onEquip = o.onEquip;
 		o.onEquip = function()
 		{
-			oldonEquip();
+			onEquip();
 			this.addSkill(this.new("scripts/skills/actives/ptr_staff_sweep_skill"));
 		}
 	});
 
-	::mods_hookNewObject("items/weapons/greenskins/goblin_staff", function(o) {
-		local oldonEquip = o.onEquip;
+	::mods_hookExactClass("items/weapons/greenskins/goblin_staff", function(o) {
+		local onEquip = o.onEquip;
 		o.onEquip = function()
 		{
-			oldonEquip();
+			onEquip();
 			this.addSkill(this.new("scripts/skills/actives/ptr_staff_sweep_skill"));
 		}
 	});
 
-	::mods_hookNewObject("items/weapons/legend_staff_vala", function(o) {
-		local oldonEquip = o.onEquip;
+	::mods_hookExactClass("items/weapons/legend_staff_vala", function(o) {
+		local onEquip = o.onEquip;
 		o.onEquip = function()
 		{
-			oldonEquip();
+			onEquip();
 			this.addSkill(this.new("scripts/skills/actives/ptr_staff_sweep_skill"));
 		}
 	});
 
-	::mods_hookNewObject("items/weapons/legend_staff_gnarled", function(o) {
-		local oldonEquip = o.onEquip;
+	::mods_hookExactClass("items/weapons/legend_staff_gnarled", function(o) {
+		local onEquip = o.onEquip;
 		o.onEquip = function()
 		{
-			oldonEquip();
+			onEquip();
 			this.addSkill(this.new("scripts/skills/actives/ptr_staff_sweep_skill"));
 		}
 	});
 
-	::mods_hookNewObject("items/weapons/legend_mystic_staff", function(o) {
-		local oldonEquip = o.onEquip;
+	::mods_hookExactClass("items/weapons/legend_mystic_staff", function(o) {
+		local onEquip = o.onEquip;
 		o.onEquip = function()
 		{
-			oldonEquip();
+			onEquip();
 			this.addSkill(this.new("scripts/skills/actives/ptr_staff_sweep_skill"));
 		}
 	});
 
 	::mods_hookNewObject("items/weapons/legend_swordstaff", function(o) {
 		o.m.Categories = "Spear/Sword, Two-Handed";
-		o.m.WeaponType = this.Const.WMS.WeaponType.Spear | this.Const.WMS.WeaponType.Sword;
+		o.m.WeaponType = this.Const.Items.WeaponType.Spear | this.Const.Items.WeaponType.Sword;
 
 		o.onEquip = function()
 		{
@@ -71,7 +71,7 @@ gt.Const.PTR.modWeapons <- function()
 
 	::mods_hookNewObject("items/weapons/named/legend_named_swordstaff", function(o) {
 		o.m.Categories = "Spear/Sword, Two-Handed";
-		o.m.WeaponType = this.Const.WMS.WeaponType.Spear | this.Const.WMS.WeaponType.Sword;
+		o.m.WeaponType = this.Const.Items.WeaponType.Spear | this.Const.Items.WeaponType.Sword;
 
 		o.onEquip = function()
 		{
@@ -84,7 +84,7 @@ gt.Const.PTR.modWeapons <- function()
 
 	::mods_hookNewObject("items/weapons/greenskins/goblin_spear", function(o) {
 		o.m.Categories = "Sword/Spear, One-Handed";
-		o.m.WeaponType = this.Const.WMS.WeaponType.Sword | this.Const.WMS.WeaponType.Spear;
+		o.m.WeaponType = this.Const.Items.WeaponType.Sword | this.Const.Items.WeaponType.Spear;
 
 		local onEquip = o.onEquip;
 		o.onEquip = function()
@@ -96,7 +96,7 @@ gt.Const.PTR.modWeapons <- function()
 
 	::mods_hookNewObject("items/weapons/named/named_goblin_spear", function(o) {
 		o.m.Categories = "Sword/Spear, One-Handed";
-		o.m.WeaponType = this.Const.WMS.WeaponType.Sword | this.Const.WMS.WeaponType.Spear;
+		o.m.WeaponType = this.Const.Items.WeaponType.Sword | this.Const.Items.WeaponType.Spear;
 
 		local onEquip = o.onEquip;
 		o.onEquip = function()
@@ -108,7 +108,7 @@ gt.Const.PTR.modWeapons <- function()
 
 	::mods_hookNewObject("items/weapons/legend_militia_glaive", function(o) {
 		o.m.Categories = "Sword/Spear, Two-Handed";
-		o.m.WeaponType = this.Const.WMS.WeaponType.Sword | this.Const.WMS.WeaponType.Spear;
+		o.m.WeaponType = this.Const.Items.WeaponType.Sword | this.Const.Items.WeaponType.Spear;
 
 		o.m.BlockedSlotType = this.Const.ItemSlot.Offhand;
 		o.m.ItemType = this.Const.Items.ItemType.Weapon | this.Const.Items.ItemType.MeleeWeapon | this.Const.Items.ItemType.TwoHanded | this.Const.Items.ItemType.Defensive;
@@ -126,7 +126,7 @@ gt.Const.PTR.modWeapons <- function()
 
 	::mods_hookNewObject("items/weapons/legend_glaive", function(o) {
 		o.m.Categories = "Sword/Spear, Two-Handed";
-		o.m.WeaponType = this.Const.WMS.WeaponType.Sword | this.Const.WMS.WeaponType.Spear;
+		o.m.WeaponType = this.Const.Items.WeaponType.Sword | this.Const.Items.WeaponType.Spear;
 
 		o.m.BlockedSlotType = this.Const.ItemSlot.Offhand;
 		o.m.ItemType = this.Const.Items.ItemType.Weapon | this.Const.Items.ItemType.MeleeWeapon | this.Const.Items.ItemType.TwoHanded | this.Const.Items.ItemType.Defensive;
@@ -144,7 +144,7 @@ gt.Const.PTR.modWeapons <- function()
 
 	::mods_hookNewObject("items/weapons/legend_battle_glaive", function(o) {
 		o.m.Categories = "Sword/Spear, Two-Handed";
-		o.m.WeaponType = this.Const.WMS.WeaponType.Sword | this.Const.WMS.WeaponType.Spear;
+		o.m.WeaponType = this.Const.Items.WeaponType.Sword | this.Const.Items.WeaponType.Spear;
 
 		o.m.BlockedSlotType = this.Const.ItemSlot.Offhand;
 		o.m.ItemType = this.Const.Items.ItemType.Weapon | this.Const.Items.ItemType.MeleeWeapon | this.Const.Items.ItemType.TwoHanded | this.Const.Items.ItemType.Defensive;
@@ -162,7 +162,7 @@ gt.Const.PTR.modWeapons <- function()
 
 	::mods_hookNewObject("items/weapons/named/legend_named_glaive", function(o) {
 		o.m.Categories = "Sword/Spear, Two-Handed";
-		o.m.WeaponType = this.Const.WMS.WeaponType.Sword | this.Const.WMS.WeaponType.Spear;
+		o.m.WeaponType = this.Const.Items.WeaponType.Sword | this.Const.Items.WeaponType.Spear;
 
 		o.m.BlockedSlotType = this.Const.ItemSlot.Offhand;
 		o.m.ItemType = this.Const.Items.ItemType.Weapon | this.Const.Items.ItemType.MeleeWeapon | this.Const.Items.ItemType.TwoHanded | this.Const.Items.ItemType.Defensive;

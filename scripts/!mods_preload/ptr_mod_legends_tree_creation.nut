@@ -270,13 +270,15 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 			}
 		}
 
+		local roll = 0;
+
 		foreach( categoryName, category in _localMap )
 		{
 			foreach( treeEntry in category )
 			{
 				if (this.Const.PTR.IsExpertiseEnabled)
 				{
-					local roll = this.Math.rand(1, 100) * treeEntry.Expertise;
+					roll = this.Math.rand(1, 100) * treeEntry.Expertise;
 					# this.logInfo("roll is : " + roll + " and perk tree is: " + treeEntry.Tree.ID + " and expertise is : " + treeEntry.Expertise);
 				}
 
@@ -289,7 +291,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 							break;
 						}
 					}
-					
+
 					foreach( perk in perksInRow )
 					{
 						dynamicTree[rowNumber].push(perk);

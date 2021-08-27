@@ -2,6 +2,199 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modSkills <- function()
 {
+	::mods_hookExactClass("skills/actives/fire_handgonne_skill", function(o) {
+		o.getAffectedTiles = function( _targetTile )
+		{
+			local ret = [
+				_targetTile
+			];
+			local ownTile = this.m.Container.getActor().getTile();
+			local dir = ownTile.getDirectionTo(_targetTile);
+			local dist = ownTile.getDistanceTo(_targetTile);
+			local isTakingAim = this.getContainer().hasSkill("effects.ptr_take_aim");
+
+			if (_targetTile.hasNextTile(dir))
+			{
+				local forwardTile = _targetTile.getNextTile(dir);
+
+				if (this.Math.abs(forwardTile.Level - ownTile.Level) <= this.m.MaxLevelDifference)
+				{
+					ret.push(forwardTile);
+				}
+
+				if (dist < 3 && isTakingAim)
+				{
+					if (forwardTile.hasNextTile(dir))
+					{
+						forwardTile = forwardTile.getNextTile(dir);
+
+						if (this.Math.abs(forwardTile.Level - ownTile.Level) <= this.m.MaxLevelDifference)
+						{
+							ret.push(forwardTile);
+						}
+					}
+				}
+			}
+
+			local left = dir - 1 < 0 ? 5 : dir - 1;
+
+			if (_targetTile.hasNextTile(left))
+			{
+				local forwardTile = _targetTile.getNextTile(left);
+
+				if (this.Math.abs(forwardTile.Level - ownTile.Level) <= this.m.MaxLevelDifference)
+				{
+					ret.push(forwardTile);
+				}
+
+				if (forwardTile.hasNextTile(dir))
+				{
+					forwardTile = forwardTile.getNextTile(dir);
+
+					if (this.Math.abs(forwardTile.Level - ownTile.Level) <= this.m.MaxLevelDifference)
+					{
+						ret.push(forwardTile);
+					}
+				}
+
+				if (dist < 3 && isTakingAim)
+				{
+					if (forwardTile.hasNextTile(dir))
+					{
+						forwardTile = forwardTile.getNextTile(dir);
+
+						if (this.Math.abs(forwardTile.Level - ownTile.Level) <= this.m.MaxLevelDifference)
+						{
+							ret.push(forwardTile);
+						}
+					}
+				}
+			}
+
+			local right = dir + 1 > 5 ? 0 : dir + 1;
+
+			if (_targetTile.hasNextTile(right))
+			{
+				local forwardTile = _targetTile.getNextTile(right);
+
+				if (this.Math.abs(forwardTile.Level - ownTile.Level) <= this.m.MaxLevelDifference)
+				{
+					ret.push(forwardTile);
+				}
+
+				if (forwardTile.hasNextTile(dir))
+				{
+					forwardTile = forwardTile.getNextTile(dir);
+
+					if (this.Math.abs(forwardTile.Level - ownTile.Level) <= this.m.MaxLevelDifference)
+					{
+						ret.push(forwardTile);
+					}
+				}
+
+				if (dist < 3 && isTakingAim)
+				{
+					if (forwardTile.hasNextTile(dir))
+					{
+						forwardTile = forwardTile.getNextTile(dir);
+
+						if (this.Math.abs(forwardTile.Level - ownTile.Level) <= this.m.MaxLevelDifference)
+						{
+							ret.push(forwardTile);
+						}
+					}
+				}
+			}
+
+			return ret;
+		}
+	});
+
+	::mods_hookExactClass("skills/actives/legend_relax", function(o) {
+		o.getTooltip = function()
+		{
+			local tooltip = this.skill.getTooltip();
+			tooltip.push(
+					{
+						id = 7,
+						type = "text",
+						icon = "ui/icons/special.png",
+						text = "Doubles the Fatigue Recovery of the target on their next turn"
+					}
+			);
+
+			tooltip.push(
+					{
+						id = 7,
+						type = "text",
+						icon = "ui/icons/special.png",
+						text = "Cannot be used on the same target two turns in a row"
+					}
+			);
+
+			if (this.getContainer().getActor().isEngagedInMelee())
+			{
+				tooltip.push(
+						{
+							id = 7,
+							type = "text",
+							icon = "ui/icons/warning.png",
+							text = "Not usable when engaged in melee"
+						}
+				);
+			}
+
+			return tooltip;
+		}
+
+		o.isUsable <- function()
+		{
+			return this.skill.isUsable() && !this.getContainer().getActor().isEngagedInMelee();
+		}
+
+		local onVerifyTarget = o.onVerifyTarget;
+		o.onVerifyTarget = function( _originTile, _targetTile )
+		{
+			local ret = onVerifyTarget( _originTile, _targetTile );
+
+			if (ret)
+			{
+				local target = _targetTile.getEntity();
+				if (target == null || target.isEngagedInMelee() || target.getSkills().hasSkill("effects.ptr_relaxed"))
+				{
+					return false;
+				}
+			}
+
+			return ret;
+		}
+
+		o.onUse = function( _user, _targetTile )
+		{
+			_targetTile.getEntity().getSkills().add(this.new("scripts/skills/effects/ptr_relaxed_effect"));
+
+			if (!target.isHiddenToPlayer())
+			{
+				target.playSound(this.Const.Sound.ActorEvent.Fatigue, this.Const.Sound.Volume.Actor * target.getSoundVolume(this.Const.Sound.ActorEvent.Fatigue));
+			}
+
+			return true;
+		}
+	});
+
+	::mods_hookExactClass("skills/perks/perk_double_strike", function(o) {
+		local onTargetHit = o.onTargetHit;
+		o.onTargetHit = function( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
+		{
+			if (_skill == null || !_skill.isAttack() || _skill.isRanged())
+			{
+				return;
+			}
+
+			onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor );
+		}
+	});
+
 	::mods_hookExactClass("skills/actives/throw_spear_skill", function(o) {
 		o.m.ShieldDamage <- 0;
 		o.onAdded <- function()
@@ -133,7 +326,7 @@ gt.Const.PTR.modSkills <- function()
 
 			if (ret && shield != null && shield.getCondition() == 0 && this.getContainer().hasSkill("perk.legend_smashing_shields"))
 			{
-				_user.setActionPoints(this.Math.min(_user.getActionPointsMax(), _user.getActionPoints() + this.getActionPointCost()));
+				_user.setActionPoints(this.Math.min(_user.getActionPointsMax(), _user.getActionPoints() + 4));
 				this.spawnIcon("perk_legend_smashing_shields", _user.getTile());
 			}
 
@@ -183,7 +376,7 @@ gt.Const.PTR.modSkills <- function()
 		o.onUpdate = function(_properties)
 		{
 			local weapon = this.getContainer().getActor().getMainhandItem();
-			if (weapon != null && weapon.isWeaponType(this.Const.WMS.WeaponType.Throwing))
+			if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.Throwing))
 			{
 				return;
 			}
@@ -232,7 +425,7 @@ gt.Const.PTR.modSkills <- function()
 			}
 
 			local weapon = this.getContainer().getActor().getMainhandItem();
-			if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Throwing))
+			if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Throwing))
 			{
 				return false;
 			}
@@ -263,11 +456,11 @@ gt.Const.PTR.modSkills <- function()
 
 			_properties.RangedSkill += hitChanceBonus;
 
-			if (_skill.hasPiercingDamage())
+			if (_skill.hasDamageType(this.Const.Damage.DamageType.Piercing))
 			{
 				_properties.DamageDirectAdd += directDamageBonus * 0.01;
 			}
-			else if (_skill.hasCuttingDamage())
+			else if (_skill.hasDamageType(this.Const.Damage.DamageType.Cutting))
 			{
 				_properties.DamageArmorMult += armorDamageBonus * 0.01;
 			}
@@ -275,7 +468,7 @@ gt.Const.PTR.modSkills <- function()
 
 		o.onTargetHit <- function( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 		{
-			if (!_targetEntity.isAlive() || _targetEntity.isDying() || !this.isEnabled() || _skill == null || !_skill.isRanged() || !_skill.hasBluntDamage())
+			if (!_targetEntity.isAlive() || _targetEntity.isDying() || !this.isEnabled() || _skill == null || !_skill.isRanged() || !_skill.hasDamageType(this.Const.Damage.DamageType.Blunt))
 			{
 				return;
 			}
@@ -293,6 +486,8 @@ gt.Const.PTR.modSkills <- function()
 			{
 				return;
 			}
+
+			local actor = this.getContainer().getActor();
 
 			local staggeredEffect = _targetEntity.getSkills().getSkillByID("effects.staggered");
 			if (staggeredEffect != null && !_targetEntity.getCurrentProperties().IsImmuneToStun)
@@ -424,54 +619,6 @@ gt.Const.PTR.modSkills <- function()
 		}
 	});
 
-	local flailSpinningSkills = [
-		"skills/actives/flail_skill",
-		"skills/actives/lash_skill",
-		"skills/actives/cascade_skill",
-		"skills/actives/hail_skill",
-		"skills/actives/pound",
-		"skills/actives/legend_ranged_flail_skill",
-		"skills/actives/legend_ranged_lash_skill",
-		"skills/actives/legend_chain_flail_skill",
-		"skills/actives/legend_chain_lash_skill"
-	];
-
-	foreach (skill in flailSpinningSkills)
-	{
-		::mods_hookNewObject(skill, function(o) {
-			local onUse = o.onUse;
-			o.onUse = function( _user, _targetTile )
-			{
-				local target = _targetTile.getEntity();
-				local ret = onUse( _user, _targetTile );
-
-				if (!target.isAlive())
-				{
-					return ret;
-				}
-
-				local flailSpinnerPerk = this.getContainer().getSkillByID("perk.ptr_flail_spinner");
-				if (flailSpinnerPerk != null)
-				{
-					ret = flailSpinnerPerk.spinFlail(onUse, _user, _targetTile, target, this) || ret;
-				}
-
-				return ret;
-			}
-		});
-	}
-
-	::mods_hookNewObject("skills/perks/perk_feint", function(o) {
-		local onTargetMissed = o.onTargetMissed;
-		o.onTargetMissed = function( _skill, _targetEntity )
-		{
-			if (_skill.isRanged())
-			{
-				return;
-			}
-			onTargetMissed( _skill, _targetEntity );
-		}
-	});
 	::mods_hookNewObject("skills/perks/perk_battle_forged", function(o) {
 		o.getReductionPercentage <- function()
 		{
@@ -605,7 +752,7 @@ gt.Const.PTR.modSkills <- function()
 
 			local weapon = user.getMainhandItem();
 			local chance = 50;
-			if (weapon != null && weapon.isWeaponType(this.Const.WMS.WeaponType.Staff))
+			if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.Staff))
 			{
 				chance = 100;
 			}
@@ -777,7 +924,7 @@ gt.Const.PTR.modSkills <- function()
 			}
 
 			local weapon = actor.getMainhandItem();
-			if (weapon != null && weapon.isItemType(this.Const.Items.ItemType.OneHanded) && weapon.isWeaponType(this.Const.WMS.WeaponType.Spear) && actor.isDoubleGrippingWeapon() && this.getContainer().hasSkill("perk.ptr_a_better_grip"))
+			if (weapon != null && weapon.isItemType(this.Const.Items.ItemType.OneHanded) && weapon.isWeaponType(this.Const.Items.WeaponType.Spear) && actor.isDoubleGrippingWeapon() && this.getContainer().hasSkill("perk.ptr_a_better_grip"))
 			{
 				this.m.Stacks = this.Math.min(this.m.Stacks + 1, 5);
 			}
@@ -790,7 +937,7 @@ gt.Const.PTR.modSkills <- function()
 			local actor = this.getContainer().getActor();
 			local weapon = actor.getMainhandItem();
 
-			if (weapon != null && weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon) && (weapon.isItemType(this.Const.Items.ItemType.TwoHanded) || (weapon.isWeaponType(this.Const.WMS.WeaponType.Spear) && actor.isDoubleGrippingWeapon() && this.getContainer().hasSkill("perk.ptr_a_better_grip"))))
+			if (weapon != null && weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon) && (weapon.isItemType(this.Const.Items.ItemType.TwoHanded) || (weapon.isWeaponType(this.Const.Items.WeaponType.Spear) && actor.isDoubleGrippingWeapon() && this.getContainer().hasSkill("perk.ptr_a_better_grip"))))
 			{
 				_properties.MeleeDefense += this.m.Stacks * 5;
 			}
@@ -798,58 +945,6 @@ gt.Const.PTR.modSkills <- function()
 			{
 				this.m.Stacks = 0;
 			}
-		}
-	});
-
-	::mods_hookNewObject("skills/actives/quick_shot", function(o) {
-		o.m.UsedCount <- 0;
-		local oldOnUse = o.onUse;
-		o.onUse = function( _user, _targetTile )
-		{
-			local result = oldOnUse( _user, _targetTile );
-			this.m.UsedCount++;
-			if (this.getContainer().hasSkill("effects.ptr_hip_shooter"))
-			{
-				if (this.m.ActionPointCost > 2)
-				{
-					this.m.ActionPointCost = this.Math.max(2, this.m.ActionPointCost - this.m.UsedCount);
-				}
-			}
-			return result;
-		}
-
-		local oldonAfterUpdate = o.onAfterUpdate;
-		o.onAfterUpdate = function( _properties )
-		{
-			oldonAfterUpdate(_properties);
-			if (this.getContainer().hasSkill("effects.ptr_hip_shooter"))
-			{
-				if (this.m.ActionPointCost > 2)
-				{
-					this.m.ActionPointCost = this.Math.max(2, this.m.ActionPointCost - this.m.UsedCount);
-				}
-			}
-
-			if (this.getContainer().hasSkill("perk.ptr_ranged_supremacy"))
-			{
-				this.m.MaxRange += 1;
-			}
-		}
-
-		o.onTurnEnd <- function()
-		{
-			this.m.UsedCount = 0;
-		}
-
-		o.onCombatStarted <- function()
-		{
-			this.m.UsedCount = 0;
-		}
-
-		o.onCombatFinished <- function()
-		{
-			this.skill.onCombatFinished();
-			this.m.UsedCount = 0;
 		}
 	});
 
@@ -996,14 +1091,12 @@ gt.Const.PTR.modSkills <- function()
 			this.removeSelf();
 		}
 
-		o.onTargetHit <- function( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
+		o.onAnySkillExecuted <- function(_skill, _targetTile)
 		{
-			this.m.AttackCount++;
-		}
-
-		o.onTargetMissed <- function( _skill, _targetEntity )
-		{
-			this.m.AttackCount++;
+			if (_skill.isAttack())
+			{
+				this.m.AttackCount++;
+			}
 		}
 
 		o.getMalus <- function()
@@ -1040,7 +1133,10 @@ gt.Const.PTR.modSkills <- function()
 	});
 
 	::mods_hookNewObject("skills/perks/perk_legend_back_to_basics", function(o) {
-		o.m.Bonus <- 1.05;
+		o.m.Order = this.Const.SkillType.Perk;
+		o.m.AttackSkillThreshold <- 70;
+		o.m.DefenseSkillThreshold <- 40;
+
 		if ("onDamageReceived" in o)
 		{
 			o.onDamageReceived = function( _attacker, _damageHitpoints, _damageArmor )
@@ -1049,17 +1145,119 @@ gt.Const.PTR.modSkills <- function()
 			}
 		}
 
+		o.getDescription = function()
+		{
+			return "This character is using their training to gain at least a passable understanding of the fundamentals of combat, especially in areas they lack.";
+		}
+
+		o.getTooltip <- function()
+		{
+			local tooltip = this.skill.getTooltip();
+
+			local b = this.getContainer().getActor().getBaseProperties();
+			local meleeSkillBonus = this.getMeleeSkillBonus(b);
+			local rangedSkillBonus = this.getRangedSkillBonus(b);
+			local meleeDefenseBonus = this.getMeleeDefenseBonus(b);
+			local rangedDefenseBonus = this.getRangedDefenseBonus(b);
+			local braveryBonus = this.getBraveryBonus(b);
+
+			if (meleeSkillBonus > 0)
+			{
+				tooltip.push({
+					id = 10,
+					type = "text",
+					icon = "ui/icons/melee_skill.png",
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + meleeSkillBonus + "[/color] Melee Skill"
+				});
+			}
+
+			if (meleeDefenseBonus > 0)
+			{
+				tooltip.push({
+					id = 10,
+					type = "text",
+					icon = "ui/icons/melee_defense.png",
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + meleeDefenseBonus + "[/color] Melee Defense"
+				});
+			}
+
+			if (rangedSkillBonus > 0)
+			{
+				tooltip.push({
+					id = 10,
+					type = "text",
+					icon = "ui/icons/ranged_skill.png",
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + rangedSkillBonus + "[/color] Ranged Skill"
+				});
+			}
+
+			if (rangedDefenseBonus > 0)
+			{
+				tooltip.push({
+					id = 10,
+					type = "text",
+					icon = "ui/icons/ranged_defense.png",
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + rangedDefenseBonus + "[/color] Ranged Defense"
+				});
+			}
+
+			if (braveryBonus > 0)
+			{
+				tooltip.push({
+					id = 10,
+					type = "text",
+					icon = "ui/icons/bravery.png",
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + braveryBonus + "[/color] Resolve"
+				});
+			}
+
+			return tooltip;
+		}
+
+		function getMeleeSkillBonus(_baseProperties)
+		{
+			local baseValue = _baseProperties.getMeleeSkill();
+			local bonus = this.Math.floor((this.m.AttackSkillThreshold - baseValue) * 0.01 * baseValue);
+			return this.Math.max(0, bonus);
+		}
+
+		function getRangedSkillBonus(_baseProperties)
+		{
+			local baseValue = _baseProperties.getRangedSkill();
+			local bonus = this.Math.floor((this.m.AttackSkillThreshold - baseValue) * 0.01 * baseValue);
+			return this.Math.max(0, bonus);
+		}
+
+		function getMeleeDefenseBonus(_baseProperties)
+		{
+			local baseValue = _baseProperties.getMeleeDefense();
+			local bonus = this.Math.floor((this.m.DefenseSkillThreshold - baseValue) * 0.01 * baseValue);
+			return this.Math.max(0, bonus);
+		}
+
+		function getRangedDefenseBonus(_baseProperties)
+		{
+			local baseValue = _baseProperties.getRangedDefense();
+			local bonus = this.Math.floor((this.m.DefenseSkillThreshold - baseValue) * 0.01 * baseValue);
+			return this.Math.max(0, bonus);
+		}
+
+		function getBraveryBonus(_baseProperties)
+		{
+			local baseValue = _baseProperties.getBravery();
+			local bonus = this.Math.floor((this.m.DefenseSkillThreshold - baseValue) * 0.01 * baseValue);
+			return this.Math.max(0, bonus);
+		}
+
 		o.onUpdate = function(_properties)
 		{
-			_properties.MeleeSkillMult *= this.m.Bonus;
-			_properties.RangedSkillMult *= this.m.Bonus;
-			_properties.MeleeDefenseMult *= this.m.Bonus;
-			_properties.RangedDefenseMult *= this.m.Bonus;
-			_properties.StaminaMult *= this.m.Bonus;
-			_properties.InitiativeMult *= this.m.Bonus;
-			_properties.HitpointsMult *= this.m.Bonus;
-			_properties.BraveryMult *= this.m.Bonus;
-			_properties.XPGainMult *= this.m.Bonus;
+			local b = this.getContainer().getActor().getBaseProperties();
+
+			_properties.MeleeSkill += this.getMeleeSkillBonus(b);
+			_properties.MeleeDefense += this.getMeleeDefenseBonus(b);
+			_properties.RangedSkill += this.getRangedSkillBonus(b);
+			_properties.RangedDefense += this.getRangedDefenseBonus(b);
+			_properties.Bravery += this.getBraveryBonus(b);
 		}
 	});
 }

@@ -20,7 +20,7 @@ this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 	{
 		local weapon = this.getContainer().getActor().getMainhandItem();
 
-		if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Throwing))
+		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Throwing))
 		{
 			return false;
 		}

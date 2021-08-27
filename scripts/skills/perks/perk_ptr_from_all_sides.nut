@@ -1,7 +1,6 @@
 this.perk_ptr_from_all_sides <- this.inherit("scripts/skills/skill", {
 	m = {
-		SkillCount = 0,
-		LastTargetID = 0
+		IsForceEnabled = false
 	},
 	function create()
 	{
@@ -16,52 +15,36 @@ this.perk_ptr_from_all_sides <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
-	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
+	function isEnabled()
 	{
+		if (this.m.IsForceEnabled)
+		{
+			return true;
+		}
+
 		local actor = this.getContainer().getActor();
 		if (this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
 		{
-			return;
+			return false;
 		}
 
-		if (!_targetEntity.isAlive() || _targetEntity.isDying() || _targetEntity.isAlliedWith(actor))
+		local weapon = this.getContainer().getActor().getMainhandItem();
+		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Flail))
 		{
-			return;
+			return false;
 		}
 
-		local weapon = actor.getMainhandItem();
-		if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Flail))
-		{
-			return;
-		}
-
-		if (this.m.SkillCount == this.Const.SkillCounter && this.m.LastTargetID == _targetEntity.getID())
-		{
-			return;
-		}
-
-		this.m.SkillCount = this.Const.SkillCounter;
-		this.m.LastTargetID = _targetEntity.getID();
-		local effect = this.new("scripts/skills/effects/ptr_from_all_sides_effect");
-		_targetEntity.getSkills().add(effect);
-
-		if (_bodyPart == this.Const.BodyPart.Head)
-		{
-			effect.m.Count++;
-		}
+		return true;
 	}
 
-	function onCombatStarted()
+	function onBeforeAnySkillExecuted(_skill, _targetTile)
 	{
-		this.m.SkillCount = 0;
-		this.m.LastTargetID = 0;
-	}
+		local targetEntity = _targetTile.getEntity();
+		if (targetEntity == null || targetEntity.isAlliedWith(this.getContainer().getActor()) || !this.isEnabled())
+		{
+			return;
+		}
 
-	function onCombatFinished()
-	{
-		this.skill.onCombatFinished();
-		this.m.SkillCount = 0;
-		this.m.LastTargetID = 0;
+		targetEntity.getSkills().add(this.new("scripts/skills/effects/ptr_from_all_sides_effect"));
 	}
-
 });

@@ -33,7 +33,7 @@ this.ptr_whack_a_smack_effect <- this.inherit("scripts/skills/skill", {
 		}
 
 		local weapon = actor.getMainhandItem();
-		if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Staff))
+		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Staff))
 		{
 			return false;
 		}

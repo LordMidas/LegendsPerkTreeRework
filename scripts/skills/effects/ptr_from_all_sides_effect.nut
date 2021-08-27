@@ -1,12 +1,17 @@
 this.ptr_from_all_sides_effect <- this.inherit("scripts/skills/skill", {
 	m = {
-		Count = 1
+		Malus = 0,
+		MalusForHit = 3,
+		MalusForHeadshot = 6,
+		MalusForMiss = 1,
+		SkillCount = 0,
+		LastAttackerID = 0
 	},
 	function create()
 	{
 		this.m.ID = "effects.ptr_from_all_sides";
 		this.m.Name = "From all Sides";
-		this.m.Description = "This character is being hit by a spinning weapon, which seems to be coming from all sides. Very confusing.";
+		this.m.Description = "This character is receiving attacks which seem to be coming from all sides - very confusing!";
 		this.m.Icon = "ui/perks/ptr_from_all_sides.png";
 		//this.m.IconMini = "ptr_from_all_sides_effect_mini";
 		this.m.Overlay = "ptr_from_all_sides_effect";
@@ -18,54 +23,76 @@ this.ptr_from_all_sides_effect <- this.inherit("scripts/skills/skill", {
 
 	function getName()
 	{
-		if (this.m.Count <= 1)
-		{
-			return this.m.Name;
-		}
-		else
-		{
-			return this.m.Name + " (x" + this.m.Count + ")";
-		}
+		return this.m.Malus > 0 ? this.m.Name + " (x" + this.m.Malus + ")" : this.m.Name;
 	}
 
 	function getTooltip()
 	{
-		return [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			},
+		local tooltip = this.skill.getTooltip();
+
+		tooltip.extend(
+		[
 			{
 				id = 10,
 				type = "text",
 				icon = "ui/icons/melee_defense.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + this.m.Count * 5 + "%[/color] Melee Defense"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + this.m.Malus + "[/color] Melee Defense"
 			},
 			{
-				id = 11,
+				id = 10,
 				type = "text",
 				icon = "ui/icons/ranged_defense.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + this.m.Count * 5 + "%[/color] Ranged Defense"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + this.m.Malus + "[/color] Ranged Defense"
 			}
-		];
+		]);
+
+		return tooltip;
+	}
+
+	function checkAndUpdateAttackerInfo(_attacker)
+	{
+		if (this.m.SkillCount == this.Const.SkillCounter && this.m.LastAttackerID == _attacker.getID())
+		{
+			return false;
+		}
+
+		local perk = _attacker.getSkills().getSkillByID("perk.ptr_from_all_sides");
+		if (perk == null || !perk.isEnabled())
+		{
+			return false;
+		}
+
+		this.m.SkillCount = this.Const.SkillCounter;
+		this.m.LastTargetID = _attacker.getID();
+
+		return true;
+	}
+
+	function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
+	{
+		if (_skill != null && _skill.isAttack() && this.checkAndUpdateAttackerInfo())
+		{
+			this.m.Malus += _hitInfo.BodyPart == this.Const.BodyPart.Head ? this.m.MalusForHeadshot : this.m.MalusForHit;
+		}
+	}
+
+	function onMissed( _attacker, _skill )
+	{
+		if (_skill != null && _skill.isAttack() && this.checkAndUpdateAttackerInfo())
+		{
+			this.m.Malus += this.m.MalusForMiss;
+		}
 	}
 
 	function onRefresh()
 	{
-		++this.m.Count;
 		this.spawnIcon("ptr_from_all_sides", this.getContainer().getActor().getTile());
 	}
 
 	function onUpdate( _properties )
 	{
-		_properties.MeleeDefenseMult = this.Math.maxf(0.0, _properties.MeleeDefenseMult - 0.05 * this.m.Count);
-		_properties.RangedDefenseMult = this.Math.maxf(0.0, _properties.RangedDefenseMult - 0.05 * this.m.Count);
+		_properties.MeleeDefense -= this.m.Malus;
+		_properties.RangedDefense -= this.m.Malus;
 	}
 
 	function onTurnStart()

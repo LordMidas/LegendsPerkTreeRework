@@ -28,12 +28,12 @@ this.perk_ptr_bone_breaker <- this.inherit("scripts/skills/skill", {
 			return true;
 		}
 
-		if (!_skill.hasBluntDamage())
+		if (!_skill.hasDamageType(this.Const.Damage.DamageType.Blunt))
 		{
 			return false;
 		}
 
-		if(_weapon == null || !_weapon.isWeaponType(this.Const.WMS.WeaponType.Mace))
+		if(_weapon == null || !_weapon.isWeaponType(this.Const.Items.WeaponType.Mace))
 		{
 			return false;
 		}

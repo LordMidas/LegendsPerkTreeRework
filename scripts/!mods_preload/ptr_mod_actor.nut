@@ -38,7 +38,21 @@ gt.Const.PTR.modActor <- function()
 			this.getSkills().add(this.new("scripts/skills/effects/ptr_formidable_approach_debuff_effect"));
 			this.getSkills().add(this.new("scripts/skills/effects/ptr_follow_up_proccer_effect"));
 			this.getSkills().add(this.new("scripts/skills/effects/ptr_bolstered_effect"));
-			this.getSkills().add(this.new("scripts/skills/effects/ptr_undead_injury_receiver_effect"));
+
+			local flags = this.getFlags();
+			if (flags.has("undead"))
+			{
+				if (flags.has("skeleton"))
+				{
+					this.getSkills().add(this.new("scripts/skills/effects/ptr_undead_injury_receiver_effect"));
+					this.m.ExcludedInjuries.extend(this.Const.Injury.ExcludedInjuries.get(this.Const.Injury.ExcludedInjuries.PTRSkeleton));
+				}
+				else if (!flags.has("ghoul") && !flags.has("vampire"))
+				{
+					this.getSkills().add(this.new("scripts/skills/effects/ptr_undead_injury_receiver_effect"));
+					this.m.ExcludedInjuries.extend(this.Const.Injury.ExcludedInjuries.get(this.Const.Injury.ExcludedInjuries.PTRUndead));
+				}
+			}
 		}
 
 		o.getSurroundedCount = function()
@@ -85,25 +99,36 @@ gt.Const.PTR.modActor <- function()
 			{
 				if (_change > 0)
 				{
-					local acSkill = this.m.Skills.getSkillByID("perk.perk_legend_assured_conquest");
+					local acSkill = this.m.Skills.getSkillByID("perk.legend_assured_conquest");
 					if (acSkill != null)
 					{
 						_difficulty += acSkill.getBonusResAtPositiveMoraleCheck();
 					}
 				}
 
-				if (_change < 0 && _type = this.Const.MoraleCheckType.MentalAttack)
+				if (_change < 0)
 				{
-					local tsSkill = this.m.Skills.getSkillByID("perk.perk_ptr_trauma_survivor");
-					if (tsSkill != null)
+					if (_type = this.Const.MoraleCheckType.MentalAttack)
 					{
-						_difficulty += tsSkill.getBonusRes();
+						local tsSkill = this.m.Skills.getSkillByID("perk.ptr_trauma_survivor");
+						if (tsSkill != null)
+						{
+							_difficulty += tsSkill.getBonusRes();
+						}
+					}
+					else
+					{
+						local bulwark = this.m.Skills.getSkillByID("perk.ptr_bulwark")
+						if (bulwark != null)
+						{
+							_difficulty += bulwark.getBonus();
+						}
 					}
 				}
 			}
 
 			return checkMorale( _change, _difficulty, _type, _showIconBeforeMoraleIcon, _noNewLine );
-		}		
+		}
 
 		local resetPerks = o.resetPerks;
 		o.resetPerks = function()
