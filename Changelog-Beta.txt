@@ -1,3 +1,67 @@
+======================
+==== Ver 0.14.0 ======
+======================
+== DEPENDENCIES ==
+- Now requires Fencer Perk version 1.5.5. Fencer Perk changes:
+  - The Hitchance malus from Sword Thrust and Lunge no longer applies to AI characters.
+- Now requires MSU version 0.6.0. MSU Changes:
+  - Implemented Weapon Type and Damage Type systems for code backend, which will enable more robust, flexible, and frankly new paradigms of BB weapon and skill modding.
+  - Skills can now have modular damage types e.g. x% Blunt, y% Piercing on the same skill.
+  - Now shows the Damage Type of a skill in its tooltip.
+- Now requires WMS version 1.4.2.
+  - Moved the Weapon Type system to MSU.
+
+== MAJOR CHANGES ==
+- New Perk Group: Entertainer (Class).
+- New Perk Group: Scout (Class). Currently only contains Lookout as t1 perk.
+- Moved Second Wind from Fast perk group t5 to Resilient perk group t5.
+- New Perk: Dynamic Duo, Fast perk group t5. When there is only one ally within 2 tiles and that ally has no other ally within 2 tiles except you, gain the Dynamic Duo effect. Grants 10 Initiative, 10 Resolve and 5% Melee Defense bonus. If the ally also has this perk, these bonuses are doubled, and whenever that ally gets attacked by an enemy in melee, your next melee attack against +10% that enemy gains +10% chance to hit for one turn. Also grants the Rotation skill even if you do not have that perk. When this effect is active, the first Rotation on your turn has its Fatigue Cost halved and if your ally also this perk, it additionally costs no Action Points.
+- New Perk: Always an Entertainer. Entertainer perk group t1. Once per day, when you visit a non-military settlement, gain between 20 and 40 gold. For each level this character is above 1, these values are increased by +2. The values are doubled for medium-sized settlements and tripled for large settlements. If multiple characters with this perk are present, only one of them will entertain in a given city on a given day, and the others will have to entertain in other cities.
+- New Perk: Paint a Smile. Entertainer perk group t3. Once per day, increase the Mood of the character with the lowest mood in your roster by 1.
+- New Perk: Bulwark, Heavy Armor perk group t5. Gain 2% of your combined current head and body armor durability as Resolve. This bonus is doubled against negative morale checks except mental attacaks.
+- Removed Through the Ranks and Piercing Shot from the Crossbow perk group t1 and t6 respectively.
+- New Perk: Take Aim, Crossbow t1. Requires Crossbow or Firearm. Unlocks the Take Aim skill which applies to your next ranged attack during this turn. For crossbows, this attack ignores the hitchance penalty from obstacles and the shot cannot go astray. For Handgonnes the attack has its Maximum Range increased by 1 and if used at a shorter range, the area of effect is increased by 1 instead.
+- New Perk: Primal Fear, Crossbow t6. Ranged attacks that hit the head have a 25% chance to lower the Morale state of the target by 1 level. Has 100% chance with Crossbows.
+- Weapon Master now only provides the mastery bonuses of the perks available in this character's perk tree. Now also requires at least one of the following masteries to be picked before it provides its bonuses: Axe, Cleaver, Dagger, Hammer, Mace, Spear, Sword.
+- Double Strike now only works with Melee skills.
+- Relax reworked: Now doubles the Fatigue Recovery of the target for their next turn. Cannot be used on the same target two turns in a row. Cannot be used when engaged in Melee.-
+- Hip Shooter tweaked: Now reduces the Action Point cost of Quick Shot by 1 but each subsequent Quick Shot in this turn builds 10% more Fatigue.
+- Entrenched tweaked: Now grants +5 Ranged Skill, Ranged Defense, and Resolve as long as you are adjacent to an ally wielding a melee weapon who is not engaged in melee. The bonuses increase by +1 every turn up to a maximum of +10 as long as you continue to start your turn adjacent to any ally wielding a melee weapon who is not engaged in melee.
+- From All Sides tweaked: Now reduces the target's Melee Defense and Ranged Defense by a stacking -3 per hit. Double the effect if it hits the head. Missed attacks reduce the target's defenses by -1 instead.
+- Back to Basics reworked: Gain a bonus to key combat attributes depending on how far their Base Values are below a certain thershold. These attributes are increased by a percentage equal to the number of points they are below the threshold. The threshold for Melee Skill and Ranged Skill is 70, and for Melee Defense, Ranged Defense, and Resolve is 40. Also grants +10% Training in camp.
+- Removed Man of Steel from Heavy Armor perk group t7. The perk still remains on AI enemies.
+- Hybridization tweaked: The Melee Skill bonus is provided at all times, but the Ranged Skill bonus now only works when wielding a Throwing Weapon.
+
+== MINOR CHANGES ==
+- In the hitchance tooltip, the following perks now show the quantitative hitchance increase that they provide: Exploit Opening, Pointy End, Ranged Supremacy.
+- Made it clear in the tooltip of the Assured Conquest perk that the 10% Resolve bonus is always given and the +10 is provided at positive Morale Checks.
+- Perfect Focus stacking damage and fatigue cost malus is now based off the number of attack skills used rather than the number of targets hit or miss. This makes the perk better for AOE skills than before.
+- King of all Weapons status effect is now only visible and active during combat, and will not show its effect on the world map.
+- The Tactician and Clerk perk groups are now rarer than before.
+- Heightened Reflexes (Sword t3) renamed to Fluid Weapon. The icon that was previously used for Versatile Weapon is now given to this perk.
+- New icons for Versatile Weapon, Formidable Approach, Heavy Strikes.
+
+== BALANCE ==
+- Added PTR relevant perks to the newly added southern slave enemies in Legends.
+- Desert Stalkers and Master Archers now gain the full tree of their equipped weapon. However, they never gain Iron Sights and only gain Marksmanship on Legendary difficulty.
+- Desert Stalkers no longer have 8 Vision and 1.25x Armor Penetration by default.
+- Master Archers now have Berserk without Legendary difficulty.
+- Added the Primal Fear perk to Noble Arbalesters, Mummy Archers, Barbarian Reavers, Brigand Leaders, Nomad Leaders, Brigand Warlords, Orc Young, and Ifrits.
+- Added the Menacing perk to Frenzied Direwolf, Frenzied Hyena, Large Nachzehrers, Bear, Unholds, Lindwurm, Stollwurm, White Direwolf, Medium Skin Ghoul.
+- Added the Bully perk to Frenzied Direwolf, Frenzied Hyena, Unholds, Lindwurm, Stollwurm, White Direwolf, Large Skin Ghoul.
+- Stollwurms now gain the same perks that Lindwurms gain in PTR except Survival Instinct.
+
+== FIXES ==
+- Fixed the Exploit Opening perk not showing up in the hitchance tooltip if the target had the Exploitable Opening effect, and potentially causing the tooltip to not show up at all.
+- Fixed Close Combat Archer not adding entries to the combat log if it applied Stunned or Staggered with blunt throwing weapons.
+- Fixed recruits sometimes spawning with the Greatsword perk group from Legends.
+- Fixed En Garde giving Riposte at the end of the turn even when Stunned.
+- Fixed Trauma Survivor and Assured Conquest not giving Resolve bonus at morale checks.
+- Fixed Smashing Shields refunding the Action Point cost of the Split Shield skill instead of refunding 4 Action Points.
+- Fixed the Vigilant perk showing up as a Status Effect outside of combat, and missing the icon for the Melee Defense bonus.
+- Fixed the Tactician perk group having weights for some other perk groups that weren't intended.
+- Fixed Momentum stating in the combat log that it increased damage for Melee attacks even though it didn't.
+
 =======================
 ==== Ver 0.13.10 ======
 =======================
