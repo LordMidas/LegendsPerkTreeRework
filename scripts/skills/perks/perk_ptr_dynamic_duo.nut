@@ -5,7 +5,7 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 		AllyDynamicDuoMultiplier = 2,
 		ResolveBonus = 10,
 		InitiativeBonus = 10,
-		MeleeDefenseBonus = 0.05,
+		MeleeDefenseBonus = 5,
 		HitChanceBonus = 10,
 		AllyID = 0,
 		AllyDistance = 0,
@@ -233,7 +233,7 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 
 		_properties.Bravery += this.getResolveBonus();
 		_properties.Initiative += this.getInitiativeBonus();
-		_properties.MeleeDefenseMult *= 1.0 + this.getMeleeDefenseBonus();
+		_properties.MeleeDefenseMult *= 1.0 + this.getMeleeDefenseBonus() * 0.01;
 
 	}
 
