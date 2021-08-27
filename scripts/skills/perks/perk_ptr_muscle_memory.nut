@@ -1,11 +1,11 @@
-this.perk_ptr_windlass_training <- this.inherit("scripts/skills/skill", {
+this.perk_ptr_muscle_memory <- this.inherit("scripts/skills/skill", {
 	m = {},
 	function create()
 	{
-		this.m.ID = "perk.ptr_windlass_training";
-		this.m.Name = this.Const.Strings.PerkName.PTRWindlassTraining;
-		this.m.Description = this.Const.Strings.PerkDescription.PTRWindlassTraining;
-		this.m.Icon = "ui/perks/ptr_windlass_training.png";
+		this.m.ID = "perk.ptr_muscle_memory";
+		this.m.Name = this.Const.Strings.PerkName.PTRMuscleMemory;
+		this.m.Description = this.Const.Strings.PerkDescription.PTRMuscleMemory;
+		this.m.Icon = "ui/perks/ptr_muscle_memory.png";
 		this.m.Type = this.Const.SkillType.Perk;
 		this.m.Order = this.Const.SkillOrder.Last;
 		this.m.IsActive = false;

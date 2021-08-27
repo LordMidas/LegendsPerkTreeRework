@@ -48,6 +48,7 @@ local modID = "mod_legends_PTR";
 	gt.Const.PTR.modSkills();
 	gt.Const.PTR.modWeapons();
 	gt.Const.PTR.modItems();
+	gt.Const.PTR.modSettlement();
 
 	gt.Const.PTR.modLegendsPerkTreeCreationSystem();
 

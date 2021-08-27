@@ -1,5 +1,8 @@
 this.perk_ptr_hip_shooter <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		Count = 0,
+		FatigueCostIncreasePerCount = 10
+	},
 	function create()
 	{
 		this.m.ID = "perk.ptr_hip_shooter";
@@ -7,22 +10,27 @@ this.perk_ptr_hip_shooter <- this.inherit("scripts/skills/skill", {
 		this.m.Description = this.Const.Strings.PerkDescription.PTRHipShooter;
 		this.m.Icon = "ui/perks/ptr_hip_shooter.png";
 		this.m.Type = this.Const.SkillType.Perk;
-		this.m.Order = this.Const.SkillOrder.Perk;
+		this.m.Order = this.Const.SkillOrder.VeryLast;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
 
-	function onCombatStarted()
+	function onAnySkillExecuted(_skill, _targetTile)
 	{
-		this.getContainer().add(this.new("scripts/skills/effects/ptr_hip_shooter_effect"));
+		if (_skill.getID() == "actives.quick_shot")
+		{
+			this.m.Count++;
+		}
 	}
 
-	function onAdded()
+	function onAfterUpdate(_properties)
 	{
-		if (("State" in this.Tactical) && this.Tactical.State != null)
+		local quickShot = this.getContainer().getSkillByID("actives.quick_shot");
+		if (quickShot != null)
 		{
-			this.getContainer().add(this.new("scripts/skills/effects/ptr_hip_shooter_effect"));
+			quickShot.m.ActionPointCost -= 1;
+			quickShot.m.FatigueCostMult *= 1.0 + (this.m.FatigueCostIncreasePerCount * 0.01 * this.m.Count);
 		}
 	}
 });

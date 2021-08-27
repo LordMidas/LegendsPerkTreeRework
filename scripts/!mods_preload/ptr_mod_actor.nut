@@ -85,25 +85,36 @@ gt.Const.PTR.modActor <- function()
 			{
 				if (_change > 0)
 				{
-					local acSkill = this.m.Skills.getSkillByID("perk.perk_legend_assured_conquest");
+					local acSkill = this.m.Skills.getSkillByID("perk.legend_assured_conquest");
 					if (acSkill != null)
 					{
 						_difficulty += acSkill.getBonusResAtPositiveMoraleCheck();
 					}
 				}
 
-				if (_change < 0 && _type = this.Const.MoraleCheckType.MentalAttack)
+				if (_change < 0)
 				{
-					local tsSkill = this.m.Skills.getSkillByID("perk.perk_ptr_trauma_survivor");
-					if (tsSkill != null)
+					if (_type = this.Const.MoraleCheckType.MentalAttack)
 					{
-						_difficulty += tsSkill.getBonusRes();
+						local tsSkill = this.m.Skills.getSkillByID("perk.ptr_trauma_survivor");
+						if (tsSkill != null)
+						{
+							_difficulty += tsSkill.getBonusRes();
+						}
+					}
+					else
+					{
+						local bulwark = this.m.Skills.getSkillByID("perk.ptr_bulwark")
+						if (bulwark != null)
+						{
+							_difficulty += bulwark.getBonus();
+						}
 					}
 				}
 			}
 
 			return checkMorale( _change, _difficulty, _type, _showIconBeforeMoraleIcon, _noNewLine );
-		}		
+		}
 
 		local resetPerks = o.resetPerks;
 		o.resetPerks = function()

@@ -18,40 +18,43 @@ this.perk_ptr_momentum <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
+	function isEnabled()
+	{
+		local actor = this.getContainer().getActor();
+		if (!actor.isPlacedOnMap())
+		{
+			return false;
+		}
+
+		local weapon = actor.getMainhandItem();
+		if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Throwing))
+		{
+			return false;
+		}
+
+		return true;
+	}
+
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
-		if (_targetEntity == null || !_targetEntity.isPlacedOnMap())
+		if (!_skill.isAttack() || !_skill.isRanged() || _targetEntity == null || !_targetEntity.isPlacedOnMap() || !this.isEnabled())
 		{
 			return;
 		}
 
 		this.m.TargetTile = _targetEntity.getTile();
 
-		if (this.m.TargetTile == null)
-		{
-			return;
-		}
-
 		local bonus = this.getBonus();
-
-		if (bonus == 0 || !_skill.isAttack() || !_skill.isRanged())
+		if (bonus != 0)
 		{
-			return;
+			_properties.RangedDamageMult *= 1.0 + (this.getBonus() * 0.01);
 		}
-
-		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon == null || !weapon.isWeaponType(this.Const.WMS.WeaponType.Throwing))
-		{
-			return;
-		}
-
-		_properties.RangedDamageMult *= 1.0 + (this.getBonus() * 0.01);
 	}
 
 	function getBonus()
 	{
 		local actor = this.getContainer().getActor();
-		if (this.m.PrevTile == null || this.m.CurrTile == null || this.m.TargetTile == null || !actor.isPlacedOnMap() || actor.getTile() == null)
+		if (this.m.PrevTile == null || this.m.CurrTile == null || this.m.TargetTile == null || !this.isEnabled())
 		{
 			return 0;
 		}
@@ -98,7 +101,7 @@ this.perk_ptr_momentum <- this.inherit("scripts/skills/skill", {
 		local bonus = this.getBonus();
 
 		local actor = this.getContainer().getActor();
-		if (bonus > 0)
+		if (_skill.isRanged() && bonus > 0)
 		{
 			if (!actor.isHiddenToPlayer() && this.m.TargetTile.IsVisibleForPlayer)
 			{
@@ -106,8 +109,8 @@ this.perk_ptr_momentum <- this.inherit("scripts/skills/skill", {
 			}
 		}
 
-		this.m.PrevTile = this.getContainer().getActor().getTile();
-		this.m.CurrTile = this.getContainer().getActor().getTile();
+		this.m.PrevTile = actor.getTile();
+		this.m.CurrTile = actor.getTile();
 		this.m.TargetTile = null;
 	}
 

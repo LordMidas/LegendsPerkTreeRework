@@ -1,5 +1,7 @@
 this.perk_ptr_hybridization <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		Bonus = 10
+	},
 	function create()
 	{
 		this.m.ID = "perk.ptr_hybridization";
@@ -16,7 +18,15 @@ this.perk_ptr_hybridization <- this.inherit("scripts/skills/skill", {
 	function onUpdate( _properties )
 	{
 		local baseProperties = this.getContainer().getActor().getBaseProperties();
-		_properties.RangedSkill += baseProperties.getMeleeSkill() * 0.1;
-		_properties.MeleeSkill += baseProperties.getRangedSkill() * 0.1;
+
+		local fraction = this.m.Bonus * 0.01;
+
+		_properties.MeleeSkill += this.Math.floor(baseProperties.getRangedSkill() * fraction);
+
+		local weapon = this.getContainer().getActor().getMainhandItem();
+		if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.Throwing))
+		{
+			_properties.RangedSkill += this.Math.floor(baseProperties.getMeleeSkill() * fraction);
+		}
 	}
 });

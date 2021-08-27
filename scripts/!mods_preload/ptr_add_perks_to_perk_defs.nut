@@ -15,7 +15,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 		Const = "PTRTesting"
 	});
 
-	local axePerks = [
+	local perks = [
 		{
 			ID = "perk.ptr_dismemberment",
 			Script = "scripts/skills/perks/perk_ptr_dismemberment",
@@ -51,10 +51,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_cull.png",
 			IconDisabled = "ui/perks/ptr_cull_bw.png",
 			Const = "PTRCull"
-		}
-	];
-
-	local bowPerks = [
+		},
 		{
 			ID = "perk.ptr_arrow_to_the_knee",
 			Script = "scripts/skills/perks/perk_ptr_arrow_to_the_knee",
@@ -74,13 +71,13 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Const = "PTRFlamingArrows"
 		},
 		{
-			ID = "perk.ptr_sniper",
-			Script = "scripts/skills/perks/perk_ptr_sniper",
-			Name = this.Const.Strings.PerkName.PTRSniper,
-			Tooltip = this.Const.Strings.PerkDescription.PTRSniper,
-			Icon = "ui/perks/ptr_sniper.png",
-			IconDisabled = "ui/perks/ptr_sniper_bw.png",
-			Const = "PTRSniper"
+			ID = "perk.ptr_death_from_afar",
+			Script = "scripts/skills/perks/perk_ptr_death_from_afar",
+			Name = this.Const.Strings.PerkName.PTRDeathFromAfar,
+			Tooltip = this.Const.Strings.PerkDescription.PTRDeathFromAfar,
+			Icon = "ui/perks/ptr_death_from_afar.png",
+			IconDisabled = "ui/perks/ptr_death_from_afar_bw.png",
+			Const = "PTRDeathFromAfar"
 		},
 		{
 			ID = "perk.ptr_hip_shooter",
@@ -90,18 +87,15 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_hip_shooter.png",
 			IconDisabled = "ui/perks/ptr_hip_shooter_bw.png",
 			Const = "PTRHipShooter"
-		}
-	];
-
-	local cleaverPerks = [
+		},
 		{
-			ID = "perk.ptr_open_wounds",
-			Script = "scripts/skills/perks/perk_ptr_open_wounds",
-			Name = this.Const.Strings.PerkName.PTROpenWounds,
-			Tooltip = this.Const.Strings.PerkDescription.PTROpenWounds,
-			Icon = "ui/perks/ptr_open_wounds.png",
-			IconDisabled = "ui/perks/ptr_open_wounds_bw.png",
-			Const = "PTROpenWounds"
+			ID = "perk.ptr_deep_cuts",
+			Script = "scripts/skills/perks/perk_ptr_deep_cuts",
+			Name = this.Const.Strings.PerkName.PTRDeepCuts,
+			Tooltip = this.Const.Strings.PerkDescription.PTRDeepCuts,
+			Icon = "ui/perks/ptr_deep_cuts.png",
+			IconDisabled = "ui/perks/ptr_deep_cuts_bw.png",
+			Const = "PTRDeepCuts"
 		},
 		{
 			ID = "perk.ptr_bloodlust",
@@ -129,18 +123,15 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_mauler.png",
 			IconDisabled = "ui/perks/ptr_mauler_bw.png",
 			Const = "PTRMauler"
-		}
-	];
-
-	local crossbowPerks = [
+		},
 		{
-			ID = "perk.ptr_through_the_ranks",
-			Script = "scripts/skills/perks/perk_ptr_through_the_ranks",
-			Name = this.Const.Strings.PerkName.PTRThroughTheRanks,
-			Tooltip = this.Const.Strings.PerkDescription.PTRThroughTheRanks,
-			Icon = "ui/perks/ptr_through_the_ranks.png",
-			IconDisabled = "ui/perks/ptr_through_the_ranks_bw.png",
-			Const = "PTRThroughTheRanks"
+			ID = "perk.ptr_take_aim",
+			Script = "scripts/skills/perks/perk_ptr_take_aim",
+			Name = this.Const.Strings.PerkName.PTRTakeAim,
+			Tooltip = this.Const.Strings.PerkDescription.PTRTakeAim,
+			Icon = "ui/perks/ptr_take_aim.png",
+			IconDisabled = "ui/perks/ptr_take_aim_bw.png",
+			Const = "PTRTakeAim"
 		},
 		{
 			ID = "perk.ptr_entrenched",
@@ -170,17 +161,14 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Const = "PTRIronSights"
 		},
 		{
-			ID = "perk.ptr_windlass_training",
-			Script = "scripts/skills/perks/perk_ptr_windlass_training",
-			Name = this.Const.Strings.PerkName.PTRWindlassTraining,
-			Tooltip = this.Const.Strings.PerkDescription.PTRWindlassTraining,
-			Icon = "ui/perks/ptr_windlass_training.png",
-			IconDisabled = "ui/perks/ptr_windlass_training_bw.png",
-			Const = "PTRWindlassTraining"
-		}
-	];
-
-	local daggerPerks = [
+			ID = "perk.ptr_muscle_memory",
+			Script = "scripts/skills/perks/perk_ptr_muscle_memory",
+			Name = this.Const.Strings.PerkName.PTRMuscleMemory,
+			Tooltip = this.Const.Strings.PerkDescription.PTRMuscleMemory,
+			Icon = "ui/perks/ptr_muscle_memory.png",
+			IconDisabled = "ui/perks/ptr_muscle_memory_bw.png",
+			Const = "PTRMuscleMemory"
+		},
 		{
 			ID = "perk.ptr_between_the_ribs",
 			Script = "scripts/skills/perks/perk_ptr_between_the_ribs",
@@ -207,10 +195,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_swift_stabs.png",
 			IconDisabled = "ui/perks/ptr_swift_stabs_bw.png",
 			Const = "PTRSwiftStabs"
-		}
-	];
-
-	local flailPerks = [
+		},
 		{
 			ID = "perk.ptr_small_target",
 			Script = "scripts/skills/perks/perk_ptr_small_target",
@@ -255,10 +240,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_from_all_sides.png",
 			IconDisabled = "ui/perks/ptr_from_all_sides_bw.png",
 			Const = "PTRFromAllSides"
-		}
-	];
-
-	local hammerPerks = [
+		},
 		{
 			ID = "perk.ptr_rattle",
 			Script = "scripts/skills/perks/perk_ptr_rattle",
@@ -303,10 +285,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_dent_armor.png",
 			IconDisabled = "ui/perks/ptr_dent_armor_bw.png",
 			Const = "PTRDentArmor"
-		}
-	];
-
-	local macePerks = [
+		},
 		{
 			ID = "perk.ptr_push_it",
 			Script = "scripts/skills/perks/perk_ptr_push_it",
@@ -351,10 +330,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_bone_breaker.png",
 			IconDisabled = "ui/perks/ptr_bone_breaker_bw.png",
 			Const = "PTRBoneBreaker"
-		}
-	];
-
-	local polearmPerks = [
+		},
 		{
 			ID = "perk.ptr_bolster",
 			Script = "scripts/skills/perks/perk_ptr_bolster",
@@ -408,10 +384,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_long_reach.png",
 			IconDisabled = "ui/perks/ptr_long_reach_bw.png",
 			Const = "PTRLongReach"
-		}
-	];
-
-	local slingPerks = [
+		},
 		{
 			ID = "perk.ptr_patience",
 			Script = "scripts/skills/perks/perk_ptr_patience",
@@ -429,10 +402,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_heavy_projectiles.png",
 			IconDisabled = "ui/perks/ptr_heavy_projectiles_bw.png",
 			Const = "PTRHeavyProjectiles"
-		}
-	];
-
-	local spearPerks = [
+		},
 		{
 			ID = "perk.ptr_pointy_end",
 			Script = "scripts/skills/perks/perk_ptr_pointy_end",
@@ -486,10 +456,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_king_of_all_weapons.png",
 			IconDisabled = "ui/perks/ptr_king_of_all_weapons_bw.png",
 			Const = "PTRKingOfAllWeapons"
-		}
-	];
-
-	local staffPerks = [
+		},
 		{
 			ID = "perk.ptr_easy_target",
 			Script = "scripts/skills/perks/perk_ptr_easy_target",
@@ -516,17 +483,14 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_whack_a_smack.png",
 			IconDisabled = "ui/perks/ptr_whack_a_smack_bw.png",
 			Const = "PTRWhackASmack"
-		}
-	];
-
-	local swordPerks = [
+		},
 		{
-			ID = "perk.ptr_heightened_reflexes",
-			Script = "scripts/skills/perks/perk_ptr_heightened_reflexes",
+			ID = "perk.ptr_fluid_weapon",
+			Script = "scripts/skills/perks/perk_ptr_fluid_weapon",
 			Name = this.Const.Strings.PerkName.PTRHeightenedReflexes,
 			Tooltip = this.Const.Strings.PerkDescription.PTRHeightenedReflexes,
-			Icon = "ui/perks/ptr_heightened_reflexes.png",
-			IconDisabled = "ui/perks/ptr_heightened_reflexes_bw.png",
+			Icon = "ui/perks/ptr_fluid_weapon.png",
+			IconDisabled = "ui/perks/ptr_fluid_weapon_bw.png",
 			Const = "PTRHeightenedReflexes"
 		},
 		{
@@ -546,10 +510,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_sweeping_strikes.png",
 			IconDisabled = "ui/perks/ptr_sweeping_strikes_bw.png",
 			Const = "PTRSweepingStrikes"
-		}
-	];
-
-	local throwingPerks = [
+		},
 		{
 			ID = "perk.ptr_hybridization",
 			Script = "scripts/skills/perks/perk_ptr_hybridization",
@@ -585,10 +546,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_nailed_it.png",
 			IconDisabled = "ui/perks/ptr_nailed_it_bw.png",
 			Const = "PTRNailedIt"
-		}
-	];
-
-	local traitsPerks = [
+		},
 		{
 			ID = "perk.ptr_fresh_and_furious",
 			Script = "scripts/skills/perks/perk_ptr_fresh_and_furious",
@@ -615,10 +573,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_know_their_weakness.png",
 			IconDisabled = "ui/perks/ptr_know_their_weakness_bw.png",
 			Const = "PTRKnowTheirWeakness"
-		}
-	];
-
-	local classPerks = [
+		},
 		{
 			ID = "perk.ptr_the_rush_of_battle",
 			Script = "scripts/skills/perks/perk_ptr_the_rush_of_battle",
@@ -627,10 +582,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_the_rush_of_battle.png",
 			IconDisabled = "ui/perks/ptr_the_rush_of_battle_bw.png",
 			Const = "PTRTheRushOfBattle"
-		}
-	];
-
-	local professionPerks = [
+		},
 		{
 			ID = "perk.ptr_personal_armor",
 			Script = "scripts/skills/perks/perk_ptr_personal_armor",
@@ -657,11 +609,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_tunnel_vision.png",
 			IconDisabled = "ui/perks/ptr_tunnel_vision_bw.png",
 			Const = "PTRTunnelVision"
-		}
-	];
-
-	// Will  be moved to their appropriate trees at the end of the development cycle.
-	local additionalPerks = [
+		},
 		{
 			ID = "perk.ptr_versatile_weapon",
 			Script = "scripts/skills/perks/perk_ptr_versatile_weapon",
@@ -940,37 +888,56 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_menacing.png",
 			IconDisabled = "ui/perks/ptr_menacing_bw.png",
 			Const = "PTRMenacing"
-		}
-	];
-
-	local perkSets = [
-		axePerks,
-		bowPerks,
-		cleaverPerks,
-		crossbowPerks,
-		daggerPerks,
-		flailPerks,
-		hammerPerks,
-		macePerks,
-		polearmPerks,
-		slingPerks
-		spearPerks,
-		staffPerks,
-		swordPerks,
-		throwingPerks,
-		traitsPerks,
-		classPerks,
-		professionPerks,
-		additionalPerks
-	];
-
-	foreach (perkSet in perkSets)
-	{
-		foreach (perk in perkSet)
+		},
 		{
-			this.Const.Perks.PerkDefObjects.push(perk);
+			ID = "perk.ptr_bulwark",
+			Script = "scripts/skills/perks/perk_ptr_bulwark",
+			Name = this.Const.Strings.PerkName.PTRBulwark,
+			Tooltip = this.Const.Strings.PerkDescription.PTRBulwark,
+			Icon = "ui/perks/ptr_bulwark.png",
+			IconDisabled = "ui/perks/ptr_bulwark_bw.png",
+			Const = "PTRBulwark"
+		},
+		{
+			ID = "perk.ptr_always_an_entertainer",
+			Script = "scripts/skills/perks/perk_ptr_always_an_entertainer",
+			Name = this.Const.Strings.PerkName.PTRAlwaysAnEntertainer,
+			Tooltip = this.Const.Strings.PerkDescription.PTRAlwaysAnEntertainer,
+			Icon = "ui/perks/ptr_always_an_entertainer.png",
+			IconDisabled = "ui/perks/ptr_always_an_entertainer_bw.png",
+			Const = "PTRAlwaysAnEntertainer"
+		},
+		{
+			ID = "perk.ptr_paint_a_smile",
+			Script = "scripts/skills/perks/perk_ptr_paint_a_smile",
+			Name = this.Const.Strings.PerkName.PTRPaintASmile,
+			Tooltip = this.Const.Strings.PerkDescription.PTRPaintASmile,
+			Icon = "ui/perks/ptr_paint_a_smile.png",
+			IconDisabled = "ui/perks/ptr_paint_a_smile_bw.png",
+			Const = "PTRPaintASmile"
+		},
+		{
+			ID = "perk.ptr_dynamic_duo",
+			Script = "scripts/skills/perks/perk_ptr_dynamic_duo",
+			Name = this.Const.Strings.PerkName.PTRDynamicDuo,
+			Tooltip = this.Const.Strings.PerkDescription.PTRDynamicDuo,
+			Icon = "ui/perks/ptr_dynamic_duo.png",
+			IconDisabled = "ui/perks/ptr_dynamic_duo_bw.png",
+			Const = "PTRDynamicDuo"
+		},
+		{
+			ID = "perk.ptr_primal_fear",
+			Script = "scripts/skills/perks/perk_ptr_primal_fear",
+			Name = this.Const.Strings.PerkName.PTRPrimalFear,
+			Tooltip = this.Const.Strings.PerkDescription.PTRPrimalFear,
+			Icon = "ui/perks/ptr_primal_fear.png",
+			IconDisabled = "ui/perks/ptr_primal_fear_bw.png",
+			Const = "PTRPrimalFear"
 		}
-	}
+	];
+
+
+	this.Const.Perks.PerkDefObjects.extend(perks);
 
 	this.Const.Perks.PerkDefs.clear();
 
