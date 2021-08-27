@@ -20,7 +20,7 @@ this.ptr_take_aim_skill <- this.inherit("scripts/skills/skill", {
 		this.m.IsIgnoredAsAOO = true;
 		this.m.IsWeaponSkill = true;
 		this.m.ActionPointCost = 2;
-		this.m.FatigueCost = 15;
+		this.m.FatigueCost = 20;
 		this.m.MinRange = 0;
 		this.m.MaxRange = 0;
 	}
