@@ -169,7 +169,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.PTRWhackASmack <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Staff[/color]\n\nWhile wielding a staff, perform a free attack against anyone who misses an attack against you. This free attack has a [color=" + this.Const.UI.Color.NegativeValue + "]-20%[/color] chance to hit. Applies Baffled on the target if successful.\n[color=#0b0084]From the Staff perk group[/color]";
 
 	gt.Const.Strings.PerkName.PTRHybridization <- "Hybridization";
-	gt.Const.Strings.PerkDescription.PTRHybridization <- "Gain [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of your Base Melee Skill as Ranged Skill and [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of your Base Ranged Skill as Melee Skill.\n[color=#0b0084]From the Throwing perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRHybridization <- "Gain [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of your Base Ranged Skill as Melee Skill. Additionally, when wielding a Throwing Weapon, gain [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of your Base Melee Skill as Ranged Skill.\n[color=#0b0084]From the Throwing perk group[/color]";
 	gt.Const.Strings.PerkName.PTRMomentum <- "Momentum";
 	gt.Const.Strings.PerkDescription.PTRMomentum <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Throwing[/color]\n\nThrowing weapons do [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] more damage per tile moved towards the target before throwing.\n[color=#0b0084]From the Throwing perk group[/color]";
 	gt.Const.Strings.PerkName.PTROpportunist <- "Opportunist";
