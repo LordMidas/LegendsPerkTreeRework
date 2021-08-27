@@ -22,7 +22,7 @@ this.perk_ptr_soft_metal <- this.inherit("scripts/skills/skill", {
 			return true;
 		}
 
-		if (!_skill.hasBluntDamage())
+		if (!_skill.hasDamageType(this.Const.Damage.DamageType.Blunt))
 		{
 			return false;
 		}

@@ -456,11 +456,11 @@ gt.Const.PTR.modSkills <- function()
 
 			_properties.RangedSkill += hitChanceBonus;
 
-			if (_skill.hasPiercingDamage())
+			if (_skill.hasDamageType(this.Const.Damage.DamageType.Piercing))
 			{
 				_properties.DamageDirectAdd += directDamageBonus * 0.01;
 			}
-			else if (_skill.hasCuttingDamage())
+			else if (_skill.hasDamageType(this.Const.Damage.DamageType.Cutting))
 			{
 				_properties.DamageArmorMult += armorDamageBonus * 0.01;
 			}
@@ -468,7 +468,7 @@ gt.Const.PTR.modSkills <- function()
 
 		o.onTargetHit <- function( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 		{
-			if (!_targetEntity.isAlive() || _targetEntity.isDying() || !this.isEnabled() || _skill == null || !_skill.isRanged() || !_skill.hasBluntDamage())
+			if (!_targetEntity.isAlive() || _targetEntity.isDying() || !this.isEnabled() || _skill == null || !_skill.isRanged() || !_skill.hasDamageType(this.Const.Damage.DamageType.Blunt))
 			{
 				return;
 			}

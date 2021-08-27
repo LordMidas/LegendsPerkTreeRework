@@ -25,7 +25,7 @@ this.perk_ptr_dent_armor <- this.inherit("scripts/skills/skill", {
 			return true;
 		}
 
-		if (!_skill.hasBluntDamage())
+		if (!_skill.hasDamageType(this.Const.Damage.DamageType.Blunt))
 		{
 			return false;
 		}

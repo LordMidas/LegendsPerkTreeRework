@@ -17,7 +17,7 @@ gt.Const.PTR.modSkill <- function()
 
 			if (targetEntity != null)
 			{
-				if (!targetEntity.isArmedWithShield() && this.isAttack() && !this.isRanged() && this.hasPiercingDamage())
+				if (!targetEntity.isArmedWithShield() && this.isAttack() && !this.isRanged() && this.hasDamageType(this.Const.Damage.DamageType.Piercing))
 				{
 					local pointyEndPerk = this.getContainer().getSkillByID("perk.ptr_pointy_end")
 					if (pointyEndPerk != null)

@@ -31,7 +31,7 @@ this.perk_ptr_dismemberment <- this.inherit("scripts/skills/skill", {
 
 	# function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
 	# {
-	# 	if (!_skill.hasCuttingDamage() || !_targetEntity.getFlags().has("undead"))
+	# 	if (!_skill.hasDamageType(this.Const.Damage.DamageType.Cutting) || !_targetEntity.getFlags().has("undead"))
 	# 	{
 	# 		return;
 	# 	}

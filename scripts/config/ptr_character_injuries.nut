@@ -131,22 +131,22 @@
 #
 #   if (_hitInfo.BodyPart == this.Const.BodyPart.Body && _skill.m.InjuriesOnBody != null)
 #   {
-#     if (_skill.hasCuttingDamage())
+#     if (_skill.hasDamageType(this.Const.Damage.DamageType.Cutting))
 #     {
 #       injuries = targetFlags.has("skeleton") ? this.Const.Injury.PTRCuttingBodySkeleton : this.Const.Injury.PTRCuttingBodyUndead;
 #     }
-#     else if (_skill.hasBluntDamage())
+#     else if (_skill.hasDamageType(this.Const.Damage.DamageType.Blunt))
 #     {
 #       injuries = targetFlags.has("skeleton") ? this.Const.Injury.PTRBluntBodySkeleton : this.Const.Injury.PTRBluntBodyUndead;
 #     }
 #   }
 #   else if (_hitInfo.BodyPart == this.Const.BodyPart.Head && _skill.m.InjuriesOnHead != null)
 #   {
-#     if (_skill.hasCuttingDamage())
+#     if (_skill.hasDamageType(this.Const.Damage.DamageType.Cutting))
 #     {
 #       injuries = targetFlags.has("skeleton") ? this.Const.Injury.PTRCuttingHeadSkeleton : this.Const.Injury.PTRCuttingHeadUndead;
 #     }
-#     else if (_skill.hasBluntDamage())
+#     else if (_skill.hasDamageType(this.Const.Damage.DamageType.Blunt))
 #     {
 #       injuries = targetFlags.has("skeleton") ? this.Const.Injury.PTRBluntHeadSkeleton : this.Const.Injury.PTRBluntHeadUndead;
 #     }

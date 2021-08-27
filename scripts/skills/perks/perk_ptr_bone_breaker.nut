@@ -28,7 +28,7 @@ this.perk_ptr_bone_breaker <- this.inherit("scripts/skills/skill", {
 			return true;
 		}
 
-		if (!_skill.hasBluntDamage())
+		if (!_skill.hasDamageType(this.Const.Damage.DamageType.Blunt))
 		{
 			return false;
 		}

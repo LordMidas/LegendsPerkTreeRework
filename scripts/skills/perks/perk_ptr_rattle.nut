@@ -28,7 +28,7 @@ this.perk_ptr_rattle <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 		
-		if (!_skill.isAttack() || !_skill.hasBluntDamage())
+		if (!_skill.isAttack() || !_skill.hasDamageType(this.Const.Damage.DamageType.Blunt))
 		{
 			return;
 		}

@@ -20,7 +20,7 @@ this.ptr_undead_dismembered_effect <- this.inherit("scripts/skills/skill", {
 
 	function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
 	{
-		if (_attacker.getSkills().hasSkill("perk.ptr_dismemberment") && _skill.isAttack() && _skill.hasCuttingDamage())
+		if (_attacker.getSkills().hasSkill("perk.ptr_dismemberment") && _skill.isAttack() && _skill.hasDamageType(this.Const.Damage.DamageType.Cutting))
 		{
 			_properties.IsAffectedByInjuries = true;
 			_properties.IsAffectedByFreshInjuries = true;

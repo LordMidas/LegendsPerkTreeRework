@@ -30,7 +30,7 @@ this.perk_ptr_cull <- this.inherit("scripts/skills/skill", {
 			return false;
 		}
 
-		if (!_skill.hasCuttingDamage() || !_skill.m.IsWeaponSkill)
+		if (!_skill.hasDamageType(this.Const.Damage.DamageType.Cutting) || !_skill.m.IsWeaponSkill)
 		{
 			return false;
 		}

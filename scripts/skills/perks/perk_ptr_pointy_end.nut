@@ -22,7 +22,7 @@ this.perk_ptr_pointy_end <- this.inherit("scripts/skills/skill", {
 
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
-		if (_targetEntity == null || !_targetEntity.isArmedWithShield() || !_skill.isAttack() || _skill.isRanged() || !_skill.hasPiercingDamage())
+		if (_targetEntity == null || !_targetEntity.isArmedWithShield() || !_skill.isAttack() || _skill.isRanged() || !_skill.hasDamageType(this.Const.Damage.DamageType.Piercing))
 		{
 			return;
 		}

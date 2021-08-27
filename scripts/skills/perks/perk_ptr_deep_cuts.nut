@@ -35,7 +35,7 @@ this.perk_ptr_deep_cuts <- this.inherit("scripts/skills/skill", {
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		if (!_skill.isAttack() || !_skill.hasCuttingDamage() || !_targetEntity.isAlive() || _targetEntity.isDying() || _targetEntity.getCurrentProperties().IsImmuneToBleeding || _damageInflictedHitpoints < this.Const.Combat.MinDamageToApplyBleeding)
+		if (!_skill.isAttack() || !_skill.hasDamageType(this.Const.Damage.DamageType.Cutting) || !_targetEntity.isAlive() || _targetEntity.isDying() || _targetEntity.getCurrentProperties().IsImmuneToBleeding || _damageInflictedHitpoints < this.Const.Combat.MinDamageToApplyBleeding)
 		{
 			return;
 		}
