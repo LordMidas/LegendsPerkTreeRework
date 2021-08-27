@@ -38,7 +38,21 @@ gt.Const.PTR.modActor <- function()
 			this.getSkills().add(this.new("scripts/skills/effects/ptr_formidable_approach_debuff_effect"));
 			this.getSkills().add(this.new("scripts/skills/effects/ptr_follow_up_proccer_effect"));
 			this.getSkills().add(this.new("scripts/skills/effects/ptr_bolstered_effect"));
-			this.getSkills().add(this.new("scripts/skills/effects/ptr_undead_injury_receiver_effect"));
+
+			local flags = this.getFlags();
+			if (flags.has("undead"))
+			{
+				if (flags.has("skeleton"))
+				{
+					this.getSkills().add(this.new("scripts/skills/effects/ptr_undead_injury_receiver_effect"));
+					this.m.ExcludedInjuries.extend(this.Const.Injury.ExcludedInjuries.get(this.Const.Injury.ExcludedInjuries.PTRSkeleton));
+				}
+				else if (!flags.has("ghoul") && !flags.has("vampire"))
+				{
+					this.getSkills().add(this.new("scripts/skills/effects/ptr_undead_injury_receiver_effect"));
+					this.m.ExcludedInjuries.extend(this.Const.Injury.ExcludedInjuries.get(this.Const.Injury.ExcludedInjuries.PTRUndead));
+				}
+			}
 		}
 
 		o.getSurroundedCount = function()

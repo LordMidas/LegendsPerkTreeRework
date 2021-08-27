@@ -1,6 +1,7 @@
 this.perk_ptr_dismemberment <- this.inherit("scripts/skills/skill", {
 	m = {
-		PercentageOfMaximumDamage = 35
+		PercentageOfMaximumDamage = 35,
+		IsForceEnabled = false
 	},
 	function create()
 	{
@@ -15,21 +16,26 @@ this.perk_ptr_dismemberment <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
+	function isEnabled()
+	{
+		return true;
+	}
+
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
-		if (_skill.isAttack() && _skill.hasCuttingDamage())
+		if (_skill.isAttack() && (_skill.hasDamageType(this.Const.Damage.DamageType.Cutting) || this.m.IsForceEnabled) && this.isEnabled())
 		{
 			_properties.ThresholdToInflictInjuryMult *= 1.0 - (this.m.PercentageOfMaximumDamage * 0.01 * _properties.getDamageRegularMax());
 		}
 	}
 
-	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
-	{
-		if (!_skill.hasCuttingDamage() || !_targetEntity.getFlags().has("undead"))
-		{
-			return;
-		}
-
-		_hitInfo.Injuries = this.Const.Injury.getArrayOfRelevantUndeadInjuries(_skill, _targetEntity, _hitInfo);
-	}
+	# function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
+	# {
+	# 	if (!_skill.hasCuttingDamage() || !_targetEntity.getFlags().has("undead"))
+	# 	{
+	# 		return;
+	# 	}
+	#
+	# 	_hitInfo.Injuries = this.Const.Injury.getArrayOfRelevantUndeadInjuries(_skill, _targetEntity, _hitInfo);
+	# }
 });

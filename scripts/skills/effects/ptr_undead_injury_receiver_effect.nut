@@ -11,54 +11,41 @@ this.ptr_undead_injury_receiver_effect <- this.inherit("scripts/skills/skill", {
 		this.m.Order = this.Const.SkillOrder.VeryLast;
 		this.m.IsActive = false;
 		this.m.IsHidden = true;
-		this.m.IsRemovedAfterBattle = true;
-	}
-
-	function isInEffect()
-	{
-		local flags = this.getContainer().getActor().getFlags();
-
-		if (!flags.has("undead"))
-		{
-			return false;
-		}
-
-		foreach (flag in this.Const.Injury.PTRUndeadInjuryExemptFlags)
-		{
-			if (flags.has(flag))
-			{
-				return false;
-			}
-		}
-
-		return true;
 	}
 
 	function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
 	{
-		if (!this.isInEffect())
-		{
-			return;
-		}
-
 		this.m.ReceiveInjuries = false;
-		local attackerSkills = _attacker.getSkills();
-		if ((attackerSkills.hasSkill("perk.ptr_dismemberment") && _skill.hasCuttingDamage()) ||
-				(attackerSkills.hasSkill("perk.ptr_deep_impact") && _skill.hasBluntDamage())
-			 )
-		{
-			this.m.ReceiveInjuries = true;
-		}
-	}
 
-	function onAfterDamageReceived()
-	{
+		if (_skill.hasDamageType(this.Const.Damage.DamageType.Cutting))
+		{
+			local dismemberment = attackerSkills.getSkillByID("perk.ptr_dismemberment");
+			if (dismemberment == null || !dismemberment.isEnabled())
+			{
+				return;
+			}
+		}
+
+		if (_skill.hasDamageType(this.Const.Damage.DamageType.Blunt))
+		{
+			local deepImpact = attackerSkills.getSkillByID("perk.ptr_deep_impact");
+			if (deepImpact == null || !deepImpact.isEnabled())
+			{
+				return;
+			}
+		}
+
 		this.m.ReceiveInjuries = true;
 	}
 
+	# function onAfterDamageReceived()
+	# {
+	# 	this.m.ReceiveInjuries = true;
+	# }
+
 	function onUpdate ( _properties )
 	{
-		if (this.isInEffect() && this.m.ReceiveInjuries)
+		if (this.m.ReceiveInjuries)
 		{
 			_properties.IsAffectedByInjuries = true;
 			_properties.IsAffectedByFreshInjuries = true;
