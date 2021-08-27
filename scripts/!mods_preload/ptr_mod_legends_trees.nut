@@ -1061,7 +1061,7 @@ gt.Const.PTR.modWeaponTrees <- function()
 	this.Const.Perks.CrossbowTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRPowerShot];
 	this.Const.Perks.CrossbowTree.Tree[3] = [this.Const.Perks.PerkDefs.SpecCrossbow];
 	this.Const.Perks.CrossbowTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRIronSights];
-	this.Const.Perks.CrossbowTree.Tree[5] = [this.Const.Perks.PerkDefs.LegendPiercingShot];
+	this.Const.Perks.CrossbowTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRPrimalFear];
 	this.Const.Perks.CrossbowTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRMuscleMemory];
 
 	while (this.Const.Perks.DaggerTree.Tree.len() < 7)

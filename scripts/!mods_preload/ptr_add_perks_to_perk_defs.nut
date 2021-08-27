@@ -924,6 +924,15 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_dynamic_duo.png",
 			IconDisabled = "ui/perks/ptr_dynamic_duo_bw.png",
 			Const = "PTRDynamicDuo"
+		},
+		{
+			ID = "perk.ptr_primal_fear",
+			Script = "scripts/skills/perks/perk_ptr_primal_fear",
+			Name = this.Const.Strings.PerkName.PTRPrimalFear,
+			Tooltip = this.Const.Strings.PerkDescription.PTRPrimalFear,
+			Icon = "ui/perks/ptr_primal_fear.png",
+			IconDisabled = "ui/perks/ptr_primal_fear_bw.png",
+			Const = "PTRPrimalFear"
 		}
 	];
 

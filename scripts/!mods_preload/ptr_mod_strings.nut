@@ -56,6 +56,8 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.PTRPowerShot <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Crossbow or Firearm[/color]\n\nAttacks from crossbows and firearms have a [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] chance to inflict Staggered for one turn.\n[color=#0b0084]From the Crossbow perk group[/color]";
 	gt.Const.Strings.PerkName.PTRIronSights <- "Iron Sights";
 	gt.Const.Strings.PerkDescription.PTRIronSights <- "Ranged attacks have an additional [color=" + this.Const.UI.Color.PositiveValue + "]+15%[/color] chance to hit the head.\n[color=#0b0084]From the Crossbow perk group[/color]";
+	gt.Const.Strings.PerkName.PTRPrimalFear <- "Primal Fear";
+	gt.Const.Strings.PerkDescription.PTRPrimalFear <- "Ranged attacks that hit the head have a [color=" + this.Const.UI.Color.PositiveValue + "]25%[/color] chance to lower the target\'s morale by [color=" + this.Const.UI.Color.NegativeValue + "]1[/color] level. This chance is [color=" + this.Const.UI.Color.PositiveValue + "]100%[/color] when using a Crossbow.\n[color=#0b0084]From the Crossbow perk group[/color]";
 	gt.Const.Strings.PerkName.PTRMuscleMemory <- "Muscle Memory";
 	gt.Const.Strings.PerkDescription.PTRMuscleMemory <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Crossbow or Firearm[/color]\n\nThe Action Point Cost of reloading a crossbow is reduced by [color=" + this.Const.UI.Color.NegativeValue + "]1[/color] and that of reloading a Handgonne is reduced by [color=" + this.Const.UI.Color.NegativeValue + "]2[/color].\n[color=#0b0084]From the Crossbow perk group[/color]";
 
