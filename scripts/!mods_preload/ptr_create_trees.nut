@@ -609,7 +609,7 @@ gt.Const.PTR.createProfessionTrees <- function()
 			{Multiplier = 2, Tree = this.Const.Perks.ViciousTree},
 			{Multiplier = 2, Tree = this.Const.Perks.UnstoppableTree},
 			{Multiplier = 0.5, Tree = this.Const.Perks.TrainedTree},
-			{Multiplier = 0, Tree = this.Const.Perks.EntertainerTree},
+			{Multiplier = 0, Tree = this.Const.Perks.EntertainerClassTree},
 			{Multiplier = 1000, Tree = this.Const.Perks.CleaverTree},
 		],
 		ExpertiseMultipliers = [
