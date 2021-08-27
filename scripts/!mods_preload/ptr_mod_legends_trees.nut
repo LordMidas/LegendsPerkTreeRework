@@ -889,6 +889,7 @@ gt.Const.PTR.modClassTrees <- function()
 		Descriptions = [
 			"bookkeeping"
 		],
+		SelfWeightMultiplier = 0.33,
 		Tree = [
 			[],
 			[],
@@ -924,19 +925,11 @@ gt.Const.PTR.modClassTrees <- function()
 		Descriptions = [
 			"battlefield tactics"
 		],
+		SelfWeightMultiplier = 0.33,
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
-			{Multiplier = 2, Tree = this.Const.Perks.OrganisedTree},
-			{Multiplier = 3, Tree = this.Const.Perks.SergeantClassTree},
-			{Multiplier = 0.5, Tree = this.Const.Perks.HeavyArmorTree},
-			{Multiplier = 0.75, Tree = this.Const.Perks.MediumArmorTree},
-			{Multiplier = 5, Tree = this.Const.Perks.PolearmTree},
-			{Multiplier = 0.25, Tree = this.Const.Perks.BowTree},
-			{Multiplier = 0.25, Tree = this.Const.Perks.SlingsTree},
-			{Multiplier = 0.75, Tree = this.Const.Perks.CrossbowTree},
 		],
 		ExpertiseMultipliers = [
-
 		],
 		Tree = [
 			[
@@ -962,6 +955,7 @@ gt.Const.PTR.modClassTrees <- function()
 		Descriptions = [
 			"has an entertaining personality"
 		],
+		SelfWeightMultiplier = 0.33,
 		Tree = [
 			[
 				gt.Const.Perks.PerkDefs.PTRAlwaysAnEntertainer
@@ -982,6 +976,7 @@ gt.Const.PTR.modClassTrees <- function()
 		Descriptions = [
 			"has a keen eye"
 		],
+		SelfWeightMultiplier = 0.33,
 		Tree = [
 			[
 				gt.Const.Perks.PerkDefs.Lookout
