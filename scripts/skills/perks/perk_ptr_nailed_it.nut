@@ -15,23 +15,20 @@ this.perk_ptr_nailed_it <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-	
+
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
 		if (!_skill.isAttack() || !_skill.isRanged() || _targetEntity == null)
 		{
 			return;
 		}
-		
+
 		local myTile = this.getContainer().getActor().getTile();
 		local targetTile = _targetEntity.getTile();
-		
-		if (myTile == null || targetTile == null)
+
+		if (myTile != null && targetTile != null)
 		{
-			return;
+			_properties.HitChance[this.Const.BodyPart.Head] += this.Math.max(0, this.m.BaseBonus - this.m.BonusDecreasePerTile * targetTile.getDistanceTo(myTile));
 		}
-		
-		_properties.HitChance[this.Const.BodyPart.Head] += this.m.BaseBonus - this.m.BonusDecreasePerTile;
 	}
 });
-
