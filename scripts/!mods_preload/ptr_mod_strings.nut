@@ -48,6 +48,8 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRMauler <- "Mauler";
 	gt.Const.Strings.PerkDescription.PTRMauler <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Cleaver[/color]\n\nAttacks do more damage, the less armor your target has. This bonus is [color=" + this.Const.UI.Color.PositiveValue + "]35%[/color] more damage at no armor, and [color=" + this.Const.UI.Color.PositiveValue + "]0%[/color] more damage at 100% armor remaining.\n[color=#0b0084]From the Cleaver perk group[/color]";
 
+	gt.Const.Strings.PerkName.PTRThroughTheRanks <- "Through the Ranks";
+	gt.Const.Strings.PerkDescription.PTRThroughTheRanks <- "Ranged attacks have a [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] reduced chance to inflict friendly fire.\n[color=#0b0084]From the Crossbow perk group[/color]";
 	gt.Const.Strings.PerkName.PTRTakeAim <- "Take Aim";
 	gt.Const.Strings.PerkDescription.PTRTakeAim <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Weapon Type: Crossbow or Firearm[/color] Unlocks the \'Take Aim\' skill which applies to your next ranged attack during this turn. For crossbows, the attack ignores the hitchance penalty from obstacles and the shot cannot go astray. For Handgonnes the attack has its Maximum Range increased by [color=" + this.Const.UI.Color.PositiveValue + "]1[/color] and if used at a shorter range, the area of effect is increased by [color=" + this.Const.UI.Color.PositiveValue + "]1[/color] instead.\n[color=#0b0084]From the Crossbow perk group[/color]";
 	gt.Const.Strings.PerkName.PTREntrenched <- "Entrenched";
