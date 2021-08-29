@@ -1,4 +1,13 @@
 ======================
+==== Ver 0.14.1 ======
+======================
+- Fixed the t3 sword group perk still showing Heightened Reflexes as its name instead of Fluid Weapon.
+- Clarified some misleading text in the Dynamic Duo perk tooltip.
+- Re-added missing Through the Ranks perk in the code as the perk is still used by some AI characters (e.g. Noble Arbalester).
+- Fixed the Nailed It perk always providing a constant 20% chance to hit the head instead of a base chance of 25% decreasing by 5% per tile.
+- Fixed the From All Sides effect not spawning its icon on the target tile when it's applied or re-applied.
+
+======================
 ==== Ver 0.14.0 ======
 ======================
 == DEPENDENCIES ==
@@ -15,7 +24,7 @@
 - New Perk Group: Entertainer (Class).
 - New Perk Group: Scout (Class). Currently only contains Lookout as t1 perk.
 - Moved Second Wind from Fast perk group t5 to Resilient perk group t5.
-- New Perk: Dynamic Duo, Fast perk group t5. When there is only one ally within 2 tiles and that ally has no other ally within 2 tiles except you, gain the Dynamic Duo effect. Grants 10 Initiative, 10 Resolve and 5% Melee Defense bonus. If the ally also has this perk, these bonuses are doubled, and whenever that ally gets attacked by an enemy in melee, your next melee attack against +10% that enemy gains +10% chance to hit for one turn. Also grants the Rotation skill even if you do not have that perk. When this effect is active, the first Rotation on your turn has its Fatigue Cost halved and if your ally also this perk, it additionally costs no Action Points.
+- New Perk: Dynamic Duo, Fast perk group t5. When there is only one ally within 2 tiles and that ally has no other ally within 2 tiles except you, gain the Dynamic Duo effect. Grants 10 Initiative, 10 Resolve and 5% Melee Defense bonus. If the ally also has this perk, these bonuses are doubled, and whenever that ally gets attacked by an enemy in melee, your next melee attack against that enemy gains +10% chance to hit for one turn. Also grants the Rotation skill even if you do not have that perk. When this effect is active, the first Rotation on your turn has its Fatigue Cost halved and if your ally also this perk, it additionally costs no Action Points.
 - New Perk: Always an Entertainer. Entertainer perk group t1. Once per day, when you visit a non-military settlement, gain between 20 and 40 gold. For each level this character is above 1, these values are increased by +2. The values are doubled for medium-sized settlements and tripled for large settlements. If multiple characters with this perk are present, only one of them will entertain in a given city on a given day, and the others will have to entertain in other cities.
 - New Perk: Paint a Smile. Entertainer perk group t3. Once per day, increase the Mood of the character with the lowest mood in your roster by 1.
 - New Perk: Bulwark, Heavy Armor perk group t5. Gain 2% of your combined current head and body armor durability as Resolve. This bonus is doubled against negative morale checks except mental attacaks.
@@ -24,7 +33,7 @@
 - New Perk: Primal Fear, Crossbow t6. Ranged attacks that hit the head have a 25% chance to lower the Morale state of the target by 1 level. Has 100% chance with Crossbows.
 - Weapon Master now only provides the mastery bonuses of the perks available in this character's perk tree. Now also requires at least one of the following masteries to be picked before it provides its bonuses: Axe, Cleaver, Dagger, Hammer, Mace, Spear, Sword.
 - Double Strike now only works with Melee skills.
-- Relax reworked: Now doubles the Fatigue Recovery of the target for their next turn. Cannot be used on the same target two turns in a row. Cannot be used when engaged in Melee.-
+- Relax reworked: Now doubles the Fatigue Recovery of the target for their next turn. Cannot be used on the same target two turns in a row. Cannot be used when engaged in Melee.
 - Hip Shooter tweaked: Now reduces the Action Point cost of Quick Shot by 1 but each subsequent Quick Shot in this turn builds 10% more Fatigue.
 - Entrenched tweaked: Now grants +5 Ranged Skill, Ranged Defense, and Resolve as long as you are adjacent to an ally wielding a melee weapon who is not engaged in melee. The bonuses increase by +1 every turn up to a maximum of +10 as long as you continue to start your turn adjacent to any ally wielding a melee weapon who is not engaged in melee.
 - From All Sides tweaked: Now reduces the target's Melee Defense and Ranged Defense by a stacking -3 per hit. Double the effect if it hits the head. Missed attacks reduce the target's defenses by -1 instead.
@@ -61,6 +70,7 @@
 - Fixed the Vigilant perk showing up as a Status Effect outside of combat, and missing the icon for the Melee Defense bonus.
 - Fixed the Tactician perk group having weights for some other perk groups that weren't intended.
 - Fixed Momentum stating in the combat log that it increased damage for Melee attacks even though it didn't.
+- Fixed Flail Spinner free attack being possible to hit the body even when the used skill was Lash.
 
 =======================
 ==== Ver 0.13.10 ======
