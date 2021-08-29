@@ -10,8 +10,8 @@ this.perk_ptr_fluid_weapon <- this.inherit("scripts/skills/skill", {
 	function create()
 	{
 		this.m.ID = "perk.ptr_fluid_weapon";
-		this.m.Name = this.Const.Strings.PerkName.PTRHeightenedReflexes;
-		this.m.Description = this.Const.Strings.PerkDescription.PTRHeightenedReflexes;
+		this.m.Name = this.Const.Strings.PerkName.PTRFluidWeapon;
+		this.m.Description = this.Const.Strings.PerkDescription.PTRFluidWeapon;
 		this.m.Icon = "ui/perks/ptr_fluid_weapon.png";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.Last;
