@@ -1,4 +1,9 @@
 ======================
+==== Ver 0.14.2 ======
+======================
+- Fixed the "Always an Entertainer" perk making it impossible to enter settlements.
+
+======================
 ==== Ver 0.14.1 ======
 ======================
 - Fixed the t3 sword group perk still showing Heightened Reflexes as its name instead of Fluid Weapon.
