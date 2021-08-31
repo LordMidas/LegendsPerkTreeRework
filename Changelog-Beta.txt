@@ -1,9 +1,14 @@
 ======================
+==== Ver 0.14.5 ======
+======================
+- Fixed a critical error the caused the mod to not be loaded.
+
+======================
 ==== Ver 0.14.4 ======
 ======================
 - Also update MSU to 0.6.3
 - Fixed not loading battles against Ancient Undead.
-
+- Always an Entertainer will no longer proc when entering settlements at night.
 
 ======================
 ==== Ver 0.14.3 ======
