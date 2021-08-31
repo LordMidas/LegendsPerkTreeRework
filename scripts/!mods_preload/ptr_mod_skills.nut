@@ -802,10 +802,10 @@ gt.Const.PTR.modSkills <- function()
 	});
 
 	::mods_hookNewObject("skills/perks/perk_reach_advantage", function(o) {
-		local oldOnTargetHit = o.onTargetHit;
+		local onTargetHit = o.onTargetHit;
 		o.onTargetHit = function( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 		{
-			oldOnTargetHit(_skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor);
+			onTargetHit(_skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor);
 
 			local actor = this.getContainer().getActor();
 			if (!actor.getCurrentProperties().IsAbleToUseWeaponSkills)
@@ -820,7 +820,6 @@ gt.Const.PTR.modSkills <- function()
 			}
 		}
 
-		local oldonUpdate = o.onUpdate;
 		o.onUpdate = function( _properties )
 		{
 			this.m.IsHidden = this.m.Stacks == 0;
@@ -854,17 +853,12 @@ gt.Const.PTR.modSkills <- function()
 	# });
 
 	::mods_hookNewObject("skills/perks/perk_legend_smackdown", function(o) {
-		local oldonTargetHit = o.onTargetHit;
+		local onTargetHit = o.onTargetHit;
 		o.onTargetHit = function( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 		{
-			local success = oldonTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor );
+			local success = onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor );
 
-			if (!success)
-			{
-				return success;
-			}
-
-			if(_targetEntity.isAlive())
+			if (success && _targetEntity.isAlive() && !_targetEntity.isDying())
 			{
 				_targetEntity.getSkills().add(this.new("scripts/skills/effects/ptr_smackdown_debuff_effect"));
 			}
@@ -1005,12 +999,12 @@ gt.Const.PTR.modSkills <- function()
 	::mods_hookNewObject("skills/perks/perk_coup_de_grace", function(o) {
 		o.onAnySkillUsed = function ( _skill, _targetEntity, _properties )
 		{
-			if (_targetEntity == null)
+			if (_targetEntity == null || !_skill.isAttack())
 			{
 				return;
 			}
 
-			if (_skill.isAttack() && _targetEntity.getSkills().hasSkillOfType(this.Const.SkillType.TemporaryInjury))
+			if (_targetEntity.getSkills().hasSkillOfType(this.Const.SkillType.TemporaryInjury))
 			{
 				_properties.DamageTotalMult *= 1.2;
 			}
