@@ -1,6 +1,10 @@
 this.perk_ptr_ranged_supremacy <- this.inherit("scripts/skills/skill", {
 	m = {
-		RangedSkillBonus = 10
+		RangedSkillBonus = 10,
+		Skills = [
+			"actives.quick_shot",
+			"actives.aimed_shot"
+		]
 	},
 	function create()
 	{
@@ -36,10 +40,13 @@ this.perk_ptr_ranged_supremacy <- this.inherit("scripts/skills/skill", {
 
 	function onAfterUpdate(_properties)
 	{
-		local quickShot = this.getContainer().getSkillByID("actives.quick_shot");
-		if (quickShot != null)
+		foreach (skill in this.m.Skills)
 		{
-			quickShot.m.MaxRange += 1;
+			local s = this.getContainer().getSkillByID(skill);
+			if (s != null)
+			{
+				s.m.MaxRange += 1;
+			}
 		}
 	}
 });
