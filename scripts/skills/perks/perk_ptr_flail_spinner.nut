@@ -75,7 +75,7 @@ this.perk_ptr_flail_spinner <- this.inherit("scripts/skills/skill", {
 	{
 		if (this.m.IsSpinningFlail)
 		{
-			_properties.DamageTotalMult *= 0.5;
+			_properties.DamageTotalMult *= this.m.DamageMult;
 		}
 	}
 

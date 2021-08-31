@@ -51,14 +51,14 @@ this.perk_ptr_always_an_entertainer <- this.inherit("scripts/skills/skill", {
 
 	function earnMoneyFromSettlement(_settlement)
 	{
-		if (this.m.IsSpent || !this.canEarnFromSettlement())
+		if (this.m.IsSpent || !this.canEarnFromSettlement(_settlement))
 		{
 			return 0;
 		}
 
 		this.m.IsSpent = true;
 		local levelBonus = this.getLevelBonus();
-		return this.Math.rand(this.m.MinMoney * levelBonus, this.m.MaxMoney * levelBonus) * _settlement.getSize();
+		return this.Math.rand(this.m.MinMoney + levelBonus, this.m.MaxMoney + levelBonus) * _settlement.getSize();
 	}
 
 	function addSettlementVisited(_settlement)
@@ -76,7 +76,7 @@ this.perk_ptr_always_an_entertainer <- this.inherit("scripts/skills/skill", {
 
 	function canEarnFromSettlement(_settlement)
 	{
-		if (_settlement.isMilitary() || this.m.hasVisitedSettlement(_settlement))
+		if (_settlement.isMilitary() || this.hasVisitedSettlement(_settlement))
 		{
 			return false;
 		}
@@ -106,7 +106,7 @@ this.perk_ptr_always_an_entertainer <- this.inherit("scripts/skills/skill", {
 	function onDeserialize(_in)
 	{
 		this.skill.onDeserialize(_in);
-		
+
 		if (this.Const.PTR.Version >= 1)
 		{
 			this.m.IsSpent = _in.readBool();

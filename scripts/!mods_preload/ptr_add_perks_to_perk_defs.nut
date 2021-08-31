@@ -487,11 +487,11 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 		{
 			ID = "perk.ptr_fluid_weapon",
 			Script = "scripts/skills/perks/perk_ptr_fluid_weapon",
-			Name = this.Const.Strings.PerkName.PTRHeightenedReflexes,
-			Tooltip = this.Const.Strings.PerkDescription.PTRHeightenedReflexes,
+			Name = this.Const.Strings.PerkName.PTRFluidWeapon,
+			Tooltip = this.Const.Strings.PerkDescription.PTRFluidWeapon,
 			Icon = "ui/perks/ptr_fluid_weapon.png",
 			IconDisabled = "ui/perks/ptr_fluid_weapon_bw.png",
-			Const = "PTRHeightenedReflexes"
+			Const = "PTRFluidWeapon"
 		},
 		{
 			ID = "perk.ptr_bloody_harvest",
@@ -933,6 +933,15 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_primal_fear.png",
 			IconDisabled = "ui/perks/ptr_primal_fear_bw.png",
 			Const = "PTRPrimalFear"
+		},
+		{
+			ID = "perk.ptr_through_the_ranks",
+			Script = "scripts/skills/perks/ptr_through_the_ranks",
+			Name = this.Const.Strings.PerkName.PTRThroughTheRanks,
+			Tooltip = this.Const.Strings.PerkDescription.PTRThroughTheRanks,
+			Icon = "ui/perks/ptr_through_the_ranks.png",
+			IconDisabled = "ui/perks/ptr_through_the_ranks_bw.png",
+			Const = "PTRThroughTheRanks"
 		}
 	];
 
