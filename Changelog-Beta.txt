@@ -1,4 +1,10 @@
 ======================
+==== Ver 0.14.3 ======
+======================
+- Fixed the Deep Impact and Dismemberment perks causing Undead targets to not receive damage.
+- Fixed the Always an Entertainer perk giving more gold than intended at higher character levels.
+
+======================
 ==== Ver 0.14.2 ======
 ======================
 - Fixed the "Always an Entertainer" perk making it impossible to enter settlements.
