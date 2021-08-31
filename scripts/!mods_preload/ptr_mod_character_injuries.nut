@@ -39,6 +39,8 @@ gt.Const.PTR.modCharacterInjuries <- function()
 			"injury.pierced_arm_muscles",
 			"injury.stabbed_guts",
 		]
-		this.Const.Injury.ExcludedInjuries.PTRUndead
+		[
+			this.Const.Injury.ExcludedInjuries.PTRUndead
+		]
 	);
 }
