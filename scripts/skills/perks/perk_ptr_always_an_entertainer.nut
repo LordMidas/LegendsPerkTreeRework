@@ -58,7 +58,7 @@ this.perk_ptr_always_an_entertainer <- this.inherit("scripts/skills/skill", {
 
 		this.m.IsSpent = true;
 		local levelBonus = this.getLevelBonus();
-		return this.Math.rand(this.m.MinMoney * levelBonus, this.m.MaxMoney * levelBonus) * _settlement.getSize();
+		return this.Math.rand(this.m.MinMoney + levelBonus, this.m.MaxMoney + levelBonus) * _settlement.getSize();
 	}
 
 	function addSettlementVisited(_settlement)
