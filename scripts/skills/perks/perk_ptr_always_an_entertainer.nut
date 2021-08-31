@@ -76,7 +76,7 @@ this.perk_ptr_always_an_entertainer <- this.inherit("scripts/skills/skill", {
 
 	function canEarnFromSettlement(_settlement)
 	{
-		if (_settlement.isMilitary() || this.hasVisitedSettlement(_settlement))
+		if (!this.World.getTime().IsDaytime || _settlement.isMilitary() || this.hasVisitedSettlement(_settlement))
 		{
 			return false;
 		}
