@@ -1,5 +1,7 @@
 this.perk_ptr_intimidate <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		IsForceEnabled = false
+	},
 	function create()
 	{
 		this.m.ID = "perk.ptr_intimidate";
@@ -15,8 +17,6 @@ this.perk_ptr_intimidate <- this.inherit("scripts/skills/skill", {
 
 	function applyDebuff(_targetEntity)
 	{
-		//local actors = _targetEntity.getActorsWithinDistanceAsArray(2);
-		//local attacker = this.getContainer().getActor();
 		if (_targetEntity.getMoraleState() == this.Const.MoraleState.Ignore)
 		{
 			return;
@@ -26,13 +26,12 @@ this.perk_ptr_intimidate <- this.inherit("scripts/skills/skill", {
 		if (effect == null)
 		{
 			effect = this.new("scripts/skills/effects/ptr_intimidated_effect");
-			effect.m.IntimidatorSkill = this.getContainer().getActor().getCurrentProperties().getMeleeSkill();
+			effect.addIntimidator(this.getContainer().getActor().getID());
 			_targetEntity.getSkills().add(effect);
 		}
 		else
 		{
-			effect.m.PrevIntimidatorSkill = effect.m.IntimidatorSkill;
-			effect.m.IntimidatorSkill = this.getContainer().getActor().getCurrentProperties().getMeleeSkill();
+			effect.addIntimidator(this.getContainer().getActor().getID());
 		}
 	}
 
@@ -48,7 +47,7 @@ this.perk_ptr_intimidate <- this.inherit("scripts/skills/skill", {
 
 	function onTargetMissed( _skill, _targetEntity )
 	{
-		if (!this.isInEffect() || !_targetEntity.isAlive() || _targetEntity.isDying() || _targetEntity.isAlliedWith(this.getContainer().getActor()))
+		if (!_skill.isAttack() || !this.isInEffect() || _targetEntity.isAlliedWith(this.getContainer().getActor()))
 		{
 			return;
 		}
@@ -58,6 +57,11 @@ this.perk_ptr_intimidate <- this.inherit("scripts/skills/skill", {
 
 	function isInEffect()
 	{
+		if (this.m.IsForceEnabled)
+		{
+			return true;
+		}
+
 		local weapon = this.getContainer().getActor().getMainhandItem();
 		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Polearm))
 		{
