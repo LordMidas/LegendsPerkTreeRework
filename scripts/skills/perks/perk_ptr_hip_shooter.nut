@@ -33,4 +33,15 @@ this.perk_ptr_hip_shooter <- this.inherit("scripts/skills/skill", {
 			quickShot.m.FatigueCostMult *= 1.0 + (this.m.FatigueCostIncreasePerCount * 0.01 * this.m.Count);
 		}
 	}
+
+	function onTurnEnd()
+	{
+		this.m.Count = 0;
+	}
+
+	function onCombatFinished()
+	{
+		this.skill.onCombatFinished();
+		this.m.Count = 0;
+	}
 });
