@@ -58,7 +58,7 @@ this.ptr_intimidated_effect <- this.inherit("scripts/skills/skill", {
 			if (e != null)
 			{
 				this.m.Intimidators.push(_actorID);
-				this.m.TotalIntimidation += .getCurrentProperties().getMeleeSkill();
+				this.m.TotalIntimidation += e.getCurrentProperties().getMeleeSkill();
 				if (this.m.Intimidators.len() > 1)
 				{
 					this.spawnIcon("ptr_intimidated_effect", this.getContainer().getActor().getTile());
