@@ -8,7 +8,7 @@ this.ptr_undead_injury_receiver_effect <- this.inherit("scripts/skills/skill", {
 		this.m.Name = "";
 		this.m.Description = "";
 		this.m.Type = this.Const.SkillType.StatusEffect;
-		this.m.Order = this.Const.SkillOrder.VeryLast;
+		this.m.Order = this.Const.SkillOrder.StatusEffect;
 		this.m.IsActive = false;
 		this.m.IsHidden = true;
 	}
@@ -22,6 +22,7 @@ this.ptr_undead_injury_receiver_effect <- this.inherit("scripts/skills/skill", {
 			local dismemberment = _attacker.getSkills().getSkillByID("perk.ptr_dismemberment");
 			if (dismemberment == null || !dismemberment.isEnabled())
 			{
+				this.m.ReceiveInjuries = true;
 				return;
 			}
 		}
@@ -31,17 +32,16 @@ this.ptr_undead_injury_receiver_effect <- this.inherit("scripts/skills/skill", {
 			local deepImpact = _attacker.getSkills().getSkillByID("perk.ptr_deep_impact");
 			if (deepImpact == null || !deepImpact.isEnabled())
 			{
+				this.m.ReceiveInjuries = true;
 				return;
 			}
 		}
-
-		this.m.ReceiveInjuries = true;
 	}
 
-	# function onAfterDamageReceived()
-	# {
-	# 	this.m.ReceiveInjuries = true;
-	# }
+	function onAfterDamageReceived()
+	{
+		this.m.ReceiveInjuries = true;
+	}
 
 	function onUpdate ( _properties )
 	{
