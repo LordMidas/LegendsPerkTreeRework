@@ -1,4 +1,14 @@
 ======================
+==== Ver 0.14.6 ======
+======================
+- Always an Entertainer status effect tooltip will now show a list of cities where this character cannot earn money because another character has already done so today.
+- Intimidate will now stack from attacks from multiple sources but not from the same source.
+- Fixed Hip Shooter increasing the Fatigue Cost of Quick Shot indefinitely with every use of the skill.
+- Fixed Marksmanship showing up on t5 of the Bow Tree. Now it should be on t6 as intended and Flaming Arrows is on t5.
+- Fixed Entrenched gaining stacks even when not next to a valid ally.
+- Fixed Piercing attacks applying injuries to Undead.
+
+======================
 ==== Ver 0.14.5 ======
 ======================
 - Fixed a critical error the caused the mod to not be loaded.
