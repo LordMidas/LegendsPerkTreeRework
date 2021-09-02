@@ -91,7 +91,6 @@ this.perk_ptr_concussive_strikes <- this.inherit("scripts/skills/skill", {
 			local effect = this.new("scripts/skills/effects/dazed_effect");
 			_targetEntity.getSkills().add(effect);
 			effect.m.TurnsLeft = this.Math.max(1, 1 + this.getContainer().getActor().getCurrentProperties().NegativeStatusEffectDuration);
-			this.logInfo("concussive strikes added dazed effect for turns: " + effect.m.TurnsLeft);
 			if (!actor.isHiddenToPlayer() && targetTile.IsVisibleForPlayer)
 			{
 				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " struck a blow that leaves " + this.Const.UI.getColorizedEntityName(_targetEntity) + " dazed for " + effect.m.TurnsLeft + " turns");
