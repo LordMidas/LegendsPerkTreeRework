@@ -111,18 +111,27 @@ this.ai_ptr_follow_up <- this.inherit("scripts/ai/tactical/behavior", {
 
 		if (surroundedTargets == 0 || surroundingAllies == 0)
 		{
-			this.logInfo("No Surrounded Target or Surrounding Allies in sight");
+			if (this.Const.AI.VerboseMode)
+			{
+				this.logInfo("No Surrounded Target or Surrounding Allies in sight");
+			}
 			return this.Const.AI.Behavior.Score.Zero;
 		}
 
-		this.logInfo("Surrounded Targets : " + surroundedTargets + ", and Surrounding Allies : " + surroundingAllies);
-		this.logInfo("Attack Behavior Score: " + attackBehaviorScore);
+		if (this.Const.AI.VerboseMode)
+		{
+			this.logInfo("Surrounded Targets : " + surroundedTargets + ", and Surrounding Allies : " + surroundingAllies);
+			this.logInfo("Attack Behavior Score: " + attackBehaviorScore);
+		}
 
 		score *= surroundingAllies * surroundedTargets * attackBehaviorScore;
 
 		if (score < attackBehaviorScore)
 		{
-			this.logInfo("Follow Up Score " + score + " was much lower than melee attack score of " + attackBehaviorScore + " hence no follow up");
+			if (this.Const.AI.VerboseMode)
+			{
+				this.logInfo("Follow Up Score " + score + " was much lower than melee attack score of " + attackBehaviorScore + " hence no follow up");
+			}
 			return this.Const.AI.Behavior.Score.Zero;
 		}
 
