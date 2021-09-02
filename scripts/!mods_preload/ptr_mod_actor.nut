@@ -149,7 +149,6 @@ gt.Const.PTR.modActor <- function()
 			local promisedPotentialDetails = {};
 			if (promisedPotentialSkill != null)
 			{
-				this.logInfo("storing promised potential");
 				hasPromisedPotential = true;
 				promisedPotentialDetails.IsSpent <- promisedPotentialSkill.m.IsSpent;
 				promisedPotentialDetails.WillSucceed <- promisedPotentialSkill.m.WillSucceed;
