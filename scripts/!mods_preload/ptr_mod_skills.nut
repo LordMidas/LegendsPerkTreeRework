@@ -253,27 +253,38 @@ gt.Const.PTR.modSkills <- function()
 	});
 
 	::mods_hookExactClass("skills/perks/perk_quick_hands", function(o) {
-		o.m.IsSpent <- false;
-
-		o.onUpdate = function(_properties)
+		local getItemActionCost = o.getItemActionCost;
+		o.getItemActionCost = function(_items)
 		{
+			foreach (i in _items)
+			{
+				if (i != null && (i.isItemType(this.Const.Items.ItemType.Shield) || i.isItemType(this.Const.Items.ItemType.TwoHanded)))
+				{
+					return null;
+				}
+			}
+
+			return getItemActionCost(_items);
 		}
 
-		o.isHidden <- function()
+		local onPayForItemAction = o.onPayForItemAction;
+		o.onPayForItemAction = function (_skill, _items)
 		{
-			local actor = this.getContainer().getActor();
-			return this.m.IsSpent || !actor.isPlayerControlled() || !actor.isPlacedOnMap();
-		}
+			local ammoCount = 0
+			foreach (i in _items)
+			{
+				if (i != null && i.isItemType(this.Const.Items.ItemType.Ammo))
+				{
+					ammoCount++;
+				}
+			}
 
-		o.onTurnStart <- function()
-		{
-			this.m.IsSpent = false;
-		}
+			if (ammoCount == 2)
+			{
+				return;
+			}
 
-		o.onCombatFinished = function()
-		{
-			this.skill.onCombatFinished();
-			this.m.IsSpent = false;
+			onPayForItemAction(_skill, _items);
 		}
 	});
 

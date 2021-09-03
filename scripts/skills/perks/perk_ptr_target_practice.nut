@@ -21,4 +21,19 @@ this.perk_ptr_target_practice <- this.inherit("scripts/skills/skill", {
 			aimedShot.m.ActionPointCost -= 1;
 		}
 	}
+
+	function getItemActionCost(_items)
+	{
+		local count = 0;
+
+		foreach (item in _items)
+		{
+			if (item != null && item.isItemType(this.Const.Items.ItemType.Ammo))
+			{
+				count++;
+			}
+		}
+
+		return count == 2 ? 0 : null;
+	}
 });
