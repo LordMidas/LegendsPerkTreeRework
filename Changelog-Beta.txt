@@ -1,4 +1,9 @@
 ======================
+==== Ver 0.14.9 ======
+======================
+- Fixed the 13 columns change not taking effect in the previous build.
+
+======================
 ==== Ver 0.14.8 ======
 ======================
 - Requires MSU 0.6.4.
