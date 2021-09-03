@@ -1,4 +1,15 @@
 ======================
+==== Ver 0.14.8 ======
+======================
+- Requires MSU 0.6.4.
+- Perk trees are now limited to 13 columns for most recruits (only applies to new recruits).
+- Implemented code to conform to new MSU item-swapping functionality.
+- Removed the Fist Tree from Weapons (this will be removed in next Legends build too). Only the Unarmed Class tree will remain.
+- Removed Magic Missile and related perks from Evoker (just like they removed it in Legends) and gave it the magic perks it has in Legends.
+- Fixed Offhand Training free item-swap not refreshing on new turn.
+- Hopefully fixed an issue when starting campaign as Lone Wolf.
+
+======================
 ==== Ver 0.14.7 ======
 ======================
 - Iron Sights now requires Crossbow or Firearm. The bonus chance to hit the head is now +25% (up from +15%).
