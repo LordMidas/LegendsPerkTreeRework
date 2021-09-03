@@ -1167,18 +1167,21 @@ gt.Const.PTR.modWeaponTrees <- function()
 	this.Const.Perks.SwordTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRKata];
 	this.Const.Perks.SwordTree.Tree[6] = [this.Const.Perks.PerkDefs.PTREnGarde, this.Const.Perks.PerkDefs.Fencer];
 
-	foreach (i, row in this.Const.Perks.GreatSwordTree.Tree)
+	this.Const.Perks.GreatSwordTree.Tree.clear();
+
+	while (this.Const.Perks.GreatSwordTree.Tree.len() < 7)
+	{
+		this.Const.Perks.GreatSwordTree.Tree.push(emptyArray);
+	}
+
+	foreach (i, row in this.Const.Perks.SwordTree.Tree)
 	{
 		foreach (entry in row)
 		{
-			this.Const.Perks.GreatSwordTree.Tree[i] = entry;
+			this.Const.Perks.GreatSwordTree.Tree[i].push(entry);
 		}
 	}
 
-	# while (this.Const.Perks.GreatSwordTree.Tree.len() < 7)
-	# {
-	# 	this.Const.Perks.GreatSwordTree.Tree.push(emptyArray);
-	# }
 	# this.Const.Perks.GreatSwordTree.Tree[0] = [this.Const.Perks.PerkDefs.PTRVersatileWeapon];
 	# this.Const.Perks.GreatSwordTree.Tree[1] = [this.Const.Perks.PerkDefs.Feint];
 	# this.Const.Perks.GreatSwordTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRFluidWeapon];
