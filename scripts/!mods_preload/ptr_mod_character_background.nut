@@ -6,36 +6,36 @@ gt.Const.PTR.modCharacterBackground <- function()
 	{
 		return {
 			Hitpoints = [
-				-4,
-				-4
+				-1,
+				-1
 			],
 			Bravery = [
-				-4,
-				-4
+				-1,
+				-1
 			],
 			Stamina = [
-				-4,
-				-4
+				-1,
+				-1
 			],
 			MeleeSkill = [
-				-4,
-				-4
+				-1,
+				-1
 			],
 			RangedSkill = [
-				-4,
-				-4
+				-1,
+				-1
 			],
 			MeleeDefense = [
-				-4,
-				-4
+				-1,
+				-1
 			],
 			RangedDefense = [
-				-4,
-				-4
+				-1,
+				-1
 			],
 			Initiative = [
-				-4,
-				-4
+				-1,
+				-1
 			]
 		};
 	};
@@ -44,9 +44,9 @@ gt.Const.PTR.modCharacterBackground <- function()
 		o.m.CustomPerkTreeMap <- null;
 		o.m.PerkTreeDynamicMins = {
 			//Profession = 1,
-			Weapon = 6,
+			Weapon = 4,
 			Defense = 2,
-			Traits = 5,
+			Traits = 3,
 			Enemy = 1,
 			EnemyChance = 0.5,
 			Class = 1,
@@ -57,9 +57,9 @@ gt.Const.PTR.modCharacterBackground <- function()
 		};
 		o.m.PerkTreeDynamicMinsMagic = {
 			//Profession = 1,
-			Weapon = 6,
+			Weapon = 4,
 			Defense = 2,
-			Traits = 5,
+			Traits = 3,
 			Enemy = 1,
 			EnemyChance = 0.5,
 			Class = 1,
@@ -70,9 +70,9 @@ gt.Const.PTR.modCharacterBackground <- function()
 		};
 		o.m.PerkTreeDynamicMinsBeast = {
 			//Profession = 1,
-			Weapon = 6,
+			Weapon = 4,
 			Defense = 2,
-			Traits = 5,
+			Traits = 3,
 			Enemy = 1,
 			EnemyChance = 0.7,
 			Class = 1,
