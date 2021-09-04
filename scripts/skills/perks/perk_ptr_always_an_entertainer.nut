@@ -10,7 +10,7 @@ this.perk_ptr_always_an_entertainer <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "perk.ptr_always_an_entertainer";
 		this.m.Name = this.Const.Strings.PerkName.PTRAlwaysAnEntertainer;
-		this.m.Description = this.Const.Strings.PerkDescription.PTRAlwaysAnEntertainer;
+		this.m.Description = "This character is eager to entertain the crowds and earn some coin at the next settlement.";
 		this.m.Icon = "ui/perks/ptr_always_an_entertainer.png";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.Perk;
@@ -22,11 +22,6 @@ this.perk_ptr_always_an_entertainer <- this.inherit("scripts/skills/skill", {
 	function isHidden()
 	{
 		return this.m.IsSpent;
-	}
-
-	function getDescription()
-	{
-		return "This character is eager to entertain the crowds and earn some coin at the next settlement.";
 	}
 
 	function getTooltip()

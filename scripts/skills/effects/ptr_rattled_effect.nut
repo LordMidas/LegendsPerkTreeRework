@@ -6,17 +6,13 @@ this.ptr_rattled_effect <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "effects.ptr_rattled";
 		this.m.Name = "Rattled";
+		this.m.Description = "This character has received a blow which has left %them% rattling, reducing %their% ability to swing %their% weapon properly.";
 		this.m.Icon = "ui/perks/ptr_rattle.png";
 		//this.m.IconMini = "ptr_rattled_effect_mini";
 		this.m.Overlay = "ptr_rattled_effect";
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;
 		this.m.IsRemovedAfterBattle = true;
-	}
-	
-	function getDescription()
-	{
-		return "This character has received a blow which leaves them rattling, reducing their ability to swing their weapon properly.";
 	}
 	
 	function getTooltip()

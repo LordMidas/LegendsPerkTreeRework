@@ -8,18 +8,13 @@ this.perk_ptr_pattern_recognition <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "perk.ptr_pattern_recognition";
 		this.m.Name = this.Const.Strings.PerkName.PTRPatternRecognition;
-		this.m.Description = this.Const.Strings.PerkDescription.PTRPatternRecognition;
+		this.m.Description = "This character is quick to understand the fighting style of %their% opponents, getting better at fighting them as the combat draws on.";
 		this.m.Icon = "ui/perks/ptr_pattern_recognition.png";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
-		this.m.Order = this.Const.SkillOrder.Perk | this.Const.SkillType.StatusEffect;
+		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
-	}
-
-	function getDescription()
-	{
-		return "This character is quick to understand the fighting style of their opponents, getting better at fighting them as the combat draws on.";
 	}
 
 	function isHidden()

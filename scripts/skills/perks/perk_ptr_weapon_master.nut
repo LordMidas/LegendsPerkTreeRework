@@ -6,7 +6,7 @@ this.perk_ptr_weapon_master <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "perk.ptr_weapon_master";
 		this.m.Name = this.Const.Strings.PerkName.PTRWeaponMaster;
-		this.m.Description = this.Const.Strings.PerkDescription.PTRWeaponMaster;
+		this.m.Description = "This character is a master of One-Handed weapons and can swap one such weapon for another for free once per turn."
 		this.m.Icon = "ui/perks/ptr_weapon_master.png";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.Any;
@@ -73,11 +73,6 @@ this.perk_ptr_weapon_master <- this.inherit("scripts/skills/skill", {
 		}
 
 		this.m.IsSpent = true;
-	}
-
-	function getDescription()
-	{
-		return "This character is a master of One-Handed weapons and can swap one such weapon for another for free once per turn."
 	}
 
 	function isEnabled(_properties)

@@ -6,7 +6,7 @@ this.ptr_between_the_eyes_attack_effect <- this.inherit("scripts/skills/skill", 
 	{
 		this.m.ID = "effects.ptr_between_the_eyes_attack";
 		this.m.Name = "Between the Eyes";
-		this.m.Description = "This character is aiming their next Melee attack to hit right between their target\'s eyes.";
+		this.m.Description = "This character is aiming %their% next Melee attack to hit right between %their% target\'s eyes.";
 		this.m.Icon = "ui/perks/ptr_between_the_eyes.png";
 		//this.m.IconMini = "ptr_between_the_eyes_attack_effect_mini";
 		this.m.Type = this.Const.SkillType.StatusEffect;

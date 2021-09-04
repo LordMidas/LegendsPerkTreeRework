@@ -7,7 +7,7 @@ this.perk_ptr_man_of_steel <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "perk.ptr_man_of_steel";
 		this.m.Name = this.Const.Strings.PerkName.PTRManOfSteel;
-		this.m.Description = this.Const.Strings.PerkDescription.PTRManOfSteel;
+		this.m.Description = "%name% has become one with %their% armor, and ranged attacks now seem nothing more than a tickle.";
 		this.m.Icon = "ui/perks/ptr_man_of_steel.png";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.Perk;
@@ -25,11 +25,6 @@ this.perk_ptr_man_of_steel <- this.inherit("scripts/skills/skill", {
 	function isHidden()
 	{
 		return this.getReductionPercentage() <= 0;
-	}
-
-	function getDescription()
-	{
-		return "This character has become one with their armor, and ranged attacks now seem nothing more than a tickle.";
 	}
 
 	function getTooltip()

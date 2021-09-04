@@ -11,18 +11,13 @@ this.perk_ptr_fluid_weapon <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "perk.ptr_fluid_weapon";
 		this.m.Name = this.Const.Strings.PerkName.PTRFluidWeapon;
-		this.m.Description = this.Const.Strings.PerkDescription.PTRFluidWeapon;
+		this.m.Description = "Thanks to wielding a well-balanced sword, this character is gaining increased mobility and endurance.";
 		this.m.Icon = "ui/perks/ptr_fluid_weapon.png";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.Last;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
-	}
-
-	function getDescription()
-	{
-		return "Wielding a well-balanced sword gives this character increased mobility and endurance.";
 	}
 
 	function isHidden()

@@ -6,7 +6,7 @@ this.perk_ptr_swift_stabs <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "perk.ptr_swift_stabs";
 		this.m.Name = this.Const.Strings.PerkName.PTRSwiftStabs;
-		this.m.Description = this.Const.Strings.PerkDescription.PTRSwiftStabs;
+		this.m.Description = "This character has successfully found an opening in %their% target\'s armor and can quickly deliver several deadly stabs.";
 		this.m.Icon = "ui/perks/ptr_swift_stabs.png";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.VeryLast;
@@ -18,11 +18,6 @@ this.perk_ptr_swift_stabs <- this.inherit("scripts/skills/skill", {
 	function isHidden()
 	{
 		return this.m.Skill == null;
-	}
-
-	function getDescription()
-	{
-		return "This character has successfully found an opening in the target's armor and can quickly deliver several deadly stabs.";
 	}
 
 	function getTooltip()

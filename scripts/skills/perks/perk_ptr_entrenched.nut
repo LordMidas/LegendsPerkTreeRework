@@ -8,18 +8,13 @@ this.perk_ptr_entrenched <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "perk.ptr_entrenched";
 		this.m.Name = this.Const.Strings.PerkName.PTREntrenched;
-		this.m.Description = this.Const.Strings.PerkDescription.PTREntrenched;
+		this.m.Description = "This character\'s confidence in combat is increased due to support from adjacent allies.";
 		this.m.Icon = "ui/perks/ptr_entrenched.png";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
-	}
-
-	function getDescription()
-	{
-		return "This character\'s confidence in combat is increased due to support from adjacent allies.";
 	}
 
 	function getName()

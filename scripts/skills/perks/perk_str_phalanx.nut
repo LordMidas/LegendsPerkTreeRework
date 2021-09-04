@@ -7,10 +7,10 @@ this.perk_str_phalanx <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "perk.str_phalanx";
 		this.m.Name = this.Const.Strings.PerkName.STRPhalanx;
-		this.m.Description = this.Const.Strings.PerkDescription.STRPhalanx;
+		this.m.Description = "This character is highly skilled in fighting in a shielded formation and gains bonuses when adjacent to allies with shields."
 		this.m.Icon = "ui/perks/str_phalanx.png";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
-		this.m.Order = this.Const.SkillOrder.Perk | this.Const.SkillType.StatusEffect;
+		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
@@ -19,11 +19,6 @@ this.perk_str_phalanx <- this.inherit("scripts/skills/skill", {
 	function isHidden()
 	{
 		return this.m.Count == 0;
-	}
-
-	function getDescription()
-	{
-		return "This character is highly skilled in fighting in a shielded formation and gains bonuses when adjacent to allies with shields."
 	}
 
 	function getTooltip()

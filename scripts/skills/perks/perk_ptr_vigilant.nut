@@ -6,18 +6,13 @@ this.perk_ptr_vigilant <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "perk.ptr_vigilant";
 		this.m.Name = this.Const.Strings.PerkName.PTRVigilant;
-		this.m.Description = this.Const.Strings.PerkDescription.PTRVigilant;
+		this.m.Description = "Having not expended %themself% completely during %their% last turn, this character finds %themself% better prepared for combat now.";
 		this.m.Icon = "ui/perks/ptr_vigilant.png";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
-		this.m.Order = this.Const.SkillOrder.Perk | this.Const.SkillType.StatusEffect;
+		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
-	}
-
-	function getDescription()
-	{
-		return "Having not expended themselves completely during their last turn, this character finds themselves better prepared for combat now.";
 	}
 
 	function isHidden()

@@ -10,18 +10,13 @@ this.perk_ptr_utilitarian <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "perk.ptr_utilitarian";
 		this.m.Name = this.Const.Strings.PerkName.PTRUtilitarian;
-		this.m.Description = this.Const.Strings.PerkDescription.PTRUtilitarian;
+		this.m.Description = "This character is skilled in long reach weapons and gains bonuses depending on the weight of %their% armor";
 		this.m.Icon = "ui/perks/ptr_utilitarian.png";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
-		this.m.Order = this.Const.SkillOrder.Perk | this.Const.SkillType.StatusEffect;
+		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
-	}
-
-	function getDescription()
-	{
-		return "This character is skilled in long reach weapons and gains bonuses depending on the weight of their armor";
 	}
 
 	function isHidden()

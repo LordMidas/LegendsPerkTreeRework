@@ -7,7 +7,8 @@ this.ptr_arrow_to_the_knee_debuff_effect <- this.inherit("scripts/skills/skill",
 	function create()
 	{
 		this.m.ID = "effects.ptr_arrow_to_the_knee_debuff";
-		this.m.Name = "Took an Arrow to the Knee";
+		this.m.Name = "Took an Arrow to the Knee";		
+		this.m.Description = "%name% used to move around freely like you, but then %they% took arrow to the knee.";
 		this.m.Icon = "ui/perks/ptr_arrow_to_the_knee.png";
 		//this.m.IconMini = "ptr_arrow_to_the_knee_debuff_effect_mini";
 		this.m.Overlay = "ptr_arrow_to_the_knee_debuff_effect";
@@ -15,13 +16,6 @@ this.ptr_arrow_to_the_knee_debuff_effect <- this.inherit("scripts/skills/skill",
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsRemovedAfterBattle = true;
-	}
-
-	function getDescription()
-	{
-		local actor = this.getContainer().getActor();
-		local pronoun = actor.getBackground().m.IsFemaleBackground ? "she" : "he";
-		return actor.getName() + " used to move around freely like you, but then " + pronoun + " took arrow to the knee.";
 	}
 
 	function getTooltip()

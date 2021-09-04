@@ -9,10 +9,10 @@ this.perk_ptr_tempo <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "perk.ptr_tempo";
 		this.m.Name = this.Const.Strings.PerkName.PTRTempo;
-		this.m.Description = this.Const.Strings.PerkDescription.PTRTempo;
+		this.m.Description = "This character has the advantage of going first in the flow of battle.";
 		this.m.Icon = "ui/perks/ptr_tempo.png";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
-		this.m.Order = this.Const.SkillOrder.Perk | this.Const.SkillType.StatusEffect;
+		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
@@ -21,11 +21,6 @@ this.perk_ptr_tempo <- this.inherit("scripts/skills/skill", {
 	function isHidden()
 	{
 		return this.m.Stacks == 0;
-	}
-
-	function getDescription()
-	{
-		return "This character has the advantage of going first in the flow of battle.";
 	}
 
 	function getTooltip()

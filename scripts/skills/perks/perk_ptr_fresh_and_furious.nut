@@ -6,10 +6,10 @@ this.perk_ptr_fresh_and_furious <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "perk.ptr_fresh_and_furious";
 		this.m.Name = this.Const.Strings.PerkName.PTRFreshAndFurious;
-		this.m.Description = this.Const.Strings.PerkDescription.PTRFreshAndFurious;
+		this.m.Description = "This character hits exceptionally hard when not fatigued.";
 		this.m.Icon = "ui/perks/ptr_fresh_and_furious.png";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
-		this.m.Order = this.Const.SkillOrder.Perk | this.Const.SkillType.StatusEffect;
+		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
@@ -18,11 +18,6 @@ this.perk_ptr_fresh_and_furious <- this.inherit("scripts/skills/skill", {
 	function isHidden()
 	{
 		return this.getBonus() <= 0;
-	}
-
-	function getDescription()
-	{
-		return "This character hits harder when not fatigued.";
 	}
 
 	function getTooltip()

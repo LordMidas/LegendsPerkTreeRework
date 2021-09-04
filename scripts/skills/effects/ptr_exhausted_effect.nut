@@ -8,6 +8,7 @@ this.ptr_exhausted_effect <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "effects.ptr_exhausted";
 		this.m.Name = "Exhausted";
+		this.m.Description = "This character is exhasuted after a particularly intense turn. This effect will expire at the end of this turn.";
 		//this.m.Icon = "skills/ptr_exhausted_effect.png";
 		this.m.Icon = "ui/perks/ptr_wear_them_down.png";
 		//this.m.IconMini = "ptr_rattled_effect_mini";
@@ -15,11 +16,6 @@ this.ptr_exhausted_effect <- this.inherit("scripts/skills/skill", {
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;
 		this.m.IsRemovedAfterBattle = true;
-	}
-
-	function getDescription()
-	{
-		return "This character is exhasuted after a particularly extensive turn. This effect will expire at the end of this turn.";
 	}
 
 	function getTooltip()

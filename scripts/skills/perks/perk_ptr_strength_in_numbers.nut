@@ -7,10 +7,10 @@ this.perk_ptr_strength_in_numbers <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "perk.ptr_strength_in_numbers";
 		this.m.Name = this.Const.Strings.PerkName.PTRStrengthInNumbers;
-		this.m.Description = this.Const.Strings.PerkDescription.PTRStrengthInNumbers;
+		this.m.Description = "This character\'s martial prowess increases when fighting adjacent to allies.";
 		this.m.Icon = "ui/perks/ptr_strength_in_numbers.png";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
-		this.m.Order = this.Const.SkillOrder.Perk | this.Const.SkillType.StatusEffect;
+		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
@@ -19,11 +19,6 @@ this.perk_ptr_strength_in_numbers <- this.inherit("scripts/skills/skill", {
 	function getName()
 	{
 		return "Strength in Numbers";
-	}
-
-	function getDescription()
-	{
-		return "This character\'s martial prowess increases when fighting adjacent to allies.";
 	}
 
 	function getTooltip()

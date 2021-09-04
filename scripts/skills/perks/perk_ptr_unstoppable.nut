@@ -9,11 +9,11 @@ this.perk_ptr_unstoppable <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "perk.ptr_unstoppable";
 		this.m.Name = this.Const.Strings.PerkName.PTRUnstoppable;
-		this.m.Description = this.Const.Strings.PerkDescription.PTRUnstoppable;
+		this.m.Description = "This character\'s attacks seem to not miss at all.";
 		this.m.Icon = "ui/perks/ptr_unstoppable.png";
 		//this.m.IconMini = "perk_19_mini";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
-		this.m.Order = this.Const.SkillOrder.Perk | this.Const.SkillType.StatusEffect;
+		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = true;
@@ -22,11 +22,6 @@ this.perk_ptr_unstoppable <- this.inherit("scripts/skills/skill", {
 	function getName()
 	{
 		return this.m.Stacks == 0 ? this.m.Name : this.m.Name + " (x" + this.m.Stacks + ")";
-	}
-
-	function getDescription()
-	{
-		return "This character\'s attacks seem to not miss at all.";
 	}
 
 	function isHidden()

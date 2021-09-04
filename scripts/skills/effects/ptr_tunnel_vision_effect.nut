@@ -7,7 +7,7 @@ this.ptr_tunnel_vision_effect <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "effects.ptr_tunnel_vision";
 		this.m.Name = this.Const.Strings.PerkName.PTRTunnelVision;
-		this.m.Description = this.Const.Strings.PerkDescription.PTRTunnelVision;
+		this.m.Description = "This character\'s eyes and body are well-accustomed to dark places.";
 		this.m.Icon = "ui/perks/ptr_tunnel_vision.png";
 		//this.m.IconMini = "ptr_tunnel_vision_effect_mini";
 		this.m.Type = this.Const.SkillType.StatusEffect;
@@ -15,11 +15,6 @@ this.ptr_tunnel_vision_effect <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 		this.m.IsRemovedAfterBattle = true;
-	}
-
-	function getDescription()
-	{
-		return "This character\'s eyes and body are well-accustomed to moving in dark places.";
 	}
 
 	function getTooltip()

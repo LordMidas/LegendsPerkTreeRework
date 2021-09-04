@@ -6,18 +6,13 @@ this.perk_ptr_bulwark <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "perk.ptr_bulwark";
 		this.m.Name = this.Const.Strings.PerkName.PTRBulwark;
-		this.m.Description = this.Const.Strings.PerkDescription.PTRBulwark;
+		this.m.Description = "%name% feels braver the more durable %their% armor is!"
 		this.m.Icon = "ui/perks/ptr_bulwark.png";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
-	}
-
-	function getDescription()
-	{
-		return "This character feels braver the more durable their armor is!"
 	}
 
 	function getTooltip()

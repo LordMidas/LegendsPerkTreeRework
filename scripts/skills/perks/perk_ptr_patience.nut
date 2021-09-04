@@ -8,11 +8,11 @@ this.perk_ptr_patience <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "perk.ptr_patience";
 		this.m.Name = this.Const.Strings.PerkName.PTRPatience;
-		this.m.Description = this.Const.Strings.PerkDescription.PTRPatience;
+		this.m.Description = "This character has not moved yet and can take %their% time to get a better aim for ranged attacks.";
 		this.m.Icon = "ui/perks/ptr_patience.png";
 		//this.m.IconMini = "perk_ptr_patience_mini";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
-		this.m.Order = this.Const.SkillOrder.Perk | this.Const.SkillType.StatusEffect;
+		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
@@ -21,11 +21,6 @@ this.perk_ptr_patience <- this.inherit("scripts/skills/skill", {
 	function isHidden()
 	{
 		return this.m.HasMoved || !this.m.IsCombatStarted;
-	}
-
-	function getDescription()
-	{
-		return "This character has not moved yet and can take his time to get a better aim for ranged attacks.";
 	}
 
 	function getTooltip()

@@ -7,7 +7,7 @@ this.ptr_arrow_to_the_knee_attack_effect <- this.inherit("scripts/skills/skill",
 	{
 		this.m.ID = "effects.ptr_arrow_to_the_knee_attack";
 		this.m.Name = "Arrow to the Knee";
-		this.m.Description = "This character is aiming their ranged attacks at their targets' knees, attempting to reduce their defenses and mobility.";
+		this.m.Description = "This character is aiming %their% ranged attacks at %their% targets\' knees, attempting to reduce their defenses and mobility.";
 		this.m.Icon = "ui/perks/ptr_arrow_to_the_knee.png";
 		//this.m.IconMini = "ptr_arrow_to_the_knee_attack_effect_mini";
 		this.m.SoundOnHit = [
