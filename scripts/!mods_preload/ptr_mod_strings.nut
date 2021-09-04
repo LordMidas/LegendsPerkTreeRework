@@ -2,15 +2,6 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modStrings <- function()
 {
-	// Shield tree rework, will be moved to a new mod on release
-	gt.Const.Strings.PerkName.STRPhalanx <- "Phalanx";
-	gt.Const.Strings.PerkDescription.STRPhalanx <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Item Type: Shield[/color]\n\nWhen engaged in melee and equipped with a shield, gain [color=" + this.Const.UI.Color.PositiveValue + "]+5[/color] Melee Defense per adjacent ally holding a shield who is also engaged in melee. When holding a shield and spear, additionally gain [color=" + this.Const.UI.Color.PositiveValue + "]+5[/color] Melee Skill per adjacent ally holding a shield who is also engaged in melee.\n[color=#0b0084]From the Shield perk group[/color]";
-	gt.Const.Strings.PerkName.STRLineBreaker <- "Line Breaker";
-	gt.Const.Strings.PerkDescription.STRLineBreaker <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Item Type: Shield[/color]\n\nUnlocks the \'Line Breaker\' skill which allows you to knock back an enemy and take their place, all in one action.\n[color=#0b0084]From the Shield perk group[/color]";
-	gt.Const.Strings.PerkName.STRCoverAlly <- "Cover Ally";
-	gt.Const.Strings.PerkDescription.STRCoverAlly <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Item Type: Shield[/color]\n\nUnlocks the \'Cover Ally\' skill which allows you to target an ally to allow them to move [color=" + this.Const.UI.Color.PositiveValue + "]1[/color] tile ignoring Zone of Control on their turn.\n[color=#0b0084]From the Shield perk group[/color]";
-	// end shield tree rework
-
 	gt.Const.Strings.PerkDescription.LegendSmashingShields = "Abilities targeting shields do [color=" + this.Const.UI.Color.PositiveValue + "]15%[/color] more damage. If a shield is destroyed using Split Shield, [color=" + this.Const.UI.Color.PositiveValue + "]4[/color] Action Points are immediately regained.\n[color=#0b0084]From the Axe perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSmashingShields].Tooltip = gt.Const.Strings.PerkDescription.LegendSmashingShields;
 	gt.Const.Strings.PerkName.PTRDismemberment <- "Dismemberment";
