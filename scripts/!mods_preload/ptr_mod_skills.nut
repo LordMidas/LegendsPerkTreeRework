@@ -253,27 +253,38 @@ gt.Const.PTR.modSkills <- function()
 	});
 
 	::mods_hookExactClass("skills/perks/perk_quick_hands", function(o) {
-		o.m.IsSpent <- false;
-
-		o.onUpdate = function(_properties)
+		local getItemActionCost = o.getItemActionCost;
+		o.getItemActionCost = function(_items)
 		{
+			foreach (i in _items)
+			{
+				if (i != null && (i.isItemType(this.Const.Items.ItemType.Shield) || i.isItemType(this.Const.Items.ItemType.TwoHanded)))
+				{
+					return null;
+				}
+			}
+
+			return getItemActionCost(_items);
 		}
 
-		o.isHidden <- function()
+		local onPayForItemAction = o.onPayForItemAction;
+		o.onPayForItemAction = function (_skill, _items)
 		{
-			local actor = this.getContainer().getActor();
-			return this.m.IsSpent || !actor.isPlayerControlled() || !actor.isPlacedOnMap();
-		}
+			local ammoCount = 0
+			foreach (i in _items)
+			{
+				if (i != null && i.isItemType(this.Const.Items.ItemType.Ammo))
+				{
+					ammoCount++;
+				}
+			}
 
-		o.onTurnStart <- function()
-		{
-			this.m.IsSpent = false;
-		}
+			if (ammoCount == 2)
+			{
+				return;
+			}
 
-		o.onCombatFinished = function()
-		{
-			this.skill.onCombatFinished();
-			this.m.IsSpent = false;
+			onPayForItemAction(_skill, _items);
 		}
 	});
 
@@ -780,23 +791,13 @@ gt.Const.PTR.modSkills <- function()
 		o.m.FieldsChangedByFlamingArrows <- false;
 		o.m.TargetTile <- null;
 
-		local oldOnAfterUpdate = o.onAfterUpdate;
+		local onAfterUpdate = o.onAfterUpdate;
 		o.onAfterUpdate = function( _properties )
 		{
-			oldOnAfterUpdate(_properties);
-			if (this.getContainer().hasSkill("perk.ptr_target_practice"))
-			{
-				this.m.ActionPointCost -= 1;
-			}
-
-			if (this.getContainer().hasSkill("perk.ptr_ranged_supremacy"))
-			{
-				this.m.MaxRange += 1;
-			}
+			onAfterUpdate(_properties);
 
 			if (this.getContainer().hasSkill("perk.ptr_flaming_arrows"))
 			{
-				_properties.ThreatOnHit += this.Math.min(20, this.Math.max(0, _properties.getRangedSkill() * 0.2));
 				if (this.m.FieldsChangedByFlamingArrows == false)
 				{
 					this.m.Description = "A focused and carefully aimed shot with a good outlook of hitting its intended target even at a distance. On a successful hit, will light the target tile on fire and trigger a morale check for the target. Can not be used while engaged in melee.";
@@ -805,117 +806,17 @@ gt.Const.PTR.modSkills <- function()
 			}
 			else if (this.m.FieldsChangedByFlamingArrows)
 			{
-				this.m.resetField("Description");
+				this.resetField("Description");
 				this.m.FieldsChangedByFlamingArrows = false;
 			}
-		}
-
-		o.onApply <- function ( _data )
-		{
-			local targets = [];
-			targets.push(_data.TargetTile);
-
-			this.Sound.play(this.m.SoundOnHit[this.Math.rand(0, this.m.SoundOnHit.len() - 1)], 1.0, _data.TargetTile.Pos);
-			local p = {
-				Type = "fire",
-				Tooltip = "Fire rages here, melting armor and flesh alike",
-				IsPositive = false,
-				IsAppliedAtRoundStart = false,
-				IsAppliedAtTurnEnd = true,
-				IsAppliedOnMovement = false,
-				IsAppliedOnEnter = false,
-				IsByPlayer = _data.User.isPlayerControlled(),
-				Timeout = this.Time.getRound() + 1,
-				Callback = this.Const.Tactical.Common.onApplyFire,
-				function Applicable( _a )
-				{
-					return true;
-				}
-			};
-
-			foreach( tile in targets )
-			{
-				if (tile.Subtype != this.Const.Tactical.TerrainSubtype.Snow && tile.Subtype != this.Const.Tactical.TerrainSubtype.LightSnow && tile.Type != this.Const.Tactical.TerrainType.ShallowWater && tile.Type != this.Const.Tactical.TerrainType.DeepWater)
-				{
-					if (tile.Properties.Effect != null && tile.Properties.Effect.Type == "fire")
-					{
-						tile.Properties.Effect.Timeout = this.Time.getRound() + 1;
-					}
-					else
-					{
-						if (tile.Properties.Effect != null)
-						{
-							this.Tactical.Entities.removeTileEffect(tile);
-						}
-
-						tile.Properties.Effect = clone p;
-						local particles = [];
-
-						for( local i = 0; i < this.Const.Tactical.FireParticles.len(); i = ++i )
-						{
-							particles.push(this.Tactical.spawnParticleEffect(true, this.Const.Tactical.FireParticles[i].Brushes, tile, this.Const.Tactical.FireParticles[i].Delay, this.Const.Tactical.FireParticles[i].Quantity, this.Const.Tactical.FireParticles[i].LifeTimeQuantity, this.Const.Tactical.FireParticles[i].SpawnRate, this.Const.Tactical.FireParticles[i].Stages));
-						}
-
-						this.Tactical.Entities.addTileEffect(tile, tile.Properties.Effect, particles);
-						tile.clear(this.Const.Tactical.DetailFlag.Scorchmark);
-						tile.spawnDetail("impact_decal", this.Const.Tactical.DetailFlag.Scorchmark, false, true);
-					}
-				}
-
-				if (tile.IsOccupiedByActor)
-				{
-					this.Const.Tactical.Common.onApplyFire(tile, tile.getEntity());
-				}
-			}
-
-			this.m.TargetTile = null;
-		}
-
-		local onBeforeTargetHit = ::mods_getMember(o, "onBeforeTargetHit");
-		o.onBeforeTargetHit = function ( _skill, _targetEntity, _hitInfo )
-		{
-			this.m.TargetTile = _targetEntity.getTile();
-		}
-
-		local onTargetHit = ::mods_getMember(o, "onTargetHit");
-		o.onTargetHit = function( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
-		{
-			onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor );
-
-			if (_skill != this)
-			{
-				return;
-			}
-
-			if (!this.getContainer().hasSkill("perk.ptr_flaming_arrows"))
-			{
-				return;
-			}
-
-			if (this.m.TargetTile != null)
-			{
-				this.Time.scheduleEvent(this.TimeUnit.Real, 50, this.onApply.bindenv(this), {
-					Skill = this,
-					User = this.getContainer().getActor(),
-					TargetTile = this.m.TargetTile
-				});
-			}
-
-			if (_targetEntity == null || !_targetEntity.isAlive() || _targetEntity.getMoraleState() == this.Const.MoraleState.Ignore)
-			{
-				return;
-			}
-
-			this.spawnIcon("perk_27", _targetEntity.getTile());
-			_targetEntity.checkMorale(-1, this.Const.Morale.OnHitBaseDifficulty * (1.0 - _targetEntity.getHitpoints() / _targetEntity.getHitpointsMax()) - this.getContainer().getActor().getCurrentProperties().ThreatOnHit);
 		}
 	});
 
 	::mods_hookNewObject("skills/perks/perk_reach_advantage", function(o) {
-		local oldOnTargetHit = o.onTargetHit;
+		local onTargetHit = o.onTargetHit;
 		o.onTargetHit = function( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 		{
-			oldOnTargetHit(_skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor);
+			onTargetHit(_skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor);
 
 			local actor = this.getContainer().getActor();
 			if (!actor.getCurrentProperties().IsAbleToUseWeaponSkills)
@@ -930,7 +831,6 @@ gt.Const.PTR.modSkills <- function()
 			}
 		}
 
-		local oldonUpdate = o.onUpdate;
 		o.onUpdate = function( _properties )
 		{
 			this.m.IsHidden = this.m.Stacks == 0;
@@ -964,17 +864,12 @@ gt.Const.PTR.modSkills <- function()
 	# });
 
 	::mods_hookNewObject("skills/perks/perk_legend_smackdown", function(o) {
-		local oldonTargetHit = o.onTargetHit;
+		local onTargetHit = o.onTargetHit;
 		o.onTargetHit = function( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 		{
-			local success = oldonTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor );
+			local success = onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor );
 
-			if (!success)
-			{
-				return success;
-			}
-
-			if(_targetEntity.isAlive())
+			if (success && _targetEntity.isAlive() && !_targetEntity.isDying())
 			{
 				_targetEntity.getSkills().add(this.new("scripts/skills/effects/ptr_smackdown_debuff_effect"));
 			}
@@ -1115,12 +1010,12 @@ gt.Const.PTR.modSkills <- function()
 	::mods_hookNewObject("skills/perks/perk_coup_de_grace", function(o) {
 		o.onAnySkillUsed = function ( _skill, _targetEntity, _properties )
 		{
-			if (_targetEntity == null)
+			if (_targetEntity == null || !_skill.isAttack())
 			{
 				return;
 			}
 
-			if (_skill.isAttack() && _targetEntity.getSkills().hasSkillOfType(this.Const.SkillType.TemporaryInjury))
+			if (_targetEntity.getSkills().hasSkillOfType(this.Const.SkillType.TemporaryInjury))
 			{
 				_properties.DamageTotalMult *= 1.2;
 			}

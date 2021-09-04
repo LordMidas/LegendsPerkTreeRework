@@ -1,6 +1,7 @@
 this.perk_ptr_know_their_weakness <- this.inherit("scripts/skills/skill", {
 	m = {
-		Stacks = 0,
+		MeleeStacks = 0,
+		RangedStacks = 0,
 		BonusMeleePerStack = 10,
 		BonusRangedPerStack = 5,
 		BonusMax = 30
@@ -8,24 +9,14 @@ this.perk_ptr_know_their_weakness <- this.inherit("scripts/skills/skill", {
 	function create()
 	{
 		this.m.ID = "perk.ptr_know_their_weakness";
-		this.m.Name = this.Const.Strings.PerkName.PTRKnowTheirWeakness;
-		this.m.Description = this.Const.Strings.PerkDescription.PTRKnowTheirWeakness;
+		this.m.Name = "Knows their Weakness";
+		this.m.Description = "With each enemy felled, this character finds it easier to kill those who remain.";
 		this.m.Icon = "ui/perks/ptr_know_their_weakness.png";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
-		this.m.Order = this.Const.SkillOrder.Perk | this.Const.SkillType.StatusEffect;
+		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
-	}
-
-	function getName()
-	{
-		return "Knows their Weakness";
-	}
-
-	function getDescription()
-	{
-		return "With each enemy felled, this character finds it easier to kill those who remain.";
 	}
 
 	function getTooltip()
@@ -36,14 +27,14 @@ this.perk_ptr_know_their_weakness <- this.inherit("scripts/skills/skill", {
 			id = 10,
 			type = "text",
 			icon = "ui/icons/melee_skill.png",
-			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.Math.min(this.m.BonusMax, this.m.Stacks * this.m.BonusMeleePerStack) + "[/color] Melee Skill"
+			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getMeleeBonus() + "%[/color] Melee Skill"
 		});
 
 		tooltip.push({
 			id = 10,
 			type = "text",
 			icon = "ui/icons/ranged_skill.png",
-			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.Math.min(this.m.BonusMax, this.m.Stacks * this.m.BonusRangedPerStack) + "[/color] Ranged Skill"
+			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getRangedBonus() + "%[/color] Ranged Skill"
 		});
 
 		return tooltip;
@@ -51,7 +42,17 @@ this.perk_ptr_know_their_weakness <- this.inherit("scripts/skills/skill", {
 
 	function isHidden()
 	{
-		return this.m.Stacks == 0;
+		return this.m.MeleeStacks == 0 && this.m.RangedStacks == 0;
+	}
+
+	function getMeleeBonus()
+	{
+		return this.Math.min(this.m.BonusMax, this.m.MeleeStacks * this.m.BonusMeleePerStack);
+	}
+
+	function getRangedBonus()
+	{
+		return this.Math.min(this.m.BonusMax, this.m.RangedStacks * this.m.BonusRangedPerStack);
 	}
 
 	function onTargetKilled( _targetEntity, _skill )
@@ -60,7 +61,9 @@ this.perk_ptr_know_their_weakness <- this.inherit("scripts/skills/skill", {
 		{
 			return;
 		}
-		this.m.Stacks++;
+
+		this.m.MeleeStacks = this.Math.min(this.m.BonusMax / this.m.BonusMeleePerStack, this.m.MeleeStacks + 1);
+		this.m.RangedStacks = this.Math.min(this.m.BonusMax / this.m.BonusRangedPerStack, this.m.RangedStacks + 1);
 	}
 
 	function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
@@ -70,23 +73,20 @@ this.perk_ptr_know_their_weakness <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		this.m.Stacks = this.Math.max(0, this.m.Stacks - 1);
+		this.m.MeleeStacks = this.Math.max(0, this.m.MeleeStacks - 1);
+		this.m.RangedStacks = this.Math.max(0, this.m.RangedStacks - 1);
 	}
 
 	function onUpdate( _properties )
 	{
-		_properties.MeleeSkillMult *= 1.0 + (this.Math.min(this.m.BonusMax, this.m.Stacks * this.m.BonusMeleePerStack) * 0.01);
-		_properties.RangedSkillMult *= 1.0 + (this.Math.min(this.m.BonusMax, this.m.Stacks * this.m.BonusMeleePerStack) * 0.01);
-	}
-
-	function onCombatStarted()
-	{
-		this.m.Stacks = 0;
+		_properties.MeleeSkillMult *= 1.0 + (this.getMeleeBonus() * 0.01);
+		_properties.RangedSkillMult *= 1.0 + (this.getRangedBonus() * 0.01);
 	}
 
 	function onCombatFinished()
 	{
 		this.skill.onCombatFinished();
-		this.m.Stacks = 0;
+		this.m.MeleeStacks = 0;
+		this.m.RangedStacks = 0;
 	}
 });

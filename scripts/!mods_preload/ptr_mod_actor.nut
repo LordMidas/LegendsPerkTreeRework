@@ -40,16 +40,15 @@ gt.Const.PTR.modActor <- function()
 			this.getSkills().add(this.new("scripts/skills/effects/ptr_bolstered_effect"));
 
 			local flags = this.getFlags();
-			if (flags.has("undead"))
+			if (flags.has("undead") && !flags.has("ghost") && !flags.has("ghoul") && !flags.has("vampire"))
 			{
+				this.getSkills().add(this.new("scripts/skills/effects/ptr_undead_injury_receiver_effect"));
 				if (flags.has("skeleton"))
 				{
-					this.getSkills().add(this.new("scripts/skills/effects/ptr_undead_injury_receiver_effect"));
 					this.m.ExcludedInjuries.extend(this.Const.Injury.ExcludedInjuries.get(this.Const.Injury.ExcludedInjuries.PTRSkeleton));
 				}
-				else if (!flags.has("ghoul") && !flags.has("vampire"))
+				else
 				{
-					this.getSkills().add(this.new("scripts/skills/effects/ptr_undead_injury_receiver_effect"));
 					this.m.ExcludedInjuries.extend(this.Const.Injury.ExcludedInjuries.get(this.Const.Injury.ExcludedInjuries.PTRUndead));
 				}
 			}
@@ -150,7 +149,6 @@ gt.Const.PTR.modActor <- function()
 			local promisedPotentialDetails = {};
 			if (promisedPotentialSkill != null)
 			{
-				this.logInfo("storing promised potential");
 				hasPromisedPotential = true;
 				promisedPotentialDetails.IsSpent <- promisedPotentialSkill.m.IsSpent;
 				promisedPotentialDetails.WillSucceed <- promisedPotentialSkill.m.WillSucceed;

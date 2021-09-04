@@ -21,6 +21,60 @@ this.perk_ptr_weapon_master <- this.inherit("scripts/skills/skill", {
 		return this.m.IsSpent || !actor.isPlayerControlled() || !actor.isPlacedOnMap() || !this.isEnabled(actor.getCurrentProperties());
 	}
 
+	function getItemActionCost(_items)
+	{
+		if (this.m.IsSpent)
+		{
+			return null;
+		}
+
+		local oneHandedCount = 0;
+
+		foreach (item in _items)
+		{
+			if (item == null)
+			{
+				continue;
+			}
+
+			if (item.getSlotType() != this.Const.ItemSlot.Mainhand || !item.isItemType(this.Const.Items.ItemType.MeleeWeapon) || item.isItemType(this.Const.Items.ItemType.TwoHanded))
+			{
+				return null;
+			}
+
+			if (item.isItemType(this.Const.Items.ItemType.OneHanded))
+			{
+				oneHandedCount++;
+			}
+		}
+
+		if (oneHandedCount > 0)
+		{
+			return 0;
+		}
+
+		return null;
+	}
+
+	function onPayForItemAction(_skill, _items)
+	{
+		local ammoCount = 0
+		foreach (i in _items)
+		{
+			if (i != null && i.isItemType(this.Const.Items.ItemType.Ammo))
+			{
+				ammoCount++;
+			}
+		}
+
+		if (ammoCount == 2)
+		{
+			return;
+		}
+
+		this.m.IsSpent = true;
+	}
+
 	function getDescription()
 	{
 		return "This character is a master of One-Handed weapons and can swap one such weapon for another for free once per turn."

@@ -49,7 +49,6 @@ this.ptr_realize_potential_event <- this.inherit("scripts/events/event", {
 						break;
 					}
 				}
-				this.logInfo("in event");
 				_event.m.Dude.getSkills().add(bg);
 				_event.m.Dude.getBackground().m.RawDescription = "Once a dreg of society, with your help, %name% has grown into a full-fledged mercenary.";
 				_event.m.Dude.getBackground().buildDescription(true);

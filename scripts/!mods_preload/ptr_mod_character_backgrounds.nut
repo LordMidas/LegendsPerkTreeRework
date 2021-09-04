@@ -3115,7 +3115,9 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
 			],
 			Magic = [
-				[{Weight = 100, Tree = this.Const.Perks.EvocationMagicTree}]
+				[{Weight = 100, Tree = this.Const.Perks.PremonitionMagicTree}],
+				[{Weight = 100, Tree = this.Const.Perks.PhilosophyMagicTree}],
+				[{Weight = 100, Tree = this.Const.Perks.InventorMagicTree}]
 			]
 		};
 	});

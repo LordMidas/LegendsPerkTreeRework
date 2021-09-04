@@ -12,4 +12,28 @@ this.perk_ptr_target_practice <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
+
+	function onAfterUpdate(_properties)
+	{
+		local aimedShot = this.getContainer().getSkillByID("actives.aimed_shot")
+		if (aimedShot != null)
+		{
+			aimedShot.m.ActionPointCost -= 1;
+		}
+	}
+
+	function getItemActionCost(_items)
+	{
+		local count = 0;
+
+		foreach (item in _items)
+		{
+			if (item != null && item.isItemType(this.Const.Items.ItemType.Ammo))
+			{
+				count++;
+			}
+		}
+
+		return count == 2 ? 0 : null;
+	}
 });

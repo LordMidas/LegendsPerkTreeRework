@@ -13,5 +13,72 @@ this.perk_ptr_offhand_training <- this.inherit("scripts/skills/skill", {
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
+		this.m.ItemActionOrder = this.Const.ItemActionOrder.Any;
+	}
+
+	function getItemActionCost(_items)
+	{
+		if (this.m.IsSpent)
+		{
+			return null;
+		}
+
+		local validItemsCount = 0;
+
+		foreach (i in _items)
+		{
+			if (i == null || i.getSlotType() != this.Const.ItemSlot.Mainhand)
+			{
+				continue;
+			}
+
+			if (i.isItemType(this.Const.Items.ItemType.Shield))
+			{
+				 if (i.getID().find("buckler") != null || i.getID().find("parrying_dagger") != null)
+				 {
+					 validItemsCount++;
+				 }
+				 else
+				 {
+					 return null;
+				 }
+			}
+
+			if (i.isItemType(this.Const.Items.ItemType.Tool))
+			{
+				validItemsCount++;
+			}
+		}
+
+		if (validItemsCount > 0)
+		{
+			return 0;
+		}
+
+		return null;
+	}
+
+	function onPayForItemAction(_skill, _items)
+	{
+		local ammoCount = 0
+		foreach (i in _items)
+		{
+			if (i != null && i.isItemType(this.Const.Items.ItemType.Ammo))
+			{
+				ammoCount++;
+			}
+		}
+
+		if (ammoCount == 2)
+		{
+			return;
+		}
+
+		this.m.IsSpent = true;
+	}
+
+	function onTurnStart()
+	{
+		this.m.IsSpent = false;
 	}
 });

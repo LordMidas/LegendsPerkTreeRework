@@ -68,17 +68,18 @@ this.perk_ptr_entrenched <- this.inherit("scripts/skills/skill", {
 			return false;
 		}
 
+		local isValid = false;
 		local adjacentAllies = this.getContainer().getActor().getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.SameFaction);
 		foreach (ally in adjacentAllies)
 		{
 			if (!ally.isEngagedInMelee() && ally.hasZoneOfControl())
 			{
-				return true;
+				isValid = true;
 				break;
 			}
 		}
 
-		return true;
+		return isValid;
 	}
 
 	function getBonus()

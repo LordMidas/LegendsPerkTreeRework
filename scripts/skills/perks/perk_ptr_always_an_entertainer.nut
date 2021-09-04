@@ -41,6 +41,23 @@ this.perk_ptr_always_an_entertainer <- this.inherit("scripts/skills/skill", {
 			text = "Will earn between [color=" + this.Const.UI.Color.PositiveValue + "]+" + (this.m.MinMoney * levelBonus) + "[/color] and [color=" + this.Const.UI.Color.PositiveValue + "]+" + (this.m.MaxMoney * levelBonus) + "[/color] gold. This is doubled for medium-sized settlements and tripled for large settlements."
 		});
 
+		if (this.m.SettlementsVisited.len() > 0)
+		{
+			local settlementNames = "";
+			foreach (settlementName in this.m.SettlementsVisited)
+			{
+				settlementNames += settlementName + ", ";
+			}
+			settlementNames = settlementNames.slice(0, -2);
+
+			tooltip.push({
+				id = 10,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Will [color=" + this.Const.UI.Color.NegativeValue + "]not[/color] be able to entertain at the following cities today because another character has already done so: " + settlementNames
+			});
+		}
+
 		return tooltip;
 	}
 
@@ -76,7 +93,7 @@ this.perk_ptr_always_an_entertainer <- this.inherit("scripts/skills/skill", {
 
 	function canEarnFromSettlement(_settlement)
 	{
-		if (_settlement.isMilitary() || this.hasVisitedSettlement(_settlement))
+		if (!this.World.getTime().IsDaytime || _settlement.isMilitary() || this.hasVisitedSettlement(_settlement))
 		{
 			return false;
 		}

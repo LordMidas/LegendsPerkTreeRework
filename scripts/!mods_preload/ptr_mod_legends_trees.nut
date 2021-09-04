@@ -1033,8 +1033,8 @@ gt.Const.PTR.modWeaponTrees <- function()
 	this.Const.Perks.BowTree.Tree[1] = [this.Const.Perks.PerkDefs.PTRRangedSupremacy];
 	this.Const.Perks.BowTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRArrowToTheKnee];
 	this.Const.Perks.BowTree.Tree[3] = [this.Const.Perks.PerkDefs.SpecBow];
-	this.Const.Perks.BowTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRMarksmanship];
-	this.Const.Perks.BowTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRFlamingArrows];
+	this.Const.Perks.BowTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRFlamingArrows];
+	this.Const.Perks.BowTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRMarksmanship];
 	this.Const.Perks.BowTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRHipShooter];
 
 	while (this.Const.Perks.CleaverTree.Tree.len() < 7)
@@ -1167,18 +1167,21 @@ gt.Const.PTR.modWeaponTrees <- function()
 	this.Const.Perks.SwordTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRKata];
 	this.Const.Perks.SwordTree.Tree[6] = [this.Const.Perks.PerkDefs.PTREnGarde, this.Const.Perks.PerkDefs.Fencer];
 
-	foreach (i, row in this.Const.Perks.GreatSwordTree.Tree)
+	this.Const.Perks.GreatSwordTree.Tree.clear();
+
+	while (this.Const.Perks.GreatSwordTree.Tree.len() < 7)
+	{
+		this.Const.Perks.GreatSwordTree.Tree.push(emptyArray);
+	}
+
+	foreach (i, row in this.Const.Perks.SwordTree.Tree)
 	{
 		foreach (entry in row)
 		{
-			this.Const.Perks.GreatSwordTree.Tree[i] = entry;
+			this.Const.Perks.GreatSwordTree.Tree[i].push(entry);
 		}
 	}
 
-	# while (this.Const.Perks.GreatSwordTree.Tree.len() < 7)
-	# {
-	# 	this.Const.Perks.GreatSwordTree.Tree.push(emptyArray);
-	# }
 	# this.Const.Perks.GreatSwordTree.Tree[0] = [this.Const.Perks.PerkDefs.PTRVersatileWeapon];
 	# this.Const.Perks.GreatSwordTree.Tree[1] = [this.Const.Perks.PerkDefs.Feint];
 	# this.Const.Perks.GreatSwordTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRFluidWeapon];
@@ -1216,6 +1219,15 @@ gt.Const.PTR.modWeaponTrees <- function()
 	if (idx != null)
 	{
 		gt.Const.Perks.WeaponTrees.Tree.remove(idx);
+	}
+
+	if ("FistTree" in this.Const.Perks)
+	{
+		local idx = gt.Const.Perks.WeaponTrees.Tree.find(this.Const.Perks.FistTree);
+		if (idx != null)
+		{
+			gt.Const.Perks.WeaponTrees.Tree.remove(idx);
+		}
 	}
 }
 

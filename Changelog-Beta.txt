@@ -1,4 +1,50 @@
 ======================
+==== Ver 0.14.9 ======
+======================
+- Fixed the 13 columns change not taking effect in the previous build.
+
+======================
+==== Ver 0.14.8 ======
+======================
+- Requires MSU 0.6.4.
+- Perk trees are now limited to 13 columns for most recruits (only applies to new recruits).
+- Implemented code to conform to new MSU item-swapping functionality.
+- Removed the Fist Tree from Weapons (this will be removed in next Legends build too). Only the Unarmed Class tree will remain.
+- Removed Magic Missile and related perks from Evoker (just like they removed it in Legends) and gave it the magic perks it has in Legends.
+- Fixed Offhand Training free item-swap not refreshing on new turn.
+- Hopefully fixed an issue when starting campaign as Lone Wolf.
+
+======================
+==== Ver 0.14.7 ======
+======================
+- Iron Sights now requires Crossbow or Firearm. The bonus chance to hit the head is now +25% (up from +15%).
+- Fixed Know their Weakness losing 10% Melee Skill upon getting hit instead of 5%.
+- Fixed Know their Weakness status effect tooltip to now correctly show the % bonuses gained.
+- Fixed Blunt and Cutting type attacks applying injuries to Undead without any perks.
+
+======================
+==== Ver 0.14.6 ======
+======================
+- Always an Entertainer status effect tooltip will now show a list of cities where this character cannot earn money because another character has already done so today.
+- Intimidate will now stack from attacks from multiple sources but not from the same source.
+- Fixed Hip Shooter increasing the Fatigue Cost of Quick Shot indefinitely with every use of the skill.
+- Fixed Marksmanship showing up on t5 of the Bow Tree. Now it should be on t6 as intended and Flaming Arrows is on t5.
+- Fixed Entrenched gaining stacks even when not next to a valid ally.
+- Fixed Piercing attacks applying injuries to Undead.
+
+======================
+==== Ver 0.14.5 ======
+======================
+- Fixed a critical error the caused the mod to not be loaded.
+
+======================
+==== Ver 0.14.4 ======
+======================
+- Also update MSU to 0.6.3
+- Fixed not loading battles against Ancient Undead.
+- Always an Entertainer will no longer proc when entering settlements at night.
+
+======================
 ==== Ver 0.14.3 ======
 ======================
 - Fixed the Deep Impact and Dismemberment perks causing Undead targets to not receive damage.
