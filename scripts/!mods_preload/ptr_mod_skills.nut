@@ -296,7 +296,7 @@ gt.Const.PTR.modSkills <- function()
 
 				if (i.isItemType(this.Const.Items.ItemType.TwoHanded) && i.isItemType(this.Const.Items.ItemType.MeleeWeapon))
 				{
-					local twoHandedItemsCount++;
+					twoHandedItemsCount++;
 				}
 			}
 
