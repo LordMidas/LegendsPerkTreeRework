@@ -646,50 +646,6 @@ gt.Const.PTR.modSkills <- function()
 		}
 	});
 
-	::mods_hookNewObject("skills/perks/perk_battle_forged", function(o) {
-		o.getReductionPercentage <- function()
-		{
-			local armor = this.getContainer().getActor().getArmor(this.Const.BodyPart.Head) + this.getContainer().getActor().getArmor(this.Const.BodyPart.Body);
-			return this.Math.floor(armor * 0.05);
-		}
-
-		o.isHidden = function()
-		{
-			return this.getReductionPercentage() <= 0;
-		}
-
-		o.getDescription = function()
-		{
-			return "Specialize in heavy armor! Armor damage taken is reduced by a percentage equal to [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color] of the current total armor value of both body and head armor. The heavier your armor and helmet, the more you benefit.";
-		}
-
-		o.getTooltip = function()
-		{
-			local tooltip = this.skill.getTooltip();
-
-			local reduction = this.getReductionPercentage();
-			tooltip.push({
-				id = 6,
-				type = "text",
-				icon = "ui/icons/special.png",
-				text = "Only receive [color=" + this.Const.UI.Color.PositiveValue + "]" + (100-reduction) + "%[/color] of any damage to armor from attacks"
-			});
-
-			return tooltip;
-		}
-
-		o.onBeforeDamageReceived = function ( _attacker, _skill, _hitInfo, _properties )
-		{
-			if (_attacker != null && _attacker.getID() == this.getContainer().getActor().getID() || _skill != null && !_skill.isAttack())
-			{
-				return;
-			}
-
-			local reduction = this.getReductionPercentage();
-			_properties.DamageReceivedArmorMult *= 1.0 - reduction * 0.01;
-		}
-	});
-
 	::mods_hookNewObject("skills/perks/perk_legend_clarity", function(o) {
 		o.m.Type = this.Const.SkillType.Perk;
 		o.onUpdate = function(_properties)
