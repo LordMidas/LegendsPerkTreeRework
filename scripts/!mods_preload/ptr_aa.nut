@@ -39,6 +39,7 @@ local modID = "mod_legends_PTR";
 
 	gt.Const.PTR.IsExpertiseEnabled <- false;
 
+	gt.Const.PTR.modRetinue();
 	gt.Const.PTR.modCharacterInjuries();
 	gt.Const.PTR.modStrings();
 	gt.Const.PTR.modSkill();
