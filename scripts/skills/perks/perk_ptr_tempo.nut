@@ -2,6 +2,7 @@ this.perk_ptr_tempo <- this.inherit("scripts/skills/skill", {
 	m = {
 		BonusInitiative = 15,
 		Stacks = 0,
+		IsPrimed = false,
 		SkillCount = 0,
 		LastTargetID = 0
 	},
@@ -34,6 +35,16 @@ this.perk_ptr_tempo <- this.inherit("scripts/skills/skill", {
 			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getBonus() + "[/color] Initiative"
 		});
 
+		if (this.m.IsPrimed)
+		{
+			tooltip.push({
+				id = 10,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "This bonus will expire after using a skill or upon waiting this turn"
+			});
+		}
+
 		return tooltip;
 	}
 
@@ -44,6 +55,12 @@ this.perk_ptr_tempo <- this.inherit("scripts/skills/skill", {
 
 	function gainStackIfApplicable(_skill, _targetEntity)
 	{
+		if (this.m.IsPrimed)
+		{
+			this.m.Stacks = 0;
+			this.m.IsPrimed = false;
+		}
+
 		local actor = this.getContainer().getActor();
 		if (!_skill.isAttack() || this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
 		{
@@ -68,7 +85,7 @@ this.perk_ptr_tempo <- this.inherit("scripts/skills/skill", {
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		gainStackIfApplicable(_skill, _targetEntity);
+		gainStackIfApplicable(_skill, _targetEntity);		
 	}
 
 	function onTargetMissed( _skill, _targetEntity )
@@ -83,7 +100,24 @@ this.perk_ptr_tempo <- this.inherit("scripts/skills/skill", {
 
 	function onTurnStart()
 	{
-		this.m.Stacks = 0;
+		if (this.m.Stacks > 0)
+		{
+			this.m.IsPrimed = true;
+		}
+	}
+
+	function onTurnEnd()
+	{
+		this.m.IsPrimed = false;
+	}
+
+	function onWaitTurn()
+	{
+		if (this.m.IsPrimed)
+		{
+			this.m.Stacks = 0;
+			this.m.IsPrimed = false;
+		}
 	}
 
 	function onCombatStarted()
@@ -91,6 +125,7 @@ this.perk_ptr_tempo <- this.inherit("scripts/skills/skill", {
 		this.m.Stacks = 0;
 		this.m.SkillCount = 0;
 		this.m.LastTargetID = 0;
+		this.m.IsPrimed = false;
 	}
 
 	function onCombatFinished()
@@ -99,5 +134,6 @@ this.perk_ptr_tempo <- this.inherit("scripts/skills/skill", {
 		this.m.Stacks = 0;
 		this.m.SkillCount = 0;
 		this.m.LastTargetID = 0;
+		this.m.IsPrimed = false;
 	}
 });
