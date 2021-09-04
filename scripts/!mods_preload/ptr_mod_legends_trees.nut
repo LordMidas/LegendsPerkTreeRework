@@ -953,7 +953,8 @@ gt.Const.PTR.modClassTrees <- function()
 	gt.Const.Perks.EntertainerClassTree <- {
 		ID = "EntertainerProfessionTree",
 		Descriptions = [
-			"has an entertaining personality"
+			"entertainment",
+			"painting smiles on faces"
 		],
 		SelfWeightMultiplier = 0.33,
 		Tree = [
@@ -974,7 +975,9 @@ gt.Const.PTR.modClassTrees <- function()
 	gt.Const.Perks.ScoutClassTree <- {
 		ID = "ScoutClassTree",
 		Descriptions = [
-			"has a keen eye"
+			"organizing patrols",
+			"keeping watch",
+			"keeping a lookout"
 		],
 		SelfWeightMultiplier = 0.33,
 		Tree = [
