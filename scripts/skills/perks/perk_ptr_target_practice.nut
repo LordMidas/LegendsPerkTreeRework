@@ -11,6 +11,7 @@ this.perk_ptr_target_practice <- this.inherit("scripts/skills/skill", {
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
+		this.m.ItemActionOrder = this.Const.ItemActionOrder.First;
 	}
 
 	function onAfterUpdate(_properties)

@@ -60,21 +60,10 @@ this.perk_ptr_offhand_training <- this.inherit("scripts/skills/skill", {
 
 	function onPayForItemAction(_skill, _items)
 	{
-		local ammoCount = 0
-		foreach (i in _items)
+		if (_skill.getID() != "perk.ptr_target_practice")
 		{
-			if (i != null && i.isItemType(this.Const.Items.ItemType.Ammo))
-			{
-				ammoCount++;
-			}
+			this.m.IsSpent = true;
 		}
-
-		if (ammoCount == 2)
-		{
-			return;
-		}
-
-		this.m.IsSpent = true;
 	}
 
 	function onTurnStart()

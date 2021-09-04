@@ -281,27 +281,7 @@ gt.Const.PTR.modSkills <- function()
 			}
 
 			return getItemActionCost(_items);
-		}
-
-		local onPayForItemAction = o.onPayForItemAction;
-		o.onPayForItemAction = function (_skill, _items)
-		{
-			local ammoCount = 0
-			foreach (i in _items)
-			{
-				if (i != null && i.isItemType(this.Const.Items.ItemType.Ammo))
-				{
-					ammoCount++;
-				}
-			}
-
-			if (ammoCount == 2)
-			{
-				return;
-			}
-
-			onPayForItemAction(_skill, _items);
-		}
+		}		
 	});
 
 	::mods_hookExactClass("skills/actives/rally_the_troops", function(o) {
