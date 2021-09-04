@@ -2,6 +2,31 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modSkills <- function()
 {
+	::mods_hookExactClass("skills/perks/perk_legend_tumble", function(o) {
+		local idx = o.m.Skills.find("actives.lunge");
+		if (idx != null)
+		{
+			o.m.Skills.remove(idx);
+		}
+
+		local onAfterUpdate = o.onAfterUpdate;
+		o.onAfterUpdate = function(_properties)
+		{
+			local lunge = this.getContainer().getSkillByID("actives.lunge");
+			if (lunge == null)
+			{
+				onAfterUpdate();
+				return;
+			}
+
+			local APCostBefore = lunge.m.ActionPointCost;
+
+			onAfterUpdate();
+			
+			lunge.m.ActionPointCost = APCostBefore;			
+		}
+	});
+
 	::mods_hookExactClass("skills/actives/fire_handgonne_skill", function(o) {
 		o.getAffectedTiles = function( _targetTile )
 		{

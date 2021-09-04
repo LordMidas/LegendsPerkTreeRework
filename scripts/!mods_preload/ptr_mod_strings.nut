@@ -270,6 +270,9 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.LegendFreedomOfMovement = "Being unencumbered allows you to move and strike with great accuracy. Melee Skill and Melee Defense are increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of your Maximum Fatigue after gear. These bonuses drop exponentially when wearing head and body armor with a total penalty to Maximum Fatigue greater than [color=" + this.Const.UI.Color.NegativeValue + "]-15[/color].\n[color=#0b0084]From the Light Armor perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendFreedomOfMovement].Tooltip = gt.Const.Strings.PerkDescription.LegendFreedomOfMovement;
 
+	gt.Const.Strings.PerkDescription.LegendTumble = "Make use of your acrobatic skill to improve your movements. Halves the Fatigue Cost of Lunge, Unarmed Lunge, Footwork and Leap. The Action Point cost of all these skills, except Lunge, is reduced by [color=" + this.Const.UI.Color.PositiveValue + "]1[/color] and that of Leap is halved.";
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendTumble].Tooltip = gt.Const.Strings.PerkDescription.LegendTumble;
+
 	gt.Const.Strings.PerkDescription.LegendClarity = "A well honed mind can perceive more in each instant, making time appear slower in key instants of need. Grants [color=" + this.Const.UI.Color.PositiveValue + "]+1[/color] Action Point. Does not work if you have Berserk or are dazed, drunk, hungover, taunted, staggered, horrified, concused or fleeing. Gain an additional [color=" + this.Const.UI.Color.PositiveValue + "]+1[/color] Action Point if under the effect of potions that improve cognition: Iron Will, Lionheart, Cat, Recovery or Hexen Ichor. \n[color=#0b0084]From the Calm perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendClarity].Tooltip = gt.Const.Strings.PerkDescription.LegendClarity;
 
