@@ -57,8 +57,7 @@ gt.Const.PTR.modWeapons <- function()
 	});
 
 	::mods_hookNewObject("items/weapons/legend_swordstaff", function(o) {
-		o.m.Categories = "Spear/Sword, Two-Handed";
-		o.m.WeaponType = this.Const.Items.WeaponType.Spear | this.Const.Items.WeaponType.Sword;
+		o.setCategories("Spear/Sword, Two-Handed");
 
 		o.onEquip = function()
 		{
@@ -70,8 +69,7 @@ gt.Const.PTR.modWeapons <- function()
 	});
 
 	::mods_hookNewObject("items/weapons/named/legend_named_swordstaff", function(o) {
-		o.m.Categories = "Spear/Sword, Two-Handed";
-		o.m.WeaponType = this.Const.Items.WeaponType.Spear | this.Const.Items.WeaponType.Sword;
+		o.setCategories("Spear/Sword, Two-Handed");
 
 		o.onEquip = function()
 		{
@@ -83,8 +81,7 @@ gt.Const.PTR.modWeapons <- function()
 	});
 
 	::mods_hookNewObject("items/weapons/greenskins/goblin_spear", function(o) {
-		o.m.Categories = "Sword/Spear, One-Handed";
-		o.m.WeaponType = this.Const.Items.WeaponType.Sword | this.Const.Items.WeaponType.Spear;
+		o.setCategories("Sword/Spear, One-Handed");
 
 		local onEquip = o.onEquip;
 		o.onEquip = function()
@@ -95,8 +92,7 @@ gt.Const.PTR.modWeapons <- function()
 	});
 
 	::mods_hookNewObject("items/weapons/named/named_goblin_spear", function(o) {
-		o.m.Categories = "Sword/Spear, One-Handed";
-		o.m.WeaponType = this.Const.Items.WeaponType.Sword | this.Const.Items.WeaponType.Spear;
+		o.setCategories("Sword/Spear, One-Handed");		
 
 		local onEquip = o.onEquip;
 		o.onEquip = function()
@@ -107,11 +103,9 @@ gt.Const.PTR.modWeapons <- function()
 	});
 
 	::mods_hookNewObject("items/weapons/legend_militia_glaive", function(o) {
-		o.m.Categories = "Sword/Spear, Two-Handed";
-		o.m.WeaponType = this.Const.Items.WeaponType.Sword | this.Const.Items.WeaponType.Spear;
+		o.setCategories("Sword/Spear, Two-Handed");
 
 		o.m.BlockedSlotType = this.Const.ItemSlot.Offhand;
-		o.m.ItemType = this.Const.Items.ItemType.Weapon | this.Const.Items.ItemType.MeleeWeapon | this.Const.Items.ItemType.TwoHanded | this.Const.Items.ItemType.Defensive;
 		o.m.IsDoubleGrippable = false;
 		o.m.RegularDamage = 35;
 		o.m.RegularDamageMax = 50;
@@ -125,11 +119,9 @@ gt.Const.PTR.modWeapons <- function()
 	});
 
 	::mods_hookNewObject("items/weapons/legend_glaive", function(o) {
-		o.m.Categories = "Sword/Spear, Two-Handed";
-		o.m.WeaponType = this.Const.Items.WeaponType.Sword | this.Const.Items.WeaponType.Spear;
+		o.setCategories("Sword/Spear, Two-Handed");
 
 		o.m.BlockedSlotType = this.Const.ItemSlot.Offhand;
-		o.m.ItemType = this.Const.Items.ItemType.Weapon | this.Const.Items.ItemType.MeleeWeapon | this.Const.Items.ItemType.TwoHanded | this.Const.Items.ItemType.Defensive;
 		o.m.IsDoubleGrippable = false;
 		o.m.RegularDamage = 50;
 		o.m.RegularDamageMax = 55;
@@ -143,11 +135,9 @@ gt.Const.PTR.modWeapons <- function()
 	});
 
 	::mods_hookNewObject("items/weapons/legend_battle_glaive", function(o) {
-		o.m.Categories = "Sword/Spear, Two-Handed";
-		o.m.WeaponType = this.Const.Items.WeaponType.Sword | this.Const.Items.WeaponType.Spear;
+		o.setCategories("Sword/Spear, Two-Handed");
 
 		o.m.BlockedSlotType = this.Const.ItemSlot.Offhand;
-		o.m.ItemType = this.Const.Items.ItemType.Weapon | this.Const.Items.ItemType.MeleeWeapon | this.Const.Items.ItemType.TwoHanded | this.Const.Items.ItemType.Defensive;
 		o.m.IsDoubleGrippable = false;
 		o.m.RegularDamage = 55;
 		o.m.RegularDamageMax = 60;
@@ -161,11 +151,9 @@ gt.Const.PTR.modWeapons <- function()
 	});
 
 	::mods_hookNewObject("items/weapons/named/legend_named_glaive", function(o) {
-		o.m.Categories = "Sword/Spear, Two-Handed";
-		o.m.WeaponType = this.Const.Items.WeaponType.Sword | this.Const.Items.WeaponType.Spear;
+		o.setCategories("Sword/Spear, Two-Handed");
 
 		o.m.BlockedSlotType = this.Const.ItemSlot.Offhand;
-		o.m.ItemType = this.Const.Items.ItemType.Weapon | this.Const.Items.ItemType.MeleeWeapon | this.Const.Items.ItemType.TwoHanded | this.Const.Items.ItemType.Defensive;
 		o.m.IsDoubleGrippable = false;
 
 		local baseWeapon = this.new("scripts/items/weapons/legend_battle_glaive");
