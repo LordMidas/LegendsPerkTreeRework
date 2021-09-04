@@ -117,9 +117,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.PTRDeathFromAfar <- "They can\'t defend from it if they can\'t see it coming! Damage from Ranged attacks is increased by [color=" + this.Const.UI.Color.PositiveValue + "]2%[/color] per tile the target is away from you.\n[color=#0b0084]From the Sling perk group[/color]";
 
 	gt.Const.Strings.PerkName.PTRPointyEnd <- "Pointy End";
-	gt.Const.Strings.PerkDescription.PTRPointyEnd <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Damage Type: Piercing, Melee[/color]\n\nThe first lesson every fighter gets taught, stick \'em with the pointy end! Melee piercing attacks against an enemy without a shield gain [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit.\n[color=#0b0084]From the Spear perk group[/color]";
-	gt.Const.Strings.PerkName.PTRImpaler <- "Impaler";
-	gt.Const.Strings.PerkDescription.PTRImpaler <- "Piercing attacks have a [color=" + this.Const.UI.Color.NegativeValue + "]15%[/color] lower damage threshold to inflict injury.\n[color=#0b0084]From the Spear perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRPointyEnd <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Damage Type: Piercing, Melee[/color]\n\nThe first lesson every fighter gets taught, stick \'em with the pointy end! Melee piercing attacks against an enemy without a shield gain [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit.\n[color=#0b0084]From the Spear perk group[/color]";	
 	gt.Const.Strings.PerkName.PTRThroughTheGaps <- "Through the Gaps";
 	gt.Const.Strings.PerkDescription.PTRThroughTheGaps <- "[color=" + this.Const.UI.Color.NegativeValue + "]Required Damage Type: Piercing, Melee[/color]\n\nLearn to call your strikes and target gaps in your opponents\' armor! Melee piercing attacks ignore an additional [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] of the target's armor.\n[color=#0b0084]From the Spear perk group[/color]";
 	gt.Const.Strings.PerkName.PTRTwoForOne <- "Two for One";

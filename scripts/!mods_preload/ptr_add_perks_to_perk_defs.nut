@@ -413,15 +413,6 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Const = "PTRPointyEnd"
 		},
 		{
-			ID = "perk.ptr_impaler",
-			Script = "scripts/skills/perks/perk_ptr_impaler",
-			Name = this.Const.Strings.PerkName.PTRImpaler,
-			Tooltip = this.Const.Strings.PerkDescription.PTRImpaler,
-			Icon = "ui/perks/ptr_impaler.png",
-			IconDisabled = "ui/perks/ptr_impaler_bw.png",
-			Const = "PTRImpaler"
-		},
-		{
 			ID = "perk.ptr_through_the_gaps",
 			Script = "scripts/skills/perks/perk_ptr_through_the_gaps",
 			Name = this.Const.Strings.PerkName.PTRThroughTheGaps,

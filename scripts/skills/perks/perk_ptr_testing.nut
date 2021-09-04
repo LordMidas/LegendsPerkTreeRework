@@ -55,7 +55,6 @@ this.perk_ptr_testing <- this.inherit("scripts/skills/skill", {
 			"scripts/skills/perks/perk_ptr_death_from_afar",
 
 			"scripts/skills/perks/perk_ptr_pointy_end",
-			"scripts/skills/perks/perk_ptr_impaler",
 			"scripts/skills/perks/perk_ptr_through_the_gaps",
 			"scripts/skills/perks/perk_ptr_two_for_one",
 			"scripts/skills/perks/perk_ptr_a_better_grip",
