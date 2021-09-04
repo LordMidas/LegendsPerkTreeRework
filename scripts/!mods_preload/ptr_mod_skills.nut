@@ -256,12 +256,28 @@ gt.Const.PTR.modSkills <- function()
 		local getItemActionCost = o.getItemActionCost;
 		o.getItemActionCost = function(_items)
 		{
+			local twoHandedItemsCount = 0;
 			foreach (i in _items)
 			{
-				if (i != null && (i.isItemType(this.Const.Items.ItemType.Shield) || i.isItemType(this.Const.Items.ItemType.TwoHanded)))
+				if (i == null)
+				{
+					continue;
+				}
+
+				if (i.isItemType(this.Const.Items.ItemType.Shield))
 				{
 					return null;
 				}
+
+				if (i.isItemType(this.Const.Items.ItemType.TwoHanded) && i.isItemType(this.Const.Items.ItemType.MeleeWeapon))
+				{
+					local twoHandedItemsCount++;
+				}
+			}
+
+			if (twoHandedItemsCount == 2)
+			{
+				return null;
 			}
 
 			return getItemActionCost(_items);
