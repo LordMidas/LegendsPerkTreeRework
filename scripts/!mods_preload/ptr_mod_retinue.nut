@@ -14,19 +14,23 @@ gt.Const.PTR.modRetinue <- function()
 		"retinue/followers/surgeon_follower"
 	];
 
-	foreach (retinue in retinuesToFixGuaranteedTooltip)
-	{
-		::mods_hookNewObject(retinue, function(o) {
-			local create = o.create;
-			o.create = function()
+	::mods_hookBaseClass("retinue/follower", function(o) {
+		o = o[o.SuperName];
+
+		local getRequirements = o.getRequirements;
+		o.getRequirements = function()
+		{
+			local ret = getRequirements();
+			if (ret.len() != 0 && ("Text" in ret[0]))
 			{
-				create();
-				local textArray = split(this.m.Requirements.Text, "Guaranteed");
-				if (textArray.len() != 0)
+				local idx = ret[0].Text.find("Guaranteed");
+				if (idx != null)
 				{
-					this.m.Requirements.Text = textArray[0];
+					ret[0].Text = ret[0].Text.slice(0, idx);
 				}
 			}
-		});
-	}
+
+			return ret;
+		}		
+	});
 }
