@@ -2356,7 +2356,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 
 					addPerksToCustomPerkTree(2, o.m.CustomPerkTree, [
 							this.Const.Perks.PerkDefs.LegendScryTrance
-							this.Const.Perks.PerkDefs.Phalanx
+							this.Const.Perks.PerkDefs.STRPhalanx
 							this.Const.Perks.PerkDefs.QuickHands
 							this.Const.Perks.PerkDefs.PTRSurvivalInstinct
 							this.Const.Perks.PerkDefs.LegendGatherer
