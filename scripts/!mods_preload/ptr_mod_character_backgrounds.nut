@@ -1968,6 +1968,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.SwordTree,
 				this.Const.Perks.TwoHandedTree,
 				this.Const.Perks.LightArmorTree,
+				this.Const.Perks.OrcsTree,
 				this.Const.Perks.ViciousTree,
 				this.Const.Perks.ResilientTree,
 				this.Const.Perks.LargeTree,
@@ -2033,6 +2034,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.SwordTree,
 				this.Const.Perks.TwoHandedTree,
 				this.Const.Perks.LightArmorTree,
+				this.Const.Perks.OrcsTree,
 				this.Const.Perks.ViciousTree,
 				this.Const.Perks.ResilientTree,
 				this.Const.Perks.LargeTree,
@@ -2326,7 +2328,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 
 					addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 						[
-							this.Const.Perks.StaffTree,
+							this.Const.Perks.StavesTree,
 							this.Const.Perks.SpearTree,
 							this.Const.Perks.PolearmTree,
 							this.Const.Perks.TwoHandedTree,
@@ -3093,7 +3095,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 					this.Const.Perks.PerkDefs.LegendSummonBear
 					this.Const.Perks.PerkDefs.PTRKnowTheirWeakness
 					this.Const.Perks.PerkDefs.ReachAdvantage
-					this.Const.Perks.PerkDefs.PTRPrimalFear
 					this.Const.Perks.PerkDefs.LegendHidden
 				]
 			);
@@ -3177,7 +3178,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.LegendSummonBear
 				this.Const.Perks.PerkDefs.PTRKnowTheirWeakness
 				this.Const.Perks.PerkDefs.ReachAdvantage
-				this.Const.Perks.PerkDefs.PTRPrimalFear
 				this.Const.Perks.PerkDefs.LegendHidden
 			]
 		);
