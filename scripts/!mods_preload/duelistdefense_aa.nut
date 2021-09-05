@@ -1,5 +1,5 @@
 local modID = "mod_duelistDefense";
-::mods_registerMod(modID, 1.4, "Duelist Defense 1.4.2");
+::mods_registerMod(modID, 1.4, "Duelist Defense 1.4.3");
 
 local gt = this.getroottable();
 
