@@ -210,7 +210,7 @@ gt.Const.PTR.modCharacterBackground <- function()
 						prefix = "Prefers using"
 						break;
 					case "Traits":
-						prefix = (this.m.IsFemaleBackground ? "She" : "He") + " ";
+						prefix = (this.isBackgroundType(this.Const.BackgroundType.Female) ? "She" : "He") + " ";
 						break;
 				}
 
