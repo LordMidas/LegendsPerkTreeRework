@@ -3051,7 +3051,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			);
 
 			addPerksToCustomPerkTree(4, o.m.CustomPerkTree, [
-					this.Const.Perks.PerkDefs.specPolearm
+					this.Const.Perks.PerkDefs.SpecPolearm
 				]
 			);
 
@@ -3135,7 +3135,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		);
 
 		addPerksToCustomPerkTree(4, o.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.specPolearm
+				this.Const.Perks.PerkDefs.SpecPolearm
 			]
 		);
 
