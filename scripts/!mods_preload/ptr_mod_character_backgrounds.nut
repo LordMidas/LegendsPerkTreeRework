@@ -1734,6 +1734,9 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.PTRFormidableApproach
 				this.Const.Perks.PerkDefs.ReachAdvantage
 				this.Const.Perks.PerkDefs.PTRVigilant
+				this.Const.Perks.PerkDefs.LegendFavouredEnemyNoble
+				this.Const.Perks.PerkDefs.LegendFavouredEnemySoutherner
+				this.Const.Perks.PerkDefs.LegendFavouredEnemySwordmaster
 			]
 		);
 
@@ -1808,6 +1811,9 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.PTRFormidableApproach
 				this.Const.Perks.PerkDefs.ReachAdvantage
 				this.Const.Perks.PerkDefs.BoondockBlade
+				this.Const.Perks.PerkDefs.LegendFavouredEnemyNoble
+				this.Const.Perks.PerkDefs.LegendFavouredEnemySoutherner
+				this.Const.Perks.PerkDefs.LegendFavouredEnemySwordmaster
 			]
 		);
 
