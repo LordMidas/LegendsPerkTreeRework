@@ -1717,6 +1717,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.DevastatingStrikes
 				this.Const.Perks.PerkDefs.QuickHands
 				this.Const.Perks.PerkDefs.PTRBloodyHarvest
+				this.Const.Perks.PerkDefs.PTRBetweenTheEyes
 			]
 		);
 
@@ -1738,21 +1739,20 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 
 		addPerksToCustomPerkTree(5, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.LegendClarity
-				this.Const.Perks.PerkDefs.PTRBetweenTheEyes
+				this.Const.Perks.PerkDefs.PTRSweepingStrikes
 			]
 		);
 
 		addPerksToCustomPerkTree(6, o.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.PTRSweepingStrikes
 				this.Const.Perks.PerkDefs.PushTheAdvantage
 				this.Const.Perks.PerkDefs.PTRKnowTheirWeakness
+				this.Const.Perks.PerkDefs.HeadHunter
 			]
 		);
 
 		addPerksToCustomPerkTree(7, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.LegendAssassinate
 				this.Const.Perks.PerkDefs.PerfectFocus
-				this.Const.Perks.PerkDefs.HeadHunter
 			]
 		);
 	});
@@ -1819,12 +1819,11 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 
 		addPerksToCustomPerkTree(6, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.PTRSweepingStrikes
-				this.Const.Perks.PerkDefs.PushTheAdvantage
+				this.Const.Perks.PerkDefs.LegendAssassinate
 			]
 		);
 
 		addPerksToCustomPerkTree(7, o.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.LegendAssassinate
 				this.Const.Perks.PerkDefs.PerfectFocus
 			]
 		);
@@ -1850,6 +1849,27 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_beggar_commander_background", function(o) {
+
+		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
+			[
+				this.Const.Perks.SpearTree,
+				this.Const.Perks.PolearmTree,
+				this.Const.Perks.SwordTree,
+				this.Const.Perks.CrossbowTree,
+				this.Const.Perks.SlingsTree,
+				this.Const.Perks.FlailTree,
+				this.Const.Perks.OneHandedTree,
+				this.Const.Perks.TwoHandedTree,
+				this.Const.Perks.RangedTree,
+				this.Const.Perks.NoblesTree,
+				this.Const.Perks.HeavyArmorTree,
+				this.Const.Perks.ShieldTree,
+				this.Const.Perks.MediumArmorTree,
+				this.Const.Perks.LightArmorTree,
+				this.Const.Perks.ResilientTree,
+			]
+		);
+
 		o.m.CustomPerkTree[1].push(this.Const.Perks.PerkDefs.PTRSurvivalInstinct);
 		o.m.CustomPerkTree[2].push(this.Const.Perks.PerkDefs.PTRPunchingBag);
 		o.m.CustomPerkTree[4].push(this.Const.Perks.PerkDefs.LegendFreedomOfMovement);
@@ -1918,28 +1938,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		o.m.CustomPerkTree[6].push(this.Const.Perks.PerkDefs.Indomitable);
 		o.m.CustomPerkTree[6].push(this.Const.Perks.PerkDefs.KillingFrenzy);
 		o.m.CustomPerkTree[6].push(this.Const.Perks.PerkDefs.PerfectFocus);
-
-
-		addPerkTreesToCustomPerkTree(this.Const.Perks.NoblesTree, o.m.CustomPerkTree);
-
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ResilientTree, o.m.CustomPerkTree);
-
-		addPerkTreesToCustomPerkTree(this.Const.Perks.HeavyArmorTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ShieldTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.MediumArmorTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
-
-		addPerkTreesToCustomPerkTree(this.Const.Perks.SpearTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.PolearmTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.SwordTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.CrossbowTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.SlingsTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.FlailTree, o.m.CustomPerkTree);
-
-		addPerkTreesToCustomPerkTree(this.Const.Perks.OneHandedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.RangedTree, o.m.CustomPerkTree);
-
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_berserker_background", function(o) {
@@ -2031,7 +2029,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		);
 
 		addPerksToCustomPerkTree(5, o.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.LegendBattleheart
+			this.Const.Perks.PerkDefs.BattleFlow
 			]
 		);
 
@@ -2043,7 +2041,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		);
 
 		addPerksToCustomPerkTree(7, o.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.BattleFlow
 				this.Const.Perks.PerkDefs.LegendBerserkerRage
 				this.Const.Perks.PerkDefs.LegendUberNimble
 			]
@@ -2394,32 +2391,25 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_female_inventor_commander_background", function(o) {
-		addPerkTreesToCustomPerkTree(this.Const.Perks.AxeTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.BowTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.CleaverTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.CrossbowTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.DaggerTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.FlailTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.HammerTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.MaceTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.PolearmTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.SlingsTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.SpearTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.SwordTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ThrowingTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ServiceProfessionTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.OrganisedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.TalentedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.CalmTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.MenderClassTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.HealerClassTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.MediumArmorTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ShieldTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.OneHandedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.RangedTree, o.m.CustomPerkTree);
+
+		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
+			[
+				this.Const.Perks.ServiceProfessionTree,
+				this.Const.Perks.OrganisedTree,
+				this.Const.Perks.TalentedTree,
+				this.Const.Perks.CalmTree,
+				this.Const.Perks.MenderClassTree,
+				this.Const.Perks.MediumArmorTree,
+				this.Const.Perks.LightArmorTree,
+				this.Const.Perks.HammerTree,
+				this.Const.Perks.FlailTree,
+				this.Const.Perks.CrossbowTree,
+				this.Const.Perks.PolearmTree,
+				this.Const.Perks.TwoHandedTree,
+				this.Const.Perks.RangedTree,
+			]
+		);
+
 	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_healer_background", function(o) {
@@ -2533,32 +2523,23 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_inventor_commander_background", function(o) {
-		addPerkTreesToCustomPerkTree(this.Const.Perks.AxeTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.BowTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.CleaverTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.CrossbowTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.DaggerTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.FlailTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.HammerTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.MaceTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.PolearmTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.SlingsTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.SpearTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.SwordTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ThrowingTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ServiceProfessionTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.OrganisedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.TalentedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.CalmTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.MenderClassTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.HealerClassTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.MediumArmorTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ShieldTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.OneHandedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.RangedTree, o.m.CustomPerkTree);
+		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
+			[
+				this.Const.Perks.ServiceProfessionTree,
+				this.Const.Perks.OrganisedTree,
+				this.Const.Perks.TalentedTree,
+				this.Const.Perks.CalmTree,
+				this.Const.Perks.MenderClassTree,
+				this.Const.Perks.MediumArmorTree,
+				this.Const.Perks.LightArmorTree,
+				this.Const.Perks.HammerTree,
+				this.Const.Perks.FlailTree,
+				this.Const.Perks.CrossbowTree,
+				this.Const.Perks.PolearmTree,
+				this.Const.Perks.TwoHandedTree,
+				this.Const.Perks.RangedTree,
+			]
+		);
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_ironmonger_background", function(o) {
@@ -2680,45 +2661,49 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_necro_background", function(o) {
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ButcherProfessionTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ViciousTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.CalmTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.TalentedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.UnstoppableTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.HealerClassTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.MediumArmorTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.OneHandedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.RangedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.DaggerTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.MaceTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ThrowingTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.PolearmTree, o.m.CustomPerkTree);
+
+		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
+			[
+				this.Const.Perks.ButcherProfessionTree,
+				this.Const.Perks.ViciousTree,
+				this.Const.Perks.CalmTree,
+				this.Const.Perks.TalentedTree,
+				this.Const.Perks.UnstoppableTree,
+				this.Const.Perks.LightArmorTree,
+				this.Const.Perks.MediumArmorTree,
+				this.Const.Perks.StavesTree,
+				this.Const.Perks.TwoHandedTree,
+				this.Const.Perks.OneHandedTree,
+				this.Const.Perks.RangedTree,
+				this.Const.Perks.DaggerTree,
+				this.Const.Perks.MaceTree,
+				this.Const.Perks.ThrowingTree,
+				this.Const.Perks.PolearmTree,
+				this.Const.Perks.RangedTree,
+			]
 
 		o.m.CustomPerkTree[5].push(this.Const.Perks.PerkDefs.LegendAssuredConquest);
 	});
 
-	::mods_hookNewObject("skills/backgrounds/legend_necro_commander_background", function(o) {
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ButcherProfessionTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ViciousTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.CalmTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.TalentedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.UnstoppableTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.HealerClassTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.MediumArmorTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.OneHandedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.DaggerTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.MaceTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ThrowingTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.PolearmTree, o.m.CustomPerkTree);
-
-		o.m.CustomPerkTree[5].push(this.Const.Perks.PerkDefs.LegendAssuredConquest);
-	});
+	# ::mods_hookNewObject("skills/backgrounds/legend_necro_commander_background", function(o) {
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.ButcherProfessionTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.ViciousTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.CalmTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.TalentedTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.UnstoppableTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.HealerClassTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.MediumArmorTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.OneHandedTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.DaggerTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.MaceTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.ThrowingTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.PolearmTree, o.m.CustomPerkTree);
+	#
+	# 	o.m.CustomPerkTree[5].push(this.Const.Perks.PerkDefs.LegendAssuredConquest);
+	# });
 
  	::mods_hookNewObject("skills/backgrounds/legend_noble_2h", function(o) {
 		o.m.PerkTreeDynamic = {
@@ -3069,12 +3054,12 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 					this.Const.Perks.PerkDefs.PTRKnowTheirWeakness
 					this.Const.Perks.PerkDefs.ReachAdvantage
 					this.Const.Perks.PerkDefs.PTRPrimalFear
+					this.Const.Perks.PerkDefs.LegendHidden
 				]
 			);
 
 			addPerksToCustomPerkTree(7, o.m.CustomPerkTree, [
 					this.Const.Perks.PerkDefs.PerfectFocus
-					this.Const.Perks.PerkDefs.LegendHidden
 					this.Const.Perks.PerkDefs.LegendBigGameHunter
 					this.Const.Perks.PerkDefs.HeadHunter
 					this.Const.Perks.PerkDefs.PTRDeathFromAfar
@@ -3153,12 +3138,12 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.PTRKnowTheirWeakness
 				this.Const.Perks.PerkDefs.ReachAdvantage
 				this.Const.Perks.PerkDefs.PTRPrimalFear
+				this.Const.Perks.PerkDefs.LegendHidden
 			]
 		);
 
 		addPerksToCustomPerkTree(7, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.PerfectFocus
-				this.Const.Perks.PerkDefs.LegendHidden
 				this.Const.Perks.PerkDefs.LegendBigGameHunter
 				this.Const.Perks.PerkDefs.HeadHunter
 				this.Const.Perks.PerkDefs.PTRDeathFromAfar
@@ -3236,57 +3221,57 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		};
 	});
 
-	::mods_hookNewObject("skills/backgrounds/legend_trader_background", function(o) {
-		addPerkTreesToCustomPerkTree(this.Const.Perks.TraderProfessionTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.DeviousTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.TalentedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.CalmTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.OrganisedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ChefClassTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.MenderClassTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ClerkClassTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.TacticianClassTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.MediumArmorTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.HeavyArmorTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.OneHandedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.RangedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.CrossbowTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.PolearmTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ThrowingTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.DaggerTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
+	# ::mods_hookNewObject("skills/backgrounds/legend_trader_background", function(o) {
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.TraderProfessionTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.DeviousTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.TalentedTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.CalmTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.OrganisedTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.ChefClassTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.MenderClassTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.ClerkClassTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.TacticianClassTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.MediumArmorTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.HeavyArmorTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.OneHandedTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.RangedTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.CrossbowTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.PolearmTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.ThrowingTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.DaggerTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
+	#
+	# 	o.m.CustomPerkTree[5].push(this.Const.Perks.PerkDefs.PTRKnowTheirWeakness);
+	# 	o.m.CustomPerkTree[6].push(this.Const.Perks.PerkDefs.PerfectFocus);
+	# });
 
-		o.m.CustomPerkTree[5].push(this.Const.Perks.PerkDefs.PTRKnowTheirWeakness);
-		o.m.CustomPerkTree[6].push(this.Const.Perks.PerkDefs.PerfectFocus);
-	});
-
-	::mods_hookNewObject("skills/backgrounds/legend_trader_commander_background", function(o) {
-		addPerkTreesToCustomPerkTree(this.Const.Perks.TraderProfessionTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.DeviousTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.TalentedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.CalmTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.OrganisedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ChefClassTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.MenderClassTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ClerkClassTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.TacticianClassTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.MediumArmorTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.HeavyArmorTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.OneHandedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.RangedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.CrossbowTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.PolearmTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ThrowingTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.DaggerTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
-
-		o.m.CustomPerkTree[5].push(this.Const.Perks.PerkDefs.PTRKnowTheirWeakness);
-		o.m.CustomPerkTree[6].push(this.Const.Perks.PerkDefs.PerfectFocus);
-	});
+	# ::mods_hookNewObject("skills/backgrounds/legend_trader_commander_background", function(o) {
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.TraderProfessionTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.DeviousTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.TalentedTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.CalmTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.OrganisedTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.ChefClassTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.MenderClassTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.ClerkClassTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.TacticianClassTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.MediumArmorTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.HeavyArmorTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.OneHandedTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.RangedTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.CrossbowTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.PolearmTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.ThrowingTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.DaggerTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
+	#
+	# 	o.m.CustomPerkTree[5].push(this.Const.Perks.PerkDefs.PTRKnowTheirWeakness);
+	# 	o.m.CustomPerkTree[6].push(this.Const.Perks.PerkDefs.PerfectFocus);
+	# });
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_transmuter_background", function(o) {
 		o.m.PerkTreeDynamic = {
@@ -3298,26 +3283,35 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	}); */
 
  ::mods_hookNewObject("skills/backgrounds/legend_vala_background", function(o) {
-		 addPerkTreesToCustomPerkTree(this.Const.Perks.ValaChantMagicTree, o.m.CustomPerkTree);
-		 addPerkTreesToCustomPerkTree(this.Const.Perks.ValaTranceMagicTree, o.m.CustomPerkTree);
-		 addPerkTreesToCustomPerkTree(this.Const.Perks.CalmTree, o.m.CustomPerkTree);
-		 addPerkTreesToCustomPerkTree(this.Const.Perks.TalentedTree, o.m.CustomPerkTree);
-		 addPerkTreesToCustomPerkTree(this.Const.Perks.SergeantClassTree, o.m.CustomPerkTree);
-		 addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
-		 addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
-		 addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
+
+	 addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
+		 [
+		 	 this.Const.Perks.ValaSpiritMagicTree,
+			 this.Const.Perks.ValaChantMagicTree,
+			 this.Const.Perks.ValaTranceMagicTree,
+			 this.Const.Perks.CalmTree,
+			 this.Const.Perks.TalentedTree,
+			 this.Const.Perks.SergeantClassTree,
+			 this.Const.Perks.LightArmorTree,
+			 this.Const.Perks.TwoHandedTree,
+			 this.Const.Perks.StavesTree,
+		 ]
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_vala_commander_background", function(o) {
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ValaSpiritMagicTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ValaChantMagicTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ValaTranceMagicTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.CalmTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.TalentedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.SergeantClassTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
+
+		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
+ 		 [
+ 		 	 this.Const.Perks.ValaSpiritMagicTree,
+ 			 this.Const.Perks.ValaChantMagicTree,
+ 			 this.Const.Perks.ValaTranceMagicTree,
+ 			 this.Const.Perks.CalmTree,
+ 			 this.Const.Perks.TalentedTree,
+ 			 this.Const.Perks.SergeantClassTree,
+ 			 this.Const.Perks.LightArmorTree,
+ 			 this.Const.Perks.TwoHandedTree,
+ 			 this.Const.Perks.StavesTree,
+ 		 ]
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_warlock_background", function(o) {
@@ -3385,9 +3379,14 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_witch_commander_background", function(o) {
-		addPerkTreesToCustomPerkTree(this.Const.Perks.TalentedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
+
+		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
+ 		 [
+ 		 	 this.Const.Perks.TalentedTree,
+ 			 this.Const.Perks.StavesTree,
+ 			 this.Const.Perks.TwoHandedTree,
+ 		 ]
+
 	});
 
 	::mods_hookNewObject("skills/backgrounds/lumberjack_background", function(o) {
@@ -3425,16 +3424,16 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		};
 	});
 
-	::mods_hookNewObject("skills/backgrounds/mage_legend_mage_commander_background", function(o) {
-		addPerkTreesToCustomPerkTree(this.Const.Perks.FastTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.TalentedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.OneHandedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.RangedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.DaggerTree, o.m.CustomPerkTree);
-	});
+	# ::mods_hookNewObject("skills/backgrounds/mage_legend_mage_commander_background", function(o) {
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.FastTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.TalentedTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.OneHandedTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.RangedTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
+	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.DaggerTree, o.m.CustomPerkTree);
+	# });
 
 	::mods_hookNewObject("skills/backgrounds/manhunter_background", function(o) {
 		o.m.PerkTreeDynamic = {
