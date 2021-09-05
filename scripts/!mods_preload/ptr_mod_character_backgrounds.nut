@@ -2366,7 +2366,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 					addPerksToCustomPerkTree(3, o.m.CustomPerkTree, [
 							this.Const.Perks.PerkDefs.LegendRoots
 							this.Const.Perks.PerkDefs.LegendHerbcraft
-							this.Const.Perks.PerkDefs.LegendPrayerofLife
+							this.Const.Perks.PerkDefs.LegendPrayerOfLife
 						]
 					);
 
