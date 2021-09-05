@@ -1222,16 +1222,7 @@ gt.Const.PTR.modWeaponTrees <- function()
 	if (idx != null)
 	{
 		gt.Const.Perks.WeaponTrees.Tree.remove(idx);
-	}
-
-	if ("FistTree" in this.Const.Perks)
-	{
-		local idx = gt.Const.Perks.WeaponTrees.Tree.find(this.Const.Perks.FistTree);
-		if (idx != null)
-		{
-			gt.Const.Perks.WeaponTrees.Tree.remove(idx);
-		}
-	}
+	}	
 }
 
 gt.Const.PTR.modDefenseTrees <- function ()
