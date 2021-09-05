@@ -1,3 +1,22 @@
+=====================
+==== Ver 0.15.0 =====
+=====================
+== MAJOR CHANGES AND DEPENDENCIES ==
+- NOT SAVEGAME COMPATIBLE.
+- Requires MSU 0.6.5. This includes the fix for some AI-specific weapons (e.g. faction banners) not working with some PTR perks.
+- MSU is now included in Legends, so if you are using Legends build 20 then delete MSU from your data folder.
+- Medium Armor Rework (MAR) is now included in Legends, so delete that from your data folder.
+- PTR now includes WMS, Duelist Defense, and the Fencer Perk mod (now called Better Fencing). So, delete these from your data folder.
+- Moved the Fencer perk to Light Armor t7.
+- Tempo now carries over to the next turn but the carried over bonus only lasts until the first skill used, or waiting the turn.
+- Tumble no longer reduces the Action Point cost of fencing Lunge. Still reduces Fatigue Cost.
+
+== MINOR CHANGES AND FIXES ==
+- Updated the tooltips of many status effects to use the new Legends vars-based pronoun system.
+- Always an Entertainer now refreshes its cooldown on every Morning rather than after midday.
+- Fixed Retinue tooltips that say "guaranteed on xyz backgrounds" when they aren't necessarily guaranteed anymore in PTR.
+- Fixed Quick Hands not allowing a free swap when even one of the items was Two-Handed melee.
+
 ======================
 ==== Ver 0.14.9 ======
 ======================
