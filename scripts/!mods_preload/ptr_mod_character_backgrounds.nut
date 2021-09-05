@@ -2,16 +2,28 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modCharacterBackgrounds <- function()
 {
-	local addPerkTreesToCustomPerkTree = function (_treeToAdd, _customPerkTree)
+	local addPerkTreesToCustomPerkTree = function (_customPerkTree, _treesToAdd)
 	{
-		for (local i = 0; i <= 6; i++)
+		foreach (tree in _treesToAdd)
 		{
-			foreach (perk in _treeToAdd.Tree[i])
+			for (local i = 0; i <= 6; i++)
 			{
-				_customPerkTree[i].push(perk);
+				foreach (perk in tree.Tree[i])
+				{
+					_customPerkTree[i].push(perk);
+				}
 			}
 		}
 	};
+
+	local addPerksToCustomPerkTree = function ( _tier, _customPerkTree, _perks)
+	{
+		local row = _tier - 1;
+		foreach (perk in _perks)
+		{
+			_customPerkTree[row].push(perk);
+		}
+	}
 
 	local clearCustomPerkTree = function(_customPerkTree)
 	{
@@ -1673,94 +1685,150 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 
 	::mods_hookNewObject("skills/backgrounds/legend_assassin_background", function(o) {
 		clearCustomPerkTree(o.m.CustomPerkTree);
-		o.m.CustomPerkTree[0].push(this.Const.Perks.PerkDefs.FastAdaption);
-		o.m.CustomPerkTree[0].push(this.Const.Perks.PerkDefs.BagsAndBelts);
-		o.m.CustomPerkTree[1].push(this.Const.Perks.PerkDefs.DevastatingStrikes);
-		o.m.CustomPerkTree[2].push(this.Const.Perks.PerkDefs.Rotation);
-		o.m.CustomPerkTree[3].push(this.Const.Perks.PerkDefs.LegendSpecPoison);
-		o.m.CustomPerkTree[3].push(this.Const.Perks.PerkDefs.LegendPoisonImmunity);
-		o.m.CustomPerkTree[3].push(this.Const.Perks.PerkDefs.LegendHidden);
-		o.m.CustomPerkTree[4].push(this.Const.Perks.PerkDefs.LegendClarity);
-		o.m.CustomPerkTree[4].push(this.Const.Perks.PerkDefs.PTRBetweenTheEyes);
-		o.m.CustomPerkTree[5].push(this.Const.Perks.PerkDefs.PushTheAdvantage);
-		o.m.CustomPerkTree[6].push(this.Const.Perks.PerkDefs.PerfectFocus);
+		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree, 
+			[
+				this.Const.Perks.DaggerTree,
+				this.Const.Perks.SwordTree,
+				this.Const.Perks.OneHandedTree,
+				this.Const.Perks.LightArmorTree,
+				this.Const.Perks.AgileTree,
+				this.Const.Perks.ViciousTree,
+				this.Const.Perks.FastTree,
+				this.Const.Perks.UnstoppableTree,
+				this.Const.Perks.DeviousTree,
+				this.Const.Perks.TrapperClassTree,
+				this.Const.Perks.MediumArmorTree,
+				this.Const.Perks.MaceTree
+			]
+		);
 
-		addPerkTreesToCustomPerkTree(this.Const.Perks.AssassinProfessionTree, o.m.CustomPerkTree);
+		addPerksToCustomPerkTree(1, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.FastAdaption
+				this.Const.Perks.PerkDefs.BagsAndBelts
+				this.Const.Perks.PerkDefs.Recover
+				this.Const.Perks.PerkDefs.PTRSmallTarget
+				this.Const.Perks.PerkDefs.PTRDeepCuts
+				this.Const.Perks.PerkDefs.NineLives
+			]
+		);
 
-		addPerkTreesToCustomPerkTree(this.Const.Perks.NoblesTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.SouthernersTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.SwordmastersTree, o.m.CustomPerkTree);
+		addPerksToCustomPerkTree(2, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.PTRSurvivalInstinct
+				this.Const.Perks.PerkDefs.DevastatingStrikes
+				this.Const.Perks.PerkDefs.QuickHands
+				this.Const.Perks.PerkDefs.PTRBloodyHarvest
+			]
+		);
 
-		addPerkTreesToCustomPerkTree(this.Const.Perks.AgileTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.FastTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ViciousTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.DeviousTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.UnstoppableTree, o.m.CustomPerkTree);
+		addPerksToCustomPerkTree(3, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.PTRPatternRecognition
+				this.Const.Perks.PerkDefs.Rotation				
+			]
+		);
 
-		addPerkTreesToCustomPerkTree(this.Const.Perks.TrapperClassTree, o.m.CustomPerkTree);
+		addPerksToCustomPerkTree(4, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.LegendSpecPoison
+				this.Const.Perks.PerkDefs.LegendPoisonImmunity
+				this.Const.Perks.PerkDefs.LegendHidden
+				this.Const.Perks.PerkDefs.PTRFormidableApproach
+				this.Const.Perks.PerkDefs.ReachAdvantage
+				this.Const.Perks.PerkDefs.PTRVigilant
+			]
+		);
 
-		addPerkTreesToCustomPerkTree(this.Const.Perks.MediumArmorTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
+		addPerksToCustomPerkTree(5, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.LegendClarity
+				this.Const.Perks.PerkDefs.PTRBetweenTheEyes				
+			]
+		);
 
-		addPerkTreesToCustomPerkTree(this.Const.Perks.DaggerTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.SwordTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.MaceTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.PolearmTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ThrowingTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
+		addPerksToCustomPerkTree(6, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.PTRSweepingStrikes
+				this.Const.Perks.PerkDefs.PushTheAdvantage
+				this.Const.Perks.PerkDefs.PTRKnowTheirWeakness
+			]
+		);
 
-		addPerkTreesToCustomPerkTree(this.Const.Perks.OneHandedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
+		addPerksToCustomPerkTree(7, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.LegendAssassinate
+				this.Const.Perks.PerkDefs.PerfectFocus
+				this.Const.Perks.PerkDefs.HeadHunter				
+			]
+		);
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_assassin_commander_background", function(o) {
 		clearCustomPerkTree(o.m.CustomPerkTree);
-		o.m.CustomPerkTree[0].push(this.Const.Perks.PerkDefs.FastAdaption);
-		o.m.CustomPerkTree[0].push(this.Const.Perks.PerkDefs.BagsAndBelts);
-		o.m.CustomPerkTree[1].push(this.Const.Perks.PerkDefs.DevastatingStrikes);
-		o.m.CustomPerkTree[2].push(this.Const.Perks.PerkDefs.BoondockBlade);
-		o.m.CustomPerkTree[2].push(this.Const.Perks.PerkDefs.Rotation);
-		o.m.CustomPerkTree[3].push(this.Const.Perks.PerkDefs.LegendRoster3);
-		o.m.CustomPerkTree[3].push(this.Const.Perks.PerkDefs.LegendSpecPoison);
-		o.m.CustomPerkTree[3].push(this.Const.Perks.PerkDefs.LegendPoisonImmunity);
-		o.m.CustomPerkTree[3].push(this.Const.Perks.PerkDefs.LegendHidden);
-		o.m.CustomPerkTree[4].push(this.Const.Perks.PerkDefs.LegendRoster4);
-		o.m.CustomPerkTree[4].push(this.Const.Perks.PerkDefs.LegendClarity);
-		o.m.CustomPerkTree[4].push(this.Const.Perks.PerkDefs.PTRBetweenTheEyes);
-		o.m.CustomPerkTree[5].push(this.Const.Perks.PerkDefs.LegendRoster5);
-		o.m.CustomPerkTree[5].push(this.Const.Perks.PerkDefs.PushTheAdvantage);
-		o.m.CustomPerkTree[6].push(this.Const.Perks.PerkDefs.LegendRoster6);
-		o.m.CustomPerkTree[6].push(this.Const.Perks.PerkDefs.PerfectFocus);
 
+		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree, 
+			[
+				this.Const.Perks.DaggerTree,
+				this.Const.Perks.SwordTree,
+				this.Const.Perks.OneHandedTree,
+				this.Const.Perks.LightArmorTree,
+				this.Const.Perks.AgileTree,
+				this.Const.Perks.ViciousTree,
+				this.Const.Perks.FastTree,
+				this.Const.Perks.UnstoppableTree,
+				this.Const.Perks.DeviousTree,
+				this.Const.Perks.TrapperClassTree,
+				this.Const.Perks.JugglerProfessionTree,
+				this.Const.Perks.MediumArmorTree,
+				this.Const.Perks.MaceTree
+			]
+		);
 
+		addPerksToCustomPerkTree(1, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.FastAdaption
+				this.Const.Perks.PerkDefs.BagsAndBelts
+				this.Const.Perks.PerkDefs.Recover				
+				this.Const.Perks.PerkDefs.PTRDeepCuts
+				this.Const.Perks.PerkDefs.NineLives
+			]
+		);
 
-		addPerkTreesToCustomPerkTree(this.Const.Perks.AssassinProfessionTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.JugglerProfessionTree, o.m.CustomPerkTree);
+		addPerksToCustomPerkTree(2, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.PTRSurvivalInstinct
+				this.Const.Perks.PerkDefs.DevastatingStrikes
+				this.Const.Perks.PerkDefs.QuickHands
+				this.Const.Perks.PerkDefs.PTRBloodyHarvest
+			]
+		);
 
-		addPerkTreesToCustomPerkTree(this.Const.Perks.NoblesTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.SouthernersTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.SwordmastersTree, o.m.CustomPerkTree);
+		addPerksToCustomPerkTree(3, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.PTRPatternRecognition
+				this.Const.Perks.PerkDefs.Rotation				
+			]
+		);
 
-		addPerkTreesToCustomPerkTree(this.Const.Perks.AgileTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.FastTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ViciousTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.DeviousTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.UnstoppableTree, o.m.CustomPerkTree);
+		addPerksToCustomPerkTree(4, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.LegendSpecPoison
+				this.Const.Perks.PerkDefs.LegendPoisonImmunity
+				this.Const.Perks.PerkDefs.LegendHidden
+				this.Const.Perks.PerkDefs.PTRFormidableApproach
+				this.Const.Perks.PerkDefs.ReachAdvantage
+				this.Const.Perks.PerkDefs.BoondockBlade
+			]
+		);
 
-		addPerkTreesToCustomPerkTree(this.Const.Perks.TrapperClassTree, o.m.CustomPerkTree);
+		addPerksToCustomPerkTree(5, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.LegendClarity
+				this.Const.Perks.PerkDefs.PTRBetweenTheEyes				
+			]
+		);
 
-		addPerkTreesToCustomPerkTree(this.Const.Perks.MediumArmorTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
+		addPerksToCustomPerkTree(6, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.PTRSweepingStrikes
+				this.Const.Perks.PerkDefs.PushTheAdvantage
+			]
+		);
 
-		addPerkTreesToCustomPerkTree(this.Const.Perks.DaggerTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.SwordTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.MaceTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.PolearmTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ThrowingTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
-
-		addPerkTreesToCustomPerkTree(this.Const.Perks.OneHandedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
+		addPerksToCustomPerkTree(7, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.LegendAssassinate
+				this.Const.Perks.PerkDefs.PerfectFocus			
+			]
+		);
+		
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_astrologist_background", function(o) {
@@ -1918,57 +1986,68 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 
 	::mods_hookNewObject("skills/backgrounds/legend_berserker_commander_background", function(o) {
 		clearCustomPerkTree(o.m.CustomPerkTree);
-		o.m.CustomPerkTree[1].push(this.Const.Perks.PerkDefs.LegendRoster2);
-		o.m.CustomPerkTree[3].push(this.Const.Perks.PerkDefs.LegendRoster3);
-		o.m.CustomPerkTree[4].push(this.Const.Perks.PerkDefs.LegendRoster4);
-		o.m.CustomPerkTree[6].push(this.Const.Perks.PerkDefs.LegendRoster6);
+		
+		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree, 
+			[
+				this.Const.Perks.AxeTree,
+				this.Const.Perks.CleaverTree,
+				this.Const.Perks.FlailTree,
+				this.Const.Perks.SwordTree,
+				this.Const.Perks.TwoHandedTree,
+				this.Const.Perks.LightArmorTree,
+				this.Const.Perks.ViciousTree,
+				this.Const.Perks.ResilientTree,
+				this.Const.Perks.LargeTree,
+				this.Const.Perks.SturdyTree,
+				this.Const.Perks.UnstoppableTree,
+				this.Const.Perks.HammerTree
+			]
+		);
 
-		o.m.CustomPerkTree[0].push(this.Const.Perks.PerkDefs.Pathfinder);
-		o.m.CustomPerkTree[0].push(this.Const.Perks.PerkDefs.BagsAndBelts);
-		o.m.CustomPerkTree[1].push(this.Const.Perks.PerkDefs.DevastatingStrikes);
-		o.m.CustomPerkTree[1].push(this.Const.Perks.PerkDefs.QuickHands);
-		o.m.CustomPerkTree[1].push(this.Const.Perks.PerkDefs.Anticipation);
-		o.m.CustomPerkTree[2].push(this.Const.Perks.PerkDefs.Sprint);
-		o.m.CustomPerkTree[3].push(this.Const.Perks.PerkDefs.LegendPoisonImmunity);
-		o.m.CustomPerkTree[4].push(this.Const.Perks.PerkDefs.Slaughterer);
-		o.m.CustomPerkTree[4].push(this.Const.Perks.PerkDefs.LegendBattleheart);
-		o.m.CustomPerkTree[4].push(this.Const.Perks.PerkDefs.LegendSecondWind);
-		o.m.CustomPerkTree[5].push(this.Const.Perks.PerkDefs.PTRKnowTheirWeakness);
-		o.m.CustomPerkTree[5].push(this.Const.Perks.PerkDefs.PTRFreshAndFurious);
-		o.m.CustomPerkTree[5].push(this.Const.Perks.PerkDefs.PTRTheRushOfBattle);
-		o.m.CustomPerkTree[6].push(this.Const.Perks.PerkDefs.BattleFlow);
-		o.m.CustomPerkTree[6].push(this.Const.Perks.PerkDefs.LegendBloodbath);
-		o.m.CustomPerkTree[6].push(this.Const.Perks.PerkDefs.Rebound);
-		o.m.CustomPerkTree[6].push(this.Const.Perks.PerkDefs.LegendBerserkerRage);
-		o.m.CustomPerkTree[6].push(this.Const.Perks.PerkDefs.LegendBigGameHunter);
-		o.m.CustomPerkTree[6].push(this.Const.Perks.PerkDefs.LegendUberNimble);
-		o.m.CustomPerkTree[6].push(this.Const.Perks.PerkDefs.LegendTumble);
+		addPerksToCustomPerkTree(1, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.BagsAndBelts
+				this.Const.Perks.PerkDefs.Pathfinder
+				this.Const.Perks.PerkDefs.LegendAlert				
+			]
+		);
 
-		addPerkTreesToCustomPerkTree(this.Const.Perks.OrcsTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.DirewolfTree, o.m.CustomPerkTree);
+		addPerksToCustomPerkTree(2, o.m.CustomPerkTree, [				
+				this.Const.Perks.PerkDefs.DevastatingStrikes
+				this.Const.Perks.PerkDefs.Anticipation				
+			]
+		);
 
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ViciousTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.ResilientTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.LargeTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.SturdyTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.UnstoppableTree, o.m.CustomPerkTree);
+		addPerksToCustomPerkTree(3, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.Sprint
+				this.Const.Perks.PerkDefs.PTRMenacing				
+			]
+		);
 
-		addPerkTreesToCustomPerkTree(this.Const.Perks.HoundmasterClassTree, o.m.CustomPerkTree);
+		addPerksToCustomPerkTree(4, o.m.CustomPerkTree, [				
+				this.Const.Perks.PerkDefs.LegendPoisonImmunity
+				this.Const.Perks.PerkDefs.Rebound
+				this.Const.Perks.PerkDefs.QuickHands
+			]
+		);
 
-		addPerkTreesToCustomPerkTree(this.Const.Perks.HeavyArmorTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.MediumArmorTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
+		addPerksToCustomPerkTree(5, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.LegendBattleheart				
+			]
+		);
 
-		addPerkTreesToCustomPerkTree(this.Const.Perks.AxeTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.CleaverTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.MaceTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.FlailTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.HammerTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.FistTree, o.m.CustomPerkTree);
+		addPerksToCustomPerkTree(6, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.PTRFreshAndFurious
+				this.Const.Perks.PerkDefs.PTRKnowTheirWeakness
+				this.Const.Perks.PerkDefs.PTRTheRushOfBattle
+			]
+		);
 
-		addPerkTreesToCustomPerkTree(this.Const.Perks.OneHandedTree, o.m.CustomPerkTree);
-		addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
-
+		addPerksToCustomPerkTree(7, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.BattleFlow
+				this.Const.Perks.PerkDefs.LegendBerserkerRage
+				this.Const.Perks.PerkDefs.LegendUberNimble				
+			]
+		);
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_blacksmith_background", function(o) {
