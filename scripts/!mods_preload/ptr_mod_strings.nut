@@ -326,6 +326,9 @@ gt.Const.PTR.modStrings <- function()
 		return ret;
 	};
 
+	gt.Const.Strings.PerkDescription.BFFencer = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.BFFencer, "Light Armor");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.BFFencer].Tooltip = gt.Const.Strings.PerkDescription.BFFencer;
+
 	gt.Const.Strings.PerkDescription.ReachAdvantage = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.ReachAdvantage, "Two-Handed Weapons");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.ReachAdvantage].Tooltip = gt.Const.Strings.PerkDescription.ReachAdvantage;
 	gt.Const.Strings.PerkDescription.ShieldExpert = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.ShieldExpert, "One-Handed Weapons and Shield");

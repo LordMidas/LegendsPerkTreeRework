@@ -1168,7 +1168,7 @@ gt.Const.PTR.modWeaponTrees <- function()
 	this.Const.Perks.SwordTree.Tree[3] = [this.Const.Perks.PerkDefs.SpecSword];
 	this.Const.Perks.SwordTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRTempo];
 	this.Const.Perks.SwordTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRKata];
-	this.Const.Perks.SwordTree.Tree[6] = [this.Const.Perks.PerkDefs.PTREnGarde, this.Const.Perks.PerkDefs.Fencer];
+	this.Const.Perks.SwordTree.Tree[6] = [this.Const.Perks.PerkDefs.PTREnGarde];
 
 	this.Const.Perks.GreatSwordTree.Tree.clear();
 
@@ -1276,5 +1276,5 @@ gt.Const.PTR.modDefenseTrees <- function ()
 	this.Const.Perks.LightArmorTree.Tree[3] = [];
 	this.Const.Perks.LightArmorTree.Tree[4] = [this.Const.Perks.PerkDefs.LegendFreedomOfMovement];
 	this.Const.Perks.LightArmorTree.Tree[5] = [this.Const.Perks.PerkDefs.Nimble];
-	this.Const.Perks.LightArmorTree.Tree[6] = [];
+	this.Const.Perks.LightArmorTree.Tree[6] = [this.Const.Perks.PerkDefs.BFFencer];
 }
