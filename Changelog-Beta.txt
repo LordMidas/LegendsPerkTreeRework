@@ -1,13 +1,22 @@
+===================
+==== Ver 1.0.0 ====
+===================
+- Reworked most of the commanders to have 13 columns perks.
+- Fixed Guaranteed on XYZ background tooltips for real this time.
+- Fixed an error in Duelist Defense causing battles to not load.
+
 =====================
 ==== Ver 0.15.0 =====
 =====================
-== MAJOR CHANGES AND DEPENDENCIES ==
+== DEPENDENCIES ==
 - NOT SAVEGAME COMPATIBLE.
 - Requires MSU 0.6.5. This includes the fix for some AI-specific weapons (e.g. faction banners) not working with some PTR perks.
-- MSU is now included in Legends, so if you are using Legends build 20 then delete MSU from your data folder.
+- MSU is now included in Legends, so if you are using Legends build 15.0.1.20 then delete MSU from your data folder.
 - Medium Armor Rework (MAR) is now included in Legends, so delete that from your data folder.
 - PTR now includes WMS, Duelist Defense, and the Fencer Perk mod (now called Better Fencing). So, delete these from your data folder.
-- Moved the Fencer perk to Light Armor t7.
+
+== MAJOR CHANGES ==
+- Moved the Fencer perk to Light Armor t7 and removed it from Sword t7.
 - Tempo now carries over to the next turn but the carried over bonus only lasts until the first skill used, or waiting the turn.
 - Tumble no longer reduces the Action Point cost of fencing Lunge. Still reduces Fatigue Cost.
 
