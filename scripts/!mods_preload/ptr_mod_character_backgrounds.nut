@@ -1947,45 +1947,79 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_berserker_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
-			WeightMultipliers = [
-				{Multiplier = 0, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 0, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.TrainedTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.SergeantClassTree},
-				{Multiplier = 0.2, Tree = this.Const.Perks.HealerClassTree},
-				{Multiplier = 0, Tree = this.Const.Perks.TacticianClassTree},
-				{Multiplier = 0.1, Tree = this.Const.Perks.DaggerTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.SwordTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.PolearmTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingsTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.ThrowingTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.SpearTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.StavesTree},
-				{Multiplier = 0, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 3, Tree = this.Const.Perks.HeavyArmorTree}
-			],
-			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.ViciousTree}],
-				[{Weight = 100, Tree = this.Const.Perks.ResilientTree}],
-				[{Weight = 100, Tree = this.Const.Perks.LargeTree}],
-				[{Weight = 100, Tree = this.Const.Perks.SturdyTree}],
-				[{Weight = 100, Tree = this.Const.Perks.UnstoppableTree}]
+		//clearCustomPerkTree(o.m.CustomPerkTree);
+		//o.m.PerkTreeDynamic = null;
+
+		o.m.CustomPerkTree = [
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[]
+		];
+
+		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
+			[
+				this.Const.Perks.AxeTree,
+				this.Const.Perks.CleaverTree,
+				this.Const.Perks.FlailTree,
+				this.Const.Perks.SwordTree,
+				this.Const.Perks.TwoHandedTree,
+				this.Const.Perks.LightArmorTree,
+				this.Const.Perks.ViciousTree,
+				this.Const.Perks.ResilientTree,
+				this.Const.Perks.LargeTree,
+				this.Const.Perks.SturdyTree,
+				this.Const.Perks.UnstoppableTree,
+				this.Const.Perks.HammerTree
 			]
-			Magic = [
-				[{Weight = 100, Tree = this.Const.Perks.BerserkerMagicTree}]
-			],
-			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
-				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+		);
+
+		addPerksToCustomPerkTree(1, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.BagsAndBelts
+				this.Const.Perks.PerkDefs.Pathfinder
+				this.Const.Perks.PerkDefs.LegendAlert
 			]
-		};
+		);
+
+		addPerksToCustomPerkTree(2, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.DevastatingStrikes
+				this.Const.Perks.PerkDefs.Anticipation
+			]
+		);
+
+		addPerksToCustomPerkTree(3, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.Sprint
+				this.Const.Perks.PerkDefs.PTRMenacing
+			]
+		);
+
+		addPerksToCustomPerkTree(4, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.LegendPoisonImmunity
+				this.Const.Perks.PerkDefs.Rebound
+				this.Const.Perks.PerkDefs.QuickHands
+			]
+		);
+
+		addPerksToCustomPerkTree(5, o.m.CustomPerkTree, [
+			this.Const.Perks.PerkDefs.BattleFlow
+			]
+		);
+
+		addPerksToCustomPerkTree(6, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.PTRFreshAndFurious
+				this.Const.Perks.PerkDefs.PTRKnowTheirWeakness
+				this.Const.Perks.PerkDefs.PTRTheRushOfBattle
+			]
+		);
+
+		addPerksToCustomPerkTree(7, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.LegendBerserkerRage
+				this.Const.Perks.PerkDefs.LegendUberNimble
+			]
+		);
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_berserker_commander_background", function(o) {
@@ -2176,7 +2210,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		addPerksToCustomPerkTree(1, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.BagsAndBelts
 				this.Const.Perks.PerkDefs.PTRSwordlike
-				this.Const.Perks.PerkDefs.SmashingShields
+				this.Const.Perks.PerkDefs.LegendSmashingShields
 				this.Const.Perks.PerkDefs.LegendComposure
 				this.Const.Perks.PerkDefs.LegendFavouredEnemySkeleton
 			]
@@ -2415,7 +2449,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.RangedTree,
 			]
 		);
-
 	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_healer_background", function(o) {
@@ -2687,6 +2720,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PolearmTree,
 				this.Const.Perks.RangedTree,
 			]
+		);
 
 		o.m.CustomPerkTree[5].push(this.Const.Perks.PerkDefs.LegendAssuredConquest);
 	});
@@ -3288,36 +3322,38 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		};
 	}); */
 
- ::mods_hookNewObject("skills/backgrounds/legend_vala_background", function(o) {
+ 	::mods_hookNewObject("skills/backgrounds/legend_vala_background", function(o) {
 
-	 addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
-		 [
-		 	 this.Const.Perks.ValaSpiritMagicTree,
-			 this.Const.Perks.ValaChantMagicTree,
-			 this.Const.Perks.ValaTranceMagicTree,
-			 this.Const.Perks.CalmTree,
-			 this.Const.Perks.TalentedTree,
-			 this.Const.Perks.SergeantClassTree,
-			 this.Const.Perks.LightArmorTree,
-			 this.Const.Perks.TwoHandedTree,
-			 this.Const.Perks.StavesTree,
-		 ]
+		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
+			 [
+			 	 this.Const.Perks.ValaSpiritMagicTree,
+				 this.Const.Perks.ValaChantMagicTree,
+				 this.Const.Perks.ValaTranceMagicTree,
+				 this.Const.Perks.CalmTree,
+				 this.Const.Perks.TalentedTree,
+				 this.Const.Perks.SergeantClassTree,
+				 this.Const.Perks.LightArmorTree,
+				 this.Const.Perks.TwoHandedTree,
+				 this.Const.Perks.StavesTree,
+			 ]
+		);
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_vala_commander_background", function(o) {
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
- 		 [
- 		 	 this.Const.Perks.ValaSpiritMagicTree,
- 			 this.Const.Perks.ValaChantMagicTree,
- 			 this.Const.Perks.ValaTranceMagicTree,
- 			 this.Const.Perks.CalmTree,
- 			 this.Const.Perks.TalentedTree,
- 			 this.Const.Perks.SergeantClassTree,
- 			 this.Const.Perks.LightArmorTree,
- 			 this.Const.Perks.TwoHandedTree,
- 			 this.Const.Perks.StavesTree,
- 		 ]
+	 		[
+		 		this.Const.Perks.ValaSpiritMagicTree,
+		 		this.Const.Perks.ValaChantMagicTree,
+		 		this.Const.Perks.ValaTranceMagicTree,
+		 		this.Const.Perks.CalmTree,
+		 		this.Const.Perks.TalentedTree,
+		 		this.Const.Perks.SergeantClassTree,
+		 		this.Const.Perks.LightArmorTree,
+		 		this.Const.Perks.TwoHandedTree,
+		 		this.Const.Perks.StavesTree,
+	 		]
+	 	);
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_warlock_background", function(o) {
@@ -3387,12 +3423,12 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	::mods_hookNewObject("skills/backgrounds/legend_witch_commander_background", function(o) {
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
- 		 [
- 		 	 this.Const.Perks.TalentedTree,
- 			 this.Const.Perks.StavesTree,
- 			 this.Const.Perks.TwoHandedTree,
- 		 ]
-
+	 		[
+	 			this.Const.Perks.TalentedTree,
+	 			this.Const.Perks.StavesTree,
+	 			this.Const.Perks.TwoHandedTree,
+	 		]
+	 	);
 	});
 
 	::mods_hookNewObject("skills/backgrounds/lumberjack_background", function(o) {
