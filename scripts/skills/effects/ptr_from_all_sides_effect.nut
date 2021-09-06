@@ -3,9 +3,7 @@ this.ptr_from_all_sides_effect <- this.inherit("scripts/skills/skill", {
 		Malus = 0,
 		MalusForHit = 3,
 		MalusForHeadshot = 6,
-		MalusForMiss = 1,
-		SkillCount = 0,
-		LastAttackerID = 0
+		MalusForMiss = 1
 	},
 	function create()
 	{
@@ -49,38 +47,15 @@ this.ptr_from_all_sides_effect <- this.inherit("scripts/skills/skill", {
 		return tooltip;
 	}
 
-	function checkAndUpdateAttackerInfo(_attacker)
+	function proc( _hitInfo = null )
 	{
-		if (this.m.SkillCount == this.Const.SkillCounter && this.m.LastAttackerID == _attacker.getID())
-		{
-			return false;
-		}
-
-		local perk = _attacker.getSkills().getSkillByID("perk.ptr_from_all_sides");
-		if (perk == null || !perk.isEnabled())
-		{
-			return false;
-		}
-
-		this.m.SkillCount = this.Const.SkillCounter;
-		this.m.LastTargetID = _attacker.getID();
-
-		return true;
-	}
-
-	function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
-	{
-		if (_skill != null && _skill.isAttack() && this.checkAndUpdateAttackerInfo())
-		{
-			this.m.Malus += _hitInfo.BodyPart == this.Const.BodyPart.Head ? this.m.MalusForHeadshot : this.m.MalusForHit;
-		}
-	}
-
-	function onMissed( _attacker, _skill )
-	{
-		if (_skill != null && _skill.isAttack() && this.checkAndUpdateAttackerInfo())
+		if (_hitInfo == null)
 		{
 			this.m.Malus += this.m.MalusForMiss;
+		}
+		else
+		{
+			this.m.Malus += _hitInfo.BodyPart == this.Const.BodyPart.Head ? this.m.MalusForHeadshot : this.m.MalusForHit;
 		}
 	}
 

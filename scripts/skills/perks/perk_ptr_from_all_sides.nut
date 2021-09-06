@@ -1,6 +1,8 @@
 this.perk_ptr_from_all_sides <- this.inherit("scripts/skills/skill", {
 	m = {
-		IsForceEnabled = false
+		IsForceEnabled = false,
+		SkillCount = 0,
+		LastTargetID = 0,
 	},
 	function create()
 	{
@@ -37,14 +39,46 @@ this.perk_ptr_from_all_sides <- this.inherit("scripts/skills/skill", {
 		return true;
 	}
 
-	function onBeforeAnySkillExecuted(_skill, _targetTile)
+	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
 	{
-		local targetEntity = _targetTile.getEntity();
-		if (targetEntity == null || targetEntity.isAlliedWith(this.getContainer().getActor()) || !this.isEnabled())
+		this.procIfApplicable(_skill, _targetEntity, _hitInfo);
+	}
+
+	function onTargetMissed( _skill, _targetEntity )
+	{
+		this.procIfApplicable(_skill, _targetEntity);
+	}
+
+	function procIfApplicable( _skill, _targetEntity, _hitInfo = null)
+	{
+		if (!_skill.isAttack() || _targetEntity.isAlliedWith(this.getContainer().getActor()) || !this.isEnabled())
 		{
 			return;
 		}
 
-		targetEntity.getSkills().add(this.new("scripts/skills/effects/ptr_from_all_sides_effect"));
+		if (this.m.SkillCount == this.Const.SkillCounter && this.m.LastTargetID == _targetEntity.getID())
+		{
+			return;
+		}
+
+		this.m.SkillCount = this.Const.SkillCounter;
+		this.m.LastTargetID = _targetEntity.getID();
+
+		local effect = _targetEntity.getSkills().getSkillByID("effects.ptr_from_all_sides");
+		if (effect == null)
+		{
+			effect = this.new("scripts/skills/effects/ptr_from_all_sides_effect");			
+		}		
+
+		_targetEntity.getSkills().add(effect);
+
+		if (_hit)
+		{
+			effect.prc(_hitInfo);
+		}
+		else
+		{
+			effect.proc(null);
+		}
 	}
 });
