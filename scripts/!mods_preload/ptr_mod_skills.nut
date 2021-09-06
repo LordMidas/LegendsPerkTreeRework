@@ -15,13 +15,13 @@ gt.Const.PTR.modSkills <- function()
 			local lunge = this.getContainer().getSkillByID("actives.lunge");
 			if (lunge == null)
 			{
-				onAfterUpdate();
+				onAfterUpdate(_properties);
 				return;
 			}
 
 			local APCostBefore = lunge.m.ActionPointCost;
 
-			onAfterUpdate();
+			onAfterUpdate(_properties);
 			
 			lunge.m.ActionPointCost = APCostBefore;			
 		}
