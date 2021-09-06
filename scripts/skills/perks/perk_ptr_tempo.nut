@@ -83,14 +83,14 @@ this.perk_ptr_tempo <- this.inherit("scripts/skills/skill", {
 		this.m.Stacks++;
 	}
 
-	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
+	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
 	{
-		gainStackIfApplicable(_skill, _targetEntity);		
+		this.gainStackIfApplicable(_skill, _targetEntity);		
 	}
 
 	function onTargetMissed( _skill, _targetEntity )
 	{
-		gainStackIfApplicable(_skill, _targetEntity);
+		this.gainStackIfApplicable(_skill, _targetEntity);
 	}
 
 	function onUpdate( _properties )
