@@ -1,4 +1,15 @@
 ===================
+==== Ver 1.0.2 ====
+===================
+- Fixed unable to load battle against goblins.
+
+===================
+==== Ver 1.0.1 ====
+===================
+- Fixed Tempo not applying correctly if the attack killed the target.
+- Fixed targets not being killable when under the effects of From all Sides.
+
+===================
 ==== Ver 1.0.0 ====
 ===================
 - Reworked most of the commanders to have 13 columns perks.
