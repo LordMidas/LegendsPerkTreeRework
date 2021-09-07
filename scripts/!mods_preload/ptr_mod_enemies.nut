@@ -3219,7 +3219,7 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.removeByID("perk.legend_composure");
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_fortified_mind"));
 				this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));
-				this.m.Skills.add(this.new("scripts/skills/effects/perk_relentless"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_relentless"));
 			}
 	 	}
 
