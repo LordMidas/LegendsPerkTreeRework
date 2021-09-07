@@ -1,6 +1,6 @@
 this.perk_ptr_primal_fear <- this.inherit("scripts/skills/skill", {
 	m = {
-		Chance = 25
+		Chance = 25,
 		ForceFullChance = false
 	},
 	function create()
@@ -18,7 +18,7 @@ this.perk_ptr_primal_fear <- this.inherit("scripts/skills/skill", {
 
 	function getChance()
 	{
-		if (this.m.IsForceEnabled)
+		if (this.m.ForceFullChance)
 		{
 			return 100;
 		}
