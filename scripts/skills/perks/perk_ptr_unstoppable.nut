@@ -78,7 +78,7 @@ this.perk_ptr_unstoppable <- this.inherit("scripts/skills/skill", {
 
 		local stacksToAdd = this.m.Distance > 1 ? 0.5 : 1;
 
-		this.m.Stacks = this.Math.min(this.m.MaxStacks, this.m.Stacks + stacksToAdd);
+		this.m.Stacks = this.Math.minf(this.m.MaxStacks, this.m.Stacks + stacksToAdd);
 	}
 
 	function onTargetMissed( _skill, _targetEntity )
