@@ -1,8 +1,19 @@
 ===================
+==== Ver 1.0.4 ====
+===================
+- Fixed a crash when attacking with flails using the From all Sides perk.
+- Fixed Primal Fear not working.
+- Fixed Unstoppable not giving a stack after 2 attacks at 2 tiles range as it should.
+- Fixed Militia Captain not getting some perks properly.
+- Fixed Noble Fencer not spawning and causing the battle to crash/freeze.
+- Fixed some language issues in the Arrow to the Knee perk tooltip.
+
+===================
 ==== Ver 1.0.3 ====
 ===================
 - Changed guaranteed perks on Crusader Commander to account for getting rebound for free.
 - Gave sickle skills back to Druid Commander as they spawn with one and also there are late-game-usable named ones.
+
 ===================
 ==== Ver 1.0.2 ====
 ===================
