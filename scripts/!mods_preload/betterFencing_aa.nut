@@ -1,7 +1,7 @@
 local gt = getroottable();
 
 local modID = "mod_betterFencing";
-::mods_registerMod(modID, 1.6, "Better Fencing 1.6.0");
+::mods_registerMod(modID, 1.6, "Better Fencing 1.6.1");
 
 gt.ModBetterFencing <- {};
 
@@ -177,7 +177,7 @@ gt.ModBetterFencing <- {};
 				this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_recover"));
 
 				this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_engage_melee"));
-				this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_attack_lunge"));
+				this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_bf_attack_lunge"));
 				this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_charge"));
 			}
 

@@ -27,19 +27,19 @@ this.perk_bf_fencer <- this.inherit("scripts/skills/skill", {
 		if (lunge != null)
 		{
 			lunge.m.FatigueCostMult *= this.m.FatigueMult;
-		}
 
-		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.BFFencing))
-		{
-			if (weapon.isItemType(this.Const.Items.ItemType.OneHanded))
+			local weapon = this.getContainer().getActor().getMainhandItem();
+			if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.BFFencing))
 			{
-				lunge.m.ActionPointCost -= 1;
-			}
-			else
-			{
-				lunge.m.MaxRange += 1;
-				lunge.m.Description = "A swift lunge towards a target up to 3 tiles away, followed by a precise thrusting attack to catch them unprepared. The faster you are, the more damage you do.";
+				if (weapon.isItemType(this.Const.Items.ItemType.OneHanded))
+				{
+					lunge.m.ActionPointCost -= 1;
+				}
+				else
+				{
+					lunge.m.MaxRange += 1;
+					lunge.m.Description = "A swift lunge towards a target up to 3 tiles away, followed by a precise thrusting attack to catch them unprepared. The faster you are, the more damage you do.";
+				}
 			}
 		}
 	}

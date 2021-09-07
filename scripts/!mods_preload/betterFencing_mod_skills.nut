@@ -71,7 +71,7 @@ gt.ModBetterFencing.modSkills <- function()
 
 			if (agent.findBehavior(this.Const.AI.Behavior.ID.BFAttackLunge) == null)
 			{
-				agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_attack_lunge"));
+				agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_bf_attack_lunge"));
 				agent.finalizeBehaviors();
 			}
 		}
