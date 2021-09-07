@@ -72,13 +72,6 @@ this.perk_ptr_from_all_sides <- this.inherit("scripts/skills/skill", {
 
 		_targetEntity.getSkills().add(effect);
 
-		if (_hit)
-		{
-			effect.prc(_hitInfo);
-		}
-		else
-		{
-			effect.proc(null);
-		}
+		effect.proc(_hitInfo);
 	}
 });
