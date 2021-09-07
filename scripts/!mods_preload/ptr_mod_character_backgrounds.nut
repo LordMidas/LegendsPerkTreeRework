@@ -2254,7 +2254,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		addPerksToCustomPerkTree(6, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.SunderingStrikes
 				this.Const.Perks.PerkDefs.PTRManOfSteel
-				this.Const.Perks.PerkDefs.PTRKnowTheirWeakness
+				this.Const.Perks.PerkDefs.LegendHolyFlame
 				this.Const.Perks.PerkDefs.Duelist
 			]
 		);
@@ -2264,7 +2264,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.PTRPersonalArmor
 				this.Const.Perks.PerkDefs.PTRProfessional
 				this.Const.Perks.PerkDefs.PTRWeaponMaster
-				this.Const.Perks.PerkDefs.LegendHolyFlame
+				this.Const.Perks.PerkDefs.Rebound
 			]
 		);
 	});
@@ -2350,7 +2350,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 							this.Const.Perks.PerkDefs.Colossus
 							this.Const.Perks.PerkDefs.LegendAlert
 							this.Const.Perks.PerkDefs.Recover
-							this.Const.Perks.PerkDefs.Adrenalin
+							this.Const.Perks.PerkDefs.LegendSpecialistSickleSkill
 						]
 					);
 
@@ -2366,7 +2366,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 					addPerksToCustomPerkTree(3, o.m.CustomPerkTree, [
 							this.Const.Perks.PerkDefs.LegendRoots
 							this.Const.Perks.PerkDefs.LegendHerbcraft
-							this.Const.Perks.PerkDefs.LegendPrayerOfLife
+							this.Const.Perks.PerkDefs.LegendSpecialistSickleDamage
 						]
 					);
 
