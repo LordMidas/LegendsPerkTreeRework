@@ -1,4 +1,9 @@
 ===================
+==== Ver 1.0.3 ====
+===================
+- Changed guaranteed perks on Crusader Commander to account for getting rebound for free.
+- Gave sickle skills back to Druid Commander as they spawn with one and also there are late-game-usable named ones.
+===================
 ==== Ver 1.0.2 ====
 ===================
 - Fixed unable to load battle against goblins.
