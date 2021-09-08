@@ -1,4 +1,10 @@
 ===================
+==== Ver 1.0.5 ====
+===================
+- Fixed the Weapon Master causing AI to freeze when switching weapons.
+- Fixed a similar potential issue in the Offhand Training perk.
+
+===================
 ==== Ver 1.0.4 ====
 ===================
 - Fixed a crash when attacking with flails using the From all Sides perk.
