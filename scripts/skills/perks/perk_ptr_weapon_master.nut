@@ -58,7 +58,7 @@ this.perk_ptr_weapon_master <- this.inherit("scripts/skills/skill", {
 
 	function onPayForItemAction(_skill, _items)
 	{
-		if (_skill.getID() != "perk.ptr_target_practice")
+		if (_skill != null && _skill.getID() != "perk.ptr_target_practice")
 		{
 			this.m.IsSpent = true;
 		}
