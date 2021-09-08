@@ -17,6 +17,11 @@ this.ptr_undead_injury_receiver_effect <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ReceiveInjuries = false;
 
+		if (_skill == null || _attacker == null)
+		{
+			return;
+		}
+
 		if (_skill.hasDamageType(this.Const.Damage.DamageType.Cutting))
 		{
 			local dismemberment = _attacker.getSkills().getSkillByID("perk.ptr_dismemberment");
