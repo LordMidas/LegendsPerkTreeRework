@@ -1,4 +1,9 @@
 ===================
+==== Ver 1.0.6 ====
+===================
+- Fixed a battle softlock when an Undead enemy ends his turn in a burning tile.
+
+===================
 ==== Ver 1.0.5 ====
 ===================
 - Fixed the Weapon Master causing AI to freeze when switching weapons.
