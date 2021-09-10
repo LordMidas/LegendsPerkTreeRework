@@ -900,7 +900,7 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 		},
 		{
 			ID = "perk.ptr_through_the_ranks",
-			Script = "scripts/skills/perks/ptr_through_the_ranks",
+			Script = "scripts/skills/perks/perk_ptr_through_the_ranks",
 			Name = this.Const.Strings.PerkName.PTRThroughTheRanks,
 			Tooltip = this.Const.Strings.PerkDescription.PTRThroughTheRanks,
 			Icon = "ui/perks/ptr_through_the_ranks.png",
