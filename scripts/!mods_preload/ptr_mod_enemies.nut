@@ -2888,17 +2888,20 @@ gt.Const.PTR.modEnemies <- function()
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_easy_target"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_onslaught"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));			
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
+
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_mastery_staff_stun"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_specialist_staff_skill"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_wear_them_down"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_assured_conquest"));
 			}
+		}
+
+		local assignRandomEquipment = o.assignRandomEquipment;
+		o.assignRandomEquipment = function()
+		{
+			assignRandomEquipment();
+			this.m.Skills.addTreeOfEquippedWeapon();
 		}
 	});
 
