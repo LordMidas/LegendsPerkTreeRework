@@ -188,6 +188,11 @@ gt.Const.PTR.modCharacterBackground <- function()
 					continue;
 				}
 
+				if (!this.getContainer().getActor().isTryoutDone() && categoryName == "Class")
+				{
+					break;
+				}				
+
 				local prefix = "";
 				switch (categoryName)
 				{
@@ -222,14 +227,15 @@ gt.Const.PTR.modCharacterBackground <- function()
 					}
 
 					treesList.push(perkTree.Tree);
-				}
-				foreach (i in treesList)
-				{
-					this.logInfo(i);
-				}
+				}				
 
 				text = text + this.getPerkTreeGroupDescription(treesList, prefix);
 				treesList.clear();
+			}
+
+			if (!this.getContainer().getActor().isTryoutDone())
+			{
+				text += "\n[color=" + this.Const.UI.Color.NegativeValue + "]Try out[/color] this character to reveal [color=" + this.Const.UI.Color.PositiveValue + "]more[/color] information!";
 			}
 
 			return text;
