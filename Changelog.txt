@@ -1,4 +1,19 @@
 ===================
+==== Ver 1.0.7 ====
+===================
+- Sanguinary perk tweaked: Now also takes into account Bleeding applied by the attack. The tooltip has been updated to reflect this change.
+- Bloodlust perk tweaked: Now also takes into account any stacks of Bleeding applied by the attack. The tooltip has been updated to reflect this change.
+- Removed Nimble from the following enemies: Peasants, Armed Peasants, Southern Peasants.
+- Added some more variation to the description of the Profession in the Background tooltip on the hiring screen.
+- Background tooltips on the hiring screen now provide limited information, and only provide detailed information after a Try Out.
+- Enemy Monks now have the full Staves weapon tree. Their Melee Skill is still very low, so this shouldn't upset the balance at all.
+- All bonuses provided by the Versatile Weapon perk are now additive.
+- Improved Intimidate perk tooltip to clearly mention that it works on all attacks, hit or miss.
+- Fixed the damage tooltip of a skill while having the Deadly Precision perk showing a different armor penetration damage each time.
+- Fixed Weapon Master and Offhand Training stacking with Quick Hands.
+- Fixed sometimes being unable to kill Noble Arbalesters with the Scaling Beggar.
+
+===================
 ==== Ver 1.0.6 ====
 ===================
 - Fixed a battle softlock when an Undead enemy ends his turn in a burning tile.
