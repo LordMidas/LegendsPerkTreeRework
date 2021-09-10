@@ -13,6 +13,7 @@ this.perk_ptr_weapon_master <- this.inherit("scripts/skills/skill", {
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
+		this.m.ItemActionOrder = this.Const.ItemActionOrder.BeforeLast;
 	}
 
 	function isHidden()
