@@ -1,5 +1,8 @@
 this.perk_ptr_deadly_precision <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		MinBonus = 0,
+		MaxBonus = 25
+	},
 	function create()
 	{
 		this.m.ID = "perk.ptr_deadly_precision";
@@ -15,11 +18,11 @@ this.perk_ptr_deadly_precision <- this.inherit("scripts/skills/skill", {
 	
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
-		local weapon = this.getContainer().getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);
+		local weapon = this.getContainer().getActor().getMainhandItem();
 		
-		if (weapon != null && weapon.m.Categories.find("Flail") != null)
+		if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.Flail))
 		{
-			_properties.DamageDirectAdd += 0.01 * this.Math.rand(0, 25); 
+			_properties.DamageDirectAdd += 0.01 * (_targetEntity == null ? this.m.MaxBonus : this.Math.rand(this.m.MinBonus, this.m.MaxBonus)); 
 		}
 	}
 });
