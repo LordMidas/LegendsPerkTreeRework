@@ -1,5 +1,7 @@
 this.perk_ptr_versatile_weapon <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		Bonus = 0.05
+	},
 	function create()
 	{
 		this.m.ID = "perk.ptr_versatile_weapon";
@@ -22,8 +24,8 @@ this.perk_ptr_versatile_weapon <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		_properties.MeleeDamageMult *= 1.05;
-		_properties.DamageDirectAdd += 0.05;
-		_properties.DamageArmorMult *= 1.05;
+		_properties.MeleeDamageMult += this.m.Bonus;
+		_properties.DamageDirectAdd += this.m.Bonus;
+		_properties.DamageArmorMult += this.m.Bonus;
 	}
 });
