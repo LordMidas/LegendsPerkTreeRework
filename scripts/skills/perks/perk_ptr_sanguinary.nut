@@ -1,6 +1,7 @@
 this.perk_ptr_sanguinary <- this.inherit("scripts/skills/skill", {
 	m = {
-		FatigueCostRefundPercentage = 25		
+		FatigueCostRefundPercentage = 25,
+		TargetEntity = null
 	},
 	function create()
 	{
@@ -20,9 +21,31 @@ this.perk_ptr_sanguinary <- this.inherit("scripts/skills/skill", {
 		_properties.FatalityChanceMult *= 1.5;
 	}
 
-	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
+	function onBeforeAnySkillExecuted( _skill, _targetTile )
 	{
-		if (_targetEntity.getSkills().hasSkill("effects.bleeding"))
+		this.m.TargetEntity = _targetTile.getEntity();
+	}
+
+	function onAnySkillExecuted( _skill, _targetTile )
+	{
+		if (this.m.TargetEntity == null || !this.m.TargetEntity.isAlive() || this.m.TargetEntity.isDying())
+		{
+			return;
+		}
+
+		local actor = this.getContainer().getActor();
+
+		if (this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
+		{
+			return;
+		}
+
+		if (this.m.TargetEntity.getID() == actor.getID() || this.m.TargetEntity.isAlliedWith(actor))
+		{
+			return;
+		}
+
+		if (this.m.TargetEntity.getSkills().hasSkill("effects.bleeding"))
 		{
 			local actor = this.getContainer().getActor();
 			if (actor.getMoraleState() < this.Const.MoraleState.Confident && actor.getMoraleState() != this.Const.MoraleState.Fleeing)
@@ -31,5 +54,21 @@ this.perk_ptr_sanguinary <- this.inherit("scripts/skills/skill", {
 				this.spawnIcon("perk_ptr_sanguinary", actor.getTile());
 			}
 		}
+	}
+
+	function onTurnStart()
+	{
+		this.m.TargetEntity = null;
+	}
+
+	function onCombatFinished()
+	{
+		this.skill.onCombatFinished();
+		this.m.TargetEntity = null;
+	}
+
+	function onCombatStarted()
+	{
+		this.m.TargetEntity = null;
 	}
 });

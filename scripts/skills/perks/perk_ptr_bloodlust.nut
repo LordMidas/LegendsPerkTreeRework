@@ -2,6 +2,7 @@ this.perk_ptr_bloodlust <- this.inherit("scripts/skills/skill", {
 	m = {
 		Count = 0,
 		FatigueReductionPercentage = 5,
+		TargetEntity = null
 	},
 	function create()
 	{
@@ -20,23 +21,6 @@ this.perk_ptr_bloodlust <- this.inherit("scripts/skills/skill", {
 	function isHidden()
 	{
 		return this.m.Count == 0;
-	}
-
-	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
-	{
-		this.m.Count = _targetEntity.getSkills().getAllSkillsByID("effects.bleeding").len();
-	}
-
-	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
-	{
-		if (!_targetEntity.isAlive() || _targetEntity.isDying())
-		{
-			return;
-		}
-
-		local actor = this.getContainer().getActor();
-
-		actor.setFatigue(this.Math.max(0, actor.getFatigue() - actor.getFatigue() * (this.m.Count * this.m.FatigueReductionPercentage * 0.01)));
 	}
 
 	function getTooltip()
@@ -61,10 +45,52 @@ this.perk_ptr_bloodlust <- this.inherit("scripts/skills/skill", {
 		];
 	}
 
+	function onBeforeAnySkillExecuted( _skill, _targetTile )
+	{
+		this.m.TargetEntity = _targetTile.getEntity();
+	}
+
+	function onAnySkillExecuted( _skill, _targetTile )
+	{
+		if (this.m.TargetEntity == null || !this.m.TargetEntity.isAlive() || this.m.TargetEntity.isDying())
+		{
+			return;
+		}
+
+		local actor = this.getContainer().getActor();
+
+		if (this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
+		{
+			return;
+		}
+
+		if (this.m.TargetEntity.getID() == actor.getID() || this.m.TargetEntity.isAlliedWith(actor))
+		{
+			return;
+		}
+
+		this.m.Count = this.m.TargetEntity.getSkills().getAllSkillsByID("effects.bleeding").len();
+
+		actor.setFatigue(this.Math.max(0, actor.getFatigue() - actor.getFatigue() * (this.m.Count * this.m.FatigueReductionPercentage * 0.01)));
+	}
+
 	function onTurnStart()
 	{
 		local actor = this.getContainer().getActor();
 		actor.setFatigue(this.Math.max(0, actor.getFatigue() - this.m.Count));
 		this.m.Count = 0;
+		this.m.TargetEntity = null;
+	}
+
+	function onCombatFinished()
+	{
+		this.m.Count = 0;
+		this.m.TargetEntity = null;
+	}
+
+	function onCombatStarted()
+	{
+		this.m.Count = 0;
+		this.m.TargetEntity = null;
 	}
 });
