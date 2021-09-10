@@ -121,7 +121,9 @@ gt.Const.PTR.createProfessionTrees <- function()
 	gt.Const.Perks.AssassinProfessionTree <- {
 		ID = "AssassinProfessionTree",
 		Descriptions = [
-			"took lives in exchange for gold"
+			"took lives in exchange for gold",
+			"claims to have assassinated several men of import",
+			"has the eyes and temperament of a cold blooded killer"
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
@@ -170,7 +172,9 @@ gt.Const.PTR.createProfessionTrees <- function()
 	gt.Const.Perks.ButcherProfessionTree <- {
 		ID = "ButcherProfessionTree",
 		Descriptions = [
-			"worked at a butcher\'s shop"
+			"worked at a butcher\'s shop",
+			"butchered animals and sold meat to make a livelihood",
+			"claims to be well-experienced in butchering animals"
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
@@ -209,7 +213,9 @@ gt.Const.PTR.createProfessionTrees <- function()
 	gt.Const.Perks.BlacksmithProfessionTree <- {
 		ID = "BlacksmithProfessionTree",
 		Descriptions = [
-			"worked at a blacksmith\'s shop"
+			"worked at a blacksmith\'s shop",
+			"worked metal at a smithy",
+			"used to make tools and weapons at a smithy"
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
@@ -246,7 +252,9 @@ gt.Const.PTR.createProfessionTrees <- function()
 	gt.Const.Perks.MilitiaProfessionTree <- {
 		ID = "MilitiaProfessionTree",
 		Descriptions = [
-			"served in the local militia"
+			"served in the local militia",
+			"was a member of local militia",
+			"has had experience with some weapons serving in the militia"
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
@@ -354,7 +362,8 @@ gt.Const.PTR.createProfessionTrees <- function()
 	gt.Const.Perks.HunterProfessionTree <- {
 		ID = "HunterProfessionTree",
 		Descriptions = [
-			"hunted in the forests"
+			"hunted in the forests",
+			"claims to have experience in hunting animals"
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
@@ -389,7 +398,8 @@ gt.Const.PTR.createProfessionTrees <- function()
 	gt.Const.Perks.DiggerProfessionTree <- {
 		ID = "DiggerProfessionTree",
 		Descriptions = [
-			"used a shovel to earn coin"
+			"used a shovel to earn coin",
+			"dug holes and moved dirt to make a living"
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
@@ -419,7 +429,9 @@ gt.Const.PTR.createProfessionTrees <- function()
 	gt.Const.Perks.LumberjackProfessionTree <- {
 		ID = "LumberjackProfessionTree",
 		Descriptions = [
-			"fell trees"
+			"fell trees in the local forest",
+			"claims that chopping through men is just like chopping through trees",
+			"appears to have the hands of a lumberjack"
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
@@ -455,7 +467,9 @@ gt.Const.PTR.createProfessionTrees <- function()
 	gt.Const.Perks.ApothecaryProfessionTree <- {
 		ID = "ApothecaryProfessionTree",
 		Descriptions = [
-			"collected herbs"
+			"collected herbs and made potions",
+			"was the local herbalist of a nearby village",
+			"claims to have experience with potions and herbs"
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
@@ -493,7 +507,9 @@ gt.Const.PTR.createProfessionTrees <- function()
 	gt.Const.Perks.JugglerProfessionTree <- {
 		ID = "JugglerProfessionTree",
 		Descriptions = [
-			"performed in a circus"
+			"performed in a circus",
+			"was a member of a troupe, performing tricks with various objects",
+			"is keen to show you some of his juggling tricks"
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
@@ -529,7 +545,9 @@ gt.Const.PTR.createProfessionTrees <- function()
 	gt.Const.Perks.MinstrelProfessionTree <- {
 		ID = "MinstrelProfessionTree",
 		Descriptions = [
-			"performed music at a tavern"
+			"performed music at a tavern",
+			"claims to have some skill with musical instruments",	
+			"is known around these parts to be quite the musician"
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
@@ -565,7 +583,9 @@ gt.Const.PTR.createProfessionTrees <- function()
 	gt.Const.Perks.HolyManProfessionTree <- {
 		ID = "HolyManProfessionTree",
 		Descriptions = [
-			"preached the word of the gods"
+			"preached the word of the gods",
+			"claims to be a true servant of the gods",
+			"wants nothing more in life than to serve the gods"
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
@@ -600,7 +620,9 @@ gt.Const.PTR.createProfessionTrees <- function()
 	gt.Const.Perks.CultistProfessionTree <- {
 		ID = "CultistProfessionTree",
 		Descriptions = [
-			"took part in cultist rituals"
+			"took part in cultist rituals",
+			"believes in strange otherworldly powers",
+			"belongs to a local cult pledged to a strange god"
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
@@ -637,7 +659,10 @@ gt.Const.PTR.createProfessionTrees <- function()
 	gt.Const.Perks.TraderProfessionTree <- {
 		ID = "TraderProfessionTree",
 		Descriptions = [
-			"traded goods"
+			"traded goods",
+			"ran trading caravans",
+			"earned coin through trade",
+			"claims to have experience in trading and bartering"
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
@@ -669,7 +694,9 @@ gt.Const.PTR.createProfessionTrees <- function()
 	gt.Const.Perks.PauperProfessionTree <- {
 		ID = "PauperProfessionTree",
 		Descriptions = [
-			"is a dreg of society"
+			"is a dreg of society",
+			"looks utterly beaten down",
+			"is a pitiful pile of flesh and bones"
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
@@ -700,7 +727,8 @@ gt.Const.PTR.createProfessionTrees <- function()
 	gt.Const.Perks.LaborerProfessionTree <- {
 		ID = "LaborerProfessionTree",
 		Descriptions = [
-			"earned his bread with hard labor"
+			"did hard labor to make a living",
+			"has strong, calloused hands, just like those of a laborer"
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
@@ -730,7 +758,7 @@ gt.Const.PTR.createProfessionTrees <- function()
 	gt.Const.Perks.ServiceProfessionTree <- {
 		ID = "ServiceProfessionTree",
 		Descriptions = [
-			"performed services"
+			"performed and provided services"
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
@@ -757,7 +785,8 @@ gt.Const.PTR.createProfessionTrees <- function()
 	gt.Const.Perks.RaiderProfessionTree <- {
 		ID = "RaiderProfessionTree",
 		Descriptions = [
-			"raided villages and caravans"
+			"raided villages and caravans",
+			"is a well-known raider and looter in this area"
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
@@ -787,7 +816,9 @@ gt.Const.PTR.createProfessionTrees <- function()
 	gt.Const.Perks.SoldierProfessionTree <- {
 		ID = "SoldierProfessionTree",
 		Descriptions = [
-			"served in the military"
+			"served in the military",
+			"has had professional military experience",
+			"claims to have served in a professional army"
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
