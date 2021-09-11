@@ -2,6 +2,46 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modCharacterBackground <- function()
 {
+	gt.Const.PTR.PerkTreeDynamicMins = {
+		//Profession = 1,
+		Weapon = 4,
+		Defense = 2,
+		Traits = 3,
+		Enemy = 1,
+		EnemyChance = 0.5,
+		Class = 1,
+		ClassChance = 0.01,
+		Magic = 1,
+		MagicChance = 0,
+		Styles = 2
+	};
+	gt.Const.PTR.PerkTreeDynamicMinsMagic = {
+		//Profession = 1,
+		Weapon = 4,
+		Defense = 2,
+		Traits = 3,
+		Enemy = 1,
+		EnemyChance = 0.5,
+		Class = 1,
+		ClassChance = 0.01,
+		Magic = 1,
+		MagicChance = 0.001,
+		Styles = 2
+	};
+	gt.Const.PTR.PerkTreeDynamicMinsBeast = {
+		//Profession = 1,
+		Weapon = 4,
+		Defense = 2,
+		Traits = 3,
+		Enemy = 1,
+		EnemyChance = 0.7,
+		Class = 1,
+		ClassChance = 0.02,
+		Magic = 1,
+		MagicChance = 0.001,
+		Styles = 2
+	};
+
 	this.Const.Perks.TraitsTrees.getBaseAttributes = function()
 	{
 		return {
@@ -241,17 +281,17 @@ gt.Const.PTR.modCharacterBackground <- function()
 			return text;
 		}
 
-		o.getMins <- function()
+		o.getPerkTreeDynamicMins = function()
 		{
-			local mins = this.m.PerkTreeDynamicMins;
+			local mins = this.Const.PTR.PerkTreeDynamicMins;
 
 			if (this.World.Assets.getOrigin().getID() == "scenario.beast_hunters")
 			{
-				mins = this.m.PerkTreeDynamicMinsBeast;
+				mins = this.Const.PTR.PerkTreeDynamicMinsBeast;
 			}
 			else if (this.LegendsMod.Configs().LegendMagicEnabled())
 			{
-				mins = this.m.PerkTreeDynamicMinsMagic;
+				mins = this.Const.PTR.PerkTreeDynamicMinsMagic;
 			}
 
 			return mins;
@@ -263,7 +303,7 @@ gt.Const.PTR.modCharacterBackground <- function()
 
 			if (this.World.Assets.isLegendPerkTrees())
 			{
-				this.m.CustomPerkTree = this.Const.Perks.MergeDynamicPerkTree(_tree, this.Const.Perks.GetDynamicPerkTree(this.getMins(), this.m.PerkTreeDynamic).TreeMap);
+				this.m.CustomPerkTree = this.Const.Perks.MergeDynamicPerkTree(_tree, this.Const.Perks.GetDynamicPerkTree(this.getPerkTreeDynamicMins(), this.m.PerkTreeDynamic).TreeMap);
 			}
 
 			local pT = this.Const.Perks.BuildCustomPerkTree(this.m.CustomPerkTree);
