@@ -316,7 +316,7 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-	function onAnySkillExecuted(_skill, _targetTile)
+	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
 	{
 		if (_skill.getID() == "actives.rotation")
 		{

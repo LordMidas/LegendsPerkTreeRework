@@ -960,7 +960,7 @@ gt.Const.PTR.modSkills <- function()
 			this.removeSelf();
 		}
 
-		o.onAnySkillExecuted <- function(_skill, _targetTile)
+		o.onAnySkillExecuted <- function(_skill, _targetTile, _targetEntity)
 		{
 			if (_skill.isAttack())
 			{

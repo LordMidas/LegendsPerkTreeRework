@@ -73,7 +73,7 @@ this.ptr_take_aim_effect <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-	function onAnySkillExecuted(_skill, _targetTile)
+	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
 	{
 		if (_skill.isAttack() && _skill.isRanged())
 		{

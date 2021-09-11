@@ -16,7 +16,7 @@ this.perk_ptr_hip_shooter <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
-	function onAnySkillExecuted(_skill, _targetTile)
+	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
 	{
 		if (_skill.getID() == "actives.quick_shot")
 		{

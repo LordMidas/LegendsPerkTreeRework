@@ -1,8 +1,7 @@
 this.perk_ptr_bloodlust <- this.inherit("scripts/skills/skill", {
 	m = {
 		Count = 0,
-		FatigueReductionPercentage = 5,
-		TargetEntity = null
+		FatigueReductionPercentage = 5
 	},
 	function create()
 	{
@@ -45,14 +44,9 @@ this.perk_ptr_bloodlust <- this.inherit("scripts/skills/skill", {
 		];
 	}
 
-	function onBeforeAnySkillExecuted( _skill, _targetTile )
+	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
 	{
-		this.m.TargetEntity = _targetTile.getEntity();
-	}
-
-	function onAnySkillExecuted( _skill, _targetTile )
-	{
-		if (this.m.TargetEntity == null || !this.m.TargetEntity.isAlive() || this.m.TargetEntity.isDying())
+		if (_targetEntity == null || !_targetEntity.isAlive() || _targetEntity.isDying())
 		{
 			return;
 		}
@@ -64,12 +58,12 @@ this.perk_ptr_bloodlust <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		if (this.m.TargetEntity.getID() == actor.getID() || this.m.TargetEntity.isAlliedWith(actor))
+		if (_targetEntity.getID() == actor.getID() || _targetEntity.isAlliedWith(actor))
 		{
 			return;
 		}
 
-		this.m.Count = this.m.TargetEntity.getSkills().getAllSkillsByID("effects.bleeding").len();
+		this.m.Count = _targetEntity.getSkills().getAllSkillsByID("effects.bleeding").len();
 
 		actor.setFatigue(this.Math.max(0, actor.getFatigue() - actor.getFatigue() * (this.m.Count * this.m.FatigueReductionPercentage * 0.01)));
 	}
@@ -79,18 +73,15 @@ this.perk_ptr_bloodlust <- this.inherit("scripts/skills/skill", {
 		local actor = this.getContainer().getActor();
 		actor.setFatigue(this.Math.max(0, actor.getFatigue() - this.m.Count));
 		this.m.Count = 0;
-		this.m.TargetEntity = null;
 	}
 
 	function onCombatFinished()
 	{
 		this.m.Count = 0;
-		this.m.TargetEntity = null;
 	}
 
 	function onCombatStarted()
 	{
 		this.m.Count = 0;
-		this.m.TargetEntity = null;
 	}
 });

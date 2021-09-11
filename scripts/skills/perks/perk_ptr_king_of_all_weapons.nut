@@ -86,7 +86,7 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-	function onAnySkillExecuted(_skill, _targetTile)
+	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
 	{
 		if (_skill.getID() == "actives.thrust" || _skill.getID() == "actives.prong")
 		{
