@@ -865,8 +865,16 @@ gt.Const.PTR.modEnemies <- function()
 			maulerPerk.m.IsForceEnabled = true;
 			this.m.Skills.add(maulerPerk);
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bully"));
+
+			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+			{
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
+			this.m.Skills.removeByID("perk.last_stand");
+			}
 		}
 	});
+
+
 
 	# ::mods_hookExactClass("entity/tactical/enemies/legend_catapult", function(o) {
 	# 	local onInit = o.onInit;
@@ -1018,8 +1026,12 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
+				local intimidatePerk = this.new("scripts/skills/perks/perk_ptr_intimidate");
+				intimidatePerk.m.IsForceEnabled = true;
+				this.m.Skills.add(intimidatePerk);
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_relentless"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_steel_brow"));
+				this.m.Skills.removeByID("perk.last_stand");
 			}
 		}
 
@@ -1066,10 +1078,16 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
+				local intimidatePerk = this.new("scripts/skills/perks/perk_ptr_intimidate");
+				intimidatePerk.m.IsForceEnabled = true;
+				this.m.Skills.add(intimidatePerk);
+				this.m.Skills.removeByID("perk.last_stand");
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_sundering_strikes"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_assured_conquest"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_coup_de_grace"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bulwark"));
+
 			}
 		}
 
@@ -1549,6 +1567,9 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
+				local fasPerk = this.new("scripts/skills/perks/perk_ptr_from_all_sides");
+				fasPerk.m.IsForceEnabled = true;
+				this.m.Skills.add(fasPerk);
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));
 				local poisonEffect = this.new("scripts/skills/effects/poison_coat_effect");
 				poisonEffect.m.Name = "Serpent Venom";
@@ -2188,6 +2209,8 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
+				this.m.Skills.removeByID("perk.last_stand");
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_battle_forged"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_berserk"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_stalwart"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_steel_brow"));
@@ -2210,6 +2233,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_the_rush_of_battle"));
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
+				this.m.Skills.removeByID("perk.last_stand");
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
 			}
 		}
@@ -2443,7 +2467,7 @@ gt.Const.PTR.modEnemies <- function()
 
 				if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 				{
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_last_stand"));
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_battle_forged"));
 				}
 			}
 
@@ -2888,7 +2912,7 @@ gt.Const.PTR.modEnemies <- function()
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));			
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
