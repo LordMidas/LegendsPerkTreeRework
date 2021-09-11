@@ -75,7 +75,7 @@ this.perk_ptr_survival_instinct <- this.inherit("scripts/skills/skill", {
 
 	function onTurnStart()
 	{
-		this.m.Stacks = 0;
+		this.m.Stacks /= 3;
 	}
 
 	function onCombatStarted()
