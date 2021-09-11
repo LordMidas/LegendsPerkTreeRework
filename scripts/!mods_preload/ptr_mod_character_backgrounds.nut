@@ -3972,38 +3972,92 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/mage_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
-			WeightMultipliers = [
-				{Multiplier = 0.5, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.SturdyTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.TrainedTree}
-			],
-			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.FastTree}],
-				[{Weight = 100, Tree = this.Const.Perks.TalentedTree}]
-			],
-			Defense = [
-				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
-			],
-			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.StavesTree}]
+		o.m.PerkTreeDynamic = null;
+
+		clearCustomPerkTree(o.m.CustomPerkTree);
+
+		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
+			[
+				this.Const.Perks.StavesTree,
+				this.Const.Perks.TalentedTree
 			]
-		};
+		);
+
+		addPerksToCustomPerkTree(1, o.m.CustomPerkTree, [
+			]
+		);
+
+		addPerksToCustomPerkTree(2, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.PTRBloodyHarvest
+			]
+		);
+
+		addPerksToCustomPerkTree(3, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.PTRFormidableApproach
+			]
+		);
+
+		addPerksToCustomPerkTree(4, o.m.CustomPerkTree, [
+			]
+		);
+
+		addPerksToCustomPerkTree(5, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.PTRSweepingStrikes,
+				this.Const.Perks.PerkDefs.ReachAdvantage,
+			]
+		);
+
+		addPerksToCustomPerkTree(6, o.m.CustomPerkTree, [
+			]
+		);
+
+		addPerksToCustomPerkTree(7, o.m.CustomPerkTree, [				
+			]
+		);
 	});
 
-	# ::mods_hookNewObject("skills/backgrounds/mage_legend_mage_commander_background", function(o) {
-	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.FastTree, o.m.CustomPerkTree);
-	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.TalentedTree, o.m.CustomPerkTree);
-	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.LightArmorTree, o.m.CustomPerkTree);
-	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.OneHandedTree, o.m.CustomPerkTree);
-	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.TwoHandedTree, o.m.CustomPerkTree);
-	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.RangedTree, o.m.CustomPerkTree);
-	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.StavesTree, o.m.CustomPerkTree);
-	# 	addPerkTreesToCustomPerkTree(this.Const.Perks.DaggerTree, o.m.CustomPerkTree);
-	# });
+	::mods_hookNewObject("skills/backgrounds/mage_legend_mage_commander_background", function(o) {
+		clearCustomPerkTree(o.m.CustomPerkTree);
+
+	 	addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
+			[
+				this.Const.Perks.StavesTree,
+				this.Const.Perks.TalentedTree
+			]
+		);
+
+		addPerksToCustomPerkTree(1, o.m.CustomPerkTree, [
+			]
+		);
+
+		addPerksToCustomPerkTree(2, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.PTRBloodyHarvest
+			]
+		);
+
+		addPerksToCustomPerkTree(3, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.PTRFormidableApproach
+			]
+		);
+
+		addPerksToCustomPerkTree(4, o.m.CustomPerkTree, [
+			]
+		);
+
+		addPerksToCustomPerkTree(5, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.PTRSweepingStrikes,
+				this.Const.Perks.PerkDefs.ReachAdvantage,
+			]
+		);
+
+		addPerksToCustomPerkTree(6, o.m.CustomPerkTree, [
+			]
+		);
+
+		addPerksToCustomPerkTree(7, o.m.CustomPerkTree, [				
+			]
+		);
+	});
 
 	::mods_hookNewObject("skills/backgrounds/manhunter_background", function(o) {
 		o.m.PerkTreeDynamic = {
