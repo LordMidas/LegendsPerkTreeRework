@@ -2,7 +2,7 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modCharacterBackground <- function()
 {
-	gt.Const.PTR.PerkTreeDynamicMins = {
+	gt.Const.PTR.PerkTreeDynamicMins <- {
 		//Profession = 1,
 		Weapon = 4,
 		Defense = 2,
@@ -15,7 +15,7 @@ gt.Const.PTR.modCharacterBackground <- function()
 		MagicChance = 0,
 		Styles = 2
 	};
-	gt.Const.PTR.PerkTreeDynamicMinsMagic = {
+	gt.Const.PTR.PerkTreeDynamicMinsMagic <- {
 		//Profession = 1,
 		Weapon = 4,
 		Defense = 2,
@@ -28,7 +28,7 @@ gt.Const.PTR.modCharacterBackground <- function()
 		MagicChance = 0.001,
 		Styles = 2
 	};
-	gt.Const.PTR.PerkTreeDynamicMinsBeast = {
+	gt.Const.PTR.PerkTreeDynamicMinsBeast <- {
 		//Profession = 1,
 		Weapon = 4,
 		Defense = 2,
@@ -281,7 +281,7 @@ gt.Const.PTR.modCharacterBackground <- function()
 			return text;
 		}
 
-		o.getPerkTreeDynamicMins = function()
+		o.getPerkTreeDynamicMins <- function()
 		{
 			local mins = this.Const.PTR.PerkTreeDynamicMins;
 
