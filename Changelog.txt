@@ -1,4 +1,18 @@
 ===================
+==== Ver 1.0.8 ====
+===================
+- Now compatibile with Legends version 15.0.1.20h.
+- Now includes the Scrollable Perk Tree mod by Leonion (thanks for his permission). So remove that mod from your data folder!
+- Survival Instinct perk tweaked: Now loses two-thirds of its stacks every turn, instead of all of the stacks.
+- Reworked many more commander backgrounds to now fit their perk trees within 13 columns.
+- Legendary Difficulty balance:
+  - Removed Last Stand from the following enemies: Bear, Orc Behemoth, Orc Elite, Barbarian Reaver, Barbarian Thrall, Champion Blade Dancer.
+  - Added Survival Instinct to: Bear, Orc Elite.
+  - Added Intimidate to: Orc Behemoth, Orc Elite.
+  - Added From All Sides to Serpents.
+  - Added Battleforged to: Barbarian Reavers, Champion Blade Dancers.
+
+===================
 ==== Ver 1.0.7 ====
 ===================
 - Sanguinary perk tweaked: Now also takes into account Bleeding applied by the attack. The tooltip has been updated to reflect this change.
