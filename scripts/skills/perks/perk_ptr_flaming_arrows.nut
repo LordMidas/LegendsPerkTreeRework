@@ -32,7 +32,7 @@ this.perk_ptr_flaming_arrows <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		if (_targetEntity.getTile() != null)
+		if (this.m.TargetTile != null)
 		{
 			this.Time.scheduleEvent(this.TimeUnit.Real, 50, this.onApply.bindenv(_skill), {
 				Skill = _skill,
