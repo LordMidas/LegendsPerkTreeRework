@@ -317,7 +317,7 @@ gt.Const.PTR.modSkills <- function()
 		{
 			local ret = onUse( _user, _targetTile );
 
-			if (ret && (this.m.Type == this.Const.EntityType.BanditLeader || this.m.Type == this.Const.EntityType.NomadLeader || this.m.Type == this.Const.EntityType.BanditWarlord))
+			if (ret && !_user.isPlayerControlled() && (_user.getType() == this.Const.EntityType.BanditLeader || _user.getType() == this.Const.EntityType.NomadLeader || _user.getType() == this.Const.EntityType.BanditWarlord))
 			{
 				this.m.TurnsRemaining = 3;
 			}
