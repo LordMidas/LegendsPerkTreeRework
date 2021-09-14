@@ -6,6 +6,40 @@ local gt = this.getroottable();
 gt.Const.WMS <- {};
 
 ::mods_queue(modID, "mod_MSU, >mod_legends", function() {
+	gt.Const.WMS.Mastery <- {
+		Axe = "Axe",
+		Bow = "Bow",
+		Cleaver = "Cleaver",
+		Crossbow = "Crossbow",		
+		Dagger = "Dagger",
+		Firearm = "Firearm",
+		Flail = "Flail",
+		Mace = "Mace",
+		Hammer = "Hammer",
+		Polearm = "Polearm",
+		Sling = "Sling",
+		Spear = "Spear",
+		Staff = "Staff",
+		Sword = "Sword",
+		Throwing = "Throwing"
+	}
+
+	gt.Const.WMS.addNewMastery <- function(_mastery, _categoriesString = "")
+	{
+		if (_mastery in gt.Const.WMS.Mastery)
+		{
+			this.logError("addNewMastery: \'" + _mastery + "\' already exists.");
+			return;
+		}
+
+		if (_categoriesString = "")
+		{
+			_categoriesString = _mastery;
+		}
+
+		gt.Const.WMS.Mastery[_mastery] <- _categoriesString;
+	}	
+
 	gt.Const.WMS.modActor();
 	gt.Const.WMS.modPerks();
 	gt.Const.WMS.modWeapon();

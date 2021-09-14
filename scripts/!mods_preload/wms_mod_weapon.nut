@@ -3,6 +3,8 @@ local gt = this.getroottable();
 gt.Const.WMS.modWeapon <- function()
 {
 	::mods_hookExactClass("items/weapons/weapon", function ( o ) {
+		o.m.ForcedApplicableMasteries <- [];
+
 		local tooltipFunc = o.getTooltip;
 		o.getTooltip = function()
 		{
@@ -11,12 +13,15 @@ gt.Const.WMS.modWeapon <- function()
 			if (this.m.WeaponType != this.Const.Items.WeaponType.None)
 			{
 				local masteriesList = this.getStringOfApplicableMasteries();
-				tooltip.push({
-					id = 20,
-					type = "text",
-					icon = "ui/icons/special.png",
-					text = "Applicable masteries: " + masteriesList
-				});
+				if (masteriesList != "")
+				{
+					tooltip.push({
+						id = 20,
+						type = "text",
+						icon = "ui/icons/special.png",
+						text = "Applicable masteries: " + masteriesList
+					});
+				}
 			}
 
 			return tooltip;
@@ -24,26 +29,26 @@ gt.Const.WMS.modWeapon <- function()
 
 		o.getStringOfApplicableMasteries <- function()
 		{
-			local masteries = "";
+			local masteries = clone this.m.ForcedApplicableMasteries;
 
-			foreach (k, weaponType in this.Const.Items.WeaponType)
+			foreach (mastery in gt.Const.WMS.Mastery)
 			{
-				if (this.isWeaponType(weaponType))
+				if (this.getCategories().find(mastery) != null && masteries.find(mastery) == null)
 				{
-					masteries += k + ", ";
+					masteries.push(mastery);
 				}
 			}
 
-			if (masteries == "")
-			{
-				masteries = "None"
-			}
-			else
-			{
-				masteries = masteries.slice(0, -2);
-			}
+			local ret = "";
 
-			return masteries;
+			foreach (mastery in masteries)
+			{
+				ret += mastery + ", ";
+			}	
+
+			ret = ret.slice(0, -2);
+
+			return ret;
 		}
 	});
 };
