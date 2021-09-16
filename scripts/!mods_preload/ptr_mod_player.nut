@@ -62,5 +62,19 @@ gt.Const.PTR.modPlayer <- function()
 			setAttributeLevelUpValues(_v);
 			this.m.LevelUpsSpent++;
 		}
+
+		local onSerialize = o.onSerialize;
+		o.onSerialize = function( _out )
+		{
+			onSerialize(_out);
+			_out.writeU8(this.m.LevelUpsSpent);
+		}
+
+		local onDeserialize = o.onDeserialize;
+		o.onDeserialize = function ( _in )
+		{
+			onDeserialize(_in);
+			this.m.LevelUpsSpent = _in.readU8();
+		}
 	});
 }
