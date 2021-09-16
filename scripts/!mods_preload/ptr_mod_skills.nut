@@ -37,7 +37,7 @@ gt.Const.PTR.modSkills <- function()
 					id = 7,
 					type = "text",
 					icon = "ui/icons/special.png",
-					text = "Will apply \'Staggered\' on the target"
+					text = "Will stagger the target if successfully knocked back"
 				});
 			}
 
