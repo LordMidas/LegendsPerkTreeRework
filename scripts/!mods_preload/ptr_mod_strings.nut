@@ -288,6 +288,9 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.SpecSword += "\n\nThe threshold to inflict injury when using a Shamshir or the One-Handed versions of Saif and Scimitar is reduced by [color=" + this.Const.UI.Color.NegativeValue + "]25%[/color].\n[color=#0b0084]From the Sword perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.SpecSword].Tooltip = gt.Const.Strings.PerkDescription.SpecSword;
 
+	gt.Const.Strings.PerkDescription.ShieldExpert = "Learn to better deflect hits to the side instead of blocking them head on.\n\nThe shield defense bonus is increased by [color=" + this.Const.UI.Color.PositiveValue + "]25%[/color]. This also applies to the additional defense bonus of the Shieldwall skill.\n\nShield damage received is reduced by [color=" + this.Const.UI.Color.NegativeValue + "]50%[/color] to a minimum of 1.\n\nThe \'Knock Back\' skill gains [color=" + this.Const.UI.Color.PositiveValue + "]+15%[/color] chance to hit and applies \'Staggered\' on the target.\n[color=#0b0084]From the One-Handed Weapons and Shield perk groups[/color]";
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.ShieldExpert].Tooltip = gt.Const.Strings.PerkDescription.ShieldExpert;
+
 	local throwingArray = split(gt.Const.Strings.PerkDescription.SpecThrowing, "[");
 	throwingArray.pop();
 	throwingArray.pop();
@@ -330,10 +333,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.BFFencer].Tooltip = gt.Const.Strings.PerkDescription.BFFencer;
 
 	gt.Const.Strings.PerkDescription.ReachAdvantage = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.ReachAdvantage, "Two-Handed Weapons");
-	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.ReachAdvantage].Tooltip = gt.Const.Strings.PerkDescription.ReachAdvantage;
-	gt.Const.Strings.PerkDescription.ShieldExpert = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.ShieldExpert, "One-Handed Weapons and Shield");
-	gt.Const.Strings.PerkDescription.ShieldExpert += "[color=#0b0084]s[/color]";
-	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.ShieldExpert].Tooltip = gt.Const.Strings.PerkDescription.ShieldExpert;
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.ReachAdvantage].Tooltip = gt.Const.Strings.PerkDescription.ReachAdvantage;	
 	gt.Const.Strings.PerkDescription.Duelist = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Duelist, "One-Handed Weapons");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Duelist].Tooltip = gt.Const.Strings.PerkDescription.Duelist;
 
