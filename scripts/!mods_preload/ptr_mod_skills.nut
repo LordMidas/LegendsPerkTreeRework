@@ -312,6 +312,16 @@ gt.Const.PTR.modSkills <- function()
 	::mods_hookExactClass("skills/actives/rally_the_troops", function(o) {
 		o.m.TurnsRemaining <- 0;
 
+		local onAfterUpdate = ::mods_getMember(o, "onAfterUpdate");
+		o.onAfterUpdate = function( _properties )
+		{
+			onAfterUpdate(_properties);
+			if (!_user.isPlayerControlled() && (_user.getType() == this.Const.EntityType.BanditLeader || _user.getType() == this.Const.EntityType.NomadLeader || _user.getType() == this.Const.EntityType.BanditWarlord))
+			{
+				this.m.ActionPointCost = 3;
+			}
+		}
+
 		local onUse = o.onUse;
 		o.onUse = function( _user, _targetTile )
 		{
