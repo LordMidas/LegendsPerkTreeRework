@@ -2,6 +2,30 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modSkills <- function()
 {
+	::mods_hookExactClass("skills/effects/stunned_effect", function(o) {
+		local onAdded = o.onAdded;
+		o.onAdded = function()
+		{
+			local shieldwall = this.getContainer().getSkillByID("effects.shieldwall");
+			if (shieldwall != null)
+			{
+				shieldwall.removeSelf();
+				this.removeSelf();
+				return;
+			}
+
+			fortify = this.getContainer().getSkillByID("effects.legend_fortify")
+			if (fortify != null)
+			{
+				fortify.removeSelf();
+				this.removeSelf();
+				return;
+			}
+
+			onAdded();
+		}
+	});
+
 	::mods_hookExactClass("skills/actives/knock_back", function(o) {
 		local getTooltip = o.getTooltip;
 		o.getTooltip = function()
@@ -19,7 +43,7 @@ gt.Const.PTR.modSkills <- function()
 
 			return ret;
 		}
-		
+
 		local onUse = o.onUse;
 		o.onUse = function( _user, _targetTile )
 		{
