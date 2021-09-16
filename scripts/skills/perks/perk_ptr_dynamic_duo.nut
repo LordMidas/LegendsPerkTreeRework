@@ -144,6 +144,11 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 
 	function getAllyIfOnlyOneWithinAOE(_actor)
 	{
+		local ret = {
+			Actor = null,
+			Distance = 0
+		};
+
 		local myTile = _actor.getTile();
 		local allies = this.Tactical.Entities.getInstancesOfFaction(_actor.getFaction());
 
@@ -160,30 +165,29 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 			}
 
 			local distance = a.getTile().getDistanceTo(myTile);
-			if (distance > this.m.AOE)
+			if (distance <= this.m.AOE)
 			{
-				continue;
-			}
+				count++;
+				if (count > 1)
+				{
+					return ret;
+				}
 
-			count++;
-			if (count > 1)
-			{
-				break;
-			}
-
-			if (distance <= this.m.MaxAllowedAllyDistance)
-			{
-				ally = a;
-				allyDistance = distance;
+				if (distance <= this.m.MaxAllowedAllyDistance)
+				{
+					ally = a;
+					allyDistance = distance;
+				}
 			}
 		}
 
-		if (count != 1 || allyDistance > this.m.MaxAllowedAllyDistance)
+		if (count == 1 && allyDistance <= this.m.MaxAllowedAllyDistance)
 		{
-			ally = null;
+			ret.Actor = ally;
+			ret.Distance = allyDistance;
 		}
 
-		return {Actor = ally, Distance = allyDistance};
+		return ret;
 	}
 
 	function updateSituation()
@@ -199,15 +203,17 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 			return false;
 		}
 
-		if (ally.Actor.getSkills().hasSkill("perk.ptr_dynamic_duo"))
+		local a = this.getAllyIfOnlyOneWithinAOE(ally.Actor);
+		if (a.Actor == null || a.Actor.getID() != actor.getID())
 		{
-			local a = this.getAllyIfOnlyOneWithinAOE(ally.Actor);
-			if (a.Actor != null && a.Actor.getID() == actor.getID())
-			{
-				this.m.IsAllyDynamicDuo = true;
-			}
+			return false;			
 		}
 
+		if (ally.Actor.getSkills().hasSkill("perk.ptr_dynamic_duo"))
+		{
+			this.m.IsAllyDynamicDuo = true;
+		}
+		
 		this.m.AllyID = ally.Actor.getID();
 		this.m.AllyDistance = ally.Distance;
 
