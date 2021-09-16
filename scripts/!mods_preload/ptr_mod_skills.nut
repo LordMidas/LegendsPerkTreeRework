@@ -588,10 +588,7 @@ gt.Const.PTR.modSkills <- function()
 	});
 
 	::mods_hookNewObject("skills/perks/perk_legend_freedom_of_movement", function(o) {
-		o.getDescription = function()
-		{
-			return "Owing to their light-weight armor, this character is gaining increased mobility and can strike more accurately."
-		}
+		o.m.Description = "Owing to %their% light-weight armor, this character is gaining increased mobility and can strike more accurately."
 
 		o.getTooltip = function()
 		{
@@ -1008,6 +1005,7 @@ gt.Const.PTR.modSkills <- function()
 		o.m.Order = this.Const.SkillType.Perk;
 		o.m.AttackSkillThreshold <- 70;
 		o.m.DefenseSkillThreshold <- 40;
+		o.m.Description = "This character is using %their% training to gain at least a passable understanding of the fundamentals of combat, especially in areas %they% lacks.";
 
 		if ("onDamageReceived" in o)
 		{
@@ -1015,11 +1013,6 @@ gt.Const.PTR.modSkills <- function()
 			{
 				# overwrite legends function
 			}
-		}
-
-		o.getDescription = function()
-		{
-			return "This character is using their training to gain at least a passable understanding of the fundamentals of combat, especially in areas they lack.";
 		}
 
 		o.getTooltip <- function()
