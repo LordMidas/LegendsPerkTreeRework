@@ -16,7 +16,7 @@ this.perk_ptr_take_aim <- this.inherit("scripts/skills/skill", {
 	function isEnabled()
 	{
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon == null || (!weapon.isWeaponType(this.Const.Items.WeaponType.Crossbow) && !this.getContainer().hasSkill("actives.fire_handgonne_skill")))
+		if (weapon == null || (!weapon.isWeaponType(this.Const.Items.WeaponType.Crossbow) && !this.getContainer().hasSkill("actives.fire_handgonne")))
 		{
 			return false;
 		}

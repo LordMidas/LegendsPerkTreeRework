@@ -66,7 +66,7 @@ this.ptr_take_aim_effect <- this.inherit("scripts/skills/skill", {
 
 	function onAfterUpdate(_properties)
 	{
-		local skill = this.getContainer().getSkillByID("actives.fire_handgonne_skill");
+		local skill = this.getContainer().getSkillByID("actives.fire_handgonne");
 		if (skill != null)
 		{
 			skill.m.MaxRange += 1;
