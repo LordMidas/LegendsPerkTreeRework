@@ -1383,6 +1383,13 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 0.5, Tree = this.Const.Perks.ThrowingTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.SpearTree}
 			],
+			Profession = [
+				[
+					{Weight = 20, Tree = this.Const.Perks.RaiderProfessionTree},
+					{Weight = 10, Tree = this.Const.Perks.SoldierProfessionTree},
+					{Weight = 70, Tree = this.Const.Perks.NoTree}
+				]
+			],
 			Class = [
 				[{Weight = 100, Tree = this.Const.Perks.TrapperClassTree}]
 			],
@@ -4284,6 +4291,13 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 0, Tree = this.Const.Perks.SlingsTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.ThrowingTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.SpearTree}
+			],
+			Profession = [
+				[
+					{Weight = 20, Tree = this.Const.Perks.RaiderProfessionTree},
+					{Weight = 10, Tree = this.Const.Perks.SoldierProfessionTree},
+					{Weight = 70, Tree = this.Const.Perks.NoTree}
+				]
 			],
 			Class = [
 				[{Weight = 100, Tree = this.Const.Perks.TrapperClassTree}]
