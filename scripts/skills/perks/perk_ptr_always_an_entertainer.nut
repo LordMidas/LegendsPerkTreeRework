@@ -123,7 +123,9 @@ this.perk_ptr_always_an_entertainer <- this.inherit("scripts/skills/skill", {
 		{
 			this.m.IsSpent = _in.readBool();
 
-			for (local i = 0; i < _in.readU8(); i++)
+			local count = _in.readU8();
+
+			for (local i = 0; i < count; i++)
 			{
 				this.m.SettlementsVisited.push(_in.readString());
 			}
