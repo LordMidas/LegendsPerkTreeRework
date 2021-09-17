@@ -51,6 +51,15 @@ this.bf_sword_thrust_skill <- this.inherit("scripts/skills/skill", {
 			}
 		);
 
+		ret.push(
+			{
+				id = 6,
+				type = "text",
+				icon = "ui/icons/chance_to_hit_head.png",
+				text = "Has [color=" + this.Const.UI.Color.NegativeValue + "]-25%[/color] chance to hit the head"
+			}
+		);
+
 		if (this.getContainer().hasSkill("perk.bf_fencer"))
 		{
 			ret.push(
@@ -86,19 +95,17 @@ this.bf_sword_thrust_skill <- this.inherit("scripts/skills/skill", {
 
 		this.m.HitChanceBonus = -15;
 
-		if (_skill != this || _targetEntity == null)
+		if (_skill == this && _targetEntity != null)
 		{
-			return;
+			_properties.HitChance[this.Const.BodyPart.Head] -= 25;
+
+			local targetArmor = _targetEntity.getArmor(this.Const.BodyPart.Body);
+			if (targetArmor > 125)
+			{
+				this.m.HitChanceBonus = this.Math.max(-35, this.m.HitChanceBonus - (targetArmor - 125) / 10);
+			}		
+
+			_properties.MeleeSkill += this.m.HitChanceBonus;
 		}
-
-		local hitChanceBonus = this.m.HitChanceBonus;
-		local targetArmor = _targetEntity.getArmor(this.Const.BodyPart.Body);
-		hitChanceBonus = this.Math.max(-35, hitChanceBonus - (targetArmor - 125) / 10);
-
-		hitChanceBonus = this.Math.min(-5, hitChanceBonus);
-
-		this.m.HitChanceBonus = hitChanceBonus;
-
-		_properties.MeleeSkill += hitChanceBonus;
 	}
 });

@@ -32,6 +32,15 @@ gt.ModBetterFencing.modSkills <- function()
 				}
 			);
 
+			ret.push(
+				{
+					id = 6,
+					type = "text",
+					icon = "ui/icons/chance_to_hit_head.png",
+					text = "Has [color=" + this.Const.UI.Color.NegativeValue + "]-25%[/color] chance to hit the head"
+				}
+			);
+
 			if (this.getContainer().hasSkill("perk.bf_fencer"))
 			{
 				ret.push(
@@ -87,28 +96,23 @@ gt.ModBetterFencing.modSkills <- function()
 
 			if (_skill == this)
 			{
+				_properties.HitChance[this.Const.BodyPart.Head] -= 25;
+
 				local a = this.getContainer().getActor();
 				local s = this.Math.minf(2.0, 2.0 * (this.Math.max(0, a.getInitiative() + (_targetEntity != null ? this.getFatigueCost() * a.getCurrentProperties().FatigueToInitiativeRate : 0)) / 175.0));
 				_properties.DamageTotalMult *= s;
+
+				if (_targetEntity != null)
+				{
+					local targetArmor = _targetEntity.getArmor(this.Const.BodyPart.Body);
+					if (targetArmor > 125)
+					{
+						this.m.HitChanceBonus = this.Math.max(-35, this.m.HitChanceBonus - (targetArmor - 125) / 10);
+					}
+					
+					_properties.MeleeSkill += this.m.HitChanceBonus;
+				}
 			}
-			else
-			{
-				return;
-			}
-
-			if (_targetEntity == null)
-			{
-				return;
-			}
-
-			local hitChanceBonus = this.m.HitChanceBonus;
-			local targetArmor = _targetEntity.getArmor(this.Const.BodyPart.Body);
-			hitChanceBonus = this.Math.max(-35, hitChanceBonus - (targetArmor - 125) / 10);
-
-			hitChanceBonus = this.Math.min(-5, hitChanceBonus);
-			this.m.HitChanceBonus = hitChanceBonus;
-
-			_properties.MeleeSkill += hitChanceBonus;
 		}		
 
 		::mods_override(o, "onVerifyTarget" function( _originTile, _targetTile )
