@@ -1,7 +1,9 @@
 this.perk_ptr_survival_instinct <- this.inherit("scripts/skills/skill", {
 	m = {
-		Stacks = 0,
-		BonusPerStack = 5
+		MissStacks = 0,
+		HitStacks = 0,
+		BonusPerMiss = 3,
+		BonusPerHit = 5
 	},
 	function create()
 	{
@@ -19,17 +21,31 @@ this.perk_ptr_survival_instinct <- this.inherit("scripts/skills/skill", {
 
 	function getName()
 	{
-		return this.m.Stacks == 0 ? this.m.Name : this.m.Name + " x(" + this.m.Stacks + ")";
+		local name = this.m.Name;
+
+		if (this.m.HitStacks > 0)
+		{
+			name += " x(" + this.m.HitStacks + " hits)"
+		}
+
+		if (this.m.MissStacks > 0)
+		{
+			name += " x(" + this.m.MissStacks + " misses)"
+		}
+
+		return name;
 	}
 
 	function isHidden()
 	{
-		return this.m.Stacks == 0;
+		return this.m.HitStacks	== 0 && this.m.MissStacks == 0;
 	}
 
 	function getTooltip()
 	{
 		local tooltip = this.skill.getTooltip();
+
+		local bonus = this.getBonus();
 
 		tooltip.extend(
 			[
@@ -37,13 +53,13 @@ this.perk_ptr_survival_instinct <- this.inherit("scripts/skills/skill", {
 					id = 10,
 					type = "text",
 					icon = "ui/icons/melee_defense.png",
-					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getBonus() + "[/color] Melee Defense"
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + bonus + "[/color] Melee Defense"
 				},
 				{
 					id = 10,
 					type = "text",
 					icon = "ui/icons/ranged_defense.png",
-					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getBonus() + "[/color] Ranged Defense"
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + bonus + "[/color] Ranged Defense"
 				}
 			]
 		);
@@ -53,7 +69,7 @@ this.perk_ptr_survival_instinct <- this.inherit("scripts/skills/skill", {
 
 	function getBonus()
 	{
-		return this.m.Stacks * this.m.BonusPerStack;
+		return (this.m.MissStacks * this.m.BonusPerMiss) + (this.m.HitStacks * this.m.BonusPerMiss);
 	}
 
 	function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
@@ -63,7 +79,17 @@ this.perk_ptr_survival_instinct <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		this.m.Stacks += 1;
+		this.m.HitStacks += 1;
+	}
+
+	function onMissed( _attacker, _skill )
+	{
+		if (_skill == null || !_skill.isAttack() || _attacker == null || _attacker.getID() == this.getContainer().getActor().getID())
+		{
+			return;
+		}
+
+		this.m.MissStacks += 1;
 	}
 
 	function onUpdate( _properties )
@@ -75,17 +101,24 @@ this.perk_ptr_survival_instinct <- this.inherit("scripts/skills/skill", {
 
 	function onTurnStart()
 	{
-		this.m.Stacks /= 3;
+		this.m.MissStacks = 0;
+
+		if (this.m.HitStacks > 2)
+		{
+			this.m.HitStacks = 2;
+		}
 	}
 
 	function onCombatStarted()
 	{
-		this.m.Stacks = 0;
+		this.m.MissStacks = 0;
+		this.m.HitStacks = 0;
 	}
 
 	function onCombatFinished()
 	{
 		this.skill.onCombatFinished();
-		this.m.Stacks = 0;
+		this.m.MissStacks = 0;
+		this.m.HitStacks = 0;
 	}
 });
