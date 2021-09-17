@@ -8,7 +8,7 @@ this.ptr_dented_armor_effect <- this.inherit("scripts/skills/skill", {
 		this.m.Name = "Dented Armor";
 		this.m.Description = "This character\'s armor has been dented severely, restricting mobility.";
 		this.m.Icon = "ui/perks/ptr_dent_armor.png";
-		//this.m.IconMini = "ptr_dented_armor_effect_mini";
+		this.m.IconMini = "ptr_dented_armor_effect_mini";
 		this.m.Overlay = "ptr_dented_armor_effect";
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;

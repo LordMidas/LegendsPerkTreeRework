@@ -10,6 +10,7 @@ this.perk_ptr_the_rush_of_battle <- this.inherit("scripts/skills/skill", {
 		this.m.Name = this.Const.Strings.PerkName.PTRTheRushOfBattle;
 		this.m.Description = "%name% is in the thick of battle, with %their% heart beating faster, pumping fresh blood through %their% veins.";
 		this.m.Icon = "ui/perks/ptr_the_rush_of_battle.png";
+		this.m.IconMini = "ptr_the_rush_of_battle_mini";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;

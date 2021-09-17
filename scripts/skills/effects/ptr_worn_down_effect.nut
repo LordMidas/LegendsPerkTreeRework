@@ -8,8 +8,8 @@ this.ptr_worn_down_effect <- this.inherit("scripts/skills/skill", {
 		this.m.Name = "Worn Down";
 		this.m.Description = "This character is feeling worn down after taking blows from a staff.";
 		this.m.Icon = "ui/perks/ptr_wear_them_down.png";
-		//this.m.IconMini = "ptr_rattled_effect_mini";
-		this.m.Overlay = "ptr_worn_down";
+		this.m.IconMini = "ptr_worn_down_effect_mini";
+		this.m.Overlay = "ptr_worn_down_effect";
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;
 		this.m.IsRemovedAfterBattle = true;

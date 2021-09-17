@@ -8,6 +8,7 @@ this.perk_ptr_bulwark <- this.inherit("scripts/skills/skill", {
 		this.m.Name = this.Const.Strings.PerkName.PTRBulwark;
 		this.m.Description = "%name% feels braver the more durable %their% armor is!"
 		this.m.Icon = "ui/perks/ptr_bulwark.png";
+		this.m.IconMini = "ptr_bulwark_mini";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;

@@ -18,8 +18,8 @@ local modID = "mod_legends_STR";
 			Script = "scripts/skills/perks/perk_str_line_breaker",
 			Name = this.Const.Strings.PerkName.STRLineBreaker,
 			Tooltip = this.Const.Strings.PerkDescription.STRLineBreaker,
-			Icon = "ui/perks/str_line_breaker.png",
-			IconDisabled = "ui/perks/str_line_breaker_bw.png",
+			Icon = "ui/perks/ptr_line_breaker.png",
+			IconDisabled = "ui/perks/ptr_line_breaker_bw.png",
 			Const = "STRLineBreaker"
 		},
 		{
@@ -27,8 +27,8 @@ local modID = "mod_legends_STR";
 			Script = "scripts/skills/perks/perk_str_cover_ally",
 			Name = this.Const.Strings.PerkName.STRCoverAlly,
 			Tooltip = this.Const.Strings.PerkDescription.STRCoverAlly,
-			Icon = "ui/perks/str_cover_ally.png",
-			IconDisabled = "ui/perks/str_cover_ally_bw.png",
+			Icon = "ui/perks/ptr_cover_ally.png",
+			IconDisabled = "ui/perks/ptr_cover_ally_bw.png",
 			Const = "STRCoverAlly"
 		},
 		{
@@ -36,8 +36,8 @@ local modID = "mod_legends_STR";
 			Script = "scripts/skills/perks/perk_str_phalanx",
 			Name = this.Const.Strings.PerkName.STRPhalanx,
 			Tooltip = this.Const.Strings.PerkDescription.STRPhalanx,
-			Icon = "ui/perks/str_phalanx.png",
-			IconDisabled = "ui/perks/str_phalanx_bw.png",
+			Icon = "ui/perks/ptr_phalanx.png",
+			IconDisabled = "ui/perks/ptr_phalanx_bw.png",
 			Const = "STRPhalanx"
 		},
 		{
@@ -45,8 +45,8 @@ local modID = "mod_legends_STR";
 			Script = "scripts/skills/perks/perk_str_phalanx",
 			Name = this.Const.Strings.PerkName.STRPhalanx,
 			Tooltip = this.Const.Strings.PerkDescription.STRPhalanx,
-			Icon = "ui/perks/str_phalanx.png",
-			IconDisabled = "ui/perks/str_phalanx_bw.png",
+			Icon = "ui/perks/ptr_phalanx.png",
+			IconDisabled = "ui/perks/ptr_phalanx_bw.png",
 			Const = "STRDummy1"
 		},
 		{
@@ -54,8 +54,8 @@ local modID = "mod_legends_STR";
 			Script = "scripts/skills/perks/perk_str_phalanx",
 			Name = this.Const.Strings.PerkName.STRPhalanx,
 			Tooltip = this.Const.Strings.PerkDescription.STRPhalanx,
-			Icon = "ui/perks/str_phalanx.png",
-			IconDisabled = "ui/perks/str_phalanx_bw.png",
+			Icon = "ui/perks/ptr_phalanx.png",
+			IconDisabled = "ui/perks/ptr_phalanx_bw.png",
 			Const = "STRDummy2"
 		},
 		{
@@ -63,8 +63,8 @@ local modID = "mod_legends_STR";
 			Script = "scripts/skills/perks/perk_str_phalanx",
 			Name = this.Const.Strings.PerkName.STRPhalanx,
 			Tooltip = this.Const.Strings.PerkDescription.STRPhalanx,
-			Icon = "ui/perks/str_phalanx.png",
-			IconDisabled = "ui/perks/str_phalanx_bw.png",
+			Icon = "ui/perks/ptr_phalanx.png",
+			IconDisabled = "ui/perks/ptr_phalanx_bw.png",
 			Const = "STRDummy3"
 		},
 		{
@@ -72,8 +72,8 @@ local modID = "mod_legends_STR";
 			Script = "scripts/skills/perks/perk_str_phalanx",
 			Name = this.Const.Strings.PerkName.STRPhalanx,
 			Tooltip = this.Const.Strings.PerkDescription.STRPhalanx,
-			Icon = "ui/perks/str_phalanx.png",
-			IconDisabled = "ui/perks/str_phalanx_bw.png",
+			Icon = "ui/perks/ptr_phalanx.png",
+			IconDisabled = "ui/perks/ptr_phalanx_bw.png",
 			Const = "STRDummy4"
 		}		
 	];

@@ -10,6 +10,7 @@ this.perk_ptr_pattern_recognition <- this.inherit("scripts/skills/skill", {
 		this.m.Name = this.Const.Strings.PerkName.PTRPatternRecognition;
 		this.m.Description = "This character is quick to understand the fighting style of %their% opponents, getting better at fighting them as the combat draws on.";
 		this.m.Icon = "ui/perks/ptr_pattern_recognition.png";
+		this.m.IconMini = "ptr_pattern_recognition_mini";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;

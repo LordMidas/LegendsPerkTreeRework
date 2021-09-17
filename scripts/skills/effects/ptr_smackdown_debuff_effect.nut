@@ -8,7 +8,7 @@ this.ptr_smackdown_debuff_effect <- this.inherit("scripts/skills/skill", {
 		this.m.Name = "Smacked Down";
 		this.m.Description = "This character has been pushed back by a heavy blow, which makes it difficult to pick oneself up and move.";
 		this.m.Icon = "ui/perks/smackdown_circle.png";
-		//this.m.IconMini = "perk_01_mini";
+		this.m.IconMini = "ptr_smackdown_debuff_effect_mini";
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;
 		this.m.IsHidden = false;

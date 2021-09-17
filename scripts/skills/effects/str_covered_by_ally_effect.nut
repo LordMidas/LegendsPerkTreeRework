@@ -21,9 +21,9 @@ this.str_covered_by_ally_effect <- this.inherit("scripts/skills/skill", {
 		this.m.ID = "effects.str_covered_by_ally";
 		this.m.Name = "Covered by Ally";
 		this.m.Description = "This character has received temporary cover from a shield-wielding ally, gaining protection from attacks of opportunity.";
-		this.m.Icon = "ui/perks/str_cover_ally.png";
-		# this.m.IconMini = "str_covered_by_ally_effect_mini";
-		# this.m.Overlay = "str_covered_by_ally_effect";
+		this.m.Icon = "skills/ptr_covered_by_ally_effect.png";
+		this.m.IconMini = "ptr_covered_by_ally_effect_mini";
+		this.m.Overlay = "ptr_covered_by_ally_effect";
 		this.m.SoundOnUse = [];
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;
@@ -51,8 +51,9 @@ this.str_covered_by_ally_effect <- this.inherit("scripts/skills/skill", {
 	}
 
 	function onAdded()
-	{
+	{	
 		local actor = this.getContainer().getActor();
+
 		local skill = this.new("scripts/skills/actives/str_move_under_cover_skill");
 		this.m.MoveInCoverSkill = skill;
 		this.getContainer().add(skill);

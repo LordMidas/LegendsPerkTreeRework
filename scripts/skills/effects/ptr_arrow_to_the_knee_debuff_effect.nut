@@ -10,7 +10,7 @@ this.ptr_arrow_to_the_knee_debuff_effect <- this.inherit("scripts/skills/skill",
 		this.m.Name = "Took an Arrow to the Knee";		
 		this.m.Description = "%name% used to move around freely like you, but then %they% took arrow to the knee.";
 		this.m.Icon = "ui/perks/ptr_arrow_to_the_knee.png";
-		//this.m.IconMini = "ptr_arrow_to_the_knee_debuff_effect_mini";
+		this.m.IconMini = "ptr_arrow_to_the_knee_debuff_effect_mini";
 		this.m.Overlay = "ptr_arrow_to_the_knee_debuff_effect";
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;

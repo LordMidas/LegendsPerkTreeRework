@@ -10,6 +10,7 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 		this.m.Name = this.Const.Strings.PerkName.PTRKingOfAllWeapons;
 		this.m.Description = "This character is highly skilled in spears and can perform a free attack during %their% turn.";
 		this.m.Icon = "ui/perks/ptr_king_of_all_weapons.png";
+		this.m.IconMini = "ptr_king_of_all_weapons_mini";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.VeryLast;
 		this.m.IsActive = false;

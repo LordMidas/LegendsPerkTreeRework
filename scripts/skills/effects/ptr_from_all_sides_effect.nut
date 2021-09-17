@@ -11,7 +11,7 @@ this.ptr_from_all_sides_effect <- this.inherit("scripts/skills/skill", {
 		this.m.Name = "From all Sides";
 		this.m.Description = "This character is receiving attacks which seem to be coming from all sides - very confusing!";
 		this.m.Icon = "ui/perks/ptr_from_all_sides.png";
-		//this.m.IconMini = "ptr_from_all_sides_effect_mini";
+		this.m.IconMini = "ptr_from_all_sides_effect_mini";
 		this.m.Overlay = "ptr_from_all_sides_effect";
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;

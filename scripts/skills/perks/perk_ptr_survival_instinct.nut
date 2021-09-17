@@ -11,7 +11,7 @@ this.perk_ptr_survival_instinct <- this.inherit("scripts/skills/skill", {
 		this.m.Name = this.Const.Strings.PerkName.PTRSurvivalInstinct;
 		this.m.Description = "This character\'s senses are heightened when faced with mortal danger.";
 		this.m.Icon = "ui/perks/ptr_survival_instinct.png";
-		//this.m.IconMini = "ptr_survival_instinct_mini";
+		this.m.IconMini = "ptr_survival_instinct_mini";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;
