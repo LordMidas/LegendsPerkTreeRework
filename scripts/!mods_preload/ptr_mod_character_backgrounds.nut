@@ -1487,7 +1487,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 0.25, Tree = this.Const.Perks.TrapperClassTree}
 			],
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.ServiceProfessionTree}]
+				[{Weight = 100, Tree = this.Const.Perks.PhilosophyMagicTree}]
 			],
 			Traits = [
 				[{Weight = 100, Tree = this.Const.Perks.TalentedTree}],
