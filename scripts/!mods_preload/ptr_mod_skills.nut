@@ -845,6 +845,7 @@ gt.Const.PTR.modSkills <- function()
 				if (this.m.FieldsChangedByFlamingArrows == false)
 				{
 					this.m.Description = "A focused and carefully aimed shot with a good outlook of hitting its intended target even at a distance. On a successful hit, will light the target tile on fire and trigger a morale check for the target. Can not be used while engaged in melee.";
+					this.m.ProjectileType = this.Const.ProjectileType.FlamingArrow;
 					this.m.FieldsChangedByFlamingArrows = true;
 				}
 			}
