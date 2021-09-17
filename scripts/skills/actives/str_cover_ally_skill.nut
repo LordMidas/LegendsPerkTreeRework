@@ -95,6 +95,23 @@ this.str_cover_ally_skill <- this.inherit("scripts/skills/skill", {
 		return ret;
 	}
 
+	function onAdded()
+	{
+		local actor = this.getContainer().getActor();
+		if (actor.isPlayerControlled())
+		{
+			return;
+		}
+
+		local agent = actor.getAIAgent();
+
+		if (agent.findBehavior(this.Const.AI.Behavior.ID.STRCoverAlly) == null)
+		{
+			agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_str_cover_ally"));
+			agent.finalizeBehaviors();
+		}
+	}
+
 	function isUsable()
 	{
 		local actor = this.getContainer().getActor();

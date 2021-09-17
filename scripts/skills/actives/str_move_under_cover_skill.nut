@@ -62,6 +62,23 @@ this.str_move_under_cover_skill <- this.inherit("scripts/skills/skill", {
 		return ret;
 	}
 
+	function onAdded()
+	{
+		local actor = this.getContainer().getActor();
+		if (actor.isPlayerControlled())
+		{
+			return;
+		}
+
+		local agent = actor.getAIAgent();
+
+		if (agent.findBehavior(this.Const.AI.Behavior.ID.PTRKataStep) == null)
+		{
+			agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_ptr_kata_step"));
+			agent.finalizeBehaviors();
+		}
+	}
+
 	function isUsable()
 	{
 		if (this.skill.isUsable() && !this.getContainer().getActor().getCurrentProperties().IsRooted && this.getContainer().hasSkill("effects.str_covered_by_ally"))
