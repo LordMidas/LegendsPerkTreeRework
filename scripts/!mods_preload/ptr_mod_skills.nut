@@ -2,6 +2,34 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modSkills <- function()
 {
+	local shieldWallRelated = [
+		"skills/actives/legend_fortify_skill",
+		"skills/actives/shieldwall",
+		"skills/effects/shieldwall_effect",
+		"skills/effects/legend_fortify_effect"
+	];
+
+	foreach (skill in shieldWallRelated)
+	{
+		::mods_hookExactClass(skill, function(o) {
+			local getTooltip = o.getTooltip;
+			o.getTooltip = function()
+			{
+				local tooltip = getTooltip();
+				tooltip.push(
+					{
+						id = 6,
+						type = "text",
+						icon = "ui/icons/special.png",
+						text = "Grants immunity to stun, but is removed upon receiving a stunning blow"
+					}
+				);
+
+				return tooltip;
+			}
+		});
+	}	
+
 	::mods_hookExactClass("skills/effects/stunned_effect", function(o) {
 		local onAdded = o.onAdded;
 		o.onAdded = function()
