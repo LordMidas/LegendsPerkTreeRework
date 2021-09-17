@@ -128,24 +128,23 @@ gt.Const.PTR.createProfessionTrees <- function()
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
 			{Multiplier = 1000, Tree = this.Const.Perks.CivilizationTree},
-			{Multiplier = 4, Tree = this.Const.Perks.AgileTree},
-			{Multiplier = 4, Tree = this.Const.Perks.FastTree},
-			{Multiplier = 3, Tree = this.Const.Perks.ViciousTree},
-			{Multiplier = 3, Tree = this.Const.Perks.DeviousTree},
+			{Multiplier = 3, Tree = this.Const.Perks.AgileTree},
+			{Multiplier = 3, Tree = this.Const.Perks.FastTree},
+			{Multiplier = 2, Tree = this.Const.Perks.ViciousTree},
+			{Multiplier = 2, Tree = this.Const.Perks.DeviousTree},
 			{Multiplier = 0, Tree = this.Const.Perks.OrganisedTree},
-			{Multiplier = 0.25, Tree = this.Const.Perks.LargeTree},
-			{Multiplier = 0.25, Tree = this.Const.Perks.SturdyTree},
-			{Multiplier = 0.5, Tree = this.Const.Perks.ResilientTree},
+			{Multiplier = 0.5, Tree = this.Const.Perks.LargeTree},
+			{Multiplier = 0.5, Tree = this.Const.Perks.SturdyTree},
 			{Multiplier = 3, Tree = this.Const.Perks.TrapperClassTree},
 			{Multiplier = 1000, Tree = this.Const.Perks.LightArmorTree},
 			{Multiplier = 5, Tree = this.Const.Perks.MediumArmorTree},
 			{Multiplier = 0.5, Tree = this.Const.Perks.ShieldTree},
 			{Multiplier = 1000, Tree = this.Const.Perks.OneHandedTree},
 			{Multiplier = 1000, Tree = this.Const.Perks.DaggerTree},
-			{Multiplier = 3.33, Tree = this.Const.Perks.SwordTree},
+			{Multiplier = 2, Tree = this.Const.Perks.SwordTree},
 			{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-			{Multiplier = 0.25, Tree = this.Const.Perks.SlingsTree},
-			{Multiplier = 0.75, Tree = this.Const.Perks.CrossbowTree},
+			{Multiplier = 0, Tree = this.Const.Perks.SlingsTree},
+			{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
 		],
 		ExpertiseMultipliers = [
 
@@ -178,13 +177,13 @@ gt.Const.PTR.createProfessionTrees <- function()
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
-			{Multiplier = 5, Tree = this.Const.Perks.ViciousTree},
-			{Multiplier = 5, Tree = this.Const.Perks.OrganisedTree},
+			{Multiplier = 3, Tree = this.Const.Perks.ViciousTree},
+			{Multiplier = 2, Tree = this.Const.Perks.OrganisedTree},
 			{Multiplier = 5, Tree = this.Const.Perks.ChefClassTree},
 			{Multiplier = 1000, Tree = this.Const.Perks.OneHandedTree},
 			{Multiplier = 1000, Tree = this.Const.Perks.CleaverTree},
 			{Multiplier = 2, Tree = this.Const.Perks.SwordTree},
-			{Multiplier = 4, Tree = this.Const.Perks.AxeTree},
+			{Multiplier = 3, Tree = this.Const.Perks.AxeTree},
 		],
 		ExpertiseMultipliers = [
 
@@ -220,11 +219,12 @@ gt.Const.PTR.createProfessionTrees <- function()
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
 			{Multiplier = 2, Tree = this.Const.Perks.LargeTree},
-			{Multiplier = 5, Tree = this.Const.Perks.OrganisedTree},
-			{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
+			{Multiplier = 3, Tree = this.Const.Perks.OrganisedTree},
+			{Multiplier = 1.25, Tree = this.Const.Perks.ResilientTree},
 			{Multiplier = 2, Tree = this.Const.Perks.SturdyTree},
 			{Multiplier = 1000, Tree = this.Const.Perks.MenderClassTree},
 			{Multiplier = 2, Tree = this.Const.Perks.HeavyArmorTree},
+			{Multiplier = 1.5, Tree = this.Const.Perks.MediumArmorTree},			
 			{Multiplier = 1000, Tree = this.Const.Perks.HammerTree},
 		],
 		ExpertiseMultipliers = [
@@ -259,7 +259,7 @@ gt.Const.PTR.createProfessionTrees <- function()
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
 			{Multiplier = 2, Tree = this.Const.Perks.OutlandersTree},
-			{Multiplier = 10, Tree = this.Const.Perks.TrainedTree},
+			{Multiplier = 4, Tree = this.Const.Perks.TrainedTree},
 			{Multiplier = 0.8, Tree = this.Const.Perks.HealerClassTree},
 			{Multiplier = 2, Tree = this.Const.Perks.TacticianClassTree},
 			{Multiplier = 2, Tree = this.Const.Perks.LightArmorTree},
@@ -295,7 +295,7 @@ gt.Const.PTR.createProfessionTrees <- function()
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
 			{Multiplier = 3, Tree = this.Const.Perks.LargeTree},
-			{Multiplier = 3, Tree = this.Const.Perks.ResilientTree},
+			{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
 			{Multiplier = 3, Tree = this.Const.Perks.SturdyTree},
 			{Multiplier = 1000, Tree = this.Const.Perks.HammerTree},
 		],
@@ -330,7 +330,7 @@ gt.Const.PTR.createProfessionTrees <- function()
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
 			{Multiplier = 3, Tree = this.Const.Perks.LargeTree},
-			{Multiplier = 3, Tree = this.Const.Perks.ResilientTree},
+			{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
 			{Multiplier = 3, Tree = this.Const.Perks.SturdyTree},
 			{Multiplier = 1000, Tree = this.Const.Perks.OrganisedTree},
 			{Multiplier = 2, Tree = this.Const.Perks.TrapperClassTree},
@@ -338,9 +338,9 @@ gt.Const.PTR.createProfessionTrees <- function()
 			{Multiplier = 2, Tree = this.Const.Perks.MenderClassTree},
 			{Multiplier = 2, Tree = this.Const.Perks.HoundmasterClassTree},
 			{Multiplier = 2, Tree = this.Const.Perks.TwoHandedTree},
-			{Multiplier = 5, Tree = this.Const.Perks.PolearmTree},
-			{Multiplier = 2, Tree = this.Const.Perks.SpearTree},
-			{Multiplier = 2, Tree = this.Const.Perks.SlingsTree},
+			{Multiplier = 3, Tree = this.Const.Perks.PolearmTree},
+			{Multiplier = 1.5, Tree = this.Const.Perks.SpearTree},
+			{Multiplier = 1.5, Tree = this.Const.Perks.SlingsTree},
 		],
 		ExpertiseMultipliers = [
 		],
@@ -373,7 +373,6 @@ gt.Const.PTR.createProfessionTrees <- function()
 			{Multiplier = 2, Tree = this.Const.Perks.DeviousTree},
 			{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},
 			{Multiplier = 1000, Tree = this.Const.Perks.RangedTree},
-			{Multiplier = 2, Tree = this.Const.Perks.DaggerTree},
 			{Multiplier = 3, Tree = this.Const.Perks.SlingsTree},
 			{Multiplier = 3, Tree = this.Const.Perks.ThrowingTree},
 		],
@@ -404,7 +403,7 @@ gt.Const.PTR.createProfessionTrees <- function()
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
 			{Multiplier = 2, Tree = this.Const.Perks.LargeTree},
-			{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
+			{Multiplier = 1.5, Tree = this.Const.Perks.ResilientTree},
 			{Multiplier = 2, Tree = this.Const.Perks.SturdyTree},
 			{Multiplier = 0.5, Tree = this.Const.Perks.ClerkClassTree}
 		],
@@ -437,10 +436,11 @@ gt.Const.PTR.createProfessionTrees <- function()
 		WeightMultipliers = [
 			{Multiplier = 1000, Tree = this.Const.Perks.SchratTree},
 			{Multiplier = 2, Tree = this.Const.Perks.LargeTree},
-			{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
+			{Multiplier = 1.5, Tree = this.Const.Perks.ResilientTree},
 			{Multiplier = 2, Tree = this.Const.Perks.SturdyTree},
-			{Multiplier = 2, Tree = this.Const.Perks.UnstoppableTree},
+			{Multiplier = 1.5, Tree = this.Const.Perks.UnstoppableTree},
 			{Multiplier = 0.5, Tree = this.Const.Perks.ClerkClassTree}
+			{Multiplier = 2, Tree = this.Const.Perks.ScoutClassTree}			
 			{Multiplier = 2, Tree = this.Const.Perks.TwoHandedTree},
 			{Multiplier = 1000, Tree = this.Const.Perks.AxeTree}
 		],
@@ -473,11 +473,10 @@ gt.Const.PTR.createProfessionTrees <- function()
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
-			{Multiplier = 10, Tree = this.Const.Perks.OrganisedTree},
-			{Multiplier = 10, Tree = this.Const.Perks.TalentedTree},
-			{Multiplier = 5, Tree = this.Const.Perks.CalmTree},
+			{Multiplier = 5, Tree = this.Const.Perks.OrganisedTree},
+			{Multiplier = 5, Tree = this.Const.Perks.TalentedTree},
+			{Multiplier = 2.5, Tree = this.Const.Perks.CalmTree},
 			{Multiplier = 1000, Tree = this.Const.Perks.HealerClassTree},
-			{Multiplier = 1000, Tree = this.Const.Perks.CleaverTree},
 			{Multiplier = 1000, Tree = this.Const.Perks.SwordTree},
 		],
 		ExpertiseMultipliers = [
@@ -513,13 +512,11 @@ gt.Const.PTR.createProfessionTrees <- function()
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
-			{Multiplier = 5, Tree = this.Const.Perks.AgileTree},
-			{Multiplier = 5, Tree = this.Const.Perks.FastTree},
-			{Multiplier = 3, Tree = this.Const.Perks.OneHandedTree},
+			{Multiplier = 2, Tree = this.Const.Perks.AgileTree},
+			{Multiplier = 2, Tree = this.Const.Perks.FastTree},
 			{Multiplier = 0.5, Tree = this.Const.Perks.SlingsTree},
-			{Multiplier = 0.75, Tree = this.Const.Perks.CrossbowTree},
+			{Multiplier = 0.66, Tree = this.Const.Perks.CrossbowTree},
 			{Multiplier = 0.75, Tree = this.Const.Perks.PolearmTree},
-			{Multiplier = 2, Tree = this.Const.Perks.StavesTree},
 			{Multiplier = 0.33, Tree = this.Const.Perks.ShieldTree},
 		],
 		ExpertiseMultipliers = [
@@ -626,11 +623,11 @@ gt.Const.PTR.createProfessionTrees <- function()
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
-			{Multiplier = 2, Tree = this.Const.Perks.CalmTree},
-			{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
-			{Multiplier = 2, Tree = this.Const.Perks.ViciousTree},
-			{Multiplier = 2, Tree = this.Const.Perks.UnstoppableTree},
-			{Multiplier = 0.5, Tree = this.Const.Perks.TrainedTree},
+			{Multiplier = 1.5, Tree = this.Const.Perks.CalmTree},
+			{Multiplier = 1.5, Tree = this.Const.Perks.ResilientTree},
+			{Multiplier = 1.5, Tree = this.Const.Perks.ViciousTree},
+			{Multiplier = 1.5, Tree = this.Const.Perks.UnstoppableTree},
+			{Multiplier = 0.25, Tree = this.Const.Perks.TrainedTree},
 			{Multiplier = 0, Tree = this.Const.Perks.EntertainerClassTree},
 			{Multiplier = 1000, Tree = this.Const.Perks.CleaverTree},
 		],
@@ -666,8 +663,8 @@ gt.Const.PTR.createProfessionTrees <- function()
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
-			{Multiplier = 10, Tree = this.Const.Perks.TalentedTree},
-			{Multiplier = 2, Tree = this.Const.Perks.CalmTree},
+			{Multiplier = 5, Tree = this.Const.Perks.TalentedTree},
+			{Multiplier = 1.5, Tree = this.Const.Perks.CalmTree},
 			{Multiplier = 1000, Tree = this.Const.Perks.OrganisedTree},
 			{Multiplier = 1000, Tree = this.Const.Perks.ClerkClassTree}
 		],
@@ -700,9 +697,9 @@ gt.Const.PTR.createProfessionTrees <- function()
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
-			{Multiplier = 0.5, Tree = this.Const.Perks.SturdyTree},
-			{Multiplier = 0.5, Tree = this.Const.Perks.LargeTree},
-			{Multiplier = 3, Tree = this.Const.Perks.ResilientTree},
+			{Multiplier = 0.75, Tree = this.Const.Perks.SturdyTree},
+			{Multiplier = 0.75, Tree = this.Const.Perks.LargeTree},
+			{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
 		],
 		ExpertiseMultipliers = [
 
@@ -732,9 +729,9 @@ gt.Const.PTR.createProfessionTrees <- function()
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
-			{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
-			{Multiplier = 3, Tree = this.Const.Perks.LargeTree},
-			{Multiplier = 3, Tree = this.Const.Perks.SturdyTree},
+			{Multiplier = 1.5, Tree = this.Const.Perks.ResilientTree},
+			{Multiplier = 2, Tree = this.Const.Perks.LargeTree},
+			{Multiplier = 2, Tree = this.Const.Perks.SturdyTree},
 			{Multiplier = 0.5, Tree = this.Const.Perks.TalentedTree},
 		],
 		ExpertiseMultipliers = [
@@ -762,10 +759,10 @@ gt.Const.PTR.createProfessionTrees <- function()
 		],
 		SelfExpertiseMultiplier = this.Const.Perks.Expertise.High,
 		WeightMultipliers = [
-			{Multiplier = 2, Tree = this.Const.Perks.CalmTree},
-			{Multiplier = 3, Tree = this.Const.Perks.OrganisedTree},
-			{Multiplier = 0.5, Tree = this.Const.Perks.ViciousTree},
-			{Multiplier = 0.5, Tree = this.Const.Perks.UnstoppableTree},
+			{Multiplier = 1.5, Tree = this.Const.Perks.CalmTree},
+			{Multiplier = 2, Tree = this.Const.Perks.OrganisedTree},
+			{Multiplier = 0.75, Tree = this.Const.Perks.ViciousTree},
+			{Multiplier = 0.75, Tree = this.Const.Perks.UnstoppableTree},
 			{Multiplier = 3, Tree = this.Const.Perks.ClerkClassTree}
 		],
 		ExpertiseMultipliers = [
@@ -792,7 +789,7 @@ gt.Const.PTR.createProfessionTrees <- function()
 		WeightMultipliers = [
 			{Multiplier = 2, Tree = this.Const.Perks.CaravanTree},
 			{Multiplier = 2, Tree = this.Const.Perks.NoblesTree},
-			{Multiplier = 5, Tree = this.Const.Perks.ViciousTree},
+			{Multiplier = 3, Tree = this.Const.Perks.ViciousTree},
 			{Multiplier = 0.25, Tree = this.Const.Perks.CalmTree},
 		],
 		ExpertiseMultipliers = [
