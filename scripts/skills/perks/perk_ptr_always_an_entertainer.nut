@@ -48,8 +48,8 @@ this.perk_ptr_always_an_entertainer <- this.inherit("scripts/skills/skill", {
 			tooltip.push({
 				id = 10,
 				type = "text",
-				icon = "ui/icons/special.png",
-				text = "Will [color=" + this.Const.UI.Color.NegativeValue + "]not[/color] be able to entertain at the following cities today because another character has already done so: " + settlementNames
+				icon = "ui/icons/warning.png",
+				text = "Will [color=" + this.Const.UI.Color.NegativeValue + "]not[/color] be able to entertain at the following settlements today because another character has already done so: " + settlementNames
 			});
 		}
 
