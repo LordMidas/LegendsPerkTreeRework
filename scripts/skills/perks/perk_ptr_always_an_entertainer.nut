@@ -33,7 +33,7 @@ this.perk_ptr_always_an_entertainer <- this.inherit("scripts/skills/skill", {
 			id = 10,
 			type = "text",
 			icon = "ui/icons/special.png",
-			text = "Will earn between [color=" + this.Const.UI.Color.PositiveValue + "]+" + (this.m.MinMoney * levelBonus) + "[/color] and [color=" + this.Const.UI.Color.PositiveValue + "]+" + (this.m.MaxMoney * levelBonus) + "[/color] gold. This is doubled for medium-sized settlements and tripled for large settlements."
+			text = "Will earn between [color=" + this.Const.UI.Color.PositiveValue + "]+" + (this.m.MinMoney + levelBonus) + "[/color] and [color=" + this.Const.UI.Color.PositiveValue + "]+" + (this.m.MaxMoney + levelBonus) + "[/color] gold. This is doubled for medium-sized settlements and tripled for large settlements."
 		});
 
 		if (this.m.SettlementsVisited.len() > 0)
