@@ -196,6 +196,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_quick_hands"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_shield_expert"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_relentless"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));			
 
 			this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));
 
@@ -227,6 +228,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_recover"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_quick_hands"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_shield_expert"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));			
 
 			this.m.Skills.addTreeOfEquippedWeapon(3);
 
@@ -256,6 +258,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_quick_hands"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_shield_expert"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_relentless"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));			
 
 			this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));
 
@@ -777,6 +780,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_killing_frenzy"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_smashing_shields"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_know_their_weakness"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));			
 
 			this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
 
@@ -964,6 +968,11 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_str_phalanx"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_hip_shooter"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_primal_fear"));
+
+			if (this.Math.rand(1,100) <= 25)
+			{
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));
+			}
 		}
 	});
 
@@ -974,6 +983,12 @@ gt.Const.PTR.modEnemies <- function()
 			assignRandomEquipment();
 			this.m.Skills.addTreeOfEquippedWeapon(5);
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_str_phalanx"));
+
+			if (this.Math.rand(1,100) <= 25)
+			{
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));
+			}
+
 		}
 	});
 
@@ -984,6 +999,7 @@ gt.Const.PTR.modEnemies <- function()
 			assignRandomEquipment();
 			this.m.Skills.addTreeOfEquippedWeapon();
 		}
+
 	});
 
 	::mods_hookExactClass("entity/tactical/enemies/legend_mummy_queen", function(o) {
@@ -1694,6 +1710,7 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			onInit();
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
+
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_fearsome"));
@@ -1715,6 +1732,12 @@ gt.Const.PTR.modEnemies <- function()
 			onInit();
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_str_phalanx"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_shield_expert"));
+
+			if (this.Math.rand(1,100) <= 25)
+			{
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));
+			}
+
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_fearsome"));
@@ -2254,6 +2277,8 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.addTreeOfEquippedWeapon(5);
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_formidable_approach"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));
+
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				local weapon = this.getMainhandItem();
@@ -2330,6 +2355,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_anticipation"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_personal_armor"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));			
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -2376,6 +2402,11 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_the_rush_of_battle"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_relentless"));
+
+			if (this.Math.rand(1,100) <= 25)
+			{
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));
+			}			
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -3069,6 +3100,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_know_their_weakness"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_smashing_shields"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_coup_de_grace"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -3112,6 +3144,8 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_know_their_weakness"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_smashing_shields"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_coup_de_grace"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));
+
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -3199,6 +3233,11 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
 
+			if (this.Math.rand(1,100) <= 25)
+			{
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));
+			}
+
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_fast_adaption"));
@@ -3274,7 +3313,7 @@ gt.Const.PTR.modEnemies <- function()
 	 		onInit();
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
-
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));			
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -3345,6 +3384,11 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_formidable_approach"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_str_phalanx"));
+
+			if (this.Math.rand(1,100) <= 25)
+			{
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));
+			}
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -3464,9 +3508,17 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_hold_out"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_the_rush_of_battle"));
 
-			if (this.Math.rand(1,100) <= 20)
+			if (this.Math.rand(1,100) <= 25)
 			{
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_str_line_breaker"));
+				if (this.Math.rand(1,100) > 50)
+				{
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_str_line_breaker"));
+				}
+				else
+				{
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));
+
+				}
 			}
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
@@ -3593,6 +3645,7 @@ gt.Const.PTR.modEnemies <- function()
 
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_relentless"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -3710,6 +3763,7 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_backstabber"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_battle_forged"));
 				this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));
 			}
 		}
 
