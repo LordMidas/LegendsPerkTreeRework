@@ -29,47 +29,45 @@ this.str_covered_by_ally_effect <- this.inherit("scripts/skills/skill", {
 		this.m.IsActive = false;
 	}
 
-	function onUpdate( _properties )
+	function isEnabled()
 	{
 		if (this.m.CoverProvider == null)
 		{
-			this.removeSelf();
-			return;
+			return false;
 		}
 
 		local actor = this.getContainer().getActor();
 		if (actor.m.IsMoving)
 		{
-			this.removeSelf();
+			return false;			
 		}
 
-		if (this.getContainer().getActor().getTile().getDistanceTo(this.m.CoverProvider.getTile()) > 1)
+		if (actor.getTile().getDistanceTo(this.m.CoverProvider.getTile()) > 1)
 		{
-			this.onRemoved();
-			this.removeSelf();
+			return false;			
 		}
+
+		return true;
 	}
 
-	function onAdded()
-	{	
-		local actor = this.getContainer().getActor();
-
-		local skill = this.new("scripts/skills/actives/str_move_under_cover_skill");
-		this.m.MoveInCoverSkill = skill;
-		this.getContainer().add(skill);
-
-		if (actor.isPlayerControlled())
+	function onUpdate( _properties )
+	{
+		if (!this.isEnabled())
 		{
+			this.onRemoved();
+			this.removeSelf();			
 			return;
 		}
 
-		local agent = actor.getAIAgent();
+		_properties.InitiativeForTurnOrderAdditional += 1.25;
+	}
 
-		if (agent.findBehavior(this.Const.AI.Behavior.ID.Disengage) == null)
-		{
-			agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_disengage"));
-			agent.finalizeBehaviors();
-		}
+	function onAdded()
+	{
+		local actor = this.getContainer().getActor();
+		local skill = this.new("scripts/skills/actives/str_move_under_cover_skill");
+		this.m.MoveInCoverSkill = skill;
+		this.getContainer().add(skill);
 	}
 
 	function onTurnEnd()
@@ -101,14 +99,4 @@ this.str_covered_by_ally_effect <- this.inherit("scripts/skills/skill", {
 	{
 		this.onRemoved();
 	}
-
-	# function onDamageReceived( _attacker, _damageHitpoints, _damageArmor )
-	# {
-	# 	if (_damageHitpoints >= this.getContainer().getActor().getHitpoints())
-	# 	{
-	# 		this.m.IsAlive = false;
-	# 		this.onRemoved();
-	# 	}
-	# }
-
 });
