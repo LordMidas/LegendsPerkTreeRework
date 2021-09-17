@@ -21,7 +21,7 @@ this.perk_ptr_always_an_entertainer <- this.inherit("scripts/skills/skill", {
 
 	function isHidden()
 	{
-		return this.m.IsSpent;
+		return this.m.IsSpent || this.getContainer().getActor().isPlacedOnMap();
 	}
 
 	function getTooltip()
