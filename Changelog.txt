@@ -10,6 +10,7 @@
 - Cover Ally now increases the Initiative of the target ally by +25 for the purposes of turn order calculation.
 - Shieldwall/Fortify now makes you immune to stun. Upon receiving a stunning blow, the shieldwall/fortify is lost instead.
 - Shield Expert now causes Knockback to apply Staggered on the knocked back target.
+- Sword Thrust and Lunge now have -25% chance to hit the head.
 - Bandit Leaders, Nomad Leaders and Bandit Warlords have the Action Point cost of Rally the Troops reduced to 3.
 - Rebalanced many recruit backgrounds while fitting their perk trees in 13 columns.
 - Rebalanced the probability of different perk groups appearing, because of the now 13 columns restriction.
@@ -20,8 +21,8 @@
 - Bandit Leaders, Nomad Leaders and Bandit Warlords can now only use Rally once per 3 turns. It was bugged but fixed now.
 - Added a new projectile for Flaming Arrows (Thanks to Necromancer!).
 - Updated all remaining status effect descriptions to now use the Legends vars system for pronouns.
-- Added new icons for the following: Exploit Opening, Weapon Master, Exploitable Opening effect.
-- Improved the icons for the following: Formidable Approach, Primal Fear, Follow Up skill, Arrow to the Knee skill.
+- Added new icons for the following: Exploit Opening, Weapon Master, Exploitable Opening effect, Covered by Ally effect.
+- Improved the icons for the following: Formidable Approach, Primal Fear, Follow Up skill, Arrow to the Knee skill, Cover Ally skill, Covering Ally effect.
 - Added "mini" icons for almost all status effects. These are the icons that appear above the characters when you press the Alt key.
 
 == FIXES ==
@@ -34,6 +35,8 @@
 - Fixed Dynamic Duo working even when the other ally has multiple allies within 2 tiles.
 - Fixed Take Aim not working with handgonnes.
 - Fixed a potential issue in Flaming Arrows if the target died.
+- Fixed the Fencer perk not reducing the Action Point costs of Sword Thrust and Riposte with One-Handed fencing swords.
+- Fixed some hitchance calculation mistakes in Sword Thrust and Lunge for targets wearing less than 125 durability body armor.
 - Fixed the integrated Scrollable Perk Tree mod not working (the solution was to rename PTR to ptr in the .zip filename).
 
 ===================
