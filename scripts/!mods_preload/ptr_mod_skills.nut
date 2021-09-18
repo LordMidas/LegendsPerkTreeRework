@@ -1036,6 +1036,8 @@ gt.Const.PTR.modSkills <- function()
 					}
 				);
 			}
+
+			return tooltip
 		}
 
 		o.onAdded <- function()
