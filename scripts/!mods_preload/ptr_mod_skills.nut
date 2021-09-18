@@ -42,7 +42,7 @@ gt.Const.PTR.modSkills <- function()
 				return;
 			}
 
-			fortify = this.getContainer().getSkillByID("effects.legend_fortify")
+			local fortify = this.getContainer().getSkillByID("effects.legend_fortify")
 			if (fortify != null)
 			{
 				fortify.removeSelf();
