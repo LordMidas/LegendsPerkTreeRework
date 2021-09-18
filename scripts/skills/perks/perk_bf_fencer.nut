@@ -33,6 +33,8 @@ this.perk_bf_fencer <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
+		local weapon = this.getContainer().getActor().getMainhandItem();
+
 		local swordThrust = this.getContainer().getSkillByID("actives.bf_sword_thrust");
 		if (swordThrust != null)
 		{
