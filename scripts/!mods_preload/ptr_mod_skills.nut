@@ -404,7 +404,8 @@ gt.Const.PTR.modSkills <- function()
 		o.onAfterUpdate <- function( _properties )
 		{
 			onAfterUpdate(_properties);
-			if (!_user.isPlayerControlled() && (_user.getType() == this.Const.EntityType.BanditLeader || _user.getType() == this.Const.EntityType.NomadLeader || _user.getType() == this.Const.EntityType.BanditWarlord))
+			local actor = this.getContainer().getActor();
+			if (!actor.isPlayerControlled() && (actor.getType() == this.Const.EntityType.BanditLeader || actor.getType() == this.Const.EntityType.NomadLeader || actor.getType() == this.Const.EntityType.BanditWarlord))
 			{
 				this.m.ActionPointCost = 3;
 			}
