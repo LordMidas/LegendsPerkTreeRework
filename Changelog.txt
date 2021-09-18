@@ -1,4 +1,42 @@
 ===================
+==== Ver 1.1.0 ====
+===================
+== MAJOR CHANGES ==
+- Survival Instinct tweaked: Now gains +3 Mdef and Rdef for every miss and +5 Mdef and Rdef for every hit. Every turn the bonus is reset except the one gained from hits which is retained for the rest of the combat. This retained bonus cannot be higher than +10.
+- AI will no longer use Riposte if it can get it for free via En garde.
+- The AI will now make use of the Cover Ally skill.
+- Added Cover Ally to the following enemies: Brigand Raider, Brigand Veteran, Embalmed Slave (25%), Embalmed Soldier (25%), Ancient Legionary (25%), Bounty Hunter, Conscript (25%), Mercenary, Militia (25%), Guest Militia, Militia Veteran (25%), Nomad Cutthroat, Nomad Outlaw.
+- 25% of Noble Footmen now have one of these perks: Line Breaker or Cover Ally.
+- Cover Ally now increases the Initiative of the target ally by +25 for the purposes of turn order calculation.
+- Shieldwall/Fortify now makes you immune to stun. Upon receiving a stunning blow, the shieldwall/fortify is lost instead.
+- Shield Expert now causes Knockback to apply Staggered on the knocked back target.
+- Bandit Leaders, Nomad Leaders and Bandit Warlords have the Action Point cost of Rally the Troops reduced to 3.
+- Rebalanced many recruit backgrounds while fitting their perk trees in 13 columns.
+- Rebalanced the probability of different perk groups appearing, because of the now 13 columns restriction.
+- Rebalanced the probability of certain recruits getting certain perk groups.
+- Reformatted perk tooltips to now use a well organized color-coded and heading-based system. (Thanks deDarxo for the inspiration!).
+
+== MINOR CHANGES ==
+- Bandit Leaders, Nomad Leaders and Bandit Warlords can now only use Rally once per 3 turns. It was bugged but fixed now.
+- Added a new projectile for Flaming Arrows (Thanks to Necromancer!).
+- Updated all remaining status effect descriptions to now use the Legends vars system for pronouns.
+- Added new icons for the following: Exploit Opening, Weapon Master, Exploitable Opening effect.
+- Improved the icons for the following: Formidable Approach, Primal Fear, Follow Up skill, Arrow to the Knee skill.
+- Added "mini" icons for almost all status effects. These are the icons that appear above the characters when you press the Alt key.
+
+== FIXES ==
+- Fixed Discovered Talent not applying the attributes increase in some cases.
+- Fixed Always an Entertainer status effect being visible during combat.
+- Fixed Save Corruption caused by Always an Entertainer after having visited a settlement and saving the game.
+- Fixed Always an Entertainer status effect tooltip showing more earnable money than intended on leveled up characters.
+- Fixed Always an Entertainer proccing every time you exit/enter a city even on the same day.
+- Fixed some weapons showing strange mastery types in the tooltip e.g. Estoc showing Applicable Mastery of BFFencing.
+- Fixed Dynamic Duo working even when the other ally has multiple allies within 2 tiles.
+- Fixed Take Aim not working with handgonnes.
+- Fixed a potential issue in Flaming Arrows if the target died.
+- Fixed the integrated Scrollable Perk Tree mod not working (the solution was to rename PTR to ptr in the .zip filename).
+
+===================
 ==== Ver 1.0.8 ====
 ===================
 - Now compatibile with Legends version 15.0.1.20h.

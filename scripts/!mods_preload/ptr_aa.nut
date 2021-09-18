@@ -4,7 +4,7 @@ gt.Const.PTR <- {};
 gt.Const.PTR.Version <- 1;
 
 local modID = "mod_legends_PTR";
-::mods_registerMod(modID, gt.Const.PTR.Version, "Perk Trees Rework 1.0.8");
+::mods_registerMod(modID, gt.Const.PTR.Version, "Perk Trees Rework 1.1.0");
 
 ::mods_queue(modID, "mod_legends, mod_MSU, mod_betterFencing, mod_WMS, mod_mediumArmorRework, mod_legends_STR, mod_duelistDefense", function()
 {
