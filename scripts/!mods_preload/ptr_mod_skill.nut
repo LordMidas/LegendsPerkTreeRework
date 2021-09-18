@@ -24,7 +24,7 @@ gt.Const.PTR.modSkill <- function()
 					{
 						ret.push({
 							icon = "ui/tooltips/positive.png",
-							text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + pointyEndPerk.getBonus() + "%[/color] Pointy End"
+							text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + pointyEndPerk.getBonus() + "%[/color] Pointy End"
 						});
 					}
 				}
@@ -36,7 +36,7 @@ gt.Const.PTR.modSkill <- function()
 					{
 						ret.push({
 							icon = "ui/tooltips/positive.png",
-							text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + rangedSupremacyPerk.getRangedSkillBonus() + "%[/color] Ranged Supremacy"
+							text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + rangedSupremacyPerk.getRangedSkillBonus() + "%[/color] Ranged Supremacy"
 						});
 					}
 				}
@@ -49,7 +49,7 @@ gt.Const.PTR.modSkill <- function()
 					{
 						ret.push({
 							icon = "ui/tooltips/positive.png",
-							text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + exploitOpeningPerk.getBonus() + "%[/color] Exploit Opening"
+							text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + exploitOpeningPerk.getBonus() + "%[/color] Exploit Opening"
 						});
 					}
 				}
@@ -70,7 +70,7 @@ gt.Const.PTR.modSkill <- function()
 					{
 						ret.push({
 							icon = "ui/tooltips/positive.png",
-							text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + (patternRecognition.m.MeleeSkillBonus * opponentEntry.Stacks) + "%[/color] Pattern Recognition"
+							text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + (patternRecognition.m.MeleeSkillBonus * opponentEntry.Stacks) + "%[/color] Pattern Recognition"
 						});
 					}
 				}
@@ -80,7 +80,7 @@ gt.Const.PTR.modSkill <- function()
 				{
 					ret.push({
 						icon = "ui/tooltips/positive.png",
-						text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + dynamicDuoPerk.getHitChanceBonus() + "%[/color] Dynamic Duo"
+						text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + dynamicDuoPerk.getHitChanceBonus() + "%[/color] Dynamic Duo"
 					});
 				}
 			}
