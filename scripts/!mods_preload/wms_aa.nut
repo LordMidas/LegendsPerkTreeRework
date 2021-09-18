@@ -1,5 +1,5 @@
 local modID = "mod_WMS";
-::mods_registerMod(modID, 1.4, "Weapon Mastery Standardization 1.4.4");
+::mods_registerMod(modID, 1.4, "Weapon Mastery Standardization 1.4.5");
 
 local gt = this.getroottable();
 

@@ -44,11 +44,25 @@ gt.Const.WMS.modWeapon <- function()
 			foreach (mastery in masteries)
 			{
 				ret += mastery + ", ";
-			}	
+			}
 
-			ret = ret.slice(0, -2);
+			if (ret != "")
+			{
+				ret = ret.slice(0, -2);
+			}
 
 			return ret;
+		}
+
+		o.addForcedApplicableMastery <- function( _mastery )
+		{
+			if (this.m.ForcedApplicableMasteries.find(_mastery) != null)
+			{
+				this.logError("addForcedApplicableMastery: \'" + _mastery + "\' already exists in weapon \'" + this.getID() + "\'");
+				return;				
+			}
+
+			this.m.ForcedApplicableMasteries.push(_mastery);
 		}
 	});
 };
