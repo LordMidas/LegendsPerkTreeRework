@@ -1,4 +1,12 @@
 ===================
+==== Ver 1.1.1 ====
+===================
+- Clarified in Pattern Recognition perk tooltip that it only works with Melee attacks.
+- Removed Pattern Recognition from the Hedge Knight enemy (they still have Survival Instinct).
+- Fixed crash due to Rally the Troops perk.
+- Fixed crash due to the Fencer perk.
+
+===================
 ==== Ver 1.1.0 ====
 ===================
 == MAJOR CHANGES ==
