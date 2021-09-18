@@ -9,7 +9,7 @@ this.perk_ptr_bloodlust <- this.inherit("scripts/skills/skill", {
 		this.m.Name = this.Const.Strings.PerkName.PTRBloodlust;
 		this.m.Description = "This character gains increased vigor when next to bleeding enemies.";
 		this.m.Icon = "ui/perks/ptr_bloodlust.png";
-		////this.m.IconMini = "perk_19_mini";
+		this.m.IconMini = "ptr_bloodlust_mini";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;

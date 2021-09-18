@@ -10,7 +10,7 @@ this.ptr_intimidated_effect <- this.inherit("scripts/skills/skill", {
 		this.m.Name = "Intimidated";
 		this.m.Description = "This character has recently faced some very intimidating attacks.";
 		this.m.Icon = "ui/perks/ptr_intimidate.png";
-		//this.m.IconMini = "ptr_intimidated_effect_mini";
+		this.m.IconMini = "ptr_intimidated_effect_mini";
 		this.m.Overlay = "ptr_intimidated_effect";
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;

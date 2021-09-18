@@ -9,6 +9,7 @@ this.perk_ptr_man_of_steel <- this.inherit("scripts/skills/skill", {
 		this.m.Name = this.Const.Strings.PerkName.PTRManOfSteel;
 		this.m.Description = "%name% has become one with %their% armor, and ranged attacks now seem nothing more than a tickle.";
 		this.m.Icon = "ui/perks/ptr_man_of_steel.png";
+		this.m.IconMini = "ptr_man_of_steel_mini";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;

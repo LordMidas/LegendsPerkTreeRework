@@ -12,6 +12,7 @@ this.perk_ptr_tempo <- this.inherit("scripts/skills/skill", {
 		this.m.Name = this.Const.Strings.PerkName.PTRTempo;
 		this.m.Description = "This character has the advantage of going first in the flow of battle.";
 		this.m.Icon = "ui/perks/ptr_tempo.png";
+		this.m.IconMini = "ptr_tempo_mini";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;

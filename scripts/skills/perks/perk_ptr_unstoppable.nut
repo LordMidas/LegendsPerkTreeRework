@@ -11,7 +11,7 @@ this.perk_ptr_unstoppable <- this.inherit("scripts/skills/skill", {
 		this.m.Name = this.Const.Strings.PerkName.PTRUnstoppable;
 		this.m.Description = "This character\'s attacks seem to not miss at all.";
 		this.m.Icon = "ui/perks/ptr_unstoppable.png";
-		//this.m.IconMini = "perk_19_mini";
+		this.m.IconMini = "ptr_unstoppable_mini";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;

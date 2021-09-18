@@ -10,7 +10,7 @@ this.perk_ptr_patience <- this.inherit("scripts/skills/skill", {
 		this.m.Name = this.Const.Strings.PerkName.PTRPatience;
 		this.m.Description = "This character has not moved yet and can take %their% time to get a better aim for ranged attacks.";
 		this.m.Icon = "ui/perks/ptr_patience.png";
-		//this.m.IconMini = "perk_ptr_patience_mini";
+		this.m.IconMini = "ptr_patience_mini";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;

@@ -21,33 +21,45 @@ this.str_covered_by_ally_effect <- this.inherit("scripts/skills/skill", {
 		this.m.ID = "effects.str_covered_by_ally";
 		this.m.Name = "Covered by Ally";
 		this.m.Description = "This character has received temporary cover from a shield-wielding ally, gaining protection from attacks of opportunity.";
-		this.m.Icon = "ui/perks/str_cover_ally.png";
-		# this.m.IconMini = "str_covered_by_ally_effect_mini";
-		# this.m.Overlay = "str_covered_by_ally_effect";
+		this.m.Icon = "skills/ptr_covered_by_ally_effect.png";
+		this.m.IconMini = "ptr_covered_by_ally_effect_mini";
+		this.m.Overlay = "ptr_covered_by_ally_effect";
 		this.m.SoundOnUse = [];
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;
 	}
 
-	function onUpdate( _properties )
+	function isEnabled()
 	{
 		if (this.m.CoverProvider == null)
 		{
-			this.removeSelf();
-			return;
+			return false;
 		}
 
 		local actor = this.getContainer().getActor();
 		if (actor.m.IsMoving)
 		{
-			this.removeSelf();
+			return false;			
 		}
 
-		if (this.getContainer().getActor().getTile().getDistanceTo(this.m.CoverProvider.getTile()) > 1)
+		if (actor.getTile().getDistanceTo(this.m.CoverProvider.getTile()) > 1)
+		{
+			return false;			
+		}
+
+		return true;
+	}
+
+	function onUpdate( _properties )
+	{
+		if (!this.isEnabled())
 		{
 			this.onRemoved();
-			this.removeSelf();
+			this.removeSelf();			
+			return;
 		}
+
+		_properties.InitiativeForTurnOrderAdditional += 1.25;
 	}
 
 	function onAdded()
@@ -56,19 +68,6 @@ this.str_covered_by_ally_effect <- this.inherit("scripts/skills/skill", {
 		local skill = this.new("scripts/skills/actives/str_move_under_cover_skill");
 		this.m.MoveInCoverSkill = skill;
 		this.getContainer().add(skill);
-
-		if (actor.isPlayerControlled())
-		{
-			return;
-		}
-
-		local agent = actor.getAIAgent();
-
-		if (agent.findBehavior(this.Const.AI.Behavior.ID.Disengage) == null)
-		{
-			agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_disengage"));
-			agent.finalizeBehaviors();
-		}
 	}
 
 	function onTurnEnd()
@@ -100,14 +99,4 @@ this.str_covered_by_ally_effect <- this.inherit("scripts/skills/skill", {
 	{
 		this.onRemoved();
 	}
-
-	# function onDamageReceived( _attacker, _damageHitpoints, _damageArmor )
-	# {
-	# 	if (_damageHitpoints >= this.getContainer().getActor().getHitpoints())
-	# 	{
-	# 		this.m.IsAlive = false;
-	# 		this.onRemoved();
-	# 	}
-	# }
-
 });

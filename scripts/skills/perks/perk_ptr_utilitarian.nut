@@ -12,6 +12,7 @@ this.perk_ptr_utilitarian <- this.inherit("scripts/skills/skill", {
 		this.m.Name = this.Const.Strings.PerkName.PTRUtilitarian;
 		this.m.Description = "This character is skilled in long reach weapons and gains bonuses depending on the weight of %their% armor";
 		this.m.Icon = "ui/perks/ptr_utilitarian.png";
+		this.m.IconMini = "ptr_utilitarian_mini";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;

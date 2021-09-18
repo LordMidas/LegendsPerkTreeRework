@@ -5,7 +5,7 @@ this.perk_str_cover_ally <- this.inherit("scripts/skills/skill", {
 		this.m.ID = "perk.str_cover_ally";
 		this.m.Name = this.Const.Strings.PerkName.STRCoverAlly;
 		this.m.Description = this.Const.Strings.PerkDescription.STRCoverAlly;
-		this.m.Icon = "ui/perks/str_cover_ally.png";
+		this.m.Icon = "ui/perks/ptr_cover_ally.png";
 		this.m.Type = this.Const.SkillType.Perk;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;

@@ -8,7 +8,7 @@ this.ptr_sweeping_strikes_debuff_effect <- this.inherit("scripts/skills/skill", 
 		this.m.Name = "Sweeping Strikes";
 		this.m.Description = "This character has been attacked by a large sweeping strike, which makes it difficult to act offensively.";
 		this.m.Icon = "ui/perks/ptr_sweeping_strikes.png";
-		//this.m.IconMini = "ptr_sweeping_strikes_debuff_effect_mini";
+		this.m.IconMini = "ptr_sweeping_strikes_debuff_effect_mini";
 		this.m.Overlay = "ptr_sweeping_strikes_debuff_effect";
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;

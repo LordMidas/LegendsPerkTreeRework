@@ -12,9 +12,9 @@ this.str_cover_ally_skill <- this.inherit("scripts/skills/skill", {
 		this.m.ID = "actives.str_cover_ally";
 		this.m.Name = "Cover Ally";
 		this.m.Description = "Cover an adjacent ally, allowing them to move one tile ignoring zone of control on their turn. Your Melee Skill, Melee Defense, Ranged Skill, and Ranged Defense will be reduced while providing cover, and if you get stunned or rooted or are no longer adjacent to the target, the cover will be lost.";
-		this.m.Icon = "skills/str_cover_ally_skill.png";
-		this.m.IconDisabled = "skills/str_cover_ally_skill_bw.png";
-		this.m.Overlay = "str_cover_ally_skill";
+		this.m.Icon = "skills/ptr_cover_ally_skill.png";
+		this.m.IconDisabled = "skills/ptr_cover_ally_skill_bw.png";
+		this.m.Overlay = "ptr_cover_ally_skill";
 		this.m.SoundOnHit = [
 			"sounds/combat/shieldwall_01.wav",
 			"sounds/combat/shieldwall_02.wav",
@@ -95,6 +95,23 @@ this.str_cover_ally_skill <- this.inherit("scripts/skills/skill", {
 		return ret;
 	}
 
+	function onAdded()
+	{
+		local actor = this.getContainer().getActor();
+		if (actor.isPlayerControlled())
+		{
+			return;
+		}
+
+		local agent = actor.getAIAgent();
+
+		if (agent.findBehavior(this.Const.AI.Behavior.ID.STRCoverAlly) == null)
+		{
+			agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_str_cover_ally"));
+			agent.finalizeBehaviors();
+		}
+	}
+
 	function isUsable()
 	{
 		local actor = this.getContainer().getActor();
@@ -131,7 +148,6 @@ this.str_cover_ally_skill <- this.inherit("scripts/skills/skill", {
 	function onUse( _user, _targetTile )
 	{
 		local target = _targetTile.getEntity();
-		this.spawnIcon("str_covered_by_ally_effect", _targetTile);
 
 		if (!_user.isHiddenToPlayer() || _targetTile.IsVisibleForPlayer)
 		{

@@ -39,6 +39,10 @@ local modID = "mod_legends_PTR";
 
 	gt.Const.PTR.IsExpertiseEnabled <- false;
 
+	gt.Const.UI.Color.Passive <- "#4f1800";
+	gt.Const.UI.Color.Active <- "#000ec1";
+	gt.Const.UI.Color.OneTimeEffect <- "#000ec1";
+
 	gt.Const.PTR.modRetinue();
 	gt.Const.PTR.modCharacterInjuries();
 	gt.Const.PTR.modStrings();

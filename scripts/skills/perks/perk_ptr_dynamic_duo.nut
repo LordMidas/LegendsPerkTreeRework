@@ -21,6 +21,7 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 		this.m.Name = this.Const.Strings.PerkName.PTRDynamicDuo;
 		this.m.Description = this.Const.Strings.PerkDescription.PTRDynamicDuo;
 		this.m.Icon = "ui/perks/ptr_dynamic_duo.png";
+		this.m.IconMini = "ptr_dynamic_duo_mini";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.BeforeLast;
 		this.m.IsActive = false;

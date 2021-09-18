@@ -11,7 +11,7 @@ this.ptr_formidable_approach_debuff_effect <- this.inherit("scripts/skills/skill
 		this.m.Name = "Formidable Approach";
 		this.m.Description = "This character has entered the zone of control of a formidable opponent. Melee Skill and Melee Defense will be reduced until exiting this zone of control or successfully hitting the opponent.";
 		this.m.Icon = "ui/perks/ptr_formidable_approach.png";
-		//this.m.IconMini = "ptr_formidable_approach_debuff_effect_mini";
+		this.m.IconMini = "ptr_formidable_approach_debuff_effect_mini";
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;

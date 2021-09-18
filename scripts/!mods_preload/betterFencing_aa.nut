@@ -1,7 +1,7 @@
 local gt = getroottable();
 
 local modID = "mod_betterFencing";
-::mods_registerMod(modID, 1.6, "Better Fencing 1.6.1");
+::mods_registerMod(modID, 1.6, "Better Fencing 1.6.2");
 
 gt.ModBetterFencing <- {};
 

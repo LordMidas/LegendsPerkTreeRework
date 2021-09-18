@@ -10,7 +10,7 @@ this.ptr_bolstered_effect <- this.inherit("scripts/skills/skill", {
 		this.m.Name = "Bolstered";
 		this.m.Description = "This character is feeling braver thanks to an adjacent Polearm-wielding ally\'s support.";
 		this.m.Icon = "ui/perks/ptr_bolster.png";
-		//this.m.IconMini = "ptr_bolstered_effect_mini";
+		this.m.IconMini = "ptr_bolstered_effect_mini";
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;
 		this.m.IsHidden = false;

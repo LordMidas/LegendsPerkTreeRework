@@ -5,7 +5,7 @@ this.perk_str_line_breaker <- this.inherit("scripts/skills/skill", {
 		this.m.ID = "perk.str_line_breaker";
 		this.m.Name = this.Const.Strings.PerkName.STRLineBreaker;
 		this.m.Description = this.Const.Strings.PerkDescription.STRLineBreaker;
-		this.m.Icon = "ui/perks/str_line_breaker.png";
+		this.m.Icon = "ui/perks/ptr_line_breaker.png";
 		this.m.Type = this.Const.SkillType.Perk;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;
@@ -20,9 +20,9 @@ this.perk_str_line_breaker <- this.inherit("scripts/skills/skill", {
 			"sounds/combat/indomitable_01.wav",
 			"sounds/combat/indomitable_02.wav"
 		];
-		skill.m.Icon = "skills/str_line_breaker_skill.png";
-		skill.m.IconDisabled = "skills/str_line_breaker_skill_bw.png";
-		skill.m.Overlay = "str_line_breaker_skill";
+		skill.m.Icon = "skills/ptr_line_breaker_skill.png";
+		skill.m.IconDisabled = "skills/ptr_line_breaker_skill_bw.png";
+		skill.m.Overlay = "ptr_line_breaker_skill";
 		skill.m.Order = this.Const.SkillOrder.Any;
 		skill.m.FatigueCost = 25;
 		skill.m.Description = "Use your shield to push through the ranks of your enemies, knocking back a target and taking their place, all in one action."

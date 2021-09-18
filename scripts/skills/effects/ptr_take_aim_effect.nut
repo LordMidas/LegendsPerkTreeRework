@@ -8,7 +8,7 @@ this.ptr_take_aim_effect <- this.inherit("scripts/skills/skill", {
 		this.m.Name = "Taking Aim";
 		this.m.Description = "This character is expending significant effort into taking a better aim.";
 		this.m.Icon = "ui/perks/ptr_take_aim.png";
-		//this.m.IconMini = "ptr_arrow_to_the_knee_attack_effect_mini";
+		this.m.IconMini = "ptr_take_aim_effect_mini";
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.Any;
 		this.m.IsActive = false;
