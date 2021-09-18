@@ -1,4 +1,13 @@
 ===================
+==== Ver 1.1.2 ====
+===================
+- In the Zone perk now provides half the benefit when not engaged in melee.
+- Fixed Lithe making you immune to damage when not wearing any armor.
+- Fixed some weapons missing Categories and Applicable Masteries.
+- Fixed the Stunned effect causing errors.
+- Fixed the battle freezing/crashing when an enemy spawned with the Cover Ally perk.
+
+===================
 ==== Ver 1.1.1 ====
 ===================
 - Clarified in Pattern Recognition perk tooltip that it only works with Melee attacks.
