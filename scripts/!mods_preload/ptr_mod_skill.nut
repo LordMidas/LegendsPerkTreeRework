@@ -108,6 +108,19 @@ gt.Const.PTR.modSkill <- function()
 						text = "[color=" + this.Const.UI.Color.NegativeValue + "]" + targetSI.getBonus() + "%[/color] Survival Instinct"
 					});
 				}
+
+				local weapon = this.getContainer().getActor().getMainhandItem();
+				if (weapon != null)
+				{
+					local polearmHitchanceEffect = this.getContainer().getSkillByID("effects.ptr_polearm_hitchance");
+					if (polearmHitchanceEffect != null && polearmHitchanceEffect.isEnabledForWeapon(weapon))
+					{
+						ret.push({
+							icon = "ui/tooltips/negative.png",
+							text = "[color=" + this.Const.UI.Color.NegativeValue + "]" + polearmHitchanceEffect.getMalus() + "%[/color] Adjacent Target"
+						});
+					}
+				}
 			}
 
 			return ret;

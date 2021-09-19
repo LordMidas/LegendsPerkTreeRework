@@ -285,6 +285,21 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.ShieldExpert = "Learn to better deflect hits to the side instead of blocking them head on.\n\nThe shield defense bonus is increased by [color=" + this.Const.UI.Color.PositiveValue + "]25%[/color]. This also applies to the additional defense bonus of the Shieldwall skill.\n\nShield damage received is reduced by [color=" + this.Const.UI.Color.NegativeValue + "]50%[/color] to a minimum of 1.\n\nThe \'Knock Back\' skill gains [color=" + this.Const.UI.Color.PositiveValue + "]+15%[/color] chance to hit and applies \'Staggered\' on the target.\n\n[color=#0b0084]From the One-Handed Weapons and Shield perk groups[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.ShieldExpert].Tooltip = gt.Const.Strings.PerkDescription.ShieldExpert;
 
+	local poleWeaponStrings = [
+		"SpecAxe",
+		"SpecHammer",
+		"SpecMace",
+		"SpecPolearm",
+		"SpecSpear"
+	];
+
+	foreach (s in poleWeaponStrings)
+	{
+		gt.Const.Strings.PerkDescription[s] = this.MSU.String.replace(gt.Const.Strings.PerkDescription[s], "no longer has a penalty", "has a reduced penalty");
+		gt.Const.Strings.PerkDescription[s] = this.MSU.String.replace(gt.Const.Strings.PerkDescription[s], "no longer have a penalty", "have a reduced penalty");
+		gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs[s]].Tooltip = gt.Const.Strings.PerkDescription[s];
+	}
+
 	local throwingArray = split(gt.Const.Strings.PerkDescription.SpecThrowing, "[");
 	throwingArray.pop();
 	throwingArray.pop();
