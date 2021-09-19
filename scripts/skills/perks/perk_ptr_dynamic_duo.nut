@@ -77,7 +77,7 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 
 		if (this.m.Opponents.len() > 0)
 		{
-			local t = "+[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getHitChanceBonus() + "%[/color] Chance to Hit against: "
+			local t = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getHitChanceBonus() + "%[/color] Chance to Hit against: "
 
 			foreach (opponentID in this.m.Opponents)
 			{
@@ -292,7 +292,7 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-	function onBeingAttacked( _attacker, _skill, _properties )
+	function addOpponentToAlly( _attacker, _skill )
 	{
 		if (this.m.IsHidden || _skill == null || _skill.isRanged() || _attacker.isAlliedWith(this.getContainer().getActor()) || this.m.AllyID == 0 || !this.m.IsAllyDynamicDuo)
 		{
@@ -308,6 +308,16 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 				allyPerk.addOpponent(_attacker.getID());
 			}
 		}
+	}
+
+	function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
+	{
+		this.addOpponentToAlly(_attacker, _skill);
+	}
+
+	function onMissed( _attacker, _skill )
+	{
+		this.addOpponentToAlly(_attacker, _skill);
 	}
 
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
