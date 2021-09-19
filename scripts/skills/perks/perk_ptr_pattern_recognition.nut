@@ -1,7 +1,5 @@
 this.perk_ptr_pattern_recognition <- this.inherit("scripts/skills/skill", {
 	m = {
-		MeleeSkillBonus = 3,
-		MeleeDefenseBonus = 3,
 		Opponents = []
 	},
 	function create()
@@ -40,6 +38,15 @@ this.perk_ptr_pattern_recognition <- this.inherit("scripts/skills/skill", {
 	{
 		local tooltip = this.skill.getTooltip();
 
+		tooltip.push(
+			{
+				id = 10,
+				type = "text",
+				icon = "ui/icons/plus.png",
+				text = "Increased Melee Skill and Melee Defense"
+			}
+		);		
+
 		foreach (opponentEntry in this.m.Opponents)
 		{
 			local opponent = this.Tactical.getEntityByID(opponentEntry.EntityID);
@@ -52,13 +59,24 @@ this.perk_ptr_pattern_recognition <- this.inherit("scripts/skills/skill", {
 				{
 					id = 10,
 					type = "text",
-					icon = "ui/icons/special.png",
-					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + (this.m.MeleeSkillBonus * opponentEntry.Stacks) + "[/color] Melee Skill and Melee Defense against " + opponent.getName()
+					icon = "ui/orientation/" + opponent.getOverlayImage() + ".png",
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getBonus(opponentEntry) + "[/color] against " + opponent.getName()
 				}
 			);
 		}
 
 		return tooltip;
+	}
+
+	function getBonus( _opponentEntry )
+	{
+		local bonus = 0;
+		for (local i = 1; i <= _opponentEntry.Stacks; i++)
+		{
+			bonus += bonus >= 15 ? 1 : i;			
+		}
+
+		return bonus;
 	}
 
 	function procIfApplicable(_entity, _skill)
@@ -97,6 +115,18 @@ this.perk_ptr_pattern_recognition <- this.inherit("scripts/skills/skill", {
 		this.procIfApplicable(_attacker, _skill);
 	}
 
+	function onUpdate( _properties )
+	{
+		for (local i = this.m.Opponents.len() - 1; i >= 0; i--)
+		{
+			local e = this.Tactical.getEntityByID(this.m.Opponents[i].EntityID);
+			if (e == null || !e.isAlive())
+			{
+				this.m.Opponents.remove(i);
+			}
+		}
+	}
+
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
 		if (!_targetEntity.isAlive() || _targetEntity.isDying())
@@ -104,11 +134,21 @@ this.perk_ptr_pattern_recognition <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
+		if (!_targetEntity.isPlayerControlled())
+		{
+			_targetEntity.setMoraleState(this.Const.MoraleState.Fleeing);
+		}		
+
 		this.procIfApplicable(_targetEntity, _skill);
 	}
 
 	function onTargetMissed( _skill, _targetEntity )
 	{
+		if (!_targetEntity.isPlayerControlled())
+		{
+			_targetEntity.setMoraleState(this.Const.MoraleState.Fleeing);
+		}
+
 		this.procIfApplicable(_targetEntity, _skill);
 	}
 
@@ -119,7 +159,7 @@ this.perk_ptr_pattern_recognition <- this.inherit("scripts/skills/skill", {
 			local opponentEntry = this.getOpponentEntry(_targetEntity.getID());
 			if (opponentEntry != null)
 			{
-				_properties.MeleeSkill += this.m.MeleeSkillBonus * opponentEntry.Stacks;
+				_properties.MeleeSkill += this.getBonus(opponentEntry);
 			}
 		}
 	}
@@ -131,7 +171,7 @@ this.perk_ptr_pattern_recognition <- this.inherit("scripts/skills/skill", {
 			local opponentEntry = this.getOpponentEntry(_attacker.getID());
 			if (opponentEntry != null)
 			{
-				_properties.MeleeDefense += this.m.MeleeDefenseBonus * opponentEntry.Stacks;
+				_properties.MeleeDefense += this.getBonus(opponentEntry);
 			}
 		}
 	}
