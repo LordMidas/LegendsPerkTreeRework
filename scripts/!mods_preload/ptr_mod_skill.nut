@@ -62,18 +62,34 @@ gt.Const.PTR.modSkill <- function()
 					});
 				}
 
-				local patternRecognition = targetEntity.getSkills().getSkillByID("effects.ptr_pattern_recognition");
-				if (patternRecognition != null)
+				if (!this.isRanged())
 				{
-					local opponentEntry = patternRecognition.getOpponentEntry(targetEntity);
-					if (opponentEntry != null)
+					local patternRecognition = this.getContainer().getSkillByID("perk.ptr_pattern_recognition");
+					if (patternRecognition != null)
 					{
-						ret.push({
-							icon = "ui/tooltips/positive.png",
-							text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + patternRecognition.getBonus(opponentEntry) + "%[/color] Pattern Recognition"
-						});
+						local opponentEntry = patternRecognition.getOpponentEntry(targetEntity.getID());
+						if (opponentEntry != null)
+						{
+							ret.push({
+								icon = "ui/tooltips/positive.png",
+								text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + patternRecognition.getBonus(opponentEntry) + "%[/color] Pattern Recognition"
+							});
+						}
 					}
-				}
+
+					local targetPR = targetEntity.getSkills().getSkillByID("perk.ptr_pattern_recognition");
+					if (targetPR != null)
+					{
+						local opponentEntry = targetPR.getOpponentEntry(this.getContainer().getActor().getID());
+						if (opponentEntry != null)
+						{
+							ret.push({
+								icon = "ui/tooltips/negative.png",
+								text = "[color=" + this.Const.UI.Color.NegativeValue + "]" + targetPR.getBonus(opponentEntry) + "%[/color] Pattern Recognition"
+							});
+						}
+					}
+				}			
 
 				local dynamicDuoPerk = this.getContainer().getSkillByID("perk.ptr_dynamic_duo");
 				if (dynamicDuoPerk != null)
