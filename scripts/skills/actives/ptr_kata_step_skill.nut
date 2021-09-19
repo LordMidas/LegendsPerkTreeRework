@@ -283,6 +283,11 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
+	function onPayForItemAction( _skill, _items )
+	{
+		this.m.IsSpent = true;
+	}
+
 	function onWaitTurn()
 	{
 		this.m.IsSpent = true;
@@ -303,5 +308,4 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 		this.skill.onCombatFinished();
 		this.m.IsSpent = false;
 	}
-
 });
