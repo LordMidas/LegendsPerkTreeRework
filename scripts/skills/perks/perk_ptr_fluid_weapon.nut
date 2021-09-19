@@ -1,11 +1,8 @@
 this.perk_ptr_fluid_weapon <- this.inherit("scripts/skills/skill", {
 	m = {
 		IsForceEnabled = false,
-		PivotFat = 35,
-		InitiativeBonusAtPivot = 25,
-		InitiativeMaxBonus = 50,
-		FatReductionBonusAtPivot = 25,
-		FatReductionMaxBonus = 50
+		ArmorPenAsInit = 0.35,
+		ArmorEffAsFatCostRed = 0.20,
 	},
 	function create()
 	{
@@ -29,9 +26,8 @@ this.perk_ptr_fluid_weapon <- this.inherit("scripts/skills/skill", {
 	function getTooltip()
 	{
 		local tooltip = this.skill.getTooltip();
-		local fat = this.getTotalArmorFat();
 
-		local initiativeBonus = this.getInitiativeBonus(fat);
+		local initiativeBonus = this.getInitiativeBonus();
 		if (initiativeBonus > 0)
 		{
 			tooltip.push({
@@ -42,7 +38,7 @@ this.perk_ptr_fluid_weapon <- this.inherit("scripts/skills/skill", {
 			});
 		}
 
-		local fatReductionBonus = this.getFatigueReductionBonus(fat);
+		local fatReductionBonus = this.getFatigueReductionBonus();
 		if (fatReductionBonus > 0)
 		{
 			tooltip.push({
@@ -72,36 +68,14 @@ this.perk_ptr_fluid_weapon <- this.inherit("scripts/skills/skill", {
 		return true;
 	}
 
-	function getTotalArmorFat()
-	{
-		local fat = 0;
-
-		local body = this.getContainer().getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Body);
-		local head = this.getContainer().getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Head);
-
-		if (body != null)
-		{
-			fat = fat + body.getStaminaModifier();
-		}
-
-		if (head != null)
-		{
-			fat = fat + head.getStaminaModifier();
-		}
-
-		return this.Math.abs(fat);
-	}
-
 	function onUpdate(_properties)
 	{
 		if (!this.isEnabled())
 		{
 			return;
-		}
+		}		
 
-		local fat = this.getTotalArmorFat();
-
-		_properties.Initiative += this.getInitiativeBonus(fat);
+		_properties.Initiative += this.getInitiativeBonus();		
 	}
 
 	function onAfterUpdate(_properties)
@@ -110,27 +84,27 @@ this.perk_ptr_fluid_weapon <- this.inherit("scripts/skills/skill", {
 		{
 			return;
 		}
-
-		local fat = this.getTotalArmorFat();
+		
 		local skills = this.getContainer().getAllSkillsOfType(this.Const.SkillType.Active)
 		foreach (s in skills)
 		{
 			if (s.m.IsWeaponSkill)
 			{
-				s.m.FatigueCostMult *= 1.0 - this.getFatigueReductionBonus(fat) * 0.01;
+				s.m.FatigueCostMult *= 1.0 - this.getFatigueReductionBonus() * 0.01;
 			}
 		}
 	}
 
-	function getInitiativeBonus(_armorFat)
+	function getInitiativeBonus()
 	{
-		local multiplier = this.Math.max(0, this.Math.min(this.m.InitiativeMaxBonus, this.m.InitiativeBonusAtPivot + this.m.PivotFat - _armorFat))
-		return this.Math.floor(0.01 * multiplier * this.getContainer().getActor().getBaseProperties().getMeleeDefense());
+		local weapon = this.getContainer().getMainhandItem();
+		local armorPen = weapon.m.DirectDamageMult + weapon.m.DirectDamageAdd;
+		return this.Math.floor(this.m.ArmorPenAsInit * armorPen * 100);
 	}
 
-	function getFatigueReductionBonus(_armorFat)
+	function getFatigueReductionBonus()
 	{
-		local multiplier = this.Math.max(0, this.Math.min(this.m.FatReductionMaxBonus, this.m.FatReductionBonusAtPivot + _armorFat - this.m.PivotFat));
-		return this.Math.floor(0.01 * multiplier * this.getContainer().getActor().getBaseProperties().getMeleeDefense());
+		local weapon = this.getContainer().getMainhandItem();
+		return this.Math.floor(this.m.ArmorEffAsFatCostRed * weapon.m.ArmorDamageMult * 100);
 	}
 });
