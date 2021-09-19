@@ -134,21 +134,11 @@ this.perk_ptr_pattern_recognition <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		if (!_targetEntity.isPlayerControlled())
-		{
-			_targetEntity.setMoraleState(this.Const.MoraleState.Fleeing);
-		}		
-
 		this.procIfApplicable(_targetEntity, _skill);
 	}
 
 	function onTargetMissed( _skill, _targetEntity )
 	{
-		if (!_targetEntity.isPlayerControlled())
-		{
-			_targetEntity.setMoraleState(this.Const.MoraleState.Fleeing);
-		}
-
 		this.procIfApplicable(_targetEntity, _skill);
 	}
 
