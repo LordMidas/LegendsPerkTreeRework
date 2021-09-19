@@ -3945,6 +3945,7 @@ gt.Const.PTR.modEnemies <- function()
 		local assignRandomEquipment = o.assignRandomEquipment;
  		o.assignRandomEquipment = function()
  		{
+ 			assignRandomEquipment();
 			local weapon = this.getMainhandItem();
 			if (weapon != null)
 			{
