@@ -1,4 +1,29 @@
 ===================
+==== Ver 1.1.3 ====
+===================
+== MAJOR CHANGES ==
+- All Pole-type weapons (i.e. any two-handed weapon with 2-tile range) now have a -15% chance to hit adjacent targets. This is in addition to the regular -15% chance to hit that they already have for adjacent targets. That -15% is removed by the mastery of that weapon, but the newly added -15% always remains.
+- Fluid Weapon reworked: Gain Initiative equal to 35% of the currently equipped sword's armor ignore damage percentage. Weapon Skills build up less Fatigue equal to 20% of the currently equipped sword's armor effectiveness.
+- Pattern Recognition tweaked: Every time an opponent attacks you or you attack an opponent, gain stacking Melee Skill and Melee Defense against that opponent for the remainder of the combat. Every subsequent attack gives a larger bonus, with the first attack giving +1, the second +2, the third +3, and so on. Once the bonus reaches 15, all subsequent attacks increase it by +1 only. Only works with dealing or receiving melee attacks.
+- Bloodlust tweaked: Now also procs when killing a target.
+- Menacing tweaked: Now reduces the Resolve of adjacent enemies by -10 (previously was -5).
+- In the Zone reworked: Same as before, but now gives Melee Skill instead of Melee Defense.
+- The fire on the tile from Flaming Arrows now lasts for 2 rounds (current round and the next one).
+
+== MINOR AND FIXES ==
+- Improved some tooltips.
+- AI will no longer use Cover Ally on allies who are not engaged in melee.
+- Updated the hitchance tooltip to now show bonuses/maluses from Pattern Recognition and Survival Instinct.
+- Fixed Dynamic Duo getting weird hitchance bonuses for no reason.
+- Fixed Dynamic Duo not giving the Rotation skill on starting the turn even when the conditions were fulfilled.
+- Fixed Bloodlust fatigue recovery stacks getting reset if attacking a different target during the same round.
+- Fixed Kata Step remaining usable after swapping your weapon.
+- Fixed the Perfect Focus status effect tooltip not showing.
+- Fixed Pattern Recognition not gaining stacks on successful attacks.
+- Fixed enemy Indebted always spawning without armor and weapons.
+- Fixed the Relax skill causing a crash.
+
+===================
 ==== Ver 1.1.2 ====
 ===================
 - In the Zone perk now provides half the benefit when not engaged in melee.
