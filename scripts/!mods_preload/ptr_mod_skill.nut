@@ -70,7 +70,7 @@ gt.Const.PTR.modSkill <- function()
 					{
 						ret.push({
 							icon = "ui/tooltips/positive.png",
-							text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + (patternRecognition.m.MeleeSkillBonus * opponentEntry.Stacks) + "%[/color] Pattern Recognition"
+							text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + patternRecognition.getBonus(opponentEntry) + "%[/color] Pattern Recognition"
 						});
 					}
 				}
