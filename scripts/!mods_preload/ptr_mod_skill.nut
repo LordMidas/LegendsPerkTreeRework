@@ -99,6 +99,15 @@ gt.Const.PTR.modSkill <- function()
 						text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + dynamicDuoPerk.getHitChanceBonus() + "%[/color] Dynamic Duo"
 					});
 				}
+
+				local targetSI = targetEntity.getSkills().getSkillByID("perk.ptr_survival_instinct");
+				if (targetSI != null)
+				{
+					ret.push({
+						icon = "ui/tooltips/negative.png",
+						text = "[color=" + this.Const.UI.Color.NegativeValue + "]" + targetSI.getBonus() + "%[/color] Survival Instinct"
+					});
+				}
 			}
 
 			return ret;
