@@ -63,7 +63,7 @@ this.perk_ptr_flaming_arrows <- this.inherit("scripts/skills/skill", {
 			IsAppliedOnMovement = false,
 			IsAppliedOnEnter = false,
 			IsByPlayer = _data.User.isPlayerControlled(),
-			Timeout = this.Time.getRound() + 1,
+			Timeout = this.Time.getRound() + 2,
 			Callback = this.Const.Tactical.Common.onApplyFire,
 			function Applicable( _a )
 			{
@@ -77,7 +77,7 @@ this.perk_ptr_flaming_arrows <- this.inherit("scripts/skills/skill", {
 			{
 				if (tile.Properties.Effect != null && tile.Properties.Effect.Type == "fire")
 				{
-					tile.Properties.Effect.Timeout = this.Time.getRound() + 1;
+					tile.Properties.Effect.Timeout = this.Time.getRound() + 2;
 				}
 				else
 				{
