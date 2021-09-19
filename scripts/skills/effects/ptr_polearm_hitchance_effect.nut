@@ -39,7 +39,7 @@ this.ptr_polearm_hitchance_effect <- this.inherit("scripts/skills/skill", {
 		local distance = this.getContainer().getActor().getTile().getDistanceTo(_targetEntity.getTile());
 		if (distance == 1)
 		{
-			_properties.MeleeSkill -= this.getMalus();
+			_properties.MeleeSkill += this.getMalus();
 		}
 	}
 });

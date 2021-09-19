@@ -92,7 +92,7 @@ gt.Const.PTR.modSkill <- function()
 				}			
 
 				local dynamicDuoPerk = this.getContainer().getSkillByID("perk.ptr_dynamic_duo");
-				if (dynamicDuoPerk != null)
+				if (dynamicDuoPerk != null && !dynamicDuoPerk.isHidden() && dynamicDuoPerk.hasOpponent(targetEntity.getID()))
 				{
 					ret.push({
 						icon = "ui/tooltips/positive.png",
@@ -113,7 +113,7 @@ gt.Const.PTR.modSkill <- function()
 				if (weapon != null)
 				{
 					local polearmHitchanceEffect = this.getContainer().getSkillByID("effects.ptr_polearm_hitchance");
-					if (polearmHitchanceEffect != null && polearmHitchanceEffect.isEnabledForWeapon(weapon))
+					if (polearmHitchanceEffect != null && polearmHitchanceEffect.isEnabledForWeapon(weapon) && this.getContainer().getActor().getTile().getDistanceTo(targetEntity.getTile()) == 1)
 					{
 						ret.push({
 							icon = "ui/tooltips/negative.png",
