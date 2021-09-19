@@ -99,7 +99,7 @@ this.perk_ptr_pattern_recognition <- this.inherit("scripts/skills/skill", {
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		if (_targetEntity.isAlive() || _targetEntity.isDying())
+		if (!_targetEntity.isAlive() || _targetEntity.isDying())
 		{
 			return;
 		}
