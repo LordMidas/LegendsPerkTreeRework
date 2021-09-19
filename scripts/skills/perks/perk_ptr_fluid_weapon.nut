@@ -97,14 +97,14 @@ this.perk_ptr_fluid_weapon <- this.inherit("scripts/skills/skill", {
 
 	function getInitiativeBonus()
 	{
-		local weapon = this.getContainer().getMainhandItem();
+		local weapon = this.getContainer().getActor().getMainhandItem();
 		local armorPen = weapon.m.DirectDamageMult + weapon.m.DirectDamageAdd;
 		return this.Math.floor(this.m.ArmorPenAsInit * armorPen * 100);
 	}
 
 	function getFatigueReductionBonus()
 	{
-		local weapon = this.getContainer().getMainhandItem();
+		local weapon = this.getContainer().getActor().getMainhandItem();
 		return this.Math.floor(this.m.ArmorEffAsFatCostRed * weapon.m.ArmorDamageMult * 100);
 	}
 });
