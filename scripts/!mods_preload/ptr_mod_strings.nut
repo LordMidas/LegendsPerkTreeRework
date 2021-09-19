@@ -239,7 +239,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.PTRWearsItWell <- "Years of carrying heavy loads has given you a stamina like none other!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Fatigue Recovery is increased by [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color] of your Maximum Fatigue after gear.\n\n[color=#0b0084]From the Laborer perk group[/color]";
 
 	gt.Const.Strings.PerkName.PTRMenacing <- "Menacing";
-	gt.Const.Strings.PerkDescription.PTRMenacing <- "Your appearance gives your enemies a bit of doubt!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Lower the Resolve of adjacent enemies by [color=" + this.Const.UI.Color.PositiveValue + "]-5[/color].\n\n[color=#0b0084]From the Raider perk group[/color]";
+	gt.Const.Strings.PerkDescription.PTRMenacing <- "Your appearance gives your enemies a bit of doubt!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Lower the Resolve of adjacent enemies by [color=" + this.Const.UI.Color.PositiveValue + "]-10[/color].\n\n[color=#0b0084]From the Raider perk group[/color]";
 	gt.Const.Strings.PerkName.PTRBully <- "Bully";
 	gt.Const.Strings.PerkDescription.PTRBully <- "Did you say stop? No, I\'m not gonna stop!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Melee Damage is increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] per level of difference between your and your target\'s Morale as long as your Morale is higher than that of your target.\n\n[color=#0b0084]From the Raider perk group[/color]";
 

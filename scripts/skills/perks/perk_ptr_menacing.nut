@@ -15,6 +15,6 @@ this.perk_ptr_menacing <- this.inherit("scripts/skills/skill", {
 
 	function onUpdate(_properties)
 	{
-		_properties.Threat += 5;
+		_properties.Threat += 10;
 	}
 });
