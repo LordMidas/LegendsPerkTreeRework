@@ -1,6 +1,7 @@
 this.perk_ptr_bloodlust <- this.inherit("scripts/skills/skill", {
 	m = {
-		Count = 0,
+		BleedStacksBeforeAttack = 0,
+		FatigueRecoveryStacks = 0,		
 		FatigueReductionPercentage = 5
 	},
 	function create()
@@ -39,14 +40,24 @@ this.perk_ptr_bloodlust <- this.inherit("scripts/skills/skill", {
 				id = 10,
 				type = "text",
 				icon = "ui/icons/fatigue.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.Count + "[/color] Fatigue Recovery on the next turn"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.FatigueRecoveryStacks + "[/color] Fatigue Recovery on the next turn"
 			},
 		];
 	}
 
+	function onBeforeAnySkillExecuted( _skill, _targetTile, _targetEntity )
+	{
+		if (!_skill.isAttack() || _targetEntity == null)
+		{
+			return;
+		}
+
+		this.m.BleedStacksBeforeAttack = _targetEntity.getSkills().getAllSkillsByID("effects.bleeding").len();
+	}
+
 	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
 	{
-		if (_targetEntity == null || !_targetEntity.isAlive() || _targetEntity.isDying())
+		if (!_skill.isAttack() || _targetEntity == null)
 		{
 			return;
 		}
@@ -63,25 +74,39 @@ this.perk_ptr_bloodlust <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		this.m.Count = _targetEntity.getSkills().getAllSkillsByID("effects.bleeding").len();
+		local bleedCount = 0;
 
-		actor.setFatigue(this.Math.max(0, actor.getFatigue() - actor.getFatigue() * (this.m.Count * this.m.FatigueReductionPercentage * 0.01)));
+		if (!_targetEntity.isAlive() || _targetEntity.isDying())
+		{
+			bleedCount = this.m.BleedStacksBeforeAttack + 1;			
+		}
+		else
+		{
+			bleedCount = _targetEntity.getSkills().getAllSkillsByID("effects.bleeding").len();			
+		}
+
+		this.m.FatigueRecoveryStacks += bleedCount;
+
+		actor.setFatigue(this.Math.max(0, actor.getFatigue() - actor.getFatigue() * (bleedCount * this.m.FatigueReductionPercentage * 0.01)));
+	}
+
+	function onUpdate( _properties )
+	{
+		_properties.FatigueRecoveryRate += this.m.FatigueRecoveryStacks;
 	}
 
 	function onTurnStart()
 	{
-		local actor = this.getContainer().getActor();
-		actor.setFatigue(this.Math.max(0, actor.getFatigue() - this.m.Count));
-		this.m.Count = 0;
+		this.m.FatigueRecoveryStacks = 0;
 	}
 
 	function onCombatFinished()
 	{
-		this.m.Count = 0;
+		this.m.FatigueRecoveryStacks = 0;
 	}
 
 	function onCombatStarted()
 	{
-		this.m.Count = 0;
+		this.m.FatigueRecoveryStacks = 0;
 	}
 });
