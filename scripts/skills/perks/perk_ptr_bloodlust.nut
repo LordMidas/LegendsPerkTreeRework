@@ -20,7 +20,7 @@ this.perk_ptr_bloodlust <- this.inherit("scripts/skills/skill", {
 
 	function isHidden()
 	{
-		return this.m.Count == 0;
+		return this.m.FatigueRecoveryStacks == 0;
 	}
 
 	function getTooltip()
