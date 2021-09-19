@@ -284,7 +284,8 @@ gt.Const.PTR.modSkills <- function()
 
 		o.onUse = function( _user, _targetTile )
 		{
-			_targetTile.getEntity().getSkills().add(this.new("scripts/skills/effects/ptr_relaxed_effect"));
+			local target = _targetTile.getEntity();
+			target.getSkills().add(this.new("scripts/skills/effects/ptr_relaxed_effect"));
 
 			if (!target.isHiddenToPlayer())
 			{
