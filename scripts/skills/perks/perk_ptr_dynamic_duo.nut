@@ -223,7 +223,7 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 
 	function isEnabled()
 	{
-		local actor = this.getContainer().getActor();
+		local actor = this.getContainer().getActor();		
 		return actor.isPlacedOnMap() && this.updateSituation();
 	}
 
@@ -258,6 +258,7 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
+
 		this.m.RotationSkill = this.getContainer().getSkillByID("actives.rotation");
 		if (this.m.RotationSkill == null)
 		{
@@ -267,11 +268,6 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 			this.m.RotationSkill = rotation;
 			this.m.IsRotationAdded = true;
 		}
-	}
-
-	function onTurnStart()
-	{
-		this.addRotationIfApplicable();
 	}
 
 	function onMovementFinished(_tile)
@@ -369,6 +365,7 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 	function onTurnStart()
 	{
 		this.m.IsRotationUsedThisTurn = false;
+		this.addRotationIfApplicable();
 	}
 
 	function onCombatFinished()
