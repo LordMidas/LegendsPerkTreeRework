@@ -1,5 +1,5 @@
 local modID = "mod_WMS";
-::mods_registerMod(modID, 1.4, "Weapon Mastery Standardization 1.4.5");
+::mods_registerMod(modID, 1.4, "Weapon Mastery Standardization 1.4.6");
 
 local gt = this.getroottable();
 
@@ -38,7 +38,10 @@ gt.Const.WMS <- {};
 		}
 
 		gt.Const.WMS.Mastery[_mastery] <- _categoriesString;
-	}	
+	}
+
+	gt.Const.Strings.PerkDescription.SpecPolearm = this.MSU.String.replace(gt.Const.Strings.PerkDescription.SpecPolearm, "Polearm skills have their Action Point cost", "All skills with two-handed weapons, with a range of 2 tiles, having an Action Point cost of [color=" + this.Const.UI.Color.NegativeValue + "]6[/color] have their Action Point cost");	
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.SpecPolearm].Tooltip = gt.Const.Strings.PerkDescription.SpecPolearm;
 
 	gt.Const.WMS.modActor();
 	gt.Const.WMS.modPerks();
