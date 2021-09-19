@@ -85,6 +85,11 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 			Enemy = null
 		};
 
+		if (!_entity.isEngagedInMelee())
+		{
+			return ret;
+		}
+
 		if (_entity.getMoraleState() == this.Const.MoraleState.Fleeing || _entity.getSkills().hasSkill("perk.ptr_en_garde") || _entity.getSkills().hasSkill("actives.lunge") || _entity.getSkills().hasSkill("actives.footwork"))
 		{
 			return ret;
@@ -93,11 +98,8 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 		local weapon = _entity.getMainhandItem();
 		if (weapon != null && (weapon.isItemType(this.Const.Items.ItemType.RangedWeapon) || weapon.getRangeMax() > 1))
 		{
-			if (_entity.isEngagedInMelee())
-			{
-				ret.Score = 100;
-				ret.Ally = _entity;
-			}
+			ret.Score = 100;
+			ret.Ally = _entity;
 
 			return ret;
 		}
