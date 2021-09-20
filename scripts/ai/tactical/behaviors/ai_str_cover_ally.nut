@@ -65,8 +65,14 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 
 		potentialTargets.sort(this.onSortAlliesByScore);
 
-		this.m.TargetTile = potentialTargets[0].Ally.getTile();
 		this.m.TargetAlly = potentialTargets[0].Ally;
+
+		if (this.m.TargetAlly == null)
+		{
+			return this.Const.AI.Behavior.Score.Zero;
+		}
+
+		this.m.TargetTile = potentialTargets[0].Ally.getTile();		
 		this.m.TargetEnemy = potentialTargets[0].Enemy;
 
 		if (this.m.TargetTile == null)
@@ -85,7 +91,7 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 			Enemy = null
 		};
 
-		if (!_entity.isEngagedInMelee())
+		if (!_entity.isEngagedInMelee() || !this.m.Skill.isUsableOn(_entity.getTile()))
 		{
 			return ret;
 		}
