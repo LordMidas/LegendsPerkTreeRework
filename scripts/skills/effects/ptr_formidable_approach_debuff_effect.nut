@@ -58,7 +58,9 @@ this.ptr_formidable_approach_debuff_effect <- this.inherit("scripts/skills/skill
 			return true;
 		}
 
-		if (this.getContainer().hasSkill("perk.ptr_formidable_approach"))
+		local perk = this.getContainer().getSkillByID("perk.ptr_formidable_approach");
+
+		if (perk != null && perk.isEnabled())
 		{
 			return false;
 		}

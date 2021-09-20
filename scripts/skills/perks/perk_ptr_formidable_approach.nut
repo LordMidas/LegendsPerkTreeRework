@@ -17,18 +17,12 @@ this.perk_ptr_formidable_approach <- this.inherit("scripts/skills/skill", {
 
 	function isEnabled()
 	{
-		local actor = this.getContainer().getActor();
-		if (actor == null)
-		{
-			return false;
-		}
-
 		if (this.m.IsForceEnabled)
 		{
 			return true;
 		}
 
-		local weapon = actor.getMainhandItem();
+		local weapon = this.getContainer().getActor().getMainhandItem();
 		if (weapon == null || !(weapon.isItemType(this.Const.Items.ItemType.TwoHanded) && weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon)))
 		{
 			return false;
