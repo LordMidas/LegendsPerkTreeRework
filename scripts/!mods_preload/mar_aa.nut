@@ -1,6 +1,6 @@
 local modID = "mod_mediumArmorRework";
 
-::mods_registerMod(modID, 1.4, "Medium Armor Rework (MAR) 1.4.2");
+::mods_registerMod(modID, 1.4, "Medium Armor Rework (MAR) 1.4.3");
 
 ::mods_queue(modID, "mod_legends,mod_MSU", function ()
 {

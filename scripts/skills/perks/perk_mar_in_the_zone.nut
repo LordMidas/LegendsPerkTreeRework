@@ -21,19 +21,21 @@ this.perk_mar_in_the_zone <- this.inherit("scripts/skills/skill", {
 	{
 		local tooltip = this.skill.getTooltip();
 
-		if (this.m.Stacks > 0)
+		local bonus = this.getBonus();
+
+		if (bonus > 0)
 		{
 			tooltip.push({
 				id = 6,
 				type = "text",
 				icon = "ui/icons/melee_skill.png",
-				text = "+[color=" + this.Const.UI.Color.PositiveValue + "]" + this.m.Stacks + "%[/color] Melee Skill"
+				text = "+[color=" + this.Const.UI.Color.PositiveValue + "]" + bonus + "%[/color] Melee Skill"
 			});
 			tooltip.push({
 				id = 6,
 				type = "text",
 				icon = "ui/icons/regular_damage.png",
-				text = "+[color=" + this.Const.UI.Color.PositiveValue + "]" + this.m.Stacks + "%[/color] Melee Damage"
+				text = "+[color=" + this.Const.UI.Color.PositiveValue + "]" + bonus + "%[/color] Melee Damage"
 			});
 		}
 
@@ -63,7 +65,7 @@ this.perk_mar_in_the_zone <- this.inherit("scripts/skills/skill", {
 
 	function getBonus()
 	{
-		return this.getContainer().getActor().isEngagedInMelee() ? this.m.Stacks : this.m.Stacks / 2;		
+		return (this.getContainer().getActor().isPlacedOnMap() && !this.getContainer().getActor().isEngagedInMelee()) ? this.m.Stacks / 2 : this.m.Stacks;		
 	}
 
 	function onAfterUpdate( _properties )
