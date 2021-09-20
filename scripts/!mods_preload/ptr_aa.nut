@@ -4,11 +4,11 @@ gt.Const.PTR <- {};
 gt.Const.PTR.Version <- 1;
 
 local modID = "mod_legends_PTR";
-::mods_registerMod(modID, gt.Const.PTR.Version, "Perk Trees Rework 1.1.3");
+::mods_registerMod(modID, gt.Const.PTR.Version, "Perk Trees Rework 1.1.4");
 
 ::mods_queue(modID, "mod_legends, mod_MSU, mod_betterFencing, mod_WMS, mod_mediumArmorRework, mod_legends_STR, mod_duelistDefense", function()
 {
-	# this.Const.AI.VerboseMode = true;
+	this.Const.AI.VerboseMode = true;
 	gt.setupDebugLog <- function (_enabled = false, _name = "default")
 	{
 		//keep table of mod names so that you can turn it on and off for specific mods

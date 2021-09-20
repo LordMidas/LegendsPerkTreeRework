@@ -1,4 +1,12 @@
 ===================
+==== Ver 1.1.4 ====
+===================
+- Improved Opportunist perk tooltip.
+- Fixed Worn Down status effect showing a much smaller value than what it actually has.
+- Fixed In the Zone showing the wrong bonus when not engaged in melee.
+- Fixed AI trying to use Cover Ally on invalid targets leading to a soft-lock during battle.
+
+===================
 ==== Ver 1.1.3 ====
 ===================
 == MAJOR CHANGES ==
