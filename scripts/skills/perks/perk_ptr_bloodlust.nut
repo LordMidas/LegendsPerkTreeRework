@@ -47,7 +47,7 @@ this.perk_ptr_bloodlust <- this.inherit("scripts/skills/skill", {
 
 	function onBeforeAnySkillExecuted( _skill, _targetTile, _targetEntity )
 	{
-		if (!_skill.isAttack() || _targetEntity == null)
+		if (!_skill.isAttack() || _skill.isRanged() || _targetEntity == null)
 		{
 			return;
 		}
@@ -57,7 +57,7 @@ this.perk_ptr_bloodlust <- this.inherit("scripts/skills/skill", {
 
 	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
 	{
-		if (!_skill.isAttack() || _targetEntity == null)
+		if (!_skill.isAttack() || _skill.isRanged() || _targetEntity == null)
 		{
 			return;
 		}
