@@ -1,5 +1,6 @@
 this.perk_ptr_pointy_end <- this.inherit("scripts/skills/skill", {
 	m = {
+		IsForceEnabled = false,
 		MeleeSkillBonus = 10
 	},
 	function create()
@@ -22,11 +23,14 @@ this.perk_ptr_pointy_end <- this.inherit("scripts/skills/skill", {
 
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
-		if (_targetEntity == null || !_targetEntity.isArmedWithShield() || !_skill.isAttack() || _skill.isRanged() || !_skill.hasDamageType(this.Const.Damage.DamageType.Piercing))
+		if (_targetEntity == null || !_targetEntity.isArmedWithShield() || !_skill.isAttack())
 		{
 			return;
 		}
 
-		_properties.MeleeSkill += this.getBonus();
+		if (this.m.IsForceEnabled || (!_skill.isRanged() && _skill.hasDamageType(this.Const.Damage.DamageType.Piercing)))
+		{
+			_properties.MeleeSkill += this.getBonus();
+		}
 	}
 });
