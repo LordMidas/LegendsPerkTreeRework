@@ -10,7 +10,7 @@ gt.Const.PTR.modActor <- function()
 			oldOnDeath(_killer, _skill, _tile, _fatalityType);
 			if (_fatalityType != this.Const.FatalityType.None && _killer != null && this.Tactical.TurnSequenceBar.getActiveEntity() != null && this.Tactical.TurnSequenceBar.getActiveEntity().getID() == _killer.getID())
 			{
-				if (_skill.isAttack() && !_skill.isRanged())
+				if (_skill != null && _skill.isAttack() && !_skill.isRanged())
 				{
 					if (_killer.getSkills().hasSkill("perk.ptr_bloodbath"))
 					{
