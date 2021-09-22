@@ -38,12 +38,58 @@ this.perk_ptr_a_better_grip <- this.inherit("scripts/skills/skill", {
 		local s = this.getContainer().getSkillByID("actives.thrust");
 		if (s != null && actor.isDoubleGrippingWeapon())
 		{
-			s.m.MaxRange += 1;
+			s.m.MaxRange += 1;			
 		}
 
 		if (weapon.isItemType(this.Const.Items.ItemType.TwoHanded))
 		{
 			_properties.MeleeDamageMult *= 1.25;
+		}
+	}
+
+	function onAnySkillUsed( _skill, _targetEntity, _properties )
+	{
+		if (_skill.getID() == "actives.thrust")
+		{
+			_skill.resetField("HitChanceBonus");
+
+			if (_targetEntity != null && this.getContainer().getActor().isDoubleGrippingWeapon())
+			{
+				local targetTile = _targetEntity.getTile();
+				local myTile = this.getContainer().getActor().getTile();
+
+				if (myTile.getDistanceTo(targetTile) == 2)
+				{
+					local betweenTiles = [];
+					local malus = _skill.m.HitChanceBonus;
+					
+					for (local i = 0; i < 6; i++)
+					{
+						if (targetTile.hasNextTile())
+						{
+							local nextTile = targetTile.getNextTile();
+							if (nextTile.getDistanceTo(myTile) == 1)
+							{
+								betweenTiles.push(nextTile);
+								if (betweenTiles.len() == 2)
+								{
+									break;
+								}
+							}
+						}
+					}
+
+					foreach (tile in betweenTiles)
+					{
+						if (tile.IsOccupiedByActor)
+						{
+							malus += 20;
+						}
+					}
+
+					_skill.m.HitChanceBonus -= malus;
+				}
+			}	
 		}
 	}
 });
