@@ -25,12 +25,12 @@ this.perk_ptr_survival_instinct <- this.inherit("scripts/skills/skill", {
 
 		if (this.m.HitStacks > 0)
 		{
-			name += " x(" + this.m.HitStacks + " hits)"
+			name += " (x" + this.m.HitStacks + " hits)"
 		}
 
 		if (this.m.MissStacks > 0)
 		{
-			name += " x(" + this.m.MissStacks + " misses)"
+			name += " (x" + this.m.MissStacks + " misses)"
 		}
 
 		return name;
@@ -69,7 +69,7 @@ this.perk_ptr_survival_instinct <- this.inherit("scripts/skills/skill", {
 
 	function getBonus()
 	{
-		return (this.m.MissStacks * this.m.BonusPerMiss) + (this.m.HitStacks * this.m.BonusPerMiss);
+		return (this.m.MissStacks * this.m.BonusPerMiss) + (this.m.HitStacks * this.m.BonusPerHit);
 	}
 
 	function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
