@@ -71,11 +71,23 @@ this.str_move_under_cover_skill <- this.inherit("scripts/skills/skill", {
 		}
 
 		local agent = actor.getAIAgent();
+		local weapon = actor.getMainhandItem();
 
-		if (agent.findBehavior(this.Const.AI.Behavior.ID.PTRKataStep) == null)
+		if (weapon != null && (weapon.isItemType(this.Const.Items.ItemType.RangedWeapon) || weapon.m.RangeMax == 2))
 		{
-			agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_ptr_kata_step"));
-			agent.finalizeBehaviors();
+			if (agent.findBehavior(this.Const.AI.Behavior.ID.Disengage) == null)
+			{
+				agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_disengage"));
+				agent.finalizeBehaviors();
+			}
+		}
+		else
+		{
+			if (agent.findBehavior(this.Const.AI.Behavior.ID.PTRKataStep) == null)
+			{
+				agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_ptr_kata_step"));
+				agent.finalizeBehaviors();
+			}
 		}
 	}
 
