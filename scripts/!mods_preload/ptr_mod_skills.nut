@@ -2,6 +2,18 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modSkills <- function()
 {
+	::mods_hookExactClass("skills/perks/perk_legend_muscularity", function(o) {
+		local onUpdate = o.onUpdate;
+		o.onUpdate = function()
+		{
+			local weapon = this.getContainer().getActor().getMainhandItem();
+			if (weapon == null || weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon) || weapon.isWeaponType(this.Const.Items.WeaponType.Throwing))
+			{
+				onUpdate();
+			}
+		}
+	});
+	
 	::mods_hookExactClass("skills/actives/thrust", function(o) {
 		o.getTooltip = function()
 		{
