@@ -211,7 +211,7 @@ gt.Const.PTR.modWeapons <- function()
 		"items/weapons/shamshir",
 		"items/weapons/named/named_shamshir",
 		"items/weapons/scimitar",
-		"items/weapons/saif",
+		"items/weapons/oriental/saif",
 	];
 
 	foreach (sword in curvedSwords)
