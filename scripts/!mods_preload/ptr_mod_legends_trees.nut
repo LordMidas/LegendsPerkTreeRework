@@ -550,7 +550,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	// 	{Multiplier = 1.5, Tree = this.Const.Perks.FastTree}
 	// ];
 	this.Const.Perks.AgileTree.Tree[0] = [this.Const.Perks.PerkDefs.Pathfinder];
-	this.Const.Perks.AgileTree.Tree[1] = [];
+	this.Const.Perks.AgileTree.Tree[1] = [this.Const.Perks.PerkDefs.Anticipation];
 	this.Const.Perks.AgileTree.Tree[2] = [this.Const.Perks.PerkDefs.Sprint];
 	this.Const.Perks.AgileTree.Tree[3] = [];
 	this.Const.Perks.AgileTree.Tree[4] = [this.Const.Perks.PerkDefs.Footwork];
@@ -625,7 +625,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	 	{Multiplier = 1.5, Tree = this.Const.Perks.AgileTree}
 	 ];
 	this.Const.Perks.FastTree.Tree[0] = [this.Const.Perks.PerkDefs.LegendAlert];
-	this.Const.Perks.FastTree.Tree[1] = [this.Const.Perks.PerkDefs.Anticipation];
+	this.Const.Perks.FastTree.Tree[1] = [];
 	this.Const.Perks.FastTree.Tree[2] = [this.Const.Perks.PerkDefs.Relentless];
 	this.Const.Perks.FastTree.Tree[3] = [];
 	this.Const.Perks.FastTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRDynamicDuo];
