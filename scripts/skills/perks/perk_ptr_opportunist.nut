@@ -1,6 +1,8 @@
 this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 	m = {
 		APRecovered = 4,
+		IsPrimed = false,
+		FatCostRed = 50,
 		UsedTiles = []
 	},
 	function create()
@@ -9,14 +11,35 @@ this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 		this.m.Name = this.Const.Strings.PerkName.PTROpportunist;
 		this.m.Description = this.Const.Strings.PerkDescription.PTROpportunist;
 		this.m.Icon = "ui/perks/ptr_opportunist.png";
-		this.m.Type = this.Const.SkillType.Perk;
-		this.m.Order = this.Const.SkillOrder.Perk;
+		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
+		this.m.Order = this.Const.SkillOrder.Last;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
 
-	function isInEffect()
+	function getTooltip()
+	{
+		local tooltip = this.skill.getTooltip();
+
+		tooltip.push({
+			id = 10,
+			type = "text",
+			icon = "ui/icons/fatigue.png",
+			text = "The next throwing attack builds [color=" + this.Const.UI.Color.PositiveValue + "]-" + this.m.FatCostRed + "[/color] Fatigue"
+		});
+
+		tooltip.push({
+			id = 10,
+			type = "text",
+			icon = "ui/icons/warning.png",
+			text = "Will expire upon waiting or ending the turn, swapping your weapon, or using any skill"
+		});
+
+		return tooltip;
+	}
+
+	function isEnabled()
 	{
 		local weapon = this.getContainer().getActor().getMainhandItem();
 
@@ -32,7 +55,7 @@ this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 	{
 		local actor = this.getContainer().getActor();
 
-		if (!actor.isPlacedOnMap() || !this.isInEffect())
+		if (!actor.isPlacedOnMap() || !this.isEnabled())
 		{
 			return;
 		}
@@ -41,12 +64,7 @@ this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 		{
 			local tile = actor.getTile();
 
-			if (tile == null || !tile.IsCorpseSpawned || this.m.UsedTiles.find(tile.ID) != null)
-			{
-				return;
-			}
-
-			if (actor.getAlliedFactions().find(tile.Properties.get("Corpse").Faction) != null)
+			if (tile == null || !tile.IsCorpseSpawned || this.m.UsedTiles.find(tile.ID) != null || actor.getAlliedFactions().find(tile.Properties.get("Corpse").Faction) != null)
 			{
 				return;
 			}
@@ -60,17 +78,57 @@ this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 			this.spawnIcon("perk_ptr_opportunist", tile);
 
 			this.m.UsedTiles.push(tile.ID);
+
+			this.m.IsPrimed = true;
 		}
 	}
+
+	function onAfterUpdate( _properties )
+	{
+		this.m.IsHidden = true;
+
+		if (this.m.IsPrimed && this.isEnabled())
+		{
+			this.m.IsHidden = false;
+
+			local attacks = this.getContainer().getSkillsByFunction(this, @(_skill) _skill.isAttack() && _skill.m.IsWeaponSkill)
+			foreach (attack in attacks)
+			{
+				attack.m.FatigueCostMult *= this.m.FatCostRed * 0.01;
+			}
+		}
+	}
+
+	function onPayForItemAction( _skill, _items )
+	{
+		this.m.IsPrimed = false;
+	}
+
+	function onAnySkillExecuted ( _skill, _targetTile, _targetEntity )
+	{
+		this.m.IsPrimed = false;
+	}
+
+	function onTurnStart()
+	{
+		this.m.IsPrimed = false;
+	}
+
+	function onWaitTurn()
+	{
+		this.m.IsPrimed = false;
+	}	
 
 	function onCombatStarted()
 	{
 		this.m.UsedTiles.clear();
+		this.m.IsPrimed = false;
 	}
 
 	function onCombatFinished()
 	{
 		this.skill.onCombatFinished();
 		this.m.UsedTiles.clear();
+		this.m.IsPrimed = false;
 	}
 });
