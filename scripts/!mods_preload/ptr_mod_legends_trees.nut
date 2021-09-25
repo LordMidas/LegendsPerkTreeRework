@@ -555,7 +555,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	this.Const.Perks.AgileTree.Tree[3] = [];
 	this.Const.Perks.AgileTree.Tree[4] = [this.Const.Perks.PerkDefs.Footwork];
 	this.Const.Perks.AgileTree.Tree[5] = [this.Const.Perks.PerkDefs.Rebound];
-	this.Const.Perks.AgileTree.Tree[6] = [];
+	this.Const.Perks.AgileTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRVigorousAssault];
 
 	while (this.Const.Perks.IndestructibleTree.Tree.len() < 7)
 	{
