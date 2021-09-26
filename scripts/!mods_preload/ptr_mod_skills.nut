@@ -9,7 +9,7 @@ gt.Const.PTR.modSkills <- function()
 			if (!this.getContainer().getActor().isPlayerControlled())
 			{
 				local weapon = this.getContainer().getActor().getMainhandItem();
-				if (weapon != null && weapon.isItemType(this.Const.Items.WeaponType.BFFencing))
+				if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.BFFencing))
 				{
 					this.getContainer().add(this.new("scripts/skills/perks/perk_bf_fencer"));
 				}
