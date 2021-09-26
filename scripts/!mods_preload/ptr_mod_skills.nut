@@ -52,6 +52,15 @@ gt.Const.PTR.modSkills <- function()
 						text = "Has [color=" + this.Const.UI.Color.PositiveValue + "]-20%[/color] chance to hit per character between you and the target"
 					}
 				);
+
+				ret.push(
+					{
+						id = 6,
+						type = "text",
+						icon = "ui/icons/damage_dealt.png",
+						text = "Damage is reduced by [color=" + this.Const.UI.Color.PositiveValue + "]33%[/color] when attacking at a distance of 2 tiles"
+					}
+				);
 			}
 
 			return ret;

@@ -1,5 +1,7 @@
 this.perk_ptr_a_better_grip <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		DamageMultAtTwoTiles = 0.66;
+	},
 	function create()
 	{
 		this.m.ID = "perk.ptr_a_better_grip";
@@ -60,14 +62,16 @@ this.perk_ptr_a_better_grip <- this.inherit("scripts/skills/skill", {
 
 				if (myTile.getDistanceTo(targetTile) == 2)
 				{
+					_properties.DamageTotalMult *= this.m.DamageMultAtTwoTiles;
+
 					local betweenTiles = [];
 					local malus = _skill.m.HitChanceBonus;
 					
 					for (local i = 0; i < 6; i++)
 					{
-						if (targetTile.hasNextTile())
+						if (targetTile.hasNextTile(i))
 						{
-							local nextTile = targetTile.getNextTile();
+							local nextTile = targetTile.getNextTile(i);
 							if (nextTile.getDistanceTo(myTile) == 1)
 							{
 								betweenTiles.push(nextTile);
