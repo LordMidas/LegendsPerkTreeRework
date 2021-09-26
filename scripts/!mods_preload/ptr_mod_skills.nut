@@ -2,6 +2,21 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modSkills <- function()
 {
+	::mods_hookExactClass("skills/actives/lunge_skill", function(o) {
+		local onAdded = ::mods_getMember(o, "onAdded");
+		::mods_override(o, "onAdded", function(o) {
+			onAdded();
+			if (!this.getContainer().getActor().isPlayerControlled())
+			{
+				local weapon = this.getContainer().getActor().getMainhandItem();
+				if (weapon != null && weapon.isItemType(this.Const.Items.WeaponType.BFFencing))
+				{
+					this.getContainer().add(this.new("scripts/skills/perks/perk_bf_fencer"));
+				}
+			}			
+		});		
+	});
+
 	::mods_hookExactClass("skills/perks/perk_legend_muscularity", function(o) {
 		local onUpdate = o.onUpdate;
 		o.onUpdate = function()
