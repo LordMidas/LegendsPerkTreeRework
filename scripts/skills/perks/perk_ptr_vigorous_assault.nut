@@ -31,7 +31,7 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 					id = 10,
 					type = "text",
 					icon = "ui/icons/action_points.png",
-					text = "The next attack costs [color=" + this.Const.UI.Color.PositiveValue + "]-" this.getAPBonus() "[/color] Action Point(s)"
+					text = "The next attack costs [color=" + this.Const.UI.Color.PositiveValue + "]-" + this.getAPBonus() + "[/color] Action Point(s)"
 				}
 			);
 		}
@@ -45,7 +45,7 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 					id = 10,
 					type = "text",
 					icon = "ui/icons/fatigue.png",
-					text = "The next attack builds up [color=" + this.Const.UI.Color.PositiveValue + "]-" this.getFatBonus() "[/color] Fatigue"
+					text = "The next attack builds up [color=" + this.Const.UI.Color.PositiveValue + "]-" + this.getFatBonus() + "[/color] Fatigue"
 				}
 			);
 		}
