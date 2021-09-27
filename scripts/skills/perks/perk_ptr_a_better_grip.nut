@@ -1,6 +1,6 @@
 this.perk_ptr_a_better_grip <- this.inherit("scripts/skills/skill", {
 	m = {
-		DamageMultAtTwoTiles = 0.66;
+		DamageMultAtTwoTiles = 0.66
 	},
 	function create()
 	{
