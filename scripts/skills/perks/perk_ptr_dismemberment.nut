@@ -25,17 +25,7 @@ this.perk_ptr_dismemberment <- this.inherit("scripts/skills/skill", {
 	{
 		if (_skill.isAttack() && (_skill.hasDamageType(this.Const.Damage.DamageType.Cutting) || this.m.IsForceEnabled) && this.isEnabled())
 		{
-			_properties.ThresholdToInflictInjuryMult *= 1.0 - (this.m.PercentageOfMaximumDamage * 0.01 * _properties.getDamageRegularMax());
+			_properties.ThresholdToInflictInjuryMult *= 1.0 - (this.m.PercentageOfMaximumDamage * 0.01 * _properties.getDamageRegularMax() * 0.01);
 		}
 	}
-
-	# function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
-	# {
-	# 	if (!_skill.hasDamageType(this.Const.Damage.DamageType.Cutting) || !_targetEntity.getFlags().has("undead"))
-	# 	{
-	# 		return;
-	# 	}
-	#
-	# 	_hitInfo.Injuries = this.Const.Injury.getArrayOfRelevantUndeadInjuries(_skill, _targetEntity, _hitInfo);
-	# }
 });
