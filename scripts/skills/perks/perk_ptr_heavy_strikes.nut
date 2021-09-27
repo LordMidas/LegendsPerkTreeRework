@@ -15,7 +15,7 @@ this.perk_ptr_heavy_strikes <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
-	function isEnabled( _skill )
+	function isEnabled()
 	{	
 		if (this.m.IsForceEnabled)
 		{
