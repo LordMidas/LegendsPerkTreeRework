@@ -77,7 +77,13 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 	function isEnabled()
 	{
 		local actor = this.getContainer().getActor();
-		if (!actor.isPlacedOnMap() || !actor.isArmedWithMeleeWeapon() || this.m.StartingTile == null)
+		if (!actor.isPlacedOnMap() || this.m.StartingTile == null)
+		{
+			return false;
+		}
+
+		local weapon = actor.getMainhandItem();
+		if (weapon != null && !weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon))
 		{
 			return false;
 		}
