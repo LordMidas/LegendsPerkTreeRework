@@ -915,6 +915,15 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_vigorous_assault.png",
 			IconDisabled = "ui/perks/ptr_vigorous_assault_bw.png",
 			Const = "PTRVigorousAssault"
+		},
+		{
+			ID = "perk.ptr_skirmisher",
+			Script = "scripts/skills/perks/perk_ptr_skirmisher",
+			Name = this.Const.Strings.PerkName.PTRSkirmisher,
+			Tooltip = this.Const.Strings.PerkDescription.PTRSkirmisher,
+			Icon = "ui/perks/ptr_skirmisher.png",
+			IconDisabled = "ui/perks/ptr_skirmisher_bw.png",
+			Const = "PTRSkirmisher"
 		}
 	];
 
