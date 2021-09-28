@@ -54,7 +54,7 @@ this.perk_ptr_deep_cuts <- this.inherit("scripts/skills/skill", {
 
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
-		if (this.m.TargetID == _targetEntity.getID() && _skill.isAttack() && _skill.hasDamageType(this.Const.Damage.DamageType.Cutting))
+		if (_targetEntity != null && this.m.TargetID == _targetEntity.getID() && _skill.isAttack() && _skill.hasDamageType(this.Const.Damage.DamageType.Cutting))
 		{
 			_properties.ThresholdToInflictInjuryMult *= this.m.InjuryThresholdReduction * 0.01;
 		}
