@@ -348,6 +348,9 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.BFFencer = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.BFFencer, "Light Armor");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.BFFencer].Tooltip = gt.Const.Strings.PerkDescription.BFFencer;
 
+	gt.Const.Strings.PerkDescription.DoubleStrike = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.BFFencer, "One-Handed Weapons and Dagger");
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.DoubleStrike].Tooltip = gt.Const.Strings.PerkDescription.DoubleStrike;
+
 	gt.Const.Strings.PerkDescription.ReachAdvantage = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.ReachAdvantage, "Two-Handed Weapons");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.ReachAdvantage].Tooltip = gt.Const.Strings.PerkDescription.ReachAdvantage;	
 	gt.Const.Strings.PerkDescription.Duelist = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Duelist, "One-Handed Weapons");
