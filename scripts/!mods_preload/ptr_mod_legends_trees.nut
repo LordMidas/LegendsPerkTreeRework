@@ -640,10 +640,10 @@ gt.Const.PTR.modTraitsTrees <- function()
 		{Multiplier = 1.5, Tree = this.Const.Perks.SturdyTree}
 	];
 	this.Const.Perks.LargeTree.Tree[0] = [this.Const.Perks.PerkDefs.Colossus];
-	this.Const.Perks.LargeTree.Tree[1] = [this.Const.Perks.PerkDefs.LegendComposure];
+	this.Const.Perks.LargeTree.Tree[1] = [];
 	this.Const.Perks.LargeTree.Tree[2] = [this.Const.Perks.PerkDefs.Steadfast];
 	this.Const.Perks.LargeTree.Tree[3] = [];
-	this.Const.Perks.LargeTree.Tree[4] = [this.Const.Perks.PerkDefs.Stalwart];
+	this.Const.Perks.LargeTree.Tree[4] = [];
 	this.Const.Perks.LargeTree.Tree[5] = [];
 	this.Const.Perks.LargeTree.Tree[6] = [this.Const.Perks.PerkDefs.LegendMuscularity];
 
