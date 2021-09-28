@@ -554,8 +554,8 @@ gt.Const.PTR.modTraitsTrees <- function()
 	this.Const.Perks.AgileTree.Tree[2] = [this.Const.Perks.PerkDefs.Sprint];
 	this.Const.Perks.AgileTree.Tree[3] = [];
 	this.Const.Perks.AgileTree.Tree[4] = [this.Const.Perks.PerkDefs.Footwork];
-	this.Const.Perks.AgileTree.Tree[5] = [this.Const.Perks.PerkDefs.Rebound];
-	this.Const.Perks.AgileTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRVigorousAssault];
+	this.Const.Perks.AgileTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRFreshAndFurious];
+	this.Const.Perks.AgileTree.Tree[6] = [this.Const.Perks.PerkDefs.BattleFlow];
 
 	while (this.Const.Perks.IndestructibleTree.Tree.len() < 7)
 	{
@@ -625,12 +625,12 @@ gt.Const.PTR.modTraitsTrees <- function()
 	 	{Multiplier = 1.5, Tree = this.Const.Perks.AgileTree}
 	 ];
 	this.Const.Perks.FastTree.Tree[0] = [this.Const.Perks.PerkDefs.LegendAlert];
-	this.Const.Perks.FastTree.Tree[1] = [];
+	this.Const.Perks.FastTree.Tree[1] = [this.Const.Perks.PerkDefs.QuickHands];
 	this.Const.Perks.FastTree.Tree[2] = [this.Const.Perks.PerkDefs.Relentless];
-	this.Const.Perks.FastTree.Tree[3] = [];
-	this.Const.Perks.FastTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRDynamicDuo];
-	this.Const.Perks.FastTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRFreshAndFurious];
-	this.Const.Perks.FastTree.Tree[6] = [this.Const.Perks.PerkDefs.BattleFlow];
+	this.Const.Perks.FastTree.Tree[3] = [this.Const.Perks.PerkDefs.PTRDynamicDuo];
+	this.Const.Perks.FastTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRVigorousAssault];
+	this.Const.Perks.FastTree.Tree[5] = [this.Const.Perks.PerkDefs.Overwhelm];
+	this.Const.Perks.FastTree.Tree[6] = [this.Const.Perks.PerkDefs.Rebound];
 
 	while (this.Const.Perks.LargeTree.Tree.len() < 7)
 	{
@@ -1210,8 +1210,8 @@ gt.Const.PTR.modWeaponTrees <- function()
 		this.Const.Perks.ThrowingTree.Tree.push(emptyArray);
 	}
 	this.Const.Perks.ThrowingTree.Tree[0] = [this.Const.Perks.PerkDefs.PTRHybridization];
-	this.Const.Perks.ThrowingTree.Tree[1] = [this.Const.Perks.PerkDefs.QuickHands];
-	this.Const.Perks.ThrowingTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRMomentum];
+	this.Const.Perks.ThrowingTree.Tree[1] = [this.Const.Perks.PerkDefs.PTRMomentum];
+	this.Const.Perks.ThrowingTree.Tree[2] = [];
 	this.Const.Perks.ThrowingTree.Tree[3] = [this.Const.Perks.PerkDefs.SpecThrowing];
 	this.Const.Perks.ThrowingTree.Tree[4] = [this.Const.Perks.PerkDefs.PTROpportunist];
 	this.Const.Perks.ThrowingTree.Tree[5] = [this.Const.Perks.PerkDefs.CloseCombatArcher];
