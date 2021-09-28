@@ -10,12 +10,12 @@ gt.Const.PTR.createStylesTrees <- function()
 		Tree = [
 			[],
 			[],
-			[
-				gt.Const.Perks.PerkDefs.ShieldExpert
-			],
 			[],
 			[
 				gt.Const.Perks.PerkDefs.PTROffhandTraining
+			],
+			[
+				gt.Const.Perks.PerkDefs.DoubleStrike	
 			],
 			[
 				gt.Const.Perks.PerkDefs.Duelist
