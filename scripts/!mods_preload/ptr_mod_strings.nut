@@ -329,7 +329,7 @@ gt.Const.PTR.modStrings <- function()
 		strArray.pop();
 		strArray.apply(@(a) a += "[" );
 
-		strArray[strArray.len()-1] = "color=#0b0084]From the " + _newPerkGroup + " perk group[/color]";
+		strArray[strArray.len()-1] = "color=#0b0084]From the " + _newPerkGroup + " perk group" + (_newPerkGroup.find(" and ") != null ? "s" : "") + "[/color]";
 
 		if (strArray[0].find("color=") != null)
 		{
@@ -364,11 +364,8 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.NineLives].Tooltip = gt.Const.Strings.PerkDescription.NineLives;
 	gt.Const.Strings.PerkDescription.HoldOut = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.HoldOut, "Resilient");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.HoldOut].Tooltip = gt.Const.Strings.PerkDescription.HoldOut;
-	# gt.Const.Strings.PerkDescription.LastStand = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LastStand, "Resilient");
-	# gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LastStand].Tooltip = gt.Const.Strings.PerkDescription.LastStand;
 
 	gt.Const.Strings.PerkDescription.SunderingStrikes = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.SunderingStrikes, "Axe, Large, Blacksmith, and Miner");
-	gt.Const.Strings.PerkDescription.SunderingStrikes += "[color=#0b0084]s[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.SunderingStrikes].Tooltip = gt.Const.Strings.PerkDescription.SunderingStrikes;
 
 	gt.Const.Strings.PerkDescription.Overwhelm = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Overwhelm, "Dagger");
@@ -378,7 +375,6 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.PushTheAdvantage].Tooltip = gt.Const.Strings.PerkDescription.PushTheAdvantage;
 
 	gt.Const.Strings.PerkDescription.Lookout = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Lookout, "Scout and Sling");
-	gt.Const.Strings.PerkDescription.Lookout += "[color=#0b0084]s[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Lookout].Tooltip = gt.Const.Strings.PerkDescription.Lookout;
 
 	gt.Const.Strings.PerkDescription.LegendOnslaught = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendOnslaught, "Staff");
@@ -393,7 +389,6 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Fearsome].Tooltip = gt.Const.Strings.PerkDescription.Fearsome;
 
 	gt.Const.Strings.PerkDescription.Backstabber = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Backstabber, "Dagger and Devious");
-	gt.Const.Strings.PerkDescription.Backstabber += "[color=#0b0084]s[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Backstabber].Tooltip = gt.Const.Strings.PerkDescription.Backstabber;
 
 	gt.Const.Strings.PerkDescription.LegendUntouchable += "\n[color=#0b0084]From the Devious perk group[/color]"
@@ -414,7 +409,6 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.LegendAlert = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendAlert, "Fast");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendAlert].Tooltip = gt.Const.Strings.PerkDescription.LegendAlert;
 	gt.Const.Strings.PerkDescription.Relentless = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Relentless, "Fast and Light Armor");
-	gt.Const.Strings.PerkDescription.Relentless += "[color=#0b0084]s[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Relentless].Tooltip = gt.Const.Strings.PerkDescription.Relentless;
 	gt.Const.Strings.PerkDescription.LegendSecondWind = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendSecondWind, "Resilient");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSecondWind].Tooltip = gt.Const.Strings.PerkDescription.LegendSecondWind;
@@ -505,7 +499,6 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSpecialistKnifeDamage].Tooltip = gt.Const.Strings.PerkDescription.LegendSpecialistKnifeDamage;
 
 	gt.Const.Strings.PerkDescription.LegendHidden = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendHidden, "Devious and Assassin");
-	gt.Const.Strings.PerkDescription.LegendHidden += "[color=#0b0084]s[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendHidden].Tooltip = gt.Const.Strings.PerkDescription.LegendHidden;
 
 	gt.Const.Strings.PerkDescription.LegendAssassinate = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.LegendAssassinate, "Assassin");
