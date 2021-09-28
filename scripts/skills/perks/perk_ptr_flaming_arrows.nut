@@ -39,7 +39,7 @@ this.perk_ptr_flaming_arrows <- this.inherit("scripts/skills/skill", {
 		if (_targetEntity.isAlive() && !_targetEntity.isDying() && _targetEntity.getMoraleState() != this.Const.MoraleState.Ignore)
 		{
 			this.spawnIcon("perk_27", _targetEntity.getTile());
-			_targetEntity.checkMorale(-1, this.Const.Morale.OnHitBaseDifficulty * (1.0 - _targetEntity.getHitpoints() / _targetEntity.getHitpointsMax()) - this.Math.min(20, this.Math.max(0, this.getContainer().getActor().getCurrentProperties().getRangedSkill() * 0.2)));
+			_targetEntity.checkMorale(-1, this.Const.Morale.OnHitBaseDifficulty * (1.0 - _targetEntity.getHitpoints() / _targetEntity.getHitpointsMax()));
 		}
 	}
 
