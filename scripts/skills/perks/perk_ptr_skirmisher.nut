@@ -1,6 +1,10 @@
 this.perk_ptr_skirmisher <- this.inherit("scripts/skills/skill", {
 	m = {
-		Count = 2
+		AttacksRemaining = 2
+		TurnCount = 0,
+		ActionPointCostsBackup = null,
+		FatigueCostsBackup = null,
+		LevelActionPointCostBackup = null
 	},
 	function create()
 	{
@@ -30,15 +34,25 @@ this.perk_ptr_skirmisher <- this.inherit("scripts/skills/skill", {
 			id = 10,
 			type = "text",
 			icon = "ui/icons/action_points.png",
-			text = "The next [color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.Count + "[/color] Throwing attacks have their Action Point costs [color=" + this.Const.UI.Color.NegativeValue + "]halved[/color]"
+			text = "The next [color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.AttacksRemaining + "[/color] Throwing attacks have their Action Point costs [color=" + this.Const.UI.Color.NegativeValue + "]halved[/color]"
 		});
+
+		if (this.m.TurnCount == 1)
+		{
+			tooltip.push({
+				id = 10,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "The Action Point and Fatigue costs of movement during your first turn are as if you have the Pathfinder perk"
+			});
+		}
 		
 		return tooltip;
 	}
 
 	function isEnabled()
 	{
-		if (this.m.Count == 0 || !this.getContainer().getActor().isPlacedOnMap())
+		if (this.m.AttacksRemaining == 0 || !this.getContainer().getActor().isPlacedOnMap())
 		{
 			return false;
 		}
@@ -50,6 +64,30 @@ this.perk_ptr_skirmisher <- this.inherit("scripts/skills/skill", {
 		}
 
 		return true;
+	}
+
+	function onTurnStart()
+	{
+		this.m.TurnCount++;
+
+		local actor = this.getContainer().getActor();
+
+		if (this.m.TurnCount == 1)
+		{
+			this.m.ActionPointCostsBackup = clone actor.m.ActionPointCosts;
+			this.m.FatigueCostsBackup = clone actor.m.FatigueCosts;
+			this.m.LevelActionPointCostBackup = actor.m.LevelActionPointCost;
+
+			actor.m.ActionPointCosts = clone this.Const.PathfinderMovementAPCost;
+			actor.m.FatigueCosts = clone this.Const.PathfinderMovementFatigueCost;
+			actor.m.LevelActionPointCost = 0;
+		}
+		else
+		{
+			actor.m.ActionPointCosts = clone this.m.ActionPointCostsBackup;
+			actor.m.FatigueCosts = clone this.m.FatigueCostsBackup;
+			actor.m.LevelActionPointCost = this.m.LevelActionPointCostBackup;
+		}
 	}
 
 	function onAfterUpdate( _properties )
@@ -68,13 +106,17 @@ this.perk_ptr_skirmisher <- this.inherit("scripts/skills/skill", {
 	{
 		if (this.isEnabled() && _skill.isAttack() && _skill.m.IsWeaponSkill)
 		{
-			this.m.Count--;
+			this.m.AttacksRemaining--;
 		}
 	}
 
 	function onCombatFinished()
 	{
 		this.skill.onCombatFinished();
-		this.m.Count = 2;
+		this.m.AttacksRemaining = 2;
+		this.m.TurnCount = 0;
+		this.m.ActionPointCostsBackup = null;
+		this.m.FatigueCostsBackup = null;
+		this.m.LevelActionPointCostBackup = null;
 	}
 });
