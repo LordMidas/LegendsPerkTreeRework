@@ -175,7 +175,7 @@ gt.Const.PTR.modCharacterBackground <- function()
 					continue;
 				}
 
-				if (this.m.CustomPerkTreeMap[categoryName].len() == 1 && this.m.CustomPerkTreeMap[categoryName][0].Tree.ID == this.Const.Perks.NoTree.ID)
+				if (this.m.CustomPerkTreeMap[categoryName].len() == 1 && this.m.CustomPerkTreeMap[categoryName][0].ID == this.Const.Perks.NoTree.ID)
 				{
 					continue;
 				}
@@ -213,12 +213,12 @@ gt.Const.PTR.modCharacterBackground <- function()
 
 				foreach (perkTree in this.m.CustomPerkTreeMap[categoryName])
 				{
-					if (perkTree.Tree.ID == this.Const.Perks.NoTree.ID)
+					if (perkTree.ID == this.Const.Perks.NoTree.ID)
 					{
 						continue;
 					}
 
-					treesList.push(perkTree.Tree);
+					treesList.push(perkTree);
 				}				
 
 				text = text + this.getPerkTreeGroupDescription(treesList, prefix);
@@ -280,10 +280,9 @@ gt.Const.PTR.modCharacterBackground <- function()
 				{
 					_out.writeString(categoryName);
 					_out.writeU8(category.len());
-					foreach (perkTreeEntry in category)
+					foreach (perkTree in category)
 					{
-						_out.writeU8(perkTreeEntry.Expertise);
-						_out.writeString(perkTreeEntry.Tree.ID);
+						_out.writeString(perkTree.ID);
 					}
 				}
 			}
@@ -312,13 +311,12 @@ gt.Const.PTR.modCharacterBackground <- function()
 						local categorySize = _in.readU8();
 						for (local j = 0; j < categorySize; j++)
 						{
-							local expertise = _in.readU8();
 							local treeID = _in.readString();
 							foreach (t in this.Const.Perks[categoryName + "Trees"].Tree)
 							{
 								if (t.ID == treeID)
 								{
-									category.push({Expertise = expertise, Tree = t});
+									category.push(t);
 								}
 							}
 						}
