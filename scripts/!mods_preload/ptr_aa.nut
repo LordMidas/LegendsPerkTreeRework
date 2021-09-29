@@ -47,9 +47,7 @@ local modID = "mod_legends_PTR";
 	gt.Const.PTR.modSkills();
 	gt.Const.PTR.modWeapons();
 	gt.Const.PTR.modItems();
-	gt.Const.PTR.modSettlement();
-
-	gt.Const.PTR.modLegendsPerkTreeCreationSystem();
+	gt.Const.PTR.modSettlement();	
 
 	gt.Const.PTR.addPerksToPerkDefs();
 
@@ -60,6 +58,8 @@ local modID = "mod_legends_PTR";
 
 	gt.Const.PTR.createStylesTrees();
 	gt.Const.PTR.createProfessionTrees();
+
+	gt.Const.PTR.modLegendsPerkTreeCreationSystem();
 
 	gt.Const.PTR.modCharacterBackground();
 	gt.Const.PTR.modCharacterBackgrounds();

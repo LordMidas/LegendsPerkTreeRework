@@ -131,7 +131,7 @@ gt.Const.PTR.modCharacterBackground <- function()
 				{
 					local mins = this.getPerkTreeDynamicMins();
 
-					local result = this.Const.Perks.GetDynamicPerkTree(mins, this.m.PerkTreeDynamic);
+					local result = this.Const.Perks.GetDynamicPerkTree(mins, this.m.PerkTreeDynamic, this.getContainer().getActor());
 					this.m.CustomPerkTree = result.Tree;
 					a = result.Attributes;
 					this.m.CustomPerkTreeMap = result.TreeMap;
@@ -255,7 +255,7 @@ gt.Const.PTR.modCharacterBackground <- function()
 
 			if (this.World.Assets.isLegendPerkTrees())
 			{
-				this.m.CustomPerkTree = this.Const.Perks.MergeDynamicPerkTree(_tree, this.Const.Perks.GetDynamicPerkTree(this.getPerkTreeDynamicMins(), this.m.PerkTreeDynamic).TreeMap);
+				this.m.CustomPerkTree = this.Const.Perks.MergeDynamicPerkTree(_tree, this.Const.Perks.GetDynamicPerkTree(this.getPerkTreeDynamicMins(), this.m.PerkTreeDynamic, this.getContainer().getActor()).TreeMap);
 			}
 
 			local pT = this.Const.Perks.BuildCustomPerkTree(this.m.CustomPerkTree);
