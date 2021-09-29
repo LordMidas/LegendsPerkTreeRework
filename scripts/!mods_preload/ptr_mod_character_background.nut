@@ -81,46 +81,7 @@ gt.Const.PTR.modCharacterBackground <- function()
 	};
 
 	::mods_hookExactClass("skills/backgrounds/character_background", function(o) {
-		o.m.CustomPerkTreeMap <- null;
-		o.m.PerkTreeDynamicMins = {
-			//Profession = 1,
-			Weapon = 4,
-			Defense = 2,
-			Traits = 3,
-			Enemy = 1,
-			EnemyChance = 0.5,
-			Class = 1,
-			ClassChance = 0.01,
-			Magic = 1,
-			MagicChance = 0,
-			Styles = 2
-		};
-		o.m.PerkTreeDynamicMinsMagic = {
-			//Profession = 1,
-			Weapon = 4,
-			Defense = 2,
-			Traits = 3,
-			Enemy = 1,
-			EnemyChance = 0.5,
-			Class = 1,
-			ClassChance = 0.01,
-			Magic = 1,
-			MagicChance = 0.001,
-			Styles = 2
-		};
-		o.m.PerkTreeDynamicMinsBeast = {
-			//Profession = 1,
-			Weapon = 4,
-			Defense = 2,
-			Traits = 3,
-			Enemy = 1,
-			EnemyChance = 0.7,
-			Class = 1,
-			ClassChance = 0.02,
-			Magic = 1,
-			MagicChance = 0.001,
-			Styles = 2
-		};
+		o.m.CustomPerkTreeMap <- null;		
 
 		o.buildPerkTree = function()
 		{
@@ -168,16 +129,7 @@ gt.Const.PTR.modCharacterBackground <- function()
 			{
 				if (this.World.Assets.isLegendPerkTrees())
 				{
-					local mins = this.m.PerkTreeDynamicMins;
-
-					if (this.World.Assets.getOrigin().getID() == "scenario.beast_hunters")
-					{
-						mins = this.m.PerkTreeDynamicMinsBeast;
-					}
-					else if (this.LegendsMod.Configs().LegendMagicEnabled())
-					{
-						mins = this.m.PerkTreeDynamicMinsMagic;
-					}
+					local mins = this.getPerkTreeDynamicMins();
 
 					local result = this.Const.Perks.GetDynamicPerkTree(mins, this.m.PerkTreeDynamic);
 					this.m.CustomPerkTree = result.Tree;
@@ -281,7 +233,7 @@ gt.Const.PTR.modCharacterBackground <- function()
 			return text;
 		}
 
-		o.getPerkTreeDynamicMins <- function()
+		o.getPerkTreeDynamicMins = function()
 		{
 			local mins = this.Const.PTR.PerkTreeDynamicMins;
 
