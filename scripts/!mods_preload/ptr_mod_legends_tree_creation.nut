@@ -21,15 +21,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 
 	gt.Const.Perks.FirstAssignedCategories <- ["Profession", "Enemy", "Traits", "Class", "Defense", "Weapon"];
 	gt.Const.Perks.LastAssignedCategories <- ["Styles"];
-	gt.Const.Perks.SkippedCategories <- ["WeightMultipliers", "ExpertiseMultipliers"];
-	gt.Const.Perks.MultiplierTypes <- ["Weight", "Expertise"];
-	gt.Const.Perks.Expertise <- {
-		None = 100,
-		Low = 2,
-		Medium = 1,
-		High = 0.5,
-		Full = 0
-	};
+	gt.Const.Perks.SkippedCategories <- ["WeightMultipliers"];		
 
 	gt.Const.Perks.PerkTreeMinsChances <- {
 		Enemy1 = 95,
@@ -57,8 +49,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 		}
 
 		local PTRMap = {};
-		PTRMap.WeightMultipliers <- [];
-		PTRMap.ExpertiseMultipliers <- [];
+		PTRMap.WeightMultipliers <- [];		
 
 		foreach (categoryName, treeList in _map)
 		{
@@ -74,7 +65,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 				local EquivalentPTRTrees = getEquivalentPTRTrees(tree);
 				foreach (t in EquivalentPTRTrees)
 				{
-					PTRCategory.push([{ Weight = 10, Expertise = this.Const.Perks.Expertise.Medium, Tree = t }]);
+					PTRCategory.push([{ Weight = 10, Tree = t }]);
 				}
 			}
 
@@ -120,10 +111,6 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 					{
 						tree.Weight <- 100 / treeList.len();
 					}
-					if (!("Expertise" in tree))
-					{
-						tree.Expertise <- this.Const.Perks.Expertise.Medium;
-					}
 				}
 			}
 		}
@@ -138,20 +125,27 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 
 			foreach (treeList in _treeLists)
 			{
-				treeList = this.applyMultipliersBasedOnBackground(_map, treeList);
-
-				if (assignedCategories.len() > 0)
+				if (treeList.len() == 1)
 				{
-					treeList = this.applyMultipliersBasedOnAssignedCategories(_localMap, treeList, assignedCategories);
+					_localMap[_categoryName].push(treeList[0].Tree);
 				}
-
-				local tree = this.getWeightedRandomTreeFromTreeList(treeList);
-				if (tree.Tree == this.Const.Perks.RandomTree)
+				else
 				{
-					tree = this.getWeightedRandomTreeFromCategory(_categoryName, _map, _localMap, treesInCategory);
-				}
+					treeList = this.applyMultipliersBasedOnBackground(_map, treeList);
 
-				_localMap[_categoryName].push(tree);
+					if (assignedCategories.len() > 0)
+					{
+						treeList = this.applyMultipliersBasedOnAssignedCategories(_localMap, treeList, assignedCategories);
+					}
+
+					local tree = this.getWeightedRandomTreeFromTreeList(treeList);
+					if (tree == this.Const.Perks.RandomTree)
+					{
+						tree = this.getWeightedRandomTreeFromCategory(_categoryName, _map, _localMap, treesInCategory);
+					}
+
+					_localMap[_categoryName].push(tree);
+				}
 			}
 
 			if (assignedCategories.find(_categoryName) == null)
@@ -181,7 +175,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 				local exclude = [];
 				foreach (tree in _localMap[_categoryName])
 				{
-					exclude.push(tree.Tree.ID);
+					exclude.push(tree.ID);
 				}
 
 				local t = this.getWeightedRandomTreeFromCategory(_categoryName, _map, _localMap, assignedCategories, exclude);
@@ -243,13 +237,13 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 				{
 					local hasRangedWeaponTree = false;
 					local hasMeleeWeaponTree = false;
-					foreach (treeEntry in _localMap.Weapon)
+					foreach (tree in _localMap.Weapon)
 					{
-						if (!hasRangedWeaponTree && this.Const.Perks.RangedWeaponTrees.Tree.find(treeEntry.Tree) != null)
+						if (!hasRangedWeaponTree && this.Const.Perks.RangedWeaponTrees.Tree.find(tree) != null)
 						{
 							hasRangedWeaponTree = true;
 						}
-						if (!hasMeleeWeaponTree && this.Const.Perks.MeleeWeaponTrees.Tree.find(treeEntry.Tree) != null)
+						if (!hasMeleeWeaponTree && this.Const.Perks.MeleeWeaponTrees.Tree.find(tree) != null)
 						{
 							hasMeleeWeaponTree = true;
 						}
@@ -274,24 +268,10 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 
 		foreach( categoryName, category in _localMap )
 		{
-			foreach( treeEntry in category )
+			foreach( tree in category )
 			{
-				if (this.Const.PTR.IsExpertiseEnabled)
+				foreach( rowNumber, perksInRow in tree.Tree )
 				{
-					roll = this.Math.rand(1, 100) * treeEntry.Expertise;
-					# this.logInfo("roll is : " + roll + " and perk tree is: " + treeEntry.Tree.ID + " and expertise is : " + treeEntry.Expertise);
-				}
-
-				foreach( rowNumber, perksInRow in treeEntry.Tree.Tree )
-				{
-					if (this.Const.PTR.IsExpertiseEnabled)
-					{
-						if (roll > 100 - rowNumber * 10)
-						{
-							break;
-						}
-					}
-
 					foreach( perk in perksInRow )
 					{
 						dynamicTree[rowNumber].push(perk);
@@ -300,11 +280,11 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 			}
 		}
 
-		foreach( t in _localMap.Traits )
+		foreach( tree in _localMap.Traits )
 		{
-			if ("Attributes" in t.Tree)
+			if ("Attributes" in tree)
 			{
-				local c = t.Tree.Attributes;
+				local c = tree.Attributes;
 				attributes.Hitpoints[0] += c.Hitpoints[0];
 				attributes.Hitpoints[1] += c.Hitpoints[1];
 				attributes.Bravery[0] += c.Bravery[0];
@@ -337,7 +317,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 		{
 			foreach( treeEntry in category )
 			{
-				foreach( rowNumber, perksInRow in treeEntry.Tree.Tree )
+				foreach( rowNumber, perksInRow in treeEntry.Tree )
 				{
 					foreach( perk in perksInRow )
 					{
@@ -372,24 +352,19 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 				weight *= tree.SelfWeightMultiplier;
 			}
 
-			local expertise = this.Const.Perks.Expertise.Medium;
-			if ("SelfExpertiseMultiplier" in tree)
-			{
-				expertise = tree.SelfExpertiseMultiplier;
-			}
-			potentialTrees.push( {Weight = weight, Expertise = expertise, Tree = tree} );
+			potentialTrees.push( {Weight = weight, Tree = tree} );
 		}
 
 		if (potentialTrees.len() != 0)
 		{
 			potentialTrees = this.applyMultipliersBasedOnBackground(_backgroundMap, potentialTrees);
-			potentialTrees = this.applyMultipliersBasedOnAssignedCategories(_currentMap, potentialTrees, _assignedCategories);
+			potentialTrees = this.applyMultipliersBasedOnAssignedCategories(_currentMap, potentialTrees, _assignedCategories);			
 		}
 
 		return this.getWeightedRandomTreeFromTreeList(potentialTrees);
 	}
 
-	gt.Const.Perks.applyMultipliers <- function( _multipliersList, _treeList, _multiplierType )
+	gt.Const.Perks.applyMultipliers <- function( _multipliersList, _treeList )
 	{
 		foreach (tree in _treeList)
 		{
@@ -402,7 +377,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 			{
 				if (tree.Tree.ID == multiplier.Tree.ID)
 				{
-					tree[_multiplierType] *= multiplier.Multiplier;
+					tree.Weight *= multiplier.Multiplier;
 				}
 			}
 		}
@@ -412,13 +387,9 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 
 	gt.Const.Perks.applyMultipliersBasedOnBackground <- function( _map, _treeList )
 	{
-		foreach (multiplierType in this.Const.Perks.MultiplierTypes)
+		if ("WeightMultipliers" in _map)
 		{
-			local multiplierTitle = multiplierType + "Multipliers";
-			if (multiplierTitle in _map)
-			{
-				_treeList = this.applyMultipliers(_map[multiplierTitle], _treeList, multiplierType);
-			}
+			_treeList = this.applyMultipliers(_map.WeightMultipliers, _treeList);
 		}
 
 		return _treeList;
@@ -434,11 +405,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 				{
 					if ("WeightMultipliers" in tree.Tree)
 					{
-						_treeList = this.applyMultipliers(tree.Tree.WeightMultipliers, _treeList, "Weight");
-					}
-					if ("ExpertiseMultipliers" in tree.Tree)
-					{
-						_treeList = this.applyMultipliers(tree.Tree.ExpertiseMultipliers, _treeList, "Expertise");
+						_treeList = this.applyMultipliers(tree.Tree.WeightMultipliers, _treeList);
 					}
 				}
 			}
@@ -451,7 +418,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 	{
 		if (_treeList.len() == 0)
 		{
-			return { Tree = this.Const.Perks.NoTree, Expertise = this.Const.Perks.Expertise.Medium};
+			return this.Const.Perks.NoTree;
 		}
 
 		local totalWeight = 0;
@@ -467,18 +434,12 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 			if (roll <= tree.Weight)
 			{
 				//this.logInfo("Returning random tree: " + tree.Tree.ID + " with weight " + tree.Weight);
-				return { Tree = tree.Tree, Expertise = tree.Expertise };
+				return tree.Tree;
 			}
 
 			roll -= tree.Weight;
 		}
 
-		return { Tree = this.Const.Perks.NoTree, Expertise = this.Const.Perks.Expertise.Medium};
-	}
-
-	gt.Const.Perks.checkExpertise <- function( _expertise, _zeroBasedRow )
-	{
-		local roll = this.Math.rand(1, 100);
-		return roll > 100 - _zeroBasedRow * 10 ? false : true;
+		return this.Const.Perks.NoTree;
 	}
 }
