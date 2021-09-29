@@ -69,4 +69,6 @@ local modID = "mod_legends_PTR";
 	gt.Const.PTR.modEnemies();
 
 	gt.Const.PTR.modAI();
+
+	gt.Const.PTR.modRunes();
 });
