@@ -30,44 +30,316 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 	};
 
 	gt.Const.Perks.TraitMultipliers <- {};
-	gt.Const.Perks.TraitMultipliers["trait.iron_jaw"] <- [
+	gt.Const.Perks.TraitMultipliers["trait.asthmatic"] <- [
+		{ Tree = this.Const.Perks.UnstoppableTree, Multiplier = 0 },
+		{ Tree = this.Const.Perks.FastTree, Multiplier = 0 },
+		{ Tree = this.Const.Perks.AgileTree, Multiplier = 0.5 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.athletic"] <- [
+		{ Tree = this.Const.Perks.AgileTree, Multiplier = 1000 },
+		{ Tree = this.Const.Perks.FastTree, Multiplier = 2 }		
+	];
+	gt.Const.Perks.TraitMultipliers["trait.bleeder"] <- [
+		{ Tree = this.Const.Perks.SturdyTree, Multiplier = 0 }		
+	];
+	gt.Const.Perks.TraitMultipliers["trait.bloodthirsty"] <- [
+		{ Tree = this.Const.Perks.CleaverTree, Multiplier = 4 },
+		{ Tree = this.Const.Perks.SwordTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.AxeTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.SpearTree, Multiplier = 0.5 }	
+	];
+	gt.Const.Perks.TraitMultipliers["trait.brave"] <- [
+		{ Tree = this.Const.Perks.ViciousTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.SergeantClassTree, Multiplier = 2 }		
+	];
+	gt.Const.Perks.TraitMultipliers["trait.bright"] <- [
+		{ Tree = this.Const.Perks.TalentedTree, Multiplier = 4 }		
+	];
+	gt.Const.Perks.TraitMultipliers["trait.brute"] <- [
+		{ Tree = this.Const.Perks.FlailTree, Multiplier = 4 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.clubfooted"] <- [
+		{ Tree = this.Const.Perks.AgileTree, Multiplier = 0 },
+		{ Tree = this.Const.Perks.FastTree, Multiplier = 0.5 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.cocky"] <- [
+		{ Tree = this.Const.Perks.UnstoppableTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.SergeantClassTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.EntertainerClassTree, Multiplier = 1.5 },
+	];
+	gt.Const.Perks.TraitMultipliers["trait.dastard"] <- [
+		{ Tree = this.Const.Perks.SergeantClassTree, Multiplier = 0 },
+		{ Tree = this.Const.Perks.CalmTree, Multiplier = 0 }		
+	];
+	gt.Const.Perks.TraitMultipliers["trait.deathwish"] <- [
+		{ Tree = this.Const.Perks.ResilientTree, Multiplier = 1000 },
 		{ Tree = this.Const.Perks.SturdyTree, Multiplier = 2 }
 	];
+	gt.Const.Perks.TraitMultipliers["trait.determined"] <- [
+		{ Tree = this.Const.Perks.SergeantClassTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.ViciousTree, Multiplier = 2 }		
+	];
+	gt.Const.Perks.TraitMultipliers["trait.dexterous"] <- [
+		{ Tree = this.Const.Perks.TrainedTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.TalentedTree, Multiplier = 2 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.disloyal"] <- [
+		{ Tree = this.Const.Perks.SergeantClassTree, Multiplier = 0.5 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.double_tongued"] <- [
+		{ Tree = this.Const.Perks.SergeantClassTree, Multiplier = 0.5 },
+		{ Tree = this.Const.Perks.ClerkClassTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.EntertainerClassTree, Multiplier = 2 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.dumb"] <- [
+		{ Tree = this.Const.Perks.TalentedTree, Multiplier = 0 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.eagle_eyes"] <- [
+		{ Tree = this.Const.Perks.BowTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.ScoutClassTree, Multiplier = 4 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.fainthearted"] <- [
+		{ Tree = this.Const.Perks.CalmTree, Multiplier = 0 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.fat"] <- [		
+		{ Tree = this.Const.Perks.AgileTree, Multiplier = 0 },
+		{ Tree = this.Const.Perks.FastTree, Multiplier = 0.5 }		
+	];
+	gt.Const.Perks.TraitMultipliers["trait.fearless"] <- [
+		{ Tree = this.Const.Perks.CalmTree, Multiplier = 1000 },
+		{ Tree = this.Const.Perks.SergeantClassTree, Multiplier = 4 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.firm"] <- [
+		{ Tree = this.Const.Perks.LargeTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.ViciousTree, Multiplier = 2 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.fragile"] <- [
+		{ Tree = this.Const.Perks.SturdyTree, Multiplier = 0 },
+		{ Tree = this.Const.Perks.ResilientTree, Multiplier = 0 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.frail"] <- [
+		{ Tree = this.Const.Perks.SturdyTree, Multiplier = 0.25 },
+		{ Tree = this.Const.Perks.LargeTree, Multiplier = 0 },
+		{ Tree = this.Const.Perks.ResilientTree, Multiplier = 0.25 },
+	];
+	gt.Const.Perks.TraitMultipliers["trait.gift_of_people"] <- [
+		{ Tree = this.Const.Perks.SergeantClassTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.EntertainerClassTree, Multiplier = 4 }
+	];
+	// gt.Const.Perks.TraitMultipliers["trait.glorious"] <- [
+	// 	{ Tree = this.Const.Perks.UnstoppableTree, Multiplier = 2 },
+	// 	{ Tree = this.Const.Perks.ViciousTree, Multiplier = 2 },
+	// 	{ Tree = this.Const.Perks.AgileTree, Multiplier = 2 },
+	// 	{ Tree = this.Const.Perks.FastTree, Multiplier = 2 },
+	// 	{ Tree = this.Const.Perks.CalmTree, Multiplier = 2 },
+	// 	{ Tree = this.Const.Perks.SergeantClassTree, Multiplier = 2 }
+	// ];
+	gt.Const.Perks.TraitMultipliers["trait.gluttonous"] <- [
+		{ Tree = this.Const.Perks.OrganisedTree, Multiplier = 2 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.greedy"] <- [
+		{ Tree = this.Const.Perks.ClerkClassTree, Multiplier = 2 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.heavy"] <- [
+		{ Tree = this.Const.Perks.FastTree, Multiplier = 0 },
+		{ Tree = this.Const.Perks.AgileTree, Multiplier = 0.25 },
+		{ Tree = this.Const.Perks.LargeTree, Multiplier = 1000 },
+		{ Tree = this.Const.Perks.SturdyTree, Multiplier = 2 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.hesitant"] <- [
+		{ Tree = this.Const.Perks.FastTree, Multiplier = 0 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.huge"] <- [
+		{ Tree = this.Const.Perks.LargeTree, Multiplier = 1000 },
+		{ Tree = this.Const.Perks.HeavyArmorTree, Multiplier = 4 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.impatient"] <- [
+		{ Tree = this.Const.Perks.FastTree, Multiplier = 1000 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.insecure"] <- [
+		{ Tree = this.Const.Perks.SergeantClassTree, Multiplier = 0 },
+		{ Tree = this.Const.Perks.ViciousTree, Multiplier = 0.25 },
+		{ Tree = this.Const.Perks.CalmTree, Multiplier = 0.5 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.iron_jaw"] <- [
+		{ Tree = this.Const.Perks.SturdyTree, Multiplier = 2 },		
+		{ Tree = this.Const.Perks.ResilientTree, Multiplier = 1000 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.iron_lungs"] <- [
+		{ Tree = this.Const.Perks.UnstoppableTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.ViciousTree, Multiplier = 2 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.irrational"] <- [
+		{ Tree = this.Const.Perks.CalmTree, Multiplier = 0 },
+		{ Tree = this.Const.Perks.SergeantClassTree, Multiplier = 0.5 },
+		{ Tree = this.Const.Perks.EntertainerClassTree, Multiplier = 2 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.legend_cannibalistic"] <- [
+		{ Tree = this.Const.Perks.CleaverTree, Multiplier = 1000 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.legend_diurnal"] <- [
+		{ Tree = this.Const.Perks.ScoutClassTree, Multiplier = 2 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.legend_peaceful"] <- [
+		{ Tree = this.Const.Perks.ViciousTree, Multiplier = 0 },
+		{ Tree = this.Const.Perks.UnstoppableTree, Multiplier = 0 },
+		{ Tree = this.Const.Perks.CalmTree, Multiplier = 1000 },
+		{ Tree = this.Const.Perks.SergeantClassTree, Multiplier = 4 },
+		{ Tree = this.Const.Perks.OrganisedTree, Multiplier = 2 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.light"] <- [
+		{ Tree = this.Const.Perks.RangedTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.FastTree, Multiplier = 4 },
+		{ Tree = this.Const.Perks.AgileTree, Multiplier = 4 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.loyal"] <- [
+		{ Tree = this.Const.Perks.ResilientTree, Multiplier = 2 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.lucky"] <- [
+		{ Tree = this.Const.Perks.ResilientTree, Multiplier = 1000 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.natural"] <- [
+		{ Tree = this.Const.Perks.TalentedTree, Multiplier = 1000 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.night_blind"] <- [
+		{ Tree = this.Const.Perks.ScoutClassTree, Multiplier = 0 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.night_owl"] <- [
+		{ Tree = this.Const.Perks.ScoutClassTree, Multiplier = 2 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.optimist"] <- [
+		{ Tree = this.Const.Perks.ViciousTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.SergeantClassTree, Multiplier = 2 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.paranoid"] <- [
+		{ Tree = this.Const.Perks.ResilientTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.CalmTree, Multiplier = 0 },
+		{ Tree = this.Const.Perks.SergeantClassTree, Multiplier = 0.5 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.pessimist"] <- [
+		{ Tree = this.Const.Perks.SergeantClassTree, Multiplier = 0 },
+		{ Tree = this.Const.Perks.CalmTree, Multiplier = 0.5 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.pragmatic"] <- [
+		{ Tree = this.Const.Perks.FlailTree, Multiplier = 0.25 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.predictable"] <- [
+		{ Tree = this.Const.Perks.FastTree, Multiplier = 0.75 },
+		{ Tree = this.Const.Perks.FlailTree, Multiplier = 0.5 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.quick"] <- [
+		{ Tree = this.Const.Perks.SwordTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.FastTree, Multiplier = 1000 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.short_sighted"] <- [
+		{ Tree = this.Const.Perks.ScoutClassTree, Multiplier = 0 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.spartan"] <- [
+		{ Tree = this.Const.Perks.ResilientTree, Multiplier = 0.75 },
+		{ Tree = this.Const.Perks.SturdyTree, Multiplier = 0.5 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.steady_hands"] <- [
+		{ Tree = this.Const.Perks.RangedTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.BowTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.CrossbowTree, Multiplier = 2 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.strong"] <- [
+		{ Tree = this.Const.Perks.UnstoppableTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.LargeTree, Multiplier = 2 }
+	];
 	gt.Const.Perks.TraitMultipliers["trait.superstitious"] <- [
-		{ Tree = this.Const.Perks.CalmTree, Multiplier = 0 }	
-	]
+		{ Tree = this.Const.Perks.CalmTree, Multiplier = 0 },
+		{ Tree = this.Const.Perks.SergeantClassTree, Multiplier = 0.5 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.sure_footing"] <- [
+		{ Tree = this.Const.Perks.TrainedTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.SturdyTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.ResilientTree, Multiplier = 2 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.sureshot"] <- [
+		{ Tree = this.Const.Perks.BowTree, Multiplier = 1000 },
+		{ Tree = this.Const.Perks.CrossbowTree, Multiplier = 1000 },
+		{ Tree = this.Const.Perks.RangedTree, Multiplier = 1000 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.survivor"] <- [
+		{ Tree = this.Const.Perks.ResilientTree, Multiplier = 1000 },
+		{ Tree = this.Const.Perks.SturdyTree, Multiplier = 2 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.swift"] <- [
+		{ Tree = this.Const.Perks.AgileTree, Multiplier = 4 },
+		{ Tree = this.Const.Perks.UnstoppableTree, Multiplier = 2 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.teamplayer"] <- [
+		{ Tree = this.Const.Perks.SergeantClassTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.EntertainerClassTree, Multiplier = 4 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.tiny"] <- [
+		{ Tree = this.Const.Perks.LargeTree, Multiplier = 0 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.tough"] <- [
+		{ Tree = this.Const.Perks.LargeTree, Multiplier = 4 },
+		{ Tree = this.Const.Perks.SturdyTree, Multiplier = 1000 },
+		{ Tree = this.Const.Perks.ResilientTree, Multiplier = 2 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.unpredictable"] <- [
+		{ Tree = this.Const.Perks.FlailTree, Multiplier = 4 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.frail"] <- [
+		{ Tree = this.Const.Perks.SturdyTree, Multiplier = 0.25 },
+		{ Tree = this.Const.Perks.LargeTree, Multiplier = 0 },
+		{ Tree = this.Const.Perks.ResilientTree, Multiplier = 0.25 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.weasel"] <- [
+		{ Tree = this.Const.Perks.FastTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.AgileTree, Multiplier = 2 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.aggressive"] <- [
+		{ Tree = this.Const.Perks.ViciousTree, Multiplier = 1000 },
+		{ Tree = this.Const.Perks.UnstoppableTree, Multiplier = 1000 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.ailing"] <- [		
+		{ Tree = this.Const.Perks.ResilientTree, Multiplier = 0.5 }
+	];
+	gt.Const.Perks.TraitMultipliers["trait.ambitious"] <- [
+		{ Tree = this.Const.Perks.SergeantClassTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.OrganisedTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.TrainedTree, Multiplier = 2 }
+	];
 
 	gt.Const.Perks.TalentMultipliers <- [];
 	gt.Const.Perks.TalentMultipliers.resize(this.Const.Attributes.COUNT, 0);
 
 	gt.Const.Perks.TalentMultipliers[this.Const.Attributes.Hitpoints] = [
-		{ Tree = this.Const.Perks.SturdyTree, Multiplier = 2 },
-		{ Tree = this.Const.Perks.LargeTree, Multiplier = 2 }
+		{ Tree = this.Const.Perks.LargeTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.SturdyTree, Multiplier = 2 }
 	];
 	gt.Const.Perks.TalentMultipliers[this.Const.Attributes.Bravery] = [
 		{ Tree = this.Const.Perks.CalmTree, Multiplier = 2 },
 		{ Tree = this.Const.Perks.SergeantClassTree, Multiplier = 2 },
 	];
 	gt.Const.Perks.TalentMultipliers[this.Const.Attributes.Fatigue] = [
-		{ Tree = this.Const.Perks.HeavyArmorTree, Multiplier = 2 },
-		{ Tree = this.Const.Perks.IndestructibleTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.HeavyArmorTree, Multiplier = 2 }
 	];
 	gt.Const.Perks.TalentMultipliers[this.Const.Attributes.Initiative] = [
-		{ Tree = this.Const.Perks.FastTree, Multiplier = 2 },
-		{ Tree = this.Const.Perks.AgileTree, Multiplier = 2 },
 		{ Tree = this.Const.Perks.LightArmorTree, Multiplier = 2 }
 	];
 	gt.Const.Perks.TalentMultipliers[this.Const.Attributes.MeleeSkill] = [
+		{ Tree = this.Const.Perks.BowTree, Multiplier = 0.5 },
+		{ Tree = this.Const.Perks.CrossbowTree, Multiplier = 0.5 },
+		{ Tree = this.Const.Perks.SlingsTree, Multiplier = 0.5 },
 		{ Tree = this.Const.Perks.RangedTree, Multiplier = 0.5 }
 	];
 	gt.Const.Perks.TalentMultipliers[this.Const.Attributes.RangedSkill] = [
+		{ Tree = this.Const.Perks.BowTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.CrossbowTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.SlingsTree, Multiplier = 2 },
 		{ Tree = this.Const.Perks.RangedTree, Multiplier = 2 }
 	];
 	gt.Const.Perks.TalentMultipliers[this.Const.Attributes.MeleeDefense] = [
-		{ Tree = this.Const.Perks.RangedTree, Multiplier = 0.5 }
+		{ Tree = this.Const.Perks.TrainedTree, Multiplier = 2 }
 	];
 	gt.Const.Perks.TalentMultipliers[this.Const.Attributes.RangedDefense] = [
-		{ Tree = this.Const.Perks.RangedTree, Multiplier = 2 }
+		{ Tree = this.Const.Perks.FastTree, Multiplier = 2 }
 	];
 
 	gt.Const.Perks.ConvertLegendsMapToPTR <- function ( _map )
