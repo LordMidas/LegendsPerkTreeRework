@@ -348,7 +348,7 @@ gt.Const.PTR.modStrings <- function()
 		return ret;
 	};
 
-	gt.Const.Strings.PerkDescription.BFFencer = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.BFFencer, "Light Armor");
+	gt.Const.Strings.PerkDescription.BFFencer = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.BFFencer, "Special Perks");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.BFFencer].Tooltip = gt.Const.Strings.PerkDescription.BFFencer;
 
 	gt.Const.Strings.PerkDescription.DoubleStrike = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.DoubleStrike, "One-Handed Weapons and Dagger");

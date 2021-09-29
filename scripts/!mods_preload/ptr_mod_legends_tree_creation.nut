@@ -536,6 +536,56 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 			}
 		}
 
+		local chanceFencer = 25;
+		if (_player.getBackground().getID() == "background.swordmaster")
+		{
+			chanceFencer = 100;
+		}
+		else
+		{
+			local talents = _player.getTalents();
+			chanceFencer *= talents[this.Const.Perks.Attributes.Initiative] * talents[this.Const.Perks.Attributes.MeleeSkill];			
+
+			if (chanceFencer > 0)
+			{
+				foreach (categoryName, category in _localMap)
+				{
+					foreach (tree in category)
+					{
+						switch (tree.ID)
+						{
+							case this.Const.Perks.SwordTree.ID:
+								chanceFencer = 0;
+								break;
+
+							case this.Const.Perks.LightArmorTree.ID:
+								chanceFencer *= 2;
+								break;
+
+							case this.Const.Perks.HeavyArmorTree.ID:
+								chanceFencer /= 2;
+								break;
+						}
+
+						if (chanceFencer == 0)
+						{
+							break;
+						}
+					}
+
+					if (chanceFencer == 0)
+					{
+						break;
+					}
+				}
+			}
+		}
+
+		if (this.Math.rand(1, 100) <= chanceFencer)
+		{
+			dynamicTree[6].push(this.Const.Perks.PerkDefs.BFFencer);
+		}
+
 		foreach( tree in _localMap.Traits )
 		{
 			if ("Attributes" in tree)
