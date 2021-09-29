@@ -600,9 +600,9 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 
 			foreach (trait in characterTraits)
 			{
-				if (trait in this.Const.Perks.TraitMultipliers)
+				if (trait.getID() in this.Const.Perks.TraitMultipliers)
 				{
-					multipliers.extend(this.Const.Perks.TraitMultipliers[trait]);
+					multipliers.extend(this.Const.Perks.TraitMultipliers[trait.getID()]);
 				}
 			}
 
@@ -816,7 +816,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 		else
 		{
 			local talents = _player.getTalents();
-			chanceFencer *= talents[this.Const.Perks.Attributes.Initiative] * talents[this.Const.Perks.Attributes.MeleeSkill];			
+			chanceFencer *= talents[this.Const.Attributes.Initiative] * talents[this.Const.Attributes.MeleeSkill];			
 
 			if (chanceFencer > 0)
 			{
