@@ -1248,5 +1248,5 @@ gt.Const.PTR.modDefenseTrees <- function ()
 	this.Const.Perks.LightArmorTree.Tree[3] = [];
 	this.Const.Perks.LightArmorTree.Tree[4] = [this.Const.Perks.PerkDefs.LegendFreedomOfMovement];
 	this.Const.Perks.LightArmorTree.Tree[5] = [this.Const.Perks.PerkDefs.Nimble];
-	this.Const.Perks.LightArmorTree.Tree[6] = [this.Const.Perks.PerkDefs.BFFencer];
+	this.Const.Perks.LightArmorTree.Tree[6] = [];
 }
