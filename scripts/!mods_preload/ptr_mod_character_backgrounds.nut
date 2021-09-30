@@ -1397,6 +1397,38 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		};
 	});
 
+	::mods_hookNewObject("skills/backgrounds/gladiator_origin_background", function(o) {
+		o.m.PerkTreeDynamic = {
+			ExpertiseMultipliers = [
+			],
+			WeightMultipliers = [
+				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
+				{Multiplier = 2, Tree = this.Const.Perks.ViciousTree},
+				{Multiplier = 3, Tree = this.Const.Perks.HeavyArmorTree},
+				{Multiplier = 0.8, Tree = this.Const.Perks.ShieldTree},
+				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
+				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
+				{Multiplier = 0, Tree = this.Const.Perks.SlingsTree},
+				{Multiplier = 0.66, Tree = this.Const.Perks.SpearTree}
+			],
+			Profession = [
+				[
+					{Weight = 20, Tree = this.Const.Perks.RaiderProfessionTree},
+					{Weight = 10, Tree = this.Const.Perks.SoldierProfessionTree},
+					{Weight = 70, Tree = this.Const.Perks.NoTree}
+				]
+			],
+			Class = [
+				[{Weight = 100, Tree = this.Const.Perks.TrapperClassTree}]
+			],
+			Styles = [
+				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
+				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+			]
+		};
+	});
+
+
 	::mods_hookNewObject("skills/backgrounds/gravedigger_background", function(o) {
 		o.m.PerkTreeDynamic = {
 			ExpertiseMultipliers = [
