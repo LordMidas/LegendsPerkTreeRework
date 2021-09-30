@@ -1,4 +1,12 @@
 ===================
+==== Ver 1.2.3 ====
+===================
+- Fixed a crash when someone with the Vigorous Assault perk used Rotation or Barbarian Fury.
+- Fixed Steel Brow tooltip being messed up.
+- Fixed Quick Hands tooltip. Should now properly say that it is now from the Fast tree.
+- Between the Eyes skill is no longer usable when Head Hunter is active.
+
+===================
 ==== Ver 1.2.2 ====
 ===================
 - Fixed being unable to load a battle when a player or the AI have the Vigorous Assault perk.
