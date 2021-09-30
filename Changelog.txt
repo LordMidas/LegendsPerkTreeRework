@@ -1,4 +1,12 @@
 ===================
+==== Ver 1.2.5 ====
+===================
+- Fixed some recruits starting with some HP missing.
+- Fixed three-headed flail attacks Cascade and Hail bugging out.
+- Fixed the Bone Breaker perk causing issues/crash during battle.
+- Fixed Steel Brow not actually granting immunity to Cull. Should now properly grant immunity as intended.
+
+===================
 ==== Ver 1.2.4 ====
 ===================
 - Vigorous Assault now works with Throwing Weapons as well.
