@@ -1,7 +1,207 @@
 local gt = this.getroottable();
 
 gt.Const.PTR.modSkills <- function()
-{
+{	
+	// Composure removal from players continuing from older saves
+	// This hook shall be removed in a future version
+	::mods_hookExactClass("skills/perks/perk_legend_composure", function(o) {
+		o.onAdded <- function()
+		{
+			local actor = this.getContainer().getActor();
+			if (actor.isPlayerControlled())
+			{
+				actor.m.PerkPoints += 1;
+				actor.m.PerkPointsSpent -= 1;
+				this.removeSelf();
+			}
+		}
+	});
+
+	// Stalwart removal from players continuing from older saves
+	// This hook shall be removed in a future version
+	::mods_hookExactClass("skills/perks/perk_stalwart", function(o) {
+		o.onAdded <- function()
+		{
+			local actor = this.getContainer().getActor();
+			if (actor.isPlayerControlled())
+			{
+				actor.m.PerkPoints += 1;
+				actor.m.PerkPointsSpent -= 1;
+				this.removeSelf();
+			}
+		}
+	});
+
+	::mods_hookExactClass("skills/effects/indomitable_effect", function(o) {
+		local getTooltip = o.getTooltip;
+		o.getTooltip = function()
+		{
+			local tooltip = getTooltip();
+			tooltip.push(
+				{
+					id = 6,
+					type = "text",
+					icon = "ui/icons/special.png",
+					text = "Immune to being Culled"
+				}
+			);
+
+			return tooltip;
+		}		
+	});
+	
+	::mods_hookExactClass("skills/actives/lunge_skill", function(o) {
+		local onAdded = ::mods_getMember(o, "onAdded");
+		::mods_override(o, "onAdded", function(o) {
+			onAdded();
+			if (!this.getContainer().getActor().isPlayerControlled())
+			{
+				local weapon = this.getContainer().getActor().getMainhandItem();
+				if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.BFFencing))
+				{
+					this.getContainer().add(this.new("scripts/skills/perks/perk_bf_fencer"));
+				}
+			}			
+		});		
+	});
+
+	::mods_hookExactClass("skills/perks/perk_legend_muscularity", function(o) {
+		local onUpdate = o.onUpdate;
+		o.onUpdate = function()
+		{
+			local weapon = this.getContainer().getActor().getMainhandItem();
+			if (weapon == null || weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon) || weapon.isWeaponType(this.Const.Items.WeaponType.Throwing))
+			{
+				onUpdate();
+			}
+		}
+	});
+	
+	::mods_hookExactClass("skills/actives/thrust", function(o) {
+		o.getTooltip = function()
+		{
+			local ret = this.getDefaultTooltip();
+			ret.push(
+				{
+					id = 6,
+					type = "text",
+					icon = "ui/icons/hitchance.png",
+					text = "Has [color=" + this.Const.UI.Color.PositiveValue + "]+20%[/color] chance to hit against adjacent targets"
+				}
+			);
+
+			if (this.getContainer().getActor().isDoubleGrippingWeapon() && this.getContainer().hasSkill("perk.ptr_a_better_grip"))
+			{
+				ret.push(
+					{
+						id = 6,
+						type = "text",
+						icon = "ui/icons/hitchance.png",
+						text = "Has [color=" + this.Const.UI.Color.PositiveValue + "]-20%[/color] chance to hit per character between you and the target"
+					}
+				);
+
+				ret.push(
+					{
+						id = 6,
+						type = "text",
+						icon = "ui/icons/damage_dealt.png",
+						text = "Damage is reduced by [color=" + this.Const.UI.Color.PositiveValue + "]33%[/color] when attacking at a distance of 2 tiles"
+					}
+				);
+			}
+
+			return ret;
+		}
+	});
+
+	::mods_hookExactClass("skills/actives/cascade_skill", function(o) {
+		o.m.RerollDamageMult <- 1.0;
+		o.m.IsAttacking <- false;	
+
+		o.onUse = function( _user, _targetTile )
+		{
+			this.m.RerollDamageMult = 1.0;			
+			this.m.IsUsingHitchance = true;
+
+			this.spawnAttackEffect(_targetTile, this.Const.Tactical.AttackEffectChop);
+			local target = _targetTile.getEntity();
+
+			local hitChance = this.getHitchance(target);
+			for (local i = 0; i < 3; i++)
+			{
+				if (i < 2 && this.Math.rand(1, 100) <= hitChance)
+				{
+					this.m.IsUsingHitchance = false;
+					break;
+				}
+
+				this.Tactical.EventLog.logEx(this.Const.UI.getColorizedEntityName(_user) + " uses " + this.getName() + " and misses " + this.Const.UI.getColorizedEntityName(_targetEntity) + " (Chance: " + hitChance + ", Rolled: " + roll + ")");
+
+				this.m.RerollDamageMult -= 0.33;
+			}
+
+			this.m.IsAttacking = true;
+			local ret = this.attackEntity(_user, target);
+			this.m.IsAttacking = false;
+			return ret;
+		}
+
+		o.onAnySkillUsed = function( _skill, _targetEntity, _properties )
+		{
+			if (_skill == this && this.m.IsAttacking)
+			{
+				_properties.DamageTotalMult *= this.m.RerollDamageMult;				
+			}
+		}
+	});
+
+	::mods_hookExactClass("skills/actives/hail_skill", function(o) {
+		o.m.RerollDamageMult <- 1.0;
+		o.m.IsAttacking <- false;	
+
+		o.onUse = function( _user, _targetTile )
+		{
+			this.m.RerollDamageMult = 1.0;			
+			this.m.IsUsingHitchance = true;
+
+			this.spawnAttackEffect(_targetTile, this.Const.Tactical.AttackEffectChop);
+			local target = _targetTile.getEntity();
+
+			local hitChance = this.getHitchance(target);
+			for (local i = 0; i < 3; i++)
+			{
+				if (i < 2 && this.Math.rand(1, 100) <= hitChance)
+				{
+					this.m.IsUsingHitchance = false;
+					break;
+				}
+
+				this.Tactical.EventLog.logEx(this.Const.UI.getColorizedEntityName(_user) + " uses " + this.getName() + " and misses " + this.Const.UI.getColorizedEntityName(_targetEntity) + " (Chance: " + hitChance + ", Rolled: " + roll + ")");
+
+				this.m.RerollDamageMult -= 0.33;
+			}
+
+			this.m.IsAttacking = true;
+			local ret = this.attackEntity(_user, target);
+			this.m.IsAttacking = false;
+			return ret;
+		}
+
+		o.onAnySkillUsed = function( _skill, _targetEntity, _properties )
+		{
+			if (_skill == this)
+			{
+				_properties.HitChance[this.Const.BodyPart.Head] += 100.0;
+
+				if (this.m.IsAttacking)
+				{
+					_properties.DamageTotalMult *= this.m.RerollDamageMult;		
+				}
+			}
+		}
+	});
+
 	local shieldWallRelated = [
 		"skills/actives/legend_fortify_skill",
 		"skills/actives/shieldwall",

@@ -38,7 +38,7 @@ this.perk_ptr_weapon_master <- this.inherit("scripts/skills/skill", {
 				continue;
 			}
 
-			if (item.getSlotType() != this.Const.ItemSlot.Mainhand || !item.isItemType(this.Const.Items.ItemType.MeleeWeapon) || item.isItemType(this.Const.Items.ItemType.TwoHanded))
+			if (item.getSlotType() != this.Const.ItemSlot.Mainhand || (!item.isItemType(this.Const.Items.ItemType.MeleeWeapon) && !item.isWeaponType(this.Const.Items.WeaponType.Throwing)) || item.isItemType(this.Const.Items.ItemType.TwoHanded))
 			{
 				return null;
 			}
@@ -69,7 +69,10 @@ this.perk_ptr_weapon_master <- this.inherit("scripts/skills/skill", {
 	{
 		local weapon = this.getContainer().getActor().getMainhandItem();
 
-		if (weapon == null || !weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon) || !weapon.isItemType(this.Const.Items.ItemType.OneHanded))
+		if (weapon == null || 
+			!weapon.isItemType(this.Const.Items.ItemType.OneHanded) || 
+			(!weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon) && !weapon.isWeaponType(this.Const.Items.WeaponType.Throwing))
+		)
 		{
 			return false;
 		}
@@ -81,7 +84,8 @@ this.perk_ptr_weapon_master <- this.inherit("scripts/skills/skill", {
 				!_properties.IsSpecializedInHammers &&
 				!_properties.IsSpecializedInMaces &&
 				!_properties.IsSpecializedInSpears &&
-				!_properties.IsSpecializedInSwords
+				!_properties.IsSpecializedInSwords &&
+				!_properties.IsSpecializedInThrowing
 			 )
 		{
 			return false;
@@ -128,6 +132,9 @@ this.perk_ptr_weapon_master <- this.inherit("scripts/skills/skill", {
 					case "perk.mastery.sword":
 						_properties.IsSpecializedInSwords = true;
 						break;
+					case "perk.mastery.throwing":
+						_properties.IsSpecializedInThrowing = true;
+						break;
 				}
 			}
 		}
@@ -141,6 +148,7 @@ this.perk_ptr_weapon_master <- this.inherit("scripts/skills/skill", {
 			_properties.IsSpecializedInMaces = true;
 			_properties.IsSpecializedInSpears = true;
 			_properties.IsSpecializedInSwords = true;
+			_properties.IsSpecializedInThrowing = true;
 		}
 	}
 

@@ -8,7 +8,7 @@ local modID = "mod_legends_PTR";
 
 ::mods_queue(modID, "mod_legends, mod_MSU, mod_betterFencing, mod_WMS, mod_mediumArmorRework, mod_legends_STR, mod_duelistDefense", function()
 {
-	this.Const.AI.VerboseMode = true;
+	// this.Const.AI.VerboseMode = true;
 	gt.setupDebugLog <- function (_enabled = false, _name = "default")
 	{
 		//keep table of mod names so that you can turn it on and off for specific mods
@@ -37,8 +37,6 @@ local modID = "mod_legends_PTR";
 	}
 	gt.setupDebugLog(true, modID);
 
-	gt.Const.PTR.IsExpertiseEnabled <- false;	
-
 	gt.Const.PTR.modRetinue();
 	gt.Const.PTR.modCharacterInjuries();
 	gt.Const.PTR.modStrings();
@@ -49,9 +47,7 @@ local modID = "mod_legends_PTR";
 	gt.Const.PTR.modSkills();
 	gt.Const.PTR.modWeapons();
 	gt.Const.PTR.modItems();
-	gt.Const.PTR.modSettlement();
-
-	gt.Const.PTR.modLegendsPerkTreeCreationSystem();
+	gt.Const.PTR.modSettlement();	
 
 	gt.Const.PTR.addPerksToPerkDefs();
 
@@ -63,6 +59,8 @@ local modID = "mod_legends_PTR";
 	gt.Const.PTR.createStylesTrees();
 	gt.Const.PTR.createProfessionTrees();
 
+	gt.Const.PTR.modLegendsPerkTreeCreationSystem();
+
 	gt.Const.PTR.modCharacterBackground();
 	gt.Const.PTR.modCharacterBackgrounds();
 
@@ -71,4 +69,6 @@ local modID = "mod_legends_PTR";
 	gt.Const.PTR.modEnemies();
 
 	gt.Const.PTR.modAI();
+
+	gt.Const.PTR.modRunes();
 });

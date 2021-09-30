@@ -22,7 +22,7 @@ this.perk_ptr_sanguinary <- this.inherit("scripts/skills/skill", {
 
 	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
 	{
-		if (_targetEntity == null || !_targetEntity.isAlive() || _targetEntity.isDying())
+		if (_targetEntity == null || !_targetEntity.isAlive() || _targetEntity.isDying() || _skill.isRanged() || !_skill.isAttack())
 		{
 			return;
 		}

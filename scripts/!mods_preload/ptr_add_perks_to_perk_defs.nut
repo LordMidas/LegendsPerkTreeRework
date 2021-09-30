@@ -906,6 +906,24 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_through_the_ranks.png",
 			IconDisabled = "ui/perks/ptr_through_the_ranks_bw.png",
 			Const = "PTRThroughTheRanks"
+		},
+		{
+			ID = "perk.ptr_vigorous_assault",
+			Script = "scripts/skills/perks/perk_ptr_vigorous_assault",
+			Name = this.Const.Strings.PerkName.PTRVigorousAssault,
+			Tooltip = this.Const.Strings.PerkDescription.PTRVigorousAssault,
+			Icon = "ui/perks/ptr_vigorous_assault.png",
+			IconDisabled = "ui/perks/ptr_vigorous_assault_bw.png",
+			Const = "PTRVigorousAssault"
+		},
+		{
+			ID = "perk.ptr_skirmisher",
+			Script = "scripts/skills/perks/perk_ptr_skirmisher",
+			Name = this.Const.Strings.PerkName.PTRSkirmisher,
+			Tooltip = this.Const.Strings.PerkDescription.PTRSkirmisher,
+			Icon = "ui/perks/ptr_skirmisher.png",
+			IconDisabled = "ui/perks/ptr_skirmisher_bw.png",
+			Const = "PTRSkirmisher"
 		}
 	];
 

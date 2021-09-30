@@ -40,16 +40,6 @@ this.perk_ptr_deep_impact <- this.inherit("scripts/skills/skill", {
 		}
 
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		_properties.ThresholdToInflictInjuryMult *= 1.0 - (this.m.ArmorEffectivenessMult * weapon.getArmorDamageMult());
+		_properties.ThresholdToInflictInjuryMult *= 1.0 - this.Math.minf(0.99, (this.m.ArmorEffectivenessMult * weapon.getArmorDamageMult()));
 	}
-
-	# function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
-	# {
-	# 	if (!_skill.isAttack() || !this.isEnabled(_skill) || !_targetEntity.getFlags().has("undead"))
-	# 	{
-	# 		return;
-	# 	}
-	#
-	# 	_hitInfo.Injuries = this.Const.Injury.getArrayOfRelevantUndeadInjuries(_skill, _targetEntity, _hitInfo);
-	# }
 });

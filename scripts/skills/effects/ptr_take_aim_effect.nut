@@ -73,10 +73,30 @@ this.ptr_take_aim_effect <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
+	function onBeforeAnySkillExecuted( _skill, _targetTile, _targetEntity )
+	{
+		this.m.DiversionMinDist = null;
+		
+		if (_skill.isAttack() && _skill.isRanged())
+		{
+			local weapon = this.getContainer().getActor().getMainhandItem();
+			if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.Crossbow))
+			{
+				this.m.DiversionMinDist = this.Const.Combat.DiversionMinDist;
+				this.Const.Combat.DiversionMinDist = 100;
+			}
+		}
+	}
+
 	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
 	{
 		if (_skill.isAttack() && _skill.isRanged())
 		{
+			if (this.m.DiversionMinDist != null)
+			{
+				this.Const.Combat.DiversionMinDist = this.m.DiversionMinDist;				
+			}
+
 			this.removeSelf();
 		}
 	}

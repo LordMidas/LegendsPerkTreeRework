@@ -1,5 +1,6 @@
 this.perk_ptr_easy_target <- this.inherit("scripts/skills/skill", {
 	m = {
+		IsForceEnabled = false,
 		SkillCount = 0
 		LastTargetID = 0
 	},
@@ -16,10 +17,25 @@ this.perk_ptr_easy_target <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
+	function isEnabled()
+	{
+		if (this.m.IsForceEnabled)
+		{
+			return true;
+		}
+
+		local weapon = this.getContainer().getActor().getMainhandItem();		
+		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Staff))
+		{
+			return false;
+		}
+
+		return true;
+	}
+
 	function onAfterUpdate(_properties)
 	{
-		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Staff))
+		if (!this.isEnabled())
 		{
 			return;
 		}
@@ -36,18 +52,13 @@ this.perk_ptr_easy_target <- this.inherit("scripts/skills/skill", {
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		if (!_targetEntity.isAlive() || _targetEntity.isDying())
+		if (!_targetEntity.isAlive() || _targetEntity.isDying() || !this.isEnabled())
 		{
 			return;
 		}
 
 		local actor = this.getContainer().getActor();
-		local weapon = actor.getMainhandItem();
-		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Staff))
-		{
-			return;
-		}
-
+		
 		local chance = 33;
 
 		if (_skill.getID() == "actives.legend_staff_knock_out")

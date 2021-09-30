@@ -15,11 +15,6 @@ this.perk_ptr_flaming_arrows <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
-	function onAfterUpdate(_properties)
-	{
-		_properties.ThreatOnHit += this.Math.min(20, this.Math.max(0, _properties.getRangedSkill() * 0.2));
-	}
-
 	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
 	{
 		this.m.TargetTile = _targetEntity.getTile();
@@ -44,7 +39,7 @@ this.perk_ptr_flaming_arrows <- this.inherit("scripts/skills/skill", {
 		if (_targetEntity.isAlive() && !_targetEntity.isDying() && _targetEntity.getMoraleState() != this.Const.MoraleState.Ignore)
 		{
 			this.spawnIcon("perk_27", _targetEntity.getTile());
-			_targetEntity.checkMorale(-1, this.Const.Morale.OnHitBaseDifficulty * (1.0 - _targetEntity.getHitpoints() / _targetEntity.getHitpointsMax()) - this.getContainer().getActor().getCurrentProperties().ThreatOnHit);
+			_targetEntity.checkMorale(-1, this.Const.Morale.OnHitBaseDifficulty * (1.0 - _targetEntity.getHitpoints() / _targetEntity.getHitpointsMax()));
 		}
 	}
 

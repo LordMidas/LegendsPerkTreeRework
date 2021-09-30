@@ -10,35 +10,39 @@ gt.Const.PTR.modActor <- function()
 			oldOnDeath(_killer, _skill, _tile, _fatalityType);
 			if (_fatalityType != this.Const.FatalityType.None && _killer != null && this.Tactical.TurnSequenceBar.getActiveEntity() != null && this.Tactical.TurnSequenceBar.getActiveEntity().getID() == _killer.getID())
 			{
-				if (_killer.getSkills().hasSkill("perk.ptr_bloodbath"))
+				if (_skill != null && _skill.isAttack() && !_skill.isRanged())
 				{
-					_killer.setActionPoints(this.Math.min(_killer.getActionPointsMax(), _killer.getActionPoints() + 3));
-					_killer.setDirty(true);
-					_skill.spawnIcon("perk_ptr_bloodbath", _killer.getTile());
-				}
-
-				local sanguinaryPerk = _killer.getSkills().getSkillByID("perk.ptr_sanguinary");
-				if (sanguinaryPerk != null)
-				{
-					local fatigueCostRefund = this.Math.floor(_skill.getFatigueCost() * sanguinaryPerk.m.FatigueCostRefundPercentage * 0.01);
-					_killer.setFatigue(this.Math.max(0, _killer.getFatigue() - fatigueCostRefund));
-					if (_killer.getMoraleState() < this.Const.MoraleState.Confident && _killer.getMoraleState() != this.Const.MoraleState.Fleeing)
+					if (_killer.getSkills().hasSkill("perk.ptr_bloodbath"))
 					{
-						_killer.setMoraleState(this.Const.MoraleState.Confident);
-						_skill.spawnIcon("perk_ptr_sanguinary", _killer.getTile());
+						_killer.setActionPoints(this.Math.min(_killer.getActionPointsMax(), _killer.getActionPoints() + 3));
+						_killer.setDirty(true);
+						_skill.spawnIcon("perk_ptr_bloodbath", _killer.getTile());
+					}
+
+					local sanguinaryPerk = _killer.getSkills().getSkillByID("perk.ptr_sanguinary");
+					if (sanguinaryPerk != null)
+					{
+						local fatigueCostRefund = this.Math.floor(_skill.getFatigueCost() * sanguinaryPerk.m.FatigueCostRefundPercentage * 0.01);
+						_killer.setFatigue(this.Math.max(0, _killer.getFatigue() - fatigueCostRefund));
+						if (_killer.getMoraleState() < this.Const.MoraleState.Confident && _killer.getMoraleState() != this.Const.MoraleState.Fleeing)
+						{
+							_killer.setMoraleState(this.Const.MoraleState.Confident);
+							_skill.spawnIcon("perk_ptr_sanguinary", _killer.getTile());
+						}
 					}
 				}
 			}
 		}
 
-		local oldOnInit = o.onInit;
+		local onInit = o.onInit;
 		o.onInit = function()
 		{
-			oldOnInit();
+			onInit();
 			this.getSkills().add(this.new("scripts/skills/effects/ptr_formidable_approach_debuff_effect"));
 			this.getSkills().add(this.new("scripts/skills/effects/ptr_follow_up_proccer_effect"));
 			this.getSkills().add(this.new("scripts/skills/effects/ptr_bolstered_effect"));
 			this.getSkills().add(this.new("scripts/skills/effects/ptr_polearm_hitchance_effect"));
+			this.getSkills().add(this.new("scripts/skills/effects/ptr_hitchance_damage_effect"));
 
 			local flags = this.getFlags();
 			if (flags.has("undead") && !flags.has("ghost") && !flags.has("ghoul") && !flags.has("vampire"))

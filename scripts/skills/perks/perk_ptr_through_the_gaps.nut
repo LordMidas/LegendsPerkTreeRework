@@ -1,5 +1,8 @@
 this.perk_ptr_through_the_gaps <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		IsForceEnabled = false,
+		Bonus = 0.1
+	},
 	function create()
 	{
 		this.m.ID = "perk.ptr_through_the_gaps";
@@ -15,9 +18,9 @@ this.perk_ptr_through_the_gaps <- this.inherit("scripts/skills/skill", {
 
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
-		if (_skill.isAttack() && !_skill.isRanged() && _skill.hasDamageType(this.Const.Damage.DamageType.Piercing))
+		if (_skill.isAttack() && (this.m.IsForceEnabled || (!_skill.isRanged() && _skill.hasDamageType(this.Const.Damage.DamageType.Piercing))))
 		{
-			_properties.DamageDirectAdd += 0.1;
+			_properties.DamageDirectAdd += this.m.Bonus;
 		}
 	}
 });

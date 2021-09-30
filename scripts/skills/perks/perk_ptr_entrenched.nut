@@ -1,8 +1,9 @@
 this.perk_ptr_entrenched <- this.inherit("scripts/skills/skill", {
 	m = {
-		Bonus = 5,
-		MaxBonus = 10,
-		TurnsEntrenched = 0
+		Bonus = 7,
+		MaxBonus = 15,
+		TurnsEntrenched = 0,
+		IsSpent = false
 	},
 	function create()
 	{
@@ -80,7 +81,7 @@ this.perk_ptr_entrenched <- this.inherit("scripts/skills/skill", {
 
 	function getBonus()
 	{
-		return this.Math.min(this.m.MaxBonus, this.m.Bonus + this.m.TurnsEntrenched);
+		return this.Math.max(0, this.Math.min(this.m.MaxBonus, this.m.Bonus + (this.m.TurnsEntrenched - 1) * 2));
 	}
 
 	function onUpdate( _properties )
@@ -95,6 +96,50 @@ this.perk_ptr_entrenched <- this.inherit("scripts/skills/skill", {
 			_properties.RangedDefense += bonus;
 			_properties.Bravery += bonus;
 		}
+		else
+		{
+			this.m.TurnsEntrenched = 0;
+		}
+	}
+
+	function getItemActionCost( _items )
+	{
+		if (this.m.IsSpent || !this.isEnabled())
+		{
+			return null;
+		}
+
+		local rangedCount = 0;
+
+		foreach (item in _items)
+		{
+			if (item == null)
+			{
+				continue;
+			}
+
+			if (item.getSlotType() == this.Const.ItemSlot.Mainhand && item.isItemType(this.Const.Items.ItemType.RangedWeapon))
+			{
+				rangedCount++;
+			}
+		}
+
+		if (rangedCount == 2)
+		{
+			return 0;
+		}
+
+		return null;
+	}
+
+	function onPayForItemAction( _skill, _items )
+	{
+		if (_skill != null && _skill.getID() == "perk.ptr_target_practice")
+		{
+			return;
+		}
+
+		this.m.IsSpent = true;
 	}
 
 	function onTurnStart()
@@ -108,6 +153,6 @@ this.perk_ptr_entrenched <- this.inherit("scripts/skills/skill", {
 	function onCombatFinished()
 	{
 		this.skill.onCombatFinished();
-		this.m.TurnsEntrenched = 0;
+		this.m.TurnsEntrenched = 0;		
 	}
 });

@@ -1,5 +1,7 @@
 this.perk_ptr_heavy_strikes <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		IsForceEnabled = false
+	},
 	function create()
 	{
 		this.m.ID = "perk.ptr_heavy_strikes";
@@ -13,22 +15,33 @@ this.perk_ptr_heavy_strikes <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
+	function isEnabled()
+	{	
+		if (this.m.IsForceEnabled)
+		{
+			return true;
+		}
+
+		local weapon = this.getContainer().getActor().getMainhandItem();
+
+		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Mace))
+		{
+			return false;
+		}
+
+		return true;
+	}
+
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		local actor = this.getContainer().getActor();
-
-		if (!_targetEntity.isAlive() || _targetEntity.isDying() || _targetEntity.isAlliedWith(actor))
+		if (!_targetEntity.isAlive() || _targetEntity.isDying() || _targetEntity.isAlliedWith(this.getContainer().getActor()) || !_skill.isAttack())
 		{
 			return;
 		}
 
-		local weapon = actor.getMainhandItem();
-
-		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Mace) || !_skill.isAttack() || _skill.m.InjuriesOnBody != this.Const.Injury.BluntBody)
+		if (this.isEnabled() && (this.m.IsForceEnabled || _skill.hasDamageType(this.Const.Damage.DamageType.Blunt)))
 		{
-			return;
+			_targetEntity.getSkills().add(this.new("scripts/skills/effects/legend_baffled_effect"));
 		}
-
-		_targetEntity.getSkills().add(this.new("scripts/skills/effects/legend_baffled_effect"));
 	}
 });

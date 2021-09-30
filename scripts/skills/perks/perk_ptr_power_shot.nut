@@ -34,7 +34,7 @@ this.perk_ptr_power_shot <- this.inherit("scripts/skills/skill", {
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		if (!_skill.isAttack() || !_skill.isRanged() || !_targetEntity.isAlive() || !this.isEnabled())
+		if (!_skill.isAttack() || !_skill.isRanged() || !_targetEntity.isAlive() || _targetEntity.isDying() || !this.isEnabled())
 		{
 			return;
 		}
