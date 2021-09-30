@@ -161,7 +161,7 @@ gt.Const.PTR.modWeapons <- function()
 		o.onEquip = function()
 		{
 			onEquip();
-			this.addSkill(this.new("scripts/skills/actives/riposte"));
+			this.addSkill(this.new("scripts/skills/actives/swing"));
 		}
 	});
 
@@ -177,7 +177,7 @@ gt.Const.PTR.modWeapons <- function()
 		o.onEquip = function()
 		{
 			onEquip();
-			this.addSkill(this.new("scripts/skills/actives/riposte"));
+			this.addSkill(this.new("scripts/skills/actives/swing"));
 		}
 	});
 
@@ -193,7 +193,7 @@ gt.Const.PTR.modWeapons <- function()
 		o.onEquip = function()
 		{
 			onEquip();
-			this.addSkill(this.new("scripts/skills/actives/riposte"));
+			this.addSkill(this.new("scripts/skills/actives/swing"));
 		}
 	});
 
@@ -223,7 +223,7 @@ gt.Const.PTR.modWeapons <- function()
 		o.onEquip = function()
 		{
 			onEquip();
-			this.addSkill(this.new("scripts/skills/actives/riposte"));
+			this.addSkill(this.new("scripts/skills/actives/swing"));
 		}
 	});
 
