@@ -46,9 +46,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	};
 
 	::mods_hookNewObject("skills/backgrounds/adventurous_noble_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{ Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree },
 				{ Multiplier = 0, Tree = this.Const.Perks.DeviousTree },
@@ -86,9 +84,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/apprentice_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 					{ Multiplier = 3, Tree = this.Const.Perks.TalentedTree }
 			],
@@ -107,9 +103,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/assassin_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			],
 			Profession = [
@@ -119,9 +113,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/assassin_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			],
 			Profession = [
@@ -131,9 +123,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/barbarian_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.25, Tree = this.Const.Perks.CalmTree},
 				{Multiplier = 0, Tree = this.Const.Perks.OrganisedTree},
@@ -178,9 +168,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/bastard_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 2, Tree = this.Const.Perks.NoblesTree},
 				{Multiplier = 1.5, Tree = this.Const.Perks.HeavyArmorTree},
@@ -199,9 +187,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/beast_hunter_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 3, Tree = this.Const.Perks.ViciousTree},
 				{Multiplier = 0.33, Tree = this.Const.Perks.ShieldTree},
@@ -236,9 +222,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/beggar_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0, Tree = this.Const.Perks.TalentedTree},
 				{Multiplier = 0.25, Tree = this.Const.Perks.ClerkClassTree},
@@ -254,9 +238,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/beggar_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			{Multiplier = 0, Tree = this.Const.Perks.TalentedTree},
 			{Multiplier = 0.25, Tree = this.Const.Perks.ClerkClassTree},
@@ -272,9 +254,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/belly_dancer_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.5, Tree = this.Const.Perks.ResilientTree},
 				{Multiplier = 0.25, Tree = this.Const.Perks.LargeTree},
@@ -299,9 +279,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/bowyer_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 2, Tree = this.Const.Perks.TalentedTree}
 			],
@@ -326,9 +304,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/brawler_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.5, Tree = this.Const.Perks.TalentedTree},
 				{Multiplier = 0.25, Tree = this.Const.Perks.OrganisedTree},
@@ -344,9 +320,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/butcher_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			],
 			Profession = [
@@ -356,9 +330,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/butcher_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			],
 			Profession = [
@@ -368,9 +340,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/caravan_hand_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 2, Tree = this.Const.Perks.OutlandersTree},
 				{Multiplier = 2, Tree = this.Const.Perks.MenderClassTree},
@@ -387,9 +357,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/caravan_hand_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 2, Tree = this.Const.Perks.OutlandersTree},
 				{Multiplier = 2, Tree = this.Const.Perks.MenderClassTree},
@@ -406,9 +374,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/companion_1h_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 2, Tree = this.Const.Perks.CalmTree},
 				{Multiplier = 2, Tree = this.Const.Perks.TalentedTree},
@@ -453,9 +419,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/companion_1h_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 2, Tree = this.Const.Perks.CalmTree},
 				{Multiplier = 2, Tree = this.Const.Perks.TalentedTree},
@@ -500,9 +464,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/companion_2h_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.5, Tree = this.Const.Perks.CalmTree},
 				{Multiplier = 0.25, Tree = this.Const.Perks.OrganisedTree},
@@ -542,9 +504,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/companion_2h_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.5, Tree = this.Const.Perks.CalmTree},
 				{Multiplier = 0.25, Tree = this.Const.Perks.OrganisedTree},
@@ -584,9 +544,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/companion_ranged_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.25, Tree = this.Const.Perks.ResilientTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.CalmTree},
@@ -611,9 +569,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/companion_ranged_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.25, Tree = this.Const.Perks.ResilientTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.CalmTree},
@@ -638,9 +594,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/converted_cultist_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			],
 			Profession = [
@@ -650,9 +604,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/cripple_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.5, Tree = this.Const.Perks.FastTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.AgileTree},
@@ -673,9 +625,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/cripple_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.5, Tree = this.Const.Perks.FastTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.AgileTree},
@@ -696,9 +646,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/crucified_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
 				{Multiplier = 0.25, Tree = this.Const.Perks.ViciousTree},
@@ -733,9 +681,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/crusader_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
 				{Multiplier = 0.25, Tree = this.Const.Perks.ViciousTree},
@@ -778,9 +724,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/cultist_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			],
 			Profession = [
@@ -790,9 +734,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/daytaler_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.25, Tree = this.Const.Perks.TalentedTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.TrainedTree},
@@ -814,9 +756,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/daytaler_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.25, Tree = this.Const.Perks.TalentedTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.TrainedTree},
@@ -838,9 +778,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/deserter_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.25, Tree = this.Const.Perks.CalmTree},
 				{Multiplier = 0.75, Tree = this.Const.Perks.DeviousTree},
@@ -867,9 +805,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/disowned_noble_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 2, Tree = this.Const.Perks.NoblesTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.CalmTree},
@@ -894,9 +830,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/eunuch_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 3, Tree = this.Const.Perks.HexenTree},
 				{Multiplier = 3, Tree = this.Const.Perks.TalentedTree}
@@ -908,9 +842,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/eunuch_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 3, Tree = this.Const.Perks.HexenTree},
 				{Multiplier = 3, Tree = this.Const.Perks.TalentedTree}
@@ -922,9 +854,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/farmhand_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.5, Tree = this.Const.Perks.TalentedTree},
 			],
@@ -940,9 +870,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_adventurous_noble_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.25, Tree = this.Const.Perks.ResilientTree},
 				{Multiplier = 0.25, Tree = this.Const.Perks.LargeTree},
@@ -975,9 +903,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_beggar_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.1, Tree = this.Const.Perks.TalentedTree},
 				{Multiplier = 0.25, Tree = this.Const.Perks.ClerkClassTree},
@@ -993,9 +919,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_bowyer_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 2, Tree = this.Const.Perks.TalentedTree}
 			],
@@ -1020,9 +944,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_butcher_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			],
 			Profession = [
@@ -1032,9 +954,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_daytaler_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.25, Tree = this.Const.Perks.TalentedTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.TrainedTree},
@@ -1056,9 +976,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_disowned_noble_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 2, Tree = this.Const.Perks.NoblesTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.CalmTree},
@@ -1084,9 +1002,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_farmhand_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.5, Tree = this.Const.Perks.TalentedTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.LightArmorTree}
@@ -1103,9 +1019,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_miller_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 1.5, Tree = this.Const.Perks.LargeTree},
 				{Multiplier = 1.5, Tree = this.Const.Perks.ResilientTree},
@@ -1120,9 +1034,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_minstrel_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			],
 			Profession = [
@@ -1135,9 +1047,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_servant_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 1.25, Tree = this.Const.Perks.TalentedTree},
 				{Multiplier = 2, Tree = this.Const.Perks.OrganisedTree}
@@ -1149,9 +1059,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_slave_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 2, Tree = this.Const.Perks.SouthernersTree},
 				{Multiplier = 1.5, Tree = this.Const.Perks.CalmTree},
@@ -1164,9 +1072,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_slave_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 2, Tree = this.Const.Perks.SouthernersTree},
 				{Multiplier = 1.5, Tree = this.Const.Perks.CalmTree},
@@ -1179,9 +1085,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_tailor_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 1.5, Tree = this.Const.Perks.TalentedTree},
 				{Multiplier = 1.5, Tree = this.Const.Perks.OrganisedTree},
@@ -1197,9 +1101,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_thief_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.5, Tree = this.Const.Perks.LargeTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.SturdyTree},
@@ -1221,9 +1123,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_thief_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.5, Tree = this.Const.Perks.LargeTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.SturdyTree},
@@ -1245,9 +1145,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/fisherman_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.5, Tree = this.Const.Perks.LargeTree},
 				{Multiplier = 0.75, Tree = this.Const.Perks.ResilientTree},
@@ -1272,9 +1170,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/fisherman_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.5, Tree = this.Const.Perks.LargeTree},
 				{Multiplier = 0.75, Tree = this.Const.Perks.ResilientTree},
@@ -1299,9 +1195,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/flagellant_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 3, Tree = this.Const.Perks.ResilientTree},
 				{Multiplier = 3, Tree = this.Const.Perks.ViciousTree},
@@ -1325,9 +1219,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/gambler_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 1.5, Tree = this.Const.Perks.CalmTree},
 				{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
@@ -1346,9 +1238,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/gambler_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 1.5, Tree = this.Const.Perks.CalmTree},
 				{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
@@ -1367,9 +1257,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/gladiator_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
 				{Multiplier = 2, Tree = this.Const.Perks.ViciousTree},
@@ -1398,9 +1286,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/gladiator_origin_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
 				{Multiplier = 2, Tree = this.Const.Perks.ViciousTree},
@@ -1430,9 +1316,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 
 
 	::mods_hookNewObject("skills/backgrounds/gravedigger_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 1.5, Tree = this.Const.Perks.SkeletonTree},
 				{Multiplier = 1.5, Tree = this.Const.Perks.ZombieTree},
@@ -1449,9 +1333,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/graverobber_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 1.5, Tree = this.Const.Perks.SkeletonTree},
 				{Multiplier = 1.5, Tree = this.Const.Perks.ZombieTree},
@@ -1464,9 +1346,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/hedge_knight_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.25, Tree = this.Const.Perks.AgileTree},
 				{Multiplier = 0.25, Tree = this.Const.Perks.FastTree},
@@ -1508,9 +1388,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/historian_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 1.66, Tree = this.Const.Perks.OrganisedTree},
 				{Multiplier = 0.25, Tree = this.Const.Perks.TrapperClassTree}
@@ -1529,9 +1407,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/historian_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 1.66, Tree = this.Const.Perks.OrganisedTree},
 				{Multiplier = 0.25, Tree = this.Const.Perks.TrapperClassTree}
@@ -1550,9 +1426,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/houndmaster_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 2, Tree = this.Const.Perks.AlpTree},
 			],
@@ -1563,9 +1437,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/hunter_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.5, Tree = this.Const.Perks.ResilientTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.LargeTree}
@@ -1586,9 +1458,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/juggler_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 2, Tree = this.Const.Perks.TalentedTree}
 			],
@@ -1608,9 +1478,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/juggler_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 2, Tree = this.Const.Perks.TalentedTree}
 			],
@@ -1630,9 +1498,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/killer_on_the_run_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 5, Tree = this.Const.Perks.ViciousTree},
 				{Multiplier = 2, Tree = this.Const.Perks.UnstoppableTree},
@@ -1666,9 +1532,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/kings_guard_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.1, Tree = this.Const.Perks.DeviousTree},
 				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
@@ -1698,9 +1562,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_ancient_summoner_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.5, Tree = this.Const.Perks.SwordTree},
 				{Multiplier = 0.25, Tree = this.Const.Perks.AxeTree},
@@ -1889,9 +1751,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_astrologist_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 5, Tree = this.Const.Perks.TalentedTree},
 				{Multiplier = 1.66, Tree = this.Const.Perks.OrganisedTree},
@@ -2246,9 +2106,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_blacksmith_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.5, Tree = this.Const.Perks.AgileTree},
 				{Multiplier = 0.1, Tree = this.Const.Perks.DeviousTree},
@@ -2273,9 +2131,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_cannibal_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			],
 			Profession = [
@@ -2294,18 +2150,14 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_conjurer_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			]
 		};
 	}); */
 
 	::mods_hookNewObject("skills/backgrounds/legend_crusader_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
 				{Multiplier = 0.25, Tree = this.Const.Perks.ViciousTree},
@@ -2422,36 +2274,28 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_death_summoner_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			]
 		};
 	}); */
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_diviner_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			]
 		};
 	}); */
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_donkey", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			]
 		};
 	}); */
 
 	::mods_hookNewObject("skills/backgrounds/legend_druid_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			],
 			Profession = [
@@ -2558,18 +2402,14 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_enchanter_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			]
 		};
 	}); */
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_entrancer_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			]
 		};
@@ -2769,18 +2609,14 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_healer_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			]
 		};
 	}); */
 
 	::mods_hookNewObject("skills/backgrounds/legend_herbalist_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			],
 			Profession = [
@@ -2790,54 +2626,42 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_horse", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			]
 		};
 	}); */
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_horserider", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			]
 		};
 	}); */
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_horse_courser", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			]
 		};
 	}); */
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_horse_destrier", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			]
 		};
 	}); */
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_horse_rouncey", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			]
 		};
 	}); */
 
 	::mods_hookNewObject("skills/backgrounds/legend_illusionist_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 3, Tree = this.Const.Perks.DeviousTree}
 			],
@@ -2863,9 +2687,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_inventor_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			],
 			Profession = [
@@ -2957,9 +2779,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_ironmonger_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			],
 			Profession = [
@@ -2969,9 +2789,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_master_archer_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},
 				{Multiplier = 3, Tree = this.Const.Perks.MediumArmorTree}
@@ -2999,9 +2817,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
  ::mods_hookNewObject("skills/backgrounds/legend_necromancer_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 3, Tree = this.Const.Perks.ViciousTree},
 				{Multiplier = 3, Tree = this.Const.Perks.CalmTree},
@@ -3031,9 +2847,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_necrosavant_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.2, Tree = this.Const.Perks.OrganisedTree},
 				{Multiplier = 3, Tree = this.Const.Perks.FastTree},
@@ -3226,9 +3040,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
  	::mods_hookNewObject("skills/backgrounds/legend_noble_2h", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0, Tree = this.Const.Perks.ShieldTree},
 				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
@@ -3382,9 +3194,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_noble_event_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 3, Tree = this.Const.Perks.CalmTree},
 				{Multiplier = 3, Tree = this.Const.Perks.TalentedTree}
@@ -3411,9 +3221,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_noble_ranged", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree}
 				{Multiplier = 0.5, Tree = this.Const.Perks.DeviousTree}
@@ -3432,9 +3240,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_noble_shield", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
 				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
@@ -3457,9 +3263,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_nun_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.25, Tree = this.Const.Perks.UnstoppableTree},
 				{Multiplier = 3, Tree = this.Const.Perks.OrganisedTree},
@@ -3483,9 +3287,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_philosopher_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 1.66, Tree = this.Const.Perks.OrganisedTree},
 				{Multiplier = 0.25, Tree = this.Const.Perks.TrapperClassTree}
@@ -3500,9 +3302,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_premonitionist_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			]
 		};
@@ -3672,18 +3472,14 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_runesmith_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			]
 		};
 	}); */
 
 	::mods_hookNewObject("skills/backgrounds/legend_shieldmaiden_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
 				{Multiplier = 0.25, Tree = this.Const.Perks.FastTree},
@@ -3708,18 +3504,14 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_spiritualist_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			]
 		};
 	}); */
 
 	::mods_hookNewObject("skills/backgrounds/legend_taxidermist_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 5, Tree = this.Const.Perks.TrapperClassTree},
 				{Multiplier = 2, Tree = this.Const.Perks.HoundmasterClassTree}
@@ -3907,9 +3699,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_warlock_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0, Tree = this.Const.Perks.OrganisedTree},
 				{Multiplier = 0, Tree = this.Const.Perks.ViciousTree},
@@ -3939,9 +3729,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_witch_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			],
 			Traits = [
@@ -3984,9 +3772,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/lumberjack_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			],
 			Profession = [
@@ -4084,9 +3870,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/manhunter_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 3, Tree = this.Const.Perks.NomadsTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.OrganisedTree},
@@ -4108,9 +3892,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/mason_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 1.5, Tree = this.Const.Perks.LargeTree},
 				{Multiplier = 1.5, Tree = this.Const.Perks.ResilientTree},
@@ -4125,9 +3907,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/messenger_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 1.5, Tree = this.Const.Perks.ResilientTree},
 				{Multiplier = 1.5, Tree = this.Const.Perks.LargeTree},
@@ -4151,9 +3931,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/militia_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			],
 			Profession = [
@@ -4163,9 +3941,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/miller_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 1.5, Tree = this.Const.Perks.LargeTree},
 				{Multiplier = 1.5, Tree = this.Const.Perks.ResilientTree},
@@ -4180,9 +3956,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/miner_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			],
 			Profession = [
@@ -4192,9 +3966,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/minstrel_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			],
 			Profession = [
@@ -4207,9 +3979,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/monk_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.25, Tree = this.Const.Perks.UnstoppableTree},
 				{Multiplier = 3, Tree = this.Const.Perks.OrganisedTree},
@@ -4229,18 +3999,14 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/monk_turned_flagellant_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			]
 		};
 	}); */
 
 	::mods_hookNewObject("skills/backgrounds/nomad_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 3, Tree = this.Const.Perks.SouthernersTree},
 				{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
@@ -4259,9 +4025,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/nomad_ranged_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 3, Tree = this.Const.Perks.SouthernersTree},
 				{Multiplier = 5, Tree = this.Const.Perks.ViciousTree},
@@ -4284,9 +4048,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/old_gladiator_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
 				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
@@ -4316,9 +4078,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/orc_slayer_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.5, Tree = this.Const.Perks.AgileTree},
 				{Multiplier = 0.1, Tree = this.Const.Perks.DeviousTree},
@@ -4353,18 +4113,14 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/pacified_flagellant_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			]
 		};
 	}); */
 
 	::mods_hookNewObject("skills/backgrounds/peddler_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			],
 			Profession = [
@@ -4374,9 +4130,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/peddler_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			],
 			Profession = [
@@ -4386,9 +4140,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/pimp_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			],
 			Profession = [
@@ -4401,9 +4153,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/poacher_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.5, Tree = this.Const.Perks.AgileTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.ResilientTree},
@@ -4422,9 +4172,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/raider_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.25, Tree = this.Const.Perks.OrganisedTree},
 				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
@@ -4446,9 +4194,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/ratcatcher_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 5, Tree = this.Const.Perks.FastTree},
 				{Multiplier = 5, Tree = this.Const.Perks.AgileTree},
@@ -4461,9 +4207,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/refugee_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.5, Tree = this.Const.Perks.CalmTree}
 			],
@@ -4474,9 +4218,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/retired_soldier_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.66, Tree = this.Const.Perks.AgileTree},
 				{Multiplier = 0.66, Tree = this.Const.Perks.FastTree},
@@ -4504,9 +4246,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/sellsword_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 2, Tree = this.Const.Perks.MercenaryTree},
 				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
@@ -4531,9 +4271,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/servant_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 1.5, Tree = this.Const.Perks.TalentedTree},
 				{Multiplier = 2, Tree = this.Const.Perks.OrganisedTree},
@@ -4545,9 +4283,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/servant_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 1.5, Tree = this.Const.Perks.TalentedTree},
 				{Multiplier = 2, Tree = this.Const.Perks.OrganisedTree},
@@ -4559,9 +4295,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/shepherd_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			],
 			Profession = [
@@ -4575,9 +4309,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/shepherd_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			],
 			Profession = [
@@ -4591,9 +4323,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/slave_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 3, Tree = this.Const.Perks.SouthernersTree}
 			],
@@ -4604,9 +4334,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/slave_barbarian_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 3, Tree = this.Const.Perks.SouthernersTree},
 				{Multiplier = 0.4, Tree = this.Const.Perks.ViciousTree},
@@ -4620,9 +4348,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/slave_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 3, Tree = this.Const.Perks.SouthernersTree}
 			],
@@ -4633,9 +4359,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/squire_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 3, Tree = this.Const.Perks.CalmTree},
 				{Multiplier = 0.2, Tree = this.Const.Perks.OrganisedTree},
@@ -4661,9 +4385,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/swordmaster_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.5, Tree = this.Const.Perks.AgileTree},
 				{Multiplier = 2, Tree = this.Const.Perks.CalmTree},
@@ -4700,9 +4422,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/tailor_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 1.5, Tree = this.Const.Perks.TalentedTree},
 				{Multiplier = 1.5, Tree = this.Const.Perks.OrganisedTree},
@@ -4717,9 +4437,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/tailor_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 1.5, Tree = this.Const.Perks.TalentedTree},
 				{Multiplier = 1.5, Tree = this.Const.Perks.OrganisedTree},
@@ -4734,9 +4452,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/thief_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.5, Tree = this.Const.Perks.LargeTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.SturdyTree},
@@ -4758,9 +4474,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/thief_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.5, Tree = this.Const.Perks.LargeTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.SturdyTree},
@@ -4782,9 +4496,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/vagabond_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.5, Tree = this.Const.Perks.LargeTree},
 				{Multiplier = 2, Tree = this.Const.Perks.UnstoppableTree}
@@ -4802,9 +4514,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/wildman_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.2, Tree = this.Const.Perks.TalentedTree},
 				{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
@@ -4840,9 +4550,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/wildwoman_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.2, Tree = this.Const.Perks.TalentedTree},
 				{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
@@ -4878,9 +4586,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/witchhunter_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 2, Tree = this.Const.Perks.AgileTree},
 				{Multiplier = 3, Tree = this.Const.Perks.ViciousTree},
@@ -4908,9 +4614,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_alchemist_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 			],
 			Profession = [
@@ -4923,9 +4627,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_dervish_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 3, Tree = this.Const.Perks.BarbarianTree},
 				{Multiplier = 2, Tree = this.Const.Perks.ViciousTree},
@@ -4953,9 +4655,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_muladi_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 2, Tree = this.Const.Perks.ResilientTree}
 			],
@@ -4972,9 +4672,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_qiyan_background", function(o) {
-		o.m.PerkTreeDynamic = {
-			ExpertiseMultipliers = [
-			],
+		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 3, Tree = this.Const.Perks.ViciousTree},
 				{Multiplier = 2, Tree = this.Const.Perks.AgileTree},
