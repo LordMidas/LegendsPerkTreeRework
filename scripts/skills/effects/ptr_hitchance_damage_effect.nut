@@ -45,4 +45,20 @@ this.ptr_hitchance_damage_effect <- this.inherit("scripts/skills/skill", {
 	{
 		return this.Math.max(30, _skill.getHitchance(_targetEntity));		
 	}
+
+	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
+	{
+		if (this.m.DamageMult < 1.0)
+		{
+			this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(this.getContainer().getActor()) + "\'s attack is clumsy and does [color=" + this.Const.UI.Color.NegativeValue + "]50%[/color] reduced damage!");
+		}
+	}
+
+	// function getCombatLogFluff()
+	// {
+	// 	if (this.m.DamageMult == 1.0)
+	// 	{
+	// 		return " got a perfect hit dealing as much damage as possible!";
+	// 	}
+	// }
 });
