@@ -5,10 +5,10 @@ gt.Const.PTR.modSkills <- function()
 	// Composure removal from players continuing from older saves
 	// This hook shall be removed in a future version
 	::mods_hookExactClass("skills/perks/perk_legend_composure", function(o) {
-		o.onAdded <- function()
+		o.onUpdate <- function( _properties )
 		{
 			local actor = this.getContainer().getActor();
-			if (actor.isPlayerControlled())
+			if (actor.isPlayerControlled() && actor.m.PerkPointsSpent > 0)
 			{
 				actor.m.PerkPoints += 1;
 				actor.m.PerkPointsSpent -= 1;
@@ -20,10 +20,10 @@ gt.Const.PTR.modSkills <- function()
 	// Stalwart removal from players continuing from older saves
 	// This hook shall be removed in a future version
 	::mods_hookExactClass("skills/perks/perk_stalwart", function(o) {
-		o.onAdded <- function()
+		o.onUpdate <- function( _properties )
 		{
 			local actor = this.getContainer().getActor();
-			if (actor.isPlayerControlled())
+			if (actor.isPlayerControlled() && actor.m.PerkPointsSpent > 0)
 			{
 				actor.m.PerkPoints += 1;
 				actor.m.PerkPointsSpent -= 1;
