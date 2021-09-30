@@ -1,10 +1,21 @@
 ===================
+==== Ver 1.2.1 ====
+===================
+- Fixed a crash when loading an older save or entering some battles (probably caused by the Muscularity perk).
+- Fixed Perfect Focus status effect tooltip not showing.
+- Fixed some perk tree multipliers based on talents being higher or lower than intended.
+- Hopefully fixed Bandit Warlords and Leaders sometimes spawning without a weapon.
+- Fixed Composure and Stalwart not properly refunding their perk point when loading an older save. You'll have to load the older save again to get the refund.
+- Fixed Ranger still having the Summon Bear perk. Rangers from older saves are unaffected.
+- Fixed missing "mini-icons" for some status effects.
+
+===================
 ==== Ver 1.2.0 ====
 ===================
 == MAJOR CHANGES ==
 - A character's Dynamic Perk Tree is now created AFTER the character's traits, attributes and talents are rolled. This new system allows us to use the character's traits, talents, and equipment to further adjust the weights for the dynamic perk tree. Many traits and talents have been accounted for in this new system to affect the weights of the rolled tree to make characters even more immersive.
-- New Immersive Damage System: When attacking a target, the attackers damage (x) is now rolled as a percentage of the chance to hit. For example, with a 50% chance to hit, there is a 50% chance to deal x damage and 50% chance to deal half of x damage. With 95% chance to hit, there is a 95% chance to deal x damage and 5% chance to deal half of x damage. With a 30% chance to hit there is a 30% chance to deal x damage and 70% chance to deal half of x damage, and so on. The chance to deal x damage never drops below 30%, so any hitchance below 30% doesn't reduce this chance further. This system, overall, reduces extremes of Damage RNG and reduces lethality for both the AI and the player.
-- Based on this new damage system, the chance to deal x damage is now shown in the tooltip when attacking a target.
+- New Immersive Damage System: When attacking a target, the attacker's rolled damage (x) is now modified as a percentage of the chance to hit. For example, with a 50% chance to hit, there is a 50% chance to deal x damage and 50% chance to deal half of x damage. With 95% chance to hit, there is a 95% chance to deal x damage and 5% chance to deal half of x damage. With a 30% chance to hit there is a 30% chance to deal x damage and 70% chance to deal half of x damage, and so on. The chance to deal x damage never drops below 30%, so any hitchance below 30% doesn't reduce this chance further. This system, overall, reduces extremes of Damage RNG and reduces lethality for both the AI and the player.
+- Based on this new damage system, the chance to deal full damage is now shown in the tooltip when attacking a target.
 - A Better Grip tweaked: With double-gripped spears, thrust at 2 tiles no longer has a +20% chance to hit and does 33% reduced damage. For each character between you and the target, the hitchance is reduced by a further -20%.
 - Muscularity tweaked: Now only works with Melee or Throwing weapons or no weapon.
 - Opportunist tweaked: Now additionally reduces the Fatigue Cost of the next Throwing attack by 50% when it procs.
