@@ -3372,7 +3372,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 
 		addPerksToCustomPerkTree(6, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.LegendCascade,
-				this.Const.Perks.PerkDefs.LegendSummonBear,
 				this.Const.Perks.PerkDefs.PTRKnowTheirWeakness,
 				this.Const.Perks.PerkDefs.ReachAdvantage,
 				this.Const.Perks.PerkDefs.LegendHidden
@@ -3454,7 +3453,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 
 		addPerksToCustomPerkTree(6, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.LegendCascade,
-				this.Const.Perks.PerkDefs.LegendSummonBear,
 				this.Const.Perks.PerkDefs.PTRKnowTheirWeakness,
 				this.Const.Perks.PerkDefs.ReachAdvantage,
 				this.Const.Perks.PerkDefs.LegendHidden
