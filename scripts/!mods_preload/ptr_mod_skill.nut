@@ -121,6 +121,18 @@ gt.Const.PTR.modSkill <- function()
 						});
 					}
 				}
+
+				local hitChanceDamagePerk = this.getContainer().getSkillByID("effects.ptr_hitchance_damage");
+				if (hitChanceDamagePerk != null)
+				{
+					local chanceFullDamage = hitChanceDamagePerk.getChanceFullDamage(this, targetEntity);
+					local color = chanceFullDamage > 50 ? this.Const.UI.Color.PositiveValue : this.Const.UI.Color.NegativeValue;
+
+					ret.push({
+						icon = "ui/icons/regular_damage.png",
+						text = "[color=" + color + "]" + chanceFullDamage + "%[/color] Chance to Inflict Full Damage"
+					});
+				}
 			}
 
 			return ret;

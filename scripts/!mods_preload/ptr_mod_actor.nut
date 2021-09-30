@@ -34,14 +34,15 @@ gt.Const.PTR.modActor <- function()
 			}
 		}
 
-		local oldOnInit = o.onInit;
+		local onInit = o.onInit;
 		o.onInit = function()
 		{
-			oldOnInit();
+			onInit();
 			this.getSkills().add(this.new("scripts/skills/effects/ptr_formidable_approach_debuff_effect"));
 			this.getSkills().add(this.new("scripts/skills/effects/ptr_follow_up_proccer_effect"));
 			this.getSkills().add(this.new("scripts/skills/effects/ptr_bolstered_effect"));
 			this.getSkills().add(this.new("scripts/skills/effects/ptr_polearm_hitchance_effect"));
+			this.getSkills().add(this.new("scripts/skills/effects/ptr_hitchance_damage_effect"));
 
 			local flags = this.getFlags();
 			if (flags.has("undead") && !flags.has("ghost") && !flags.has("ghoul") && !flags.has("vampire"))
