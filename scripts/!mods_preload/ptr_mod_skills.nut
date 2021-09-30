@@ -2,6 +2,36 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modSkills <- function()
 {	
+	// Composure removal from players continuing from older saves
+	// This hook shall be removed in a future version
+	::mods_hookExactClass("skills/perks/perk_legend_composure", function(o) {
+		o.onAdded <- function()
+		{
+			local actor = this.getContainer().getActor();
+			if (actor.isPlayerControlled())
+			{
+				actor.m.PerkPoints += 1;
+				actor.m.PerkPointsSpent -= 1;
+				this.removeSelf();
+			}
+		}
+	});
+
+	// Stalwart removal from players continuing from older saves
+	// This hook shall be removed in a future version
+	::mods_hookExactClass("skills/perks/perk_stalwart", function(o) {
+		o.onAdded <- function()
+		{
+			local actor = this.getContainer().getActor();
+			if (actor.isPlayerControlled())
+			{
+				actor.m.PerkPoints += 1;
+				actor.m.PerkPointsSpent -= 1;
+				this.removeSelf();
+			}
+		}
+	});
+
 	::mods_hookExactClass("skills/effects/indomitable_effect", function(o) {
 		local getTooltip = o.getTooltip;
 		o.getTooltip = function()
