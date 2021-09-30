@@ -855,7 +855,18 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 
 		if (this.Math.rand(1, 100) <= chanceFencer)
 		{
-			dynamicTree[6].push(this.Const.Perks.PerkDefs.BFFencer);
+			if (dynamicTree[6].len() < 13)
+			{				
+				dynamicTree[6].push(this.Const.Perks.PerkDefs.BFFencer);
+			}
+			else if (dynamicTree[5].len() < 13)
+			{				
+				dynamicTree[5].push(this.Const.Perks.PerkDefs.BFFencer);
+			}
+			else if (dynamicTree[4].len() < 13)
+			{				
+				dynamicTree[4].push(this.Const.Perks.PerkDefs.BFFencer);
+			}
 		}
 
 		foreach( tree in _localMap.Traits )
