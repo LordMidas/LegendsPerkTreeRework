@@ -185,6 +185,7 @@ gt.Const.PTR.modPlayer <- function()
 			b.Initiative += this.Math.rand(attributes.Initiative[0], attributes.Initiative[1]);
 
 			this.m.CurrentProperties = clone b;
+			this.setHitpoints(b.Hitpoints);
 		}
 
 		local onSerialize = o.onSerialize;
