@@ -1397,6 +1397,38 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		};
 	});
 
+	::mods_hookNewObject("skills/backgrounds/gladiator_origin_background", function(o) {
+		o.m.PerkTreeDynamic = {
+			ExpertiseMultipliers = [
+			],
+			WeightMultipliers = [
+				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
+				{Multiplier = 2, Tree = this.Const.Perks.ViciousTree},
+				{Multiplier = 3, Tree = this.Const.Perks.HeavyArmorTree},
+				{Multiplier = 0.8, Tree = this.Const.Perks.ShieldTree},
+				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
+				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
+				{Multiplier = 0, Tree = this.Const.Perks.SlingsTree},
+				{Multiplier = 0.66, Tree = this.Const.Perks.SpearTree}
+			],
+			Profession = [
+				[
+					{Weight = 20, Tree = this.Const.Perks.RaiderProfessionTree},
+					{Weight = 10, Tree = this.Const.Perks.SoldierProfessionTree},
+					{Weight = 70, Tree = this.Const.Perks.NoTree}
+				]
+			],
+			Class = [
+				[{Weight = 100, Tree = this.Const.Perks.TrapperClassTree}]
+			],
+			Styles = [
+				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
+				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+			]
+		};
+	});
+
+
 	::mods_hookNewObject("skills/backgrounds/gravedigger_background", function(o) {
 		o.m.PerkTreeDynamic = {
 			ExpertiseMultipliers = [
@@ -1829,7 +1861,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.LegendSpecPoison,
 				this.Const.Perks.PerkDefs.LegendPoisonImmunity,
 				this.Const.Perks.PerkDefs.LegendHidden,
-				this.Const.Perks.PerkDefs.PTRFormidableApproach,
 				this.Const.Perks.PerkDefs.ReachAdvantage,
 				this.Const.Perks.PerkDefs.BoondockBlade,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyNoble,
@@ -2335,7 +2366,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.BagsAndBelts,
 				this.Const.Perks.PerkDefs.PTRSwordlike,
 				this.Const.Perks.PerkDefs.LegendSmashingShields,
-				this.Const.Perks.PerkDefs.LegendFavouredEnemySkeleton
+				this.Const.Perks.PerkDefs.LegendFavouredEnemyZombie
 			]
 		);
 
@@ -2354,6 +2385,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		);
 
 		addPerksToCustomPerkTree(4, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.LegendFavouredEnemySkeleton,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyZombie,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyVampire,
 				this.Const.Perks.PerkDefs.SpecCleaver,
@@ -2467,7 +2499,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.Pathfinder,
 				this.Const.Perks.PerkDefs.CripplingStrikes,
 				this.Const.Perks.PerkDefs.Student,
-				this.Const.Perks.PerkDefs.Colossus,
+				this.Const.Perks.PerkDefs.LegendSummonHound,
 				this.Const.Perks.PerkDefs.LegendAlert,
 				this.Const.Perks.PerkDefs.Recover,
 				this.Const.Perks.PerkDefs.LegendSpecialistSickleSkill
@@ -2498,7 +2530,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyGoblin,
 				this.Const.Perks.PerkDefs.PTRDynamicDuo,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyNoble,
-				this.Const.Perks.PerkDefs.LegendFavouredEnemySoutherner
 			]
 		);
 
@@ -2506,7 +2537,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.LegendPotionBrewer,
 				this.Const.Perks.PerkDefs.LegendReadOmensTrance,
 				this.Const.Perks.PerkDefs.LegendInsects,
-				this.Const.Perks.PerkDefs.LegendBattleheart
 			]
 		);
 
@@ -2514,6 +2544,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.LegendDrumsOfLife,
 				this.Const.Perks.PerkDefs.LegendDistantVisions,
 				this.Const.Perks.PerkDefs.LegendSummonStorm
+				this.Const.Perks.PerkDefs.LegendBattleheart
 			]
 		);
 
@@ -3161,7 +3192,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		);
 
 		addPerksToCustomPerkTree(4, o.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.LegendFavouredEnemyGhoul,
 				this.Const.Perks.PerkDefs.LegendExtendendAura,
 				this.Const.Perks.PerkDefs.LegendSpecialistNinetailsDamage,
 				this.Const.Perks.PerkDefs.LegendSpecialistScytheDamage,
@@ -3176,7 +3206,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.LegendReclamation,
 				this.Const.Perks.PerkDefs.LegendBrinkOfDeath,
 				this.Const.Perks.PerkDefs.LegendConservation,
-				this.Const.Perks.PerkDefs.LegendSlaughter
 			]
 		);
 
@@ -3514,7 +3543,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.LegendNightvision,
 				this.Const.Perks.PerkDefs.LegendOnslaught,
 				this.Const.Perks.PerkDefs.Backstabber,
-				this.Const.Perks.PerkDefs.PTRLeverage,
 				this.Const.Perks.PerkDefs.PTRExploitOpening,
 				this.Const.Perks.PerkDefs.Rotation
 			]
@@ -3596,7 +3624,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.LegendNightvision,
 				this.Const.Perks.PerkDefs.LegendOnslaught,
 				this.Const.Perks.PerkDefs.Backstabber,
-				this.Const.Perks.PerkDefs.PTRLeverage,
 				this.Const.Perks.PerkDefs.PTRExploitOpening,
 				this.Const.Perks.PerkDefs.Rotation
 			]
