@@ -33,7 +33,7 @@ this.perk_ptr_deep_cuts <- this.inherit("scripts/skills/skill", {
 				id = 10,
 				type = "text",
 				icon = "ui/icons/special.png",
-				text = "The next attack this turn against [color=" + this.Const.UI.Color.NegativeValue + "]+" + e.getName() + "[/color] has a [color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.InjuryThresholdReduction + "%[/color] lower threshold to inflict injury"
+				text = "The next attack this turn against [color=" + this.Const.UI.Color.NegativeValue + "]" + e.getName() + "[/color] has a [color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.InjuryThresholdReduction + "%[/color] lower threshold to inflict injury"
 			});
 		}
 
@@ -61,17 +61,12 @@ this.perk_ptr_deep_cuts <- this.inherit("scripts/skills/skill", {
 	{
 		if (_targetEntity != null && this.m.TargetID == _targetEntity.getID() && _skill.isAttack() && _skill.hasDamageType(this.Const.Damage.DamageType.Cutting))
 		{
-			_properties.ThresholdToInflictInjuryMult *= this.m.InjuryThresholdReduction * 0.01;
+			_properties.ThresholdToInflictInjuryMult *= 1.0 - this.m.InjuryThresholdReduction * 0.01;
 		}
 	}
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		if (!_skill.isAttack() || !_skill.hasDamageType(this.Const.Damage.DamageType.Cutting) || !_targetEntity.isAlive() || _targetEntity.isDying() || _targetEntity.getCurrentProperties().IsImmuneToBleeding || _damageInflictedHitpoints < this.Const.Combat.MinDamageToApplyBleeding)
-		{
-			return;
-		}
-
 		if (this.m.TargetID == _targetEntity.getID())
     {
       this.m.TargetID = 0;
@@ -81,6 +76,11 @@ this.perk_ptr_deep_cuts <- this.inherit("scripts/skills/skill", {
       this.m.TargetID = _targetEntity.getID();
       return;
     }
+
+		if (!_skill.isAttack() || !_skill.hasDamageType(this.Const.Damage.DamageType.Cutting) || !_targetEntity.isAlive() || _targetEntity.isDying() || _targetEntity.getCurrentProperties().IsImmuneToBleeding || _damageInflictedHitpoints < this.Const.Combat.MinDamageToApplyBleeding)
+		{
+			return;
+		}
 
 		local actor = this.getContainer().getActor();
     local effect = this.new("scripts/skills/effects/bleeding_effect");
