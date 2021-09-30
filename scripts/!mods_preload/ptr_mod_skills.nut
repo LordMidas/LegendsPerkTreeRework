@@ -136,7 +136,7 @@ gt.Const.PTR.modSkills <- function()
 					break;
 				}
 
-				this.Tactical.EventLog.logEx(this.Const.UI.getColorizedEntityName(_user) + " uses " + this.getName() + " and misses " + this.Const.UI.getColorizedEntityName(_targetEntity) + " (Chance: " + hitChance + ", Rolled: " + roll + ")");
+				this.Tactical.EventLog.logEx(this.Const.UI.getColorizedEntityName(_user) + " uses " + this.getName() + " and misses " + this.Const.UI.getColorizedEntityName(target) + " (Chance: " + hitChance + ", Rolled: " + roll + ")");
 
 				this.m.RerollDamageMult -= 0.33;
 			}
@@ -177,7 +177,7 @@ gt.Const.PTR.modSkills <- function()
 					break;
 				}
 
-				this.Tactical.EventLog.logEx(this.Const.UI.getColorizedEntityName(_user) + " uses " + this.getName() + " and misses " + this.Const.UI.getColorizedEntityName(_targetEntity) + " (Chance: " + hitChance + ", Rolled: " + roll + ")");
+				this.Tactical.EventLog.logEx(this.Const.UI.getColorizedEntityName(_user) + " uses " + this.getName() + " and misses " + this.Const.UI.getColorizedEntityName(target) + " (Chance: " + hitChance + ", Rolled: " + roll + ")");
 
 				this.m.RerollDamageMult -= 0.33;
 			}
