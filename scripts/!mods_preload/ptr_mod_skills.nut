@@ -67,12 +67,12 @@ gt.Const.PTR.modSkills <- function()
 
 	::mods_hookExactClass("skills/perks/perk_legend_muscularity", function(o) {
 		local onUpdate = o.onUpdate;
-		o.onUpdate = function()
+		o.onUpdate = function( _properties )
 		{
 			local weapon = this.getContainer().getActor().getMainhandItem();
 			if (weapon == null || weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon) || weapon.isWeaponType(this.Const.Items.WeaponType.Throwing))
 			{
-				onUpdate();
+				onUpdate( _properties );
 			}
 		}
 	});
