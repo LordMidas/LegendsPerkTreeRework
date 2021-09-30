@@ -17,6 +17,11 @@ this.perk_ptr_deep_cuts <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
+	function isHidden()
+	{
+		return this.m.TargetID == 0;
+	}
+
 	function getTooltip()
 	{
 		local tooltip = this.skill.getTooltip();
