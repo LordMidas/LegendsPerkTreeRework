@@ -3,13 +3,15 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 		BonusEveryXTiles = 2,
 		APReduction = 1,
 		FatCostReduction = 10,
-		StartingTile = null
+		StartingTile = null,
+		CurrAPBonus = 0,
+		CurrFatBonus = 0
 	},
 	function create()
 	{
 		this.m.ID = "perk.ptr_vigorous_assault";
 		this.m.Name = this.Const.Strings.PerkName.PTRVigorousAssault;
-		this.m.Description = this.Const.Strings.PerkDescription.PTRVigorousAssault;
+		this.m.Description = "This character is adding the momentum of their movement to %their% next attack.";
 		this.m.Icon = "ui/perks/ptr_vigorous_assault.png";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.Last;
@@ -18,39 +20,40 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
+	function isHidden()
+	{
+		return this.m.CurrAPBonus == 0 && this.m.CurrFatBonus == 0;
+	}
+
 	function getTooltip()
 	{
 		local tooltip = this.skill.getTooltip();
 
-		local APBonus = this.getAPBonus();
-
-		if (APBonus > 0)
+		if (this.m.CurrAPBonus > 0)
 		{
 			tooltip.push(
 				{
 					id = 10,
 					type = "text",
 					icon = "ui/icons/action_points.png",
-					text = "The next attack costs [color=" + this.Const.UI.Color.PositiveValue + "]-" + this.getAPBonus() + "[/color] Action Point(s)"
+					text = "The next attack costs [color=" + this.Const.UI.Color.PositiveValue + "]-" + this.m.CurrAPBonus + "[/color] Action Point(s)"
 				}
 			);
 		}
 
-		local fatBonus = this.getFatBonus();
-
-		if (fatBonus > 0)
+		if (this.m.CurrFatBonus > 0)
 		{
 			tooltip.push(
 				{
 					id = 10,
 					type = "text",
 					icon = "ui/icons/fatigue.png",
-					text = "The next attack builds up [color=" + this.Const.UI.Color.PositiveValue + "]-" + this.getFatBonus() + "[/color] Fatigue"
+					text = "The next attack builds up [color=" + this.Const.UI.Color.PositiveValue + "]-" + this.m.CurrFatBonus + "%[/color] Fatigue"
 				}
 			);
 		}
 
-		if (APBonus != 0 || fatBonus != 0)
+		if (this.m.CurrAPBonus != 0 || this.m.CurrFatBonus != 0)
 		{
 			tooltip.push(
 				{
@@ -93,71 +96,47 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 
 	function onAfterUpdate( _properties )
 	{
+		this.m.CurrAPBonus = 0;
+		this.m.CurrFatBonus = 0;
+
 		if (!this.isEnabled() || this.m.StartingTile == null)
 		{
 			return;
 		}
+
+		local actor = this.getContainer().getActor();		
 		
+		local distanceMoved = this.m.StartingTile.getDistanceTo(actor.getTile());
+
+		local mult = 1;
+
+		if (actor.isPlayerControlled())
+		{
+			mult = distanceMoved / this.m.BonusEveryXTiles;		
+		}
+		else
+		{
+			if (distanceMoved < this.m.BonusEveryXTiles && actor.getActorsAtDistanceAsArray(1, this.Const.FactionRelation.Enemy).len() == 0 && actor.getActorsAtDistanceAsArray(this.m.BonusEveryXTiles + 1, this.Const.FactionRelation.Enemy).len() > 0)
+			{
+				mult = 1;
+			}
+			else 
+			{
+				mult = distanceMoved / this.m.BonusEveryXTiles;	
+			}
+		}
+
+		this.m.CurrAPBonus = this.m.APReduction * mult;
+		this.m.CurrFatBonus = this.m.FatCostReduction * mult;
+
 		foreach (skill in this.getContainer().getSkillsByFunction(this, @(_skill) _skill.isAttack()))
 		{
-			skill.m.FatigueCostMult *= 1.0 - this.getFatBonus() * 0.01;
-			skill.m.ActionPointCost -= this.getAPBonus() ;
+			skill.m.ActionPointCost -= this.m.CurrAPBonus;
+			skill.m.FatigueCostMult *= 1.0 - this.m.CurrFatBonus * 0.01;		
 		}
 	}
 
-	function getAPBonus()
-	{
-		local actor = this.getContainer().getActor();
-		local distanceMoved = this.m.StartingTile.getDistanceTo(actor.getTile());
-
-		// Give bonus to AI when they don't have adjacent enemy so that the ai_engage_melee behavior
-		// can properly anticipate the reduced action point cost of the attack skills after movement
-		if (actor.isPlayerControlled())
-		{			
-			return this.m.APReduction * (distanceMoved / this.m.BonusEveryXTiles);
-		}
-		else		
-		{
-			if (distanceMoved < this.m.BonusEveryXTiles && actor.getActorsAtDistanceAsArray(1, this.Const.FactionRelation.Enemy).len() == 0 && actor.getActorsAtDistanceAsArray(this.m.BonusEveryXTiles + 1, this.Const.FactionRelation.Enemy).len() > 0)
-			{
-				return this.m.APReduction;
-			}
-			else 
-			{
-				return this.m.APReduction * (distanceMoved / this.m.BonusEveryXTiles);
-			}
-		}
-
-		return 0;
-	}
-
-	function getFatBonus()
-	{
-		local actor = this.getContainer().getActor();
-		local distanceMoved = this.m.StartingTile.getDistanceTo(actor.getTile());
-
-		// Give bonus to AI when they don't have adjacent enemy so that the ai_engage_melee behavior
-		// can properly anticipate the reduced action point cost of the attack skills after movement
-		if (actor.isPlayerControlled())
-		{			
-			return this.m.FatCostReduction * (distanceMoved / this.m.BonusEveryXTiles);
-		}
-		else		
-		{
-			if (distanceMoved < this.m.BonusEveryXTiles && actor.getActorsAtDistanceAsArray(1, this.Const.FactionRelation.Enemy).len() == 0 && actor.getActorsAtDistanceAsArray(this.m.BonusEveryXTiles + 1, this.Const.FactionRelation.Enemy).len() > 0)
-			{
-				return this.m.FatCostReduction;
-			}
-			else 
-			{
-				return this.m.FatCostReduction * (distanceMoved / this.m.BonusEveryXTiles);
-			}
-		}
-
-		return 0;
-	}
-
-	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
+	function onBeforeAnySkillExecuted( _skill, _targetTile, _targetEntity )
 	{
 		this.m.StartingTile = this.getContainer().getActor().getTile();
 	}
@@ -180,7 +159,7 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 	function onCombatFinished()
 	{
 		this.skill.onCombatFinished();
-		this.m.StartingTile = null
+		this.m.StartingTile = null;		
 	}
 
 	function onTurnStart()
