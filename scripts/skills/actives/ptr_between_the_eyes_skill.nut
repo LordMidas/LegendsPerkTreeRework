@@ -36,7 +36,13 @@ this.ptr_between_the_eyes_skill <- this.inherit("scripts/skills/skill", {
 
 	function isUsable()
 	{
-		return this.skill.isUsable() && !this.getContainer().getActor().getSkills().hasSkill("effects.ptr_between_the_eyes_attack");
+		local headHunter = this.getContainer().getSkillByID("perk.head_hunter");
+		if (headHunter != null && !headHunter.m.IsHidden)
+		{	
+			return false;
+		}
+
+		return this.skill.isUsable() && !this.getContainer().hasSkill("effects.ptr_between_the_eyes_attack");
 	}
 
 	function isHidden()
