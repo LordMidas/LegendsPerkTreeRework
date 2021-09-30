@@ -36,7 +36,7 @@ this.perk_ptr_bone_breaker <- this.inherit("scripts/skills/skill", {
 		}
 
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		if(_weapon == null || !_weapon.isWeaponType(this.Const.Items.WeaponType.Mace))
+		if(weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Mace))
 		{
 			return false;
 		}
