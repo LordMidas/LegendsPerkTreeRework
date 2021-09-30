@@ -58,25 +58,72 @@ gt.Const.PTR.modWeapons <- function()
 
 	::mods_hookNewObject("items/weapons/legend_swordstaff", function(o) {
 		o.setCategories("Spear/Sword, Two-Handed");
-
+		o.m.RangeMin = 1;
+		o.m.RangeMax = 2;
+		o.m.Condition = 72.0;
+		o.m.ConditionMax = 72.0;
+		o.m.RegularDamage = 55;
+		o.m.RegularDamageMax = 80;
 		o.onEquip = function()
 		{
-			this.weapon.onEquip();
-			this.addSkill(this.new("scripts/skills/actives/thrust"));
-			this.addSkill(this.new("scripts/skills/actives/spearwall"));
-			this.addSkill(this.new("scripts/skills/actives/split"));
+			this.weapon.onEquip();			
+			local prong = this.new("scripts/skills/actives/prong_skill");
+			this.addSkill(prong);
+
+			local overheadStrike = this.new("scripts/skills/actives/overhead_strike");
+			overheadStrike.m.IsIgnoredAsAOO = true;
+			this.addSkill(overheadStrike);		
+
+			local spearwall = this.new("scripts/skills/actives/spearwall");
+			spearwall.m.Icon = "skills/active_124.png";
+			spearwall.m.IconDisabled = "skills/active_124_sw.png";
+			spearwall.m.Overlay = "active_124";
+			spearwall.m.BaseAttackName = prong.getName();
+			spearwall.setFatigueCost(spearwall.getFatigueCostRaw() + 5);
+			spearwall.m.ActionPointCost = 6;
+			this.addSkill(spearwall);
 		}
 	});
 
 	::mods_hookNewObject("items/weapons/named/legend_named_swordstaff", function(o) {
 		o.setCategories("Spear/Sword, Two-Handed");
+		o.m.RangeMin = 1;
+		o.m.RangeMax = 2;
+
+		local baseWeapon = this.new("scripts/items/weapons/legend_swordstaff");
+		o.m.Condition = baseWeapon.m.Condition;
+		o.m.ConditionMax = baseWeapon.m.ConditionMax;
+		o.m.RegularDamage = baseWeapon.m.RegularDamage;
+		o.m.RegularDamageMax = baseWeapon.m.RegularDamageMax;
+		o.m.ArmorDamageMult = baseWeapon.m.ArmorDamageMult;
+		o.m.ChanceToHitHead = baseWeapon.m.ChanceToHitHead;
+		o.m.DirectDamageMult = baseWeapon.m.DirectDamageMult;
+		o.m.DirectDamageAdd = baseWeapon.m.DirectDamageAdd;
+		o.m.StaminaModifier = baseWeapon.m.StaminaModifier;
+		o.m.ShieldDamage = baseWeapon.m.ShieldDamage;
+		o.m.AdditionalAccuracy = baseWeapon.m.AdditionalAccuracy;
+		o.m.FatigueOnSkillUse = baseWeapon.m.FatigueOnSkillUse;
+		o.m.Value = 4800;
+		o.randomizeValues();
 
 		o.onEquip = function()
 		{
-			this.weapon.onEquip();
-			this.addSkill(this.new("scripts/skills/actives/thrust"));
-			this.addSkill(this.new("scripts/skills/actives/spearwall"));
-			this.addSkill(this.new("scripts/skills/actives/split"));
+			this.weapon.onEquip();			
+			local prong = this.new("scripts/skills/actives/prong_skill");
+			this.addSkill(prong);
+
+			local overheadStrike = this.new("scripts/skills/actives/overhead_strike");
+			overheadStrike.m.IsIgnoredAsAOO = true;
+			this.addSkill(overheadStrike);
+
+			local spearwall = this.new("scripts/skills/actives/spearwall");
+			spearwall.m.Icon = "skills/active_124.png";
+			spearwall.m.IconDisabled = "skills/active_124_sw.png";
+			spearwall.m.Overlay = "active_124";
+			spearwall.m.BaseAttackName = prong.getName();
+			spearwall.setFatigueCost(spearwall.getFatigueCostRaw() + 5);
+			spearwall.m.ActionPointCost = 6;
+			this.addSkill(spearwall);
 		}
 	});
 
