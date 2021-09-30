@@ -65,6 +65,13 @@ gt.Const.PTR.modEnemies <- function()
 		o.assignRandomEquipment = function()
 		{
 			assignRandomEquipment();
+			local weapon = this.getMainhandItem();
+			local off = this.getOffhandItem();
+			if (weapon == null && off != null)
+			{
+				this.m.Items.unequip(off);
+				this.m.Items.equip(this.new("scripts/items/weapons/legend_glaive"));
+			}
 			this.m.Skills.addTreeOfEquippedWeapon();
 		}
 
@@ -847,6 +854,13 @@ gt.Const.PTR.modEnemies <- function()
 		o.assignRandomEquipment = function()
 		{
 			assignRandomEquipment();
+			local weapon = this.getMainhandItem();
+			local off = this.getOffhandItem();
+			if (weapon == null && off != null)
+			{
+				this.m.Items.unequip(off);
+				this.m.Items.equip(this.new("scripts/items/weapons/legend_battle_glaive"));
+			}
 			this.m.Skills.addTreeOfEquippedWeapon();
 		}
 	});
