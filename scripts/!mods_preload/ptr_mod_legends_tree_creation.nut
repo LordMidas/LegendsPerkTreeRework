@@ -318,7 +318,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 		{ Tree = this.Const.Perks.SergeantClassTree, Multiplier = 2 },
 	];
 	gt.Const.Perks.TalentMultipliers[this.Const.Attributes.Fatigue] = [
-		{ Tree = this.Const.Perks.HeavyArmorTree, Multiplier = 2 }
+		{ Tree = this.Const.Perks.HeavyArmorTree, Multiplier = 1.33 }
 	];
 	gt.Const.Perks.TalentMultipliers[this.Const.Attributes.Initiative] = [
 		{ Tree = this.Const.Perks.LightArmorTree, Multiplier = 2 }
@@ -333,6 +333,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 		{ Tree = this.Const.Perks.BowTree, Multiplier = 2 },
 		{ Tree = this.Const.Perks.CrossbowTree, Multiplier = 2 },
 		{ Tree = this.Const.Perks.SlingsTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.ThrowingTree, Multiplier = 1.5 },
 		{ Tree = this.Const.Perks.RangedTree, Multiplier = 2 }
 	];
 	gt.Const.Perks.TalentMultipliers[this.Const.Attributes.MeleeDefense] = [
