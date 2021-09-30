@@ -1,4 +1,13 @@
 ===================
+==== Ver 1.2.6 ====
+===================
+- Doing 50% reduced damage due to the Hit-chance based damage system now adds an entry to the combat log, so you can see when this happens.
+- Balance (medium armor t2 perk) reworked: Gain +15 Melee Defense when wearing head and body armor with a total weight (penalty to Maximum Fatigue) of 35. The bonus drops by 1 for every 2 points of deviation from this value, and for every 10 points that your Initiative is below twice your armor weight. Gain a third of the Melee Defense bonus as Ranged Defense.
+- The -15% chance to hit penalty for pole-type weapons no longer applies to attacks who have a maximum range of 1.
+- Swordstaves reworked: Now have the Prong, Overhead Strike, and Spearwall skills. Damage increased to 55-80. Overhead Strike has an additional +20 damage. Durability increased to 72 (was 56).
+- Two-handed glaives now have the Swing skill instead of Riposte.
+
+===================
 ==== Ver 1.2.5 ====
 ===================
 - Fixed some recruits starting with some HP missing.
