@@ -1927,7 +1927,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.SteelBrow,
 				this.Const.Perks.PerkDefs.LegendEfficientPacking,
 				this.Const.Perks.PerkDefs.PTRThroughTheGaps,
-				this.Const.Perks.PerkDefs.LegendComposure,
 				this.Const.Perks.PerkDefs.PTRSurvivalInstinct,
 				this.Const.Perks.PerkDefs.Anticipation,
 				this.Const.Perks.PerkDefs.Rotation
@@ -1960,7 +1959,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyNoble,
 				this.Const.Perks.PerkDefs.SpecThrowing,
 				this.Const.Perks.PerkDefs.SpecAxe,
-				this.Const.Perks.PerkDefs.Stalwart,
 				this.Const.Perks.PerkDefs.SpecCleaver,
 				this.Const.Perks.PerkDefs.LegendSkillfulStacking
 			]
@@ -2028,7 +2026,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.Backstabber,
 				this.Const.Perks.PerkDefs.Gifted,
 				this.Const.Perks.PerkDefs.Anticipation,
-				this.Const.Perks.PerkDefs.LegendComposure,
 				this.Const.Perks.PerkDefs.SteelBrow,
 				this.Const.Perks.PerkDefs.RallyTheTroops
 			]
@@ -2055,7 +2052,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.PTRDynamicDuo,
 				this.Const.Perks.PerkDefs.LoneWolf,
 				this.Const.Perks.PerkDefs.LegendClarity,
-				this.Const.Perks.PerkDefs.Stalwart,
 				this.Const.Perks.PerkDefs.ReturnFavor,
 				this.Const.Perks.PerkDefs.Berserk,
 				this.Const.Perks.PerkDefs.Underdog
@@ -2339,7 +2335,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.BagsAndBelts,
 				this.Const.Perks.PerkDefs.PTRSwordlike,
 				this.Const.Perks.PerkDefs.LegendSmashingShields,
-				this.Const.Perks.PerkDefs.LegendComposure,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemySkeleton
 			]
 		);
@@ -2360,7 +2355,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 
 		addPerksToCustomPerkTree(4, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyZombie,
-				this.Const.Perks.PerkDefs.Stalwart,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyVampire,
 				this.Const.Perks.PerkDefs.SpecCleaver,
 				this.Const.Perks.PerkDefs.PTRExudeConfidence,
@@ -2602,7 +2596,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.SteelBrow,
 				this.Const.Perks.PerkDefs.LegendEfficientPacking,
 				this.Const.Perks.PerkDefs.PTRThroughTheGaps,
-				this.Const.Perks.PerkDefs.LegendComposure,
 				this.Const.Perks.PerkDefs.PTRSurvivalInstinct,
 				this.Const.Perks.PerkDefs.Anticipation,
 				this.Const.Perks.PerkDefs.Rotation
@@ -2635,7 +2628,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyNoble,
 				this.Const.Perks.PerkDefs.SpecThrowing,
 				this.Const.Perks.PerkDefs.SpecAxe,
-				this.Const.Perks.PerkDefs.Stalwart,
 				this.Const.Perks.PerkDefs.SpecCleaver,
 				this.Const.Perks.PerkDefs.LegendSkillfulStacking
 			]
