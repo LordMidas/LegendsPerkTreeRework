@@ -116,11 +116,19 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 		{			
 			return this.m.APReduction * (distanceMoved / this.m.BonusEveryXTiles);
 		}
-		else if (distanceMoved > this.m.BonusEveryXTiles || actor.getActorsAtDistanceAsArray(1, this.Const.FactionRelation.Enemy))
+		else		
 		{
-			return this.m.APReduction;
+			if (distanceMoved < this.m.BonusEveryXTiles && actor.getActorsAtDistanceAsArray(1, this.Const.FactionRelation.Enemy).len() == 0 && actor.getActorsAtDistanceAsArray(this.m.BonusEveryXTiles + 1, this.Const.FactionRelation.Enemy).len() > 0)
+			{
+				return this.m.APReduction;
+			}
+			else 
+			{
+				return this.m.APReduction * (distanceMoved / this.m.BonusEveryXTiles);
+			}
 		}
-		
+
+		return 0;
 	}
 
 	function getFatBonus()
@@ -134,10 +142,19 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 		{			
 			return this.m.FatCostReduction * (distanceMoved / this.m.BonusEveryXTiles);
 		}
-		else if (distanceMoved > this.m.BonusEveryXTiles || actor.getActorsAtDistanceAsArray(1, this.Const.FactionRelation.Enemy))
+		else		
 		{
-			return this.m.FatCostReduction;
+			if (distanceMoved < this.m.BonusEveryXTiles && actor.getActorsAtDistanceAsArray(1, this.Const.FactionRelation.Enemy).len() == 0 && actor.getActorsAtDistanceAsArray(this.m.BonusEveryXTiles + 1, this.Const.FactionRelation.Enemy).len() > 0)
+			{
+				return this.m.FatCostReduction;
+			}
+			else 
+			{
+				return this.m.FatCostReduction * (distanceMoved / this.m.BonusEveryXTiles);
+			}
 		}
+
+		return 0;
 	}
 
 	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
