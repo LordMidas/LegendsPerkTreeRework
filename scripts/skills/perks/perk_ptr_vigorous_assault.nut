@@ -112,7 +112,7 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 
 		// Give bonus to AI when they don't have adjacent enemy so that the ai_engage_melee behavior
 		// can properly anticipate the reduced action point cost of the attack skills after movement
-		if (this.isPlayerControlled())
+		if (actor.isPlayerControlled())
 		{			
 			return this.m.APReduction * (distanceMoved / this.m.BonusEveryXTiles);
 		}
@@ -138,7 +138,7 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 
 		// Give bonus to AI when they don't have adjacent enemy so that the ai_engage_melee behavior
 		// can properly anticipate the reduced action point cost of the attack skills after movement
-		if (this.isPlayerControlled())
+		if (actor.isPlayerControlled())
 		{			
 			return this.m.FatCostReduction * (distanceMoved / this.m.BonusEveryXTiles);
 		}

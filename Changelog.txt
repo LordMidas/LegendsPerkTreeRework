@@ -1,4 +1,9 @@
 ===================
+==== Ver 1.2.2 ====
+===================
+- Fixed being unable to load a battle when a player or the AI have the Vigorous Assault perk.
+
+===================
 ==== Ver 1.2.1 ====
 ===================
 - Fixed a crash when loading an older save or entering some battles (probably caused by the Muscularity perk).
