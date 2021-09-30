@@ -1,4 +1,14 @@
 ===================
+==== Ver 1.2.4 ====
+===================
+- Vigorous Assault now works with Throwing Weapons as well.
+- Fixed Vigorous Assault not applying the AP and Fatigue cost reductions even though it showed up in tooltips.
+- Fixed Bone Breaker causing a lock in battle.
+- Fixed Deep Cuts Status Effect always being visible for all subsequent attacks at the same target. Should now only be visible for every second attack.
+- Fixed Deep Cuts lowering the threshold to inflict injury by 66% instead of 33%.
+- Fixed some typos and improved tooltips here and there.
+
+===================
 ==== Ver 1.2.3 ====
 ===================
 - Fixed a crash when someone with the Vigorous Assault perk used Rotation or Barbarian Fury.
