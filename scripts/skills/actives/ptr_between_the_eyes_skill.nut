@@ -37,7 +37,7 @@ this.ptr_between_the_eyes_skill <- this.inherit("scripts/skills/skill", {
 	function isUsable()
 	{
 		local headHunter = this.getContainer().getSkillByID("perk.head_hunter");
-		if (headHunter != null && !headHunter.m.IsHidden)
+		if (headHunter != null && !headHunter.isHidden())
 		{	
 			return false;
 		}
