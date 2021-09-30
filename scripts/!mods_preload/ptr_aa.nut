@@ -8,7 +8,7 @@ local modID = "mod_legends_PTR";
 
 ::mods_queue(modID, "mod_legends, mod_MSU, mod_betterFencing, mod_WMS, mod_mediumArmorRework, mod_legends_STR, mod_duelistDefense", function()
 {
-	this.Const.AI.VerboseMode = true;
+	// this.Const.AI.VerboseMode = true;
 	gt.setupDebugLog <- function (_enabled = false, _name = "default")
 	{
 		//keep table of mod names so that you can turn it on and off for specific mods
