@@ -5,10 +5,10 @@ gt.Const.PTR.modSkills <- function()
 	// Composure removal from players continuing from older saves
 	// This hook shall be removed in a future version
 	::mods_hookExactClass("skills/perks/perk_legend_composure", function(o) {
-		o.onAdded <- function()
+		o.onUpdate <- function( _properties )
 		{
 			local actor = this.getContainer().getActor();
-			if (actor.isPlayerControlled())
+			if (actor.isPlayerControlled() && actor.m.PerkPointsSpent > 0)
 			{
 				actor.m.PerkPoints += 1;
 				actor.m.PerkPointsSpent -= 1;
@@ -20,10 +20,10 @@ gt.Const.PTR.modSkills <- function()
 	// Stalwart removal from players continuing from older saves
 	// This hook shall be removed in a future version
 	::mods_hookExactClass("skills/perks/perk_stalwart", function(o) {
-		o.onAdded <- function()
+		o.onUpdate <- function( _properties )
 		{
 			local actor = this.getContainer().getActor();
-			if (actor.isPlayerControlled())
+			if (actor.isPlayerControlled() && actor.m.PerkPointsSpent > 0)
 			{
 				actor.m.PerkPoints += 1;
 				actor.m.PerkPointsSpent -= 1;
@@ -67,12 +67,12 @@ gt.Const.PTR.modSkills <- function()
 
 	::mods_hookExactClass("skills/perks/perk_legend_muscularity", function(o) {
 		local onUpdate = o.onUpdate;
-		o.onUpdate = function()
+		o.onUpdate = function( _properties )
 		{
 			local weapon = this.getContainer().getActor().getMainhandItem();
 			if (weapon == null || weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon) || weapon.isWeaponType(this.Const.Items.WeaponType.Throwing))
 			{
-				onUpdate();
+				onUpdate( _properties );
 			}
 		}
 	});
@@ -1238,7 +1238,7 @@ gt.Const.PTR.modSkills <- function()
 				);
 			}
 
-			return tooltip
+			return ret;
 		}
 
 		o.onAdded <- function()
