@@ -292,7 +292,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.LegendMuscularity = "[color=" + this.Const.UI.Color.NegativeValue + "][u]Requires:[/u] Melee or Throwing Weapon, or No Weapon[/color]\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Gain [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] of your current hitpoints as additional minimum and maximum damage, up to 50.\n\n[color=#0b0084]From the Large perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendMuscularity].Tooltip = gt.Const.Strings.PerkDescription.LegendMuscularity;
 
-	gt.Const.Strings.PerkDescription.SteelBrow = "\'I can take it!\'\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Hits to the head no longer cause critical damage to this character, which also lowers the risk of sustaining debilitating head injuries significantly.\n• Grants passive immunity against Cull.",
+	gt.Const.Strings.PerkDescription.SteelBrow = "\'I can take it!\'\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Hits to the head no longer cause critical damage to this character, which also lowers the risk of sustaining debilitating head injuries significantly.\n• Grants passive immunity against Cull.\n\n[color=#0b0084]From the Sturdy perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.SteelBrow].Tooltip = gt.Const.Strings.PerkDescription.SteelBrow;
 
 	local poleWeaponStrings = [
@@ -430,8 +430,6 @@ gt.Const.PTR.modStrings <- function()
 
 	gt.Const.Strings.PerkDescription.Recover = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Recover, "Sturdy");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Recover].Tooltip = gt.Const.Strings.PerkDescription.Recover;
-	gt.Const.Strings.PerkDescription.SteelBrow = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.SteelBrow, "Sturdy");
-	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.SteelBrow].Tooltip = gt.Const.Strings.PerkDescription.SteelBrow;
 	gt.Const.Strings.PerkDescription.Taunt = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Taunt, "Sturdy");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Taunt].Tooltip = gt.Const.Strings.PerkDescription.Taunt;
 	gt.Const.Strings.PerkDescription.ReturnFavor = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.ReturnFavor, "Sturdy");
