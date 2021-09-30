@@ -89,6 +89,22 @@ gt.Const.PTR.modSkill <- function()
 							});
 						}
 					}
+
+					if (this.getMaxRange() > 1)
+					{
+						local weapon = this.getContainer().getActor().getMainhandItem();
+						if (weapon != null)
+						{
+							local polearmHitchanceEffect = this.getContainer().getSkillByID("effects.ptr_polearm_hitchance");
+							if (polearmHitchanceEffect != null && polearmHitchanceEffect.isEnabled() && this.getContainer().getActor().getTile().getDistanceTo(targetEntity.getTile()) == 1)
+							{
+								ret.push({
+									icon = "ui/tooltips/negative.png",
+									text = "[color=" + this.Const.UI.Color.NegativeValue + "]" + polearmHitchanceEffect.getMalus() + "%[/color] Adjacent Target"
+								});
+							}
+						}
+					}
 				}			
 
 				local dynamicDuoPerk = this.getContainer().getSkillByID("perk.ptr_dynamic_duo");
@@ -107,19 +123,6 @@ gt.Const.PTR.modSkill <- function()
 						icon = "ui/tooltips/negative.png",
 						text = "[color=" + this.Const.UI.Color.NegativeValue + "]" + targetSI.getBonus() + "%[/color] Survival Instinct"
 					});
-				}
-
-				local weapon = this.getContainer().getActor().getMainhandItem();
-				if (weapon != null)
-				{
-					local polearmHitchanceEffect = this.getContainer().getSkillByID("effects.ptr_polearm_hitchance");
-					if (polearmHitchanceEffect != null && polearmHitchanceEffect.isEnabledForWeapon(weapon) && this.getContainer().getActor().getTile().getDistanceTo(targetEntity.getTile()) == 1)
-					{
-						ret.push({
-							icon = "ui/tooltips/negative.png",
-							text = "[color=" + this.Const.UI.Color.NegativeValue + "]" + polearmHitchanceEffect.getMalus() + "%[/color] Adjacent Target"
-						});
-					}
 				}
 
 				local hitChanceDamagePerk = this.getContainer().getSkillByID("effects.ptr_hitchance_damage");
