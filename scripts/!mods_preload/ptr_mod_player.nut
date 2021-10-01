@@ -160,10 +160,7 @@ gt.Const.PTR.modPlayer <- function()
 				background.setAppearance();
 			}
 
-			background.buildDescription(true);
-			this.m.Skills.update();
-			local p = this.m.CurrentProperties;
-			this.m.Hitpoints = p.Hitpoints;
+			background.buildDescription(true);			
 
 			if (_addTraits)
 			{
@@ -185,7 +182,9 @@ gt.Const.PTR.modPlayer <- function()
 			b.Initiative += this.Math.rand(attributes.Initiative[0], attributes.Initiative[1]);
 
 			this.m.CurrentProperties = clone b;
-			this.setHitpoints(b.Hitpoints);
+			this.m.Skills.update();
+			this.setHitpoints(this.m.CurrentProperties.Hitpoints);
+
 		}
 
 		local onSerialize = o.onSerialize;
