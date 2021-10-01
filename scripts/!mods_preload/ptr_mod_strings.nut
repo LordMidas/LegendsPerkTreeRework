@@ -295,6 +295,9 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.SteelBrow = "\'I can take it!\'\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Hits to the head no longer cause critical damage to this character, which also lowers the risk of sustaining debilitating head injuries significantly.\n• Grants passive immunity against Cull.\n\n[color=#0b0084]From the Sturdy perk group[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.SteelBrow].Tooltip = gt.Const.Strings.PerkDescription.SteelBrow;
 
+	gt.Const.Strings.PerkDescription.Overwhelm = "Learn to take advantage of your high Initiative and prevent the enemy from attacking effectively by overwhelming them with your attacks!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• With every attack, hit or miss, against an opponent that acts after you in the current round, inflict the \'Overwhelmed\' status effect which lowers both Melee Skill and Ranged Skill by [color=" + this.Const.UI.Color.NegativeValue + "]-10%[/color] for one turn.\n• The effect stacks with each attack, and can be applied to multiple targets at once with a single attack.\n\n[color=#0b0084]From the Fast and Dagger perk groups[/color]";
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Overwhelm].Tooltip = gt.Const.Strings.PerkDescription.Overwhelm;
+
 	local poleWeaponStrings = [
 		"SpecAxe",
 		"SpecHammer",
@@ -373,9 +376,6 @@ gt.Const.PTR.modStrings <- function()
 
 	gt.Const.Strings.PerkDescription.SunderingStrikes = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.SunderingStrikes, "Axe, Large, Blacksmith, and Miner");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.SunderingStrikes].Tooltip = gt.Const.Strings.PerkDescription.SunderingStrikes;
-
-	gt.Const.Strings.PerkDescription.Overwhelm = changePerkGroupInTooltip(gt.Const.Strings.PerkDescription.Overwhelm, "Dagger");
-	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Overwhelm].Tooltip = gt.Const.Strings.PerkDescription.Overwhelm;
 
 	gt.Const.Strings.PerkDescription.PushTheAdvantage += "\n[color=#0b0084]From the Mace perk group[/color]"
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.PushTheAdvantage].Tooltip = gt.Const.Strings.PerkDescription.PushTheAdvantage;
