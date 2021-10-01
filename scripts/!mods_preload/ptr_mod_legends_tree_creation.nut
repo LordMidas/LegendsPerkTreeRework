@@ -817,8 +817,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 		}
 		else
 		{
-			local talents = _player.getTalents();
-			chanceFencer *= talents[this.Const.Attributes.Initiative] * talents[this.Const.Attributes.MeleeSkill];			
+			local hasSwordTree = false;		
 
 			if (chanceFencer > 0)
 			{
@@ -829,7 +828,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 						switch (tree.ID)
 						{
 							case this.Const.Perks.SwordTree.ID:
-								chanceFencer = 0;
+								hasSwordTree = true;
 								break;
 
 							case this.Const.Perks.LightArmorTree.ID:
@@ -840,20 +839,18 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 								chanceFencer /= 2;
 								break;
 						}
-
-						if (chanceFencer == 0)
-						{
-							break;
-						}
-					}
-
-					if (chanceFencer == 0)
-					{
-						break;
 					}
 				}
 			}
+
+			if (!hasSwordTree)
+			{
+				chanceFencer = 0;
+			}			
 		}
+
+		local talents = _player.getTalents();
+		chanceFencer *= talents[this.Const.Attributes.Initiative] * talents[this.Const.Attributes.MeleeSkill];
 
 		if (this.Math.rand(1, 100) <= chanceFencer)
 		{
