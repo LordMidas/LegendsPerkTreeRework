@@ -1,4 +1,11 @@
 ===================
+==== Ver 1.2.9 ====
+===================
+- Reverted Overwhelm back to its vanilla state of applying a -10% debuff per stack instead of -5% as it is in Legends.
+- Talent stars in Initiative now also increase the chance of rolling the Sword tree.
+- Fixed the Fencer perk never appearing on recruits with the Sword tree.
+
+===================
 ==== Ver 1.2.8 ====
 ===================
 - Added Vigorous Assault to Berserker background.
