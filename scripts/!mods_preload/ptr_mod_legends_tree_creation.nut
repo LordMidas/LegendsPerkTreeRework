@@ -321,7 +321,8 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 		{ Tree = this.Const.Perks.HeavyArmorTree, Multiplier = 1.33 }
 	];
 	gt.Const.Perks.TalentMultipliers[this.Const.Attributes.Initiative] = [
-		{ Tree = this.Const.Perks.LightArmorTree, Multiplier = 2 }
+		{ Tree = this.Const.Perks.LightArmorTree, Multiplier = 2 },
+		{ Tree = this.Const.Perks.SwordTree, Multiplier = 2 }
 	];
 	gt.Const.Perks.TalentMultipliers[this.Const.Attributes.MeleeSkill] = [
 		{ Tree = this.Const.Perks.BowTree, Multiplier = 0.5 },
