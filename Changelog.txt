@@ -1,4 +1,10 @@
 ====================
+==== Ver 1.2.11 ====
+====================
+- Fixed recruits showing 0 wage on recruitment screen, even though they actually don't have 0 wage.
+- Fixed the Barbarian favored enemy tree actually giving the Favored Enemy Nomad perk.
+
+====================
 ==== Ver 1.2.10 ====
 ====================
 - Fixed the Balance perk giving too high bonus in some cases.
