@@ -1,4 +1,9 @@
 ===================
+==== Ver 1.2.7 ====
+===================
+- Refactored ranger and ranger commander starting perks. They now have less melee options but gain Houndmaster perk tree and crossbow perk tree.
+
+===================
 ==== Ver 1.2.6 ====
 ===================
 - Doing 50% reduced damage due to the Hit-chance based damage system now adds an entry to the combat log, so you can see when this happens.

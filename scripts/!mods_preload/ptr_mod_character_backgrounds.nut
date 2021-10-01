@@ -1646,9 +1646,8 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.LegendSpecPoison,
 				this.Const.Perks.PerkDefs.LegendPoisonImmunity,
 				this.Const.Perks.PerkDefs.LegendHidden,
-				this.Const.Perks.PerkDefs.PTRFormidableApproach,
-				this.Const.Perks.PerkDefs.ReachAdvantage,
 				this.Const.Perks.PerkDefs.PTRVigilant,
+				this.Const.Perks.PerkDefs.ReachAdvantage,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyNoble,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemySoutherner,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemySwordmaster
@@ -2373,21 +2372,21 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyOrk,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyGoblin,
 				this.Const.Perks.PerkDefs.PTRDynamicDuo,
-				this.Const.Perks.PerkDefs.LegendFavouredEnemyNoble,
+				this.Const.Perks.PerkDefs.LegendFavouredEnemyNoble
 			]
 		);
 
 		addPerksToCustomPerkTree(5, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.LegendPotionBrewer,
 				this.Const.Perks.PerkDefs.LegendReadOmensTrance,
-				this.Const.Perks.PerkDefs.LegendInsects,
+				this.Const.Perks.PerkDefs.LegendInsects
 			]
 		);
 
 		addPerksToCustomPerkTree(6, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.LegendDrumsOfLife,
 				this.Const.Perks.PerkDefs.LegendDistantVisions,
-				this.Const.Perks.PerkDefs.LegendSummonStorm
+				this.Const.Perks.PerkDefs.LegendSummonStorm,
 				this.Const.Perks.PerkDefs.LegendBattleheart
 			]
 		);
@@ -3321,10 +3320,11 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.ViciousTree,
 				this.Const.Perks.FastTree,
 				this.Const.Perks.UnstoppableTree,
-				this.Const.Perks.SpearTree,
 				this.Const.Perks.BeastsTree,
 				this.Const.Perks.OrcsTree,
-				this.Const.Perks.ArchersTree
+				this.Const.Perks.ArchersTree,
+				this.Const.Perks.HoundmasterClassTree,				
+				this.Const.Perks.CrossbowTree			
 			]
 		);
 
@@ -3342,7 +3342,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		addPerksToCustomPerkTree(2, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.LegendNightvision,
 				this.Const.Perks.PerkDefs.LegendOnslaught,
-				this.Const.Perks.PerkDefs.Backstabber,
+				this.Const.Perks.PerkDefs.SpecSpear,
 				this.Const.Perks.PerkDefs.PTRExploitOpening,
 				this.Const.Perks.PerkDefs.Rotation
 			]
@@ -3353,27 +3353,26 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.PTRPatience,
 				this.Const.Perks.PerkDefs.LegendSummonFalcon,
 				this.Const.Perks.PerkDefs.LegendAmmoBinding,
-				this.Const.Perks.PerkDefs.PTRFormidableApproach
+				this.Const.Perks.PerkDefs.PTRFormidableApproach,
+				this.Const.Perks.PerkDefs.LegendHairSplitter
 			]
 		);
 
 		addPerksToCustomPerkTree(4, o.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.SpecPolearm
 			]
 		);
 
 		addPerksToCustomPerkTree(5, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.Overwhelm,
 				this.Const.Perks.PerkDefs.LegendSummonWolf,
-				this.Const.Perks.PerkDefs.LegendAmmoBundles,
-				this.Const.Perks.PerkDefs.PTRUtilitarian
+				this.Const.Perks.PerkDefs.LegendAmmoBundles
 			]
 		);
 
 		addPerksToCustomPerkTree(6, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.LegendCascade,
+				this.Const.Perks.PerkDefs.PTRTwoForOne,	
 				this.Const.Perks.PerkDefs.PTRKnowTheirWeakness,
-				this.Const.Perks.PerkDefs.ReachAdvantage,
 				this.Const.Perks.PerkDefs.LegendHidden
 			]
 		);
@@ -3382,11 +3381,11 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.PerfectFocus,
 				this.Const.Perks.PerkDefs.LegendBigGameHunter,
 				this.Const.Perks.PerkDefs.HeadHunter,
-				this.Const.Perks.PerkDefs.PTRDeathFromAfar,
-				this.Const.Perks.PerkDefs.PTRLongReach
+				this.Const.Perks.PerkDefs.PTRDeathFromAfar
 			]
 		);
 	});
+
 
 	::mods_hookNewObject("skills/backgrounds/legend_ranger_commander_background", function(o) {
 		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
@@ -3401,10 +3400,11 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.ViciousTree,
 				this.Const.Perks.FastTree,
 				this.Const.Perks.UnstoppableTree,
-				this.Const.Perks.SpearTree,
 				this.Const.Perks.BeastsTree,
 				this.Const.Perks.OrcsTree,
 				this.Const.Perks.ArchersTree,
+				this.Const.Perks.HoundmasterClassTree,				
+				this.Const.Perks.CrossbowTree			
 			]
 		);
 
@@ -3422,7 +3422,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		addPerksToCustomPerkTree(2, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.LegendNightvision,
 				this.Const.Perks.PerkDefs.LegendOnslaught,
-				this.Const.Perks.PerkDefs.Backstabber,
+				this.Const.Perks.PerkDefs.SpecSpear,
 				this.Const.Perks.PerkDefs.PTRExploitOpening,
 				this.Const.Perks.PerkDefs.Rotation
 			]
@@ -3434,27 +3434,25 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.LegendSummonFalcon,
 				this.Const.Perks.PerkDefs.LegendAmmoBinding,
 				this.Const.Perks.PerkDefs.PTRFormidableApproach,
-				this.Const.Perks.PerkDefs.LegendHairSplitter,
+				this.Const.Perks.PerkDefs.LegendHairSplitter
 			]
 		);
 
 		addPerksToCustomPerkTree(4, o.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.SpecPolearm
 			]
 		);
 
 		addPerksToCustomPerkTree(5, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.Overwhelm,
 				this.Const.Perks.PerkDefs.LegendSummonWolf,
-				this.Const.Perks.PerkDefs.LegendAmmoBundles,
-				this.Const.Perks.PerkDefs.PTRUtilitarian
+				this.Const.Perks.PerkDefs.LegendAmmoBundles
 			]
 		);
 
 		addPerksToCustomPerkTree(6, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.LegendCascade,
+				this.Const.Perks.PerkDefs.PTRTwoForOne,	
 				this.Const.Perks.PerkDefs.PTRKnowTheirWeakness,
-				this.Const.Perks.PerkDefs.ReachAdvantage,
 				this.Const.Perks.PerkDefs.LegendHidden
 			]
 		);
@@ -3463,8 +3461,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.PerfectFocus,
 				this.Const.Perks.PerkDefs.LegendBigGameHunter,
 				this.Const.Perks.PerkDefs.HeadHunter,
-				this.Const.Perks.PerkDefs.PTRDeathFromAfar,
-				this.Const.Perks.PerkDefs.PTRLongReach
+				this.Const.Perks.PerkDefs.PTRDeathFromAfar
 			]
 		);
 	});
