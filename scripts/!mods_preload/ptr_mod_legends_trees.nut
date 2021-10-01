@@ -495,7 +495,7 @@ gt.Const.PTR.modLegendsEnemyTrees <- function()
 	this.Const.Perks.BarbarianTree.Tree[1] = [];
 	this.Const.Perks.BarbarianTree.Tree[2] = [];
 	this.Const.Perks.BarbarianTree.Tree[3] = [
-		gt.Const.Perks.PerkDefs.LegendFavouredEnemyNomad
+		gt.Const.Perks.PerkDefs.LegendFavouredEnemyBarbarian
 	];
 	this.Const.Perks.BarbarianTree.Tree[4] = [];
 	this.Const.Perks.BarbarianTree.Tree[5] = [];
