@@ -1,6 +1,7 @@
 this.ptr_take_aim_effect <- this.inherit("scripts/skills/skill", {
 	m = {
-		Perk = null
+		Perk = null,
+		DiversionMinDist = null
 	},
 	function create()
 	{
@@ -94,7 +95,8 @@ this.ptr_take_aim_effect <- this.inherit("scripts/skills/skill", {
 		{
 			if (this.m.DiversionMinDist != null)
 			{
-				this.Const.Combat.DiversionMinDist = this.m.DiversionMinDist;				
+				this.Const.Combat.DiversionMinDist = this.m.DiversionMinDist;
+				this.m.DiversionMinDist = null;
 			}
 
 			this.removeSelf();
