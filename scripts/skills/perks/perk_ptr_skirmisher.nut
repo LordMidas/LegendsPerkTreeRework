@@ -29,7 +29,6 @@ this.perk_ptr_skirmisher <- this.inherit("scripts/skills/skill", {
 	{
 		local tooltip = this.skill.getTooltip();
 
-		local bonus = this.getBonus();
 		tooltip.push({
 			id = 10,
 			type = "text",
