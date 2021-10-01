@@ -2016,7 +2016,8 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		addPerksToCustomPerkTree(4, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.LegendPoisonImmunity,
 				this.Const.Perks.PerkDefs.Rebound,
-				this.Const.Perks.PerkDefs.QuickHands
+				this.Const.Perks.PerkDefs.QuickHands,
+				this.Const.Perks.PerkDefs.PTRVigorousAssault
 			]
 		);
 
@@ -2082,7 +2083,8 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		addPerksToCustomPerkTree(4, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.LegendPoisonImmunity,
 				this.Const.Perks.PerkDefs.Rebound,
-				this.Const.Perks.PerkDefs.QuickHands
+				this.Const.Perks.PerkDefs.QuickHands,
+				this.Const.Perks.PerkDefs.PTRVigorousAssault
 			]
 		);
 
