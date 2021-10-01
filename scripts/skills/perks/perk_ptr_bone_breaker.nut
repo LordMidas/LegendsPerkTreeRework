@@ -113,7 +113,7 @@ this.perk_ptr_bone_breaker <- this.inherit("scripts/skills/skill", {
 				{
 					_targetEntity.m.Skills.add(injury);
 
-					if (_targetEntity.isPlayerControlled() && _targetEntity.isKindOf(_targetEntity, "player"))
+					if (_targetEntity.isPlayerControlled() && this.isKindOf(_targetEntity, "player"))
 					{
 						_targetEntity.worsenMood(this.Const.MoodChange.Injury, "Suffered an injury");
 					}
