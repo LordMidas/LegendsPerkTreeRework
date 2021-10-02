@@ -2,6 +2,19 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modSkills <- function()
 {	
+	::mods_hookExactClass("skills/effects/legend_baffled_effect", function(o) {
+		o.onAdded = function()
+		{
+			this.m.TurnsLeft = this.Math.max(1, 1 + this.getContainer().getActor().getCurrentProperties().NegativeStatusEffectDuration);
+		}
+
+		function onRefresh()
+		{
+			this.m.TurnsLeft = this.Math.max(1, 1 + this.getContainer().getActor().getCurrentProperties().NegativeStatusEffectDuration);
+			this.spawnIcon("status_effect_87", this.getContainer().getActor().getTile());
+		}
+	});
+
 	::mods_hookExactClass("skills/effects/overwhelmed_effect", function(o) {
 		o.getTooltip = function()
 		{
