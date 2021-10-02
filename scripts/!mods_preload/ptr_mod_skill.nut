@@ -125,17 +125,17 @@ gt.Const.PTR.modSkill <- function()
 					});
 				}
 
-				local immersiveDamage = this.getContainer().getSkillByID("effects.ptr_immersive_damage");
-				if (immersiveDamage != null)
-				{
-					local chanceFullDamage = immersiveDamage.getChanceFullDamage(this, targetEntity);
-					local color = chanceFullDamage > 50 ? this.Const.UI.Color.PositiveValue : this.Const.UI.Color.NegativeValue;
+				// local immersiveDamage = this.getContainer().getSkillByID("effects.ptr_immersive_damage");
+				// if (immersiveDamage != null)
+				// {
+				// 	local chanceFullDamage = immersiveDamage.getChanceFullDamage(this, targetEntity);
+				// 	local color = chanceFullDamage > 50 ? this.Const.UI.Color.PositiveValue : this.Const.UI.Color.NegativeValue;
 
-					ret.push({
-						icon = "ui/icons/regular_damage.png",
-						text = "[color=" + color + "]" + chanceFullDamage + "%[/color] Chance to Inflict Full Damage"
-					});
-				}
+				// 	ret.push({
+				// 		icon = "ui/icons/regular_damage.png",
+				// 		text = "[color=" + color + "]" + chanceFullDamage + "%[/color] Chance to Inflict Full Damage"
+				// 	});
+				// }
 			}
 
 			return ret;
