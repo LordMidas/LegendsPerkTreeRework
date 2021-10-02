@@ -34,7 +34,7 @@ this.perk_ptr_deep_impact <- this.inherit("scripts/skills/skill", {
 
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
-		if (_targetEntity == null || !_skill.isAttack() || (_skill.hasDamageType(this.Const.Damage.DamageType.Blunt) || this.m.IsForceEnabled) || !this.isEnabled())
+		if (_targetEntity == null || !_skill.isAttack() || (!_skill.hasDamageType(this.Const.Damage.DamageType.Blunt) && !this.m.IsForceEnabled) || !this.isEnabled())
 		{
 			return;
 		}
