@@ -113,7 +113,7 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 
 		if (!actor.isPlayerControlled() && distanceMoved < this.m.BonusEveryXTiles && actor.getActorsAtDistanceAsArray(1, this.Const.FactionRelation.Enemy).len() == 0 && actor.getActorsAtDistanceAsArray(this.m.BonusEveryXTiles + 1, this.Const.FactionRelation.Enemy).len() > 0)
 		{
-			mult = 1;		
+			mult = 1;
 		}
 
 		this.m.CurrAPBonus = this.m.APReduction * mult;
@@ -121,7 +121,7 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 
 		foreach (skill in this.getContainer().getSkillsByFunction(this, @(_skill) _skill.isAttack()))
 		{
-			skill.m.ActionPointCost -= this.m.CurrAPBonus;
+			skill.m.ActionPointCost = this.Math.max(1, skill.m.ActionPointCost - this.m.CurrAPBonus);
 			skill.m.FatigueCostMult *= 1.0 - this.m.CurrFatBonus * 0.01;
 		}
 	}
