@@ -1,4 +1,14 @@
 ====================
+==== Ver 1.2.12 ====
+====================
+- Further deepened the Immersive Damage System. Now has a range of damage values that can be rolled. Added a lot of fluff regarding damage rolled in the Combat log. It will now tell you if you did a perfect hit, a glancing hit, a poor hit etc.
+- In the Zone tweaked: Now grants half the Melee Skill bonus as before, but this bonus is not further halved when not engaged in melee. Only the Melee Damage bonus is halved when not engaged in melee.
+- Baffled now only lasts 1 turn (down from 2).
+- Removed Onslaught and Nine Lives from Wiedergangers and Armored Wiedergangers.
+- Fixed a bug in Bone Breaker applying too many injuries on a hit.
+- Fixed a bug causing the game to freeze when exiting a battle with a bro who has Weapon Master and who procced Realized Potential as a result of the battle.
+
+====================
 ==== Ver 1.2.11 ====
 ====================
 - Fixed recruits showing 0 wage on recruitment screen, even though they actually don't have 0 wage.
