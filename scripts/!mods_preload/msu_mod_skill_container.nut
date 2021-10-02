@@ -53,10 +53,10 @@ gt.MSU.modSkillContainer <- function ()
 			}
 
 			this.m.IsUpdating = wasUpdating;
-			if (!this.Tactical.getNavigator().IsTravelling)
-			{
+			// if (!this.Tactical.getNavigator().IsTravelling)
+			// {
 				this.update();
-			}
+			// }
 		}
 
 		o.doOnFunctionWhenAlive <- function( _function, _argsArray = null )
