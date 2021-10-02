@@ -1,4 +1,17 @@
 ====================
+==== Ver 1.2.14 ====
+====================
+- Immersive Damage tweaked further. The calculation is now more complex and, therefore, the %chance to deal full damage is no longer shown in the attack tooltip. However, you can always refer to the combat log to see if you rolled any reduced damage or not.
+- Momentum tweaked: Now reduces the damage of the next throwing attack by 5% per tile regardless of which direction you move in. Also reduces the Action Point cost of the next throwing attack by 1 per tile moved, to a minimum of 1.
+- Skirmisher tweaked: Instead of granting Pathfinder bonuses on the first turn, it now reduces the Action Point cost of movement on any terrain by 1 to a minimum of 1, and halves the Fatigue Cost. Stacks with the Pathfinder perk.
+- Vigorous Assault can no longer reduce the Action Point cost of an attack to 0.
+- Slightly reduced the AI's propensity to use Cover Ally.
+- AI will no longer use Follow Up when alone.
+- The Skirmisher perk no longer shows the Action Point cost of throwing attacks reduced while outside of combat.
+- Fixed Bone Breaker applying an injury on every hit.
+- Fixed Deep Impact not applying injuries with Blunt damage.
+
+====================
 ==== Ver 1.2.13 ====
 ====================
 - Fixed a bug causing the Baffled effect to bug out.
