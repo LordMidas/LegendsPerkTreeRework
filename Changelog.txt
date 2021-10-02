@@ -1,4 +1,9 @@
 ====================
+==== Ver 1.2.13 ====
+====================
+- Fixed a bug causing the Baffled effect to bug out.
+
+====================
 ==== Ver 1.2.12 ====
 ====================
 - Further deepened the Immersive Damage System. Now has a range of damage values that can be rolled. Added a lot of fluff regarding damage rolled in the Combat log. It will now tell you if you did a perfect hit, a glancing hit, a poor hit etc.
