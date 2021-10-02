@@ -8,7 +8,7 @@ gt.Const.PTR.modSkills <- function()
 			this.m.TurnsLeft = this.Math.max(1, 1 + this.getContainer().getActor().getCurrentProperties().NegativeStatusEffectDuration);
 		}
 
-		function onRefresh()
+		o.onRefresh = function()
 		{
 			this.m.TurnsLeft = this.Math.max(1, 1 + this.getContainer().getActor().getCurrentProperties().NegativeStatusEffectDuration);
 			this.spawnIcon("status_effect_87", this.getContainer().getActor().getTile());
