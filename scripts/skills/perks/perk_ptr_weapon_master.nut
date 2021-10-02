@@ -104,37 +104,40 @@ this.perk_ptr_weapon_master <- this.inherit("scripts/skills/skill", {
 		local actor = this.getContainer().getActor();
 		if (actor.isPlayerControlled())
 		{
-			foreach (perk in actor.getBackground().m.PerkTree[3])
+			if (actor.getBackground().m.PerkTree != null)
 			{
-				switch (perk.ID)
+				foreach (perk in actor.getBackground().m.PerkTree[3])
 				{
-					case "perk.mastery.axe":
-						_properties.IsSpecializedInAxes = true;
-						break;
-					case "perk.mastery.cleaver":
-						_properties.IsSpecializedInCleavers = true;
-						break;
-					case "perk.mastery.dagger":
-						_properties.IsSpecializedInDaggers = true;
-						break;
-					case "perk.mastery.flail":
-						_properties.IsSpecializedInFlails = true;
-						break;
-					case "perk.mastery.hammer":
-						_properties.IsSpecializedInHammers = true;
-						break;
-					case "perk.mastery.mace":
-						_properties.IsSpecializedInMaces = true;
-						break;
-					case "perk.mastery.spear":
-						_properties.IsSpecializedInSpears = true;
-						break;
-					case "perk.mastery.sword":
-						_properties.IsSpecializedInSwords = true;
-						break;
-					case "perk.mastery.throwing":
-						_properties.IsSpecializedInThrowing = true;
-						break;
+					switch (perk.ID)
+					{
+						case "perk.mastery.axe":
+							_properties.IsSpecializedInAxes = true;
+							break;
+						case "perk.mastery.cleaver":
+							_properties.IsSpecializedInCleavers = true;
+							break;
+						case "perk.mastery.dagger":
+							_properties.IsSpecializedInDaggers = true;
+							break;
+						case "perk.mastery.flail":
+							_properties.IsSpecializedInFlails = true;
+							break;
+						case "perk.mastery.hammer":
+							_properties.IsSpecializedInHammers = true;
+							break;
+						case "perk.mastery.mace":
+							_properties.IsSpecializedInMaces = true;
+							break;
+						case "perk.mastery.spear":
+							_properties.IsSpecializedInSpears = true;
+							break;
+						case "perk.mastery.sword":
+							_properties.IsSpecializedInSwords = true;
+							break;
+						case "perk.mastery.throwing":
+							_properties.IsSpecializedInThrowing = true;
+							break;
+					}
 				}
 			}
 		}
