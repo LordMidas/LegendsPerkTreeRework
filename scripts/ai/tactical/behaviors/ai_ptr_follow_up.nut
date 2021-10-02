@@ -67,7 +67,11 @@ this.ai_ptr_follow_up <- this.inherit("scripts/ai/tactical/behavior", {
 
 		if (meleeTarget.getHitpoints() <= damage.HitpointDamage + damage.DirectDamage)
 		{
-			this.logInfo("Can kill " + meleeTarget.getName() + " hence no Follow Up");
+			if (this.Const.AI.VerboseMode)
+			{
+				this.logInfo("Can kill " + meleeTarget.getName() + " hence no Follow Up");
+			}
+			
 			return this.Const.AI.Behavior.Score.Zero;
 		}
 
@@ -109,7 +113,7 @@ this.ai_ptr_follow_up <- this.inherit("scripts/ai/tactical/behavior", {
 			}
 		}
 
-		if (surroundedTargets == 0 || surroundingAllies == 0)
+		if (surroundedTargets == 0 || surroundingAllies == 1)
 		{
 			if (this.Const.AI.VerboseMode)
 			{
