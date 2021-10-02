@@ -57,6 +57,11 @@ this.perk_ptr_bone_breaker <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
+	function onBeforeAnySkillExecuted( _skill, _targetTile, _targetEntity )
+	{
+		this.m.InjuryPool = null;
+	}
+
 	
 	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
 	{
@@ -75,7 +80,7 @@ this.perk_ptr_bone_breaker <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		if (_targetEntity.getSkills().getSkillsByFunction(this, @(_skill) this.m.ValidEffects.find(_skill.getID()) != null))
+		if (_targetEntity.getSkills().getSkillsByFunction(this, @(_skill) this.m.ValidEffects.find(_skill.getID()) != null).len() > 0)
 		{
 			local weapon = this.getContainer().getActor().getMainhandItem();
 			if ((weapon != null && weapon.isItemType(this.Const.Items.ItemType.TwoHanded)) || this.m.IsForceTwoHanded || this.Math.rand(1,100) <= this.m.ChanceOneHanded)
@@ -83,8 +88,6 @@ this.perk_ptr_bone_breaker <- this.inherit("scripts/skills/skill", {
 				this.applyInjury(_targetEntity);
 			}
 		}
-
-		this.m.InjuryPool = null;
 	}
 
 	function applyInjury( _targetEntity )
