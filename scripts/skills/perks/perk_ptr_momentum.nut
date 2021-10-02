@@ -1,21 +1,56 @@
 this.perk_ptr_momentum <- this.inherit("scripts/skills/skill", {
 	m = {
-		BonusPerTile = 10,
-		PrevTile = null,
-		CurrTile = null,
-		TargetTile = null
+		BonusPerTile = 5,
+		PrevTile = null,		
+		TilesMovedThisTurn = 0,
+		BeforeSkillExecutedTile = null
 	},
 	function create()
 	{
 		this.m.ID = "perk.ptr_momentum";
 		this.m.Name = this.Const.Strings.PerkName.PTRMomentum;
-		this.m.Description = this.Const.Strings.PerkDescription.PTRMomentum;
+		this.m.Description = "A running start goes a long way to throwing better!";
 		this.m.Icon = "ui/perks/ptr_momentum.png";
-		this.m.Type = this.Const.SkillType.Perk;
-		this.m.Order = this.Const.SkillOrder.Perk;
+		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
+		this.m.Order = this.Const.SkillOrder.Last;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
+	}
+
+	function isHidden()
+	{
+		return this.m.TilesMovedThisTurn == 0;
+	}
+
+	function getTooltip()
+	{
+		local tooltip = this.skill.getTooltip();
+
+		tooltip.push({
+			id = 10,
+			type = "text",
+			icon = "ui/icons/action_points.png",
+			text = "The next Throwing attack costs [color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.TilesMovedThisTurn + "[/color] fewer Action Points"
+		});
+
+		local damageBonus = this.getBonus();
+
+		tooltip.push({
+			id = 10,
+			type = "text",
+			icon = "ui/icons/damage_dealt.png",
+			text = "The next Throwing attack does [color=" + this.Const.UI.Color.PositiveValue + "]" + damageBonus + "%[/color] more damage"
+		});
+
+		tooltip.push({
+			id = 10,
+			type = "text",
+			icon = "ui/icons/warning.png",
+			text = "Will expire upon waiting or ending the turn, swapping your weapon, or using any skill"
+		});
+		
+		return tooltip;
 	}
 
 	function isEnabled()
@@ -37,112 +72,73 @@ this.perk_ptr_momentum <- this.inherit("scripts/skills/skill", {
 
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
-		if (!_skill.isAttack() || !_skill.isRanged() || _targetEntity == null || !_targetEntity.isPlacedOnMap() || !this.isEnabled())
+		if (!_skill.isAttack() || !_skill.isRanged() || !_skill.m.IsWeaponSkill || this.m.TilesMovedThisTurn == 0 || !this.isEnabled())
 		{
 			return;
 		}
 
-		this.m.TargetTile = _targetEntity.getTile();
+		_properties.RangedDamageMult *= 1.0 + this.getBonus() * 0.01;
+	}
 
-		local bonus = this.getBonus();
-		if (bonus != 0)
+	function onAfterUpdate( _properties )
+	{
+		if (this.isEnabled() && this.m.TilesMovedThisTurn > 0)
 		{
-			_properties.RangedDamageMult *= 1.0 + (this.getBonus() * 0.01);
+
+			local attacks = this.getContainer().getSkillsByFunction(this, @(_skill) _skill.isAttack() && _skill.m.IsWeaponSkill)
+			foreach (a in attacks)
+			{
+				a.m.ActionPointCost = this.Math.max(1, a.m.ActionPointCost - this.m.TilesMovedThisTurn);
+			}
 		}
 	}
 
 	function getBonus()
 	{
-		local actor = this.getContainer().getActor();
-		if (this.m.PrevTile == null || this.m.CurrTile == null || this.m.TargetTile == null || !this.isEnabled())
-		{
-			return 0;
-		}
-
-		local distanceMoved = this.m.PrevTile.getDistanceTo(this.m.TargetTile) - this.m.CurrTile.getDistanceTo(this.m.TargetTile);
-
-		return this.Math.max(0, distanceMoved * this.m.BonusPerTile);
+		return this.m.TilesMovedThisTurn * this.m.BonusPerTile;
 	}
 
 	function onWaitTurn()
 	{
-		this.m.PrevTile = this.getContainer().getActor().getTile();
-		this.m.CurrTile = this.getContainer().getActor().getTile();
-		this.m.TargetTile = null;
-	}
-
-	function onAdded()
-	{
-		if (this.getContainer().getActor().isPlacedOnMap())
-		{
-			this.m.PrevTile = this.getContainer().getActor().getTile();
-			this.m.CurrTile = this.getContainer().getActor().getTile();
-			this.m.TargetTile = null;
-		}
-	}
-
-	function onCombatStarted()
-	{
-		this.m.PrevTile = this.getContainer().getActor().getTile();
-		this.m.CurrTile = this.getContainer().getActor().getTile();
-		this.m.TargetTile = null;
+		this.m.TilesMovedThisTurn = 0;
 	}
 
 	function onCombatFinished()
 	{
 		this.skill.onCombatFinished();
-		this.m.PrevTile = null;
-		this.m.CurrTile = null;
-		this.m.TargetTile = null;
+		this.m.TilesMovedThisTurn = 0;
 	}
 
-	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
+	function onBeforeAnySkillExecuted( _skill, _targetTile, _targetEntity )
 	{
-		local bonus = this.getBonus();
+		this.m.BeforeSkillExecutedTile = this.getContainer().getActor().getTile();
+	}
 
-		local actor = this.getContainer().getActor();
-		if (_skill.isRanged() && bonus > 0)
+	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
+	{
+		if (this.getContainer().getActor().getTile().isSameTileAs(this.m.BeforeSkillExecutedTile))
 		{
-			if (!actor.isHiddenToPlayer() && this.m.TargetTile.IsVisibleForPlayer)
-			{
-				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " dealt +" + bonus + "% Damage due to Momentum");
-			}
+			this.m.TilesMovedThisTurn = 0;
 		}
-
-		this.m.PrevTile = actor.getTile();
-		this.m.CurrTile = actor.getTile();
-		this.m.TargetTile = null;
 	}
 
-	function onTargetMissed( _skill, _targetEntity )
+	function onPayForItemAction( _skill, _items )
 	{
-		this.m.PrevTile = this.getContainer().getActor().getTile();
-		this.m.CurrTile = this.getContainer().getActor().getTile();
-		this.m.TargetTile = null;
+		this.m.TilesMovedThisTurn = 0;
 	}
 
 	function onTurnEnd()
-	{
-		this.m.PrevTile = this.getContainer().getActor().getTile();
-		this.m.CurrTile = this.getContainer().getActor().getTile();
-		this.m.TargetTile = null;
-	}
-
-	function onTurnStart()
-	{
-		this.m.PrevTile = this.getContainer().getActor().getTile();
-		this.m.CurrTile = this.getContainer().getActor().getTile();
-		this.m.TargetTile = null;
+	{		
+		this.m.TilesMovedThisTurn = 0;
 	}
 
 	function onMovementStarted(_tile, _numTiles)
 	{
-		this.m.PrevTile = this.getContainer().getActor().getTile();
-		this.m.TargetTile = null;
+		this.m.PrevTile = _tile;
 	}
 
-	function onMovementFinished (_tile) {
-		this.m.CurrTile = this.getContainer().getActor().getTile();
-		this.m.TargetTile = null;
+	function onMovementFinished (_tile) 
+	{		
+		this.m.TilesMovedThisTurn += _tile.getDistanceTo(this.m.PrevTile);
 	}
 });
