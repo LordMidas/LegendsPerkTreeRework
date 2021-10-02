@@ -1,6 +1,10 @@
 local gt = this.getroottable();
 
-gt.Const.PTR <- {};
+if (!("PTR" in gt.Const))
+{
+	gt.Const.PTR <- {};
+}
+
 gt.Const.PTR.Version <- 1;
 
 local modID = "mod_legends_PTR";

@@ -125,10 +125,10 @@ gt.Const.PTR.modSkill <- function()
 					});
 				}
 
-				local hitChanceDamagePerk = this.getContainer().getSkillByID("effects.ptr_hitchance_damage");
-				if (hitChanceDamagePerk != null)
+				local immersiveDamage = this.getContainer().getSkillByID("effects.ptr_immersive_damage");
+				if (immersiveDamage != null)
 				{
-					local chanceFullDamage = hitChanceDamagePerk.getChanceFullDamage(this, targetEntity);
+					local chanceFullDamage = immersiveDamage.getChanceFullDamage(this, targetEntity);
 					local color = chanceFullDamage > 50 ? this.Const.UI.Color.PositiveValue : this.Const.UI.Color.NegativeValue;
 
 					ret.push({
