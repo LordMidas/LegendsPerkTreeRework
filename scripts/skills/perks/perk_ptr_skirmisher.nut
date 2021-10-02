@@ -33,7 +33,7 @@ this.perk_ptr_skirmisher <- this.inherit("scripts/skills/skill", {
 			id = 10,
 			type = "text",
 			icon = "ui/icons/action_points.png",
-			text = "The next [color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.AttacksRemaining + "[/color] Throwing attacks have their Action Point costs [color=" + this.Const.UI.Color.PositiveValue + "]halved[/color]"
+			text = "The next [color=" + this.Const.UI.Color.PositiveValue + "]" + this.m.AttacksRemaining + "[/color] Throwing attacks have their Action Point costs [color=" + this.Const.UI.Color.PositiveValue + "]halved[/color]"
 		});
 
 		if (this.m.TurnCount == 1)
@@ -109,14 +109,14 @@ this.perk_ptr_skirmisher <- this.inherit("scripts/skills/skill", {
 
 	function onAfterUpdate( _properties )
 	{
-		if (this.isEnabled())
+		if (this.isEnabled() && this.getContainer().getActor().isPlacedOnMap())
 		{
 			if (this.m.AttacksRemaining > 0)
 			{
 				local attacks = this.getContainer().getSkillsByFunction(this, @(_skill) _skill.isAttack() && _skill.m.IsWeaponSkill)
 				foreach (a in attacks)
 				{
-					a.m.ActionPointCost /= 2;
+					a.m.ActionPointCost = this.Math.max(1, a.m.ActionPointCost / 2);
 				}
 			}
 
@@ -136,7 +136,6 @@ this.perk_ptr_skirmisher <- this.inherit("scripts/skills/skill", {
 	{
 		if (this.isEnabled() && _skill.isAttack() && _skill.m.IsWeaponSkill)
 		{
-			this.logInfo("reducing attacks");
 			this.m.AttacksRemaining--;
 		}
 	}
