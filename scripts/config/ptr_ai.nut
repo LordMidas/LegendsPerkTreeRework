@@ -39,4 +39,4 @@ gt.Const.AI.Behavior.Order.LegendPushForward <- this.Const.AI.Behavior.Order.Boo
 gt.Const.AI.Behavior.Score.LegendPushForward <- this.Const.AI.Behavior.Score.BoostMorale;
 
 gt.Const.AI.Behavior.Order.STRCoverAlly <- this.Const.AI.Behavior.Order.Adrenaline;
-gt.Const.AI.Behavior.Score.STRCoverAlly <- 70;
+gt.Const.AI.Behavior.Score.STRCoverAlly <- 60;
