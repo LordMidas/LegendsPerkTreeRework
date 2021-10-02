@@ -22,7 +22,7 @@ this.perk_ptr_skirmisher <- this.inherit("scripts/skills/skill", {
 
 	function isHidden()
 	{
-		return !this.isEnabled();
+		return !this.isEnabled() || !this.getContainer().getActor().isPlacedOnMap() || (this.m.AttacksRemaining == 0 && this.m.TurnCount > 1);
 	}
 
 	function getTooltip()
@@ -33,7 +33,7 @@ this.perk_ptr_skirmisher <- this.inherit("scripts/skills/skill", {
 			id = 10,
 			type = "text",
 			icon = "ui/icons/action_points.png",
-			text = "The next [color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.AttacksRemaining + "[/color] Throwing attacks have their Action Point costs [color=" + this.Const.UI.Color.NegativeValue + "]halved[/color]"
+			text = "The next [color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.AttacksRemaining + "[/color] Throwing attacks have their Action Point costs [color=" + this.Const.UI.Color.PositiveValue + "]halved[/color]"
 		});
 
 		if (this.m.TurnCount == 1)
@@ -42,7 +42,7 @@ this.perk_ptr_skirmisher <- this.inherit("scripts/skills/skill", {
 				id = 10,
 				type = "text",
 				icon = "ui/icons/special.png",
-				text = "The Action Point and Fatigue costs of movement during your first turn are as if you have the Pathfinder perk"
+				text = "The Action Point and Fatigue costs of movement during your first turn are reduced"
 			});
 		}
 		
@@ -51,11 +51,6 @@ this.perk_ptr_skirmisher <- this.inherit("scripts/skills/skill", {
 
 	function isEnabled()
 	{
-		if (this.m.AttacksRemaining == 0 || !this.getContainer().getActor().isPlacedOnMap())
-		{
-			return false;
-		}
-
 		local weapon = this.getContainer().getActor().getMainhandItem();
 		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Throwing))
 		{
@@ -67,25 +62,48 @@ this.perk_ptr_skirmisher <- this.inherit("scripts/skills/skill", {
 
 	function onTurnStart()
 	{
-		this.m.TurnCount++;
+		this.m.TurnCount++;		
+	}
 
+	function onUpdate ( _properties )
+	{
 		local actor = this.getContainer().getActor();
 
-		if (this.m.TurnCount == 1)
+		if (this.m.TurnCount == 1 && this.isEnabled())
 		{
 			this.m.ActionPointCostsBackup = clone actor.m.ActionPointCosts;
 			this.m.FatigueCostsBackup = clone actor.m.FatigueCosts;
 			this.m.LevelActionPointCostBackup = actor.m.LevelActionPointCost;
 
-			actor.m.ActionPointCosts = clone this.Const.PathfinderMovementAPCost;
-			actor.m.FatigueCosts = clone this.Const.PathfinderMovementFatigueCost;
+			local movementAPCost = [];
+			local movementFatigueCost = [];
+			local divider = 1;	
+
+			if (this.getContainer().hasSkill("perk.pathfinder"))
+			{
+				movementAPCost = this.Const.PathfinderMovementAPCost;
+				movementFatigueCost = this.Const.PathfinderMovementFatigueCost;
+			}
+			else
+			{
+				movementAPCost = this.Const.DefaultMovementAPCost;
+				movementFatigueCost = this.Const.DefaultMovementFatigueCost;
+			}
+
+			actor.m.ActionPointCosts = [];
+			actor.m.FatigueCosts = [];
+
+			for (local i = 0; i < movementAPCost.len(); i++)
+			{
+				actor.m.ActionPointCosts.push(this.Math.max(1, movementAPCost[i] - 1));
+				actor.m.FatigueCosts.push(this.Math.max(1, movementFatigueCost[i]) / 2);
+			}
+
 			actor.m.LevelActionPointCost = 0;
 		}
 		else
 		{
-			actor.m.ActionPointCosts = clone this.m.ActionPointCostsBackup;
-			actor.m.FatigueCosts = clone this.m.FatigueCostsBackup;
-			actor.m.LevelActionPointCost = this.m.LevelActionPointCostBackup;
+			this.resetCosts();
 		}
 	}
 
@@ -93,10 +111,23 @@ this.perk_ptr_skirmisher <- this.inherit("scripts/skills/skill", {
 	{
 		if (this.isEnabled())
 		{
-			local attacks = this.getContainer().getSkillsByFunction(this, @(_skill) _skill.isAttack() && _skill.m.IsWeaponSkill)
-			foreach (a in attacks)
+			if (this.m.AttacksRemaining > 0)
 			{
-				a.m.ActionPointCost /= 2;
+				local attacks = this.getContainer().getSkillsByFunction(this, @(_skill) _skill.isAttack() && _skill.m.IsWeaponSkill)
+				foreach (a in attacks)
+				{
+					a.m.ActionPointCost /= 2;
+				}
+			}
+
+			if (_properties.MovementAPCostAdditional < 0)
+			{
+				_properties.MovementAPCostAdditional = 0;
+			}
+
+			if (_properties.MovementFatigueCostMult < 1.0)
+			{
+				_properties.MovementFatigueCostMult = 1.0;
 			}
 		}
 	}
@@ -105,8 +136,14 @@ this.perk_ptr_skirmisher <- this.inherit("scripts/skills/skill", {
 	{
 		if (this.isEnabled() && _skill.isAttack() && _skill.m.IsWeaponSkill)
 		{
+			this.logInfo("reducing attacks");
 			this.m.AttacksRemaining--;
 		}
+	}
+
+	function onTurnEnd()
+	{
+		this.resetCosts();
 	}
 
 	function onCombatFinished()
@@ -114,8 +151,22 @@ this.perk_ptr_skirmisher <- this.inherit("scripts/skills/skill", {
 		this.skill.onCombatFinished();
 		this.m.AttacksRemaining = 2;
 		this.m.TurnCount = 0;
+		this.resetCosts();
 		this.m.ActionPointCostsBackup = null;
 		this.m.FatigueCostsBackup = null;
 		this.m.LevelActionPointCostBackup = null;
+	}
+
+	function resetCosts()
+	{
+		if (this.m.ActionPointCostsBackup == null)
+		{
+			return;
+		}
+
+		local actor = this.getContainer().getActor();
+		actor.m.ActionPointCosts = clone this.m.ActionPointCostsBackup;
+		actor.m.FatigueCosts = clone this.m.FatigueCostsBackup;
+		actor.m.LevelActionPointCost = this.m.LevelActionPointCostBackup;
 	}
 });
