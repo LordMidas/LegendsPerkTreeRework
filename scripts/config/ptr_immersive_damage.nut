@@ -31,7 +31,8 @@ gt.Const.PTR.ImmersiveDamage.GoodnessThreshold <- {
 			" struck true"
 		],
 		FluffRanged = [
-			" hit the mark perfectly"
+			" hit the mark perfectly",
+			" landed a perfect shot"
 		]
 	},
 	Good = { 
@@ -60,7 +61,7 @@ gt.Const.PTR.ImmersiveDamage.GoodnessThreshold <- {
 		Threshold = 0.4,
 		FluffMelee = [
 			" could not get a good angle on the attack",
-			"\'s attack manages to scrape the target"			
+			"\'s attack manages to scrape target"			
 		],
 		FluffRanged = [
 			" could not get enough power in the shot"
@@ -73,7 +74,7 @@ gt.Const.PTR.ImmersiveDamage.GoodnessThreshold <- {
 			" just barely managed to get a hit"
 		],
 		FluffRanged = [
-			" almost missed the target"
+			" almost missed target"
 		]
 	},
 	Pathetic = { 
@@ -84,7 +85,7 @@ gt.Const.PTR.ImmersiveDamage.GoodnessThreshold <- {
 		],
 		FluffRanged = [
 			"\'s shot was poorly aimed"
-			"\'s shot barely grazed the target"
+			"\'s shot barely grazed target"
 		]
 	},
 };
