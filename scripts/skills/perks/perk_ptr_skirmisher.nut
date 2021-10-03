@@ -71,35 +71,38 @@ this.perk_ptr_skirmisher <- this.inherit("scripts/skills/skill", {
 
 		if (this.m.TurnCount == 1 && this.isEnabled())
 		{
-			this.m.ActionPointCostsBackup = clone actor.m.ActionPointCosts;
-			this.m.FatigueCostsBackup = clone actor.m.FatigueCosts;
-			this.m.LevelActionPointCostBackup = actor.m.LevelActionPointCost;
-
-			local movementAPCost = [];
-			local movementFatigueCost = [];
-			local divider = 1;	
-
-			if (this.getContainer().hasSkill("perk.pathfinder"))
+			if (this.m.ActionPointCostsBackup == null)
 			{
-				movementAPCost = this.Const.PathfinderMovementAPCost;
-				movementFatigueCost = this.Const.PathfinderMovementFatigueCost;
-			}
-			else
-			{
-				movementAPCost = this.Const.DefaultMovementAPCost;
-				movementFatigueCost = this.Const.DefaultMovementFatigueCost;
-			}
+				this.m.ActionPointCostsBackup = clone actor.m.ActionPointCosts;
+				this.m.FatigueCostsBackup = clone actor.m.FatigueCosts;
+				this.m.LevelActionPointCostBackup = actor.m.LevelActionPointCost;
 
-			actor.m.ActionPointCosts = [];
-			actor.m.FatigueCosts = [];
+				local movementAPCost = [];
+				local movementFatigueCost = [];
+				local divider = 1;	
 
-			for (local i = 0; i < movementAPCost.len(); i++)
-			{
-				actor.m.ActionPointCosts.push(this.Math.max(1, movementAPCost[i] - 1));
-				actor.m.FatigueCosts.push(this.Math.max(1, movementFatigueCost[i]) / 2);
+				if (this.getContainer().hasSkill("perk.pathfinder"))
+				{
+					movementAPCost = this.Const.PathfinderMovementAPCost;
+					movementFatigueCost = this.Const.PathfinderMovementFatigueCost;
+				}
+				else
+				{
+					movementAPCost = this.Const.DefaultMovementAPCost;
+					movementFatigueCost = this.Const.DefaultMovementFatigueCost;
+				}
+
+				actor.m.ActionPointCosts = [];
+				actor.m.FatigueCosts = [];
+
+				for (local i = 0; i < movementAPCost.len(); i++)
+				{
+					actor.m.ActionPointCosts.push(this.Math.max(1, movementAPCost[i] - 1));
+					actor.m.FatigueCosts.push(this.Math.max(1, movementFatigueCost[i]) / 2);
+				}
+
+				actor.m.LevelActionPointCost = 0;
 			}
-
-			actor.m.LevelActionPointCost = 0;
 		}
 		else
 		{
@@ -151,9 +154,6 @@ this.perk_ptr_skirmisher <- this.inherit("scripts/skills/skill", {
 		this.m.AttacksRemaining = 2;
 		this.m.TurnCount = 0;
 		this.resetCosts();
-		this.m.ActionPointCostsBackup = null;
-		this.m.FatigueCostsBackup = null;
-		this.m.LevelActionPointCostBackup = null;
 	}
 
 	function resetCosts()
@@ -167,5 +167,8 @@ this.perk_ptr_skirmisher <- this.inherit("scripts/skills/skill", {
 		actor.m.ActionPointCosts = clone this.m.ActionPointCostsBackup;
 		actor.m.FatigueCosts = clone this.m.FatigueCostsBackup;
 		actor.m.LevelActionPointCost = this.m.LevelActionPointCostBackup;
+		this.m.ActionPointCostsBackup = null;
+		this.m.FatigueCostsBackup = null;
+		this.m.LevelActionPointCostBackup = null;
 	}
 });
