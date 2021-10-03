@@ -70,14 +70,14 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 		return tooltip;
 	}
 
-	function onAdded()
-	{
-		if (this.getContainer().getActor().getFaction() == this.Const.Faction.Barbarians)
-		{
-			this.m.Icon = "ui/perks/ptr_vigorous_assault_barbarian.png";
-			this.m.IconMini = "ptr_vigorous_assault_barbarian_mini";
-		}
-	}
+	// function onAdded()
+	// {
+	// 	if (this.getContainer().getActor().getFaction() == this.Const.Faction.Barbarians)
+	// 	{
+	// 		this.m.Icon = "ui/perks/ptr_vigorous_assault_barbarian.png";
+	// 		this.m.IconMini = "ptr_vigorous_assault_barbarian_mini";
+	// 	}
+	// }
 
 	function isEnabled()
 	{
