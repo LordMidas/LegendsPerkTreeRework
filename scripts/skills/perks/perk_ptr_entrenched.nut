@@ -95,11 +95,7 @@ this.perk_ptr_entrenched <- this.inherit("scripts/skills/skill", {
 			_properties.RangedSkill += bonus;
 			_properties.RangedDefense += bonus;
 			_properties.Bravery += bonus;
-		}
-		else
-		{
-			this.m.TurnsEntrenched = 0;
-		}
+		}		
 	}
 
 	function getItemActionCost( _items )
@@ -147,6 +143,10 @@ this.perk_ptr_entrenched <- this.inherit("scripts/skills/skill", {
 		if (this.isEnabled())
 		{
 			this.m.TurnsEntrenched++;
+		}
+		else
+		{
+			this.m.TurnsEntrenched = 0;
 		}
 	}
 
