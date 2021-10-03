@@ -5,6 +5,7 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 		FatCostReduction = 10,
 		StartingTile = null,
 		BeforeSkillExecutedTile = null,
+		IsIconSet = false,
 		CurrAPBonus = 0,
 		CurrFatBonus = 0
 	},
@@ -24,7 +25,7 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 
 	function isHidden()
 	{
-		return this.m.CurrAPBonus == 0 && this.m.CurrFatBonus == 0;
+		return this.getContainer().getActor().isPlayerControlled() && this.m.CurrAPBonus == 0 && this.m.CurrFatBonus == 0;
 	}
 
 	function getTooltip()
@@ -70,15 +71,6 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 		return tooltip;
 	}
 
-	// function onAdded()
-	// {
-	// 	if (this.getContainer().getActor().getFaction() == this.Const.Faction.Barbarians)
-	// 	{
-	// 		this.m.Icon = "ui/perks/ptr_vigorous_assault_barbarian.png";
-	// 		this.m.IconMini = "ptr_vigorous_assault_barbarian_mini";
-	// 	}
-	// }
-
 	function isEnabled()
 	{
 		local actor = this.getContainer().getActor();
@@ -96,19 +88,25 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 		return true;
 	}
 
+	function onNewRound()
+	{
+		if (!this.m.IsIconSet)
+		{
+			if (this.getContainer().getActor().getFaction() == this.World.FactionManager.getFactionOfType(this.Const.FactionType.Barbarians).getID())
+			{
+				this.m.Icon = "ui/perks/ptr_vigorous_assault_barbarian.png";
+				this.m.IconMini = "ptr_vigorous_assault_barbarian_mini";
+			}
+
+			this.m.IsIconSet = true;
+		}
+	}
+
 	function onAfterUpdate( _properties )
 	{
-		this.m.CurrAPBonus = 0;
-		this.m.CurrFatBonus = 0;
+		this.resetBonus();
 
-		// this.logInfo(this.getContainer().getActor().getName() + "\'s faction is: " + this.getContainer().getActor().getFaction());
-		// if (this.getContainer().getActor().getType() == this.Const.EntityType.BanditLeader )
-		// {
-		// 	this.m.Icon = "ui/perks/ptr_vigorous_assault_barbarian.png";
-		// 	this.m.IconMini = "ptr_vigorous_assault_barbarian_mini";
-		// }
-
-		if (!this.isEnabled() || this.m.StartingTile == null)
+		if (!this.isEnabled() || this.m.StartingTile == null || this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != this.getContainer().getActor().getID())
 		{
 			return;
 		}
@@ -149,20 +147,20 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 
 	function onWaitTurn()
 	{
-		this.m.StartingTile = this.getContainer().getActor().getTile();
-		this.m.BeforeSkillExecutedTile = null;
+		this.m.StartingTile = null;		
+		this.resetBonus();
 	}
+
+	function onResumeTurn()
+	{
+		this.m.StartingTile = this.getContainer().getActor().getTile();		
+		this.resetBonus();
+	} 
 
 	function onPayForItemAction( _skill, _items )
 	{
-		this.m.StartingTile = this.getContainer().getActor().getTile();
-		this.m.BeforeSkillExecutedTile = null;
-	}
-
-	function onCombatStarted()
-	{
-		this.m.StartingTile = this.getContainer().getActor().getTile();
-		this.m.BeforeSkillExecutedTile = null;
+		this.m.StartingTile = this.getContainer().getActor().getTile();	
+		this.resetBonus();
 	}
 
 	function onCombatFinished()
@@ -170,11 +168,24 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 		this.skill.onCombatFinished();
 		this.m.StartingTile = null;
 		this.m.BeforeSkillExecutedTile = null;
+		this.resetBonus();
 	}
 
 	function onTurnStart()
 	{
-		this.m.StartingTile = this.getContainer().getActor().getTile();
-		this.m.BeforeSkillExecutedTile = null;
+		this.m.StartingTile = this.getContainer().getActor().getTile();		
+		this.resetBonus();
+	}
+
+	function onTurnEnd()
+	{	
+		this.m.StartingTile = null;
+		this.resetBonus();
+	}
+
+	function resetBonus()
+	{
+		this.m.CurrAPBonus = 0;
+		this.m.CurrFatBonus = 0;
 	}
 });
