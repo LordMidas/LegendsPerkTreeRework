@@ -82,14 +82,7 @@ this.ptr_dismantled_effect <- this.inherit("scripts/skills/skill", {
 
 		local count = 0;
 
-		if (_hitInfo.BodyPart == this.Const.BodyPart.Body)
-		{
-			count = this.m.BodyHitCount;
-		}
-		else
-		{
-			count = this.m.HeadHitCount;
-		}
+		count = _hitInfo.BodyPart == this.Const.BodyPart.Body ? this.m.BodyHitCount : this.m.HeadHitCount;
 
 		_properties.DamageReceivedDirectMult *= 1.0 + (count * this.m.DamageIncrease * 0.01);
 	}
