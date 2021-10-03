@@ -1,4 +1,17 @@
 ====================
+==== Ver 1.2.16 ====
+====================
+- Vigorous Assault Status Effect icon is now always visible on AI characters, to help the player know which enemies have this perk.
+- Special new Vigorous Assault icon for Barbarians.
+- Vigorous Assault now properly resets on Turn End instead of only on Turn Start.
+- Improved the tooltips of Exploit Opening and Exploitable Opening status effects.
+- Fixed Dismantle not working with secondary skills (e.g. Destroy Armor) of hammers.
+- Fixed Dismantled Armor effect not stacking from multiple hits.
+- Dismantle will no longer add stacks if the target armor is at 0 durability.
+- Fixed enemies with Throwing Weapons and Vigorous Assault always having their Throwing Attack Action Point cost reduced by 1.
+- Added missing mini-icons for Vigorous Assault.
+
+====================
 ==== Ver 1.2.15 ====
 ====================
 - Fixed missing attack rolls with three-headed flails causing a crash.
