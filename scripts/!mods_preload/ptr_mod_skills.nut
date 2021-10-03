@@ -177,9 +177,10 @@ gt.Const.PTR.modSkills <- function()
 			local target = _targetTile.getEntity();
 
 			local hitChance = this.getHitchance(target);
+			local roll = this.Math.rand(1, 100);
 			for (local i = 0; i < 3; i++)
-			{
-				if (i < 2 && this.Math.rand(1, 100) <= hitChance)
+			{				
+				if (i < 2 && roll <= hitChance)
 				{
 					this.m.IsUsingHitchance = false;
 					break;
@@ -218,9 +219,10 @@ gt.Const.PTR.modSkills <- function()
 			local target = _targetTile.getEntity();
 
 			local hitChance = this.getHitchance(target);
+			local roll = this.Math.rand(1, 100);
 			for (local i = 0; i < 3; i++)
-			{
-				if (i < 2 && this.Math.rand(1, 100) <= hitChance)
+			{				
+				if (i < 2 && roll <= hitChance)
 				{
 					this.m.IsUsingHitchance = false;
 					break;
