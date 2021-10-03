@@ -15,19 +15,16 @@ this.perk_ptr_dismantle <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
-	function isEnabled(_skill, _weapon)
+	function isEnabled()
 	{
 		if (this.m.IsForceEnabled)
 		{
 			return true;
 		}
 
-		if (!_skill.hasDamageType(this.Const.Damage.DamageType.Blunt))
-		{
-			return false;
-		}
+		local weapon = this.getContainer().getActor().getMainhandItem();
 
-		if(_weapon == null || !_weapon.isWeaponType(this.Const.Items.WeaponType.Hammer))
+		if(weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Hammer))
 		{
 			return false;
 		}
@@ -38,25 +35,25 @@ this.perk_ptr_dismantle <- this.inherit("scripts/skills/skill", {
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
 		local actor = this.getContainer().getActor();
-		if (!_skill.isAttack() || !_targetEntity.isAlive() || _targetEntity.isDying() || _targetEntity.isAlliedWith(actor))
+		if (!_targetEntity.isAlive() || _targetEntity.isDying() || _targetEntity.isAlliedWith(actor) || !_skill.isAttack() || !this.isEnabled())
 		{
 			return;
 		}
 
-		local weapon = actor.getMainhandItem();
-		if (!this.isEnabled(_skill, weapon))
+		if (_targetEntity.getArmor(_bodyPart) == 0)
 		{
 			return;
 		}
 
-		local effect = _targetEntity.getSkills().getSkillByID("effect.ptr_dismantled");
+		local effect = _targetEntity.getSkills().getSkillByID("effects.ptr_dismantled");
 		if (effect == null)
 		{
-			effect = this.new("scripts/skills/effects/ptr_dismantled_effect");
-			_targetEntity.getSkills().add(effect);
+			effect = this.new("scripts/skills/effects/ptr_dismantled_effect");			
 		}
 
 		local countsToAdd = 1;
+
+		local weapon = actor.getMainhandItem();
 		if (weapon != null && weapon.isItemType(this.Const.Items.ItemType.TwoHanded))
 		{
 			countsToAdd += 1;
@@ -70,5 +67,7 @@ this.perk_ptr_dismantle <- this.inherit("scripts/skills/skill", {
 		{
 			effect.m.HeadHitCount += countsToAdd;
 		}
+
+		_targetEntity.getSkills().add(effect);
 	}
 });
