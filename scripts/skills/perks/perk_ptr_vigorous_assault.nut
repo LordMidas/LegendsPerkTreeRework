@@ -14,6 +14,7 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 		this.m.Name = this.Const.Strings.PerkName.PTRVigorousAssault;
 		this.m.Description = "This character is adding the momentum of their movement to %their% next attack.";
 		this.m.Icon = "ui/perks/ptr_vigorous_assault.png";
+		this.m.IconMini = "ptr_vigorous_assault_mini";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.Last;
 		this.m.IsActive = false;
@@ -99,6 +100,13 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.CurrAPBonus = 0;
 		this.m.CurrFatBonus = 0;
+
+		// this.logInfo(this.getContainer().getActor().getName() + "\'s faction is: " + this.getContainer().getActor().getFaction());
+		// if (this.getContainer().getActor().getType() == this.Const.EntityType.BanditLeader )
+		// {
+		// 	this.m.Icon = "ui/perks/ptr_vigorous_assault_barbarian.png";
+		// 	this.m.IconMini = "ptr_vigorous_assault_barbarian_mini";
+		// }
 
 		if (!this.isEnabled() || this.m.StartingTile == null)
 		{
