@@ -111,7 +111,7 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 
 		local mult = distanceMoved / this.m.BonusEveryXTiles;
 
-		if (!actor.isPlayerControlled() && distanceMoved < this.m.BonusEveryXTiles && actor.getActorsAtDistanceAsArray(1, this.Const.FactionRelation.Enemy).len() == 0 && actor.getActorsAtDistanceAsArray(this.m.BonusEveryXTiles + 1, this.Const.FactionRelation.Enemy).len() > 0)
+		if (!actor.isPlayerControlled() && !this.getContainer().getActor().isArmedWithRangedWeapon() && distanceMoved < this.m.BonusEveryXTiles && actor.getActorsAtDistanceAsArray(1, this.Const.FactionRelation.Enemy).len() == 0 && actor.getActorsAtDistanceAsArray(this.m.BonusEveryXTiles + 1, this.Const.FactionRelation.Enemy).len() > 0)
 		{
 			mult = 1;
 		}
