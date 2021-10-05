@@ -36,7 +36,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 		{ Tree = this.Const.Perks.AgileTree, Multiplier = 0.5 }
 	];
 	gt.Const.Perks.TraitMultipliers["trait.athletic"] <- [
-		{ Tree = this.Const.Perks.AgileTree, Multiplier = 1000 },
+		{ Tree = this.Const.Perks.AgileTree, Multiplier = 10000 },
 		{ Tree = this.Const.Perks.FastTree, Multiplier = 2 }		
 	];
 	gt.Const.Perks.TraitMultipliers["trait.bleeder"] <- [
@@ -72,7 +72,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 		{ Tree = this.Const.Perks.CalmTree, Multiplier = 0 }		
 	];
 	gt.Const.Perks.TraitMultipliers["trait.deathwish"] <- [
-		{ Tree = this.Const.Perks.ResilientTree, Multiplier = 1000 },
+		{ Tree = this.Const.Perks.ResilientTree, Multiplier = 10000 },
 		{ Tree = this.Const.Perks.SturdyTree, Multiplier = 2 }
 	];
 	gt.Const.Perks.TraitMultipliers["trait.determined"] <- [
@@ -106,7 +106,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 		{ Tree = this.Const.Perks.FastTree, Multiplier = 0.5 }		
 	];
 	gt.Const.Perks.TraitMultipliers["trait.fearless"] <- [
-		{ Tree = this.Const.Perks.CalmTree, Multiplier = 1000 },
+		{ Tree = this.Const.Perks.CalmTree, Multiplier = 10000 },
 		{ Tree = this.Const.Perks.SergeantClassTree, Multiplier = 4 }
 	];
 	gt.Const.Perks.TraitMultipliers["trait.firm"] <- [
@@ -143,18 +143,18 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 	gt.Const.Perks.TraitMultipliers["trait.heavy"] <- [
 		{ Tree = this.Const.Perks.FastTree, Multiplier = 0 },
 		{ Tree = this.Const.Perks.AgileTree, Multiplier = 0.25 },
-		{ Tree = this.Const.Perks.LargeTree, Multiplier = 1000 },
+		{ Tree = this.Const.Perks.LargeTree, Multiplier = 10000 },
 		{ Tree = this.Const.Perks.SturdyTree, Multiplier = 2 }
 	];
 	gt.Const.Perks.TraitMultipliers["trait.hesitant"] <- [
 		{ Tree = this.Const.Perks.FastTree, Multiplier = 0 }
 	];
 	gt.Const.Perks.TraitMultipliers["trait.huge"] <- [
-		{ Tree = this.Const.Perks.LargeTree, Multiplier = 1000 },
+		{ Tree = this.Const.Perks.LargeTree, Multiplier = 10000 },
 		{ Tree = this.Const.Perks.HeavyArmorTree, Multiplier = 4 }
 	];
 	gt.Const.Perks.TraitMultipliers["trait.impatient"] <- [
-		{ Tree = this.Const.Perks.FastTree, Multiplier = 1000 }
+		{ Tree = this.Const.Perks.FastTree, Multiplier = 10000 }
 	];
 	gt.Const.Perks.TraitMultipliers["trait.insecure"] <- [
 		{ Tree = this.Const.Perks.SergeantClassTree, Multiplier = 0 },
@@ -163,7 +163,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 	];
 	gt.Const.Perks.TraitMultipliers["trait.iron_jaw"] <- [
 		{ Tree = this.Const.Perks.SturdyTree, Multiplier = 2 },		
-		{ Tree = this.Const.Perks.ResilientTree, Multiplier = 1000 }
+		{ Tree = this.Const.Perks.ResilientTree, Multiplier = 10000 }
 	];
 	gt.Const.Perks.TraitMultipliers["trait.iron_lungs"] <- [
 		{ Tree = this.Const.Perks.UnstoppableTree, Multiplier = 2 },
@@ -175,7 +175,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 		{ Tree = this.Const.Perks.EntertainerClassTree, Multiplier = 2 }
 	];
 	gt.Const.Perks.TraitMultipliers["trait.legend_cannibalistic"] <- [
-		{ Tree = this.Const.Perks.CleaverTree, Multiplier = 1000 }
+		{ Tree = this.Const.Perks.CleaverTree, Multiplier = 10000 }
 	];
 	gt.Const.Perks.TraitMultipliers["trait.legend_diurnal"] <- [
 		{ Tree = this.Const.Perks.ScoutClassTree, Multiplier = 2 }
@@ -183,7 +183,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 	gt.Const.Perks.TraitMultipliers["trait.legend_peaceful"] <- [
 		{ Tree = this.Const.Perks.ViciousTree, Multiplier = 0 },
 		{ Tree = this.Const.Perks.UnstoppableTree, Multiplier = 0 },
-		{ Tree = this.Const.Perks.CalmTree, Multiplier = 1000 },
+		{ Tree = this.Const.Perks.CalmTree, Multiplier = 10000 },
 		{ Tree = this.Const.Perks.SergeantClassTree, Multiplier = 4 },
 		{ Tree = this.Const.Perks.OrganisedTree, Multiplier = 2 }
 	];
@@ -196,10 +196,10 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 		{ Tree = this.Const.Perks.ResilientTree, Multiplier = 2 }
 	];
 	gt.Const.Perks.TraitMultipliers["trait.lucky"] <- [
-		{ Tree = this.Const.Perks.ResilientTree, Multiplier = 1000 }
+		{ Tree = this.Const.Perks.ResilientTree, Multiplier = 10000 }
 	];
 	gt.Const.Perks.TraitMultipliers["trait.natural"] <- [
-		{ Tree = this.Const.Perks.TalentedTree, Multiplier = 1000 }
+		{ Tree = this.Const.Perks.TalentedTree, Multiplier = 10000 }
 	];
 	gt.Const.Perks.TraitMultipliers["trait.night_blind"] <- [
 		{ Tree = this.Const.Perks.ScoutClassTree, Multiplier = 0 }
@@ -229,7 +229,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 	];
 	gt.Const.Perks.TraitMultipliers["trait.quick"] <- [
 		{ Tree = this.Const.Perks.SwordTree, Multiplier = 2 },
-		{ Tree = this.Const.Perks.FastTree, Multiplier = 1000 }
+		{ Tree = this.Const.Perks.FastTree, Multiplier = 10000 }
 	];
 	gt.Const.Perks.TraitMultipliers["trait.short_sighted"] <- [
 		{ Tree = this.Const.Perks.ScoutClassTree, Multiplier = 0 }
@@ -257,12 +257,12 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 		{ Tree = this.Const.Perks.ResilientTree, Multiplier = 2 }
 	];
 	gt.Const.Perks.TraitMultipliers["trait.sureshot"] <- [
-		{ Tree = this.Const.Perks.BowTree, Multiplier = 1000 },
-		{ Tree = this.Const.Perks.CrossbowTree, Multiplier = 1000 },
-		{ Tree = this.Const.Perks.RangedTree, Multiplier = 1000 }
+		{ Tree = this.Const.Perks.BowTree, Multiplier = 10000 },
+		{ Tree = this.Const.Perks.CrossbowTree, Multiplier = 10000 },
+		{ Tree = this.Const.Perks.RangedTree, Multiplier = 10000 }
 	];
 	gt.Const.Perks.TraitMultipliers["trait.survivor"] <- [
-		{ Tree = this.Const.Perks.ResilientTree, Multiplier = 1000 },
+		{ Tree = this.Const.Perks.ResilientTree, Multiplier = 10000 },
 		{ Tree = this.Const.Perks.SturdyTree, Multiplier = 2 }
 	];
 	gt.Const.Perks.TraitMultipliers["trait.swift"] <- [
@@ -278,7 +278,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 	];
 	gt.Const.Perks.TraitMultipliers["trait.tough"] <- [
 		{ Tree = this.Const.Perks.LargeTree, Multiplier = 4 },
-		{ Tree = this.Const.Perks.SturdyTree, Multiplier = 1000 },
+		{ Tree = this.Const.Perks.SturdyTree, Multiplier = 10000 },
 		{ Tree = this.Const.Perks.ResilientTree, Multiplier = 2 }
 	];
 	gt.Const.Perks.TraitMultipliers["trait.unpredictable"] <- [
@@ -294,8 +294,8 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 		{ Tree = this.Const.Perks.AgileTree, Multiplier = 2 }
 	];
 	gt.Const.Perks.TraitMultipliers["trait.aggressive"] <- [
-		{ Tree = this.Const.Perks.ViciousTree, Multiplier = 1000 },
-		{ Tree = this.Const.Perks.UnstoppableTree, Multiplier = 1000 }
+		{ Tree = this.Const.Perks.ViciousTree, Multiplier = 10000 },
+		{ Tree = this.Const.Perks.UnstoppableTree, Multiplier = 10000 }
 	];
 	gt.Const.Perks.TraitMultipliers["trait.ailing"] <- [		
 		{ Tree = this.Const.Perks.ResilientTree, Multiplier = 0.5 }
@@ -549,7 +549,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 			}
 
 			local multipliers = [
-				{ Tree = trees[this.Math.rand(0, trees.len() - 1)], Multiplier = 1000 }
+				{ Tree = trees[this.Math.rand(0, trees.len() - 1)], Multiplier = 10000 }
 			];
 
 			_treeList = applyMultipliers(multipliers, _treeList);
