@@ -1,4 +1,16 @@
 ====================
+==== Ver 1.2.17 ====
+====================
+- Removed Composure from Captain Magic tree.
+- Fixed three-headed flails not properly getting their three attack rolls.
+- Fixed Survival Instinct appearing in the hitchance tooltip even if the target has no stacks of it.
+- Fixed enemies with Composure being stunnable.
+- Fixed enemies with Stalwart being knock-backable.
+- Fixed some cases where the Entrenched bonus was not applied/calculated properly.
+- Fixed Minstrel not getting the Daze perk.
+- Fixed the Hunter background sometimes spawning without the Ranged styles tree.
+
+====================
 ==== Ver 1.2.16 ====
 ====================
 - Vigorous Assault Status Effect icon is now always visible on AI characters, to help the player know which enemies have this perk.
