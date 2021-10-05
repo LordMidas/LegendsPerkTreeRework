@@ -119,10 +119,14 @@ gt.Const.PTR.modSkill <- function()
 				local targetSI = targetEntity.getSkills().getSkillByID("perk.ptr_survival_instinct");
 				if (targetSI != null)
 				{
-					ret.push({
-						icon = "ui/tooltips/negative.png",
-						text = "[color=" + this.Const.UI.Color.NegativeValue + "]" + targetSI.getBonus() + "%[/color] Survival Instinct"
-					});
+					local bonus = targetSI.getBonus();
+					if (bonus > 0)
+					{
+						ret.push({
+							icon = "ui/tooltips/negative.png",
+							text = "[color=" + this.Const.UI.Color.NegativeValue + "]" + targetSI.getBonus() + "%[/color] Survival Instinct"
+						});
+					}
 				}
 
 				// local immersiveDamage = this.getContainer().getSkillByID("effects.ptr_immersive_damage");
