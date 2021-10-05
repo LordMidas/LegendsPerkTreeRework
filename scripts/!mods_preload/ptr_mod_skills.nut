@@ -63,6 +63,10 @@ gt.Const.PTR.modSkills <- function()
 				actor.m.PerkPointsSpent -= 1;
 				this.removeSelf();
 			}
+			else
+			{
+				_properties.IsImmuneToStun = true;
+			}
 		}
 	});
 
@@ -77,6 +81,10 @@ gt.Const.PTR.modSkills <- function()
 				actor.m.PerkPoints += 1;
 				actor.m.PerkPointsSpent -= 1;
 				this.removeSelf();
+			}
+			else
+			{
+				_properties.IsImmuneToKnockBackAndGrab = true;
 			}
 		}
 	});
