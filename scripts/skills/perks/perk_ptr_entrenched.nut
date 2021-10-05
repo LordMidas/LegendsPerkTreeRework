@@ -2,7 +2,7 @@ this.perk_ptr_entrenched <- this.inherit("scripts/skills/skill", {
 	m = {
 		Bonus = 7,
 		MaxBonus = 15,
-		TurnsEntrenched = 0,
+		TurnsEntrenched = -1,
 		IsSpent = false
 	},
 	function create()
@@ -17,6 +17,11 @@ this.perk_ptr_entrenched <- this.inherit("scripts/skills/skill", {
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
+	}
+
+	function isHidden()
+	{
+		return this.m.TurnsEntrenched < 0;
 	}
 
 	function getName()
@@ -54,43 +59,33 @@ this.perk_ptr_entrenched <- this.inherit("scripts/skills/skill", {
 
 	function isEnabled()
 	{
-		if (!this.getContainer().getActor().isPlacedOnMap())
-		{
-			return false;
-		}
-
 		local weapon = this.getContainer().getActor().getMainhandItem();
 		if (weapon == null || !weapon.isItemType(this.Const.Items.ItemType.RangedWeapon))
 		{
 			return false;
 		}
 
-		local isValid = false;
 		local adjacentAllies = this.getContainer().getActor().getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.SameFaction);
 		foreach (ally in adjacentAllies)
 		{
 			if (!ally.isEngagedInMelee() && ally.hasZoneOfControl())
 			{
-				isValid = true;
-				break;
+				return true;
 			}
 		}
 
-		return isValid;
+		return false;
 	}
 
 	function getBonus()
 	{
-		return this.Math.max(0, this.Math.min(this.m.MaxBonus, this.m.Bonus + (this.m.TurnsEntrenched - 1) * 2));
+		return this.Math.max(0, this.Math.min(this.m.MaxBonus, this.m.Bonus + this.m.TurnsEntrenched * 2));
 	}
 
 	function onUpdate( _properties )
 	{
-		this.m.IsHidden = true;
-
-		if (this.isEnabled())
+		if (this.m.TurnsEntrenched >= 0 && this.isEnabled())
 		{
-			this.m.IsHidden = false;
 			local bonus = this.getBonus();
 			_properties.RangedSkill += bonus;
 			_properties.RangedDefense += bonus;
@@ -100,7 +95,7 @@ this.perk_ptr_entrenched <- this.inherit("scripts/skills/skill", {
 
 	function getItemActionCost( _items )
 	{
-		if (this.m.IsSpent || !this.isEnabled())
+		if (this.m.IsSpent || this.m.TurnsEntrenched < 0 || !this.isEnabled())
 		{
 			return null;
 		}
@@ -146,13 +141,13 @@ this.perk_ptr_entrenched <- this.inherit("scripts/skills/skill", {
 		}
 		else
 		{
-			this.m.TurnsEntrenched = 0;
+			this.m.TurnsEntrenched = -1;
 		}
 	}
 
 	function onCombatFinished()
 	{
 		this.skill.onCombatFinished();
-		this.m.TurnsEntrenched = 0;		
+		this.m.TurnsEntrenched = -1;		
 	}
 });
