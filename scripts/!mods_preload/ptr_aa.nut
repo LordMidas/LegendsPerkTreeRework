@@ -42,40 +42,82 @@ local modID = "mod_legends_PTR";
 	gt.setupDebugLog(true, modID);
 
 	gt.Const.PTR.modRetinue();
+	delete gt.Const.PTR.modRetinue;
+
 	gt.Const.PTR.modCharacterInjuries();
+	delete gt.Const.PTR.modCharacterInjuries;
+
 	gt.Const.PTR.modStrings();
+	delete gt.Const.PTR.modStrings;
+
 	gt.Const.PTR.modSkill();
+	delete gt.Const.PTR.modSkill;
+
 	gt.Const.PTR.modSkillContainer();
+	delete gt.Const.PTR.modSkillContainer;
+
 	gt.Const.PTR.modActor();
+	delete gt.Const.PTR.modActor;
+
 	gt.Const.PTR.modPlayer();
+	delete gt.Const.PTR.modPlayer;
+
 	gt.Const.PTR.modSkills();
+	delete gt.Const.PTR.modSkills;
+
 	gt.Const.PTR.modWeapons();
+	delete gt.Const.PTR.modWeapons;
+	
 	gt.Const.PTR.modItems();
+	delete gt.Const.PTR.modItems;
+	
 	gt.Const.PTR.modSettlement();	
-
+	delete gt.Const.PTR.modSettlement;
+	
 	gt.Const.PTR.addPerksToPerkDefs();
-
+	delete gt.Const.PTR.addPerksToPerkDefs;
+	
 	gt.Const.PTR.modDefenseTrees();
+	delete gt.Const.PTR.modDefenseTrees;
+	
 	gt.Const.PTR.modWeaponTrees();
+	delete gt.Const.PTR.modWeaponTrees;
+	
 	gt.Const.PTR.modTraitsTrees();
+	delete gt.Const.PTR.modTraitsTrees;
+	
 	gt.Const.PTR.modClassTrees();
+	delete gt.Const.PTR.modClassTrees;
+	
 	gt.Const.PTR.modMagicTrees();
+	delete gt.Const.PTR.modMagicTrees;	
 
 	gt.Const.PTR.createStylesTrees();
+	delete gt.Const.PTR.createStylesTrees;
+	
 	gt.Const.PTR.createProfessionTrees();
-
+	delete gt.Const.PTR.createProfessionTrees;
+	
 	gt.Const.PTR.modLegendsPerkTreeCreationSystem();
-
+	delete gt.Const.PTR.modLegendsPerkTreeCreationSystem;
+	
 	gt.Const.PTR.modCharacterBackground();
+	delete gt.Const.PTR.modCharacterBackground;
+	
 	gt.Const.PTR.modCharacterBackgrounds();
-
+	delete gt.Const.PTR.modCharacterBackgrounds;
+	
 	gt.Const.PTR.modLegendsEnemyTrees();
-
+	delete gt.Const.PTR.modLegendsEnemyTrees;
+	
 	gt.Const.PTR.modEnemies();
-
+	delete gt.Const.PTR.modEnemies;
+	
 	gt.Const.PTR.modAI();
-
+	delete gt.Const.PTR.modAI;
+	
 	gt.Const.PTR.modRunes();
+	delete gt.Const.PTR.modRunes;	
 
 	::mods_registerJS("ptr_mod_screens.js");
 });
