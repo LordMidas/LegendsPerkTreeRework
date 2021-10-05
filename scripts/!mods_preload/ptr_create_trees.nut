@@ -511,7 +511,9 @@ gt.Const.PTR.createProfessionTrees <- function()
 			[
 				gt.Const.Perks.PerkDefs.LegendSpecialistLuteSkill
 			],
-			[],
+			[
+				gt.Const.Perks.PerkDefs.LegendDaze
+			],
 			[
 				gt.Const.Perks.PerkDefs.LegendSpecialistLuteDamage
 			],
