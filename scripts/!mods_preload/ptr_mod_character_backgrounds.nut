@@ -1453,6 +1453,9 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			],
 			Defense = [
 				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+			],
+			Styles = [
+				[{Weight = 100, Tree = this.Const.Perks.RangedTree}]
 			]
 		};
 	});
