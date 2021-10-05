@@ -59,6 +59,7 @@ local modID = "mod_legends_PTR";
 	gt.Const.PTR.modWeaponTrees();
 	gt.Const.PTR.modTraitsTrees();
 	gt.Const.PTR.modClassTrees();
+	gt.Const.PTR.modMagicTrees();
 
 	gt.Const.PTR.createStylesTrees();
 	gt.Const.PTR.createProfessionTrees();

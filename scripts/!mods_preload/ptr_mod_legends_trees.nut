@@ -1250,3 +1250,8 @@ gt.Const.PTR.modDefenseTrees <- function ()
 	this.Const.Perks.LightArmorTree.Tree[5] = [this.Const.Perks.PerkDefs.Nimble];
 	this.Const.Perks.LightArmorTree.Tree[6] = [];
 }
+
+gt.Const.PTR.modMagicTrees <- function()
+{
+	gt.Const.Perks.CaptainMagicTree.Tree[1] = [];
+}
