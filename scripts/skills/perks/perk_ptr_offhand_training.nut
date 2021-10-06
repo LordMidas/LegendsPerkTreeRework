@@ -1,6 +1,9 @@
 this.perk_ptr_offhand_training <- this.inherit("scripts/skills/skill", {
 	m = {
-		IsSpent = false
+		IsSpent = true,
+		IsUsingFreeSkill = false,
+		IsFreeUse = false,
+		Skills = []
 	},
 	function create()
 	{
@@ -63,16 +66,56 @@ this.perk_ptr_offhand_training <- this.inherit("scripts/skills/skill", {
 		return null;
 	}
 
+	function onBeforeAnySkillExecuted( _skill, _targetTile, _targetEntity )
+	{
+		if (this.m.Skills.find(_skill.getID()) != null)
+		{
+			this.m.IsUsingFreeSkill = true;
+		}
+	}
+
+	function onBeforeAnySkillExecuted( _skill, _targetTile, _targetEntity )
+	{
+		if (this.m.IsUsingFreeSkill)
+		{
+			this.m.IsFreeUse = false;
+		}
+	}
+
+	function onAfterUpdate( _properties )
+	{
+		this.m.Skills.clear();
+		local off = this.getContainer().getActor().getOffhandItem();
+		if (this.m.IsFreeUse && off != null && off.isItemType(this.Const.Items.ItemType.Tool))
+		{
+			local skills = this.getContainer().getSkillsByFunction(this, @(_skill) _skill.getItem() != null && _skill.getItem().getID() == off.getID());
+			foreach (skill in skills)
+			{
+				this.m.Skills.push(skill.getID());
+				skill.m.ActionPointCost = 0;
+			}
+		}
+	}
+
+	function onTurnStart()
+	{
+		this.m.IsUsingFreeSkill = false;
+		this.m.IsFreeUse = true;
+		this.m.IsSpent = false;
+	}
+
+	function onCombatFinished()
+	{
+		this.m.IsUsingFreeSkill = false;
+		this.m.IsFreeUse = false;
+		this.m.IsSpent = true;
+	}
+
 	function onPayForItemAction(_skill, _items)
 	{
 		if (_skill != null && _skill.getID() != "perk.ptr_target_practice")
 		{
 			this.m.IsSpent = true;
 		}
-	}
-
-	function onTurnStart()
-	{
-		this.m.IsSpent = false;
 	}
 });
