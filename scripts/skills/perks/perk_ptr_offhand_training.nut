@@ -27,9 +27,14 @@ this.perk_ptr_offhand_training <- this.inherit("scripts/skills/skill", {
 
 		foreach (i in _items)
 		{
-			if (i == null || i.getSlotType() != this.Const.ItemSlot.Mainhand)
+			if (i == null)
 			{
 				continue;
+			}
+
+			if (i.getSlotType() == this.Const.ItemSlot.Mainhand)
+			{
+				return null;
 			}
 
 			if (i.isItemType(this.Const.Items.ItemType.Shield))
