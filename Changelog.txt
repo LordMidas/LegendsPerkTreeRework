@@ -1,4 +1,13 @@
 ====================
+==== Ver 1.2.18 ====
+====================
+- Offhand Training tweaked: In addition to previous mechanics: Every turn the first use of the tool in your offhand costs 0 Action Points.
+- Squires now have a 30% chance of having the Soldier perk group, instead of a 100% chance.
+- Increased the threshold for Resolve in the Back to Basics perk to 50 (was 40).
+- Fixed Offhand Training not properly allowing equipping/swapping in the offhand for free.
+- Fixed Kata Step and Move Under Cover skills not taking into account movement cost modifiers from skills and injuries.
+
+====================
 ==== Ver 1.2.17 ====
 ====================
 - Removed Composure from Captain Magic tree.
