@@ -1,4 +1,9 @@
 ====================
+==== Ver 1.2.19 ====
+====================
+- Fixed the Kata Step and Move Under Cover skills causing infinite battle load.
+
+====================
 ==== Ver 1.2.18 ====
 ====================
 - Offhand Training tweaked: In addition to previous mechanics: Every turn the first use of the tool in your offhand costs 0 Action Points.
