@@ -12,7 +12,7 @@ this.str_move_under_cover_skill <- this.inherit("scripts/skills/skill", {
 			"sounds/combat/footwork_01.wav"
 		];
 		this.m.Type = this.Const.SkillType.Active;
-		this.m.Order = this.Const.SkillOrder.Any;
+		this.m.Order = this.Const.SkillOrder.Last;
 		this.m.IsSerialized = false;
 		this.m.IsActive = true;
 		this.m.IsTargeted = true;
@@ -140,8 +140,8 @@ this.str_move_under_cover_skill <- this.inherit("scripts/skills/skill", {
 			local myTile = actor.getTile();
 			if (myTile != null)
 			{
-				this.m.FatigueCost = this.Math.max(0, actor.getFatigueCosts()[myTile.Type]);
-				this.m.ActionPointCost = this.Math.max(0, actor.getActionPointCosts()[myTile.Type]);
+				this.m.FatigueCost = this.Math.max(0, (actor.getFatigueCosts()[myTile.Type] + _properties.MovementAPCostAdditional) * _properties.MovementAPCostMult);
+				this.m.ActionPointCost = this.Math.max(0, (actor.getActionPointCosts()[myTile.Type] + _properties.MovementFatiguteCostAdditional) * _properties.MovementFatigueCostMult);
 			}
 		}
 	}
