@@ -237,7 +237,7 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 			if (myTile != null)
 			{
 				this.m.FatigueCost = this.Math.max(0, (actor.getFatigueCosts()[myTile.Type] + _properties.MovementAPCostAdditional) * _properties.MovementAPCostMult);
-				this.m.ActionPointCost = this.Math.max(0, (actor.getActionPointCosts()[myTile.Type] + _properties.MovementFatiguteCostAdditional - 2) * _properties.MovementFatigueCostMult);
+				this.m.ActionPointCost = this.Math.max(0, (actor.getActionPointCosts()[myTile.Type] + _properties.MovementFatigueCostAdditional - 2) * _properties.MovementFatigueCostMult);
 			}
 		}
 	}
