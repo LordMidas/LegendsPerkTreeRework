@@ -1367,6 +1367,7 @@ gt.Const.PTR.modSkills <- function()
 		o.m.Order = this.Const.SkillType.Perk;
 		o.m.AttackSkillThreshold <- 70;
 		o.m.DefenseSkillThreshold <- 40;
+		o.m.ResolveThreshold <- 50;
 		o.m.Description = "This character is using %their% training to gain at least a passable understanding of the fundamentals of combat, especially in areas %they% lacks.";
 
 		if ("onDamageReceived" in o)
@@ -1472,7 +1473,7 @@ gt.Const.PTR.modSkills <- function()
 		function getBraveryBonus(_baseProperties)
 		{
 			local baseValue = _baseProperties.getBravery();
-			local bonus = this.Math.floor((this.m.DefenseSkillThreshold - baseValue) * 0.01 * baseValue);
+			local bonus = this.Math.floor((this.m.ResolveThreshold - baseValue) * 0.01 * baseValue);
 			return this.Math.max(0, bonus);
 		}
 
