@@ -9,7 +9,7 @@ this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "perk.ptr_opportunist";
 		this.m.Name = this.Const.Strings.PerkName.PTROpportunist;
-		this.m.Description = this.Const.Strings.PerkDescription.PTROpportunist;
+		this.m.Description = "This character wastes no opportunity to pull a weapon out of an enemy\'s corpse, only to launch it towards another!";
 		this.m.Icon = "ui/perks/ptr_opportunist.png";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.Last;
@@ -26,7 +26,7 @@ this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 			id = 10,
 			type = "text",
 			icon = "ui/icons/fatigue.png",
-			text = "The next throwing attack builds [color=" + this.Const.UI.Color.PositiveValue + "]-" + this.m.FatCostRed + "[/color] Fatigue"
+			text = "The next throwing attack builds [color=" + this.Const.UI.Color.PositiveValue + "]-" + this.m.FatCostRed + "%[/color] Fatigue"
 		});
 
 		tooltip.push({
