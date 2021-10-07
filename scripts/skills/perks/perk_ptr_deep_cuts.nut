@@ -2,6 +2,7 @@ this.perk_ptr_deep_cuts <- this.inherit("scripts/skills/skill", {
 	m = {
     TargetID = 0,
 		NumInjuriesBefore = 0,
+		IsInjuryInflicted = false,
 		InjuryThresholdReduction = 33
 	},
 	function create()
@@ -33,28 +34,34 @@ this.perk_ptr_deep_cuts <- this.inherit("scripts/skills/skill", {
 				id = 10,
 				type = "text",
 				icon = "ui/icons/special.png",
-				text = "The next attack this turn against [color=" + this.Const.UI.Color.NegativeValue + "]" + e.getName() + "[/color] has a [color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.InjuryThresholdReduction + "%[/color] lower threshold to inflict injury"
+				text = "The next [color=" + this.Const.UI.Color.NegativeValue + "]cutting[/color] attack this turn against [color=" + this.Const.UI.Color.NegativeValue + "]" + e.getName() + "[/color] has a [color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.InjuryThresholdReduction + "%[/color] lower threshold to inflict injury"
+			});
+
+			tooltip.push({
+				id = 10,
+				type = "text",
+				icon = "ui/icons/warning.png",
+				text = "Will expire upon attacking another target or using a non-cutting type attack"
 			});
 		}
 
 		return tooltip;
 	}
 
-  function onTurnStart()
+  function onTurnEnd()
   {
     this.m.TargetID = 0;
+    this.m.IsInjuryInflicted = false;
   }
 
 	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
 	{
-		if (this.m.TargetID == _targetEntity.getID())
-    {
-      return;
-    }
-    else
-    {
-      this.m.NumInjuriesBefore = _targetEntity.getSkills().getAllSkillsOfType(this.Const.SkillType.TemporaryInjury).len();
+		if (this.m.TargetID != _targetEntity.getID())
+		{
+			this.m.IsInjuryInflicted = false;
 		}
+		
+		this.m.NumInjuriesBefore = _targetEntity.getSkills().getAllSkillsOfType(this.Const.SkillType.TemporaryInjury).len();
 	}
 
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
@@ -67,34 +74,48 @@ this.perk_ptr_deep_cuts <- this.inherit("scripts/skills/skill", {
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		if (this.m.TargetID == _targetEntity.getID())
-    {
-      this.m.TargetID = 0;
-    }
-    else
-    {
-      this.m.TargetID = _targetEntity.getID();
-      return;
-    }
-
-		if (!_skill.isAttack() || !_skill.hasDamageType(this.Const.Damage.DamageType.Cutting) || !_targetEntity.isAlive() || _targetEntity.isDying() || _targetEntity.getCurrentProperties().IsImmuneToBleeding || _damageInflictedHitpoints < this.Const.Combat.MinDamageToApplyBleeding)
+		if (!_targetEntity.isAlive() || _targetEntity.isDying() || !_skill.isAttack() || !_skill.hasDamageType(this.Const.Damage.DamageType.Cutting) || _targetEntity.getCurrentProperties().IsImmuneToBleeding)
 		{
+			this.m.TargetID = 0;
+			this.m.IsInjuryInflicted = false;
 			return;
 		}
 
-		local actor = this.getContainer().getActor();
-    local effect = this.new("scripts/skills/effects/bleeding_effect");
-
-    if (actor.getFaction() == this.Const.Faction.Player)
+		if (_targetEntity.getSkills().getAllSkillsOfType(this.Const.SkillType.TemporaryInjury).len() > this.m.NumInjuriesBefore)
     {
-      effect.setActor(this.getContainer().getActor());
+    	this.m.IsInjuryInflicted = true;
     }
 
-    if (_targetEntity.getSkills().getAllSkillsOfType(this.Const.SkillType.TemporaryInjury).len() > this.m.NumInjuriesBefore)
-		{
-			effect.setDamage(10);
-		}
+		if (this.m.TargetID == _targetEntity.getID())
+    {
+      if (_damageInflictedHitpoints >= this.Const.Combat.MinDamageToApplyBleeding)
+			{
+				local actor = this.getContainer().getActor();
+			  local effect = this.new("scripts/skills/effects/bleeding_effect");
 
-    _targetEntity.getSkills().add(effect);
+			  if (actor.getFaction() == this.Const.Faction.Player)
+			  {
+			    effect.setActor(this.getContainer().getActor());
+			  }
+
+			  if (_targetEntity.getSkills().getAllSkillsOfType(this.Const.SkillType.TemporaryInjury).len() > this.m.NumInjuriesBefore)
+				{
+					effect.setDamage(10);
+				}
+
+			  _targetEntity.getSkills().add(effect);
+			}
+    }
+    else
+    {
+      this.m.TargetID = _targetEntity.getID();      
+   	}
+	}
+
+	function onCombatFinished()
+	{
+		this.skills.onCombatFinished();
+		this.m.TargetID = 0;
+		this.m.IsInjuryInflicted = false;
 	}
 });
