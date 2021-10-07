@@ -39,6 +39,11 @@ this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 		return tooltip;
 	}
 
+	function canProcOntile( _tile )
+	{
+		return _tile.IsCorpseSpawned && this.getContainer().getActor().getAlliedFactions().find(lastTileHovered.Properties.get("Corpse").Faction) == null && this.m.UsedTiles.find(_tile.ID) == null;
+	}
+
 	function isEnabled()
 	{
 		local weapon = this.getContainer().getActor().getMainhandItem();
@@ -64,7 +69,7 @@ this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 		{
 			local tile = actor.getTile();
 
-			if (tile == null || !tile.IsCorpseSpawned || this.m.UsedTiles.find(tile.ID) != null || actor.getAlliedFactions().find(tile.Properties.get("Corpse").Faction) != null)
+			if (tile == null || !this.canProcOntile(tile))
 			{
 				return;
 			}

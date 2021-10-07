@@ -117,7 +117,10 @@ local modID = "mod_legends_PTR";
 	delete gt.Const.PTR.modAI;
 	
 	gt.Const.PTR.modRunes();
-	delete gt.Const.PTR.modRunes;	
+	delete gt.Const.PTR.modRunes;
+
+	gt.Const.PTR.modTooltipEvents();
+	delete gt.Const.PTR.modTooltipEvents;
 
 	::mods_registerJS("ptr_mod_screens.js");
 });
