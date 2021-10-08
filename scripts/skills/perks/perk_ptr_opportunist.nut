@@ -41,7 +41,7 @@ this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 
 	function canProcOntile( _tile )
 	{
-		return _tile.IsCorpseSpawned && this.getContainer().getActor().getAlliedFactions().find(lastTileHovered.Properties.get("Corpse").Faction) == null && this.m.UsedTiles.find(_tile.ID) == null;
+		return _tile.IsCorpseSpawned && this.getContainer().getActor().getAlliedFactions().find(_tile.Properties.get("Corpse").Faction) == null && this.m.UsedTiles.find(_tile.ID) == null;
 	}
 
 	function isEnabled()
