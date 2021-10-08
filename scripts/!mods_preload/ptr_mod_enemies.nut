@@ -1136,7 +1136,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
 			this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
 			this.m.Skills.removeByID("perk.duelist");
-			this.m.Skills.removeByID("perk.legend_perfect_focus");			
+			this.m.Skills.removeByID("perk.perfect_focus");			
 
 			this.m.Skills.add(this.new("scripts/skills/racial/ptr_orc_racial"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_berserk"));
@@ -1178,15 +1178,7 @@ gt.Const.PTR.modEnemies <- function()
 		o.makeMiniboss = function()
 		{
 			local ret = makeMiniboss();
-			if (ret)
-			{
-
-				if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
-				{
-					this.m.Skills.removeByID("perk.last_stand");
-				}
-			}
-
+			this.m.Skills.removeByID("perk.last_stand");
 			return ret;
 		}			
 	});
