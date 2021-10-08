@@ -49,6 +49,7 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_killing_frenzy"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_pattern_recognition"));
 				this.m.Skills.removeByID("perk.legend_composure");
+				this.m.Skills.removeByID("perk.underdog");
 
 			}
 
@@ -189,6 +190,7 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
+				this.m.Skills.removeByID("effects.dodge");				
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));				
 				this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
@@ -250,7 +252,6 @@ gt.Const.PTR.modEnemies <- function()
 			assignRandomEquipment();
 			this.m.Skills.removeByType(this.Const.SkillType.Perk);
 
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bully"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_brawny"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_coup_de_grace"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_bullseye"));
@@ -258,14 +259,17 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_recover"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_quick_hands"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_shield_expert"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bully"));			
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));			
 
 			this.m.Skills.addTreeOfEquippedWeapon(3);
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
+				this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));
+
+				this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));								
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_close_combat_archer"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_target_practice"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bloody_harvest"));
 				this.m.Skills.addTreeOfEquippedWeapon(4);
 			}
@@ -339,6 +343,7 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
+				this.m.Skills.removeByID("effects.dodge");								
 				this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));				
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));
 			}
@@ -377,7 +382,6 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			onInit();
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_the_rush_of_battle"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_menacing"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bully"));
 			this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));
@@ -387,7 +391,7 @@ gt.Const.PTR.modEnemies <- function()
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_pattern_recognition"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_double_strike"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vigorous_assault"));								
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vigorous_assault"));
 			}
 		}
 	});
@@ -741,7 +745,6 @@ gt.Const.PTR.modEnemies <- function()
 				local maulerPerk = this.new("scripts/skills/perks/perk_ptr_mauler");
 				maulerPerk.m.IsForceEnabled = true;
 				this.m.Skills.add(maulerPerk);
-				this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));				
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_steel_brow"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vigorous_assault"));
 			}
@@ -826,8 +829,6 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
 				this.m.Skills.addPerkTree(this.Const.Perks.ThrowingTree);
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bulwark"));
-
-				this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));
 
 			local weapon = this.getMainhandItem();
 				if (weapon != null)
@@ -1083,6 +1084,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
 			this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
 			this.m.Skills.removeByID("perk.duelist");
+			this.m.Skills.removeByID("perk.berserk");			
 
 			this.m.Skills.add(this.new("scripts/skills/racial/ptr_orc_racial"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_killing_frenzy"));
@@ -1100,7 +1102,6 @@ gt.Const.PTR.modEnemies <- function()
 				intimidatePerk.m.IsForceEnabled = true;
 				this.m.Skills.add(intimidatePerk);
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_relentless"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_steel_brow"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bully"));
 				this.m.Skills.removeByID("perk.last_stand");
 				this.m.Skills.removeByID("perk.legend_second_wind");				
@@ -1580,16 +1581,17 @@ gt.Const.PTR.modEnemies <- function()
 			onInit();
 
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_menacing"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bully"));
 			this.m.Skills.add(this.new("scripts/skills/racial/ptr_orc_racial"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_fresh_and_furious"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_momentum"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_primal_fear"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_double_strike"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bully"));
+
 			}
 		}
 
@@ -1886,6 +1888,7 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
+				this.m.Skills.removeByID("perk.legend_battleheart");				
 				local dentArmorPerk = this.new("scripts/skills/perks/perk_ptr_dent_armor");
 				dentArmorPerk.m.IsForceEnabled = true;
 				dentArmorPerk.m.IsForceTwoHanded = true;
@@ -2108,10 +2111,8 @@ gt.Const.PTR.modEnemies <- function()
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.removeByID("perk.legend_onslaught");			
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_overwhelm"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_leverage"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_onslaught"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bear_down"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_wear_them_down"));
 
@@ -2120,6 +2121,7 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.removeByID("perk.nine_lives");
 				this.m.Skills.removeByID("perk.last_stand");				
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_fearsome"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));				
 				local maulerPerk = this.new("scripts/skills/perks/perk_ptr_mauler");
 				maulerPerk.m.IsForceEnabled = true;
 				this.m.Skills.add(maulerPerk);
@@ -2260,9 +2262,14 @@ gt.Const.PTR.modEnemies <- function()
 		local onInit = o.onInit;
 		o.onInit = function()
 		{
+
 			onInit();
 			this.m.Skills.removeByID("perk.underdog");			
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_assured_conquest"));
+
+			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+			{
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_assured_conquest"));
+			}			
 		}
 	});
 
@@ -2299,7 +2306,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_momentum"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_primal_fear"));
-			this.m.Skills.removeByID("perk.nine_lives");			
+			this.m.Skills.removeByID("perk.underdog");			
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -3150,7 +3157,9 @@ gt.Const.PTR.modEnemies <- function()
 			this.getBaseProperties().Vision = 7;
 			this.getBaseProperties().DamageDirectMult = 1.0;
 
+			this.m.Skills.removeByID("perk.steel_brow");				
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_know_their_weakness"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_through_the_ranks"));			
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_berserk"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
@@ -3244,6 +3253,8 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
+				this.m.Skills.removeByID("perk.stalwart");
+				this.m.Skills.removeByID("perk.steel_brow");								
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_berserk"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_bullseye"));
@@ -3527,12 +3538,9 @@ gt.Const.PTR.modEnemies <- function()
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.removeByID("perk.underdog");
-
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_assured_conquest"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_battle_forged"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_know_their_weakness"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_underdog"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_the_rush_of_battle"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_through_the_ranks"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_back_to_basics"));
@@ -3619,6 +3627,8 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
+				this.m.Skills.removeByID("perk.stalwart");
+				this.m.Skills.removeByID("perk.steel_brow");								
 				this.m.Skills.addPerkTree(this.Const.Perks.TrainedTree);
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_overwhelm"));
@@ -3644,6 +3654,9 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
 			this.m.Skills.addPerkTree(this.Const.Perks.TrainedTree);
 
+			this.m.Skills.removeByID("perk.steel_brow");				
+
+
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_pattern_recognition"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_assured_conquest"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_coup_de_grace"));
@@ -3658,7 +3671,8 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.addPerkTree(this.Const.Perks.TrainedTree);
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));
 				this.m.Skills.removeByID("perk.underdog");
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_battleheart"));
+				this.m.Skills.removeByID("perk.perk_legend_back_to_basics");
+				this.m.Skills.removeByID("perk.legend_full_force");								
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_rattle"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_return_favor"));
@@ -3697,6 +3711,7 @@ gt.Const.PTR.modEnemies <- function()
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.addPerkTree(this.Const.Perks.TrainedTree);
+				this.m.Skills.removeByID("perk.legend_composure");				
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_second_wind"));
 			}
 		}
@@ -3786,7 +3801,6 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
 			this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
 
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_menacing"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_relentless"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_close_combat_archer"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_assured_conquest"));
@@ -3795,7 +3809,6 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_berserk"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_man_of_steel"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_know_their_weakness"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_smashing_shields"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_personal_armor"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_shields_up"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_rally_the_troops"));
@@ -3803,6 +3816,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_push_forward"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_second_wind"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_battle_forged"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_menacing"));			
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_primal_fear"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
@@ -4095,12 +4109,12 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			onInit();
 
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_pattern_recognition"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_overwhelm"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_relentless"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bloodbath"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_unstoppable"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_fresh_and_furious"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_pattern_recognition"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
