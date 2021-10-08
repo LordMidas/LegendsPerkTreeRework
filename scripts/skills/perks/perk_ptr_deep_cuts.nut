@@ -114,7 +114,7 @@ this.perk_ptr_deep_cuts <- this.inherit("scripts/skills/skill", {
 
 	function onCombatFinished()
 	{
-		this.skills.onCombatFinished();
+		this.skill.onCombatFinished();
 		this.m.TargetID = 0;
 		this.m.IsInjuryInflicted = false;
 	}
