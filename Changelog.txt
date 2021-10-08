@@ -1,4 +1,12 @@
 ====================
+==== Ver 1.2.21 ====
+====================
+- Removing an incoming stun thanks to being under the effects of Shieldwall/Fortify now adds an entry to the Combat log.
+- Inflicting additional Bleeding due to Deep Cuts now adds an entry to the Combat log.
+- Fixed a soft lock on combat finished when a character had the Deep Cuts perk.
+- Fixed a crash when using the Strike Down skill of Two-Handed maces to stun a target who is using Shieldwall.
+
+====================
 ==== Ver 1.2.20 ====
 ====================
 - Tweaked the perks of many enemies to improve combat balance. The list of changes is too long to mention here.
