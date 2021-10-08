@@ -57,7 +57,7 @@ gt.Const.PTR.modSkills <- function()
 		o.onUpdate <- function( _properties )
 		{
 			local actor = this.getContainer().getActor();
-			if (actor.isPlayerControlled() && actor.m.PerkPointsSpent > 0)
+			if (this.isKindOf(actor.get(), "player") && actor.m.PerkPointsSpent > 0)
 			{
 				actor.m.PerkPoints += 1;
 				actor.m.PerkPointsSpent -= 1;
@@ -76,7 +76,7 @@ gt.Const.PTR.modSkills <- function()
 		o.onUpdate <- function( _properties )
 		{
 			local actor = this.getContainer().getActor();
-			if (actor.isPlayerControlled() && actor.m.PerkPointsSpent > 0)
+			if (this.isKindOf(actor.get(), "player") && actor.m.PerkPointsSpent > 0)
 			{
 				actor.m.PerkPoints += 1;
 				actor.m.PerkPointsSpent -= 1;
