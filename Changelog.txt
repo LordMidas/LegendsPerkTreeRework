@@ -1,4 +1,10 @@
 ====================
+==== Ver 1.2.24 ====
+====================
+- Fixed Skirmisher movement cost reduction being lost on waiting a turn.
+- Fixed compatibility issues with mods that make the vala Warden controllable by player.
+
+====================
 ==== Ver 1.2.23 ====
 ====================
 - Fixed the Skirmisher perk throwing an error on the first turn.
