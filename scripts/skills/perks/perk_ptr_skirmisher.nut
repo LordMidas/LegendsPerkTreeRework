@@ -65,51 +65,6 @@ this.perk_ptr_skirmisher <- this.inherit("scripts/skills/skill", {
 		this.m.TurnCount++;		
 	}
 
-	function onUpdate ( _properties )
-	{
-		local actor = this.getContainer().getActor();
-
-		if (this.m.TurnCount == 1 && this.isEnabled())
-		{
-			if (this.m.ActionPointCostsBackup == null)
-			{
-				this.m.ActionPointCostsBackup = clone actor.m.ActionPointCosts;
-				this.m.FatigueCostsBackup = clone actor.m.FatigueCosts;
-				this.m.LevelActionPointCostBackup = actor.m.LevelActionPointCost;
-
-				local movementAPCost = [];
-				local movementFatigueCost = [];
-				local divider = 1;	
-
-				if (this.getContainer().hasSkill("perk.pathfinder"))
-				{
-					movementAPCost = this.Const.PathfinderMovementAPCost;
-					movementFatigueCost = this.Const.PathfinderMovementFatigueCost;
-				}
-				else
-				{
-					movementAPCost = this.Const.DefaultMovementAPCost;
-					movementFatigueCost = this.Const.DefaultMovementFatigueCost;
-				}
-
-				actor.m.ActionPointCosts = [];
-				actor.m.FatigueCosts = [];
-
-				for (local i = 0; i < movementAPCost.len(); i++)
-				{
-					actor.m.ActionPointCosts.push(this.Math.max(1, movementAPCost[i] - 1));
-					actor.m.FatigueCosts.push(this.Math.max(1, movementFatigueCost[i]) / 2);
-				}
-
-				actor.m.LevelActionPointCost = 0;
-			}
-		}
-		else
-		{
-			this.resetCosts();
-		}
-	}
-
 	function onAfterUpdate( _properties )
 	{
 		if (this.isEnabled() && this.getContainer().getActor().isPlacedOnMap())
@@ -123,15 +78,44 @@ this.perk_ptr_skirmisher <- this.inherit("scripts/skills/skill", {
 				}
 			}
 
-			if (_properties.MovementAPCostAdditional < 0)
+			if (this.m.TurnCount == 1)
 			{
-				_properties.MovementAPCostAdditional = 0;
-			}
+				if (this.m.ActionPointCostsBackup == null)
+				{
+					this.m.ActionPointCostsBackup = clone actor.m.ActionPointCosts;
+					this.m.FatigueCostsBackup = clone actor.m.FatigueCosts;
+					this.m.LevelActionPointCostBackup = actor.m.LevelActionPointCost;
 
-			if (_properties.MovementFatigueCostMult < 1.0)
-			{
-				_properties.MovementFatigueCostMult = 1.0;
+					local movementAPCost = [];
+					local movementFatigueCost = [];
+
+					if (this.getContainer().hasSkill("perk.pathfinder"))
+					{
+						movementAPCost = this.Const.PathfinderMovementAPCost;
+						movementFatigueCost = this.Const.PathfinderMovementFatigueCost;
+					}
+					else
+					{
+						movementAPCost = this.Const.DefaultMovementAPCost;
+						movementFatigueCost = this.Const.DefaultMovementFatigueCost;
+					}
+
+					actor.m.ActionPointCosts = [];
+					actor.m.FatigueCosts = [];
+
+					for (local i = 0; i < movementAPCost.len(); i++)
+					{
+						actor.m.ActionPointCosts.push(this.Math.max(1, movementAPCost[i] - 1));
+						actor.m.FatigueCosts.push(this.Math.max(1, movementFatigueCost[i]) / 2);
+					}
+
+					actor.m.LevelActionPointCost = 0;
+				}
 			}
+			else
+			{
+				this.resetCosts();
+			}			
 		}
 	}
 

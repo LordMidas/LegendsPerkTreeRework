@@ -275,5 +275,45 @@ gt.Const.PTR.modActor <- function()
 				}
 			}
 		}
+
+		local getActionPointCosts = o.getActionPointCosts;
+		o.getActionPointCosts = function()
+		{
+			local ret = getActionPointCosts();
+
+			local skirmisher = this.getSkills().getSkillByID("perk.ptr_skirmisher");
+			if (skirmisher != null && skirmisher.m.TurnCount == 1)
+			{
+				for (local i = 1; i < ret.len(); i++)
+				{
+					if (ret[i] < 1)
+					{
+						ret[i] = 1;
+					}
+				}
+			}
+
+			return ret;
+		}
+
+		local getFatigueCosts = o.getFatigueCosts;
+		o.getFatigueCosts = function()
+		{
+			local ret = getFatigueCosts();
+
+			local skirmisher = this.getSkills().getSkillByID("perk.ptr_skirmisher");
+			if (skirmisher != null && skirmisher.m.TurnCount == 1)
+			{
+				for (local i = 1; i < ret.len(); i++)
+				{
+					if (ret[i] < 0)
+					{
+						ret[i] = 0;
+					}
+				}
+			}
+
+			return ret;
+		}
 	});
 }
