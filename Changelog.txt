@@ -1,4 +1,14 @@
 ====================
+==== Ver 1.2.20 ====
+====================
+- Tweaked the perks of many enemies to improve combat balance. The list of changes is too long to mention here.
+- Underdog has been removed from almost all enemies. Surrounding is a fundamental game mechanic and should be useful again now.
+- Deep Cuts now applies to all subsequent attacks against the same target during that turn instead of every second attack.
+- Close Combat Archer now provides 25% of melee skill as additional chance to hit at 2 tiles distance (down from 50%).
+- Opportunist now shows an entry in the tooltip when hovering over a tile with a valid usable corpse during the turn of the Opportunist character.
+- Fixed a typo in Opportunist tooltip and improved its text.
+
+====================
 ==== Ver 1.2.19 ====
 ====================
 - Fixed the Kata Step and Move Under Cover skills causing infinite battle load.
