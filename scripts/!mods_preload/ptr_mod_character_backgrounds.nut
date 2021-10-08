@@ -2127,6 +2127,9 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			Profession = [
 				[{Weight = 100, Tree = this.Const.Perks.BlacksmithProfessionTree}]
 			],
+			Class = [
+				[{Weight = 100, Tree = this.Const.Perks.MenderClassTree}]	
+			],
 			Styles = [
 				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
 				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
