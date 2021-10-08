@@ -62,7 +62,7 @@ this.perk_ptr_skirmisher <- this.inherit("scripts/skills/skill", {
 
 	function onTurnStart()
 	{
-		this.m.TurnCount++;		
+		this.m.TurnCount++;
 	}
 
 	function onAfterUpdate( _properties )
@@ -80,38 +80,38 @@ this.perk_ptr_skirmisher <- this.inherit("scripts/skills/skill", {
 
 			if (this.m.TurnCount == 1)
 			{
+				local actor = this.getContainer().getActor();
 				if (this.m.ActionPointCostsBackup == null)
-				{
-					local actor = this.getContainer().getActor();
+				{					
 					this.m.ActionPointCostsBackup = clone actor.m.ActionPointCosts;
 					this.m.FatigueCostsBackup = clone actor.m.FatigueCosts;
 					this.m.LevelActionPointCostBackup = actor.m.LevelActionPointCost;
-
-					local movementAPCost = [];
-					local movementFatigueCost = [];
-
-					if (this.getContainer().hasSkill("perk.pathfinder"))
-					{
-						movementAPCost = this.Const.PathfinderMovementAPCost;
-						movementFatigueCost = this.Const.PathfinderMovementFatigueCost;
-					}
-					else
-					{
-						movementAPCost = this.Const.DefaultMovementAPCost;
-						movementFatigueCost = this.Const.DefaultMovementFatigueCost;
-					}
-
-					actor.m.ActionPointCosts = [];
-					actor.m.FatigueCosts = [];
-
-					for (local i = 0; i < movementAPCost.len(); i++)
-					{
-						actor.m.ActionPointCosts.push(this.Math.max(1, movementAPCost[i] - 1));
-						actor.m.FatigueCosts.push(this.Math.max(1, movementFatigueCost[i]) / 2);
-					}
-
-					actor.m.LevelActionPointCost = 0;
 				}
+
+				local movementAPCost = [];
+				local movementFatigueCost = [];
+
+				if (this.getContainer().hasSkill("perk.pathfinder"))
+				{
+					movementAPCost = this.Const.PathfinderMovementAPCost;
+					movementFatigueCost = this.Const.PathfinderMovementFatigueCost;
+				}
+				else
+				{
+					movementAPCost = this.Const.DefaultMovementAPCost;
+					movementFatigueCost = this.Const.DefaultMovementFatigueCost;
+				}
+
+				actor.m.ActionPointCosts = [];
+				actor.m.FatigueCosts = [];
+
+				for (local i = 0; i < movementAPCost.len(); i++)
+				{
+					actor.m.ActionPointCosts.push(this.Math.max(1, movementAPCost[i] - 1));
+					actor.m.FatigueCosts.push(this.Math.max(1, movementFatigueCost[i]) / 2);
+				}
+
+				actor.m.LevelActionPointCost = 0;				
 			}
 			else
 			{
