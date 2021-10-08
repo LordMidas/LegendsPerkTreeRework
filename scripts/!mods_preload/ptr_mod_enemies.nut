@@ -739,14 +739,12 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_deep_cuts"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_menacing"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bully"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));			
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				local maulerPerk = this.new("scripts/skills/perks/perk_ptr_mauler");
 				maulerPerk.m.IsForceEnabled = true;
 				this.m.Skills.add(maulerPerk);
-				this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));				
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_steel_brow"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vigorous_assault"));
 			}
@@ -831,8 +829,6 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
 				this.m.Skills.addPerkTree(this.Const.Perks.ThrowingTree);
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bulwark"));
-
-				this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));
 
 			local weapon = this.getMainhandItem();
 				if (weapon != null)
