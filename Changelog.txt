@@ -1,4 +1,12 @@
 ====================
+==== Ver 1.2.22 ====
+====================
+- Balanced some more enemies that had been missed in the v1.2.20 balance pass.
+- Fixed Opportunist not showing up in tooltip of tiles.
+- Fixed Swordmasters sometimes not getting the guaranteed Fencer perk.
+- Fixed Blacksmiths sometimes not getting the guaranteed Mender perk group.
+
+====================
 ==== Ver 1.2.21 ====
 ====================
 - Removing an incoming stun thanks to being under the effects of Shieldwall/Fortify now adds an entry to the Combat log.
