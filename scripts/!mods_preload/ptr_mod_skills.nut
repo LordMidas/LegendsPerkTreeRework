@@ -291,6 +291,16 @@ gt.Const.PTR.modSkills <- function()
 
 	::mods_hookExactClass("skills/effects/stunned_effect", function(o) {
 		local onAdded = o.onAdded;
+
+		local setTurns = o.setTurns;
+		o.setTurns = function( _t )
+		{
+			if (!this.isGarbage())
+			{
+				setTurns(_t);
+			}
+		}
+
 		o.onAdded = function()
 		{
 			local shieldwall = this.getContainer().getSkillByID("effects.shieldwall");
