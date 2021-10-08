@@ -82,6 +82,7 @@ this.perk_ptr_skirmisher <- this.inherit("scripts/skills/skill", {
 			{
 				if (this.m.ActionPointCostsBackup == null)
 				{
+					local actor = this.getContainer().getActor();
 					this.m.ActionPointCostsBackup = clone actor.m.ActionPointCosts;
 					this.m.FatigueCostsBackup = clone actor.m.FatigueCosts;
 					this.m.LevelActionPointCostBackup = actor.m.LevelActionPointCost;
