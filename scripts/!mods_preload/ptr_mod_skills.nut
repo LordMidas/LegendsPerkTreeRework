@@ -306,6 +306,11 @@ gt.Const.PTR.modSkills <- function()
 			local shieldwall = this.getContainer().getSkillByID("effects.shieldwall");
 			if (shieldwall != null)
 			{
+
+				if (this.getContainer().getActor().getTile().IsVisibleForPlayer)
+				{
+					this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(this.getContainer().getActor()) + " shakes off the stun but loses Shieldwall");
+				}
 				shieldwall.removeSelf();
 				this.removeSelf();
 				return;
@@ -314,6 +319,10 @@ gt.Const.PTR.modSkills <- function()
 			local fortify = this.getContainer().getSkillByID("effects.legend_fortify")
 			if (fortify != null)
 			{
+				if (this.getContainer().getActor().getTile().IsVisibleForPlayer)
+				{
+					this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(this.getContainer().getActor()) + " shakes off the stun but loses Fortify");
+				}
 				fortify.removeSelf();
 				this.removeSelf();
 				return;
