@@ -1,4 +1,9 @@
 ====================
+==== Ver 1.2.23 ====
+====================
+- Fixed the Skirmisher perk throwing an error on the first turn.
+
+====================
 ==== Ver 1.2.22 ====
 ====================
 - Balanced some more enemies that had been missed in the v1.2.20 balance pass.
