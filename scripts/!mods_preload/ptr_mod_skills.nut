@@ -841,7 +841,7 @@ gt.Const.PTR.modSkills <- function()
 			local meleeSkill = actor.getCurrentProperties().getMeleeSkill();
 			local rangedSkill = actor.getCurrentProperties().getRangedSkill();
 
-			local hitChanceBonus = this.Math.floor(0.5 * meleeSkill * (distance == 2 ? 1.0 : 0.5));
+			local hitChanceBonus = this.Math.floor(0.25 * meleeSkill * (distance == 2 ? 1.0 : 0.5));
 			local directDamageBonus = this.Math.floor(0.2 * rangedSkill * (distance == 2 ? 1.0 : 0.5));
 			local armorDamageBonus = directDamageBonus * 2;
 
