@@ -145,7 +145,7 @@ gt.Const.PTR.modCharacterBackground <- function()
 
 				if (origin != null)
 				{
-					this.World.Assets.getOrigin().onBuildPerkTree(this.m.CustomPerkTree);
+					this.World.Assets.getOrigin().onBuildPerkTree(this);
 				}
 			}
 
