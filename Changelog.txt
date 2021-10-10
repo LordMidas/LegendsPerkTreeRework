@@ -1,4 +1,9 @@
 ====================
+==== Ver 1.2.27 ====
+====================
+- Now compatible with the latest Breditor (requires the PTR Breditor Patch).
+
+====================
 ==== Ver 1.2.26 ====
 ====================
 - Fixed error with Legends build 15.0.1.21 when starting some origins e.g. Cultists origin.
