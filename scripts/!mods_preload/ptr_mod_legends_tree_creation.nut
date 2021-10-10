@@ -559,7 +559,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 
 		local applyMultipliersBasedOnTalents = function( _treeList )
 		{
-			if (_player == null)
+			if (_player == null || _player.getTalents().len() == 0)
 			{
 				return _treeList;
 			}
