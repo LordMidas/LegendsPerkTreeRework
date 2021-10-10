@@ -1,4 +1,10 @@
 ====================
+==== Ver 1.2.25 ====
+====================
+- Compatible with Legends build 15.0.1.21.
+- Fixed an error with the Kingsguard event not being able to generate the perk tree properly.
+
+====================
 ==== Ver 1.2.24 ====
 ====================
 - Fixed Skirmisher movement cost reduction being lost on waiting a turn.
