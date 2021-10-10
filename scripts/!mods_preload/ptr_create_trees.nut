@@ -824,3 +824,64 @@ gt.Const.PTR.createProfessionTrees <- function()
 		}
 	};
 }
+
+gt.Const.PTR.createSpecialTrees <- function()
+{
+	gt.Const.Perks.SpecialOne <- {
+		ID = "SpecialOne",
+		Descriptions = [
+			"special perks one"
+		],
+		Tree = [
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[
+				gt.Const.Perks.PerkDefs.BFFencer
+			]
+		]
+	};
+
+	gt.Const.Perks.SpecialTrees <- {
+		Tree = [
+			gt.Const.Perks.SpecialOne
+		],
+		function getRandom( _exclude )
+		{
+			local L = [];
+
+			foreach( i, t in this.Tree )
+			{
+				if (_exclude != null && _exclude.find(t.ID))
+				{
+					continue;
+				}
+
+				L.push(i);
+			}
+
+			local r = this.Math.rand(0, L.len() - 1);
+			return this.Tree[L[r]];
+		}
+
+		function getRandomPerk()
+		{
+			local tree = this.getRandom(null);
+			local L = [];
+
+			foreach( row in tree.Tree )
+			{
+				foreach( p in row )
+				{
+					L.push(p);
+				}
+			}
+
+			local r = this.Math.rand(0, L.len() - 1);
+			return L[r];
+		}
+	};
+}

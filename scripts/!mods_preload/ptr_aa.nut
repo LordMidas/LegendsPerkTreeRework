@@ -97,6 +97,9 @@ local modID = "mod_legends_PTR";
 	
 	gt.Const.PTR.createProfessionTrees();
 	delete gt.Const.PTR.createProfessionTrees;
+
+	gt.Const.PTR.createSpecialTrees();
+	delete gt.Const.PTR.createSpecialTrees;
 	
 	gt.Const.PTR.modLegendsPerkTreeCreationSystem();
 	delete gt.Const.PTR.modLegendsPerkTreeCreationSystem;
