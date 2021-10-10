@@ -53,10 +53,7 @@ gt.MSU.modSkillContainer <- function ()
 			}
 
 			this.m.IsUpdating = wasUpdating;
-			// if (!this.Tactical.getNavigator().IsTravelling)
-			// {
-				this.update();
-			// }
+			this.update();
 		}
 
 		o.doOnFunctionWhenAlive <- function( _function, _argsArray = null )
@@ -115,13 +112,24 @@ gt.MSU.modSkillContainer <- function ()
 			]);
 		}
 
-		local onAfterDamageReceived = o.onAfterDamageReceived;
-		o.onAfterDamageReceived = function()
-		{
-			this.doOnFunctionWhenAlive("onAfterDamageReceived");
+		// o.onAttacked <- function( _skill, _attacker )
+		// {
+		// 	this.doOnFunction("onAttacked", [
+		// 		_skill,
+		// 		_attacker
+		// 	]);
+		// }
 
-			onAfterDamageReceived();
-		}
+		// o.onHit <- function( _skill, _attacker, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
+		// {
+		// 	this.doOnFunction("onHit", [
+		// 		_skill,
+		// 		_attacker,
+		// 		_bodyPart,
+		// 		_damageInflictedHitpoints,
+		// 		_damageInflictedArmor
+		// 	]);
+		// }
 
 		o.onNewMorning <- function()
 		{
@@ -129,6 +137,14 @@ gt.MSU.modSkillContainer <- function ()
 		}
 
 		//Vanilla Overwrites start
+
+		local onAfterDamageReceived = o.onAfterDamageReceived;
+		o.onAfterDamageReceived = function()
+		{
+			this.doOnFunctionWhenAlive("onAfterDamageReceived");
+
+			onAfterDamageReceived();
+		}
 
 		o.buildPropertiesForUse = function( _caller, _targetEntity )
 		{
