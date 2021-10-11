@@ -1,6 +1,6 @@
 this.perk_bf_fencer <- this.inherit("scripts/skills/skill", {
 	m = {
-		FatigueMult = 0.85
+		FatigueMult = 0.80
 	},
 	function create()
 	{

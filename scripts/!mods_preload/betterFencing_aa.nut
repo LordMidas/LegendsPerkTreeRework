@@ -1,7 +1,7 @@
 local gt = getroottable();
 
 local modID = "mod_betterFencing";
-::mods_registerMod(modID, 1.6, "Better Fencing 1.6.2");
+::mods_registerMod(modID, 1.6, "Better Fencing 1.6.4");
 
 gt.ModBetterFencing <- {};
 
@@ -50,7 +50,7 @@ gt.ModBetterFencing <- {};
 	});
 
 	gt.Const.Strings.PerkName.BFFencer <- "Fencer";
-	gt.Const.Strings.PerkDescription.BFFencer <- "Master the art of fighting with a nimble sword. When using a fencing sword, skills build up [color=" + this.Const.UI.Color.NegativeValue + "]15%[/color] less Fatigue and gain [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit. Additionally, the Action Point costs of Sword Thrust, Riposte and Lunge are reduced by [color=" + this.Const.UI.Color.NegativeValue + "]1[/color].";
+	gt.Const.Strings.PerkDescription.BFFencer <- "Master the art of fighting with a nimble sword. When using a fencing sword, skills build up [color=" + this.Const.UI.Color.NegativeValue + "]20%[/color] less Fatigue and gain [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit. Additionally, the Action Point costs of Sword Thrust, Riposte and Lunge are reduced by [color=" + this.Const.UI.Color.NegativeValue + "]1[/color].";
 
 	gt.Const.Perks.Perks[6].push(
 		{
@@ -89,7 +89,7 @@ gt.ModBetterFencing <- {};
 			}
 		});
 
-		gt.Const.Strings.PerkDescription.BFFencer <- "Master the art of fighting with a nimble sword. Skills build up [color=" + this.Const.UI.Color.NegativeValue + "]15%[/color] less Fatigue and gain [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit when using a fencing sword.\n\nFor two-handed fencing swords the range of Lunge is increased by [color=" + this.Const.UI.Color.PositiveValue + "]1[/color] tile.\n\nFor one-handed fencing swords, the Action Point costs of Sword Thrust, Riposte and Lunge are reduced by [color=" + this.Const.UI.Color.NegativeValue + "]1[/color].\n[color=#0b0084]From the Sword perk group[/color]";
+		gt.Const.Strings.PerkDescription.BFFencer <- "Master the art of fighting with a nimble sword. Skills build up [color=" + this.Const.UI.Color.NegativeValue + "]20%[/color] less Fatigue and gain [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit when using a fencing sword.\n\nFor two-handed fencing swords the range of Lunge is increased by [color=" + this.Const.UI.Color.PositiveValue + "]1[/color] tile.\n\nFor one-handed fencing swords, the Action Point costs of Sword Thrust, Riposte and Lunge are reduced by [color=" + this.Const.UI.Color.NegativeValue + "]1[/color].\n[color=#0b0084]From the Sword perk group[/color]";
 
 		this.Const.Perks.PerkDefObjects.push({
 			ID = "perk.bf_fencer",
