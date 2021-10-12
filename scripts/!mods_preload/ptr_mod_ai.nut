@@ -2,6 +2,8 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modAI <- function()
 {
+	gt.Const.Movement.AutoEndTurnBelowAP = 1;
+	
 	::mods_hookNewObject("ai/tactical/behaviors/ai_engage_ranged", function(o) {
 
 		local onExecute = o.onExecute;
