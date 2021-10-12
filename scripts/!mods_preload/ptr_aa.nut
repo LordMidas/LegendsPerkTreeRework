@@ -11,35 +11,8 @@ local modID = "mod_legends_PTR";
 ::mods_registerMod(modID, gt.Const.PTR.Version, "Perk Trees Rework 1.2.28");
 
 ::mods_queue(modID, "mod_legends, mod_MSU, mod_betterFencing, mod_WMS, mod_mediumArmorRework, mod_legends_STR, mod_duelistDefense", function()
-{
-	// this.Const.AI.VerboseMode = true;
-	gt.setupDebugLog <- function (_enabled = false, _name = "default")
-	{
-		//keep table of mod names so that you can turn it on and off for specific mods
-		if (!("debugLog" in gt)){
-			gt.debugLog <- {}
-		}
-		if (!(_name in gt.debugLog))
-		{
-			gt.debugLog[_name] <- false
-		}
-		gt.debugLog[_name] <- _enabled
-		if (gt.debugLog[_name]) this.logInfo("debug log set to true for " + _name)
-
-		gt.printDebug <- function(arg = "No argument for debug log", _name = "default")
-		{
-			if (_name in this.debugLog && this.debugLog[_name]){
-				local src = getstackinfos(2).src.slice(0, -4)
-				src = split(src, "/")[split(src, "/").len()-1]
-				this.logInfo(_name +  " " + src + " : " + arg)
-			}
-		}
-		gt.isDebug <- function(_str)
-		{
-			return (_str in this.debugLog && this.debugLog[_str])
-		}
-	}
-	gt.setupDebugLog(true, modID);
+{	
+	this.MSU.Log.setDebugLog(false, modID);
 
 	gt.Const.PTR.modRetinue();
 	delete gt.Const.PTR.modRetinue;
