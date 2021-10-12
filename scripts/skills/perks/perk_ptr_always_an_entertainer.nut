@@ -96,7 +96,7 @@ this.perk_ptr_always_an_entertainer <- this.inherit("scripts/skills/skill", {
 		return true;
 	}
 
-	function onNewMorning()
+	function onNewDay()
 	{
 		this.m.IsSpent = false;
 		this.m.SettlementsVisited.clear();
