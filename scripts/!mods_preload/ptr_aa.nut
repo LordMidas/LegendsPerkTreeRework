@@ -6,13 +6,13 @@ if (!("PTR" in gt.Const))
 }
 
 gt.Const.PTR.Version <- 1;
+gt.Const.PTR.ModID <- "mod_legends_PTR";
 
-local modID = "mod_legends_PTR";
-::mods_registerMod(modID, gt.Const.PTR.Version, "Perk Trees Rework 1.2.28");
+::mods_registerMod(gt.Const.PTR.ModID, gt.Const.PTR.Version, "Perk Trees Rework 1.2.28");
 
-::mods_queue(modID, "mod_legends, mod_MSU, mod_betterFencing, mod_WMS, mod_mediumArmorRework, mod_legends_STR, mod_duelistDefense", function()
+::mods_queue(gt.Const.PTR.ModID, "mod_legends, mod_MSU, mod_betterFencing, mod_WMS, mod_mediumArmorRework, mod_legends_STR, mod_duelistDefense", function()
 {	
-	this.MSU.Log.setDebugLog(false, modID);
+	this.MSU.Log.setDebugLog(false, gt.Const.PTR.ModID);
 
 	gt.Const.PTR.modRetinue();
 	delete gt.Const.PTR.modRetinue;
