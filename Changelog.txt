@@ -1,4 +1,11 @@
 ====================
+==== Ver 1.2.29 ====
+====================
+- Requires Legends version 15.0.1.20d or later.
+- Always an Entertainer will now refresh at Midday rather than Morning. This is a temporary change to check what is causing the save-game crashes (MSU asset manager hook saving a flag to World is disabled).
+- Modding: Updated MSU to v0.6.14.
+
+====================
 ==== Ver 1.2.28 ====
 ====================
 - The Fencer perk now reduces fatigue cost by 20% (improved from 15%).
