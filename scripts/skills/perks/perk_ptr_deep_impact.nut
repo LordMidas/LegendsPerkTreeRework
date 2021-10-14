@@ -10,36 +10,19 @@ this.perk_ptr_deep_impact <- this.inherit("scripts/skills/skill", {
 		this.m.Description = this.Const.Strings.PerkDescription.PTRDeepImpact;
 		this.m.Icon = "ui/perks/ptr_deep_impact.png";
 		this.m.Type = this.Const.SkillType.Perk;
-		this.m.Order = this.Const.SkillOrder.Perk;
+		this.m.Order = this.Const.SkillOrder.Last;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
 
-	function isEnabled()
-	{
-		if (this.m.IsForceEnabled)
-		{
-			return true;
-		}
-
-		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon == null)
-		{
-			return false;
-		}
-
-		return true;
-	}
-
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
-		if (_targetEntity == null || !_skill.isAttack() || (!_skill.hasDamageType(this.Const.Damage.DamageType.Blunt) && !this.m.IsForceEnabled) || !this.isEnabled())
+		if (_targetEntity == null || !_skill.isAttack() || (!_skill.hasDamageType(this.Const.Damage.DamageType.Blunt) && !this.m.IsForceEnabled))
 		{
 			return;
 		}
-
-		local weapon = this.getContainer().getActor().getMainhandItem();
-		_properties.ThresholdToInflictInjuryMult *= 1.0 - this.Math.minf(0.99, (this.m.ArmorEffectivenessMult * weapon.getArmorDamageMult()));
+	
+		_properties.ThresholdToInflictInjuryMult *= 1.0 - this.Math.minf(0.99, (this.m.ArmorEffectivenessMult * _properties.DamageArmorMult));
 	}
 });
