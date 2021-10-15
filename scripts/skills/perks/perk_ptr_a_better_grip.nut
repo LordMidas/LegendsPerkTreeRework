@@ -92,6 +92,7 @@ this.perk_ptr_a_better_grip <- this.inherit("scripts/skills/skill", {
 					}
 
 					_skill.m.HitChanceBonus -= malus;
+					_properties.MeleeSkill -= malus;
 				}
 			}	
 		}
