@@ -820,7 +820,8 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 			local hasSwordTree = false;
 
 			local talents = _player.getTalents();
-			chanceFencer *= talents[this.Const.Attributes.Initiative] * talents[this.Const.Attributes.MeleeSkill];	
+
+			chanceFencer = talents.len() == 0 ? 0 : talents[this.Const.Attributes.Initiative] * talents[this.Const.Attributes.MeleeSkill];			
 
 			if (chanceFencer > 0)
 			{
@@ -849,7 +850,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 			if (!hasSwordTree)
 			{
 				chanceFencer = 0;
-			}			
+			}
 		}
 
 		if (this.Math.rand(1, 100) <= chanceFencer)
