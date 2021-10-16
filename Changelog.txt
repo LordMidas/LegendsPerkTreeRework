@@ -1,4 +1,10 @@
 ====================
+==== Ver 1.2.34 ====
+====================
+- Fixed Assured Conquest not giving the 10% bonus to Resolve.
+- Clarified in Unstoppable tooltip that it only gains stacks during your turn.
+
+====================
 ==== Ver 1.2.33 ====
 ====================
 - Fixed some weight multipliers not applying properly during perk tree creation. Specifically those from already rolled trees.
