@@ -1,4 +1,10 @@
 ====================
+==== Ver 1.2.35 ====
+====================
+- Goblin Fighter and Goblin Wolfrider now have Kata enabled on them, as long as they have any kind of weapon.
+- Fixed crash when having the Deep Impact perk and attacking an Undead target with a blunt damage attack. 
+
+====================
 ==== Ver 1.2.34 ====
 ====================
 - Fixed Assured Conquest not giving the 10% bonus to Resolve.
