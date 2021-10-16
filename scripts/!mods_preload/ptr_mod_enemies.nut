@@ -546,12 +546,15 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_tempo"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_mastery_nets"));
+			local kata = this.new("scripts/skills/perks/perk_ptr_kata");
+			kata.m.IsForceEnabled = true;
+			this.m.Skills.add(kata);
 			this.m.Skills.removeByID("perk.nimble");
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_kata"));
+				
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_net_casting"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_relentless"));
 				this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));
@@ -658,6 +661,9 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bear_down"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_lone_wolf"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_the_rush_of_battle"));
+			local kata = this.new("scripts/skills/perks/perk_ptr_kata");
+			kata.m.IsForceEnabled = true;
+			this.m.Skills.add(kata);
 
 			if (!this.Tactical.State.isScenarioMode() && this.World.getTime().Days >= 50)
 			{
