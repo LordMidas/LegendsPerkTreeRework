@@ -1,4 +1,9 @@
 ====================
+==== Ver 1.2.31 ====
+====================
+- Fixed game getting locked up when finishing a battle when someone has the Vigorous Assault perk.
+
+====================
 ==== Ver 1.2.30 ====
 ====================
 - Deep Impact now uses your current armor effectiveness instead of only your weapon's armor effectiveness. This means it now stacks with other abilities which increase armor effectiveness. This also compatibility issue with AC mod where some pets get this skill as a quirk.
