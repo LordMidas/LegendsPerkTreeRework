@@ -461,9 +461,9 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 			{
 				foreach (tree in treesInCategory)
 				{
-					if ("WeightMultipliers" in tree.Tree)
-					{
-						_treeList = applyMultipliers(tree.Tree.WeightMultipliers, _treeList);
+					if ("WeightMultipliers" in tree)
+					{	
+						_treeList = applyMultipliers(tree.WeightMultipliers, _treeList);
 					}
 				}
 			}
