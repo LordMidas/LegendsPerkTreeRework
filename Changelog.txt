@@ -1,4 +1,13 @@
 ====================
+==== Ver 1.2.30 ====
+====================
+- Deep Impact now uses your current armor effectiveness instead of only your weapon's armor effectiveness. This means it now stacks with other abilities which increase armor effectiveness. This also compatibility issue with AC mod where some pets get this skill as a quirk.
+- Fixed Thrust at 2 tiles using A Better Grip not actually having a lower hitchance even though the tooltip showed it.
+- Fixed an issue during perk tree creation for cases where the background doesn't have any talents assigned yet.
+- Fixed Vigorous Assault counting movement via Rotation as valid movement for its bonus, when it shouldn't.
+- Modding: Updated to MSU v0.6.15.
+
+====================
 ==== Ver 1.2.29 ====
 ====================
 - Requires Legends version 15.0.1.20d or later.
