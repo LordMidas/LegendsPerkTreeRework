@@ -1234,6 +1234,8 @@ gt.Const.PTR.modSkills <- function()
 	::mods_hookNewObject("skills/perks/perk_legend_assured_conquest", function(o) {
 		o.onUpdate = function( _properties )
 		{
+			_properties.BraveryMult *= 1.1;
+			
 			if (this.getContainer().getActor().getMoraleState() == this.Const.MoraleState.Confident)
 			{
 				_properties.BraveryMult *= 1.1;
