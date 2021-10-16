@@ -16,6 +16,11 @@ this.perk_ptr_deep_impact <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
+	function isEnabled()
+	{
+		return true;
+	}
+
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
 		if (_targetEntity == null || !_skill.isAttack() || (!_skill.hasDamageType(this.Const.Damage.DamageType.Blunt) && !this.m.IsForceEnabled))
