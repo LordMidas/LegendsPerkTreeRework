@@ -1,5 +1,7 @@
 this.perk_ptr_kata <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		IsForceEnabled = false
+	},
 	function create()
 	{
 		this.m.ID = "perk.ptr_kata";
@@ -15,7 +17,9 @@ this.perk_ptr_kata <- this.inherit("scripts/skills/skill", {
 
 	function onAdded()
 	{
-		this.getContainer().add(this.new("scripts/skills/actives/ptr_kata_step_skill"));
+		local kataStep = this.new("scripts/skills/actives/ptr_kata_step_skill");
+		kataStep.m.IsForceEnabled = this.m.IsForceEnabled;
+		this.getContainer().add(kataStep);
 	}
 
 	function onRemoved()
