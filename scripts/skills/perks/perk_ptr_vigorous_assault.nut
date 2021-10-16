@@ -4,7 +4,6 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 		APReduction = 1,
 		FatCostReduction = 10,
 		StartingTile = null,
-		BeforeSkillExecutedTile = null,
 		IsIconSet = false,
 		CurrAPBonus = 0,
 		CurrFatBonus = 0
@@ -132,22 +131,25 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-	function onBeforeAnySkillExecuted( _skill, _targetTile, _targetEntity )
-	{
-		this.m.BeforeSkillExecutedTile = this.getContainer().getActor().getTile();		
-	}
-
 	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
 	{
-		if (this.getContainer().getActor().getTile().isSameTileAs(this.m.BeforeSkillExecutedTile))
+		if (!this.getContainer().m.IsExecutingMoveSkill)
 		{
-			this.m.StartingTile = this.m.BeforeSkillExecutedTile;
+			this.m.StartingTile = this.getContainer().getActor().getTile();
+		}
+	}
+
+	function onMovementFinished( _tile )
+	{
+		if (this.getContainer().m.IsExecutingMoveSkill)
+		{
+			this.m.StartingTile = _tile;
 		}
 	}
 
 	function onWaitTurn()
 	{
-		this.m.StartingTile = null;		
+		this.m.StartingTile = null;
 		this.resetBonus();
 	}
 
