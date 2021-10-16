@@ -169,7 +169,6 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 	{
 		this.skill.onCombatFinished();
 		this.m.StartingTile = null;
-		this.m.BeforeSkillExecutedTile = null;
 		this.resetBonus();
 	}
 
