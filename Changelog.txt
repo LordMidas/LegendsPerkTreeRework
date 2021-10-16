@@ -1,4 +1,10 @@
 ====================
+==== Ver 1.2.32 ====
+====================
+- Always an Entertainer on refreshes on every Morning again.
+- Modding: Updated to MSU v0.6.16.
+
+====================
 ==== Ver 1.2.31 ====
 ====================
 - Fixed game getting locked up when finishing a battle when someone has the Vigorous Assault perk.
