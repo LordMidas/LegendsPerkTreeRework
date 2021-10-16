@@ -1,7 +1,7 @@
 ====================
 ==== Ver 1.2.32 ====
 ====================
-- Always an Entertainer on refreshes on every Morning again.
+- Always an Entertainer now refreshes on every Morning again.
 - Modding: Updated to MSU v0.6.16.
 
 ====================
