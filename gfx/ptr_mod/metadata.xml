@@ -95,4 +95,6 @@
 	<sprite id="ptr_whack_a_smack_mini" ic = "FF23165B" img="mini\ptr_whack_a_smack_mini.png" />
 	
 	<sprite id="projectile_flaming_arrow" ic = "FF23165B" img="projectiles\projectile_flaming_arrow.png" />
+	
+	<sprite id="ptr_player_swordmaster" ic = "FF23165B" img="world_entity\ptr_player_swordmaster.png" />
 </brush>
