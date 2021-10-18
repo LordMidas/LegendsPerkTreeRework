@@ -163,10 +163,14 @@ this.ptr_swordmaster_scenario_effect <- this.inherit("scripts/skills/skill", {
 		if (this.isEnabled())
 		{
 			local level = actor.getLevel();
+			if (this.m.IsPlayer)
+			{
+				level *= 2;
+			}
 			_properties.MeleeSkill += level;
 			_properties.MeleeDefense += level;
 			_properties.Initiative += level;
-			_properties.DamageDirectAdd += level;
+			_properties.DamageDirectAdd += this.Math.max(25, level) * 0.01;
 		}
 
 		local weapon = actor.getMainhandItem();
