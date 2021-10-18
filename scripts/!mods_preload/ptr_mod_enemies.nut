@@ -2020,7 +2020,10 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_overwhelm"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_leverage"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bear_down"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_wear_them_down"));
+			local wearDownPerk = this.new("scripts/skills/perks/perk_ptr_wear_them_down");
+			wearDownPerk.m.IsForceEnabled = true;
+			this.m.Skills.add(wearDownPerk);
+			
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_fearsome"));
@@ -2120,7 +2123,9 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_overwhelm"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_leverage"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bear_down"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_wear_them_down"));
+			local wearDownPerk = this.new("scripts/skills/perks/perk_ptr_wear_them_down");
+			wearDownPerk.m.IsForceEnabled = true;
+			this.m.Skills.add(wearDownPerk);
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
