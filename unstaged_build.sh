@@ -64,7 +64,7 @@ while read -r line; do
         elif [[ "$xpath" == gfx/ptr_mod/metadata.xml ]]; then
             echo "Building ptr_mod brush..."
             cd ../bin
-            o=$(./bbrusher.exe pack --gfxPath "../$RepoDir/" ../$RepoDir/brushes/ptr_mod.brush ../$RepoDir/unpacked/ptr_mod)
+            o=$(./bbrusher.exe pack --gfxPath "../$RepoDir/" ../$RepoDir/brushes/ptr_mod.brush ../$RepoDir/gfx/ptr_mod)
             cd ../"$RepoDir"
             checkForError "$o" "$i"
             copyBrushes
