@@ -5,6 +5,13 @@ gt.Const.PTR.modPlayer <- function()
 	::mods_hookExactClass("entity/tactical/player", function(o) {
 		o.m.LevelUpsSpent <- 0;
 
+		local onInit = o.onInit;
+		o.onInit = function()
+		{
+			onInit();
+			this.m.Skills.add(this.new("scripts/skills/effects/legend_veteran_levels_effect"));
+		}
+
 		local setAttributeLevelUpValues = o.setAttributeLevelUpValues;
 		o.setAttributeLevelUpValues = function(_v)
 		{
