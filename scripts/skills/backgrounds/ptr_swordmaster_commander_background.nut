@@ -50,6 +50,7 @@ this.ptr_swordmaster_commander_background <- this.inherit("scripts/skills/backgr
 			"trait.swift",
 			"trait.fat",
 			"trait.pessimist",
+			"trait.frail"
 		];
 		this.m.ExcludedTalents = [
 			this.Const.Attributes.RangedSkill,
