@@ -1,4 +1,13 @@
 ====================
+==== Ver 1.2.37 ====
+====================
+- Some tweaks and fixes to the Old Swordmaster origin:
+	- Added information that recruits gain special bonuses when wielding swords.
+	- Excluded the Frail (Flabby) trait from the swordmaster commander.
+	- Old Swordmaster origin now starts at 1100 renown.
+	- Fixed some typos in the intro event text and improved some language.
+
+====================
 ==== Ver 1.2.36 ====
 ====================
 - New PTR Origin "Old Swordmaster"! Check out the new origin in the New Campaign window!
