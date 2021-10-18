@@ -1,5 +1,7 @@
 this.perk_ptr_wear_them_down <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		IsForceEnabled = false
+	},
 	function create()
 	{
 		this.m.ID = "perk.ptr_wear_them_down";
@@ -11,6 +13,22 @@ this.perk_ptr_wear_them_down <- this.inherit("scripts/skills/skill", {
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
+	}
+
+	function isEnabled()
+	{
+		if (this.m.IsForceEnabled)
+		{
+			return true;
+		}
+
+		local weapon = this.getContainer().getActor().getMainhandItem();
+		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Staff))
+		{
+			return false;
+		}
+
+		return true;
 	}
 
 	function onBeingAttacked( _attacker, _skill, _properties )
@@ -32,7 +50,7 @@ this.perk_ptr_wear_them_down <- this.inherit("scripts/skills/skill", {
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		if (!_targetEntity.isAlive() || _targetEntity.isDying())
+		if (!_targetEntity.isAlive() || _targetEntity.isDying() || !this.isEnabled())
 		{
 			return;
 		}
