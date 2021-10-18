@@ -1,4 +1,9 @@
 ====================
+==== Ver 1.2.38 ====
+====================
+- Fixed critical errors in the Old Swordmaster origin.
+
+====================
 ==== Ver 1.2.37 ====
 ====================
 - Some tweaks and fixes to the Old Swordmaster origin:
