@@ -4,7 +4,7 @@ this.ptr_swordmaster_scenario <- this.inherit("scripts/scenarios/world/starting_
 	{
 		this.m.ID = "scenario.ptr_swordmaster";
 		this.m.Name = "Old Swordmaster";
-		this.m.Description = "[p=c][img]gfx/ui/events/event_17.png[/img][/p][p]You are a legendary swordmaster, eager to pass on your skills to others!\n\n[color=#bcad8c]Teacher:[/color] Upon leveling up, every recruit has a 50% chance to gain a free perk from the Sword perk group. Cannot have more than 10 recruits.\n[color=#bcad8c]Swords Only:[/color] Recruits gain special bonuses when using swords. If anyone uses any melee weapon except swords in combat it will anger your entire company.\n[color=#bcad8c]Reputation:[/color] Squires and Swordmasters have a lower upkeep and hiring cost.\n[color=#bcad8c]Avatar:[/color] If your swordmaster dies, the campaign ends.[/p]";
+		this.m.Description = "[p=c][img]gfx/ui/events/event_17.png[/img][/p][p]You are a legendary swordmaster, eager to pass on your skills to others!\n\n[color=#bcad8c]Teacher:[/color] Upon leveling up, every recruit has a 50% chance to gain a free perk from the Sword perk group. Cannot have more than 10 recruits.\n[color=#bcad8c]Swords Only:[/color] Recruits gain special bonuses when using swords. If anyone uses any melee weapon except swords or a banner in combat it will anger your entire company. Ranged weapons are accepted.\n[color=#bcad8c]Reputation:[/color] Squires and Swordmasters have a lower upkeep and hiring cost.\n[color=#bcad8c]Avatar:[/color] If your swordmaster dies, the campaign ends.[/p]";
 		this.m.Difficulty = 1;
 		this.m.Order = 70;
 		this.m.IsFixedLook = true;		
