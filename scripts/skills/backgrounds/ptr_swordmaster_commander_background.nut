@@ -155,6 +155,7 @@ this.ptr_swordmaster_commander_background <- this.inherit("scripts/skills/backgr
 
 		addPerksToCustomPerkTree(6, this.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.PTRKnowTheirWeakness,
+				this.Const.Perks.PerkDefs.Overwhelm,
 				this.Const.Perks.PerkDefs.Duelist
 			]
 		);
