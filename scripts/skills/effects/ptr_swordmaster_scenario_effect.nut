@@ -2,12 +2,37 @@ this.ptr_swordmaster_scenario_effect <- this.inherit("scripts/skills/skill", {
 	m = {
 		WrongWeaponName = null,
 		FreePerkLevels = [],
-		IsPlayer = false
+		IsSet = false,
+		IsPlayer = false,
+		SwordPerkDefs = [
+			this.Const.Perks.PerkDefs.PTRExploitOpening,
+			this.Const.Perks.PerkDefs.PTRFluidWeapon,
+			this.Const.Perks.PerkDefs.SpecSword,
+			this.Const.Perks.PerkDefs.PTRTempo,
+			this.Const.Perks.PerkDefs.PTRKata,
+			this.Const.Perks.PerkDefs.PTREnGarde
+		],
+		SwordPerkIds = [
+			"perk.ptr_exploit_opening",
+			"perk.ptr_fluid_weapon",
+			"perk.mastery.sword",
+			"perk.ptr_tempo",
+			"perk.ptr_kata",
+			"perk.ptr_en_garde"
+		],
+		PerkNames = [
+			"Exploit Opening",
+			"Fluid Weapon",
+			"Sword Mastery",
+			"Tempo",
+			"Kata",
+			"En garde"
+		]
 	},
 	function create()
 	{
 		this.m.ID = "effects.ptr_swordmaster_scenario";
-		this.m.Name = "Swordmaster Training";
+		this.m.Name = "Swordmaster\'s Training";
 		this.m.Description = "This character is being trained by a highly accomplished swordmaster, and gains increased combat effectiveness when wielding a sword. This effect becomes stronger with each level.";
 		this.m.Icon = "skills/ptr_swordmaster_scenario.png";				
 		this.m.Type = this.Const.SkillType.StatusEffect;
@@ -62,13 +87,22 @@ this.ptr_swordmaster_scenario_effect <- this.inherit("scripts/skills/skill", {
 				}
 			]);
 
-			if (!this.m.IsPlayer && level < 8)
+			if (!this.m.IsPlayer && this.m.FreePerkLevels.len() != 0 && this.getContainer().getSkillsByFunction(this, @(_skill) this.m.SwordPerkIds.find(_skill) != null).len() != this.m.SwordPerkIds.len())
 			{
+				local potentialPerks = "";
+
+				for (local i = this.m.SwordPerkIds.len() - this.m.FreePerkLevels.len(); i < 6; i++)
+				{
+					potentialPerks += this.m.PerkNames[i] + ", ";
+				}
+
+				potentialPerks = potentialPerks.slice(0, -2);
+
 				tooltip.push({
 					id = 10,
 					type = "text",
 					icon = "ui/icons/special.png",
-					text = "Upon gaining a level, has a [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] chance to gain a free perk from the Sword perk group"
+					text = "Upon gaining a level, has a [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] chance to gain a free perk from the Sword perk group. [color=" + this.Const.UI.Color.PositiveValue + "]Potential Perks:[/color] " + potentialPerks
 				});
 			}
 		}
@@ -76,7 +110,7 @@ this.ptr_swordmaster_scenario_effect <- this.inherit("scripts/skills/skill", {
 		tooltip.push({
 			id = 10,
 			type = "text",
-			icon = "ui/icons/special.png",
+			icon = "ui/icons/warning.png",
 			text = "Will get very angry if anyone in the company uses a melee weapon other than a Sword in combat"
 		});
 
@@ -105,11 +139,20 @@ this.ptr_swordmaster_scenario_effect <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		for (local i = 2; i <= 8; i++)
+		if (!this.m.IsSet)
 		{
-			if (this.Math.rand(1, 100) <= 50)
+			local currLevel = this.getContainer().getActor().getLevel();
+
+			foreach (i, perk in this.m.SwordPerkDefs)
 			{
-				this.m.FreePerkLevels.push(i);
+				if (this.Math.rand(1, 100) <= 50)
+				{
+					this.m.FreePerkLevels.push( { Success = true, Index = i } );
+				}	
+				else
+				{
+					this.m.FreePerkLevels.push( { Success = false, Index = i } );
+				}
 			}
 		}
 	}
@@ -136,36 +179,14 @@ this.ptr_swordmaster_scenario_effect <- this.inherit("scripts/skills/skill", {
 	function onUpdateLevel()
 	{
 		local actor = this.getContainer().getActor();
-		if (actor.m.Level < 8 && this.m.FreePerkLevels.find(actor.m.Level) != null)
+		if (this.m.FreePerkLevels[0].Success)
 		{
-			switch (actor.m.Level)
-			{
-				case 2:
-					this.getContainer().add(this.new("scripts/skills/perks/perk_ptr_exploit_opening"));
-					actor.getBackground().addPerk(this.Const.Perks.PerkDefObjects[this.Const.Perks.PerkDefs.PTRExploitOpening], 1);
-					break;
-				case 3:
-					this.getContainer().add(this.new("scripts/skills/perks/perk_ptr_fluid_weapon"));
-					actor.getBackground().addPerk(this.Const.Perks.PerkDefObjects[this.Const.Perks.PerkDefs.PTRFluidWeapon], 2);
-					break;
-				case 4:
-					this.getContainer().add(this.new("scripts/skills/perks/perk_mastery_sword"));
-					actor.getBackground().addPerk(this.Const.Perks.PerkDefObjects[this.Const.Perks.PerkDefs.SpecSword], 3);
-					break;
-				case 5:
-					this.getContainer().add(this.new("scripts/skills/perks/perk_ptr_tempo"));
-					actor.getBackground().addPerk(this.Const.Perks.PerkDefObjects[this.Const.Perks.PerkDefs.PTRTempo], 4);
-					break;
-				case 6:
-					this.getContainer().add(this.new("scripts/skills/perks/perk_ptr_kata"));
-					actor.getBackground().addPerk(this.Const.Perks.PerkDefObjects[this.Const.Perks.PerkDefs.PTRKata], 5);
-					break;
-				case 7:
-					this.getContainer().add(this.new("scripts/skills/perks/perk_ptr_en_garde"));
-					actor.getBackground().addPerk(this.Const.Perks.PerkDefObjects[this.Const.Perks.PerkDefs.PTREnGarde], 6);
-					break;
-			}
-		}
+			local perkDef = this.m.SwordPerkDefs[this.m.FreePerkLevels[0].Index];
+			this.getContainer().add(this.new(this.Const.Perks.PerkDefObjects[perkDef].Script));
+			actor.getBackground().addPerk(perkDef, this.m.FreePerkLevels[0].Index + 1);
+		}		
+
+		this.m.FreePerkLevels.remove(0);
 	}
 
 	function onCombatFinished()
@@ -179,6 +200,34 @@ this.ptr_swordmaster_scenario_effect <- this.inherit("scripts/skills/skill", {
 				bro.worsenMood(99.0, "Made someone use " + this.m.WrongWeaponName + " instead of Sword!");
 			}
 			this.m.WrongWeaponName = null;
+		}
+	}
+
+	function onSerialize(_out)
+	{
+		this.skill.onSerialize(_out);
+		_out.writeU8(this.m.FreePerkLevels.len());
+		foreach (level in this.m.FreePerkLevels)
+		{
+			_out.writeBool(level.Success);
+			_out.writeU32(level.Index);
+		}
+	}
+
+	function onDeserialize(_in)
+	{
+		this.skill.onDeserialize(_in);
+		this.m.IsSet = true;
+		this.m.FreePerkLevels = [];		
+		local size = _in.readU8();		
+		for (local i = 0; i < size; i++)
+		{
+			this.m.FreePerkLevels.push(
+				{
+					Success = _in.readBool(),
+					Index = _in.readU32()
+				}
+			);			
 		}
 	}
 });
