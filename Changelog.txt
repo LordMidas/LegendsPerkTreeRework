@@ -1,4 +1,10 @@
 ====================
+==== Ver 1.2.39 ====
+====================
+- Allowed the Old Swordmaster origin to equip Banner without repercussions.
+- Clarified in the Old Swordmaster origin tooltip that ranged weapons are acceptable.
+
+====================
 ==== Ver 1.2.38 ====
 ====================
 - Fixed critical errors in the Old Swordmaster origin.
