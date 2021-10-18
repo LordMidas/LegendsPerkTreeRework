@@ -1,4 +1,10 @@
 ====================
+==== Ver 1.2.41 ====
+====================
+- Fixed a crash/freeze due to the Vigorous Assault perk on enemies.
+- Fixed the Old Swordmaster origin consider Fencing Sword and Estoc to be invalid weapons.
+
+====================
 ==== Ver 1.2.40 ====
 ====================
 - Added Overwhelm to Old Swordmaster commander's perk tree.
