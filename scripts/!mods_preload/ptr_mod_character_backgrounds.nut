@@ -1972,6 +1972,57 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.PerfectFocus
 			]
 		);
+
+		o.onTargetKilled = function( _targetEntity, _skill )
+		{
+			local actor = this.getContainer().getActor();
+
+			if (actor.isAlliedWith(_targetEntity))
+			{
+				return;
+			}
+
+			actor.getBaseProperties().Hitpoints += (actor.getBaseProperties().Hitpoints < _targetEntity.getBaseProperties().Hitpoints ? 1 : 0);
+			actor.getBaseProperties().Bravery += (actor.getBaseProperties().Bravery < _targetEntity.getBaseProperties().Bravery ? 1 : 0);
+			actor.getBaseProperties().Stamina += (actor.getBaseProperties().Stamina < _targetEntity.getBaseProperties().Stamina ? 1 : 0);
+			actor.getBaseProperties().MeleeSkill += (actor.getBaseProperties().MeleeSkill < _targetEntity.getBaseProperties().MeleeSkill ? 1 : 0);
+			actor.getBaseProperties().RangedSkill += (actor.getBaseProperties().RangedSkill < _targetEntity.getBaseProperties().RangedSkill ? 1 : 0);
+			actor.getBaseProperties().MeleeDefense += (actor.getBaseProperties().MeleeDefense < _targetEntity.getBaseProperties().MeleeDefense ? 1 : 0);
+			actor.getBaseProperties().RangedDefense += (actor.getBaseProperties().RangedDefense < _targetEntity.getBaseProperties().RangedDefense ? 1 : 0);
+			actor.getBaseProperties().Initiative += (actor.getBaseProperties().Initiative < _targetEntity.getBaseProperties().Initiative ? 1 : 0);
+
+			local target_skills = _targetEntity.getSkills().query(this.Const.SkillType.Perk);
+			local potentialPerks = [];
+
+			foreach (perk in target_skills)
+			{
+				if (!actor.getSkills().hasSkill(perk.getID()))
+				{
+					potentialPerks.push(perk);
+				}
+			}
+
+			if (potentialPerks.len() == 0)
+			{
+				return;
+			}
+
+			local perk = potentialPerks[this.Math.rand(0, potentialPerks.len() - 1)];
+			
+			foreach( i, v in this.Const.Perks.PerkDefObjects )
+			{
+				if (perk.getID() == v.ID)
+				{
+					if (v.Script != "")
+					{
+						this.Tactical.EventLog.log("The framed beggar learned [color=" + this.Const.UI.Color.NegativeValue + "]" + perk.getName() + "[/color] from " + _targetEntity.getName());
+						actor.getSkills().add(this.new(v.Script));
+						actor.getBackground().addPerk(i, this.Math.rand(0,6));
+						break;
+					}
+				}
+			}
+		}
 	});
 
 
