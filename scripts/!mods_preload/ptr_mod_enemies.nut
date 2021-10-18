@@ -2023,7 +2023,7 @@ gt.Const.PTR.modEnemies <- function()
 			local wearDownPerk = this.new("scripts/skills/perks/perk_ptr_wear_them_down");
 			wearDownPerk.m.IsForceEnabled = true;
 			this.m.Skills.add(wearDownPerk);
-			
+
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_fearsome"));
@@ -2198,7 +2198,6 @@ gt.Const.PTR.modEnemies <- function()
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
 			this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
 
 			this.m.Skills.removeByID("perk.underdog");
@@ -2235,7 +2234,6 @@ gt.Const.PTR.modEnemies <- function()
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
 			this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
 
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_the_rush_of_battle"));
