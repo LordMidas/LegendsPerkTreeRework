@@ -1,4 +1,13 @@
 ====================
+==== Ver 1.2.36 ====
+====================
+- New PTR Origin "Old Swordmaster"! Check out the new origin in the New Campaign window!
+- Scaling Beggar now adds the stolen perks to the perk tree as well. Added some color to the combat log of stolen perks.
+- Fixed the Wear Them Down perk applying the Worn Down effect with all weapons instead of only with Staves. Wiedergangers and Armored Wiedergangers still have the perk enabled on them as this is intended.
+- Fixed a typo in Worn Down effect tooltip.
+- Removed the One-Handed styles perks from Barbarian Chosen and Barbarian King as they never use one-handed weapons.
+
+====================
 ==== Ver 1.2.35 ====
 ====================
 - Goblin Fighter and Goblin Wolfrider now have Kata enabled on them, as long as they have any kind of weapon.
