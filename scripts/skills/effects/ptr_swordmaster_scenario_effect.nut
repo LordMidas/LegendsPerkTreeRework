@@ -170,7 +170,7 @@ this.ptr_swordmaster_scenario_effect <- this.inherit("scripts/skills/skill", {
 		}
 
 		local weapon = actor.getMainhandItem();
-		if (actor.isPlacedOnMap() && weapon != null && weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon) && !weapon.isWeaponType(this.Const.Items.WeaponType.Sword, true))
+		if (actor.isPlacedOnMap() && weapon != null && weapon.getID() != "weapon.player_banner" && weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon) && !weapon.isWeaponType(this.Const.Items.WeaponType.Sword, true))
 		{
 			this.m.WrongWeaponName = weapon.getName();
 		}
