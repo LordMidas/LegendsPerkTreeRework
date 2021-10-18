@@ -53,6 +53,15 @@ this.perk_ptr_promised_potential <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
+	function onUpdateLevel()
+	{
+		local actor = this.getContainer().getActor();
+		if (this.m.WillSucceed && (actor.m.Level == 11 || actor.m.Level == 7 && this.World.Assets.getOrigin().getID() == "scenario.manhunters" && this.getBackground().getID() == "background.slave"))
+		{
+			++actor.m.PerkPoints;
+		}
+	}
+
 	function onAdded()
 	{
 		if (this.m.IsSet)

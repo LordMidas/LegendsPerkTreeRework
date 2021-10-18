@@ -24,4 +24,13 @@ this.perk_ptr_rising_star <- this.inherit("scripts/skills/skill", {
 			_properties.XPGainMult *= 1.05;
 		}
 	}
+
+	function onUpdateLevel()
+	{
+		local actor = this.getContainer().getActor();
+		if (actor.m.Level == 13)
+		{
+			actor.m.PerkPoints += 2;
+		}
+	}
 });
