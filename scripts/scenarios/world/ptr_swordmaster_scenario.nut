@@ -10,7 +10,8 @@ this.ptr_swordmaster_scenario <- this.inherit("scripts/scenarios/world/starting_
 		this.m.IsFixedLook = true;		
 		this.m.StartingRosterTier = this.Const.Roster.getTierForSize(3);
 		this.m.RosterTierMax = this.Const.Roster.getTierForSize(10);
-		this.m.StartingBusinessReputation = 0;
+		this.m.StartingBusinessReputation = 1100;
+		this.setRosterReputationTiers(this.Const.Roster.createReputationTiers(this.m.StartingBusinessReputation));
 	}
 
 	function isValid()
