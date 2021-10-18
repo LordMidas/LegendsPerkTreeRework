@@ -1,4 +1,10 @@
 ====================
+==== Ver 1.2.40 ====
+====================
+- Added Overwhelm to Old Swordmaster commander's perk tree.
+- Fixed the Old Swordmaster origin having 100% armor ignore.
+
+====================
 ==== Ver 1.2.39 ====
 ====================
 - Allowed the Old Swordmaster origin to equip Banner without repercussions.
