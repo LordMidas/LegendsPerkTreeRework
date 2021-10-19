@@ -1,4 +1,9 @@
 ====================
+==== Ver 1.2.42 ====
+====================
+- Fixed infinite battle load with the Old Swordmaster origin.
+
+====================
 ==== Ver 1.2.41 ====
 ====================
 - Fixed a crash/freeze due to the Vigorous Assault perk on enemies.
