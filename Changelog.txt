@@ -1,4 +1,9 @@
 ====================
+==== Ver 1.2.44 ====
+====================
+- Fixed a bug when leveling up in the Old Swordmaster origin causing the game to lock up or becoming unable to select perks.
+
+====================
 ==== Ver 1.2.43 ====
 ====================
 - Modding: Updated MSU to v0.6.18 - this includes fix for a bug that was introduced in MSU v0.6.17 which may have resulted in some crashes during Rotation.
