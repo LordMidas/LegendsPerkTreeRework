@@ -1,4 +1,11 @@
 ====================
+==== Ver 1.2.45 ====
+====================
+- Fixed the chance for the Fencer perk being calculated wrongly.
+- Fixed some trees guaranteed on some backgrounds not showing up sometimes (e.g. in the case of ranged companion not having ranged trees).
+- Fixed misleading info in In the Zone tooltip, replaced the word "bonus" with "stacks" in the last paragraph.
+
+====================
 ==== Ver 1.2.44 ====
 ====================
 - Fixed a bug when leveling up in the Old Swordmaster origin causing the game to lock up or becoming unable to select perks.
