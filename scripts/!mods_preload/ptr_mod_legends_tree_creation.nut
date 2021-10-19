@@ -821,7 +821,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 
 			local talents = _player.getTalents();
 
-			chanceFencer = talents.len() == 0 ? 0 : talents[this.Const.Attributes.Initiative] * talents[this.Const.Attributes.MeleeSkill];			
+			chanceFencer = talents.len() == 0 ? 0 : chanceFencer * talents[this.Const.Attributes.Initiative] * talents[this.Const.Attributes.MeleeSkill];
 
 			if (chanceFencer > 0)
 			{
