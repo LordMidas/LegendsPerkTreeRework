@@ -126,7 +126,7 @@ gt.Const.PTR.createProfessionTrees <- function()
 			"has the eyes and temperament of a cold blooded killer"
 		],
 		WeightMultipliers = [
-			{Multiplier = 10000, Tree = this.Const.Perks.CivilizationTree},
+			{Multiplier = -1, Tree = this.Const.Perks.CivilizationTree},
 			{Multiplier = 3, Tree = this.Const.Perks.AgileTree},
 			{Multiplier = 3, Tree = this.Const.Perks.FastTree},
 			{Multiplier = 2, Tree = this.Const.Perks.ViciousTree},
@@ -135,11 +135,11 @@ gt.Const.PTR.createProfessionTrees <- function()
 			{Multiplier = 0.5, Tree = this.Const.Perks.LargeTree},
 			{Multiplier = 0.5, Tree = this.Const.Perks.SturdyTree},
 			{Multiplier = 3, Tree = this.Const.Perks.TrapperClassTree},
-			{Multiplier = 10000, Tree = this.Const.Perks.LightArmorTree},
+			{Multiplier = -1, Tree = this.Const.Perks.LightArmorTree},
 			{Multiplier = 5, Tree = this.Const.Perks.MediumArmorTree},
 			{Multiplier = 0.5, Tree = this.Const.Perks.ShieldTree},
-			{Multiplier = 10000, Tree = this.Const.Perks.OneHandedTree},
-			{Multiplier = 10000, Tree = this.Const.Perks.DaggerTree},
+			{Multiplier = -1, Tree = this.Const.Perks.OneHandedTree},
+			{Multiplier = -1, Tree = this.Const.Perks.DaggerTree},
 			{Multiplier = 2, Tree = this.Const.Perks.SwordTree},
 			{Multiplier = 0, Tree = this.Const.Perks.BowTree},
 			{Multiplier = 0, Tree = this.Const.Perks.SlingsTree},
@@ -175,8 +175,8 @@ gt.Const.PTR.createProfessionTrees <- function()
 			{Multiplier = 3, Tree = this.Const.Perks.ViciousTree},
 			{Multiplier = 2, Tree = this.Const.Perks.OrganisedTree},
 			{Multiplier = 5, Tree = this.Const.Perks.ChefClassTree},
-			{Multiplier = 10000, Tree = this.Const.Perks.OneHandedTree},
-			{Multiplier = 10000, Tree = this.Const.Perks.CleaverTree},
+			{Multiplier = -1, Tree = this.Const.Perks.OneHandedTree},
+			{Multiplier = -1, Tree = this.Const.Perks.CleaverTree},
 			{Multiplier = 2, Tree = this.Const.Perks.SwordTree},
 			{Multiplier = 3, Tree = this.Const.Perks.AxeTree},
 		],
@@ -213,10 +213,10 @@ gt.Const.PTR.createProfessionTrees <- function()
 			{Multiplier = 3, Tree = this.Const.Perks.OrganisedTree},
 			{Multiplier = 1.25, Tree = this.Const.Perks.ResilientTree},
 			{Multiplier = 2, Tree = this.Const.Perks.SturdyTree},
-			{Multiplier = 10000, Tree = this.Const.Perks.MenderClassTree},
+			{Multiplier = -1, Tree = this.Const.Perks.MenderClassTree},
 			{Multiplier = 2, Tree = this.Const.Perks.HeavyArmorTree},
 			{Multiplier = 1.5, Tree = this.Const.Perks.MediumArmorTree},			
-			{Multiplier = 10000, Tree = this.Const.Perks.HammerTree},
+			{Multiplier = -1, Tree = this.Const.Perks.HammerTree},
 		],
 		Tree = [
 			[
@@ -250,8 +250,8 @@ gt.Const.PTR.createProfessionTrees <- function()
 			{Multiplier = 0.8, Tree = this.Const.Perks.HealerClassTree},
 			{Multiplier = 2, Tree = this.Const.Perks.TacticianClassTree},
 			{Multiplier = 2, Tree = this.Const.Perks.LightArmorTree},
-			{Multiplier = 10000, Tree = this.Const.Perks.SpearTree},
-			{Multiplier = 10000, Tree = this.Const.Perks.ShieldTree},
+			{Multiplier = -1, Tree = this.Const.Perks.SpearTree},
+			{Multiplier = -1, Tree = this.Const.Perks.ShieldTree},
 		],
 		Tree = [
 			[
@@ -280,7 +280,7 @@ gt.Const.PTR.createProfessionTrees <- function()
 			{Multiplier = 3, Tree = this.Const.Perks.LargeTree},
 			{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
 			{Multiplier = 3, Tree = this.Const.Perks.SturdyTree},
-			{Multiplier = 10000, Tree = this.Const.Perks.HammerTree},
+			{Multiplier = -1, Tree = this.Const.Perks.HammerTree},
 		],
 		Tree = [
 			[
@@ -311,7 +311,7 @@ gt.Const.PTR.createProfessionTrees <- function()
 			{Multiplier = 3, Tree = this.Const.Perks.LargeTree},
 			{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
 			{Multiplier = 3, Tree = this.Const.Perks.SturdyTree},
-			{Multiplier = 10000, Tree = this.Const.Perks.OrganisedTree},
+			{Multiplier = -1, Tree = this.Const.Perks.OrganisedTree},
 			{Multiplier = 2, Tree = this.Const.Perks.TrapperClassTree},
 			{Multiplier = 2, Tree = this.Const.Perks.ChefClassTree},
 			{Multiplier = 2, Tree = this.Const.Perks.MenderClassTree},
@@ -343,12 +343,12 @@ gt.Const.PTR.createProfessionTrees <- function()
 			"claims to have experience in hunting animals"
 		],
 		WeightMultipliers = [
-			{Multiplier = 10000, Tree = this.Const.Perks.BowTree},
-			{Multiplier = 10000, Tree = this.Const.Perks.CrossbowTree},
+			{Multiplier = -1, Tree = this.Const.Perks.BowTree},
+			{Multiplier = -1, Tree = this.Const.Perks.CrossbowTree},
 			{Multiplier = 5, Tree = this.Const.Perks.LightArmorTree},
 			{Multiplier = 2, Tree = this.Const.Perks.DeviousTree},
 			{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},
-			{Multiplier = 10000, Tree = this.Const.Perks.RangedTree},
+			{Multiplier = -1, Tree = this.Const.Perks.RangedTree},
 			{Multiplier = 3, Tree = this.Const.Perks.SlingsTree},
 			{Multiplier = 3, Tree = this.Const.Perks.ThrowingTree},
 		],
@@ -402,7 +402,7 @@ gt.Const.PTR.createProfessionTrees <- function()
 			"appears to have the hands of a lumberjack"
 		],
 		WeightMultipliers = [
-			{Multiplier = 10000, Tree = this.Const.Perks.SchratTree},
+			{Multiplier = -1, Tree = this.Const.Perks.SchratTree},
 			{Multiplier = 2, Tree = this.Const.Perks.LargeTree},
 			{Multiplier = 1.5, Tree = this.Const.Perks.ResilientTree},
 			{Multiplier = 2, Tree = this.Const.Perks.SturdyTree},
@@ -410,7 +410,7 @@ gt.Const.PTR.createProfessionTrees <- function()
 			{Multiplier = 0.5, Tree = this.Const.Perks.ClerkClassTree}
 			{Multiplier = 2, Tree = this.Const.Perks.ScoutClassTree}			
 			{Multiplier = 2, Tree = this.Const.Perks.TwoHandedTree},
-			{Multiplier = 10000, Tree = this.Const.Perks.AxeTree}
+			{Multiplier = -1, Tree = this.Const.Perks.AxeTree}
 		],
 		Tree = [
 			[
@@ -440,8 +440,8 @@ gt.Const.PTR.createProfessionTrees <- function()
 			{Multiplier = 5, Tree = this.Const.Perks.OrganisedTree},
 			{Multiplier = 5, Tree = this.Const.Perks.TalentedTree},
 			{Multiplier = 2.5, Tree = this.Const.Perks.CalmTree},
-			{Multiplier = 10000, Tree = this.Const.Perks.HealerClassTree},
-			{Multiplier = 10000, Tree = this.Const.Perks.SwordTree},
+			{Multiplier = -1, Tree = this.Const.Perks.HealerClassTree},
+			{Multiplier = -1, Tree = this.Const.Perks.SwordTree},
 		],
 		Tree = [
 			[
@@ -504,8 +504,8 @@ gt.Const.PTR.createProfessionTrees <- function()
 			"is known around these parts to be quite the musician"
 		],
 		WeightMultipliers = [
-			{Multiplier = 10000, Tree = this.Const.Perks.TalentedTree},
-			{Multiplier = 10000, Tree = this.Const.Perks.SergeantClassTree},
+			{Multiplier = -1, Tree = this.Const.Perks.TalentedTree},
+			{Multiplier = -1, Tree = this.Const.Perks.SergeantClassTree},
 		],
 		Tree = [
 			[
@@ -540,8 +540,8 @@ gt.Const.PTR.createProfessionTrees <- function()
 			"wants nothing more in life than to serve the gods"
 		],
 		WeightMultipliers = [
-			{Multiplier = 10000, Tree = this.Const.Perks.UndeadTree},
-			{Multiplier = 10000, Tree = this.Const.Perks.CalmTree},
+			{Multiplier = -1, Tree = this.Const.Perks.UndeadTree},
+			{Multiplier = -1, Tree = this.Const.Perks.CalmTree},
 			{Multiplier = 5, Tree = this.Const.Perks.HealerClassTree},
 			{Multiplier = 5, Tree = this.Const.Perks.SergeantClassTree},
 			{Multiplier = 0.25, Tree = this.Const.Perks.DeviousTree},
@@ -579,7 +579,7 @@ gt.Const.PTR.createProfessionTrees <- function()
 			{Multiplier = 1.5, Tree = this.Const.Perks.UnstoppableTree},
 			{Multiplier = 0.25, Tree = this.Const.Perks.TrainedTree},
 			{Multiplier = 0, Tree = this.Const.Perks.EntertainerClassTree},
-			{Multiplier = 10000, Tree = this.Const.Perks.CleaverTree},
+			{Multiplier = -1, Tree = this.Const.Perks.CleaverTree},
 		],
 		Tree = [
 			[],
@@ -611,8 +611,8 @@ gt.Const.PTR.createProfessionTrees <- function()
 		WeightMultipliers = [
 			{Multiplier = 5, Tree = this.Const.Perks.TalentedTree},
 			{Multiplier = 1.5, Tree = this.Const.Perks.CalmTree},
-			{Multiplier = 10000, Tree = this.Const.Perks.OrganisedTree},
-			{Multiplier = 10000, Tree = this.Const.Perks.ClerkClassTree}
+			{Multiplier = -1, Tree = this.Const.Perks.OrganisedTree},
+			{Multiplier = -1, Tree = this.Const.Perks.ClerkClassTree}
 		],
 		Tree = [
 			[],
@@ -745,7 +745,7 @@ gt.Const.PTR.createProfessionTrees <- function()
 			"claims to have served in a professional army"
 		],
 		WeightMultipliers = [
-			{Multiplier = 10000, Tree = this.Const.Perks.TrainedTree},
+			{Multiplier = -1, Tree = this.Const.Perks.TrainedTree},
 			{Multiplier = 2, Tree = this.Const.Perks.ShieldTree},
 		],
 		Tree = [
