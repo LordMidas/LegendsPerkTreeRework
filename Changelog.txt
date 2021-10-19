@@ -1,4 +1,9 @@
 ====================
+==== Ver 1.2.43 ====
+====================
+- Modding: Updated MSU to v0.6.18 - this includes fix for a bug that was introduced in MSU v0.6.17 which may have resulted in some crashes during Rotation.
+
+====================
 ==== Ver 1.2.42 ====
 ====================
 - Fixed infinite battle load with the Old Swordmaster origin.
@@ -43,6 +48,7 @@
 - Fixed the Wear Them Down perk applying the Worn Down effect with all weapons instead of only with Staves. Wiedergangers and Armored Wiedergangers still have the perk enabled on them as this is intended.
 - Fixed a typo in Worn Down effect tooltip.
 - Removed the One-Handed styles perks from Barbarian Chosen and Barbarian King as they never use one-handed weapons.
+- Modding: Updated MSU to v0.6.17.
 
 ====================
 ==== Ver 1.2.35 ====
