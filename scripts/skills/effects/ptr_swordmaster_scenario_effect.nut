@@ -174,7 +174,7 @@ this.ptr_swordmaster_scenario_effect <- this.inherit("scripts/skills/skill", {
 		}
 
 		local weapon = actor.getMainhandItem();
-		if (actor.isPlacedOnMap() && weapon != null && !weapon.isValidWeapon(weapon))
+		if (actor.isPlacedOnMap() && weapon != null && !this.isValidWeapon(weapon))
 		{
 			this.m.WrongWeaponName = weapon.getName();
 		}
