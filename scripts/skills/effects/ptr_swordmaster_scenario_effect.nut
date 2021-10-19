@@ -197,15 +197,18 @@ this.ptr_swordmaster_scenario_effect <- this.inherit("scripts/skills/skill", {
 
 	function onUpdateLevel()
 	{
-		local actor = this.getContainer().getActor();
-		if (this.m.FreePerkLevels[0].Success)
+		if (this.m.FreePerkLevels.len() > 0)
 		{
-			local perkDef = this.m.SwordPerkDefs[this.m.FreePerkLevels[0].Index];
-			this.getContainer().add(this.new(this.Const.Perks.PerkDefObjects[perkDef].Script));
-			actor.getBackground().addPerk(perkDef, this.m.FreePerkLevels[0].Index + 1);
-		}		
+			local actor = this.getContainer().getActor();
+			if (this.m.FreePerkLevels[0].Success)
+			{
+				local perkDef = this.m.SwordPerkDefs[this.m.FreePerkLevels[0].Index];
+				this.getContainer().add(this.new(this.Const.Perks.PerkDefObjects[perkDef].Script));
+				actor.getBackground().addPerk(perkDef, this.m.FreePerkLevels[0].Index + 1);
+			}		
 
-		this.m.FreePerkLevels.remove(0);
+			this.m.FreePerkLevels.remove(0);
+		}
 	}
 
 	function onCombatFinished()
