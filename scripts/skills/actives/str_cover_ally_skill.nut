@@ -120,6 +120,13 @@ this.str_cover_ally_skill <- this.inherit("scripts/skills/skill", {
 			return false;
 		}
 
+		local off = actor.getOffhandItem();
+
+		if (off == null || off.getID().find("buckler") != null || off.getID().find("parrying_dagger") != null)
+		{
+			return false;
+		}
+
 		return this.skill.isUsable() && !this.getContainer().hasSkill("effects.str_covering_ally") && this.getContainer().getActor().getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.Allied).len() != 0;
 	}
 
