@@ -116,7 +116,7 @@ this.perk_ptr_momentum <- this.inherit("scripts/skills/skill", {
 
 	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
 	{
-		if (this.getContainer().getActor().getTile().isSameTileAs(this.m.BeforeSkillExecutedTile))
+		if (this.m.BeforeSkillExecutedTile != null && this.getContainer().getActor().getTile().isSameTileAs(this.m.BeforeSkillExecutedTile))
 		{
 			this.m.TilesMovedThisTurn = 0;
 		}
