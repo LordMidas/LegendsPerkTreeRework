@@ -1345,7 +1345,7 @@ gt.Const.PTR.modSkills <- function()
 
 		o.onAnySkillExecuted <- function(_skill, _targetTile, _targetEntity)
 		{
-			if (_skill.isAttack())
+			if (_skill.isAttack() && this.Tactical.TurnSequenceBar.getActiveEntity() != null && this.Tactical.TurnSequenceBar.getActiveEntity().getID() == actor.getID())
 			{
 				this.m.AttackCount++;
 			}
