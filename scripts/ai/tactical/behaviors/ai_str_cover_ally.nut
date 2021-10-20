@@ -222,40 +222,40 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 				if (entityAgent.getProperties().IgnoreTargetValueOnEngage)
 				{
 					letOthersGoScore = letOthersGoScore + this.Math.abs(myTile.SquareCoords.Y - targetTile.SquareCoords.Y) * 20.0;
-					local myDistanceToTarget = myTile.getDistanceTo(targetTile);
-					local targets = entityAgent.getKnownAllies();
+					// local myDistanceToTarget = myTile.getDistanceTo(targetTile);
+					// local targets = entityAgent.getKnownAllies();
 
-					foreach( ally in targets )
-					{
-						if (ally.getMoraleState() == this.Const.MoraleState.Fleeing || ally.getCurrentProperties().RangedSkill > ally.getCurrentProperties().MeleeSkill || ally.getTile().hasZoneOfControlOtherThan(ally.getAlliedFactions()))
-						{
-							continue;
-						}
+					// // foreach( ally in targets )
+					// {
+					// 	if (ally.getMoraleState() == this.Const.MoraleState.Fleeing || ally.getCurrentProperties().RangedSkill > ally.getCurrentProperties().MeleeSkill || ally.getTile().hasZoneOfControlOtherThan(ally.getAlliedFactions()))
+					// 	{
+					// 		continue;
+					// 	}
 
-						if (ally.getTile().getDistanceTo(targetTile) < myDistanceToTarget)
-						{
-							letOthersGoScore = letOthersGoScore + 2.0;
-						}
-					}
+					// 	if (ally.getTile().getDistanceTo(targetTile) < myDistanceToTarget)
+					// 	{
+					// 		letOthersGoScore = letOthersGoScore + 2.0;
+					// 	}
+					// }
 				}
-				else
-				{
-					local myDistanceToTarget = myTile.getDistanceTo(targetTile);
-					local targets = entityAgent.getKnownAllies();
+				// else
+				// {
+				// 	local myDistanceToTarget = myTile.getDistanceTo(targetTile);
+				// 	local targets = entityAgent.getKnownAllies();
 
-					foreach( ally in targets )
-					{
-						if (ally.getMoraleState() == this.Const.MoraleState.Fleeing || ally.getCurrentProperties().RangedSkill > ally.getCurrentProperties().MeleeSkill || ally.getTile().hasZoneOfControlOtherThan(ally.getAlliedFactions()))
-						{
-							continue;
-						}
+				// 	foreach( ally in targets )
+				// 	{
+				// 		if (ally.getMoraleState() == this.Const.MoraleState.Fleeing || ally.getCurrentProperties().RangedSkill > ally.getCurrentProperties().MeleeSkill || ally.getTile().hasZoneOfControlOtherThan(ally.getAlliedFactions()))
+				// 		{
+				// 			continue;
+				// 		}
 
-						if (ally.getTile().getDistanceTo(targetTile) < myDistanceToTarget)
-						{
-							letOthersGoScore = letOthersGoScore + 0.5;
-						}
-					}
-				}
+				// 		if (ally.getTile().getDistanceTo(targetTile) < myDistanceToTarget)
+				// 		{
+				// 			letOthersGoScore = letOthersGoScore + 0.5;
+				// 		}
+				// 	}
+				// }
 
 				local levelDifference = tile.Level - targetTile.Level;
 				local distance = tile.getDistanceTo(myTile);
