@@ -1,4 +1,16 @@
 ====================
+==== Ver 1.2.46 ====
+====================
+- Cover Ally is no longer usable with a Buckler or Parrying Dagger.
+- King of all Weapons should no longer expire upon attacks of opportunity or spearwall.
+- Perfect Focus now only increments its Damage and Fatigue Cost maluses upon attacks during your turn.
+- The hitchance malus to pole type weapons added by PTR now only applies to attacks during your turn.
+- Fixed a crash when the scaling beggar stole the perk Momentum.
+- Fixed injuries being applied to Undead even without the Dismemberment or Deep Impact perks.
+- Hopefully fixed a crash being caused by the AI's evaluation of Cover Ally.
+- Modding: Updated MSU to v0.6.19.
+
+====================
 ==== Ver 1.2.45 ====
 ====================
 - Fixed the chance for the Fencer perk being calculated wrongly.
