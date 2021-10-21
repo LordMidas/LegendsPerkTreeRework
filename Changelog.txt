@@ -1,4 +1,12 @@
 ===================
+==== Ver 1.3.1 ====
+===================
+- Moved Pattern Recognition from Soldier t3 to t5.
+- Moved Exude Confidence from Soldier t5 to t3.
+- Fixed the Sprint active skill tooltip not appearing.
+- Fixed the Sprint active skill bugging out the skills of a character.
+
+===================
 ==== Ver 1.3.0 ====
 ===================
 - Perfect Focus major tweaks:
