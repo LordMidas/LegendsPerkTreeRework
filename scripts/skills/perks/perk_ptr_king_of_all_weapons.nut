@@ -89,7 +89,7 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 
 	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
 	{
-		if (_targetEntity != null && this.Tactical.TurnSequenceBar.getActiveEntity() != null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() == actor.getID() && _skill.getID() == "actives.thrust" || _skill.getID() == "actives.prong")
+		if (_targetEntity != null && this.Tactical.TurnSequenceBar.getActiveEntity() != null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() == this.getContainer().getActor().getID() && _skill.getID() == "actives.thrust" || _skill.getID() == "actives.prong")
 		{
 			this.m.IsSpent = true;
 		}

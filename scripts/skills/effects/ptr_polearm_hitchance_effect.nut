@@ -37,7 +37,7 @@ this.ptr_polearm_hitchance_effect <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		if (this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
+		if (this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != this.getContainer().getActor().getID())
 		{
 			return;
 		}
