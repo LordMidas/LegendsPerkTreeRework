@@ -7,7 +7,7 @@ gt.Const.PTR.modSkills <- function()
 		o.getTooltip = function()
 		{
 			local tooltip = getTooltip();
-			if (this.getContainer().getActor().hasSkill("effects.perfect_focus"))
+			if (this.getContainer().hasSkill("effects.perfect_focus"))
 			{
 				tooltip.push({
 					id = 11,
@@ -22,7 +22,7 @@ gt.Const.PTR.modSkills <- function()
 		o.isUsable = function()
 		{
 			local ret = isUsable();
-			if (ret && this.getContainer().getActor().hasSkill("effects.perfect_focus"))
+			if (ret && this.getContainer().hasSkill("effects.perfect_focus"))
 			{
 				ret = false;
 			}
