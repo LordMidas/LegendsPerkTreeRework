@@ -107,7 +107,7 @@ this.perk_ptr_deep_cuts <- this.inherit("scripts/skills/skill", {
 
 			  if (!actor.isHiddenToPlayer() && _targetEntity.getTile().IsVisibleForPlayer)
 				{
-					this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " made a particular Deep Cut inflicting additional Bleeding on " + this.Const.UI.getColorizedEntityName(_targetEntity));
+					this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " made a particularly Deep Cut inflicting additional Bleeding on " + this.Const.UI.getColorizedEntityName(_targetEntity));
 				}
 			}
     }
