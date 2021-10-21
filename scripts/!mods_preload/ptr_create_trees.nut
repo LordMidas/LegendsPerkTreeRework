@@ -752,11 +752,11 @@ gt.Const.PTR.createProfessionTrees <- function()
 			[],
 			[],
 			[
-				gt.Const.Perks.PerkDefs.PTRPatternRecognition
+				gt.Const.Perks.PerkDefs.PTRExudeConfidence
 			],
 			[],
 			[
-				gt.Const.Perks.PerkDefs.PTRExudeConfidence
+				gt.Const.Perks.PerkDefs.PTRPatternRecognition
 			],
 			[],
 			[
