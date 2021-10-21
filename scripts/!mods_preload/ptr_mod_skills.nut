@@ -1300,6 +1300,18 @@ gt.Const.PTR.modSkills <- function()
 				);
 			}
 
+			if (this.getContainer().hasSkill("effects.inspired"))
+			{
+				tooltip.push(
+					{
+						id = 10,
+						type = "text",
+						icon = "ui/icons/warning.png",
+						text = "Not usable when Inspired"
+					}
+				);
+			}
+
 			return tooltip;
 		}
 
