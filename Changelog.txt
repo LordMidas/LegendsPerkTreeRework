@@ -1,3 +1,22 @@
+===================
+==== Ver 1.3.0 ====
+===================
+- Perfect Focus major tweaks:
+	- No longer usable with ranged weapons.
+	- Will now expire prematurely if you move more than 2 tiles away from the activation tile.
+	- No longer has a stacking -10% damage per skill used.
+	- Improved tooltip.
+- Sprint tweaked: No longer usable when under the effects of Perfect Focus.
+- Underdog reworked: Now only removes the surround penalty from the first 2 enemies (first 3 including the attacker).
+- Battleheart reworked: Works as how Underdog used to work i.e. +5 defense per surrounding enemy. No longer immune to Backstabber.
+- Overwhelm tweaked: Is now capped at 7 stacks (i.e. a maximum of 70%).
+- Deep Cuts moved from Cleaver t3 to t1.
+- Sanguinary moved from Cleaver t3 to t2.
+- Swordlike moved from Cleaver t1 to t3.
+- Clarified in Opportunist tooltip that it reduces the Fatigue cost of the next Throwing attack by 50% when it procs.
+- Fixed the critical mistakes from v1.2.46 that were causing lock-ups.
+- Fixed a typo in Deep Cuts status effect tooltip.
+
 ====================
 ==== Ver 1.2.46 ====
 ====================
