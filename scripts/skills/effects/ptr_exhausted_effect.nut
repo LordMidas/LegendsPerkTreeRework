@@ -52,14 +52,9 @@ this.ptr_exhausted_effect <- this.inherit("scripts/skills/skill", {
 		if (!this.isGarbage())
 		{
 			_properties.DamageTotalMult *= this.m.DamageReductionPercentage * 0.01;
-			_properties.FatigueEffectMult *= this.m.FatigueBuiltIncrease * 2 * 0.01;
+			_properties.FatigueEffectMult *= 1.0 + this.m.FatigueBuiltIncrease * 0.01;
+			_properties.ActionPointsMult *= 0.5;
 		}
-	}
-
-	function onTurnStart()
-	{
-		local actor = this.getContainer().getActor();
-		actor.setActionPoints(this.Math.floor(actor.getActionPointsMax() * this.m.StartingAPMalus * 0.01));
 	}
 
 	function onTurnEnd()
