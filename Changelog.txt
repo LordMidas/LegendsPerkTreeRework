@@ -1,4 +1,14 @@
 ===================
+==== Ver 1.3.2 ====
+===================
+- Perfect Focus tweaked:
+	- Cannot move from your position while it is your turn.
+	- Exhausted effect is now applied at the start of your next turn.
+	- Hopefully this also fixes the bug where Exhausted effect was not applied while affected by Lindwurm Acid.
+- Fixed the King of all Weapons effect expiring upon using any skill which didn't have a target entity.
+- Fixed the tooltip  of the Sprint active skill not appearing (for real this time).
+
+===================
 ==== Ver 1.3.1 ====
 ===================
 - Moved Pattern Recognition from Soldier t3 to t5.
