@@ -1284,7 +1284,25 @@ gt.Const.PTR.modSkills <- function()
 					id = 10,
 					type = "text",
 					icon = "ui/icons/special.png",
-					text = "Your Action Points will be doubled for the remainder of this turn."
+					text = "Action Points will be doubled for the remainder of this turn"
+				}
+			);
+
+			tooltip.push(
+				{
+					id = 10,
+					type = "text",
+					icon = "ui/icons/special.png",
+					text = "Moving farther than 2 tiles of distance from your current tile will end the effect prematurely"
+				}
+			);
+
+			tooltip.push(
+				{
+					id = 10,
+					type = "text",
+					icon = "ui/icons/special.png",
+					text = "You will be [color=" + this.Const.UI.Color.NegativeValue + "]exhausted[/color] on your next turn"
 				}
 			);
 
@@ -1312,12 +1330,24 @@ gt.Const.PTR.modSkills <- function()
 				);
 			}
 
+			if (this.getContainer().getActor().isArmedWithRangedWeapon())
+			{
+				tooltip.push(
+					{
+						id = 10,
+						type = "text",
+						icon = "ui/icons/warning.png",
+						text = "Not usable when armed with a ranged weapon"
+					}
+				);
+			}			
+
 			return tooltip;
 		}
 
 		o.isUsable = function()
 		{
-			return this.skill.isUsable() && !this.getContainer().hasSkill("effects.perfect_focus") && !this.getContainer().hasSkill("effects.ptr_exhausted") && !this.getContainer().hasSkill("effects.inspired");
+			return this.skill.isUsable() && !this.getContainer().getActor().isArmedWithRangedWeapon() && !this.getContainer().hasSkill("effects.perfect_focus") && !this.getContainer().hasSkill("effects.ptr_exhausted") && !this.getContainer().hasSkill("effects.inspired");
 		}
 	});
 
@@ -1325,7 +1355,8 @@ gt.Const.PTR.modSkills <- function()
 		o.m.StartingAPFraction <- 1;
 		o.m.AttackCount <- 0;
 		o.m.MalusPerCount <- 10;
-		o.m.Description = "This character has achieved perfect focus as if time itself were to stand still, gaining additional Action Points for this turn."
+		o.m.Description = "This character has achieved perfect focus as if time itself were to stand still, gaining additional Action Points for this turn.";
+		o.m.StartingTile <- null;
 
 		o.getTooltip <- function()
 		{
@@ -1336,20 +1367,20 @@ gt.Const.PTR.modSkills <- function()
 					{
 						id = 10,
 						type = "text",
-						icon = "ui/icons/damage_dealt.png",
-						text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + this.getMalus() + "%[/color] Damage dealt"
-					}
-				);
-
-				ret.push(
-					{
-						id = 10,
-						type = "text",
 						icon = "ui/icons/fatigue.png",
 						text = "[color=" + this.Const.UI.Color.NegativeValue + "]+" + this.getMalus() + "%[/color] Fatigue built"
 					}
 				);
 			}
+
+			ret.push(
+				{
+					id = 10,
+					type = "text",
+					icon = "ui/icons/warning.png",
+					text = "Will expire prematurely if you are more than 2 tiles away from the tile where you achieved Perfect Focus"
+				}
+			);
 
 			return ret;
 		}
@@ -1360,20 +1391,39 @@ gt.Const.PTR.modSkills <- function()
 			this.m.StartingAPFraction = actor.getActionPoints() / actor.getActionPointsMax();
 			actor.getCurrentProperties().ActionPointsMult = 2.0;
 			actor.setActionPoints(actor.getActionPointsMax() * this.m.StartingAPFraction);
+			this.m.StartingTile = this.getContainer().getActor().getTile();
 		}
 
 		o.onUpdate = function (_properties)
 		{
+			if (this.getContainer().getActor().isArmedWithRangedWeapon())
+			{
+				this.removeSelf();
+				return;
+			}
+
 			if (!this.isGarbage())
 			{
 				_properties.ActionPointsMult = 2.0;
 			}
 		}
 
+		o.onMovementFinished <- function( _tile )
+		{
+			if (_tile.getDistanceTo(this.m.StartingTile) > 2)
+			{
+				this.removeSelf();
+			}
+		}
+
 		o.onTurnEnd <- function()
 		{
-			this.getContainer().add(this.new("scripts/skills/effects/ptr_exhausted_effect"));
 			this.removeSelf();
+		}
+
+		o.onRemoved <- function()
+		{
+			this.getContainer().add(this.new("scripts/skills/effects/ptr_exhausted_effect"));
 		}
 
 		o.onAnySkillExecuted <- function(_skill, _targetTile, _targetEntity)
@@ -1392,7 +1442,6 @@ gt.Const.PTR.modSkills <- function()
 		o.onAnySkillUsed <- function( _skill, _targetEntity, _properties )
 		{
 			local malus = this.getMalus() * 0.01;
-			_properties.DamageTotalMult *= 1.0 - malus;
 			_properties.FatigueEffectMult *= 1.0 + malus;
 		}
 	});
