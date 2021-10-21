@@ -1315,7 +1315,7 @@ gt.Const.PTR.modSkills <- function()
 					id = 10,
 					type = "text",
 					icon = "ui/icons/special.png",
-					text = "Action Points will be doubled for the remainder of this turn"
+					text = "Action Points will be doubled for the remainder of this round"
 				}
 			);
 
@@ -1324,7 +1324,7 @@ gt.Const.PTR.modSkills <- function()
 					id = 10,
 					type = "text",
 					icon = "ui/icons/special.png",
-					text = "Moving farther than 2 tiles of distance from your current tile will end the effect prematurely"
+					text = "Will [color=" + this.Const.UI.Color.NegativeValue + "]not be able to move[/color] from your position while it is your turn"
 				}
 			);
 
@@ -1384,15 +1384,15 @@ gt.Const.PTR.modSkills <- function()
 
 	::mods_hookNewObject("skills/effects/perfect_focus_effect", function(o) {
 		o.m.StartingAPFraction <- 1;
-		o.m.AttackCount <- 0;
+		o.m.SkillsUsedCount <- 0;
 		o.m.MalusPerCount <- 10;
 		o.m.Description = "This character has achieved perfect focus as if time itself were to stand still, gaining additional Action Points for this turn.";
-		o.m.StartingTile <- null;
+		o.m.IsSpent <- false;
 
 		o.getTooltip <- function()
 		{
 			local ret = this.skill.getTooltip();
-			if (this.m.AttackCount > 0)
+			if (this.m.SkillsUsedCount > 0)
 			{
 				ret.push(
 					{
@@ -1408,8 +1408,8 @@ gt.Const.PTR.modSkills <- function()
 				{
 					id = 10,
 					type = "text",
-					icon = "ui/icons/warning.png",
-					text = "Will expire prematurely if you are more than 2 tiles away from the tile where you achieved Perfect Focus"
+					icon = "ui/icons/special.png",
+					text = "Cannot move from this position during this character\'s turn"
 				}
 			);
 
@@ -1422,34 +1422,25 @@ gt.Const.PTR.modSkills <- function()
 			this.m.StartingAPFraction = actor.getActionPoints() / actor.getActionPointsMax();
 			actor.getCurrentProperties().ActionPointsMult = 2.0;
 			actor.setActionPoints(actor.getActionPointsMax() * this.m.StartingAPFraction);
-			this.m.StartingTile = this.getContainer().getActor().getTile();
 		}
 
 		o.onUpdate = function (_properties)
 		{
 			if (this.getContainer().getActor().isArmedWithRangedWeapon())
 			{
-				this.removeSelf();
+				this.m.IsSpent = true;
 				return;
 			}
 
-			if (!this.isGarbage())
+			if (!this.m.IsSpent && !this.isGarbage())
 			{
+				if (this.Tactical.TurnSequenceBar.getActiveEntity() != null && this.Tactical.TurnSequenceBar.getActiveEntity().getID() == this.getContainer().getActor().getID())
+				{
+					_properties.IsRooted = true;
+				}
+
 				_properties.ActionPointsMult = 2.0;
 			}
-		}
-
-		o.onMovementFinished <- function( _tile )
-		{
-			if (_tile.getDistanceTo(this.m.StartingTile) > 2)
-			{
-				this.removeSelf();
-			}
-		}
-
-		o.onTurnEnd <- function()
-		{
-			this.removeSelf();
 		}
 
 		o.onRemoved <- function()
@@ -1459,15 +1450,15 @@ gt.Const.PTR.modSkills <- function()
 
 		o.onAnySkillExecuted <- function(_skill, _targetTile, _targetEntity)
 		{
-			if (_skill.isAttack() && this.Tactical.TurnSequenceBar.getActiveEntity() != null && this.Tactical.TurnSequenceBar.getActiveEntity().getID() == this.getContainer().getActor().getID())
+			if (this.Tactical.TurnSequenceBar.getActiveEntity() != null && this.Tactical.TurnSequenceBar.getActiveEntity().getID() == this.getContainer().getActor().getID())
 			{
-				this.m.AttackCount++;
+				this.m.SkillsUsedCount++;
 			}
 		}
 
 		o.getMalus <- function()
 		{
-			return this.m.AttackCount * this.m.MalusPerCount;
+			return this.m.SkillsUsedCount * this.m.MalusPerCount;
 		}
 
 		o.onAnySkillUsed <- function( _skill, _targetEntity, _properties )
