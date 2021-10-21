@@ -298,6 +298,12 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.Overwhelm = "Learn to take advantage of your high Initiative and prevent the enemy from attacking effectively by overwhelming them with your attacks!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• With every attack, hit or miss, against an opponent that acts after you in the current round, inflict the \'Overwhelmed\' status effect which lowers both Melee Skill and Ranged Skill by [color=" + this.Const.UI.Color.NegativeValue + "]-10%[/color] for one turn.\n• The effect stacks with each attack, up to a maximum of 7 times, and can be applied to multiple targets at once with a single attack.\n\n[color=#0b0084]From the Fast and Dagger perk groups[/color]";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Overwhelm].Tooltip = gt.Const.Strings.PerkDescription.Overwhelm;
 
+	gt.Const.Strings.PerkDescription.LegendBattleheart = "Wade into the thick of battle, dodging blades from behind and above, aware of all around you at the heart of the battle.\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• The defense malus due to being surrounded by opponents is reduced by [color=" + this.Const.UI.Color.NegativeValue + "]5[/color].\n• If an attacker has the Backstabber perk, the effect of that perk is negated, and the normal defense malus due to being surrounded is applied instead.";
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendBattleheart].Tooltip = gt.Const.Strings.PerkDescription.Underdog;
+
+	gt.Const.Strings.PerkDescription.Underdog = "I\'m used to it.\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• In addition to the attacker, the malus to defense from up to two other surrounding enemies no longer applies to this character.\n\n[color=#0b0084]From the Trained perk group[/color]";
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Underdog].Tooltip = gt.Const.Strings.PerkDescription.Underdog;
+
 	local poleWeaponStrings = [
 		"SpecAxe",
 		"SpecHammer",

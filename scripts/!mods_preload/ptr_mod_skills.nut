@@ -2,6 +2,20 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modSkills <- function()
 {	
+	::mods_hookExactClass("skills/perks/perk_underdog", function(o) {
+		o.onUpdate = function( _properties )
+		{
+			_properties.StartSurroundCountAt += 2;
+		}
+	});
+
+	::mods_hookExactClass("skills/perks/perk_legend_battleheart", function(o) {
+		o.onUpdate = function( _properties )
+		{
+			_properties.SurroundedDefense += 5;
+		}
+	});
+
 	::mods_hookExactClass("skills/effects/legend_baffled_effect", function(o) {
 		o.onAdded = function()
 		{
