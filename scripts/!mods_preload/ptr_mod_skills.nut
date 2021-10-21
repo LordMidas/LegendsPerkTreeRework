@@ -16,6 +16,8 @@ gt.Const.PTR.modSkills <- function()
 					text = "Not usable when under the effects of Perfect Focus"
 				});
 			}
+
+			return tooltip;
 		}
 
 		local isUsable = o.isUsable;
