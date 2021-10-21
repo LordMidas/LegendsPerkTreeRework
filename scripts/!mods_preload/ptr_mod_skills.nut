@@ -49,6 +49,13 @@ gt.Const.PTR.modSkills <- function()
 			_properties.MeleeSkillMult = this.Math.maxf(0.0, _properties.MeleeSkillMult - 0.1 * this.m.Count);
 			_properties.RangedSkillMult = this.Math.maxf(0.0, _properties.RangedSkillMult - 0.1 * this.m.Count);
 		}
+
+		local onRefresh  = o.onRefresh;
+		o.onRefresh = function()
+		{
+			onRefresh();
+			this.m.Count = this.Math.min(this.m.Count, 7);
+		}
 	});
 
 	// Composure removal from players continuing from older saves
