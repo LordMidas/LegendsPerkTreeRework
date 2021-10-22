@@ -1,8 +1,12 @@
 this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 	m = {
 		IsForceEnabled = false,
-		IsSpent = false,
-		DamageReductionPercentage = 50
+		IsSpent = true,
+		DamageReductionPercentage = 50,
+		Skills = [
+			"actives.thrust",
+			"actives.prong"
+		]
 	},
 	function create()
 	{
@@ -16,6 +20,11 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
+	}
+
+	function isHidden()
+	{
+		return this.m.IsSpent;
 	}
 
 	function getTooltip()
@@ -32,6 +41,7 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 		return tooltip;
 	}
 
+	// So that it shows upon AI entities even before their turn starts so that the player can see they have it.
 	function onAdded()
 	{
 		if (!this.getContainer().getActor().isPlayerControlled() && this.isEnabled())
@@ -48,7 +58,7 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 		}
 
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Spear) || (!this.getContainer().hasSkill("actives.thrust") && !this.getContainer().hasSkill("actives.prong")))
+		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Spear) || this.getContainer().getSkillsByFunction(this, @(_skill) this.m.Skills.find(_skill.getID()) != null).len() == 0)
 		{
 			return false;
 		}
@@ -58,19 +68,13 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 
 	function onAfterUpdate(_properties)
 	{
-		this.m.IsHidden = true;
-
 		if (this.m.IsSpent || !this.isEnabled() || !this.getContainer().getActor().isPlacedOnMap())
 		{
 			this.m.IsSpent = true;
 			return;
 		}
 
-		this.m.IsHidden = false;
-
-		local skills = [];
-		skills.push(this.getContainer().getSkillByID("actives.thrust"));
-		skills.push(this.getContainer().getSkillByID("actives.prong"));
+		local skills = this.getContainer().getSkillsByFunction(this, @(_skill) this.m.Skills.find(_skill.getID()) != null);
 
 		if (skills.len() == 0)
 		{
@@ -89,7 +93,11 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 
 	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
 	{
-		if (_targetEntity != null && this.Tactical.TurnSequenceBar.getActiveEntity() != null && this.Tactical.TurnSequenceBar.getActiveEntity().getID() == this.getContainer().getActor().getID() && _skill.getID() == "actives.thrust" || _skill.getID() == "actives.prong")
+		if (_targetEntity != null && 
+			this.Tactical.TurnSequenceBar.getActiveEntity() != null && 
+			this.Tactical.TurnSequenceBar.getActiveEntity().getID() == this.getContainer().getActor().getID() && 
+			this.m.Skills.find(_skill.getID()) != null
+			)
 		{
 			this.m.IsSpent = true;
 		}
@@ -102,7 +110,7 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		if (_skill.getID() == "actives.thrust" || _skill.getID() == "actives.prong")
+		if (this.m.Skills.find(_skill.getID()) != null)
 		{
 			local actor = this.getContainer().getActor();
 			if (!actor.isPlacedOnMap() || this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
