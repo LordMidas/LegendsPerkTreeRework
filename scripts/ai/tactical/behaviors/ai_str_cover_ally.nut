@@ -30,7 +30,7 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 			return this.Const.AI.Behavior.Score.Zero;
 		}
 
-		if (!this.getAgent().hasVisibleOpponent())
+		if (!this.getAIAgent().hasVisibleOpponent())
 		{
 			return this.Const.AI.Behavior.Score.Zero;
 		}
@@ -44,8 +44,8 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 
 		score = score * this.getFatigueScoreMult(this.m.Skill);
 		local myTile = _entity.getTile();
-
-		local allies = _entity.getActorsAtDistanceAsArray(1, this.Const.FactionRelation.SameFaction);
+		
+		local allies = this.getAIAgent().getKnownAllies();
 
 		local potentialTargets = [];
 
@@ -110,22 +110,39 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 			return ret;
 		}
 
+
+		local entityAgent = _entity.getAIAgent();
+		local entityEngageBehavior = entityAgent.getBehavior(this.Const.AI.Behavior.ID.EngageMelee);
+		if (entityEngageBehavior == null)
+		{
+			return ret;
+		}
+
+		local myTile = _entity.getTile();
 		local attackSkill = _entity.getSkills().getAttackOfOpportunity();		
-		local targets = _entity.getActorsWithinDistanceAsArray(2, this.Const.FactionRelation.Enemy);
+		local result = {
+			Actor = _entity,
+			Targets = [],
+			LevelDifference = attackSkill.getMaxLevelDifference()
+		};
+		local query = this.Tactical.queryActorsInRange(
+							myTile,
+							entityAgent.getProperties().EngageRangeMin,
+							this.Math.max(_entity.getIdealRange(), entityAgent.getProperties().EngageRangeMax),
+							entityEngageBehavior.onQueryTargetInMeleeRange,
+							result
+						);
+
+		local targets = result.Targets;
 
 		if (targets.len() == 0)
 		{
 			return ret;
 		}
 
-		local entityAgent = _entity.getAIAgent();
-
 		local myTile = _entity.getTile();
 		local inZonesOfControl = myTile.getZoneOfControlCountOtherThan(_entity.getAlliedFactions());
-		local knownAllies = _entity.getAIAgent().getKnownAllies();
-		//local targetsInMelee = this.queryTargetsInMeleeRange(entityAgent.getProperties().EngageRangeMin, this.Math.max(_entity.getIdealRange(), entityAgent.getProperties().EngageRangeMax), myTile);
-		local targetsInMelee = _entity.getActorsWithinDistanceAsArray(2, this.Const.FactionRelation.Enemy);
-		local AlreadyEngagedWithNum = targetsInMelee.len();
+		local knownAllies = this.getAIAgent().getKnownAllies();		
 
 		local potentialDestinations = [];
 
@@ -222,40 +239,40 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 				if (entityAgent.getProperties().IgnoreTargetValueOnEngage)
 				{
 					letOthersGoScore = letOthersGoScore + this.Math.abs(myTile.SquareCoords.Y - targetTile.SquareCoords.Y) * 20.0;
-					// local myDistanceToTarget = myTile.getDistanceTo(targetTile);
-					// local targets = entityAgent.getKnownAllies();
+					local myDistanceToTarget = myTile.getDistanceTo(targetTile);
+					local targets = this.getAIAgent().getKnownAllies();
 
-					// // foreach( ally in targets )
-					// {
-					// 	if (ally.getMoraleState() == this.Const.MoraleState.Fleeing || ally.getCurrentProperties().RangedSkill > ally.getCurrentProperties().MeleeSkill || ally.getTile().hasZoneOfControlOtherThan(ally.getAlliedFactions()))
-					// 	{
-					// 		continue;
-					// 	}
+					foreach( ally in targets )
+					{
+						if (ally.getMoraleState() == this.Const.MoraleState.Fleeing || ally.getCurrentProperties().RangedSkill > ally.getCurrentProperties().MeleeSkill || ally.getTile().hasZoneOfControlOtherThan(ally.getAlliedFactions()))
+						{
+							continue;
+						}
 
-					// 	if (ally.getTile().getDistanceTo(targetTile) < myDistanceToTarget)
-					// 	{
-					// 		letOthersGoScore = letOthersGoScore + 2.0;
-					// 	}
-					// }
+						if (ally.getTile().getDistanceTo(targetTile) < myDistanceToTarget)
+						{
+							letOthersGoScore = letOthersGoScore + 2.0;
+						}
+					}
 				}
-				// else
-				// {
-				// 	local myDistanceToTarget = myTile.getDistanceTo(targetTile);
-				// 	local targets = entityAgent.getKnownAllies();
+				else
+				{
+					local myDistanceToTarget = myTile.getDistanceTo(targetTile);
+					local targets = this.getAIAgent().getKnownAllies();
 
-				// 	foreach( ally in targets )
-				// 	{
-				// 		if (ally.getMoraleState() == this.Const.MoraleState.Fleeing || ally.getCurrentProperties().RangedSkill > ally.getCurrentProperties().MeleeSkill || ally.getTile().hasZoneOfControlOtherThan(ally.getAlliedFactions()))
-				// 		{
-				// 			continue;
-				// 		}
+					foreach( ally in targets )
+					{
+						if (ally.getMoraleState() == this.Const.MoraleState.Fleeing || ally.getCurrentProperties().RangedSkill > ally.getCurrentProperties().MeleeSkill || ally.getTile().hasZoneOfControlOtherThan(ally.getAlliedFactions()))
+						{
+							continue;
+						}
 
-				// 		if (ally.getTile().getDistanceTo(targetTile) < myDistanceToTarget)
-				// 		{
-				// 			letOthersGoScore = letOthersGoScore + 0.5;
-				// 		}
-				// 	}
-				// }
+						if (ally.getTile().getDistanceTo(targetTile) < myDistanceToTarget)
+						{
+							letOthersGoScore = letOthersGoScore + 0.5;
+						}
+					}
+				}
 
 				local levelDifference = tile.Level - targetTile.Level;
 				local distance = tile.getDistanceTo(myTile);
@@ -409,7 +426,7 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 		{
 			if (entityAgent.getProperties().PreferCarefulEngage && entityAgent.getProperties().EngageAgainstSpearwallMult != 0.0 && _entity.isAbleToWait() && this.querySpearwallValueForTile(_entity, bestTarget) != 0.0)
 			{
-				local allies = entityAgent.getKnownAllies();
+				local allies = this.getAIAgent().getKnownAllies();
 
 				foreach( ally in allies )
 				{
@@ -478,7 +495,7 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 	{
 		if (this.m.IsFirstExecuted)
 		{
-			this.getAgent().adjustCameraToTarget(this.m.TargetTile);
+			this.getAIAgent().adjustCameraToTarget(this.m.TargetTile);
 			this.m.IsFirstExecuted = false;
 			return false;
 		}
@@ -505,15 +522,15 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 
 			if (_entity.isAlive() && (!_entity.isHiddenToPlayer() || this.m.TargetTile.IsVisibleForPlayer))
 			{
-				this.getAgent().declareAction();
+				this.getAIAgent().declareAction();
 
 				if (dist > 1 && this.m.Skill.isShowingProjectile())
 				{
-					this.getAgent().declareEvaluationDelay(750);
+					this.getAIAgent().declareEvaluationDelay(750);
 				}
 				else if (this.m.Skill.getDelay() != 0)
 				{
-					this.getAgent().declareEvaluationDelay(this.m.Skill.getDelay());
+					this.getAIAgent().declareEvaluationDelay(this.m.Skill.getDelay());
 				}
 			}
 
