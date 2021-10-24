@@ -103,44 +103,6 @@ gt.Const.PTR.modSkills <- function()
 		}
 	});
 
-	// Composure removal from players continuing from older saves
-	// This hook shall be removed in a future version
-	::mods_hookExactClass("skills/perks/perk_legend_composure", function(o) {
-		o.onUpdate <- function( _properties )
-		{
-			local actor = this.getContainer().getActor();
-			if (this.isKindOf(actor.get(), "player") && actor.m.PerkPointsSpent > 0)
-			{
-				actor.m.PerkPoints += 1;
-				actor.m.PerkPointsSpent -= 1;
-				this.removeSelf();
-			}
-			else
-			{
-				_properties.IsImmuneToStun = true;
-			}
-		}
-	});
-
-	// Stalwart removal from players continuing from older saves
-	// This hook shall be removed in a future version
-	::mods_hookExactClass("skills/perks/perk_stalwart", function(o) {
-		o.onUpdate <- function( _properties )
-		{
-			local actor = this.getContainer().getActor();
-			if (this.isKindOf(actor.get(), "player") && actor.m.PerkPointsSpent > 0)
-			{
-				actor.m.PerkPoints += 1;
-				actor.m.PerkPointsSpent -= 1;
-				this.removeSelf();
-			}
-			else
-			{
-				_properties.IsImmuneToKnockBackAndGrab = true;
-			}
-		}
-	});
-
 	::mods_hookExactClass("skills/effects/indomitable_effect", function(o) {
 		local getTooltip = o.getTooltip;
 		o.getTooltip = function()
