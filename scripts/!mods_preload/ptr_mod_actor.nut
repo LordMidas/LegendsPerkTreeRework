@@ -251,7 +251,7 @@ gt.Const.PTR.modActor <- function()
 						{
 							if (skill.getID().find("background") != null)
 							{
-								actor.getSkills().removeByID(skill.getID());
+								this.getSkills().removeByID(skill.getID());
 								break;
 							}
 						}
