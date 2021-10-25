@@ -56,7 +56,9 @@ gt.Const.PTR.createStylesTrees <- function()
 			"ranged weapons"
 		],
 		Tree = [
-			[],
+			[
+				gt.Const.Perks.PerkDefs.BagsAndBelts
+			],
 			[
 				gt.Const.Perks.PerkDefs.Bullseye
 			],
@@ -68,7 +70,9 @@ gt.Const.PTR.createStylesTrees <- function()
 			[
 				gt.Const.Perks.PerkDefs.Ballistics
 			],
-			[]
+			[
+				gt.Const.Perks.PerkDefs.PTRMarksmanship
+			]
 		]
 	};
 
