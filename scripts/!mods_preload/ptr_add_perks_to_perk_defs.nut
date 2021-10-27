@@ -927,13 +927,5 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 		}
 	];
 
-
-	this.Const.Perks.PerkDefObjects.extend(perks);
-
-	this.Const.Perks.PerkDefs.clear();
-
-	foreach( i, v in this.Const.Perks.PerkDefObjects )
-	{
-		this.Const.Perks.PerkDefs[v.Const] <- i;
-	}
+	this.Const.Perks.addPerkDefObjects(perks);
 }

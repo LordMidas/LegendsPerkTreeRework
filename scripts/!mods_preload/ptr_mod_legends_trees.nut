@@ -561,6 +561,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	{
 		this.Const.Perks.IndestructibleTree.Tree.push(emptyArray);
 	}
+	this.Const.Perks.ResilientTree.Name = "Resilient";
 	this.Const.Perks.IndestructibleTree.Tree[0] = [this.Const.Perks.PerkDefs.NineLives];
 	this.Const.Perks.IndestructibleTree.Tree[1] = [this.Const.Perks.PerkDefs.PTRSurvivalInstinct];
 	this.Const.Perks.IndestructibleTree.Tree[2] = [this.Const.Perks.PerkDefs.HoldOut];
@@ -597,6 +598,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	{
 		this.Const.Perks.IntelligentTree.Tree.push(emptyArray);
 	}
+	this.Const.Perks.IntelligentTree.Name = "Talented";
 	this.Const.Perks.IntelligentTree.Tree[0] = [this.Const.Perks.PerkDefs.Student];
 	this.Const.Perks.IntelligentTree.Tree[1] = [this.Const.Perks.PerkDefs.Gifted];
 	this.Const.Perks.IntelligentTree.Tree[2] = [];
@@ -678,6 +680,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	{
 		this.Const.Perks.FitTree.Tree.push(emptyArray);
 	}
+	this.Const.Perks.FitTree.Name = "Unstoppable";
 	this.Const.Perks.FitTree.Tree[0] = [this.Const.Perks.PerkDefs.Adrenalin];
 	this.Const.Perks.FitTree.Tree[1] = [];
 	this.Const.Perks.FitTree.Tree[2] = [];
@@ -729,6 +732,7 @@ gt.Const.PTR.modClassTrees <- function()
 		Descriptions = [
 			"inspiring men"
 		],
+		Name = "Sergeant",
 		WeightMultipliers = [
 			{Multiplier = 2, Tree = this.Const.Perks.PolearmTree}
 		],
@@ -790,6 +794,7 @@ gt.Const.PTR.modClassTrees <- function()
 		Descriptions = [
 			"healing"
 		],
+		Name = "Healer",
 		Tree = [
 			[
 				gt.Const.Perks.PerkDefs.LegendMedIngredients
@@ -812,6 +817,7 @@ gt.Const.PTR.modClassTrees <- function()
 		Descriptions = [
 			"trapping"
 		],
+		Name = "Trapper",
 		Tree = [
 			[],
 			[
@@ -836,6 +842,7 @@ gt.Const.PTR.modClassTrees <- function()
 		Descriptions = [
 			"cooking"
 		],
+		Name = "Chef",
 		Tree = [
 			[
 				gt.Const.Perks.PerkDefs.LegendMealPreperation
@@ -862,6 +869,7 @@ gt.Const.PTR.modClassTrees <- function()
 		Descriptions = [
 			"mending"
 		],
+		Name = "Mender",
 		Tree = [
 			[],
 			[
@@ -884,6 +892,7 @@ gt.Const.PTR.modClassTrees <- function()
 		Descriptions = [
 			"bookkeeping"
 		],
+		Name = "Clerk",
 		SelfWeightMultiplier = 0.33,
 		Tree = [
 			[],
@@ -920,6 +929,7 @@ gt.Const.PTR.modClassTrees <- function()
 		Descriptions = [
 			"battlefield tactics"
 		],
+		Name = "Tactician",
 		SelfWeightMultiplier = 0.33,
 		WeightMultipliers = [
 		],
@@ -948,6 +958,7 @@ gt.Const.PTR.modClassTrees <- function()
 			"entertainment",
 			"painting smiles on faces"
 		],
+		Name = "Entertainer",
 		SelfWeightMultiplier = 0.33,
 		Tree = [
 			[
@@ -971,6 +982,7 @@ gt.Const.PTR.modClassTrees <- function()
 			"keeping watch",
 			"keeping a lookout"
 		],
+		Name = "Scout",
 		SelfWeightMultiplier = 0.33,
 		Tree = [
 			[
@@ -1143,6 +1155,7 @@ gt.Const.PTR.modWeaponTrees <- function()
 	{
 		this.Const.Perks.SwordTree.Tree.push(emptyArray);
 	}
+	this.Const.Perks.SwordTree.Name = "Sword";
 	this.Const.Perks.SwordTree.SelfWeightMultiplier <- 1.25;
 	this.Const.Perks.SwordTree.Tree[0] = [this.Const.Perks.PerkDefs.PTRVersatileWeapon];
 	this.Const.Perks.SwordTree.Tree[1] = [this.Const.Perks.PerkDefs.PTRExploitOpening];
