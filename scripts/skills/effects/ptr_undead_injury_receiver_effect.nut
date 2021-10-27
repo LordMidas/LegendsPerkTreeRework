@@ -43,6 +43,14 @@ this.ptr_undead_injury_receiver_effect <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
+	function onDamageReceived( _attacker, _damageHitpoints, _damageArmor )
+	{
+		if (!this.m.ReceiveInjuries && _damageHitpoints <= 0 && _damageArmor >= 0)
+		{
+			this.m.ReceiveInjuries = true;
+		}
+	}
+
 	function onAfterDamageReceived()
 	{
 		this.m.ReceiveInjuries = true;
