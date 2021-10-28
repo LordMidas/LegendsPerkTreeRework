@@ -92,7 +92,7 @@ this.perk_ptr_bone_breaker <- this.inherit("scripts/skills/skill", {
 
 	function applyInjury( _targetEntity )
 	{
-		if (_targetEntity.m.CurrentProperties.IsAffectedByInjuries && _targetEntity.m.IsAbleToDie && _targetEntity.m.CurrentProperties.ThresholdToReceiveInjuryMult != 0)
+		if (_targetEntity.m.CurrentProperties.IsAffectedByInjuries && _targetEntity.m.CurrentProperties.ThresholdToReceiveInjuryMult != 0)
 		{
 			local injuries = this.m.InjuryPool;
 			local potentialInjuries = [];
