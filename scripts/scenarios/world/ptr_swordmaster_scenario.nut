@@ -154,7 +154,7 @@ this.ptr_swordmaster_scenario <- this.inherit("scripts/scenarios/world/starting_
 		_background.m.CustomPerkTree[0].push(this.Const.Perks.PerkDefs.PTRVersatileWeapon);
 	}
 
-	function onUpdateDraftList( _list, _gender)
+	function onUpdateHiringRoster( _roster )
 	{
 		local garbage = [];
 		local bros = _roster.getAll();
