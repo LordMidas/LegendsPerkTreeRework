@@ -1,4 +1,38 @@
 ===================
+==== Ver 1.4.0 ====
+===================
+- Old Swordmaster origin changes:
+	- Can no longer hire swordmasters.
+	- Squires and Apprentices are cheaper to hire and have reduced wages.
+	- The avatar now gets older over time, incurring penalties to Fatigue, HP, and Initiative.
+	- Added 4 events relating to his age and expanding upon the story.
+	- The scenario is now focused on the avatar and his students (your recruits).
+	- Spending a total of 50 days without at least 2 other recruits will end the campaign prematurely.
+	- When close to some settlements, a highly skilled recruit can ask to duel a local swordmaster. If he wins the duel, he gains strong bonuses. If he loses, he dies.
+	- The Fountain of Youth (Grotesque Tree) location no longer exists in this origin.
+	- Many bug fixes and tweaks.
+- Fixed Swordlike being t2 when it should actually be t3.
+- Fixed Sanguinary being t3 when it should actually be t2.
+- Fixed King of all Weapons expiring prematurely when proccing Spearwall using Prong.
+- Fixed Sanguinary giving morale increase even on missed attacks.
+- Hopefully fixed a random AI bug with Cover Ally causing the battle to freeze.
+- Removed the mechanic that refunded Composure and Stalwart. These perks should no longer appear on the player anyway.
+- The Scaling Beggar should no longer be able to steal Stalwart, Composure, Battering Ram.
+- Fixed a potential error in the Promised Potential perk not realizing the potential properly.
+- Hopefully fixed an issue with Undead sometimes becoming immune to already applied injuries.
+- Now uses the new Legends system for automated generation of "perk group" in tooltips.
+- Fixed Bone Breaker not applying injuries during Follow Up.
+- Bone Breaker from the same attacker can no longer proc more than once on the same target in the same turn.
+- Fixed the three-headed flail attacks having 100% chance to hit after hitting any target once.
+- Unhold Rebalance:
+	- Removed Last Stand
+	- Added Underdog
+	- Added permanent Return Favor
+- Squire and Militia now have the Trained perk group guaranteed on them
+- Fixed the Squire having a 33% chance of having the soldier tree instead of 30%
+- Made Flail Spinner non-lethal when AI uses it, but gave them a 25% damage boost for the free attack. This is a temporary fix for some AI issues which were causing battles to freeze after an enemy killed someone with Flail Spinner.
+
+===================
 ==== Ver 1.3.2 ====
 ===================
 - Perfect Focus tweaked:
