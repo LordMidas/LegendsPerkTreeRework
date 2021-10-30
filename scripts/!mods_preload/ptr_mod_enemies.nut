@@ -389,6 +389,7 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
+				this.m.Skills.removeByID("perk.nimble");				
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_pattern_recognition"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_double_strike"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vigorous_assault"));
@@ -549,7 +550,6 @@ gt.Const.PTR.modEnemies <- function()
 			local kata = this.new("scripts/skills/perks/perk_ptr_kata");
 			kata.m.IsForceEnabled = true;
 			this.m.Skills.add(kata);
-			this.m.Skills.removeByID("perk.nimble");
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -1436,8 +1436,6 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
 			this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
 			this.m.Skills.removeByID("perk.duelist");
-			this.m.Skills.removeByID("perk.nimble");
-			this.m.Skills.removeByID("perk.legend_muscularity");
 			this.m.Skills.removeByID("perk.last_stand");
 
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_menacing"));
@@ -1451,7 +1449,6 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_lone_wolf"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_fearsome"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_killing_frenzy"));
@@ -1863,7 +1860,7 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				this.m.Skills.removeByID("perk.nimble");
+				this.m.Skills.removeByID("effects.dodge");	
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_overwhelm"));
 			}
 		}
@@ -1941,8 +1938,6 @@ gt.Const.PTR.modEnemies <- function()
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.removeByID("perk.legend_muscularity");
-
 			this.m.Skills.addPerkTree(this.Const.Perks.HammerTree);
 			this.m.Skills.getSkillByID("perk.ptr_dismantle").m.IsForceEnabled = true;
 			local dentArmorPerk = this.m.Skills.getSkillByID("perk.ptr_dent_armor");
