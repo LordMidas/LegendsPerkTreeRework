@@ -3,13 +3,7 @@ local gt = this.getroottable();
 gt.Const.PTR.modActor <- function()
 {
 	::mods_hookExactClass("entity/tactical/actor", function(o)
-	{
-		local getActionPointsMax = o.getActionPointsMax
-		o.getActionPointsMax = function()
-		{
-			return this.Math.floor(getActionPointsMax());
-		}
-		
+	{		
 		local oldOnDeath = o.onDeath;
 		o.onDeath = function( _killer, _skill, _tile, _fatalityType )
 		{
