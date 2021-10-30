@@ -4424,7 +4424,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			],
 			Profession = [
 				[{Weight = 30, Tree = this.Const.Perks.SoldierProfessionTree}],
-				[{Weight = 60, Tree = this.Const.Perks.NoTree}]
+				[{Weight = 70, Tree = this.Const.Perks.NoTree}]
 			],
 			Traits = [
 				[{Weight = 100, Tree = this.Const.Perks.TrainedTree}]				
