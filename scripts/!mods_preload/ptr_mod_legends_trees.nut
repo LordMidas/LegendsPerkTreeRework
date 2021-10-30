@@ -561,7 +561,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	{
 		this.Const.Perks.IndestructibleTree.Tree.push(emptyArray);
 	}
-	this.Const.Perks.ResilientTree.Name = "Resilient";
+	this.Const.Perks.IndestructibleTree.Name = "Resilient";
 	this.Const.Perks.IndestructibleTree.Tree[0] = [this.Const.Perks.PerkDefs.NineLives];
 	this.Const.Perks.IndestructibleTree.Tree[1] = [this.Const.Perks.PerkDefs.PTRSurvivalInstinct];
 	this.Const.Perks.IndestructibleTree.Tree[2] = [this.Const.Perks.PerkDefs.HoldOut];
