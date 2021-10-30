@@ -2396,11 +2396,9 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.SwordTree,
 				this.Const.Perks.HeavyArmorTree,
 				this.Const.Perks.ShieldTree,
-				this.Const.Perks.ResilientTree,
 				this.Const.Perks.ViciousTree,
 				this.Const.Perks.CalmTree,
 				this.Const.Perks.SturdyTree,
-				this.Const.Perks.TrainedTree,
 				this.Const.Perks.TwoHandedTree,
 			]
 		);
@@ -2423,7 +2421,9 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		);
 
 		addPerksToCustomPerkTree(3, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.HoldOut,
 				this.Const.Perks.PerkDefs.Steadfast,
+				this.Const.Perks.PerkDefs.Rotation,								
 				this.Const.Perks.PerkDefs.PTRDeepImpact
 			]
 		);
@@ -2435,6 +2435,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.SpecCleaver,
 				this.Const.Perks.PerkDefs.PTRExudeConfidence,
 				this.Const.Perks.PerkDefs.PTRSanguinary,
+				this.Const.Perks.PerkDefs.PTRVigilant,				
 				this.Const.Perks.PerkDefs.LegendPrayerOfFaith,
 				this.Const.Perks.PerkDefs.LegendPrayerOfLife
 
@@ -2442,23 +2443,28 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		);
 
 		addPerksToCustomPerkTree(5, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.LegendSecondWind,				
 				this.Const.Perks.PerkDefs.Berserk,
+				this.Const.Perks.PerkDefs.PTRPatternRecognition,				
 				this.Const.Perks.PerkDefs.LegendBattleheart
 			]
 		);
 
 		addPerksToCustomPerkTree(6, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.SunderingStrikes,
-				this.Const.Perks.PerkDefs.PTRManOfSteel,
+				this.Const.Perks.PerkDefs.PTRVigorousAssault,
 				this.Const.Perks.PerkDefs.LegendHolyFlame,
+				this.Const.Perks.PerkDefs.PTRTheRushOfBattle,				
 				this.Const.Perks.PerkDefs.Duelist
 			]
 		);
 
 		addPerksToCustomPerkTree(7, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.BattleFlow,
-				this.Const.Perks.PerkDefs.PTRPersonalArmor,
+				this.Const.Perks.PerkDefs.LastStand,
+				this.Const.Perks.PerkDefs.Inspire,								
 				this.Const.Perks.PerkDefs.PTRProfessional,
+				this.Const.Perks.PerkDefs.PerfectFocus,				
 				this.Const.Perks.PerkDefs.PTRWeaponMaster,
 				this.Const.Perks.PerkDefs.Rebound
 			]
