@@ -1,4 +1,10 @@
 ===================
+==== Ver 1.4.1 ====
+===================
+- Added Ninetails perks to cultist profession.
+
+
+===================
 ==== Ver 1.4.0 ====
 ===================
 == MAJOR CHANGES ==
