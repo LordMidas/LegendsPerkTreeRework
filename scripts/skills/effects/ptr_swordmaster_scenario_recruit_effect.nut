@@ -84,7 +84,7 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 			{
 				local potentialPerks = "";
 
-				for (local i = this.m.SwordPerkIds.len() - this.m.FreePerkLevels.len(); i < 6; i++)
+				for (local i = this.m.SwordPerkDefs.len() - this.m.FreePerkLevels.len(); i < 6; i++)
 				{
 					potentialPerks += this.m.PerkNames[i] + ", ";
 				}
@@ -168,6 +168,7 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 		local perkTree = currentBackground.m.PerkTree;
 		local perkTreeMap = currentBackground.m.PerkTreeMap;
 		local customPerkTree = currentBackground.m.CustomPerkTree;
+		local oldDesc = currentBackground.m.Description;
 		
 		foreach (skill in actor.getSkills().m.Skills)
 		{
@@ -184,17 +185,24 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 		bg.m.PerkTree = perkTree;
 		bg.m.PerkTreeMap = perkTreeMap;
 		bg.m.CustomPerkTree = customPerkTree;
+		
+		local attributes = {
+			MeleeSkill = this.Math.rand(10, 15),
+			MeleeDefense = this.Math.rand(10, 15),
+			Stamina = this.Math.rand(5, 10),		
+			Bravery = this.Math.rand(10, 20),
+			Initiative = this.Math.rand(10, 20)
+		};
 
-		local attributes = bg.onChangeAttributes();
-		actor.getBaseProperties().MeleeSkill += (attributes.MeleeSkill[0] + attributes.MeleeSkill[1]) / 2;
-		actor.getBaseProperties().MeleeDefense += (attributes.MeleeDefense[0] + attributes.Hitpoints[1]) / 2;						
-		actor.getBaseProperties().Stamina += (attributes.Stamina[0] + attributes.Stamina[1]) / 2;
-		actor.getBaseProperties().Initiative += (attributes.Initiative[0] + attributes.Initiative[1]) / 2;
-		actor.getBaseProperties().Bravery += (attributes.Bravery[0] + attributes.Bravery[1]) / 2;
+		actor.getBaseProperties().MeleeSkill += attributes.MeleeSkill;
+		actor.getBaseProperties().MeleeDefense += attributes.MeleeDefense;	
+		actor.getBaseProperties().Stamina += attributes.Stamina;		
+		actor.getBaseProperties().Bravery += attributes.Bravery;
+		actor.getBaseProperties().Initiative += attributes.Initiative;
 
 		actor.getSkills().add(bg);
 
-		bg.m.RawDescription = "Under your tutelage, %name% has grown into a master of the sword!";
+		bg.m.RawDescription = oldDesc + " Under your tutelage, %name% has grown into a true master of the sword, having proven his mettle by defeating a famous swordmaster in single combat!";
 		bg.buildDescription(true);
 
 		foreach (row in this.Const.Perks.SwordTree.Tree)
@@ -215,6 +223,8 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 		}
 
 		this.m.FreePerks.clear();
+
+		return attributes;
 	}
 
 	function onSerialize(_out)

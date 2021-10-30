@@ -37,16 +37,14 @@ this.ptr_swordmaster_scenario_student_local_duel_event <- this.inherit("scripts/
 					Text = "You\'re not ready for this yet!",
 					function getResult( _event )
 					{
-						// if (this.Math.rand(1, 100) > 80)
-						// {
-						// 	return "StudentInsists";
-						// }
-						// else
-						// {
-						// 	return "StudentBacksOff";
-						// }
-
-						return "StudentBacksOff";
+						if (this.Math.rand(1, 100) > 80)
+						{
+							return "StudentInsists";
+						}
+						else
+						{
+							return "StudentBacksOff";
+						}
 					}
 				});
 
@@ -136,7 +134,7 @@ this.ptr_swordmaster_scenario_student_local_duel_event <- this.inherit("scripts/
 			Characters = [],
 			Options = [
 				{
-					Text = "You did well, %champion%.",
+					Text = "I am proud of you, %champion%!",
 					function getResult( _event )
 					{
 						return 0;
@@ -150,12 +148,12 @@ this.ptr_swordmaster_scenario_student_local_duel_event <- this.inherit("scripts/
 				this.World.Assets.addBusinessReputation(50);
 
 				local effect = _event.m.Champion.getSkills().getSkillByID("effects.ptr_swordmaster_scenario_recruit");
-				effect.evolve();
+				local attributes = effect.evolve();
 
 				this.List = [
 					{
 						id = 10,
-						icon = "ui/backgrounds/ptr_young_swordmaster.png",
+						icon = "ui/backgrounds/background_30.png",
 						text = _event.m.Champion.getName() + " is now a Young Swordmaster"
 					},
 					{
@@ -169,6 +167,34 @@ this.ptr_swordmaster_scenario_student_local_duel_event <- this.inherit("scripts/
 						text = "The company gained renown"
 					}
 				];
+
+				this.List.extend([
+					{
+						id = 10,
+						icon = "ui/icons/melee_skill.png",
+						text = _event.m.Champion.getName() + " gains [color=" + this.Const.UI.Color.PositiveEventValue + "]+" + attributes.MeleeSkill + "[/color] Melee Skill"
+					},
+					{
+						id = 10,
+						icon = "ui/icons/melee_defense.png",
+						text = _event.m.Champion.getName() + " gains [color=" + this.Const.UI.Color.PositiveEventValue + "]+" + attributes.MeleeDefense + "[/color] Melee Defense"
+					},
+					{
+						id = 10,
+						icon = "ui/icons/fatigue.png",
+						text = _event.m.Champion.getName() + " gains [color=" + this.Const.UI.Color.PositiveEventValue + "]+" + attributes.Stamina + "[/color] Fatigue"
+					},
+					{
+						id = 10,
+						icon = "ui/icons/bravery.png",
+						text = _event.m.Champion.getName() + " gains [color=" + this.Const.UI.Color.PositiveEventValue + "]+" + attributes.Bravery + "[/color] Resolve"
+					},
+					{
+						id = 10,
+						icon = "ui/icons/initiative.png",
+						text = _event.m.Champion.getName() + " gains [color=" + this.Const.UI.Color.PositiveEventValue + "]+" + attributes.Initiative + "[/color] Initiative"
+					}
+				]);
 
 				if (_event.m.Champion.getMoodState() >= this.Const.MoodState.Neutral)
 				{
