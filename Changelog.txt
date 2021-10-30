@@ -1,10 +1,54 @@
-- Gave PTR perks and trees to Cultist Darksoul, Lurker and Magister.
-- Removed Man of Steel, Personal Armor and Survival Instinct from Crusader Commander, as well as some minor perks that won't be noticed (Thanks The Indomitable Snowman!.
-- Added Vigorous Assault and Inspire to Crusader Commander.
-- Moved Pattern Recognition to t5.
-- Gave a minor rework to ranged backgrounds. They now only start with their applicable ranged weapon, and if no applicable ranged weapon, they will always be guaranteed one ranged tree.
+===================
+==== Ver 1.4.0 ====
+===================
 
+==MAJOR CHANGES==
+- Gave PTR perks and trees to Cultist Darksoul, Lurker and Magister.
+- Swordmaster origin changes.
+	- Added new events.
+	- Recruit effect now keeps track of the free perks received.
+	- Fixed the Squire and Swordmaster recruits not having their daily wage reduced.
+	- Added old swordmaster background icon.
+	- Fountain of Youth location removed for Swordmaster origin.
+ 	- Added Fencer perk to starting swordmaster.
+
+==BALANCE==
+- Crusader Commander Changes:
+	- Removed Man of Steel, Personal Armor and Survival Instinct from Crusader Commander, as well as some minor perks that won't be noticed (Thanks The Indomitable Snowman!). This was done 
+		because he was even more ridiculously overpowered than he should be. 
+	- Added Vigorous Assault and Inspire.
+	- Moved Pattern Recognition to t5.
 - Removed nimble from Frenzied Direwolves.
+- Bone Breaker can only proc on the same target once per turn.
+- Unhold Rebalance:
+	- Removed Last Stand
+	- Added Underdog
+	- Added permanent Return Favor
+
+==MINOR CHANGES==
+- Gave a minor rework to ranged backgrounds weapon trees. They now only start with the perk tree of their applicable ranged weapon (bow on poacher/hunter, crossbow on arbalaster), and if no applicable ranged weapon,
+	 they will always be guaranteed one random ranged weapon tree. They are still very likely to roll others however.
+- Made Flail Spinner non-lethal when AI uses it, but gave them a 25% damage boost for the free attack. This is a temporary fix for some AI issues which were causing battles to freeze
+		 after an enemy killed someone with Flail Spinner.
+-Squire and Militia now have the Trained perk group guaranteed on them.
+
+==FIXES==
+- Fixed the Swordmaster origin effect always adding 25% armor penetration instead of the one shown in the tooltip.
+- Fixed King of all Weapons expiring prematurely on a prong spearwall proccing.
+- Fixed Swordlike being on t2 when it should be on t3 and Sanguinary on t3 when it should be on t2.
+- Fixed Sanguinary giving morale increase when attacking a bleeding target even when the attack missed.
+- Hopefully fixed crashes with AI Cover Ally behavior evaluation. Now using query based system and also getKnownAllies uses the user's agent.
+- Removed the hook that was refunding Composure and Stalwart and making it unpickable on the perk tree.
+- Fixed wrong variable name - potentially causing promised potential to not work properly.
+- Hopefully fixed an issue where injured Undead show up as having "Iron Will".
+- Fixed the 'Greatsword' tree getting duplicate entries from Swordtree instead of one-to-one.
+- Updated to the new Legends system of automatically adding perk groups in tooltips.
+- Removed a condition preventing triggering against targets who are !this.m.IsAbleToDie. This allows it to work with current Follow Up.
+- Fixed the three-headed flail attacks having 100% chance to hit after hitting any target once.
+- Fixed the Squire having a 33% chance of having the soldier tree instead of 30%
+
+==MODDING==
+
 ===================
 ==== Ver 1.3.2 ====
 ===================
