@@ -49,7 +49,18 @@ this.perk_ptr_flail_spinner <- this.inherit("scripts/skills/skill", {
 
 						perk.m.IsSpinningFlail = true;
 
+						local isAbleToDie = targetEntity.m.IsAbleToDie;
+						if (!user.isPlayerControlled())
+						{
+							targetEntity.m.IsAbleToDie = false;
+						}
+
 						_skill.useForFree(_targetTile);
+
+						if (!user.isPlayerControlled())
+						{
+							targetEntity.m.IsAbleToDie = isAbleToDie;
+						}
 
 						perk.m.IsSpinningFlail = false;
 					}
@@ -64,7 +75,20 @@ this.perk_ptr_flail_spinner <- this.inherit("scripts/skills/skill", {
 				{
 					this.logDebug("[" + user.getName() + "] is Spinning The Flail on target [" + targetEntity.getName() + "] with skill [" + _skill.getName() + "]");
 					this.m.IsSpinningFlail = true;
+
+					local isAbleToDie = targetEntity.m.IsAbleToDie;
+					if (!user.isPlayerControlled())
+					{
+						targetEntity.m.IsAbleToDie = false;
+					}
+
 					_skill.useForFree(_targetTile);
+
+					if (!user.isPlayerControlled())
+					{
+						targetEntity.m.IsAbleToDie = isAbleToDie;
+					}
+
 					this.m.IsSpinningFlail = false;
 				}
 			}
@@ -75,7 +99,12 @@ this.perk_ptr_flail_spinner <- this.inherit("scripts/skills/skill", {
 	{
 		if (this.m.IsSpinningFlail)
 		{
-			_properties.DamageTotalMult *= this.m.DamageMult;
+			if (!this.getContainer().getActor().isPlayerControlled())
+			{
+				_properties.DamageTotalMult *= 1.25;
+			}
+
+			_properties.DamageTotalMult *= this.m.DamageMult;			
 		}
 	}
 
