@@ -2,6 +2,12 @@
 ==== Ver 1.4.0 ====
 ===================
 
+==New Developer==
+- Theplahunter
+	- Writer
+	- Might be an unholde (uncorroborated)
+	- Might be a gobline (corroborated)
+
 ==MAJOR CHANGES==
 - Gave PTR perks and trees to Cultist Darksoul, Lurker and Magister.
 - Swordmaster origin changes.
