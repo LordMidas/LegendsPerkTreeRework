@@ -216,6 +216,7 @@ gt.Const.PTR.modSkills <- function()
 			this.m.IsAttacking = true;
 			local ret = this.attackEntity(_user, target);
 			this.m.IsAttacking = false;
+			this.m.IsUsingHitchance = true;
 			return ret;
 		}
 
@@ -258,6 +259,7 @@ gt.Const.PTR.modSkills <- function()
 			this.m.IsAttacking = true;
 			local ret = this.attackEntity(_user, target);
 			this.m.IsAttacking = false;
+			this.m.IsUsingHitchance = true;
 			return ret;
 		}
 
