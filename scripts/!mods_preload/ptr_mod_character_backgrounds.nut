@@ -299,7 +299,10 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 					{Weight = 50, Tree = this.Const.Perks.LightArmorTree},
 					{Weight = 50, Tree = this.Const.Perks.MediumArmorTree}
 				]
-			]
+			],
+			Weapon = [
+				[{Weight = 100, Tree = this.Const.Perks.BowTree}]
+			]			
 		};
 	});
 
@@ -552,9 +555,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 0.25, Tree = this.Const.Perks.LargeTree},
 				{Multiplier = 0, Tree = this.Const.Perks.TrainedTree},
 				{Multiplier = 0, Tree = this.Const.Perks.HeavyArmorTree},
-				{Multiplier = 0, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 2, Tree = this.Const.Perks.SlingsTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ThrowingTree}
+				{Multiplier = 0, Tree = this.Const.Perks.ShieldTree}
 			],
 			Profession = [
 				[{Weight = 100, Tree = this.Const.Perks.HunterProfessionTree}]
@@ -564,6 +565,14 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			],
 			Defense = [
 				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+			],
+			Weapon = [
+				[
+					{Weight = 25, Tree = this.Const.Perks.BowTree},
+					{Weight = 25, Tree = this.Const.Perks.CrossbowTree},
+					{Weight = 25, Tree = this.Const.Perks.SlingsTree},
+					{Weight = 25, Tree = this.Const.Perks.ThrowingTree}									
+				]
 			]
 		};
 	});
@@ -577,9 +586,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 0.25, Tree = this.Const.Perks.LargeTree},
 				{Multiplier = 0, Tree = this.Const.Perks.TrainedTree},
 				{Multiplier = 0, Tree = this.Const.Perks.HeavyArmorTree},
-				{Multiplier = 0, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 2, Tree = this.Const.Perks.SlingsTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ThrowingTree}
+				{Multiplier = 0, Tree = this.Const.Perks.ShieldTree}
 			],
 			Profession = [
 				[{Weight = 100, Tree = this.Const.Perks.HunterProfessionTree}]
@@ -589,6 +596,14 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			],
 			Defense = [
 				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+			],
+			Weapon = [
+				[
+					{Weight = 25, Tree = this.Const.Perks.BowTree},
+					{Weight = 25, Tree = this.Const.Perks.CrossbowTree},
+					{Weight = 25, Tree = this.Const.Perks.SlingsTree},
+					{Weight = 25, Tree = this.Const.Perks.ThrowingTree}									
+				]
 			]
 		};
 	});
@@ -667,8 +682,10 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 0.5, Tree = this.Const.Perks.SpearTree}
 			],
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.HolyManProfessionTree}],
-				[{Weight = 100, Tree = this.Const.Perks.SoldierProfessionTree}]
+				[
+				{Weight = 70, Tree = this.Const.Perks.HolyManProfessionTree},
+				{Weight = 30, Tree = this.Const.Perks.SoldierProfessionTree}
+				]
 			],
 			Defense = [
 				[{Weight = 100, Tree = this.Const.Perks.HeavyArmorTree}]
@@ -726,12 +743,126 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	::mods_hookNewObject("skills/backgrounds/cultist_background", function(o) {
 		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
+				{Multiplier = 1.5, Tree = this.Const.Perks.CalmTree},
+				{Multiplier = 1.5, Tree = this.Const.Perks.ResilientTree},
+				{Multiplier = 1.5, Tree = this.Const.Perks.ViciousTree},
+				{Multiplier = 1.5, Tree = this.Const.Perks.UnstoppableTree}						
 			],
 			Profession = [
 				[{Weight = 100, Tree = this.Const.Perks.CultistProfessionTree}]
+			],
+			Weapon = [
+				[{Weight = 100, Tree = this.Const.Perks.CleaverTree}]
 			]
 		};
 	});
+
+	::mods_hookNewObject("skills/backgrounds/cultist_darksoul_background", function(o) {
+		o.m.PerkTreeDynamic = {			
+			WeightMultipliers = [
+				{Multiplier = 0, Tree = this.Const.Perks.TalentedTree},
+				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
+				{Multiplier = 0, Tree = this.Const.Perks.CalmTree},
+				{Multiplier = 0, Tree = this.Const.Perks.OrganisedTree},
+				{Multiplier = 0, Tree = this.Const.Perks.TrainedTree},				
+				{Multiplier = 0, Tree = this.Const.Perks.SergeantClassTree},
+				{Multiplier = 0, Tree = this.Const.Perks.HealerClassTree},
+				{Multiplier = 0, Tree = this.Const.Perks.TrapperClassTree},
+				{Multiplier = 0, Tree = this.Const.Perks.ChefClassTree},
+				{Multiplier = 0, Tree = this.Const.Perks.MenderClassTree},
+				{Multiplier = 0, Tree = this.Const.Perks.ClerkClassTree},
+				{Multiplier = 0, Tree = this.Const.Perks.HoundmasterClassTree},
+				{Multiplier = 0, Tree = this.Const.Perks.TacticianClassTree},
+				{Multiplier = 0, Tree = this.Const.Perks.ScoutClassTree},
+				{Multiplier = 0, Tree = this.Const.Perks.EntertainerClassTree},
+				{Multiplier = 0, Tree = this.Const.Perks.RangedTree},
+				{Multiplier = 0, Tree = this.Const.Perks.DaggerTree},
+				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
+				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
+				{Multiplier = 0.5, Tree = this.Const.Perks.PolearmTree},
+				{Multiplier = 0, Tree = this.Const.Perks.SlingsTree},
+				{Multiplier = 0.5, Tree = this.Const.Perks.ThrowingTree}							
+			],
+			Profession = [
+				[
+					{Weight = 100, Tree = this.Const.Perks.CultistProfessionTree}
+				]
+			],
+			Weapon = [
+				[
+					[{Weight = 100, Tree = this.Const.Perks.CleaverTree}],
+					[{Weight = 100, Tree = this.Const.Perks.FlailTree}]				
+				]
+			]
+		};
+	});
+
+	::mods_hookNewObject("skills/backgrounds/cultist_lurker_background", function(o) {
+		o.m.PerkTreeDynamic = {			
+			WeightMultipliers = [
+				{Multiplier = 0, Tree = this.Const.Perks.SergeantClassTree},
+				{Multiplier = 3, Tree = this.Const.Perks.ScoutClassTree},				
+				{Multiplier = 3, Tree = this.Const.Perks.MediumArmorTree},
+				{Multiplier = 9, Tree = this.Const.Perks.BowTree},
+				{Multiplier = 2.4, Tree = this.Const.Perks.CrossbowTree},
+				{Multiplier = 3, Tree = this.Const.Perks.SlingsTree},
+				{Multiplier = 0.5, Tree = this.Const.Perks.StavesTree},
+				{Multiplier = 3, Tree = this.Const.Perks.ThrowingTree},
+				{Multiplier = 2, Tree = this.Const.Perks.OneHandedTree}
+			],
+			Profession = [
+				[
+					{Weight = 100, Tree = this.Const.Perks.CultistProfessionTree}
+				]
+			],
+			Traits = [
+				[{Weight = 100, Tree = this.Const.Perks.AgileTree}]
+			],
+			Defense = [
+				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+			],
+			Weapon = [
+				[
+					{Weight = 25, Tree = this.Const.Perks.BowTree},
+					{Weight = 25, Tree = this.Const.Perks.CrossbowTree},
+					{Weight = 25, Tree = this.Const.Perks.SlingsTree},
+					{Weight = 25, Tree = this.Const.Perks.ThrowingTree}									
+				]
+			],		
+			Styles = [
+				[{Weight = 100, Tree = this.Const.Perks.RangedTree}]
+			]
+		};
+	});
+
+	::mods_hookNewObject("skills/backgrounds/cultist_magister_background", function(o) {
+		o.m.PerkTreeDynamic = {			
+			WeightMultipliers = [
+				{Multiplier = 0, Tree = this.Const.Perks.ShieldTree},
+				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
+				{Multiplier = 0, Tree = this.Const.Perks.ThrowingTree},
+				{Multiplier = 2, Tree = this.Const.Perks.TalentedTree}
+			],
+			Profession = [
+				[
+					{Weight = 100, Tree = this.Const.Perks.CultistProfessionTree}
+				]
+			],
+			Traits = [
+				[{Weight = 100, Tree = this.Const.Perks.CalmTree}]
+			],
+			Class = [
+				[{Weight = 100, Tree = this.Const.Perks.SergeantClassTree}]
+			],
+			Weapon = [
+				[{Weight = 100, Tree = this.Const.Perks.CleaverTree}],
+				[{Weight = 100, Tree = this.Const.Perks.PolearmTree}]
+			],					
+			Magic = [
+				[{Weight = 100, Tree = this.Const.Perks.PremonitionMagicTree}]
+			]
+		};
+	});		
 
 	::mods_hookNewObject("skills/backgrounds/daytaler_background", function(o) {
 		o.m.PerkTreeDynamic = {			
@@ -939,7 +1070,10 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 					{Weight = 50, Tree = this.Const.Perks.LightArmorTree},
 					{Weight = 50, Tree = this.Const.Perks.MediumArmorTree}
 				]
-			]
+			],
+			Weapon = [
+				[{Weight = 100, Tree = this.Const.Perks.BowTree}]
+			]			
 		};
 	});
 
@@ -1454,9 +1588,9 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			Defense = [
 				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
 			],
-			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.RangedTree}]
-			]
+			Weapon = [
+				[{Weight = 100, Tree = this.Const.Perks.BowTree}]
+			]			
 		};
 	});
 
@@ -2868,8 +3002,12 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.SlingsTree}],
-				[{Weight = 100, Tree = this.Const.Perks.ThrowingTree}],
+				[
+					[{Weight = 100, Tree = this.Const.Perks.BowTree}],
+					[{Weight = 100, Tree = this.Const.Perks.CrossbowTree}],
+					[{Weight = 100, Tree = this.Const.Perks.SlingsTree}],
+					[{Weight = 100, Tree = this.Const.Perks.ThrowingTree}]									
+				]
 			]
 		};
 	});
@@ -3281,15 +3419,20 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	::mods_hookNewObject("skills/backgrounds/legend_noble_ranged", function(o) {
 		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
-				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree}
-				{Multiplier = 0.5, Tree = this.Const.Perks.DeviousTree}
-			],
-			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.HunterProfessionTree}]
+				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
+				{Multiplier = 3, Tree = this.Const.Perks.MediumArmorTree},
+				{Multiplier = 9, Tree = this.Const.Perks.BowTree},
+				{Multiplier = 0.5, Tree = this.Const.Perks.PolearmTree},
+				{Multiplier = 0.5, Tree = this.Const.Perks.StavesTree},
+				{Multiplier = 3, Tree = this.Const.Perks.SlingsTree},
+				{Multiplier = 3, Tree = this.Const.Perks.ThrowingTree}						
 			],
 			Defense = [
 				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
 			],
+			Weapon = [
+				[{Weight = 100, Tree = this.Const.Perks.CrossbowTree}],
+			],			
 			Styles = [
 				[{Weight = 100, Tree = this.Const.Perks.RangedTree}],
 				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}]
@@ -4097,7 +4240,15 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			],
 			Defense = [
 				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
-			]
+			],
+			Weapon = [
+				[
+					{Weight = 25, Tree = this.Const.Perks.BowTree},
+					{Weight = 25, Tree = this.Const.Perks.CrossbowTree},
+					{Weight = 25, Tree = this.Const.Perks.SlingsTree},
+					{Weight = 25, Tree = this.Const.Perks.ThrowingTree}									
+				]
+			]			
 		};
 	});
 
@@ -4221,7 +4372,10 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			],
 			Defense = [
 				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
-			]
+			],
+			Weapon = [
+				[{Weight = 100, Tree = this.Const.Perks.BowTree}]
+			]			
 		};
 	});
 
@@ -4312,8 +4466,8 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			],
 			Profession = [
 				[
-					{Weight = 60, Tree = this.Const.Perks.SoldierProfessionTree},
-					{Weight = 25, Tree = this.Const.Perks.RaiderProfessionTree},
+					{Weight = 60, Tree = this.Const.Perks.RaiderProfessionTree},
+					{Weight = 25, Tree = this.Const.Perks.SoldierProfessionTree},
 					{Weight = 15, Tree = this.Const.Perks.NoTree}
 				]
 			],
@@ -4423,8 +4577,10 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 0.5, Tree = this.Const.Perks.SpearTree}
 			],
 			Profession = [
-				[{Weight = 30, Tree = this.Const.Perks.SoldierProfessionTree}],
-				[{Weight = 60, Tree = this.Const.Perks.NoTree}]
+				[
+				{Weight = 30, Tree = this.Const.Perks.SoldierProfessionTree},
+				{Weight = 70, Tree = this.Const.Perks.NoTree}
+				]
 			],
 			Class = [
 				[
@@ -4722,7 +4878,15 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			],
 			Class = [
 				[{Weight = 100, Tree = this.Const.Perks.ScoutClassTree}]
-			]
+			],
+			Weapon = [
+				[
+					{Weight = 25, Tree = this.Const.Perks.BowTree},
+					{Weight = 25, Tree = this.Const.Perks.CrossbowTree},
+					{Weight = 25, Tree = this.Const.Perks.SlingsTree},
+					{Weight = 25, Tree = this.Const.Perks.ThrowingTree}									
+				]
+			]			
 		};
 	});
 
