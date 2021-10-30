@@ -1,44 +1,53 @@
 ===================
 ==== Ver 1.4.0 ====
 ===================
-- Old Swordmaster origin changes:
+== MAJOR CHANGES ==
+- Old Swordmaster origin
 	- Can no longer hire swordmasters.
 	- Squires and Apprentices are cheaper to hire and have reduced wages.
 	- The avatar now gets older over time, incurring penalties to Fatigue, HP, and Initiative.
-	- Added 4 events relating to his age and expanding upon the story.
-	- The scenario is now focused on the avatar and his students (your recruits).
-	- Spending a total of 50 days without at least 2 other recruits will end the campaign prematurely.
+	- Added new events relating to his age and expanding upon the story.
+	- The scenario is now focused on the avatar and his students (your recruits). Spending a total of 50 days without at least 2 other recruits will end the campaign prematurely.
 	- When close to some settlements, a highly skilled recruit can ask to duel a local swordmaster. If he wins the duel, he gains strong bonuses. If he loses, he dies.
 	- The Fountain of Youth (Grotesque Tree) location no longer exists in this origin.
 	- Many bug fixes and tweaks.
+- Bone Breaker from the same attacker can no longer proc more than once on the same target in the same turn.
+- Made Flail Spinner non-lethal when AI uses it, but gave them a 25% damage boost for the free attack. This is a temporary fix for some AI issues which were causing battles to freeze after an enemy killed someone with Flail Spinner.
+- Gave PTR perks and trees to Cultist Darksoul, Lurker and Magister.
+- Removed the mechanic that refunded Composure and Stalwart. These perks should no longer appear on the player anyway.
+- Moved Lithe from Medium Armor t5 to t6.
+
+== BALANCE ==
+- Unholds
+	- Removed Last Stand
+	- Added Underdog
+	- Added permanent Return Favor
+- Removed nimble from Frenzied Direwolves.
+- Now that Underdog has been nerfed, it has been added back to Knight, Hedge Knight, Zweihander.
+- Squire and Militia now have the Trained perk group guaranteed on them.
+- Removed Man of Steel, Personal Armor and Survival Instinct from Crusader Commander, as well as some minor perks that won't be noticed (thanks The Indomitable Snowman!).
+- Added Vigorous Assault and Inspire to Crusader Commander. Moved Pattern Recognition to t5.
+- Gave a minor rework to ranged backgrounds. They now only start with their applicable ranged weapon, and if no applicable ranged weapon, they will always be guaranteed one ranged tree.
+
+== FIXES ==
 - Fixed Swordlike being t2 when it should actually be t3.
 - Fixed Sanguinary being t3 when it should actually be t2.
 - Fixed King of all Weapons expiring prematurely when proccing Spearwall using Prong.
 - Fixed Sanguinary giving morale increase even on missed attacks.
 - Hopefully fixed a random AI bug with Cover Ally causing the battle to freeze.
-- Removed the mechanic that refunded Composure and Stalwart. These perks should no longer appear on the player anyway.
 - The Scaling Beggar should no longer be able to steal Stalwart, Composure, Battering Ram.
 - Fixed a potential error in the Promised Potential perk not realizing the potential properly.
 - Hopefully fixed an issue with Undead sometimes becoming immune to already applied injuries.
-- Now uses the new Legends system for automated generation of "perk group" in tooltips.
 - Fixed Bone Breaker not applying injuries during Follow Up.
-- Bone Breaker from the same attacker can no longer proc more than once on the same target in the same turn.
 - Fixed the three-headed flail attacks having 100% chance to hit after hitting any target once.
-- Unhold Rebalance:
-	- Removed Last Stand
-	- Added Underdog
-	- Added permanent Return Favor
-- Squire and Militia now have the Trained perk group guaranteed on them
-- Fixed the Squire having a 33% chance of having the soldier tree instead of 30%
-- Made Flail Spinner non-lethal when AI uses it, but gave them a 25% damage boost for the free attack. This is a temporary fix for some AI issues which were causing battles to freeze after an enemy killed someone with Flail Spinner.
+- Fixed the Squire having a 33% chance of having the soldier tree instead of 30%.
 
-Uber's changes:
-- Gave PTR perks and trees to Cultist Darksoul, Lurker and Magister.
-- Removed Man of Steel, Personal Armor and Survival Instinct from Crusader Commander, as well as some minor perks that won't be noticed (Thanks The Indomitable Snowman!.
-- Added Vigorous Assault and Inspire to Crusader Commander.
-- Moved Pattern Recognition to t5.
-- Gave a minor rework to ranged backgrounds. They now only start with their applicable ranged weapon, and if no applicable ranged weapon, they will always be guaranteed one ranged tree.
-- Removed nimble from Frenzied Direwolves.
+== MODDING ==
+- Now uses the new Legends system for automated generation of "From the XYZ perk group" in tooltips.
+- Updated to MSU v0.6.20.
+
+== TEAM CHANGES ==
+- Theplahunter joined as writer.
 
 ===================
 ==== Ver 1.3.2 ====
