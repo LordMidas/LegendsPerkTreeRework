@@ -1,4 +1,10 @@
 ===================
+==== Ver 1.4.1 ====
+===================
+- Fixed a critical bug making it impossible to enter settlements in the Old Swordmaster scenario.
+- Fixed being unable to start the Cultist origin.
+
+===================
 ==== Ver 1.4.0 ====
 ===================
 == MAJOR CHANGES ==
