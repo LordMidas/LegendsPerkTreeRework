@@ -6,6 +6,7 @@ this.perk_ptr_bone_breaker <- this.inherit("scripts/skills/skill", {
 		InjuryPool = null,
 		BonusVsUndead = 1.15,
 		ChanceOneHanded = 50,
+		TargetsThisTurn = [],
 		ValidEffects = [
 			"effects.sleeping",
 			"effects.stunned",
@@ -70,7 +71,7 @@ this.perk_ptr_bone_breaker <- this.inherit("scripts/skills/skill", {
 
 	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
 	{
-		if (this.m.InjuryPool == null || _targetEntity == null || !_targetEntity.isAlive() || _targetEntity.isDying() || _targetEntity.isAlliedWith(this.getContainer().getActor()) || !_skill.isAttack() || !this.isEnabled())
+		if (this.m.InjuryPool == null || _targetEntity == null || this.m.TargetsThisTurn.find(_targetEntity.getID()) != null || !_targetEntity.isAlive() || _targetEntity.isDying() || _targetEntity.isAlliedWith(this.getContainer().getActor()) || !_skill.isAttack() || !this.isEnabled())
 		{
 			return;
 		}
@@ -85,9 +86,21 @@ this.perk_ptr_bone_breaker <- this.inherit("scripts/skills/skill", {
 			local weapon = this.getContainer().getActor().getMainhandItem();
 			if ((weapon != null && weapon.isItemType(this.Const.Items.ItemType.TwoHanded)) || this.m.IsForceTwoHanded || this.Math.rand(1,100) <= this.m.ChanceOneHanded)
 			{
+				this.m.TargetsThisTurn.push(_targetEntity.getID());
 				this.applyInjury(_targetEntity);
 			}
 		}
+	}
+
+	function onTurnStart()
+	{
+		this.m.TargetsThisTurn.clear();
+	}
+
+	function onCombatFinished()
+	{
+		this.skill.onCombatFinished();
+		this.m.TargetsThisTurn.clear();
 	}
 
 	function applyInjury( _targetEntity )
