@@ -2805,8 +2805,7 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				this.m.Skills.removeByID("perk.steel_brow");
-				this.m.Skills.removeByID("perk.underdog");
+				this.m.Skills.removeByID("perk.steel_brow");				
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_lone_wolf"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_adrenalin"));
 			}
@@ -2855,8 +2854,7 @@ gt.Const.PTR.modEnemies <- function()
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.removeByID("perk.steel_brow");
-				this.m.Skills.removeByID("perk.legend_composure");
-				this.m.Skills.removeByID("perk.underdog");				
+				this.m.Skills.removeByID("perk.legend_composure");					
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bear_down"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_fearsome"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));
@@ -3700,8 +3698,7 @@ gt.Const.PTR.modEnemies <- function()
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.addPerkTree(this.Const.Perks.TrainedTree);
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));
-				this.m.Skills.removeByID("perk.underdog");
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));				
 				this.m.Skills.removeByID("perk.perk_legend_back_to_basics");
 				this.m.Skills.removeByID("perk.legend_full_force");								
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_rattle"));
