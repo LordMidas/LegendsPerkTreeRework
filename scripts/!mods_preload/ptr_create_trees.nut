@@ -73,9 +73,7 @@ gt.Const.PTR.createStylesTrees <- function()
 			[
 				gt.Const.Perks.PerkDefs.Ballistics
 			],
-			[
-				gt.Const.Perks.PerkDefs.PTRMarksmanship
-			]
+			[]
 		]
 	};
 
