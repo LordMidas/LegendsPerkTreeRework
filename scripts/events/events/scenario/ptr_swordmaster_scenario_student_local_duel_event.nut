@@ -285,7 +285,7 @@ this.ptr_swordmaster_scenario_student_local_duel_event <- this.inherit("scripts/
 				// 			}
 				// 		}
 						
-				// 		_event.startCombat(_event);						
+				// 		_event.startCombat(_event);					
 				// 		return 0;
 				// 	}
 				// });
@@ -406,8 +406,7 @@ this.ptr_swordmaster_scenario_student_local_duel_event <- this.inherit("scripts/
 
 	function onPrepare()
 	{
-		this.m.Flags = this.new("scripts/tools/tag_collection");		
-		this.onUpdateScore();
+		this.m.Flags = this.new("scripts/tools/tag_collection");
 	}
 
 	function onPrepareVariables( _vars )
