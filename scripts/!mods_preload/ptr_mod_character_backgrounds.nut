@@ -789,10 +789,8 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				]
 			],
 			Weapon = [
-				[
-					[{Weight = 100, Tree = this.Const.Perks.CleaverTree}],
-					[{Weight = 100, Tree = this.Const.Perks.FlailTree}]				
-				]
+				[{Weight = 100, Tree = this.Const.Perks.CleaverTree}],
+				[{Weight = 100, Tree = this.Const.Perks.FlailTree}]
 			]
 		};
 	});
