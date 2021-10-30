@@ -1223,6 +1223,12 @@ gt.Const.PTR.modEnemies <- function()
 
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_menacing"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bully"));
+
+			this.m.Skills.removeByID("perk.last_stand");
+			
+			local returnFavor = this.new("scripts/skills/effects/return_favor_effect");
+			returnFavor.onTurnstart = function() {}; // overwrite the original function which removes it
+			this.m.Skills.add(returnFavor);
 		}
 	});
 
@@ -1894,11 +1900,17 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				this.m.Skills.removeByID("perk.legend_battleheart");				
+				this.m.Skills.removeByID("perk.legend_battleheart");
+				this.m.Skills.removeByID("perk.last_stand");
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_underdog"));
 				local dentArmorPerk = this.new("scripts/skills/perks/perk_ptr_dent_armor");
 				dentArmorPerk.m.IsForceEnabled = true;
 				dentArmorPerk.m.IsForceTwoHanded = true;
 				this.m.Skills.add(dentArmorPerk);
+
+				local returnFavor = this.new("scripts/skills/effects/return_favor_effect");
+				returnFavor.onTurnstart = function() {}; // overwrite the original function which removes it
+				this.m.Skills.add(returnFavor);
 			}
 		}
 	});
@@ -1928,10 +1940,17 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
+				this.m.Skills.removeByID("perk.legend_battleheart");
+				this.m.Skills.removeByID("perk.last_stand");
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_underdog"));
 				local dentArmorPerk = this.new("scripts/skills/perks/perk_ptr_dent_armor");
 				dentArmorPerk.m.IsForceEnabled = true;
 				dentArmorPerk.m.IsForceTwoHanded = true;
 				this.m.Skills.add(dentArmorPerk);
+
+				local returnFavor = this.new("scripts/skills/effects/return_favor_effect");
+				returnFavor.onTurnstart = function() {}; // overwrite the original function which removes it
+				this.m.Skills.add(returnFavor);
 			}
 		}
 	});
@@ -1942,6 +1961,7 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			onInit();
 			this.m.Skills.removeByID("perk.legend_muscularity");
+			this.m.Skills.removeByID("perk.last_stand");
 
 			this.m.Skills.addPerkTree(this.Const.Perks.HammerTree);
 			this.m.Skills.getSkillByID("perk.ptr_dismantle").m.IsForceEnabled = true;
@@ -1953,10 +1973,15 @@ gt.Const.PTR.modEnemies <- function()
 
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_menacing"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bully"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_underdog"));
 
 			local faPerk = this.new("scripts/skills/perks/perk_ptr_formidable_approach");
 			faPerk.m.IsForceEnabled = true;
 			this.m.Skills.add(faPerk);
+
+			local returnFavor = this.new("scripts/skills/effects/return_favor_effect");
+			returnFavor.onTurnstart = function() {}; // overwrite the original function which removes it
+			this.m.Skills.add(returnFavor);
 		}
 	});
 
