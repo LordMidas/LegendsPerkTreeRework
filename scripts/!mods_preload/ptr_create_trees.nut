@@ -253,12 +253,12 @@ gt.Const.PTR.createProfessionTrees <- function()
 		Name = "Militia",
 		WeightMultipliers = [
 			{Multiplier = 2, Tree = this.Const.Perks.OutlandersTree},
-			{Multiplier = 4, Tree = this.Const.Perks.TrainedTree},
+			{Multiplier = -1, Tree = this.Const.Perks.TrainedTree},
 			{Multiplier = 0.8, Tree = this.Const.Perks.HealerClassTree},
 			{Multiplier = 2, Tree = this.Const.Perks.TacticianClassTree},
 			{Multiplier = 2, Tree = this.Const.Perks.LightArmorTree},
 			{Multiplier = -1, Tree = this.Const.Perks.SpearTree},
-			{Multiplier = -1, Tree = this.Const.Perks.ShieldTree},
+			{Multiplier = -1, Tree = this.Const.Perks.ShieldTree},			
 		],
 		Tree = [
 			[
