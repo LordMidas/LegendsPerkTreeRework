@@ -28,6 +28,7 @@ this.ptr_swordmaster_scenario <- this.inherit("scripts/scenarios/world/starting_
 			"ptr_swordmaster_commander_background"
 		]); //skills on start
 		bro.getSkills().add(this.new("scripts/skills/traits/player_character_trait"));
+
 		bro.getSkills().add(this.new("scripts/skills/perks/perk_ptr_versatile_weapon"));
 		bro.getSkills().add(this.new("scripts/skills/perks/perk_ptr_exploit_opening"));
 		bro.getSkills().add(this.new("scripts/skills/perks/perk_ptr_fluid_weapon"));
@@ -35,7 +36,9 @@ this.ptr_swordmaster_scenario <- this.inherit("scripts/scenarios/world/starting_
 		bro.getSkills().add(this.new("scripts/skills/perks/perk_ptr_tempo"));
 		bro.getSkills().add(this.new("scripts/skills/perks/perk_ptr_kata"));
 		bro.getSkills().add(this.new("scripts/skills/perks/perk_ptr_en_garde"));
-		bro.m.PerkPointsSpent += 7;
+		bro.getSkills().add(this.new("scripts/skills/perks/perk_bf_fencer"));
+		bro.m.PerkPointsSpent += 8;
+
 		bro.setPlaceInFormation(4);
 		bro.setVeteranPerks(2);
 		bro.getFlags().set("IsPlayerCharacter", true);
@@ -45,7 +48,7 @@ this.ptr_swordmaster_scenario <- this.inherit("scripts/scenarios/world/starting_
 		bro.getSprite("miniboss").setBrush("bust_miniboss");
 		bro.m.HireTime = this.Time.getVirtualTimeF();
 		this.World.Assets.addMoralReputation(20);
-		this.World.Assets.addBusinessReputation(this.m.StartingBusinessReputation);		
+		this.World.Assets.addBusinessReputation(this.m.StartingBusinessReputation);
 		this.World.Assets.m.Ammo = 0;
 
 		this.World.Assets.getStash().add(this.new("scripts/items/supplies/cured_venison_item"));
@@ -54,7 +57,7 @@ this.ptr_swordmaster_scenario <- this.inherit("scripts/scenarios/world/starting_
 		this.World.Assets.getStash().add(this.new("scripts/items/weapons/arming_sword"));
 		this.World.Assets.getStash().add(this.new("scripts/items/weapons/arming_sword"));
 
-		bro.getSkills().add(this.new("scripts/skills/effects/ptr_swordmaster_scenario_effect"));
+		bro.getSkills().add(this.new("scripts/skills/effects/ptr_swordmaster_scenario_avatar_effect"));
 		bro.getSkills().add(this.new("scripts/skills/traits/old_trait"));
 	}
 
@@ -79,27 +82,15 @@ this.ptr_swordmaster_scenario <- this.inherit("scripts/scenarios/world/starting_
 			local x = this.Math.rand(this.Math.max(2, randomVillageTile.SquareCoords.X - 1), this.Math.min(this.Const.World.Settings.SizeX - 2, randomVillageTile.SquareCoords.X + 1));
 			local y = this.Math.rand(this.Math.max(2, randomVillageTile.SquareCoords.Y - 1), this.Math.min(this.Const.World.Settings.SizeY - 2, randomVillageTile.SquareCoords.Y + 1));
 
-			if (!this.World.isValidTileSquare(x, y))
-			{
-			}
-			else
+			if (this.World.isValidTileSquare(x, y))
 			{
 				local tile = this.World.getTileSquare(x, y);
 
-				if (tile.Type == this.Const.World.TerrainType.Ocean || tile.Type == this.Const.World.TerrainType.Shore)
-				{
-				}
-				else if (tile.getDistanceTo(randomVillageTile) == 0)
-				{
-				}
-				else if (!tile.HasRoad)
-				{
-				}
-				else
+				if (tile.Type != this.Const.World.TerrainType.Ocean && tile.Type != this.Const.World.TerrainType.Shore && tile.getDistanceTo(randomVillageTile) != 0 && tile.HasRoad)
 				{
 					randomVillageTile = tile;
 					break;
-				}
+				}				
 			}
 		}
 		while (1);
@@ -133,27 +124,23 @@ this.ptr_swordmaster_scenario <- this.inherit("scripts/scenarios/world/starting_
 
 	function onHiredByScenario( bro )
 	{
-		bro.getSkills().add(this.new("scripts/skills/perks/perk_ptr_versatile_weapon"));	
-		bro.getSkills().add(this.new("scripts/skills/effects/ptr_swordmaster_scenario_effect"));		
+		bro.getSkills().add(this.new("scripts/skills/perks/perk_ptr_versatile_weapon"));
+		local effect = this.new("scripts/skills/effects/ptr_swordmaster_scenario_recruit_effect");
+		effect.m.FreePerks.push(this.Const.Perks.PerkDefs.PTRVersatileWeapon);
+		bro.getSkills().add(effect);
 	}
 
 	function onUpdateHiringRoster( _roster )
 	{
-		local garbage = [];
 		local bros = _roster.getAll();
 
-		foreach( i, bro in bros )
+		foreach( bro in bros )
 		{
-			if (bro.getBackground().getID() == "background.squire")
+			if (bro.getBackground().getID() == "background.squire" || bro.getBackground().getID() == "background.apprentice")
 			{
 				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 0.5);
-				bro.getBaseProperties().DailyWage = this.Math.floor(bro.getBaseProperties().DailyWage * 0.5);
-
-			}
-			else if (bro.getBackground().getID() == "background.swordmaster")
-			{
-				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 0.75);
-				bro.getBaseProperties().DailyWage = this.Math.floor(bro.getBaseProperties().DailyWage * 0.75);
+				bro.getBaseProperties().DailyWageMult *= 0.5;
+				bro.getSkills().update();
 			}
 		}
 	}
@@ -167,77 +154,23 @@ this.ptr_swordmaster_scenario <- this.inherit("scripts/scenarios/world/starting_
 		_background.m.CustomPerkTree[0].push(this.Const.Perks.PerkDefs.PTRVersatileWeapon);
 	}
 
-	// function onUpdateDraftList( _list, _gender)
-	// {
-	// 	if (_list.len() < 5)
-	// 	{
-	// 		local r;
-	// 		r = this.Math.rand(0, 2);
-	// 		if (r == 0)
-	// 		{
-	// 		_list.push("flagellant_background");
-	// 		}
-	// 		r = this.Math.rand(0, 4);
-	// 		if (r == 0)
-	// 		{
-	// 		_list.push("pilgrim_background");
-	// 		}
-	// 		r = this.Math.rand(0, 4);
-	// 		if (r == 0)
-	// 		{
-	// 		_list.push("monk_background");
-	// 		}
-	// 		r = this.Math.rand(0, 6);
-	// 		if (r == 0 && _gender)
-	// 		{
-	// 		_list.push("legend_nun_background");
-	// 		}
-	// 		r = this.Math.rand(0, 9);
-	// 		if (r == 0)
-	// 		{
-	// 			_list.push("witchhunter_background");
-	// 		}
-	// 		r = this.Math.rand(0, 49);
-	// 		if (r == 0)
-	// 		{
-	// 			_list.push("legend_crusader_background");
-	// 		}
-	// 	}
-	// 	if (_list.len() >= 5)
-	// 	{
-	// 		local r;
-	// 		r = this.Math.rand(0, 5);
-	// 		if (r == 0)
-	// 		{
-	// 			_list.push("flagellant_background");
-	// 		}
-	// 		r = this.Math.rand(0, 5);
-	// 		if (r == 0)
-	// 		{
-	// 			_list.push("pilgrim_background");
-	// 		}
-	// 		r = this.Math.rand(0, 6);
-	// 		if (r == 0)
-	// 		{
-	// 			_list.push("monk_background");
-	// 		}
-	// 		r = this.Math.rand(0, 4);
-	// 		if (r == 0)
-	// 		{
-	// 			_list.push("legend_nun_background");
-	// 		}
-	// 		r = this.Math.rand(0, 5);
-	// 		if (r == 0)
-	// 		{
-	// 			_list.push("witchhunter_background");
-	// 		}
-	// 		r = this.Math.rand(0, 19);
-	// 		if (r == 0)
-	// 		{
-	// 			_list.push("legend_crusader_background");
-	// 		}
-	// 	}
-	// }
+	function onUpdateDraftList( _list, _gender)
+	{
+		local garbage = [];
+		local bros = _roster.getAll();
 
+		foreach( i, bro in bros )
+		{
+            if (bro.getBackground().getID().find("swordmaster") != null)
+            {
+                garbage.push(bro);
+            }
+		}
+
+		foreach( g in garbage )
+		{
+			_roster.remove(g);
+		}
+	}
 });
 
