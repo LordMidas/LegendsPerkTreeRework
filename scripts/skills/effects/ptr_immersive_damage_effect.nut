@@ -93,7 +93,7 @@ this.ptr_immersive_damage_effect <- this.inherit("scripts/skills/skill", {
 		
 		this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(this.getContainer().getActor()) + fluffString);
 
-		this.logInfo("Roll: " + this.m.Roll + ", Goodness: " + goodness + ", Key: " + key);
+		::printLog("Roll: " + this.m.Roll + ", Goodness: " + goodness + ", Key: " + key, this.Const.PTR.ModID);
 	}
 
 	function normalDistDensity(_x, _mean, _stdev)
