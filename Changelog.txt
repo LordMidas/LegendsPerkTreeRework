@@ -1,4 +1,10 @@
 ===================
+==== Ver 1.4.2 ====
+===================
+- Fixed an error in AI evaluation of Cover Ally causing infinite battle freeze.
+- Added Ninetails perks to the Cultist Profession tree.
+
+===================
 ==== Ver 1.4.1 ====
 ===================
 - Fixed a critical bug making it impossible to enter settlements in the Old Swordmaster scenario.
