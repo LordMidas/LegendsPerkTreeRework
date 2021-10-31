@@ -418,10 +418,25 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 				continue;
 			}
 
-			foreach (treeList in treeListsinCategory)
+			if (typeof treeListsinCategory != "array")
 			{
-				foreach (tree in treeList)
+				this.logError("GetDynamicPerkTree: Background " + _player.getBackground().getID() + " has wrongly formatted dynamic perk tree -- Category: " + categoryName);
+			}
+
+			foreach (i, treeList in treeListsinCategory)
+			{
+				if (typeof treeList != "array")
 				{
+					this.logError("GetDynamicPerkTree: Background " + _player.getBackground().getID() + " has wrongly formatted dynamic perk tree -- Category: " + categoryName + " at idx: [" + i + "]");
+				}
+
+				foreach (j, tree in treeList)
+				{
+					if (typeof tree != "table")
+					{
+						this.logError("GetDynamicPerkTree: Background " + _player.getBackground().getID() + " has wrongly formatted dynamic perk tree -- Category: " + categoryName + " at idx: [" + i + "][" + j + "]");
+					}
+
 					if (!("Weight" in tree))
 					{
 						tree.Weight <- 100 / treeList.len();
