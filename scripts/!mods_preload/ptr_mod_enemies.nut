@@ -1227,7 +1227,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.removeByID("perk.last_stand");
 			
 			local returnFavor = this.new("scripts/skills/effects/return_favor_effect");
-			returnFavor.onTurnstart = function() {}; // overwrite the original function which removes it
+			returnFavor.onTurnStart = function() {}; // overwrite the original function which removes it
 			this.m.Skills.add(returnFavor);
 		}
 	});
@@ -1906,7 +1906,7 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(dentArmorPerk);
 
 				local returnFavor = this.new("scripts/skills/effects/return_favor_effect");
-				returnFavor.onTurnstart = function() {}; // overwrite the original function which removes it
+				returnFavor.onTurnStart = function() {}; // overwrite the original function which removes it
 				this.m.Skills.add(returnFavor);
 			}
 		}
@@ -1946,7 +1946,7 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(dentArmorPerk);
 
 				local returnFavor = this.new("scripts/skills/effects/return_favor_effect");
-				returnFavor.onTurnstart = function() {}; // overwrite the original function which removes it
+				returnFavor.onTurnStart = function() {}; // overwrite the original function which removes it
 				this.m.Skills.add(returnFavor);
 			}
 		}
@@ -1977,7 +1977,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(faPerk);
 
 			local returnFavor = this.new("scripts/skills/effects/return_favor_effect");
-			returnFavor.onTurnstart = function() {}; // overwrite the original function which removes it
+			returnFavor.onTurnStart = function() {}; // overwrite the original function which removes it
 			this.m.Skills.add(returnFavor);
 		}
 	});
