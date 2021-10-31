@@ -452,7 +452,7 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 
 					if (ally.isArmedWithShield())
 					{
-						return this.Const.AI.Behavior.Score.Zero;
+						return ret;
 					}
 				}
 			}
