@@ -210,9 +210,9 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			],
 			Class = [
 				[
-				{Weight = 90, Tree = this.Const.Perks.TrapperClassTree},
-				{Weight = 5, Tree = this.Const.Perks.ScoutClassTree},
-				{Weight = 5, Tree = this.Const.Perks.NoTree}
+					{Weight = 90, Tree = this.Const.Perks.TrapperClassTree},
+					{Weight = 5, Tree = this.Const.Perks.ScoutClassTree},
+					{Weight = 5, Tree = this.Const.Perks.NoTree}
 				]
 			],
 			Weapon = [
@@ -3006,17 +3006,15 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
 			],
 			Weapon = [
-				[
-					[{Weight = 100, Tree = this.Const.Perks.BowTree}],
-					[{Weight = 100, Tree = this.Const.Perks.CrossbowTree}],
-					[{Weight = 100, Tree = this.Const.Perks.SlingsTree}],
-					[{Weight = 100, Tree = this.Const.Perks.ThrowingTree}]									
-				]
+				[{Weight = 100, Tree = this.Const.Perks.BowTree}],
+				[{Weight = 100, Tree = this.Const.Perks.CrossbowTree}],
+				[{Weight = 100, Tree = this.Const.Perks.SlingsTree}],
+				[{Weight = 100, Tree = this.Const.Perks.ThrowingTree}]							
 			]
 		};
 	});
 
- ::mods_hookNewObject("skills/backgrounds/legend_necromancer_background", function(o) {
+ 	::mods_hookNewObject("skills/backgrounds/legend_necromancer_background", function(o) {
 		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 3, Tree = this.Const.Perks.ViciousTree},
