@@ -30,7 +30,7 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 			return this.Const.AI.Behavior.Score.Zero;
 		}
 
-		if (!this.getAIAgent().hasVisibleOpponent())
+		if (!this.getAgent().hasVisibleOpponent())
 		{
 			return this.Const.AI.Behavior.Score.Zero;
 		}
@@ -45,7 +45,7 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 		score = score * this.getFatigueScoreMult(this.m.Skill);
 		local myTile = _entity.getTile();
 		
-		local allies = this.getAIAgent().getKnownAllies();
+		local allies = this.getAgent().getKnownAllies();
 
 		local potentialTargets = [];
 
@@ -142,7 +142,7 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 
 		local myTile = _entity.getTile();
 		local inZonesOfControl = myTile.getZoneOfControlCountOtherThan(_entity.getAlliedFactions());
-		local knownAllies = this.getAIAgent().getKnownAllies();		
+		local knownAllies = this.getAgent().getKnownAllies();		
 
 		local potentialDestinations = [];
 
@@ -240,7 +240,7 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 				{
 					letOthersGoScore = letOthersGoScore + this.Math.abs(myTile.SquareCoords.Y - targetTile.SquareCoords.Y) * 20.0;
 					local myDistanceToTarget = myTile.getDistanceTo(targetTile);
-					local targets = this.getAIAgent().getKnownAllies();
+					local targets = this.getAgent().getKnownAllies();
 
 					foreach( ally in targets )
 					{
@@ -258,7 +258,7 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 				else
 				{
 					local myDistanceToTarget = myTile.getDistanceTo(targetTile);
-					local targets = this.getAIAgent().getKnownAllies();
+					local targets = this.getAgent().getKnownAllies();
 
 					foreach( ally in targets )
 					{
@@ -426,7 +426,7 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 		{
 			if (entityAgent.getProperties().PreferCarefulEngage && entityAgent.getProperties().EngageAgainstSpearwallMult != 0.0 && _entity.isAbleToWait() && this.querySpearwallValueForTile(_entity, bestTarget) != 0.0)
 			{
-				local allies = this.getAIAgent().getKnownAllies();
+				local allies = this.getAgent().getKnownAllies();
 
 				foreach( ally in allies )
 				{
@@ -495,7 +495,7 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 	{
 		if (this.m.IsFirstExecuted)
 		{
-			this.getAIAgent().adjustCameraToTarget(this.m.TargetTile);
+			this.getAgent().adjustCameraToTarget(this.m.TargetTile);
 			this.m.IsFirstExecuted = false;
 			return false;
 		}
@@ -522,15 +522,15 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 
 			if (_entity.isAlive() && (!_entity.isHiddenToPlayer() || this.m.TargetTile.IsVisibleForPlayer))
 			{
-				this.getAIAgent().declareAction();
+				this.getAgent().declareAction();
 
 				if (dist > 1 && this.m.Skill.isShowingProjectile())
 				{
-					this.getAIAgent().declareEvaluationDelay(750);
+					this.getAgent().declareEvaluationDelay(750);
 				}
 				else if (this.m.Skill.getDelay() != 0)
 				{
-					this.getAIAgent().declareEvaluationDelay(this.m.Skill.getDelay());
+					this.getAgent().declareEvaluationDelay(this.m.Skill.getDelay());
 				}
 			}
 
