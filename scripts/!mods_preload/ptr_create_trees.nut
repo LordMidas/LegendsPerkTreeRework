@@ -601,11 +601,16 @@ gt.Const.PTR.createProfessionTrees <- function()
 			{Multiplier = -1, Tree = this.Const.Perks.CleaverTree},
 		],
 		Tree = [
-			[],
+			[
+				gt.Const.Perks.PerkDefs.LegendSpecialistNinetailsSkill
+
+			],
 			[
 				gt.Const.Perks.PerkDefs.LegendSpecCultHood
 			],
-			[],
+			[
+				gt.Const.Perks.PerkDefs.LegendSpecialistNinetailsDamage				
+			],
 			[],
 			[
 				gt.Const.Perks.PerkDefs.LegendPrepareGraze
