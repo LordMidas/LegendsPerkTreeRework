@@ -1,4 +1,12 @@
 ===================
+==== Ver 1.4.3 ====
+===================
+- Fixed Unholds not getting their skills properly.
+- Fixed the presence of a Master Archer in a settlement's recruit pool making it impossible to enter that settlement.
+- Fixed a freeze in battle caused by the AI's evaluation of the Cover Ally skill.
+- Updated MSU to v0.6.21.
+
+===================
 ==== Ver 1.4.2 ====
 ===================
 - Fixed an error in AI evaluation of Cover Ally causing infinite battle freeze.
