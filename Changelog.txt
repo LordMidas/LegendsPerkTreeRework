@@ -1,4 +1,12 @@
 ===================
+==== Ver 1.4.4 ====
+===================
+- Fixed the old age events in the Old Swordmaster scenario not firing.
+- Fixed the duel event trom the Old Swordmaster origin firing in other origins.
+- Fixed Cover Ally providing only +1.25 turn order Initiative instead of +25 to the covered ally.
+- Fixed some cases where Cover Ally would cause a crash if one of the two entities died or was swallowed.
+
+===================
 ==== Ver 1.4.3 ====
 ===================
 - Fixed Unholds not getting their skills properly.
