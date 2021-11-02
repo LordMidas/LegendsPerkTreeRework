@@ -156,7 +156,7 @@ this.ptr_swordmaster_scenario_avatar_effect <- this.inherit("scripts/skills/effe
 		
 		if (!hasMet && bros.len() >= 3 && this.World.getTime().Days >= this.m.OldAgeStartDays)
 		{
-			if (this.World.Events.fire("event.ptr_swordmaster_scenario_old_age_event_1"))
+			if (this.World.Events.fire("event.ptr_swordmaster_scenario_old_age_1"))
 			{
 				this.World.Flags.set("PTR_SwordmasterScenario_OldAgeEvent_1", true);
 			}
@@ -166,7 +166,7 @@ this.ptr_swordmaster_scenario_avatar_effect <- this.inherit("scripts/skills/effe
 		
 		if (!hasMet && bros.len() >= 3 && this.World.getTime().Days >= this.m.OldAgeStartDays * 2)
 		{
-			if (this.World.Events.fire("event.ptr_swordmaster_scenario_old_age_event_2"))
+			if (this.World.Events.fire("event.ptr_swordmaster_scenario_old_age_2"))
 			{
 				this.World.Flags.set("PTR_SwordmasterScenario_OldAgeEvent_2", true);
 			}
@@ -176,7 +176,7 @@ this.ptr_swordmaster_scenario_avatar_effect <- this.inherit("scripts/skills/effe
 		
 		if (!hasMet && bros.len() >= 3 && this.World.getTime().Days >= this.m.OldAgeStartDays * 3)
 		{
-			if (this.World.Events.fire("event.ptr_swordmaster_scenario_old_age_event_3"))
+			if (this.World.Events.fire("event.ptr_swordmaster_scenario_old_age_3"))
 			{
 				this.World.Flags.set("PTR_SwordmasterScenario_OldAgeEvent_3", true);
 			}
@@ -186,7 +186,7 @@ this.ptr_swordmaster_scenario_avatar_effect <- this.inherit("scripts/skills/effe
 		
 		if (!hasMet && bros.len() >= 3 && this.World.getTime().Days >= this.m.OldAgeStartDays * 4)
 		{
-			if (this.World.Events.fire("event.ptr_swordmaster_scenario_old_age_event_4"))
+			if (this.World.Events.fire("event.ptr_swordmaster_scenario_old_age_4"))
 			{
 				this.World.Flags.set("PTR_SwordmasterScenario_OldAgeEvent_4", true);
 			}
