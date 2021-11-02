@@ -303,7 +303,7 @@ this.ptr_swordmaster_scenario_student_local_duel_event <- this.inherit("scripts/
 
 	function onUpdateScore()
 	{
-		if (!this.World.getTime().IsDaytime)
+		if (!this.World.getTime().IsDaytime || this.World.Assets.getOrigin().getID() != "scenario.ptr_swordmaster")
 		{
 			return;
 		}
