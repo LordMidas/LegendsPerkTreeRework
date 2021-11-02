@@ -27,17 +27,18 @@ this.str_covered_by_ally_effect <- this.inherit("scripts/skills/skill", {
 		this.m.SoundOnUse = [];
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;
+		this.m.IsRemovedAfterBattle = true;
 	}
 
 	function isEnabled()
 	{
-		if (this.m.CoverProvider == null)
+		if (this.m.CoverProvider == null || !this.m.CoverProvider.isPlacedOnMap() || this.m.CoverProvider.getFlags().get("Devoured") == true)
 		{
 			return false;
 		}
 
 		local actor = this.getContainer().getActor();
-		if (actor.m.IsMoving)
+		if (actor.m.IsMoving || !actor.isPlacedOnMap() || actor.getFlags().get("Devoured") == true)
 		{
 			return false;			
 		}
@@ -72,8 +73,7 @@ this.str_covered_by_ally_effect <- this.inherit("scripts/skills/skill", {
 
 	function onTurnEnd()
 	{
-		this.removeSelf();
-		this.onRemoved();
+		this.removeSelf();		
 	}
 
 	function onRemoved()

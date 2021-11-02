@@ -27,6 +27,7 @@ this.str_covering_ally_effect <- this.inherit("scripts/skills/skill", {
 		this.m.Overlay = "ptr_covering_ally_effect";
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;
+		this.m.IsRemovedAfterBattle = true;
 	}
 
 	function getTooltip()
@@ -66,9 +67,9 @@ this.str_covering_ally_effect <- this.inherit("scripts/skills/skill", {
 
 	function onUpdate( _properties )
 	{
-		if (this.m.Ally == null)
+		if (this.m.Ally == null || !this.m.Ally.isPlacedOnMap() || this.m.Ally.getFlags().get("Devoured") == true)
 		{
-			this.removeSelf();
+			this.removeSelf(); 
 			return;
 		}
 
@@ -79,7 +80,7 @@ this.str_covering_ally_effect <- this.inherit("scripts/skills/skill", {
 		}
 
 		local isCoverStillValid = true;
-		if (actor.getCurrentProperties().IsRooted || actor.getCurrentProperties().IsStunned || !actor.isArmedWithShield())
+		if (actor.getCurrentProperties().IsRooted || actor.getCurrentProperties().IsStunned || actor.getFlags().get("Devoured") == true || !actor.isArmedWithShield())
 		{
 			isCoverStillValid = false;
 		}
@@ -109,7 +110,6 @@ this.str_covering_ally_effect <- this.inherit("scripts/skills/skill", {
 
 	function onDeath()
 	{
-		this.removeSelf();
 		this.onRemoved();
 	}
 
