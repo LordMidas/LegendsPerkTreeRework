@@ -1,4 +1,16 @@
 ===================
+==== Ver 1.4.5 ====
+===================
+- The Professional perk now also unlocks Duelist.
+- Survival Instinct now provides +2 bonus defense for each stack of "miss" (down from +3).
+- Shield Tree rearranged: Phalanx is now t1, Cover Ally is now t2, Line Breaker is now t4.
+- Fixed Tumble not reducing the Fatigue Cost of Lunge.
+- Fixed a crash caused by the Sanguinary perk when using a skill without a target entity.
+- Fixed the Fatigue Cost reduction/increase from items e.g. orc weapons or named weapons not being applied properly.
+- Due to some code shenanigans which I can't really explain - Vigorous Assault will now consider the use of Rotation to be valid movement for its purpose. This is not "intended" but can't really be fixed right now in an easy way. We may look into this in the future.
+- Modding: Updated MSU to v0.6.22.
+
+===================
 ==== Ver 1.4.4 ====
 ===================
 - Fixed the old age events in the Old Swordmaster scenario not firing.
