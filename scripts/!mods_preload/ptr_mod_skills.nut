@@ -385,12 +385,6 @@ gt.Const.PTR.modSkills <- function()
 	});
 
 	::mods_hookExactClass("skills/perks/perk_legend_tumble", function(o) {
-		local idx = o.m.Skills.find("actives.lunge");
-		if (idx != null)
-		{
-			o.m.Skills.remove(idx);
-		}
-
 		local onAfterUpdate = o.onAfterUpdate;
 		o.onAfterUpdate = function(_properties)
 		{
@@ -405,7 +399,7 @@ gt.Const.PTR.modSkills <- function()
 
 			onAfterUpdate(_properties);
 			
-			lunge.m.ActionPointCost = APCostBefore;			
+			lunge.m.ActionPointCost = APCostBefore;
 		}
 	});
 
