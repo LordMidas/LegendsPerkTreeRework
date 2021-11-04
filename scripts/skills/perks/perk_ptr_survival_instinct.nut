@@ -2,7 +2,7 @@ this.perk_ptr_survival_instinct <- this.inherit("scripts/skills/skill", {
 	m = {
 		MissStacks = 0,
 		HitStacks = 0,
-		BonusPerMiss = 3,
+		BonusPerMiss = 2,
 		BonusPerHit = 5
 	},
 	function create()
