@@ -35,6 +35,12 @@ this.perk_ptr_professional <- this.inherit("scripts/skills/skill", {
 			this.m.PerksAdded++;
 		}
 
+		if (!this.getContainer().hasSkill("perk.duelist"))
+		{
+			this.getContainer().add(this.new("scripts/skills/perks/perk_duelist"));
+			this.m.PerksAdded++;
+		}
+
 		if (!this.getContainer().hasSkill("perk.reach_advantage"))
 		{
 			this.getContainer().add(this.new("scripts/skills/perks/perk_reach_advantage"));
@@ -54,6 +60,7 @@ this.perk_ptr_professional <- this.inherit("scripts/skills/skill", {
 	{
 		this.getContainer().removeByID("perk.shield_expert");
 		this.getContainer().removeByID("perk.ptr_weapon_master");
+		this.getContainer().removeByID("perk.duelist");
 		this.getContainer().removeByID("perk.reach_advantage");
 		this.getContainer().removeByID("perk.perk_ptr_bloody_harvest");
 	}
