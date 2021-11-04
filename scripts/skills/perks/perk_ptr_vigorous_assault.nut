@@ -139,14 +139,6 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-	function onMovementFinished( _tile )
-	{
-		if (this.getContainer().m.IsExecutingMoveSkill)
-		{
-			this.m.StartingTile = _tile;
-		}
-	}
-
 	function onWaitTurn()
 	{
 		this.m.StartingTile = null;
