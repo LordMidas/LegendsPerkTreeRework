@@ -32,7 +32,7 @@ this.str_covered_by_ally_effect <- this.inherit("scripts/skills/skill", {
 
 	function isEnabled()
 	{
-		if (this.m.CoverProvider == null || !this.m.CoverProvider.isPlacedOnMap() || this.m.CoverProvider.getFlags().get("Devoured") == true)
+		if (this.m.CoverProvider == null || this.m.CoverProvider.isNull() || !this.m.CoverProvider.isPlacedOnMap() || this.m.CoverProvider.getFlags().get("Devoured") == true)
 		{
 			return false;
 		}

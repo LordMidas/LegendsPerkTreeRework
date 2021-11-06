@@ -67,7 +67,7 @@ this.str_covering_ally_effect <- this.inherit("scripts/skills/skill", {
 
 	function onUpdate( _properties )
 	{
-		if (this.m.Ally == null || !this.m.Ally.isPlacedOnMap() || this.m.Ally.getFlags().get("Devoured") == true)
+		if (this.m.Ally == null || this.m.Ally.isNull() || !this.m.Ally.isPlacedOnMap() || this.m.Ally.getFlags().get("Devoured") == true)
 		{
 			this.removeSelf(); 
 			return;
