@@ -4346,6 +4346,19 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		};
 	});
 
+	::mods_hookNewObject("skills/backgrounds/pilgrim_background", function(o) {
+		o.m.PerkTreeDynamic = {			
+			WeightMultipliers = [
+				{Multiplier = 4, Tree = this.Const.Perks.DeviousTree},
+				{Multiplier = 0.2, Tree = this.Const.Perks.SergeantClassTree},
+				{Multiplier = 0.2, Tree = this.Const.Perks.HealerClassTree}			
+			],
+			Profession = [
+				[{Weight = 100, Tree = this.Const.Perks.HolyManProfessionTree}]
+			]
+		};
+	});
+
 	::mods_hookNewObject("skills/backgrounds/pimp_background", function(o) {
 		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
