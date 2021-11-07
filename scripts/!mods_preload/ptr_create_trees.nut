@@ -355,14 +355,14 @@ gt.Const.PTR.createProfessionTrees <- function()
 		],
 		Name = "Hunter",
 		WeightMultipliers = [
-			{Multiplier = -1, Tree = this.Const.Perks.BowTree},
-			{Multiplier = -1, Tree = this.Const.Perks.CrossbowTree},
-			{Multiplier = 5, Tree = this.Const.Perks.LightArmorTree},
 			{Multiplier = 2, Tree = this.Const.Perks.DeviousTree},
-			{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},
-			{Multiplier = -1, Tree = this.Const.Perks.RangedTree},
+			{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},		
+			{Multiplier = 5, Tree = this.Const.Perks.LightArmorTree},		
+			{Multiplier = 9, Tree = this.Const.Perks.BowTree},
+			{Multiplier = 3, Tree = this.Const.Perks.CrossbowTree},
 			{Multiplier = 3, Tree = this.Const.Perks.SlingsTree},
 			{Multiplier = 3, Tree = this.Const.Perks.ThrowingTree},
+			{Multiplier = -1, Tree = this.Const.Perks.RangedTree},
 		],
 		Tree = [
 			[
@@ -592,13 +592,8 @@ gt.Const.PTR.createProfessionTrees <- function()
 		],
 		Name = "Cultist",
 		WeightMultipliers = [
-			{Multiplier = 1.5, Tree = this.Const.Perks.CalmTree},
-			{Multiplier = 1.5, Tree = this.Const.Perks.ResilientTree},
-			{Multiplier = 1.5, Tree = this.Const.Perks.ViciousTree},
-			{Multiplier = 1.5, Tree = this.Const.Perks.UnstoppableTree},
 			{Multiplier = 0.25, Tree = this.Const.Perks.TrainedTree},
 			{Multiplier = 0, Tree = this.Const.Perks.EntertainerClassTree},
-			{Multiplier = -1, Tree = this.Const.Perks.CleaverTree},
 		],
 		Tree = [
 			[
