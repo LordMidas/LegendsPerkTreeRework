@@ -3511,6 +3511,31 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		};
 	}); */
 
+	::mods_hookNewObject("skills/backgrounds/legend_puppet_background", function(o) {
+		o.m.PerkTreeDynamic = {			
+			WeightMultipliers = [
+				{Multiplier = 0.5, Tree = this.Const.Perks.LegendFavouredEnemyCaravan},
+				{Multiplier = 0.5, Tree = this.Const.Perks.LegendFavouredEnemyNoble},			
+				{Multiplier = 0.33, Tree = this.Const.Perks.ViciousTree},
+				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
+				{Multiplier = 0, Tree = this.Const.Perks.TalentedTree},
+				{Multiplier = 0, Tree = this.Const.Perks.CalmTree},
+				{Multiplier = 0, Tree = this.Const.Perks.OrganisedTree},				
+				{Multiplier = 0, Tree = this.Const.Perks.TrainedTree},
+				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
+				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
+				{Multiplier = 0, Tree = this.Const.Perks.SlingsTree},
+				{Multiplier = 0, Tree = this.Const.Perks.ThrowingTree},
+				{Multiplier = 0, Tree = this.Const.Perks.RangedTree}											
+			],
+			Profession = [
+				[
+					{Weight = 100, Tree = this.Const.Perks.RaiderProfessionTree}
+				]
+			],
+		};
+	});
+
 	::mods_hookNewObject("skills/backgrounds/legend_ranger_background", function(o) {
 		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
 
