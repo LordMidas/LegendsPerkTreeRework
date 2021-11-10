@@ -2979,6 +2979,19 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			WeightMultipliers = [
 			],
 			Profession = [
+				[{Weight = 100, Tree = this.Const.Perks.ApothecaryProfessionTree}]
+			],
+			Class = [
+				[{Weight = 100, Tree = this.Const.Perks.HealerClassTree}]
+			]		
+		};
+	});
+
+	::mods_hookNewObject("skills/backgrounds/legend_ironmonger_background", function(o) {
+		o.m.PerkTreeDynamic = {			
+			WeightMultipliers = [
+			],
+			Profession = [
 				[{Weight = 100, Tree = this.Const.Perks.BlacksmithProfessionTree}]
 			]
 		};
@@ -3235,6 +3248,21 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.LegendSpawnZombieHigh
 			]
 		);
+	});
+
+ 	::mods_hookNewObject("skills/backgrounds/legend_nightwatch_background", function(o) {
+		o.m.PerkTreeDynamic = {			
+			WeightMultipliers = [
+				{Multiplier = 0.5, Tree = this.Const.Perks.TrainedTree},
+				{Multiplier = 2, Tree = this.Const.Perks.CalmTree},
+				{Multiplier = 0.5, Tree = this.Const.Perks.LightArmorTree},
+				{Multiplier = 3, Tree = this.Const.Perks.SergeantClassTree},
+				{Multiplier = 2, Tree = this.Const.Perks.ScoutClassTree}
+			],
+			Profession = [
+				[{Weight = 100, Tree = this.Const.Perks.MilitiaProfessionTree}]
+			]
+		};
 	});
 
  	::mods_hookNewObject("skills/backgrounds/legend_noble_2h", function(o) {
