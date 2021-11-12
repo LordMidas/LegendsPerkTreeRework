@@ -47,7 +47,7 @@ this.ai_ptr_follow_up <- this.inherit("scripts/ai/tactical/behavior", {
 
 		score = score * this.getFatigueScoreMult(this.m.Skill);
 
-		local targets = this.queryTargetsInMeleeRange(attackSkill.getMinRange(), attackSkill.getMaxRange(), this.m.Skill.getMaxLevelDifference());
+		local targets = this.queryTargetsInMeleeRange(attackSkill.getMinRange(), attackSkill.getMaxRange(), attackSkill.getMaxLevelDifference());
 
 		local bestTarget = this.queryBestMeleeTarget(_entity, attackSkill, targets);
 
@@ -86,34 +86,39 @@ this.ai_ptr_follow_up <- this.inherit("scripts/ai/tactical/behavior", {
 			}
 		}
 
+		local allies = this.getAgent().getKnownAllies();
+
 		local surroundedTargets = 0;
 		local surroundingAllies = 0;
+		local myTile = _entity.getTile();
 		foreach (target in targets)
 		{
-			local zoc = target.getTile().getZoneOfControlCountOtherThan(target.getAlliedFactions());
-			if (zoc == 0)
+			local targetTile = target.getTile();
+			if (targetTile.getZoneOfControlCount(_entity.getFaction()) == 0 || !attackSkill.isInRange(targetTile, myTile) || !attackSkill.onVerifyTarget(myTile, targetTile))
 			{
 				continue;
 			}
+
 			surroundedTargets++;
-			surroundingAllies += zoc;
-			local alliesWithReach = target.getActorsAtDistanceAsArray(2, this.Const.FactionRelation.Enemy);
-			foreach (ally in alliesWithReach)
+
+			foreach (ally in allies)
 			{
-				if (!ally.hasZoneOfControl() || ally.getID() == _entity.getID())
+				if (!ally.hasZoneOfControl())
 				{
 					continue;
 				}
 
+				local allyTile = ally.getTile();				
 				local allyAttack = ally.getSkills().getAttackOfOpportunity();
-				if (allyAttack != null && allyAttack.getMinRange() < 2 && allyAttack.getMaxRange() > 1)
+				
+				if (allyAttack.isInRange(targetTile, allyTile) && allyAttack.onVerifyTarget(allyTile, targetTile))
 				{
 					surroundingAllies++;
 				}
 			}
 		}
 
-		if (surroundedTargets == 0 || surroundingAllies == 1)
+		if (surroundedTargets == 0 || surroundingAllies == 0)
 		{
 			if (this.Const.AI.VerboseMode)
 			{
@@ -134,7 +139,7 @@ this.ai_ptr_follow_up <- this.inherit("scripts/ai/tactical/behavior", {
 		{
 			if (this.Const.AI.VerboseMode)
 			{
-				this.logInfo("Follow Up Score " + score + " was much lower than melee attack score of " + attackBehaviorScore + " hence no follow up");
+				this.logInfo("Follow Up Score " + score + " was lower than melee attack score " + attackBehaviorScore + " hence no follow up");
 			}
 			return this.Const.AI.Behavior.Score.Zero;
 		}
