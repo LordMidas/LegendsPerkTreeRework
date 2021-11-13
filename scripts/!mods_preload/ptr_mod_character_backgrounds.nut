@@ -1801,7 +1801,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		);
 
 		addPerksToCustomPerkTree(7, o.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.BF_Fencer,				
+				this.Const.Perks.PerkDefs.BFFencer,				
 				this.Const.Perks.PerkDefs.PerfectFocus,
 				this.Const.Perks.PerkDefs.LegendAssassinate				
 			]
@@ -1876,7 +1876,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		);
 
 		addPerksToCustomPerkTree(7, o.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.BF_Fencer,				
+				this.Const.Perks.PerkDefs.BFFencer,				
 				this.Const.Perks.PerkDefs.PerfectFocus
 			]
 		);
