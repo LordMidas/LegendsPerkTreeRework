@@ -547,6 +547,8 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_tempo"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_mastery_nets"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vigorous_assault"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_skirmisher"));						
 			local kata = this.new("scripts/skills/perks/perk_ptr_kata");
 			kata.m.IsForceEnabled = true;
 			this.m.Skills.add(kata);
@@ -559,6 +561,9 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_relentless"));
 				this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_hybridization"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_momentum"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_close_combat_archer"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_overwhelm"));				
 			}
 		}
 
