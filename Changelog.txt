@@ -1,16 +1,22 @@
-- Goblin Skirmisher Rebalance:
-	- gained Vigorous Assault and Skirmisher.
-	- Legendary Difficulty: Gained Momentum, Close Combat Archer and Overwhelm.
-
-== BACKGROUNDS ==
-- Converted Cabal origin backgrounds to PTR.
-- Converted Leech Peddler and Nightwatch backgrounds to PTR.
-- Modified Hunter and Cultist Profession tree weights
-- Converted Pilgrim background to PTR
-- Scaling Beggar
-	- Removed Sling tree and many individual perks from starting perk options.
-	- Added all favored enemy perks.
-- Minor adjustments to other static perk tree backgrounds.
+===================
+==== Ver 1.4.6 ====
+===================
+- Requires Legends 15.0.1.22.
+- Removed Survival Instinct from Armored Unholds of Barbarians.
+- Goblin Skirmisher:
+	- Added Vigorous Assault and Skirmisher.
+	- Legendary Difficulty: Added Momentum, Close Combat Archer and Overwhelm.
+- Backgrounds:
+	- Converted Cabal origin backgrounds to PTR.
+	- Converted Leech Peddler and Nightwatch backgrounds to PTR.
+	- Modified Hunter and Cultist Profession tree weights.
+	- Converted Pilgrim background to PTR.
+	- Scaling Beggar:
+		- Removed Sling tree and many individual perks from starting perk options.
+		- Added all favored enemy perks.
+	- Minor adjustments to other static perk tree backgrounds.
+- Fixed AI using Follow Up when its alone.
+- Fixed a crash caused by Cover Ally.
 
 ===================
 ==== Ver 1.4.5 ====
