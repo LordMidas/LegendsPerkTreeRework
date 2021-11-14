@@ -37,29 +37,23 @@ this.str_cover_ally_skill <- this.inherit("scripts/skills/skill", {
 
 	function getTooltip()
 	{
-		local ret = [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			},
-			{
-				id = 3,
-				type = "text",
-				text = this.getCostString()
-			},
+		local ret = this.skill.getDefaultUtilityTooltip();
+
+		
+		ret.extend([
 			{
 				id = 7,
 				type = "text",
 				icon = "ui/icons/special.png",
 				text = "Allows the target to move 1 tile ignoring zone of control on their turn"
-			}
-		];
+			},
+			{
+				id = 7,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "In the next round the target\'s turn order is calculated with [color=" + this.Const.UI.Color.NegativeValue + "]+25[/color] Initiative"
+			},
+		]);;
 
 		local actor = this.getContainer().getActor();
 		if (!actor.isArmedWithShield())
