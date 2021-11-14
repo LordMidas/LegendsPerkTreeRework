@@ -17,6 +17,7 @@
 	- Minor adjustments to other static perk tree backgrounds.
 - Fixed AI using Follow Up when its alone.
 - Fixed a crash caused by Cover Ally.
+- Modding: Updated MSU to v0.6.23.
 
 ===================
 ==== Ver 1.4.5 ====
