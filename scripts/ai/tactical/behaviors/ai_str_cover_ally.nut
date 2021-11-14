@@ -214,13 +214,10 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 					isSkillUsable = true;
 				}
 
-				if (!isSkillUsable)
+				local attackSkill = _entity.getSkills().getAttackOfOpportunity();
+				if (attackSkill == null || !attackSkill.onVerifyTarget(tile, targetTile) || !attackSkill.isInRange(targetTile, tile))
 				{
-					local attackSkill = _entity.getSkills().getAttackOfOpportunity();
-					if (attackSkill == null || !attackSkill.isUsableOn(targetTile))
-					{
-						continue;
-					}
+					continue;
 				}
 
 				if (targetTile.getZoneOfControlCount(_entity.getFaction()) == 0 && !isTargetArmedWithRangedWeapon && !isTargetFleeing && engagementsDeclared == 0)
