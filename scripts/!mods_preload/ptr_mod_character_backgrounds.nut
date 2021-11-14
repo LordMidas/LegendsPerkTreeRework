@@ -2109,7 +2109,13 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 
 			foreach (perk in target_skills)
 			{
-				if (!actor.getSkills().hasSkill(perk.getID()))
+				local id = perk.getID();
+				if (id == "perk.stalwart" || id == "perk.legend_composure" || id == "perk.battering_ram")
+				{
+					continue;
+				}
+
+				if (!actor.getSkills().hasSkill(id))
 				{
 					potentialPerks.push(perk);
 				}
