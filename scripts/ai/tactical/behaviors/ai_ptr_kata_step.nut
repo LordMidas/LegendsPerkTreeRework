@@ -22,12 +22,6 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 		this.m.Skill = null;
 		local time = this.Time.getExactTime();
 
-		local score = this.getProperties().BehaviorMult[this.m.ID];
-
-		// if (_entity.getActionPoints() < this.Const.Movement.AutoEndTurnBelowAP)
-		// {
-			// return this.Const.AI.Behavior.Score.Zero;
-		// }
 
 		if (_entity.getMoraleState() == this.Const.MoraleState.Fleeing)
 		{
@@ -55,13 +49,14 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 			return this.Const.AI.Behavior.Score.Zero;
 		}
 
-		score = score * this.getFatigueScoreMult(this.m.Skill);
-
 		local targets = this.queryTargetsInMeleeRange(this.m.Skill.getMinRange(), this.m.Skill.getMaxRange() + 1, this.m.Skill.getMaxLevelDifference());
 		if (targets.len() == 0)
 		{
 			return this.Const.AI.Behavior.Score.Zero;
 		}
+
+		local score = this.getProperties().BehaviorMult[this.m.ID];
+		score *= this.getFatigueScoreMult(this.m.Skill);
 
 		local myTile = _entity.getTile();
 		local inZonesOfControl = myTile.getZoneOfControlCountOtherThan(_entity.getAlliedFactions());
@@ -70,10 +65,8 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 		local AlreadyEngagedWithNum = targetsInMelee.len();
 		local lungeSkill = _entity.getSkills().getSkillByID("actives.lunge");
 
-		//targets.extend(targetsInMelee);
-
 		local potentialDestinations = [];
-		//local targetsAnalyzed = [];
+
 		foreach (target in targets)
 		{
 			if (this.isAllottedTimeReached(time))
@@ -81,12 +74,6 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 				yield null;
 				time = this.Time.getExactTime();
 			}
-
-			// if (targetsAnalyzed.find(target.getID()) != null)
-			// {
-				// continue;
-			// }
-			// targetsAnalyzed.push(target.getID());
 
 			local targetTile = target.getTile();
 			local isTargetInEnemyZoneOfControl = targetTile.hasZoneOfControlOtherThan(target.getAlliedFactions());
@@ -145,13 +132,10 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 					isSkillUsable = true;
 				}
 
-				if (!isSkillUsable)
+				local attackSkill = _entity.getSkills().getAttackOfOpportunity();
+				if (attackSkill == null || !attackSkill.onVerifyTarget(tile, targetTile) || !attackSkill.isInRange(targetTile, myTile))
 				{
-					local attackSkill = _entity.getSkills().getAttackOfOpportunity();
-					if (attackSkill == null || !attackSkill.isUsableOn(targetTile))
-					{
-						continue;
-					}
+					continue;
 				}
 
 				if (targetTile.getZoneOfControlCount(_entity.getFaction()) == 0 && !isTargetArmedWithRangedWeapon && !isTargetFleeing && engagementsDeclared == 0)
