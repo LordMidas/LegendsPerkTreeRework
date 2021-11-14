@@ -23,9 +23,12 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 		this.m.TargetAlly = null;		
 		this.m.Skill = null;
 
-		local score = this.getProperties().BehaviorMult[this.m.ID];
-
 		if (_entity.getActionPoints() < this.Const.Movement.AutoEndTurnBelowAP)
+		{
+			return this.Const.AI.Behavior.Score.Zero;
+		}
+
+		if (_entity.getMoraleState() == this.Const.MoraleState.Fleeing)
 		{
 			return this.Const.AI.Behavior.Score.Zero;
 		}
@@ -41,6 +44,8 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 		{
 			return this.Const.AI.Behavior.Score.Zero;
 		}
+
+		local score = this.getProperties().BehaviorMult[this.m.ID];
 
 		score = score * this.getFatigueScoreMult(this.m.Skill);
 		local myTile = _entity.getTile();
