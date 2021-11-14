@@ -2,8 +2,7 @@ this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 	m = {
 		APRecovered = 4,
 		IsPrimed = false,
-		FatCostRed = 50,
-		UsedTiles = []
+		FatCostRed = 50
 	},
 	function create()
 	{
@@ -41,7 +40,7 @@ this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 
 	function canProcOntile( _tile )
 	{
-		return _tile.IsCorpseSpawned && this.getContainer().getActor().getAlliedFactions().find(_tile.Properties.get("Corpse").Faction) == null && this.m.UsedTiles.find(_tile.ID) == null;
+		return _tile.IsCorpseSpawned && this.getContainer().getActor().getAlliedFactions().find(_tile.Properties.get("Corpse").Faction) == null && this.Const.Combat.OpportunistUsedTiles.find(_tile.ID) == null;
 	}
 
 	function isEnabled()
@@ -82,7 +81,7 @@ this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 			actor.setDirty(true);
 			this.spawnIcon("perk_ptr_opportunist", tile);
 
-			this.m.UsedTiles.push(tile.ID);
+			this.Const.Combat.OpportunistUsedTiles.push(tile.ID);
 
 			this.m.IsPrimed = true;
 		}
@@ -126,14 +125,14 @@ this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 
 	function onCombatStarted()
 	{
-		this.m.UsedTiles.clear();
+		this.Const.Combat.OpportunistUsedTiles.clear();
 		this.m.IsPrimed = false;
 	}
 
 	function onCombatFinished()
 	{
 		this.skill.onCombatFinished();
-		this.m.UsedTiles.clear();
+		this.Const.Combat.OpportunistUsedTiles.clear();
 		this.m.IsPrimed = false;
 	}
 });

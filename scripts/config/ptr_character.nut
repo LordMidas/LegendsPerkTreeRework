@@ -12,3 +12,5 @@ foreach (decal in gt.Const.ProjectileDecals[this.Const.ProjectileType.Arrow])
 gt.Const.ProjectileDecals.push(flamingArrowsDecals);
 
 gt.Const.ProjectileSprite.push("projectile_flaming_arrow");
+
+gt.Const.Combat.OpportunistUsedTiles <- [];
