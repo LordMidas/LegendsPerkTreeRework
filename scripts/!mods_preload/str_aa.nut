@@ -92,7 +92,6 @@ local modID = "mod_legends_STR";
 	});
 
 	::mods_hookNewObject("ai/tactical/behaviors/ai_ptr_kata_step", function (o)	{
-		this.logInfo("hooked");
 		o.m.PossibleSkills.push("actives.str_move_under_cover");
 	});
 });
