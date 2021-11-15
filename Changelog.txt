@@ -1,4 +1,10 @@
 ===================
+==== Ver 1.4.9 ====
+===================
+- Special perks (e.g. Fencer) are now mentioned in the background icon tooltip on the recruitment screen after try out if the recruit has the perk.
+- Updated to MSU v0.6.24.
+
+===================
 ==== Ver 1.4.8 ====
 ===================
 - Fixed the Old Swordmaster avatar always inflicting 100% armor ignore damage.
