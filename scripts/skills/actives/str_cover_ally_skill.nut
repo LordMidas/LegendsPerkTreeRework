@@ -31,7 +31,7 @@ this.str_cover_ally_skill <- this.inherit("scripts/skills/skill", {
 		this.m.IsUsingHitchance = false;
 		this.m.ActionPointCost = 4;
 		this.m.FatigueCost = 20;
-		this.m.MinRange = 0;
+		this.m.MinRange = 1;
 		this.m.MaxRange = 1;
 	}
 
