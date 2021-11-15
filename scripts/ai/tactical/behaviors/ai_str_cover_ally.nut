@@ -56,6 +56,11 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 
 		foreach (ally in allies)
 		{
+			if (ally.getID() == _entity.getID())
+			{
+				continue;
+			}
+			
 			local scoreInfo = this.getAllyScore(ally);
 			if (scoreInfo.Score > 0)
 			{
