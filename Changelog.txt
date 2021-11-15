@@ -1,4 +1,13 @@
 ===================
+==== Ver 1.4.7 ====
+===================
+- Opportunist now only procs once per corpse per battle. The same corpse no longer be reused by different bros with this perk.
+- Improved Kata and Cover Ally AI. The AI should no longer use these skills to get to worse tiles.
+- Improved Cover Ally perk and active skill tooltips.
+- Fixed AI using Cover Ally when at Fleeing Morale.
+- Fixed the Scaling Beggar being able to steal Stalwart, Composure, Battering Ram. Should no longer be possible.
+
+===================
 ==== Ver 1.4.6 ====
 ===================
 - Requires Legends 15.0.1.22.
