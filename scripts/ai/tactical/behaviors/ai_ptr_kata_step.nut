@@ -22,7 +22,6 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 		this.m.Skill = null;
 		local time = this.Time.getExactTime();
 
-
 		if (_entity.getMoraleState() == this.Const.MoraleState.Fleeing)
 		{
 			return this.Const.AI.Behavior.Score.Zero;
@@ -132,7 +131,6 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 					isSkillUsable = true;
 				}
 
-				local attackSkill = _entity.getSkills().getAttackOfOpportunity();
 				if (attackSkill == null || !attackSkill.onVerifyTarget(tile, targetTile) || !attackSkill.isInRange(targetTile, myTile))
 				{
 					continue;
