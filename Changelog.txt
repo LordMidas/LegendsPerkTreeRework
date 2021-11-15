@@ -1,7 +1,15 @@
 ===================
+==== Ver 1.4.8 ====
+===================
+- Fixed the Old Swordmaster avatar always inflicting 100% armor ignore damage.
+- Fixed the recruits in Old Swordmaster origin getting more armor ignore from the scenario effect instead of what was shown in the tooltip.
+- Fixed Cover Ally being usable on the same character using it.
+- The AI will no longer evaluate itself as a target for using Cover Ally.
+
+===================
 ==== Ver 1.4.7 ====
 ===================
-- Opportunist now only procs once per corpse per battle. The same corpse no longer be reused by different bros with this perk.
+- Opportunist now only procs once per corpse per battle. The same corpse can no longer be reused by different bros with this perk.
 - Improved Kata and Cover Ally AI. The AI should no longer use these skills to get to worse tiles.
 - Improved Cover Ally perk and active skill tooltips.
 - Fixed AI using Cover Ally when at Fleeing Morale.
