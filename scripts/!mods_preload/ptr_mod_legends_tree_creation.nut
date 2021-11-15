@@ -825,62 +825,18 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 			}
 		}
 
-		local chanceFencer = 25;
-		if (_player.getBackground().getID() == "background.swordmaster")
+		foreach (perk in this.Const.Perks.SpecialTrees.Perks)
 		{
-			chanceFencer = 100;
-		}
-		else
-		{
-			local hasSwordTree = false;
-
-			local talents = _player.getTalents();
-
-			chanceFencer = talents.len() == 0 ? 0 : chanceFencer * talents[this.Const.Attributes.Initiative] * talents[this.Const.Attributes.MeleeSkill];
-
-			if (chanceFencer > 0)
+			local success = perk.Func(_player, _localMap);
+			if (success)
 			{
-				foreach (categoryName, category in _localMap)
+				local row = perk.Row;
+				while (row > 0 && dynamicTree[row].len() >= 13)
 				{
-					foreach (tree in category)
-					{
-						switch (tree.ID)
-						{
-							case this.Const.Perks.SwordTree.ID:
-								hasSwordTree = true;
-								break;
-
-							case this.Const.Perks.LightArmorTree.ID:
-								chanceFencer *= 2;
-								break;
-
-							case this.Const.Perks.HeavyArmorTree.ID:
-								chanceFencer /= 2;
-								break;
-						}
-					}
+					row--;
 				}
-			}
 
-			if (!hasSwordTree)
-			{
-				chanceFencer = 0;
-			}
-		}
-
-		if (this.Math.rand(1, 100) <= chanceFencer)
-		{
-			if (dynamicTree[6].len() < 13)
-			{				
-				dynamicTree[6].push(this.Const.Perks.PerkDefs.BFFencer);
-			}
-			else if (dynamicTree[5].len() < 13)
-			{				
-				dynamicTree[5].push(this.Const.Perks.PerkDefs.BFFencer);
-			}
-			else if (dynamicTree[4].len() < 13)
-			{				
-				dynamicTree[4].push(this.Const.Perks.PerkDefs.BFFencer);
+				dynamicTree[row].push(perk.Perk);
 			}
 		}
 

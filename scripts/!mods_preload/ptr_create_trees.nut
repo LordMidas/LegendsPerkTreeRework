@@ -865,9 +865,7 @@ gt.Const.PTR.createSpecialTrees <- function()
 			[],
 			[],
 			[],
-			[
-				gt.Const.Perks.PerkDefs.BFFencer
-			]
+			[]
 		]
 	};
 
@@ -875,6 +873,20 @@ gt.Const.PTR.createSpecialTrees <- function()
 		Tree = [
 			gt.Const.Perks.SpecialOne
 		],
+		Perks = [],
+
+		function addSpecialPerk( _perk, _tier, _desc, _func )
+		{
+			this.Perks.push({
+				Perk = _perk,
+				Desc = _desc
+				Func = _func,
+				Row = _tier - 1
+			});
+
+			this.Const.Perks.SpecialOne.Tree[_tier-1].push(_perk);
+		}
+
 		function getRandom( _exclude )
 		{
 			local L = [];
@@ -910,4 +922,51 @@ gt.Const.PTR.createSpecialTrees <- function()
 			return L[r];
 		}
 	};
+
+	gt.Const.Perks.SpecialTrees.addSpecialPerk( gt.Const.Perks.PerkDefs.BFFencer, 7, "Has all the makings of a capable fencer.", function( _player, _localMap ) {
+		local chanceFencer = 25;
+		if (_player.getBackground().getID() == "background.swordmaster")
+		{
+			chanceFencer = 100;
+		}
+		else
+		{
+			local hasSwordTree = false;
+
+			local talents = _player.getTalents();
+
+			chanceFencer = talents.len() == 0 ? 0 : chanceFencer * talents[this.Const.Attributes.Initiative] * talents[this.Const.Attributes.MeleeSkill];
+
+			if (chanceFencer > 0)
+			{
+				foreach (category in _localMap)
+				{
+					foreach (tree in category)
+					{
+						switch (tree.ID)
+						{
+							case this.Const.Perks.SwordTree.ID:
+								hasSwordTree = true;
+								break;
+
+							case this.Const.Perks.LightArmorTree.ID:
+								chanceFencer *= 2;
+								break;
+
+							case this.Const.Perks.HeavyArmorTree.ID:
+								chanceFencer /= 2;
+								break;
+						}
+					}
+				}
+			}
+
+			if (!hasSwordTree)
+			{
+				chanceFencer = 0;
+			}
+		}
+
+		return this.Math.rand(1, 100) <= chanceFencer;
+	});
 }
