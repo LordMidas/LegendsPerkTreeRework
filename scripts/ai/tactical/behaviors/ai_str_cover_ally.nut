@@ -88,7 +88,7 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 		return this.Const.AI.Behavior.Score.STRCoverAlly * potentialTargets[0].Score;
 	}
 
-	function getAllyScore(_entity)
+	function getAllyScore( _entity )
 	{
 		local ret = {
 			Score = 0,
@@ -124,7 +124,7 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 		}
 
 		local myTile = _entity.getTile();
-		local attackSkill = _entity.getSkills().getAttackOfOpportunity();		
+		local attackSkill = _entity.getSkills().getAttackOfOpportunity();
 		local result = {
 			Actor = _entity,
 			Targets = [],
@@ -204,17 +204,11 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 
 			foreach (tile in potentialTiles)
 			{
-				if (tile == null)
-				{
-					continue;
-				}
-
 				if (!tile.isSameTileAs(myTile))
 				{
 					isSkillUsable = true;
 				}
 
-				local attackSkill = _entity.getSkills().getAttackOfOpportunity();
 				if (attackSkill == null || !attackSkill.onVerifyTarget(tile, targetTile) || !attackSkill.isInRange(targetTile, tile))
 				{
 					continue;
