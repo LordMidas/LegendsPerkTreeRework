@@ -229,6 +229,16 @@ gt.Const.PTR.modCharacterBackground <- function()
 			{
 				text += "\n[color=" + this.Const.UI.Color.NegativeValue + "]Try out[/color] this character to reveal [color=" + this.Const.UI.Color.PositiveValue + "]more[/color] information!";
 			}
+			else
+			{
+				foreach (perk in this.Const.Perks.SpecialTrees.Perks)
+				{
+					if (this.hasPerk(perk.Perk))
+					{
+						text += perk.Desc + "\n";
+					}
+				}
+			}
 
 			return text;
 		}
