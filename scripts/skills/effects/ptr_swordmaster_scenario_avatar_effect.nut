@@ -139,7 +139,7 @@ this.ptr_swordmaster_scenario_avatar_effect <- this.inherit("scripts/skills/effe
 			_properties.MeleeDefense += skillBonus;
 			_properties.Bravery += skillBonus;
 
-			_properties.DamageDirectAdd += this.getDirectDamageBonus();
+			_properties.DamageDirectAdd += this.getDirectDamageBonus() * 0.01;
 
 			local skillMalus = this.getSkillMalus();
 			_properties.Stamina -= skillMalus;
