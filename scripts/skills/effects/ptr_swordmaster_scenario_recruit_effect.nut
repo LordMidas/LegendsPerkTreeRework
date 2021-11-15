@@ -141,7 +141,7 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 			_properties.MeleeSkill += level;
 			_properties.MeleeDefense += level;
 			_properties.Initiative += level;
-			_properties.DamageDirectAdd += this.Math.max(25, level) * 0.01;
+			_properties.DamageDirectAdd += this.Math.min(25, level) * 0.01;
 		}
 	}
 
