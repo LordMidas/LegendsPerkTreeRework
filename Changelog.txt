@@ -1,3 +1,5 @@
+Added Outlanders favored enemy tree to Scaling Beggar as intended
+
 ===================
 ==== Ver 1.4.9 ====
 ===================

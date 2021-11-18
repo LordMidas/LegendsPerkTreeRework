@@ -2030,6 +2030,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.UndeadTree,
 				this.Const.Perks.CivilizationTree,
 				this.Const.Perks.ArchersTree,
+				this.Const.Perks.OutlandersTree,				
 				this.Const.Perks.SwordmastersTree																		
 			]
 		);
