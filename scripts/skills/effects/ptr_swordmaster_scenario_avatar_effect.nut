@@ -69,19 +69,19 @@ this.ptr_swordmaster_scenario_avatar_effect <- this.inherit("scripts/skills/effe
 					id = 10,
 					type = "text",
 					icon = "ui/icons/health.png",
-					text = "[color=" + this.Const.UI.Color.PositiveValue + "]-" + skillMalus + "[/color] Hitpoints"
+					text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + skillMalus + "[/color] Hitpoints"
 				},
 				{
 					id = 10,
 					type = "text",
 					icon = "ui/icons/fatigue.png",
-					text = "[color=" + this.Const.UI.Color.PositiveValue + "]-" + skillMalus + "[/color] Fatigue"
+					text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + skillMalus + "[/color] Fatigue"
 				},
 				{
 					id = 10,
 					type = "text",
 					icon = "ui/icons/initiative.png",
-					text = "[color=" + this.Const.UI.Color.PositiveValue + "]-" + skillMalus + "[/color] Initiative"
+					text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + skillMalus + "[/color] Initiative"
 				}
 			]);
 		}
