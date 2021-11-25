@@ -1,4 +1,5 @@
 Added Outlanders favored enemy tree to Scaling Beggar as intended
+Deserters can now roll ranged weapon trees.
 
 ===================
 ==== Ver 1.4.9 ====
