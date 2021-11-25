@@ -180,7 +180,7 @@ gt.Const.PTR.modCharacterBackground <- function()
 					continue;
 				}
 
-				if (!this.getContainer().getActor().isTryoutDone() && categoryName == "Class")
+				if (!this.getContainer().getActor().isTryoutDone() && categoryName == "Traits")
 				{
 					break;
 				}				
