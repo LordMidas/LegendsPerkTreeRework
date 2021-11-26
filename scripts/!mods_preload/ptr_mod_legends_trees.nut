@@ -645,7 +645,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	this.Const.Perks.LargeTree.Tree[1] = [];
 	this.Const.Perks.LargeTree.Tree[2] = [this.Const.Perks.PerkDefs.Steadfast];
 	this.Const.Perks.LargeTree.Tree[3] = [];
-	this.Const.Perks.LargeTree.Tree[4] = [this.Const.Perks.PerkDefs.SunderingStrikes];
+	this.Const.Perks.LargeTree.Tree[4] = [];
 	this.Const.Perks.LargeTree.Tree[5] = [];
 	this.Const.Perks.LargeTree.Tree[6] = [this.Const.Perks.PerkDefs.LegendMuscularity];
 
@@ -1023,7 +1023,7 @@ gt.Const.PTR.modWeaponTrees <- function()
 	this.Const.Perks.AxeTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRDismemberment];
 	this.Const.Perks.AxeTree.Tree[3] = [this.Const.Perks.PerkDefs.SpecAxe];
 	this.Const.Perks.AxeTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRBetweenTheEyes];
-	this.Const.Perks.AxeTree.Tree[5] = [this.Const.Perks.PerkDefs.SunderingStrikes];
+	this.Const.Perks.AxeTree.Tree[5] = [];
 	this.Const.Perks.AxeTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRCull];
 
 	while (this.Const.Perks.BowTree.Tree.len() < 7)
@@ -1097,8 +1097,8 @@ gt.Const.PTR.modWeaponTrees <- function()
 	this.Const.Perks.HammerTree.Tree[1] = [this.Const.Perks.PerkDefs.PTRRattle];
 	this.Const.Perks.HammerTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRDeepImpact];
 	this.Const.Perks.HammerTree.Tree[3] = [this.Const.Perks.PerkDefs.SpecHammer];
-	this.Const.Perks.HammerTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRSoftMetal];
-	this.Const.Perks.HammerTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRDismantle];
+	this.Const.Perks.HammerTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRDismantle];
+	this.Const.Perks.HammerTree.Tree[5] = [this.Const.Perks.PerkDefs.SunderingStrikes];
 	this.Const.Perks.HammerTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRDentArmor];
 
 	while (this.Const.Perks.MaceTree.Tree.len() < 7)
