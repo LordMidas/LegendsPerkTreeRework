@@ -153,6 +153,14 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 
 	function onPayForItemAction( _skill, _items )
 	{
+		foreach (item in _items)
+		{
+			if (item != null && item.isWeaponType(this.Const.Items.WeaponType.Throwing))
+			{
+				return;
+			}
+		}
+		
 		this.m.StartingTile = this.getContainer().getActor().getTile();	
 		this.resetBonus();
 	}
