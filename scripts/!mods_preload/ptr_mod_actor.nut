@@ -43,6 +43,7 @@ gt.Const.PTR.modActor <- function()
 			this.getSkills().add(this.new("scripts/skills/effects/ptr_bolstered_effect"));
 			this.getSkills().add(this.new("scripts/skills/effects/ptr_polearm_hitchance_effect"));
 			this.getSkills().add(this.new("scripts/skills/effects/ptr_immersive_damage_effect"));
+			this.getSkills().add(this.new("scripts/skills/effects/ptr_inspired_by_champion_effect"));
 
 			local flags = this.getFlags();
 			if (flags.has("undead") && !flags.has("ghost") && !flags.has("ghoul") && !flags.has("vampire"))
