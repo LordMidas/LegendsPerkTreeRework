@@ -304,6 +304,9 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.Underdog = "I\'m used to it.\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• In addition to the attacker, the malus to defense from up to two other surrounding enemies no longer applies to this character.";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Underdog].Tooltip = gt.Const.Strings.PerkDescription.Underdog;
 
+	gt.Const.Strings.PerkDescription.SunderingStrikes = "Learn how to strike best at your targets\' armor to destroy it as fast as possible.\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Effectiveness against armor is increased by [color=" + this.Const.UI.Color.PositiveValue + "]20%[/color] of your weapon\'s armor effectiveness.\n• When unarmed, effectiveness against armor is increased by [color=" + this.Const.UI.Color.PositiveValue + "]20%[/color].";
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.SunderingStrikes].Tooltip = gt.Const.Strings.PerkDescription.SunderingStrikes;
+
 	local poleWeaponStrings = [
 		"SpecAxe",
 		"SpecHammer",
