@@ -924,6 +924,15 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_skirmisher.png",
 			IconDisabled = "ui/perks/ptr_skirmisher_bw.png",
 			Const = "PTRSkirmisher"
+		},
+		{
+			ID = "perk.ptr_eyes_up",
+			Script = "scripts/skills/perks/perk_ptr_eyes_up",
+			Name = this.Const.Strings.PerkName.PTREyesUp,
+			Tooltip = this.Const.Strings.PerkDescription.PTREyesUp,
+			Icon = "ui/perks/ptr_eyes_up.png",
+			IconDisabled = "ui/perks/ptr_eyes_up_bw.png",
+			Const = "PTREyesUp"
 		}
 	];
 

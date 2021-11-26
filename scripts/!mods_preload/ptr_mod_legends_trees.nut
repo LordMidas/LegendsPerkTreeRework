@@ -1036,7 +1036,7 @@ gt.Const.PTR.modWeaponTrees <- function()
 	this.Const.Perks.BowTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRArrowToTheKnee];
 	this.Const.Perks.BowTree.Tree[3] = [this.Const.Perks.PerkDefs.SpecBow];
 	this.Const.Perks.BowTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRFlamingArrows];
-	this.Const.Perks.BowTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRMarksmanship];
+	this.Const.Perks.BowTree.Tree[5] = [this.Const.Perks.PerkDefs.PTREyesUp];
 	this.Const.Perks.BowTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRHipShooter];
 
 	while (this.Const.Perks.CleaverTree.Tree.len() < 7)

@@ -18,7 +18,7 @@
 	<sprite id="ptr_arrow_to_the_knee_debuff_effect" ic = "FF23165B" img="..\ui\perks\ptr_arrow_to_the_knee.png" />
 	<sprite id="ptr_arrow_to_the_knee_debuff_effect_mini" ic = "FF23165B" img="mini\ptr_arrow_to_the_knee_debuff_effect_mini.png" />
 		
-	<sprite id="ptr_between_the_eyes_attack_effect_mini" ic = "FF23165B" img="mini\ptr_between_the_eyes_attack_effect_mini.png" />	
+	<sprite id="ptr_between_the_eyes_attack_effect_mini" ic = "FF23165B" img="mini\ptr_between_the_eyes_attack_effect_mini.png" />
 	<sprite id="ptr_bloodlust_mini" ic = "FF23165B" img="mini\ptr_bloodlust_mini.png" />	
 	<sprite id="ptr_bolstered_effect_mini" ic = "FF23165B" img="mini\ptr_bolstered_effect_mini.png" />		
 	<sprite id="ptr_bulwark_mini" ic = "FF23165B" img="mini\ptr_bulwark_mini.png" />	
@@ -34,6 +34,7 @@
 	<sprite id="ptr_dynamic_duo_mini" ic = "FF23165B" img="mini\ptr_dynamic_duo_mini.png" />
 	<sprite id="ptr_exploit_opening_mini" ic = "FF23165B" img="mini\ptr_exploit_opening_mini.png" />
 	<sprite id="ptr_exploitable_opening_effect_mini" ic = "FF23165B" img="mini\ptr_exploitable_opening_effect_mini.png" />
+	<sprite id="ptr_eyes_up_mini" ic = "FF23165B" img="mini\ptr_eyes_up_mini.png" />
 	<sprite id="ptr_fluid_weapon_mini" ic = "FF23165B" img="mini\ptr_fluid_weapon_mini.png" />
 	<sprite id="ptr_fresh_and_furious_mini" ic = "FF23165B" img="mini\ptr_fresh_and_furious_mini.png" />
 	<sprite id="ptr_king_of_all_weapons_mini" ic = "FF23165B" img="mini\ptr_king_of_all_weapons_mini.png" />
