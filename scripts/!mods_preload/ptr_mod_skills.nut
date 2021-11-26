@@ -892,7 +892,7 @@ gt.Const.PTR.modSkills <- function()
 
 			local hitChanceBonus = this.Math.floor(0.25 * meleeSkill * (distance == 2 ? 1.0 : 0.5));
 			local directDamageBonus = this.Math.floor(0.2 * rangedSkill * (distance == 2 ? 1.0 : 0.5));
-			local armorDamageBonus = directDamageBonus * 2;
+			local damageBonus = this.Math.floor(0.4 * rangedSkill * (distance == 2 ? 1.0 : 0.5));
 
 			_properties.RangedSkill += hitChanceBonus;
 
@@ -902,7 +902,7 @@ gt.Const.PTR.modSkills <- function()
 			}
 			else if (_skill.hasDamageType(this.Const.Damage.DamageType.Cutting))
 			{
-				_properties.DamageArmorMult += armorDamageBonus * 0.01;
+				_properties.DamageTotalMult += damageBonus * 0.01;
 			}
 		}
 
