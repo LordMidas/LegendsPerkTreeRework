@@ -62,7 +62,7 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 					id = 10,
 					type = "text",
 					icon = "ui/icons/warning.png",
-					text = "Will expire upon waiting or ending the turn, swapping your weapon, or using any skill"
+					text = "Will expire upon waiting or ending the turn, using any skill, or swapping your weapon except to/from a throwing weapon"
 				}
 			);
 		}
@@ -160,7 +160,7 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 				return;
 			}
 		}
-		
+
 		this.m.StartingTile = this.getContainer().getActor().getTile();	
 		this.resetBonus();
 	}

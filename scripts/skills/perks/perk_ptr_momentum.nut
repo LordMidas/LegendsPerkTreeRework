@@ -47,7 +47,7 @@ this.perk_ptr_momentum <- this.inherit("scripts/skills/skill", {
 			id = 10,
 			type = "text",
 			icon = "ui/icons/warning.png",
-			text = "Will expire upon waiting or ending the turn, swapping your weapon, or using any skill"
+			text = "Will expire upon waiting or ending the turn, using any skill, or swapping your weapon except to/from a throwing weapon"
 		});
 		
 		return tooltip;
