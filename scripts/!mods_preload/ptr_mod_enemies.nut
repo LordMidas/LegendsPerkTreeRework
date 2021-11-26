@@ -2,6 +2,15 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modEnemies <- function()
 {
+	::mods_hookExactClass("entity/tactical/goblin", function(o) {
+		loacl onInit = o.onInit;
+		o.onInit = function ()
+		{
+			onInit();
+			this.getSkills().add(this.new("scripts/skills/racial/ptr_goblin_racial"));
+		}
+	});
+
 	# ::mods_hookExactClass("entity/tactical/enemies/alp", function(o) {
 	# 	local onInit = o.onInit;
 	# 	o.onInit = function()
