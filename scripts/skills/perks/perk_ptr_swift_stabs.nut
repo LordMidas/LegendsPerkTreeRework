@@ -1,6 +1,6 @@
 this.perk_ptr_swift_stabs <- this.inherit("scripts/skills/skill", {
 	m = {
-		Skill = null
+		IsSpent = true
 	},
 	function create()
 	{
@@ -18,7 +18,18 @@ this.perk_ptr_swift_stabs <- this.inherit("scripts/skills/skill", {
 
 	function isHidden()
 	{
-		return this.m.Skill == null;
+		return this.m.IsSpent;
+	}
+
+	function isEnabled()
+	{
+		local weapon = this.getContainer().getActor().getMainhandItem();
+		if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.Dagger, true))
+		{
+			return true;
+		}
+
+		return false;
 	}
 
 	function getTooltip()
@@ -29,40 +40,59 @@ this.perk_ptr_swift_stabs <- this.inherit("scripts/skills/skill", {
 			id = 10,
 			type = "text",
 			icon = "ui/icons/action_points.png",
-			text = "The Action Point cost of " + this.m.Skill.getName() + " is reduced"
+			text = "The Action Point costs Dagger attacks are reduced"
+		});
+
+		tooltip.push({
+			id = 10,
+			type = "text",
+			icon = "ui/icons/warning.png",
+			text = "Will be lost upon missing an attack, using any non-attack skill, or swapping your weapon"
 		});
 
 		return tooltip;
 	}
 
+	function onAfterUpdate(_properties)
+	{
+		if (!this.isEnabled())
+		{
+			return;
+		}
+
+		local skills = this.getContainer().getSkillsByFunction(this, @(_skill) _skill.isAttack() && _skill.m.IsWeaponSkill)
+		foreach (s in skills)
+		{
+			skill.m.ActionPointCost = this.Math.max(2, skill.m.ActionPointCost - 2);
+		}
+	}
+
+	function onPayForItemAction( _skill, _items )
+	{
+		this.m.IsSpent = true;
+	}
+
 	function onTurnStart()
 	{
-		this.m.Skill = null;
+		this.m.IsSpent == true;
+	}
+
+	function onTargetMissed( _skill, _targetEntity )
+	{
+		this.m.IsSpent == true;
+	}
+
+	function onAnySkillExecuted(_skill, _targetTile, _targetEntity)
+	{
+		if (!this.isEnabled() || !_skill.isAttack() || !_skill.m.IsWeaponSkill)
+		{
+			this.m.IsSpent == true;
+		}
 	}
 
 	function onCombatFinished()
 	{
 		this.skill.onCombatFinished();
-		this.m.Skill = null;
-	}
-
-	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
-	{
-		if (_skill.getID() != "actives.puncture" && _skill.getID() != "actives.deathblow")
-		{
-			return;
-		}
-
-		this.m.Skill = _skill;
-	}
-
-	function onAfterUpdate(_properties)
-	{
-		if (this.m.Skill == null || this.m.Skill.m.ActionPointCost <= 2)
-		{
-			return;
-		}
-
-		this.m.Skill.m.ActionPointCost = this.Math.max(2, this.m.Skill.m.ActionPointCost - 2);
+		this.m.IsSpent == true;
 	}
 });
