@@ -74,6 +74,11 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 				time = this.Time.getExactTime();
 			}
 
+			if (this.Const.AI.VerboseMode)
+			{
+				this.logInfo("Kata Step: Evaluating target " + target.getName() + " at a distance of " + target.getTile().getDistanceTo(myTile) + " from my tile with tile ID " + myTile.ID);
+			}
+
 			local targetTile = target.getTile();
 			local isTargetInEnemyZoneOfControl = targetTile.hasZoneOfControlOtherThan(target.getAlliedFactions());
 			local isTargetArmedWithRangedWeapon = !isTargetInEnemyZoneOfControl && this.isRangedUnit(target);
@@ -86,25 +91,24 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 
 			local targetValue = this.getProperties().IgnoreTargetValueOnEngage ? 0.5 : this.queryTargetValue(_entity, target);
 
-			local betterWithLunge = false;
 			if (lungeSkill != null && lungeSkill.isUsableOn(targetTile))
 			{
-				local lungeValue = this.getProperties().IgnoreTargetValueOnEngage ? 0.5 : this.queryTargetValue(_entity, target, lungeSkill);
-				// this.logInfo("Target = " + target.getName() + ". TargetValue = " + targetValue + ". LungeValue = " + lungeValue);
+				local lungeValue = this.getProperties().IgnoreTargetValueOnEngage ? 0.5 : this.queryTargetValue(_entity, target, lungeSkill);				
 				if (lungeValue > targetValue)
 				{
-					// this.logInfo("Better to engage " + target.getName() + " with Lunge.");
-					betterWithLunge = true;
+					if (this.Const.AI.VerboseMode)
+					{
+						this.logInfo("Better to engage " + target.getName() + " with Lunge");
+					}
+					continue;
 				}
 			}
 
-			if (betterWithLunge)
-			{
-				continue;
-			}
-
 			local potentialTiles = [];
-			potentialTiles.push(myTile);
+			if (targetTile.getDistanceTo(myTile) == 1)
+			{
+				potentialTiles.push(myTile);
+			}
 
 			for (local i = 0; i < 6; i++)
 			{
@@ -126,13 +130,22 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 
 			foreach (tile in potentialTiles)
 			{
+				if (this.Const.AI.VerboseMode)
+				{
+					this.logInfo("Evaluating tile " + tile.ID + " for kata use against target " + target.getName());
+				}
+
 				if (!tile.isSameTileAs(myTile))
 				{
 					isSkillUsable = true;
 				}
 
-				if (attackSkill == null || !attackSkill.onVerifyTarget(tile, targetTile) || !attackSkill.isInRange(targetTile, myTile))
+				if (attackSkill == null || !attackSkill.onVerifyTarget(tile, targetTile) || !attackSkill.isInRange(targetTile, tile))
 				{
+					if (this.Const.AI.VerboseMode)
+					{
+						this.logInfo("Ignoring target " + target.getName() + " from tile " + tile.ID + " as we won\'t be able to use " + attackSkill.getName() + " against them from that tile");
+					}
 					continue;
 				}
 
@@ -406,17 +419,17 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 
 		potentialDestinations.sort(this.onSortByScore);
 
-		// if (this.Const.AI.VerboseMode)
-		// {
-			// foreach (dest in potentialDestinations)
-			// {
-				// this.logInfo("* Possible target : " + dest.Actor.getName() +
-							 // " at distance:" + dest.Actor.getTile().getDistanceTo(myTile) +
-							 // " and is approachable by Kata: " + dest.IsSkillUsable +
-							 // ". TargetValue is: " + dest.TargetValue +
-							 // ", TileScore is: " + dest.TileScore);
-			// }
-		// }
+		if (this.Const.AI.VerboseMode)
+		{
+			foreach (dest in potentialDestinations)
+			{
+				this.logInfo("* Possible target : " + dest.Actor.getName() +
+							 " at distance:" + dest.Actor.getTile().getDistanceTo(myTile) +
+							 " and is approachable by Kata: " + dest.IsSkillUsable +
+							 ". TargetValue is: " + dest.TargetValue +
+							 ", TileScore is: " + dest.TileScore);
+			}
+		}
 
 		local bestTarget;
 		local bestTargetDistance = 0;
@@ -442,11 +455,13 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 			bestScoreMult = potentialDestinations[0].ScoreMult;
 			bestComplete = true;
 			actorTargeted = potentialDestinations[0].Actor;
-			// this.logInfo("we want to use skill on potential destination");
 		}
 		else
 		{
-			// this.logInfo("returning 0 because best target is: " + potentialDestinations[0].Actor.getName());
+			if (this.Const.AI.VerboseMode)
+			{
+				this.logInfo("Kata Step: Returning 0 because best target is: " + potentialDestinations[0].Actor.getName() + " from tile " + potentialDestinations[0].Tile.ID + " with Kata not usable on that tile");
+			}
 			return this.Const.AI.Behavior.Score.Zero;
 		}
 
@@ -577,6 +592,11 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 			// }
 
 			return this.Const.AI.Behavior.Score.PTRKataStep * score * this.getProperties().BehaviorMult[this.m.ID] * this.Math.minf(2.0, 1.0 / this.getProperties().OverallDefensivenessMult);
+		}
+
+		if (this.Const.AI.VerboseMode)
+		{
+			this.logInfo("Kata Step: Returning 0 because it is best to stay on my tile.");
 		}
 
 		return this.Const.AI.Behavior.Score.Zero;
