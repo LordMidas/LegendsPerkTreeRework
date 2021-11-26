@@ -124,6 +124,14 @@ this.perk_ptr_momentum <- this.inherit("scripts/skills/skill", {
 
 	function onPayForItemAction( _skill, _items )
 	{
+		foreach (item in _items)
+		{
+			if (item != null && item.isWeaponType(this.Const.Items.WeaponType.Throwing))
+			{
+				return;
+			}
+		}
+		
 		this.m.TilesMovedThisTurn = 0;
 	}
 
