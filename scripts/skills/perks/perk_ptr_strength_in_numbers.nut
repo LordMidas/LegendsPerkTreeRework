@@ -1,12 +1,11 @@
 this.perk_ptr_strength_in_numbers <- this.inherit("scripts/skills/skill", {
 	m = {
-		Stacks = 0,
-		BonusPerStack = 2
+		BonusPerAdjacentAlly = 2
 	},
 	function create()
 	{
 		this.m.ID = "perk.ptr_strength_in_numbers";
-		this.m.Name = this.Const.Strings.PerkName.PTRStrengthInNumbers;
+		this.m.Name = "Strength in Numbers";
 		this.m.Description = "This character\'s martial prowess increases when fighting adjacent to allies.";
 		this.m.Icon = "ui/perks/ptr_strength_in_numbers.png";
 		this.m.IconMini = "ptr_strength_in_numbers_mini";
@@ -17,9 +16,9 @@ this.perk_ptr_strength_in_numbers <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
-	function getName()
+	function isHidden()
 	{
-		return "Strength in Numbers";
+		return !this.getContainer().getActor().isPlacedOnMap() || (this.getBonus() == 0 && this.getResolveBonus() == 0);
 	}
 
 	function getTooltip()
@@ -54,22 +53,46 @@ this.perk_ptr_strength_in_numbers <- this.inherit("scripts/skills/skill", {
 			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getBonus() + "[/color] Ranged Defense"
 		});
 
-		return tooltip;
-	}
+		tooltip.push({
+			id = 10,
+			type = "text",
+			icon = "ui/icons/bravery.png",
+			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getResolveBonus() + "[/color] Resolve"
+		});
 
-	function isHidden()
-	{
-		return this.m.Stacks == 0;
+		return tooltip;
 	}
 
 	function getBonus()
 	{
-		return this.m.Stacks * 2;
+		return this.getContainer().getActor().getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.SameFaction).len() * this.m.BonusPerAdjacentAlly;
+	}
+
+	function getResolveBonus()
+	{
+		local actor = this.getContainer().getActor();
+		local others = this.Tactical.Entities.getAllInstancesAsArray();
+
+		local count = 0;
+
+		foreach (o in others)
+		{
+			if (o.isAlliedWith(actor))
+			{
+				count++;
+			}
+		}
+
+		// Subtract 1 to remove self from the count
+		return count - 1;
 	}
 
 	function onUpdate( _properties )
 	{
-		this.m.Stacks = this.getContainer().getActor().getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.SameFaction).len();
+		if (!this.getContainer().getActor().isPlacedOnMap())
+		{
+			return;
+		}
 
 		local bonus = this.getBonus();
 		if (bonus > 0)
@@ -77,18 +100,9 @@ this.perk_ptr_strength_in_numbers <- this.inherit("scripts/skills/skill", {
 			_properties.MeleeSkill += this.getBonus();
 			_properties.RangedSkill += this.getBonus();
 			_properties.MeleeDefense += this.getBonus();
-			_properties.RangedDefense += this.getBonus();
+			_properties.RangedDefense += this.getBonus();			
 		}
-	}
 
-	function onCombatStarted()
-	{
-		this.m.Stacks = 0;
-	}
-
-	function onCombatFinished()
-	{
-		this.skill.onCombatFinished();
-		this.m.Stacks = 0;
+		_properties.Bravery += this.getResolveBonus();
 	}
 });
