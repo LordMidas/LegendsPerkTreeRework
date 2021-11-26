@@ -33,6 +33,61 @@ gt.Const.PTR.modSkills <- function()
 		}
 	});
 
+	::mods_hookNewObject("skills/perks/perk_vengeance", function(o) {
+		o.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
+		o.m.Description = "This character hits harder after having received hits.";
+
+		o.isHidden <- function()
+		{
+			return this.m.Stacks == 0;
+		}
+
+		o.getTooltip <- function()
+		{
+			local tooltip = this.skill.getTooltip();
+			tooltip.push({
+				id = 10,
+				type = "text",
+				icon = "ui/icons/damage_dealt.png",
+				text = "Damage increased by [color=" + this.Const.UI.Color.NegativeValue + "]" (this.m.Stacks * 20) "%[/color]"
+			});
+		}
+
+		o.onBeforeDamageReceived = function( _attacker, _skill, _hitInfo, _properties )
+		{
+			this.m.Stacks++;
+		}
+
+		o.onAnySkillExecuted <- function( _skill, _targetTile, _targetEntity )
+		{
+			if (_skill.isAttack())
+			{
+				this.m.Stacks = 0;
+			}
+		}
+
+		o.onUpdate <- function( _properties )
+		{
+			_properties.DamageTotalMult *= 1.0 + 20 * this.m.Stacks * 0.01;
+		}
+
+		o.onTurnEnd <- function()
+		{
+			this.m.Stacks = 0;
+		}
+
+		o.onCombatStarted <- function()
+		{
+			ths.m.Stacks = 0;
+		}
+
+		o.onCombatFinished <- function()
+		{
+			this.skill.onCombatFinished();
+			this.m.Stacks = 0;
+		}
+	});
+
 	::mods_hookExactClass("skills/perks/perk_sundering_strikes", function(o) {
 		o.onUpdate = function ( _properties )
 		{

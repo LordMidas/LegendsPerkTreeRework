@@ -307,6 +307,9 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.SunderingStrikes = "Learn how to strike best at your targets\' armor to destroy it as fast as possible.\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Effectiveness against armor is increased by [color=" + this.Const.UI.Color.PositiveValue + "]20%[/color] of your weapon\'s armor effectiveness.\n• When unarmed, effectiveness against armor is increased by [color=" + this.Const.UI.Color.PositiveValue + "]20%[/color].";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.SunderingStrikes].Tooltip = gt.Const.Strings.PerkDescription.SunderingStrikes;
 
+	gt.Const.Strings.PerkDescription.Vengeance = "Revenge is a dish best served with a vengeance.\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Every time you are hit, gain a stacking [color=" + this.Const.UI.Color.PositiveValue + "]20%[/color] damage bonus for your next attack.\n• The effect lasts until your next attack or the end of your turn.";
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Vengeance].Tooltip = gt.Const.Strings.PerkDescription.Vengeance;
+
 	local poleWeaponStrings = [
 		"SpecAxe",
 		"SpecHammer",
