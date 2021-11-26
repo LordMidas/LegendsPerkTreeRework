@@ -615,7 +615,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	this.Const.Perks.CalmTree.Tree[1] = [this.Const.Perks.PerkDefs.LegendTrueBeliever];
 	this.Const.Perks.CalmTree.Tree[2] = [this.Const.Perks.PerkDefs.FortifiedMind];
 	this.Const.Perks.CalmTree.Tree[3] = [this.Const.Perks.PerkDefs.LegendPeaceful];
-	this.Const.Perks.CalmTree.Tree[4] = [this.Const.Perks.PerkDefs.LegendClarity];
+	this.Const.Perks.CalmTree.Tree[4] = [];
 	this.Const.Perks.CalmTree.Tree[5] = [this.Const.Perks.PerkDefs.LegendMindOverBody];
 	this.Const.Perks.CalmTree.Tree[6] = [];
 
@@ -684,7 +684,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	this.Const.Perks.FitTree.Tree[0] = [this.Const.Perks.PerkDefs.Adrenalin];
 	this.Const.Perks.FitTree.Tree[1] = [];
 	this.Const.Perks.FitTree.Tree[2] = [];
-	this.Const.Perks.FitTree.Tree[3] = [];
+	this.Const.Perks.FitTree.Tree[3] = [this.Const.Perks.PerkDefs.PTRTheRushOfBattle];
 	this.Const.Perks.FitTree.Tree[4] = [this.Const.Perks.PerkDefs.Berserk];
 	this.Const.Perks.FitTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRUnstoppable];
 	this.Const.Perks.FitTree.Tree[6] = [this.Const.Perks.PerkDefs.KillingFrenzy];
@@ -699,7 +699,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	this.Const.Perks.TrainedTree.Tree[2] = [this.Const.Perks.PerkDefs.Rotation];
 	this.Const.Perks.TrainedTree.Tree[3] = [this.Const.Perks.PerkDefs.PTRVigilant];
 	this.Const.Perks.TrainedTree.Tree[4] = [this.Const.Perks.PerkDefs.Underdog];
-	this.Const.Perks.TrainedTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRTheRushOfBattle];
+	this.Const.Perks.TrainedTree.Tree[5] = [this.Const.Perks.PerkDefs.LegendClarity];
 	this.Const.Perks.TrainedTree.Tree[6] = [this.Const.Perks.PerkDefs.PerfectFocus];
 
 	this.Const.Perks.ResilientTree <- this.Const.Perks.IndestructibleTree;
