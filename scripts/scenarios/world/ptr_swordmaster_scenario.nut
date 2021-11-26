@@ -131,7 +131,8 @@ this.ptr_swordmaster_scenario <- this.inherit("scripts/scenarios/world/starting_
 	}
 
 	function onUpdateHiringRoster( _roster )
-	{
+	{	
+		local garbage = [];
 		local bros = _roster.getAll();
 
 		foreach( bro in bros )
@@ -142,6 +143,16 @@ this.ptr_swordmaster_scenario <- this.inherit("scripts/scenarios/world/starting_
 				bro.getBaseProperties().DailyWageMult *= 0.5;
 				bro.getSkills().update();
 			}
+
+			if (bro.getBackground().getID().find("swordmaster") != null)
+            {
+                garbage.push(bro);
+            }
+		}
+
+		foreach( g in garbage )
+		{
+			_roster.remove(g);
 		}
 	}
 
@@ -152,25 +163,6 @@ this.ptr_swordmaster_scenario <- this.inherit("scripts/scenarios/world/starting_
 			return;
 		}
 		_background.m.CustomPerkTree[0].push(this.Const.Perks.PerkDefs.PTRVersatileWeapon);
-	}
-
-	function onUpdateHiringRoster( _roster )
-	{
-		local garbage = [];
-		local bros = _roster.getAll();
-
-		foreach( i, bro in bros )
-		{
-            if (bro.getBackground().getID().find("swordmaster") != null)
-            {
-                garbage.push(bro);
-            }
-		}
-
-		foreach( g in garbage )
-		{
-			_roster.remove(g);
-		}
 	}
 });
 
