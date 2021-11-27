@@ -144,7 +144,7 @@ this.ptr_swordmaster_scenario <- this.inherit("scripts/scenarios/world/starting_
 				bro.getSkills().update();
 			}
 
-			if (bro.getBackground().getID().find("swordmaster") != null)
+			if (bro.getBackground().getID().find("swordmaster") != null || bro.getBackground().getID().find("retired") != null)
             {
                 garbage.push(bro);
             }
