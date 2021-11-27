@@ -33,6 +33,17 @@ gt.Const.PTR.modSkills <- function()
 		}
 	});
 
+	::mods_hookNewObject("skills/perks/perk_inspiring_presence", function(o) {
+		// Overwrite the Legends functions to be empty.
+		o.onCombatStarted = function()
+		{
+		}
+
+		o.onUpdate = function()
+		{			
+		}
+	});
+
 	::mods_hookNewObject("skills/perks/perk_vengeance", function(o) {
 		o.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		o.m.Description = "This character hits harder after having received hits.";

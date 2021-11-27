@@ -310,6 +310,9 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.Vengeance = "Revenge is a dish best served with a vengeance.\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Every time you are hit, gain a stacking [color=" + this.Const.UI.Color.PositiveValue + "]20%[/color] damage bonus for your next attack.\n• The effect lasts until your next attack or the end of your turn.";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Vengeance].Tooltip = gt.Const.Strings.PerkDescription.Vengeance;
 
+	gt.Const.Strings.PerkDescription.InspiringPresence = "[color=" + this.Const.UI.Color.NegativeValue + "][u]Requires:[/u] Banner[/color]\nStanding next to the company\'s banner inspires your men to go beyond their limits!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Any member of your company who is engaged in melee, or is adjacent to an ally who is engaged in melee, gains [color=" + this.Const.UI.Color.PositiveValue + "]+3[/color] Action Points as long as they start their turn adjacent to you.";
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.InspiringPresence].Tooltip = gt.Const.Strings.PerkDescription.InspiringPresence;
+
 	local poleWeaponStrings = [
 		"SpecAxe",
 		"SpecHammer",
