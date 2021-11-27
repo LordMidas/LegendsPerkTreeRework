@@ -704,7 +704,9 @@ gt.Const.PTR.createProfessionTrees <- function()
 			[
 				gt.Const.Perks.PerkDefs.PTRWearsItWell
 			],
-			[],
+			[
+				gt.Const.Perks.PerkDefs.PTRHaleAndHearty
+			],
 			[]
 		]
 	};

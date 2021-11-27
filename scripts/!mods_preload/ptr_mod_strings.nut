@@ -241,6 +241,8 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.PTRFruitsOfLabor <- "You\'ve quickly realized that your years of hard labor give you an edge in mercenary work!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Hitpoints, Maximum Fatigue, and Initiative are increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] each.";
 	gt.Const.Strings.PerkName.PTRWearsItWell <- "Wears it Well";
 	gt.Const.Strings.PerkDescription.PTRWearsItWell <- "Years of carrying heavy loads has given you the capability to carry the burden of your mercenary gear with ease!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• The penalty to Maximum Fatigue from equipped items in your head, body, mainhand and offhand slots is reduced by [color=" + this.Const.UI.Color.NegativeValue + "]20%[/color]. Stacks with Brawny.";
+	gt.Const.Strings.PerkName.PTRHaleAndHearty <- "Hale and Hearty";
+	gt.Const.Strings.PerkDescription.PTRHaleAndHearty <- "Years of hard labor have given you a stamina like none other!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Fatigue Recovery is increased by [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color] of your Maximum Fatigue after gear.";
 
 	gt.Const.Strings.PerkName.PTRMenacing <- "Menacing";
 	gt.Const.Strings.PerkDescription.PTRMenacing <- "Your appearance gives your enemies a bit of doubt!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Lower the Resolve of adjacent enemies by [color=" + this.Const.UI.Color.PositiveValue + "]-10[/color].";

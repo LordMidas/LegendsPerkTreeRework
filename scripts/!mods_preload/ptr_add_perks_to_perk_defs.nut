@@ -933,6 +933,15 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_eyes_up.png",
 			IconDisabled = "ui/perks/ptr_eyes_up_bw.png",
 			Const = "PTREyesUp"
+		},
+		{
+			ID = "perk.ptr_hale_and_hearty",
+			Script = "scripts/skills/perks/perk_ptr_hale_and_hearty",
+			Name = this.Const.Strings.PerkName.PTRHaleAndHearty,
+			Tooltip = this.Const.Strings.PerkDescription.PTRHaleAndHearty,
+			Icon = "ui/perks/ptr_hale_and_hearty.png",
+			IconDisabled = "ui/perks/ptr_hale_and_hearty_bw.png",
+			Const = "PTRHaleAndHearty"
 		}
 	];
 
