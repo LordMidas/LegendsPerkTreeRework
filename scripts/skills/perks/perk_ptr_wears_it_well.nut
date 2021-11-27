@@ -1,6 +1,6 @@
 this.perk_ptr_wears_it_well <- this.inherit("scripts/skills/skill", {
 	m = {
-		FatigueRecoveryBonusPercentage = 5
+		FatPenReduction = 20
 	},
 	function create()
 	{
@@ -17,6 +17,21 @@ this.perk_ptr_wears_it_well <- this.inherit("scripts/skills/skill", {
 
 	function onUpdate(_properties)
 	{
-		_properties.FatigueRecoveryRate += this.Math.floor(0.01 * this.m.FatigueRecoveryBonusPercentage * this.getContainer().getActor().getFatigueMax());
+		local actor = this.getContainer().getActor();
+		local fat = actor.getTotalArmorStaminaModifier();
+
+		local mainhand = actor.getMainhandItem();
+		if (mainhand != null)
+		{
+			fat += mainhand.getStaminaModifier();
+		}
+
+		local offhand = actor.getOffhandItem();
+		if (offhand != null)
+		{
+			fat += offhand.getStaminaModifier();
+		}
+
+		_properties.Stamina -= fat * 20 * 0.01;
 	}
 });
