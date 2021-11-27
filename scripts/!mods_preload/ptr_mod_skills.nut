@@ -1310,12 +1310,12 @@ gt.Const.PTR.modSkills <- function()
 	# 	}
 	# });
 	#
-	# ::mods_hookNewObject("skills/actives/legend_prepare_knockback_skill", function(o) {
-	# 	o.isUsable = function()
-	# 	{
-	# 		return this.skill.isUsable();
-	# 	}
-	# });
+	::mods_hookNewObject("skills/actives/legend_prepare_knockback_skill", function(o) {
+		o.isUsable = function()
+		{
+			return this.skill.isUsable() && !this.getContainer().hasSkill("effects.legend_knockback_prepared");
+	 	}
+	});
 
 	::mods_hookNewObject("skills/perks/perk_legend_smackdown", function(o) {
 		local onTargetHit = o.onTargetHit;
