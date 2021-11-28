@@ -1,7 +1,7 @@
 this.ptr_swordmaster_scenario_avatar_effect <- this.inherit("scripts/skills/effects/ptr_swordmaster_scenario_effect", {
 	m = {
 		WrongWeaponName = null,
-		OldAgeStartDays = 50,
+		OldAgeStartDays = 30,
 		DaysWithoutRecruits = 0
 	},
 	function create()
