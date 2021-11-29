@@ -60,7 +60,7 @@ gt.Const.PTR.modSkills <- function()
 				id = 10,
 				type = "text",
 				icon = "ui/icons/damage_dealt.png",
-				text = "Damage increased by [color=" + this.Const.UI.Color.NegativeValue + "]" (this.m.Stacks * 20) "%[/color]"
+				text = "Damage increased by [color=" + this.Const.UI.Color.NegativeValue + "]" + (this.m.Stacks * 20) + "%[/color]"
 			});
 		}
 

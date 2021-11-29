@@ -3,7 +3,7 @@ local gt = this.getroottable();
 gt.Const.PTR.modEnemies <- function()
 {
 	::mods_hookExactClass("entity/tactical/goblin", function(o) {
-		loacl onInit = o.onInit;
+		local onInit = o.onInit;
 		o.onInit = function ()
 		{
 			onInit();
