@@ -15,7 +15,7 @@ this.ptr_goblin_racial <- this.inherit("scripts/skills/skill", {
 
 	function onAfterUpdate( _properties )
 	{
-		local skills = this.getContainer.getAllSkillsOfType(this.Const.SkillType.Active);
+		local skills = this.getContainer().getAllSkillsOfType(this.Const.SkillType.Active);
 		foreach (s in skills)
 		{
 			if (s.isAttack() && !s.isRanged())
