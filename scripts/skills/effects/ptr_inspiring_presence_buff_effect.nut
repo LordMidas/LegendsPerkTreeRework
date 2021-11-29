@@ -37,7 +37,10 @@ this.ptr_inspiring_presence_buff_effect <- this.inherit("scripts/skills/skill", 
 
 	function onUpdate( _properties )
 	{
-		_properties.ActionPoints += this.m.BonusActionPoints;
+		if (this.m.IsInEffect)
+		{
+			_properties.ActionPoints += this.m.BonusActionPoints;
+		}
 	}
 
 	function onTurnStart()
