@@ -2174,10 +2174,10 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		);
 
 		addPerksToCustomPerkTree(4, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.PTRVigorousAssault,			
 				this.Const.Perks.PerkDefs.LegendPoisonImmunity,
-				this.Const.Perks.PerkDefs.Rebound,
 				this.Const.Perks.PerkDefs.QuickHands,
-				this.Const.Perks.PerkDefs.PTRVigorousAssault
+				this.Const.Perks.PerkDefs.PTRTheRushOfBattle
 			]
 		);
 
@@ -2189,13 +2189,14 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		addPerksToCustomPerkTree(6, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.PTRFreshAndFurious,
 				this.Const.Perks.PerkDefs.PTRKnowTheirWeakness,
-				this.Const.Perks.PerkDefs.PTRTheRushOfBattle
+				this.Const.Perks.PerkDefs.PTRHaleAndHearty
 			]
 		);
 
 		addPerksToCustomPerkTree(7, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.LegendUberNimble,			
 				this.Const.Perks.PerkDefs.LegendBerserkerRage,
-				this.Const.Perks.PerkDefs.LegendUberNimble
+				this.Const.Perks.PerkDefs.Rebound
 			]
 		);
 	});
@@ -2241,10 +2242,10 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		);
 
 		addPerksToCustomPerkTree(4, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.PTRVigorousAssault,			
 				this.Const.Perks.PerkDefs.LegendPoisonImmunity,
-				this.Const.Perks.PerkDefs.Rebound,
 				this.Const.Perks.PerkDefs.QuickHands,
-				this.Const.Perks.PerkDefs.PTRVigorousAssault
+				this.Const.Perks.PerkDefs.PTRTheRushOfBattle
 			]
 		);
 
@@ -2256,13 +2257,14 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		addPerksToCustomPerkTree(6, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.PTRFreshAndFurious,
 				this.Const.Perks.PerkDefs.PTRKnowTheirWeakness,
-				this.Const.Perks.PerkDefs.PTRTheRushOfBattle
+				this.Const.Perks.PerkDefs.PTRHaleAndHearty
 			]
 		);
 
 		addPerksToCustomPerkTree(7, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.LegendUberNimble,			
 				this.Const.Perks.PerkDefs.LegendBerserkerRage,
-				this.Const.Perks.PerkDefs.LegendUberNimble
+				this.Const.Perks.PerkDefs.Rebound
 			]
 		);
 	});
@@ -2725,6 +2727,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyNoble,
 				this.Const.Perks.PerkDefs.SpecThrowing,
 				this.Const.Perks.PerkDefs.SpecAxe,
+				this.Const.Perks.PerkDefs.PTRVigorousAssault,				
 				this.Const.Perks.PerkDefs.SpecCleaver,
 				this.Const.Perks.PerkDefs.LegendSkillfulStacking
 			]
@@ -2755,7 +2758,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.PTRNailedIt,
 				this.Const.Perks.PerkDefs.HeadHunter,
 				this.Const.Perks.PerkDefs.Overwhelm,
-				this.Const.Perks.PerkDefs.PTRMarksmanship,
 				this.Const.Perks.PerkDefs.PTRMuscleMemory,
 				this.Const.Perks.PerkDefs.PTRStrengthInNumbers,
 				this.Const.Perks.PerkDefs.Fearsome
@@ -3658,9 +3660,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.LegendFieldTriage,
 				this.Const.Perks.PerkDefs.Inspire,	
 				this.Const.Perks.PerkDefs.PerfectFocus,							
-				this.Const.Perks.PerkDefs.PTRTunnelVision,
-				this.Const.Perks.PerkDefs.PTRMarksmanship
-			]
+				this.Const.Perks.PerkDefs.PTRTunnelVision			]
 		);
 	});
 
