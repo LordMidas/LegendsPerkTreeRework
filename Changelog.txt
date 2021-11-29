@@ -1,6 +1,9 @@
-Added Outlanders favored enemy tree to Scaling Beggar as intended
+Added Outlanders favored enemy tree to Scaling Beggar as intended.
 Deserters can now roll ranged weapon trees.
 Many commander background perk changes.
+Typo fix in Back to Basics description.
+Improved trait tree flavor text to make it more clear what tree it is referencing.
+
 ===================
 ==== Ver 1.4.9 ====
 ===================
