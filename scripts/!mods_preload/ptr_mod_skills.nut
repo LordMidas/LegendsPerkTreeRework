@@ -33,13 +33,13 @@ gt.Const.PTR.modSkills <- function()
 		}
 	});
 
-	::mods_hookNewObject("skills/perks/perk_inspiring_presence", function(o) {
+	::mods_hookExactClass("skills/perks/perk_inspiring_presence", function(o) {
 		// Overwrite the Legends functions to be empty.
 		o.onCombatStarted = function()
 		{
 		}
 
-		o.onUpdate = function()
+		o.onUpdate = function( _properties )
 		{			
 		}
 	});
