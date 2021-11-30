@@ -110,24 +110,55 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		local actor = this.getContainer().getActor();		
-		
-		local distanceMoved = this.m.StartingTile.getDistanceTo(actor.getTile());
+		local actor = this.getContainer().getActor();
+		local distanceMoved = this.m.StartingTile.getDistanceTo(actor.getTile());		
+		local aoo = this.getContainer().getAttackOfOpportunity();
 
 		local mult = distanceMoved / this.m.BonusEveryXTiles;
 
-		if (!actor.isPlayerControlled() && !this.getContainer().getActor().isArmedWithRangedWeapon() && distanceMoved < this.m.BonusEveryXTiles && actor.getActorsAtDistanceAsArray(1, this.Const.FactionRelation.Enemy).len() == 0 && actor.getActorsAtDistanceAsArray(this.m.BonusEveryXTiles + 1, this.Const.FactionRelation.Enemy).len() > 0)
+		if (!actor.isPlayerControlled() && aoo != null && distanceMoved < this.m.BonusEveryXTiles)
 		{
-			mult = 1;
+			local myTile = actor.getTile();
+			local actors = this.Tactical.Entities.getAllInstancesAsArray();			
+
+			local numEnemiesInRange = 0;
+			local numEnemiesApproachable = 0;
+
+			foreach (a in actors)
+			{
+				if (a.isAlliedWith(actor))
+				{
+					continue;
+				}
+
+				local distance = a.getTile().getDistanceTo(myTile);
+
+				if (distance == aoo.getMaxRange())
+				{
+					numEnemiesInRange++;
+				}
+				else if (distance == this.m.BonusEveryXTiles + aoo.getMaxRange())
+				{
+					numEnemiesApproachable++;
+				}
+			}
+
+			if (numEnemiesInRange == 0 && numEnemiesApproachable > 0)
+			{
+				mult = 1;
+			}
 		}
 
 		this.m.CurrAPBonus = this.m.APReduction * mult;
 		this.m.CurrFatBonus = this.m.FatCostReduction * mult;
 
-		foreach (skill in this.getContainer().getSkillsByFunction(this, @(_skill) _skill.isAttack()))
+		if (this.m.CurrAPBonus != 0 && this.m.CurrFatBonus != 0)
 		{
-			skill.m.ActionPointCost = this.Math.max(1, skill.m.ActionPointCost - this.m.CurrAPBonus);
-			skill.m.FatigueCostMult *= 1.0 - this.m.CurrFatBonus * 0.01;
+			foreach (skill in this.getContainer().getSkillsByFunction(this, @(_skill) _skill.isAttack()))
+			{
+				skill.m.ActionPointCost = this.Math.max(1, skill.m.ActionPointCost - this.m.CurrAPBonus);
+				skill.m.FatigueCostMult *= 1.0 - this.m.CurrFatBonus * 0.01;
+			}
 		}
 	}
 
