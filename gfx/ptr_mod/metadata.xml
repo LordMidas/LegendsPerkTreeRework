@@ -29,12 +29,11 @@
 	<sprite id="ptr_covering_ally_effect" ic = "FF23165B" img="..\ui\perks\ptr_cover_ally.png" />
 	<sprite id="ptr_covering_ally_effect_mini" ic = "FF23165B" img="mini\ptr_covering_ally_effect_mini.png" />	
 	
-	<sprite id="ptr_cull_mini" ic = "FF23165B" img="mini\ptr_cull_mini.png" />	
+	<sprite id="ptr_cull_mini" ic = "FF23165B" img="mini\ptr_cull_mini.png" />
 	
 	<sprite id="ptr_dynamic_duo_mini" ic = "FF23165B" img="mini\ptr_dynamic_duo_mini.png" />
 	<sprite id="ptr_exploit_opening_mini" ic = "FF23165B" img="mini\ptr_exploit_opening_mini.png" />
-	<sprite id="ptr_exploitable_opening_effect_mini" ic = "FF23165B" img="mini\ptr_exploitable_opening_effect_mini.png" />
-	<sprite id="ptr_eyes_up_mini" ic = "FF23165B" img="mini\ptr_eyes_up_mini.png" />
+	<sprite id="ptr_exploitable_opening_effect_mini" ic = "FF23165B" img="mini\ptr_exploitable_opening_effect_mini.png" />	
 	<sprite id="ptr_fluid_weapon_mini" ic = "FF23165B" img="mini\ptr_fluid_weapon_mini.png" />
 	<sprite id="ptr_fresh_and_furious_mini" ic = "FF23165B" img="mini\ptr_fresh_and_furious_mini.png" />
 	<sprite id="ptr_king_of_all_weapons_mini" ic = "FF23165B" img="mini\ptr_king_of_all_weapons_mini.png" />
@@ -64,7 +63,10 @@
 	<sprite id="ptr_en_garde_effect" ic = "FF23165B" img="..\ui\perks\ptr_en_garde.png" />
 	<sprite id="ptr_en_garde_effect_mini" ic = "FF23165B" img="mini\ptr_en_garde_effect_mini.png" />
 	
-	<sprite id="ptr_entrenched_mini" ic = "FF23165B" img="mini\ptr_entrenched_mini.png" />	
+	<sprite id="ptr_entrenched_mini" ic = "FF23165B" img="mini\ptr_entrenched_mini.png" />
+
+	<sprite id="ptr_eyes_up_effect" ic = "FF23165B" img="..\ui\perks\ptr_eyes_up.png" />
+	<sprite id="ptr_eyes_up_mini" ic = "FF23165B" img="mini\ptr_eyes_up_mini.png" />
 	
 	<sprite id="ptr_follow_up_effect_mini" ic = "FF23165B" img="mini\ptr_follow_up_effect_mini.png" />
 	
