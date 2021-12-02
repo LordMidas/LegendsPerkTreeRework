@@ -56,7 +56,7 @@ this.ptr_eyes_up_effect <- this.inherit("scripts/skills/skill", {
 
 	function onRefresh()
 	{
-		this.spawnIcon("ptr_from_all_sides_effect", this.getContainer().getActor().getTile());
+		this.spawnIcon("ptr_eyes_up_effect", this.getContainer().getActor().getTile());
 		this.m.Stacks++;
 	}
 
