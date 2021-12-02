@@ -35,7 +35,7 @@ this.perk_ptr_eyes_up <- this.inherit("scripts/skills/skill", {
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		if (this.isEnabled() && (_skill.isRanged() || this.m.IsForceEnabled) && _targetEntity.isAlive() && !_targetEntity.isDying())
+		if (this.isEnabled() && (_skill.isRanged() || this.m.IsForceEnabled) && _targetEntity.isAlive() && !_targetEntity.isDying() && !_targetEntity.isAlliedWith(this.getContainer().getActor()))
 		{
 			_targetEntity.getSkills().add(this.new("scripts/skills/effects/ptr_eyes_up_effect"));
 		}
@@ -43,7 +43,7 @@ this.perk_ptr_eyes_up <- this.inherit("scripts/skills/skill", {
 
 	function onTargetMissed( _skill, _targetEntity )
 	{
-		if (this.isEnabled() && (_skill.isRanged() || this.m.IsForceEnabled))
+		if (this.isEnabled() && (_skill.isRanged() || this.m.IsForceEnabled) && !_targetEntity.isAlliedWith(this.getContainer().getActor()))
 		{
 			_targetEntity.getSkills().add(this.new("scripts/skills/effects/ptr_eyes_up_effect"));
 		}
