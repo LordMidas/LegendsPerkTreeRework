@@ -20,7 +20,7 @@ this.ptr_eyes_up_effect <- this.inherit("scripts/skills/skill", {
 
 	function getName()
 	{
-		return this.m.Stacks > 0 ? this.getName() + " (x" + this.m.Stacks + ")" : this.getName();
+		return this.m.Stacks > 0 ? this.m.Name + " (x" + this.m.Stacks + ")" : this.m.Name;
 	}
 
 	function getTooltip()
