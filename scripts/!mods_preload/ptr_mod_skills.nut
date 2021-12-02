@@ -47,6 +47,7 @@ gt.Const.PTR.modSkills <- function()
 	::mods_hookNewObject("skills/perks/perk_vengeance", function(o) {
 		o.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		o.m.Description = "This character hits harder after having received hits.";
+		o.m.Stacks <- 0;
 
 		o.isHidden <- function()
 		{
