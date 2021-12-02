@@ -550,7 +550,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	// 	{Multiplier = 1.5, Tree = this.Const.Perks.FastTree}
 	// ];
 
-	this.Const.Perks.AgileTree.Description = [
+	this.Const.Perks.AgileTree.Descriptions = [
 		"is agile",
 		"moves with grace and agility",
 		"is naturally agile",
@@ -574,7 +574,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	}
 	this.Const.Perks.IndestructibleTree.Name = "Resilient";
 
-	this.Const.Perks.IndestructibleTree.Description = [
+	this.Const.Perks.IndestructibleTree.Descriptions = [
 		"is unnaturally resilient",
 		"is stubbornly resilient",
 		"is staunchly resilient",
@@ -597,7 +597,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 		this.Const.Perks.ViciousTree.Tree.push(emptyArray);
 	}
 
-	this.Const.Perks.ViciousTree.Description = [
+	this.Const.Perks.ViciousTree.Descriptions = [
 		"is vicious",
 		"seems fiendishly vicious",
 		"is ferociously vicious",
@@ -620,7 +620,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 		this.Const.Perks.DeviousTree.Tree.push(emptyArray);
 	}
 
-	this.Const.Perks.DeviousTree.Description = [
+	this.Const.Perks.DeviousTree.Descriptions = [
 		"is devious",
 		"strikes you as devious",
 		"has a devious appearance",
@@ -644,7 +644,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	}
 	this.Const.Perks.IntelligentTree.Name = "Talented";
 
-	this.Const.Perks.IntelligentTree.Description = [
+	this.Const.Perks.IntelligentTree.Descriptions = [
 		"is talented",
 		"lives with talented ease",
 		"has unparalleled talent",
@@ -667,7 +667,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 		this.Const.Perks.CalmTree.Tree.push(emptyArray);
 	}
 
-	this.Const.Perks.CalmTree.Description = [
+	this.Const.Perks.CalmTree.Descriptions = [
 		"is calm",
 		"breathes calmly",
 		"projects peace and calm",
@@ -692,7 +692,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	 	{Multiplier = 1.5, Tree = this.Const.Perks.AgileTree}
 	 ];
 
-	this.Const.Perks.FastTree.Description = [
+	this.Const.Perks.FastTree.Descriptions = [
 		"is fast",
 		"runs fast",
 		"is fast like a flash",
@@ -718,7 +718,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 		{Multiplier = 1.5, Tree = this.Const.Perks.SturdyTree}
 	];
 
-	this.Const.Perks.LargeTree.Description = [
+	this.Const.Perks.LargeTree.Descriptions = [
 		"is large",
 		"is large and hulking",
 		"has impressively large shoulders",
@@ -741,7 +741,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 		this.Const.Perks.OrganisedTree.Tree.push(emptyArray);
 	}
 
-	this.Const.Perks.OrganisedTree.Description = [
+	this.Const.Perks.OrganisedTree.Descriptions = [
 		"is organized",
 		"coordinates activities with organization",
 		"formulates organized plans",
@@ -767,7 +767,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	# 	{Multiplier = 1.5, Tree = this.Const.Perks.LargeTree}
 	# ];
 
-	this.Const.Perks.SturdyTree.Description = [
+	this.Const.Perks.SturdyTree.Descriptions = [
 		"is sturdy",
 		"is sturdily built",
 		"looks strong and sturdy",
@@ -791,7 +791,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	}
 	this.Const.Perks.FitTree.Name = "Unstoppable";
 
-	this.Const.Perks.FitTree.Description = [
+	this.Const.Perks.FitTree.Descriptions = [
 		"seems unstoppable",
 		"lifts weights unstoppably",
 		"seems unstoppably resolute",
@@ -814,7 +814,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	}
 	this.Const.Perks.TrainedTree.SelfWeightMultiplier <- 0.75;
 
-	this.Const.Perks.TrainedTree.Description = [
+	this.Const.Perks.TrainedTree.Descriptions = [
 		"is well trained",
 		"has great training",
 		"is drilled and trained",
