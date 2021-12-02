@@ -1,4 +1,44 @@
 ===================
+==== Ver 1.5.0 ====
+===================
+== MAJOR ==
+- Removed the Marksmanship (Bow t6) perk. Moved Flaming Arrows to Bow t6.
+- New Perk: "Eyes Up" Bow t5 - Every attack from bows applies a stacking debuff on the target reducing their Melee Skill and Ranged Skill by 5 and Melee Defense by 3.
+- Overwhelm now only works with melee attacks.
+- Sundering Strikes reworked: Now grants 20% of your weapon's armor effectiveness as bonus armor effectiveness. Grants a flat 20% when unarmed.
+- Removed the Soft Metal (Hammer t5) perk. Moved Dismantle from Hammer t6 to t5. Added Sundering Strikes to Hammer t6.
+- Removed Sundering Strikes from the Axe and Large trees.
+- Trait trees are no longer shown in the background icon tooltip in the recruitment screen without before Try Out.
+- Strength in Numbers now also gives Resolve equal to number of allies present.
+- Clarity reworked: Now reduces Fatigue build-up up by 20%.
+- Moved Clarity to from Calm t5 to Trained t6.
+- Moved The Rush of Battle to from Trained t6 to Unstoppable t4.
+- Close Combat Archer tweaked: For cutting attacks now gain 50% of ranged skill as percentage increase to total damage.
+- Swift Stabs reworked: Now reduces AP costs of all dagger skills after a successful dagger attack, but the effect is lost if you miss an attack or swap your weapon.
+- Vengeance tweaked: Now provides a stacking 20% damage increase for every hit you receive. Lasts until your next attack or the end of your turn.
+- Goblins now have the AP cost of their melee attacks reduced by 1.
+- Inspiring Presence reworked: Now requires Banner. Any ally who is engaged in melee, or is adjacent to an ally engaged in melee, gains +3 Action Points as long as they start their turn adjacent to you.
+- Wears it Well reworked: Now reduces the penalty to Maximum Fatigue from all items equipped in the head, body, mainhand and offhand slots by 20%. Stacks with Brawny.
+- Wears it Well moved from Laborer t6 to t5.
+- New Perk "Hale and Hearty" Laborer t6. Same as what old Wears it Well was i.e. Fatigue Recovery is increased by 5% of Maximum Fatigue after gear.
+
+== MINOR ==
+- Enemy Champions now boost the Resolve of nearby allies, just like enemy Leaders do.
+- Momentum is no longer lost when switching to/from a throwing weapon after moving.
+- Vigorous Assault is no longer lost when switching to/from a throwing weapon after moving.
+- Old Swordmaster origin can no longer hire Retired Soldiers.
+- Old Swordmaster stat loss now starts at day 30 instead of 50.
+- The Wind Up skill from the Smackdown perk can now be used when engaged in melee.
+
+== FIXES ==
+- Fixed Offhand Training sometimes not giving the 0 AP tool use.
+- Fixed formatting in the Swordmaster's Finesse effect tooltip in the Old Swordmaster origin.
+- Fixed a mistake in Battleheart toolip.
+- Fixed Kata AI not properly evaluating its use against targets at 2 tiles distance.
+- Fixed the Old Swordmaster scenario not properly reducing the hiring cost and daily wage of Squires and Apprentices.
+- Fixed Vigorous Assault reducing the AP cost for AI characters in some cases where it shouldn't.
+
+===================
 ==== Ver 1.4.9 ====
 ===================
 - Special perks (e.g. Fencer) are now mentioned in the background icon tooltip on the recruitment screen after try out if the recruit has the perk.
