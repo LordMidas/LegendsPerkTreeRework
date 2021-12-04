@@ -565,8 +565,7 @@ gt.Const.PTR.modEnemies <- function()
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_hybridization"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_net_casting"));				
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_hybridization"));			
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_momentum"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_close_combat_archer"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_overwhelm"));				
@@ -1465,8 +1464,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/racial/ptr_orc_racial"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_the_rush_of_battle"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_overwhelm"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vigorous_assault"));			
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));	
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -1914,18 +1912,21 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
+				this.m.Hitpoints = this.getBaseProperties().Hitpoints;
 				this.m.Skills.removeByID("perk.legend_battleheart");
 				this.m.Skills.removeByID("perk.last_stand");
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_underdog"));				
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));				
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));		
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_deep_impact"));												
 				local dentArmorPerk = this.new("scripts/skills/perks/perk_ptr_dent_armor");
 				dentArmorPerk.m.IsForceEnabled = true;
 				dentArmorPerk.m.IsForceTwoHanded = true;
 				this.m.Skills.add(dentArmorPerk);
 
-				// local returnFavor = this.new("scripts/skills/effects/return_favor_effect");
-				// returnFavor.onTurnStart = function() {}; // overwrite the original function which removes it
-				// this.m.Skills.add(returnFavor);
+				local returnFavor = this.new("scripts/skills/effects/return_favor_effect");
+				returnFavor.onTurnStart = function() {}; // overwrite the original function which removes it
+				this.m.Skills.add(returnFavor);
 			}
 		}
 	});
