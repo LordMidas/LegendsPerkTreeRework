@@ -113,22 +113,7 @@ this.ptr_formidable_approach_debuff_effect <- this.inherit("scripts/skills/skill
 		local actor = this.getContainer().getActor();
 		if (actor.m.IsMoving)
 		{
-			this.m.CurrentEnemies.clear();
-
-			local adjacentEnemies = actor.getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.Enemy);
-			foreach (enemy in adjacentEnemies)
-			{
-				if (!enemy.hasZoneOfControl())
-				{
-					continue;
-				}
-
-				local enemyPerk = enemy.getSkills().getSkillByID("perk.ptr_formidable_approach");
-				if (enemyPerk != null && enemyPerk.isEnabled())
-				{
-					this.m.CurrentEnemies.push(enemy);
-				}
-			}
+			this.updateEnemies();
 		}
 
 		this.updateMalus();
@@ -145,6 +130,36 @@ this.ptr_formidable_approach_debuff_effect <- this.inherit("scripts/skills/skill
 			this.m.CurrentEnemies.remove(idx);
 			this.updateMalus();
 		}
+	}
+
+	function updateEnemies()
+	{
+		this.m.CurrentEnemies.clear();
+
+		local adjacentEnemies = this.getContainer().getActor().getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.Enemy);
+		foreach (enemy in adjacentEnemies)
+		{
+			if (!enemy.hasZoneOfControl())
+			{
+				continue;
+			}
+
+			local enemyPerk = enemy.getSkills().getSkillByID("perk.ptr_formidable_approach");
+			if (enemyPerk != null && enemyPerk.isEnabled())
+			{
+				this.m.CurrentEnemies.push(enemy);
+			}
+		}
+	}
+
+	function onTurnStart()
+	{
+		this.updateEnemies();
+	}
+
+	function onResumeTurn()
+	{
+		this.updateEnemies();
 	}
 
 	function onCombatStarted()

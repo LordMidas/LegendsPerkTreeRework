@@ -118,7 +118,10 @@ gt.Const.PTR.modSkills <- function()
 	::mods_hookExactClass("skills/perks/perk_underdog", function(o) {
 		o.onUpdate = function( _properties )
 		{
-			_properties.StartSurroundCountAt += 2;
+			if (!this.getContainer().hasSkill("perk.legend_battleheart"))
+			{
+				_properties.SurroundedDefense += 3;
+			}
 		}
 	});
 
