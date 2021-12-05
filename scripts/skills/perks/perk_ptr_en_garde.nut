@@ -55,7 +55,10 @@ this.perk_ptr_en_garde <- this.inherit("scripts/skills/skill", {
 		local skill = this.getContainer().getSkillByID("actives.riposte");
 		if (skill != null)
 		{
-			skill.useForFree(actor.getTile());
+			if (skill.isAffordableBasedOnFatigue())
+			{
+				skill.useForFree(actor.getTile());
+			}
 		}
 		else
 		{

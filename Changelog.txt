@@ -53,6 +53,7 @@ Orc Behemoth - Removed bully. Add fearless trait (+10 resolve).
 - Wears it Well reworked: Now reduces the penalty to Maximum Fatigue from all items equipped in the head, body, mainhand and offhand slots by 20%. Stacks with Brawny.
 - Wears it Well moved from Laborer t6 to t5.
 - New Perk "Hale and Hearty" Laborer t6. Same as what old Wears it Well was i.e. Fatigue Recovery is increased by 5% of Maximum Fatigue after gear.
+- En garde now only casts the free Riposte if there is enough Fatigue left at the end of your turn to use Riposte (still builds no Fatigue and costs no AP).
 
 == MINOR ==
 - Enemy Champions now boost the Resolve of nearby allies, just like enemy Leaders do.
