@@ -53,6 +53,8 @@ Orc Behemoth - Removed bully. Add fearless trait (+10 resolve).
 - Wears it Well reworked: Now reduces the penalty to Maximum Fatigue from all items equipped in the head, body, mainhand and offhand slots by 20%. Stacks with Brawny.
 - Wears it Well moved from Laborer t6 to t5.
 - New Perk "Hale and Hearty" Laborer t6. Same as what old Wears it Well was i.e. Fatigue Recovery is increased by 5% of Maximum Fatigue after gear.
+- Underdog tweaked: Now reduces the defense malus from being surrounded by 3.
+- Battleheart tweaked: Negates the surrounding defense malus, but does not counter Backstabber. Makes Underdog redundant.
 
 == MINOR ==
 - Enemy Champions now boost the Resolve of nearby allies, just like enemy Leaders do.
