@@ -5,17 +5,33 @@ Typo fix in Back to Basics description.
 Improved trait tree flavor text to make it more clear what tree it is referencing.
 
 ==Enemy Balance==
+All enemies on legendary difficulty also get the perks from standard difficulty. The opposite is not true however.
 =Standard=
+Bear - Removed Mauler. Gained Survival Instinct.
 Brigand Raider - Removed Relentless, Dodge, shield expert and bullseye. Gain: If Shield - Shield Expert. If no shield - Dodge. If offhand free - Relentless.
 Brigand Leader - Removed Sundering Strikes (except on hammer), Rebound.
 Bandit Veteran - Removed Bullseye
-Brigand Warlord - Removed Sundering Strikes, Smashing Shields, Feint,
+Brigand Warlord - Removed Sundering Strikes, Smashing Shields, Feint, Survival instinct, Pattern Recognition
 Goblin Ambusher Low - Lose ranged supremacy and bow mastery. Gain Eyes Up.
 Goblin Ambushers - Gain Eyes Up.
 Goblin Fighter Low - Full List: equipped weapon up to t2, Net Mastery, Strength In Numbers, Kata (always).
 Goblin Fighter - Gain up to t4 in equipped weapon (up from 3)
 Bear - Replaced Bully with Menacing as intended.
-Orc Behemoth - Removed swordlike (if cleaver), exploit opening (if sword).
+Orc Young - Removed Fresh and Furious.
+Orc Warrior - Removed Man of Steel, Killing Frenzy, steadfast.
+Orc Berserker - Removed Unstoppable, Know Their Weakness, killing frenzy.
+Orc Elite - Removed Man of Steel, killing frenzy, know their weakness, the rush of battle, berserk.
+Orc Behemoth - Removed swordlike (if cleaver), exploit opening (if sword), killing frenzy, unstoppable, Survival Instinct, the rush of battle. Add fearless trait (+10 resolve).
+Orc Warlord - Removed overwhelm, sundering strikes, Know Thier Weakness, Headsmasher, killing frenzy, Man of Steel, The Rush of Battle.
+Serpent - Removed know their weakness.
+Ancient Honor Guard - Removed Battleforged. Gained Personal Armor.
+The Conqueror - PTRitized! Gained full tree of equipped weapon, full 1h and 2h weapon styles trees, personal armor, fearsome, man of steel, menacing, resilient.
+Embalmed Noble - Removed Bloodbath, Slaughter. Gained 2h styles tree.
+Unhold - Removed survival instinct, Deep Impact, Soft Metal, Bully.
+Wiederganger - Removed overwhelm. Added onslaught.
+Armored Weiderganger - Removed overwhelm. Added onslaught.
+Fallen Hero - Removed Mauler, soft metal, executioner. Added all tiers of equipped weapon (except kata if sword).
+Fallen Betrayer - Removed Soft Metal.
 
 =Legendary=
 Brigand Raider - If shield - Phalanx. If no shield - Survival Instinct.
@@ -25,11 +41,23 @@ Bandit Veteran - Removed Relentless. Regained (new) underdog.  If 2h get surviva
 Brigand Warlord - Removed Relentless, Dodge.
 Goblin Ambusher Low - Lose Crippling Strikes, Relentless, Dodge, Berserk.
 Goblin Ambushers - Gain Eyes Up.
-Goblin Fighter Low - Full List: Standard difficulty perks, equipped weapon up to t3, relentless, dodge, net casting, overwhelm.
-Goblin Fighter - Gain up to t5 in equipped weapon (up from 4)
+Goblin Fighter Low - Full List: Standard difficulty perks, equipped weapon up to t3, relentless, dodge, overwhelm.
+Goblin Fighter - Gain up to t5 in equipped weapon (up from 4). Removed net casting.
 Goblin Wolfrider - removed fast adaptation.
-Orc Elite - removed second wind
-Orc Behemoth - Removed bully. Add fearless trait (+10 resolve).
+Orc Young - removed bully. 
+Orc Warrior - Removed Man of Steel, Bully, colossus. Added Bulwark.
+Orc Berserker - Removed Bully, Double Strike.
+Orc Elite - removed second wind, sundering strikes, bully, assured conquest, executioner. Added Shield Mastery, crippling strikes.
+Orc Behemoth - Removed bully, relentless. Add Bulwark.
+Orc Warlord - Removed man of steel, fortified mind, relentless, Inspiring Presence, battle flow. Gained Exude Confidence.
+Spider - Regained Dodge.
+Ancient Auxiliary - Removed Shield Expert, Crippling Strikes, Executioner. Added Phalanx.
+Ancient Honor Guard - Removed Overwhelm. Added Vigilant, Underdog.
+The Conqueror - PTRitized! In addition to Standard perks listed above, gained Vigilant, Battleheart, Unstoppable and Killing Frenzy.
+Unhold  - Removed 2x hp from legends, Soft Metal, Bully. Added colossus.
+Necrosavant - removed composure. 
+Fallen Betrayer - Removed Cull.
+
 ===================
 ==== Ver 1.5.0 ====
 ===================
