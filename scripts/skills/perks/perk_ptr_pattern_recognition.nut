@@ -73,7 +73,7 @@ this.perk_ptr_pattern_recognition <- this.inherit("scripts/skills/skill", {
 		local bonus = 0;
 		for (local i = 1; i <= _opponentEntry.Stacks; i++)
 		{
-			bonus += bonus >= 15 ? 1 : i;			
+			bonus += bonus >= 10 ? 1 : i;			
 		}
 
 		return bonus;

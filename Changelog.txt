@@ -62,6 +62,7 @@ Orc Behemoth - Removed bully. Add fearless trait (+10 resolve).
 - Old Swordmaster origin can no longer hire Retired Soldiers.
 - Old Swordmaster stat loss now starts at day 30 instead of 50.
 - The Wind Up skill from the Smackdown perk can now be used when engaged in melee.
+- Pattern Recognition +1 scaling now starts after reaching a bonus of 10 (down from 15).
 
 == FIXES ==
 - Fixed Offhand Training sometimes not giving the 0 AP tool use.
