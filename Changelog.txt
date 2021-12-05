@@ -69,6 +69,7 @@ Orc Behemoth - Removed bully. Add fearless trait (+10 resolve).
 - Fixed Kata AI not properly evaluating its use against targets at 2 tiles distance.
 - Fixed the Old Swordmaster scenario not properly reducing the hiring cost and daily wage of Squires and Apprentices.
 - Fixed Vigorous Assault reducing the AP cost for AI characters in some cases where it shouldn't.
+- Fixed Formidable Approach Debuff not updating properly on turn start or turn resume.
 
 ===================
 ==== Ver 1.4.9 ====
