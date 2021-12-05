@@ -1904,7 +1904,9 @@ gt.Const.PTR.modEnemies <- function()
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.getSkillByID("perk.ptr_dismantle").m.IsForceEnabled = true;
+			local dismantle = this.new("scripts/skills/perks/perk_ptr_dismantle");
+			dismantle.m.IsForceEnabled = true;
+			this.m.Skills.add(dismantle);			
 			local faPerk = this.new("scripts/skills/perks/perk_ptr_formidable_approach");
 			faPerk.m.IsForceEnabled = true;
 			this.m.Skills.add(faPerk);
