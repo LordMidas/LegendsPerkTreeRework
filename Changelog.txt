@@ -1,3 +1,6 @@
+===================
+==== Ver 1.5.0 ====
+===================
 Added Outlanders favored enemy tree to Scaling Beggar as intended.
 Deserters can now roll ranged weapon trees.
 Many commander background perk changes.
@@ -58,9 +61,6 @@ Unhold  - Removed 2x hp from legends, Soft Metal, Bully. Added colossus.
 Necrosavant - removed composure. 
 Fallen Betrayer - Removed Cull.
 
-===================
-==== Ver 1.5.0 ====
-===================
 == MAJOR ==
 - Removed the Marksmanship (Bow t6) perk. Moved Flaming Arrows to Bow t6.
 - New Perk: "Eyes Up" Bow t5 - Every attack from bows applies a stacking debuff on the target reducing their Melee Skill and Ranged Skill by 5 and Melee Defense by 3.
