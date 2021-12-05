@@ -898,23 +898,24 @@ gt.Const.PTR.modSkills <- function()
 	});
 
 	::mods_hookNewObject("skills/perks/perk_duelist", function(o) {
-		o.onUpdate = function(_properties)
+		o.onUpdate = function( _properties )
 		{
-			local weapon = this.getContainer().getActor().getMainhandItem();
-			if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.Throwing))
-			{
-				return;
-			}
+			// Overwrite vanilla function			
+		}
 
-			local items = this.getContainer().getActor().getItems();
-			local off = items.getItemAtSlot(this.Const.ItemSlot.Offhand);
-
-			if (off == null && !items.hasBlockedSlot(this.Const.ItemSlot.Offhand) ||
-			 		off != null && (off.isItemType(this.Const.Items.ItemType.Tool) ||
-												 (this.getContainer().hasSkill("perk.ptr_offhand_training") && (off.getID().find("buckler") != null || off.getID().find("parrying_dagger") != null)))
-					)
+		o.onAnySkillUsed <- function( _skill, _targetEntity, _properties )
+		{
+			if (_skill.isAttack() && !_skill.isRanged() && _skill.b.ActionPointCost <= 4  && _skill.getMaxRange() == 1)
 			{
-				_properties.DamageDirectAdd += 0.25;
+				local weapon = this.getContainer().getActor().getMainhandItem();
+				if (weapon == null || weapon.isItemType((this.Const.Items.ItemType.OneHanded)))
+				{
+					_properties.DamageDirectAdd += 0.25;
+				}
+				else
+				{
+					_properties.DamageDirectAdd += 0.15;
+				}
 			}
 		}
 	});
@@ -926,12 +927,10 @@ gt.Const.PTR.modSkills <- function()
 			local ret = isEnabled();
 			if (!ret)
 			{
-				local items = this.getContainer().getActor().getItems();
-				local off = items.getItemAtSlot(this.Const.ItemSlot.Offhand);
-
-				if (off != null && this.getContainer().hasSkill("perk.ptr_offhand_training") && (off.getID().find("buckler") != null || off.getID().find("parrying_dagger") != null))
+				local attack = this.getContainer().getAttackOfOpportunity();
+				if (attack != null && attack.b.ActionPointCost <= 4 && attack.getMaxRange() == 1)
 				{
-					ret = true;
+					return true;
 				}
 			}
 
