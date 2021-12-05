@@ -1,6 +1,6 @@
 this.ptr_eyes_up_effect <- this.inherit("scripts/skills/skill", {
 	m = {
-		Stacks = 0
+		Stacks = 1
 		SkillMalus = 5,
 		DefenseMalus = 3
 	},
@@ -20,7 +20,7 @@ this.ptr_eyes_up_effect <- this.inherit("scripts/skills/skill", {
 
 	function getName()
 	{
-		return this.m.Stacks > 0 ? this.m.Name + " (x" + this.m.Stacks + ")" : this.m.Name;
+		return this.m.Stacks > 1 ? this.m.Name + " (x" + this.m.Stacks + ")" : this.m.Name;
 	}
 
 	function getTooltip()
