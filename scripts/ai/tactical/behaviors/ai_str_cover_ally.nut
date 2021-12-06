@@ -33,6 +33,11 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 			return this.Const.AI.Behavior.Score.Zero;
 		}
 
+		if (!_entity.isEngagedInMelee())
+		{
+			return this.Const.AI.Behavior.Score.Zero;
+		}		
+
 		if (!this.getAgent().hasVisibleOpponent())
 		{
 			return this.Const.AI.Behavior.Score.Zero;
