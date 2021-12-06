@@ -186,7 +186,7 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 	{
 		foreach (item in _items)
 		{
-			if (item != null && item.isWeaponType(this.Const.Items.WeaponType.Throwing))
+			if (item != null && item.isItemType(this.Const.Items.ItemType.Weapon) && item.isWeaponType(this.Const.Items.WeaponType.Throwing))
 			{
 				return;
 			}
