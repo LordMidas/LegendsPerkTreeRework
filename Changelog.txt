@@ -103,6 +103,7 @@ Fallen Betrayer - Removed Cull.
 - Fixed the Old Swordmaster scenario not properly reducing the hiring cost and daily wage of Squires and Apprentices.
 - Fixed Vigorous Assault reducing the AP cost for AI characters in some cases where it shouldn't.
 - Fixed Formidable Approach Debuff not updating properly on turn start or turn resume.
+- Fixed Cull having 40% threshold with non-axe two-handed weapons on enemies.
 
 ===================
 ==== Ver 1.4.9 ====

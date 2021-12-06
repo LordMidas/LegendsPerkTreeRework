@@ -47,7 +47,7 @@ this.perk_ptr_cull <- this.inherit("scripts/skills/skill", {
 	function getThreshold()
 	{
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon == null || weapon.isItemType(this.Const.Items.ItemType.OneHanded))
+		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Axe) || weapon.isItemType(this.Const.Items.ItemType.OneHanded))
 		{
 			return 0.2;
 		}
