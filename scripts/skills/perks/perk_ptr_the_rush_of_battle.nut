@@ -18,6 +18,11 @@ this.perk_ptr_the_rush_of_battle <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
+	function getName()
+	{
+		return this.m.Stacks > 1 ? this.m.Name + " (x" + this.m.Stacks + ")" : this.m.Name;
+	}
+
 	function getTooltip()
 	{
 		local tooltip = this.skill.getTooltip();
