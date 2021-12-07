@@ -28,40 +28,27 @@ this.ptr_immersive_damage_effect <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		this.m.IsUpdating = true;
-
 		this.m.DamageMult = this.Const.PTR.ImmersiveDamage.MaxDamageMult;		
-
-		// local chance  =  this.getChanceFullDamage(_skill, _targetEntity);
-		// if (this.m.Roll > 100 - this.Const.PTR.ImmersiveDamage.ChanceCriticalFailure)
-		// {
-		// 	this.m.DamageMult = this.Const.PTR.ImmersiveDamage.MinDamageMult;
-		// }
-		// else if (this.m.Roll > chance)
-		// {
-		// 	//this.m.DamageMult = this.Math.maxf(this.m.MinDamageMult, this.m.MaxDamageMult - 0.01 * exp(this.m.DecaySteepness * (this.m.Roll - chance)));
-		// 	this.m.DamageMult = this.Const.PTR.ImmersiveDamage.MaxDamageMult - this.Const.PTR.ImmersiveDamage.MinDamageMult) * (this.m.Roll - chance) / (chance - 100) + this.Const.PTR.ImmersiveDamage.MaxDamageMult;
-		// }
 
 		this.m.Roll = this.Math.rand(1, 100);
 		if (this.m.Roll > 100 - this.Const.PTR.ImmersiveDamage.ChanceCriticalFailure)
 		{
 			this.m.DamageMult = this.Const.PTR.ImmersiveDamage.MinDamageMult;
 		}
-		if (this.m.Roll < 40 || this.m.Roll > 60)
-		{
-			this.m.DamageMult = this.Math.maxf(this.Const.PTR.ImmersiveDamage.MinDamageMult, this.normalDistDensity(this.m.Roll, 50, this.getChanceFullDamage(_skill, _targetEntity)));
+		else
+		{	
+			local half = gt.Const.PTR.ImmersiveDamage.ChanceFullDamage / 2.0;
+			if (this.m.Roll < 50 - half || this.m.Roll > 50 + half)
+			{
+				this.m.IsUpdating = true;
+				local stdev = this.Math.min(this.Const.PTR.ImmersiveDamage.MaxHitChance, this.Math.max(this.Const.PTR.ImmersiveDamage.MinHitChance, _skill.getHitchance(_targetEntity)));
+				this.m.IsUpdating = false;
+
+				this.m.DamageMult = this.Math.maxf(this.Const.PTR.ImmersiveDamage.MinDamageMult, this.MSU.Math.normalDistDensity(this.m.Roll, 50, stdev));
+			}
 		}
 
-		this.m.IsUpdating = false;
-
 		_properties.DamageTotalMult *= this.m.DamageMult;
-	}
-
-	function getChanceFullDamage(_skill, _targetEntity)
-	{
-		//return this.Math.min(this.Const.PTR.ImmersiveDamage.MaxChance, this.Math.max(this.Const.PTR.ImmersiveDamage.MinChance, _skill.getHitchance(_targetEntity)));
-		return this.Math.min(70, this.Math.max(35, _skill.getHitchance(_targetEntity)));
 	}
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
@@ -92,18 +79,5 @@ this.ptr_immersive_damage_effect <- this.inherit("scripts/skills/skill", {
 		fluffString = this.MSU.String.replace(fluffString, "target", _targetEntity.getName());
 		
 		this.Tactical.EventLog.logEx(this.Const.UI.getColorizedEntityName(this.getContainer().getActor()) + fluffString);
-
-		::printLog("Roll: " + this.m.Roll + ", Goodness: " + goodness + ", Key: " + key, this.Const.PTR.ModID);
-	}
-
-	function normalDistDensity(_x, _mean, _stdev)
-	{
-		local divider = _stdev * sqrt(2 * 3.14);
-
-		local val = exp(-0.5 * pow((_x - _mean)/(_stdev * 1.0), 2)) / divider;
-
-		local valAtMean = 1 / divider;
-
-		return val / valAtMean;
 	}
 });

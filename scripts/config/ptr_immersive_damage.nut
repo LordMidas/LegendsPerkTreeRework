@@ -9,9 +9,10 @@ gt.Const.PTR.ImmersiveDamage <- {};
 
 gt.Const.PTR.ImmersiveDamage.MinDamageMult <- 0.4;
 gt.Const.PTR.ImmersiveDamage.MaxDamageMult <- 1.0;
-gt.Const.PTR.ImmersiveDamage.MinChance <- 30;
-gt.Const.PTR.ImmersiveDamage.MaxChance <- 80;
+gt.Const.PTR.ImmersiveDamage.MinHitChance <- 35;
+gt.Const.PTR.ImmersiveDamage.MaxHitChance <- 70;
 gt.Const.PTR.ImmersiveDamage.ChanceCriticalFailure <- 5;
+gt.Const.PTR.ImmersiveDamage.ChanceFullDamage <- 20;
 
 gt.Const.PTR.ImmersiveDamage.GoodnessThresholds <- [
 	"Perfect",
