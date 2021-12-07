@@ -61,10 +61,6 @@ this.perk_ptr_discovered_talent <- this.inherit("scripts/skills/skill", {
 	function onDeserialize(_in)
 	{
 		this.skill.onDeserialize(_in);
-
-		if (this.Const.PTR.Version >= 1)
-		{
-			this.m.IsApplied = true;
-		}
+		this.m.IsApplied = true;
 	}
 });
