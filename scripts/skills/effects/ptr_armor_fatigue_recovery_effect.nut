@@ -17,7 +17,7 @@ this.ptr_armor_fatigue_recovery_effect <- this.inherit("scripts/skills/skill", {
 
 	function isHidden()
 	{
-		return this.m.Malus == 0;
+		return this.m.Malus == 0 || !this.getContainer().getActor().isPlayerControlled();
 	}
 
 	function getTooltip()
