@@ -255,10 +255,12 @@ this.ptr_swordmaster_scenario_student_local_duel_event <- this.inherit("scripts/
 				{
 					local e = this.Math.min(4, _event.m.Candidates.len());
 
+					local toRemove = [];
+
 					for( local i = 0; i < e; i++ )
 					{
 						local bro = _event.m.Candidates[i];
-						_event.m.Candidates.remove(i);
+						toRemove.push(i);
 
 						this.Options.push({
 							Text = "I need you to avenge us, " + bro.getName() + ".",
@@ -269,6 +271,11 @@ this.ptr_swordmaster_scenario_student_local_duel_event <- this.inherit("scripts/
 								return 0;
 							}
 						});
+					}
+
+					foreach (idx in toRemove)
+					{
+						_event.m.Candidates.remove(idx);
 					}
 				}
 

@@ -106,6 +106,7 @@ Fallen Betrayer - Removed Cull.
 - Fixed Vigorous Assault reducing the AP cost for AI characters in some cases where it shouldn't.
 - Fixed Formidable Approach Debuff not updating properly on turn start or turn resume.
 - Fixed Cull having 40% threshold with non-axe two-handed weapons on enemies.
+- Fixed an error in the Old Swordmaster origin student duel event which didn't generate the new candidates list properly if the first candidate died.
 
 ===================
 ==== Ver 1.4.9 ====
