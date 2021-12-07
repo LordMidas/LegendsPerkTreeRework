@@ -94,6 +94,7 @@ Fallen Betrayer - Removed Cull.
 - The Wind Up skill from the Smackdown perk can now be used when engaged in melee.
 - Pattern Recognition +1 scaling now starts after reaching a bonus of 10 (down from 15).
 - The Rush of Battle effect now shows the number of stacks in its name.
+- Slight improvements to AI for using Cover Ally.
 
 == FIXES ==
 - Fixed Offhand Training sometimes not giving the 0 AP tool use.
