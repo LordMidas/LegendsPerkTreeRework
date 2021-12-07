@@ -116,15 +116,26 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 			return ret;
 		}
 
+		local myTile = _entity.getTile();
+
 		local weapon = _entity.getMainhandItem();
 		if (weapon != null && (weapon.isItemType(this.Const.Items.ItemType.RangedWeapon) || weapon.getRangeMax() > 1))
 		{
-			ret.Score = 100;
-			ret.Ally = _entity;
+			for (local i = 0; i < 6; i++)
+			{
+				if (myTile.hasNextTile(i))
+				{
+					local nextTile = myTile.getNextTile(i);
+					if (nextTile.IsEmpty && nextTile.getZoneOfControlCountOtherThan(_entity.getAlliedFactions()) == 0)
+					{
+						ret.Score = 100;
+						ret.Ally = _entity;
 
-			return ret;
+						return ret;
+					}
+				}
+			}
 		}
-
 
 		local entityAgent = _entity.getAIAgent();
 		local entityEngageBehavior = entityAgent.getBehavior(this.Const.AI.Behavior.ID.EngageMelee);
@@ -132,8 +143,7 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 		{
 			return ret;
 		}
-
-		local myTile = _entity.getTile();
+		
 		local attackSkill = _entity.getSkills().getAttackOfOpportunity();
 		local result = {
 			Actor = _entity,
