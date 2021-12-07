@@ -1,7 +1,7 @@
 this.perk_ptr_promised_potential <- this.inherit("scripts/skills/skill", {
 	m = {
 		StatBoost = 15,
-		ChanceToSucceed = 50,
+		ChanceToSucceed = 100,
 		IsSet = false,
 		IsSpent = false,
 		WillSucceed = true,
@@ -56,9 +56,94 @@ this.perk_ptr_promised_potential <- this.inherit("scripts/skills/skill", {
 	function onUpdateLevel()
 	{
 		local actor = this.getContainer().getActor();
-		if (this.m.WillSucceed && (actor.m.Level == 11 || actor.m.Level == 7 && this.World.Assets.getOrigin().getID() == "scenario.manhunters" && this.getBackground().getID() == "background.slave"))
+		if (actor.m.Level == 11 || actor.m.Level == 7 && this.World.Assets.getOrigin().getID() == "scenario.manhunters" && this.getBackground().getID() == "background.slave")
 		{
-			++actor.m.PerkPoints;
+			if (!this.m.IsSpent)
+			{
+				this.m.IsSpent = true;
+
+				if (this.m.WillSucceed)
+				{
+					++actor.m.PerkPoints;
+
+					local currentBackground = actor.getBackground();					
+					local oldDesc = currentBackground.m.Description;
+
+					local bg = this.new("scripts/skills/backgrounds/sellsword_background");
+					bg.m.IsNew = false;
+					bg.m.PerkTree = clone currentBackground.m.PerkTree;
+					bg.m.PerkTreeMap = clone currentBackground.m.PerkTreeMap;
+					bg.m.CustomPerkTree = clone currentBackground.m.CustomPerkTree;
+
+					this.getContainer().removeByID(currentBackground.getID());
+
+					local b = actor.getBaseProperties();
+
+					b.MeleeSkill += this.m.StatBoost;
+					b.MeleeDefense += this.m.StatBoost;
+					b.RangedSkill += this.m.StatBoost;
+					b.RangedDefense += this.m.StatBoost;
+					b.Hitpoints += this.m.StatBoost;
+					b.Stamina += this.m.StatBoost;
+					b.Initiative += this.m.StatBoost;
+					b.Bravery += this.m.StatBoost;
+
+					this.getContainer().add(bg);
+					bg.m.RawDescription = oldDesc + "Once a dreg of society, with your help, %name% has grown into a full-fledged mercenary.";
+					bg.buildDescription(true);
+
+					local getExclude = function( _treeList )
+					{
+						local exclude = [];
+						foreach (tree in _treeList)
+						{
+							foreach (row in tree.Tree)
+							{
+								foreach (perk in row)
+								{
+									if (bg.hasPerk(perk))
+									{
+										exclude.push(tree.ID);
+										break;
+									}
+								}
+							}
+						}
+
+						return exclude;
+					}
+
+					bg.addPerkGroup(this.Const.Perks.WeaponTrees.getRandom(getExclude(this.Const.Perks.WeaponTrees.Tree)).Tree);
+					local traitsExclude = getExclude(this.Const.Perks.TraitsTrees.Tree);
+					traitsExclude.push(this.Const.Perks.TalentedTree.ID);
+					bg.addPerkGroup(this.Const.Perks.TraitsTrees.getRandom(traitsExclude).Tree);
+					bg.addPerkGroup(this.Const.Perks.ClassTrees.getRandom(getExclude(this.Const.Perks.ClassTrees.Tree)).Tree);
+					bg.addPerkGroup(this.Const.Perks.DefenseTrees.getRandom(getExclude(this.Const.Perks.DefenseTrees.Tree)).Tree);
+
+					local perksToRemove = [];
+
+					foreach (row in bg.m.CustomPerkTree)
+					{
+						for (local i = row.len() - 1; i > 12; i--)
+						{
+							perksToRemove.push(row[i]);
+						}
+					}
+
+					foreach (perk in perksToRemove)
+					{
+						bg.removePerk(perk);
+					}
+
+					actor.resetPerks();
+
+					actor.improveMood(1.0, "Realized potential");
+				}
+				else
+				{
+					perk.updatePerkVisuals();
+				}
+			}
 		}
 	}
 
@@ -99,11 +184,7 @@ this.perk_ptr_promised_potential <- this.inherit("scripts/skills/skill", {
 		this.skill.onDeserialize(_in);
 
 		this.m.IsSet = true;
-
-		if (this.Const.PTR.Version >= 1)
-		{
-			this.m.IsSpent = _in.readBool();
-			this.m.WillSucceed = _in.readBool();
-		}
+		this.m.IsSpent = _in.readBool();
+		this.m.WillSucceed = _in.readBool();
 	}
 });

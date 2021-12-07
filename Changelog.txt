@@ -98,6 +98,7 @@ Fallen Betrayer - Removed Cull.
 - The Rush of Battle effect now shows the number of stacks in its name.
 - Slight improvements to AI for using Cover Ally.
 - Immersive Damage System (IDS) now only adds an entry to the combat log if both the attacker and the target are visible to the player. Also removed the empty line before the combat log entry.
+- Realized Potential can no longer add too many new perks to the perk tree. It is now limited to 13 columns.
 
 == FIXES ==
 - Fixed Offhand Training sometimes not giving the 0 AP tool use.

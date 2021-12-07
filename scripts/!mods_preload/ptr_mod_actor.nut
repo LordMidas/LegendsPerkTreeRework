@@ -196,7 +196,6 @@ gt.Const.PTR.modActor <- function()
 
 			if (hasPromisedPotential)
 			{
-				this.logInfo("adding promised potential");
 				this.m.PerkPoints -= 1;
 				this.m.PerkPointsSpent += 1;
 				local p = this.new("scripts/skills/perks/perk_ptr_promised_potential");
@@ -221,61 +220,6 @@ gt.Const.PTR.modActor <- function()
 			if (hasProfessional)
 			{
 				this.m.PerkPoints -= professionalAddedPerks;
-			}
-		}
-
-		local onSkillsUpdated = o.onSkillsUpdated;
-		o.onSkillsUpdated = function()
-		{
-			onSkillsUpdated();
-			if (this.getLevel() >= 11)
-			{
-				local perk = this.getSkills().getSkillByID("perk.ptr_promised_potential");
-				if (perk != null && !perk.m.IsSpent)
-				{
-					perk.m.IsSpent = true;
-
-					if (perk.m.WillSucceed)
-					{
-						# local realizeEvent = this.new("scripts/events/events/ptr_realize_potential_event");
-						# realizeEvent.m.Dude = this;
-						# realizeEvent.fire();
-
-						local bg = this.new("scripts/skills/backgrounds/sellsword_background");
-						bg.m.IsNew = false;
-						local oldPerkTree = this.getBackground().m.CustomPerkTree;
-						foreach (skill in this.getSkills().m.Skills)
-						{
-							if (skill.getID().find("background") != null)
-							{
-								this.getSkills().removeByID(skill.getID());
-								break;
-							}
-						}
-
-						local statBoost = perk.m.StatBoost;
-						this.getBaseProperties().MeleeSkill += statBoost;
-						this.getBaseProperties().MeleeDefense += statBoost;
-						this.getBaseProperties().RangedSkill += statBoost;
-						this.getBaseProperties().RangedDefense += statBoost;
-						this.getBaseProperties().Hitpoints += statBoost;
-						this.getBaseProperties().Stamina += statBoost;
-						this.getBaseProperties().Initiative += statBoost;
-						this.getBaseProperties().Bravery += statBoost;
-
-						this.getSkills().add(bg);
-						this.getBackground().m.RawDescription = "Once a dreg of society, with your help, %name% has grown into a full-fledged mercenary.";
-						this.getBackground().buildDescription(true);
-						this.getBackground().rebuildPerkTree(oldPerkTree);
-						this.resetPerks();
-
-						this.improveMood(1.0, "Realized potential");
-					}
-					else
-					{
-						perk.updatePerkVisuals();
-					}
-				}
 			}
 		}
 
