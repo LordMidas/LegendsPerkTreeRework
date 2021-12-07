@@ -1,7 +1,8 @@
 this.ptr_inspiring_presence_buff_effect <- this.inherit("scripts/skills/skill", {
 	m = {
+		BonusActionPoints = 3,
 		IsInEffect = false,
-		BonusActionPoints = 3
+		IsStartingTurn = false
 	},
 	function create()
 	{
@@ -40,6 +41,12 @@ this.ptr_inspiring_presence_buff_effect <- this.inherit("scripts/skills/skill", 
 		if (this.m.IsInEffect)
 		{
 			_properties.ActionPoints += this.m.BonusActionPoints;
+			
+			if (this.m.IsStartingTurn)
+			{
+				this.getContainer().getActor().setActionPoints(this.getContainer().getActor().getActionPointsMax() + this.m.BonusActionPoints);
+				this.m.IsStartingTurn = false;
+			}
 		}
 	}
 
@@ -68,17 +75,20 @@ this.ptr_inspiring_presence_buff_effect <- this.inherit("scripts/skills/skill", 
 		if (hasInspirer && hasMeleeEngagement)
 		{
 			this.m.IsInEffect = true;
+			this.m.IsStartingTurn = true;
 		}
 	}
 
 	function onTurnEnd()
 	{
 		this.m.IsInEffect = false;
+		this.m.IsStartingTurn = false;
 	}
 
 	function onCombatFinished()
 	{
 		this.skill.onCombatFinished;
 		this.m.IsInEffect = false;
+		this.m.IsStartingTurn = false;
 	}
 });
