@@ -62,6 +62,8 @@ Necrosavant - removed composure.
 Fallen Betrayer - Removed Cull.
 
 == MAJOR ==
+- New mechanic: "Encumbrance" - Wearing heavier armor will now start reducing Fatigue Recovery as well. If this is affecting your bro, a status effect by the name of Encumbrance will appear on your bro.
+- Duelist reworked: Now works with melee attacks with a base Action Point cost of 4 or less regardless of weapon type. For 1H weapons the bonus is 25% while for 2H it is 15%.
 - Removed the Marksmanship (Bow t6) perk. Moved Flaming Arrows to Bow t6.
 - New Perk: "Eyes Up" Bow t5 - Every attack from bows applies a stacking debuff on the target reducing their Melee Skill and Ranged Skill by 5 and Melee Defense by 3.
 - Overwhelm now only works with melee attacks.
