@@ -37,7 +37,7 @@ this.ptr_immersive_damage_effect <- this.inherit("scripts/skills/skill", {
 		}
 		else
 		{	
-			local half = gt.Const.PTR.ImmersiveDamage.ChanceFullDamage / 2.0;
+			local half = this.Const.PTR.ImmersiveDamage.ChanceFullDamage / 2.0;
 			if (this.m.Roll < 50 - half || this.m.Roll > 50 + half)
 			{
 				this.m.IsUpdating = true;
