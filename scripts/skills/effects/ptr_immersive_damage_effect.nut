@@ -66,7 +66,7 @@ this.ptr_immersive_damage_effect <- this.inherit("scripts/skills/skill", {
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		if (!_targetEntity.isAlive() || _targetEntity.isDying())
+		if (!_targetEntity.isAlive() || _targetEntity.isDying() || this.getContainer().getActor().isHiddenToPlayer() || !_targetEntity.getTile().IsVisibleForPlayer)
 		{
 			return;
 		}
@@ -91,7 +91,7 @@ this.ptr_immersive_damage_effect <- this.inherit("scripts/skills/skill", {
 
 		fluffString = this.MSU.String.replace(fluffString, "target", _targetEntity.getName());
 		
-		this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(this.getContainer().getActor()) + fluffString);
+		this.Tactical.EventLog.logEx(this.Const.UI.getColorizedEntityName(this.getContainer().getActor()) + fluffString);
 
 		::printLog("Roll: " + this.m.Roll + ", Goodness: " + goodness + ", Key: " + key, this.Const.PTR.ModID);
 	}
