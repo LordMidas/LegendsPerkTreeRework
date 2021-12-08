@@ -73,8 +73,8 @@ Barbarian Chosen - removed lone wolf, last stand, anticipation, crippling strike
 - New Perk: "Eyes Up" Bow t5 - Every attack from bows applies a stacking debuff on the target reducing their Melee Skill and Ranged Skill by 5 and Melee Defense by 3.
 - Overwhelm now only works with melee attacks.
 - Sundering Strikes reworked: Now grants 20% of your weapon's armor effectiveness as bonus armor effectiveness. Grants a flat 20% when unarmed.
-- Removed the Soft Metal (Hammer t5) perk. Moved Dismantle from Hammer t6 to t5. Added Sundering Strikes to Hammer t6.
-- Removed Sundering Strikes from the Axe and Large trees.
+- Removed Sundering Strikes from the Large tree.
+- Removed the Soft Metal (Hammer t5) perk. Moved Dismantle from Hammer t6 to t5.
 - Trait trees are no longer shown in the background icon tooltip in the recruitment screen without before Try Out.
 - Strength in Numbers now also gives Resolve equal to number of allies present.
 - Clarity reworked: Now reduces Fatigue build-up up by 20%.
