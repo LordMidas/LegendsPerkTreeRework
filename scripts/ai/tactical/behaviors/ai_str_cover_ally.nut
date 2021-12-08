@@ -137,14 +137,19 @@ this.ai_str_cover_ally <- this.inherit("scripts/ai/tactical/behavior", {
 			}
 		}
 
+		local attackSkill = _entity.getSkills().getAttackOfOpportunity();
+		if (attackSkill == null)
+		{
+			return ret;
+		}
+
 		local entityAgent = _entity.getAIAgent();
 		local entityEngageBehavior = entityAgent.getBehavior(this.Const.AI.Behavior.ID.EngageMelee);
 		if (entityEngageBehavior == null)
 		{
 			return ret;
-		}
+		}		
 		
-		local attackSkill = _entity.getSkills().getAttackOfOpportunity();
 		local result = {
 			Actor = _entity,
 			Targets = [],
