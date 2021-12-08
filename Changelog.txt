@@ -12,7 +12,7 @@ All enemies on legendary difficulty also get the perks from standard difficulty.
 =Standard=
 Bear - Removed Mauler. Gained Survival Instinct.
 Brigand Raider - Removed Relentless, Dodge, shield expert and bullseye. Gain: If Shield - Shield Expert. If no shield - Dodge. If offhand free - Relentless.
-Brigand Leader - Removed Sundering Strikes (except on hammer), Rebound.
+Brigand Leader - Removed Sundering Strikes (except on hammer), smashing shield (except axe) Rebound, battle flow, berserk, menacing, know their weakness, personal armor, if champion (dodge, relentless). Added rush of battle, Reach Advantage (if 2h), Duelist (if 1h).
 Bandit Veteran - Removed Bullseye
 Brigand Warlord - Removed Sundering Strikes, Smashing Shields, Feint, Survival instinct, Pattern Recognition
 Goblin Ambusher Low - Lose ranged supremacy and bow mastery. Gain Eyes Up.
@@ -35,11 +35,13 @@ Wiederganger - Removed overwhelm. Added onslaught.
 Armored Weiderganger - Removed overwhelm. Added onslaught.
 Fallen Hero - Removed Mauler, soft metal, executioner. Added all tiers of equipped weapon (except kata if sword).
 Fallen Betrayer - Removed Soft Metal.
+Assassin - Gained vigorous assault, know their weakness.
+Barbarian Chosen - removed anticipation, crippling strikes, the rush of battle, know their weakness.
 
 =Legendary=
 Brigand Raider - If shield - Phalanx. If no shield - Survival Instinct.
 Brigand Marksmen - Removed marksmanship, added Eyes Up.
-Brigand Leader - Removed Fast Adaptation, Relentless.
+Brigand Leader - Removed smashing shield (except axe) Fast Adaptation, Relentless, menacing, personal armor, battle flow, berserk, killing frenzy, pattern recognition. Added rush of battle, Full 2h styles tree (if 2h), If 1h (double strike, pattern recognition), clarity, duelist, if champion (personal armor).
 Bandit Veteran - Removed Relentless. Regained (new) underdog.  If 2h get survival instinct.
 Brigand Warlord - Removed Relentless, Dodge.
 Goblin Ambusher Low - Lose Crippling Strikes, Relentless, Dodge, Berserk.
@@ -60,6 +62,8 @@ The Conqueror - PTRitized! In addition to Standard perks listed above, gained Vi
 Unhold  - Removed 2x hp from legends, Soft Metal, Bully. Added colossus.
 Necrosavant - removed composure. 
 Fallen Betrayer - Removed Cull.
+Assassin - Gained alert, pattern recognition, unstoppable.
+Barbarian Chosen - removed lone wolf, last stand, anticipation, crippling strikes, the rush of battle,  know their weakness.
 
 == MAJOR ==
 - New mechanic: "Encumbrance" - Wearing heavier armor will now start reducing Fatigue Recovery as well. If this is affecting your bro, a status effect by the name of Encumbrance will appear on your bro.
