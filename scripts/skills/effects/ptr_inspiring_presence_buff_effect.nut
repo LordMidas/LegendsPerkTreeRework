@@ -9,8 +9,8 @@ this.ptr_inspiring_presence_buff_effect <- this.inherit("scripts/skills/skill", 
 		this.m.ID = "effects.ptr_inspiring_presence_buff";
 		this.m.Name = "Feeling Inspired";
 		this.m.Description = "This character started %their% in the presence of a highly inspiring character!";
-		this.m.Icon = "ui/perks/perk_28.png";
-		this.m.IconMini = "perk_28_mini";
+		this.m.Icon = "skills/ptr_inspiring_presence_buff_effect.png";
+		this.m.IconMini = "ptr_inspiring_presence_buff_effect_mini";
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
@@ -76,6 +76,7 @@ this.ptr_inspiring_presence_buff_effect <- this.inherit("scripts/skills/skill", 
 		{
 			this.m.IsInEffect = true;
 			this.m.IsStartingTurn = true;
+			this.spawnIcon("ptr_inspiring_presence_buff_effect", actor.getTile());
 		}
 	}
 
