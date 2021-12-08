@@ -9,8 +9,7 @@ this.ptr_inspiring_presence_buff_effect <- this.inherit("scripts/skills/skill", 
 		this.m.ID = "effects.ptr_inspiring_presence_buff";
 		this.m.Name = "Feeling Inspired";
 		this.m.Description = "This character started %their% in the presence of a highly inspiring character!";
-		this.m.Icon = "skills/ptr_inspiring_presence_buff_effect.png";
-		this.m.IconMini = "ptr_inspiring_presence_buff_effect_mini";
+		this.m.Icon = "skills/ptr_inspiring_presence_buff_effect.png";		
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;

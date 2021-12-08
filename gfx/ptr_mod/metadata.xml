@@ -76,7 +76,6 @@
 	<sprite id="ptr_from_all_sides_effect_mini" ic = "FF23165B" img="mini\ptr_from_all_sides_effect_mini.png" />	
 
 	<sprite id="ptr_inspiring_presence_buff_effect" ic = "FF23165B" img="..\skills\ptr_inspiring_presence_buff_effect.png" />
-	<sprite id="ptr_inspiring_presence_buff_effect_mini" ic = "FF23165B" img="mini\ptr_inspiring_presence_buff_effect_mini.png" />
 	
 	<sprite id="ptr_intimidated_effect" ic = "FF23165B" img="..\ui\perks\ptr_intimidate.png" />
 	<sprite id="ptr_intimidated_effect_mini" ic = "FF23165B" img="mini\ptr_intimidated_effect_mini.png" />	
