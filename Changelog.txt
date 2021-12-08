@@ -35,6 +35,7 @@ Wiederganger - Removed overwhelm. Added onslaught.
 Armored Weiderganger - Removed overwhelm. Added onslaught.
 Fallen Hero - Removed Mauler, soft metal, executioner. Added all tiers of equipped weapon (except kata if sword).
 Fallen Betrayer - Removed Soft Metal.
+Conscript - Added Nimble (as they used to have).
 
 =Legendary=
 Brigand Raider - If shield - Phalanx. If no shield - Survival Instinct.
