@@ -75,6 +75,7 @@ Barbarian Chosen - removed lone wolf, last stand, anticipation, crippling strike
 - Sundering Strikes reworked: Now grants 20% of your weapon's armor effectiveness as bonus armor effectiveness. Grants a flat 20% when unarmed.
 - Removed Sundering Strikes from the Large tree.
 - Removed the Soft Metal (Hammer t5) perk. Moved Dismantle from Hammer t6 to t5.
+- New perk: "Internal Hemorrhage" Hammer t6. Requires Blunt Damage. Attacks now apply Internal Hemorrhage when hitting a body part which has no armor remaining. Internal Hemorrhage deals 20% of the damage dealt to Hitpoints as Bleeding damage to the target on their turn. Also triggers on the hit which brings the armor to 0 remaining durability.
 - Trait trees are no longer shown in the background icon tooltip in the recruitment screen without before Try Out.
 - Strength in Numbers now also gives Resolve equal to number of allies present.
 - Clarity reworked: Now reduces Fatigue build-up up by 20%.

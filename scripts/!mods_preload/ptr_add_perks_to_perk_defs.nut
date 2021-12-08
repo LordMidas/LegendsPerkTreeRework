@@ -942,6 +942,15 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_hale_and_hearty.png",
 			IconDisabled = "ui/perks/ptr_hale_and_hearty_bw.png",
 			Const = "PTRHaleAndHearty"
+		},
+		{
+			ID = "perk.ptr_internal_hemorrhage",
+			Script = "scripts/skills/perks/perk_ptr_internal_hemorrhage",
+			Name = this.Const.Strings.PerkName.PTRInternalHemorrhage,
+			Tooltip = this.Const.Strings.PerkDescription.PTRInternalHemorrhage,
+			Icon = "ui/perks/ptr_internal_hemorrhage.png",
+			IconDisabled = "ui/perks/ptr_internal_hemorrhage_bw.png",
+			Const = "PTRInternalHemorrhage"
 		}
 	];
 
