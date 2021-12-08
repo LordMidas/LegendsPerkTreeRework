@@ -25,12 +25,39 @@ this.ptr_arrow_to_the_knee_skill <- this.inherit("scripts/skills/skill", {
 
 	function getDescription()
 	{
-		return "Aim your next ranged attacks during this turn at the knees of your targets, reducing their Melee and Ranged defense by [color=" + this.Const.UI.Color.NegativeValue + "]10%[/color] and requiring them to spend [color=" + this.Const.UI.Color.NegativeValue + "]2[/color] additional Action Points per tile moved. The effect lasts [color=" + this.Const.UI.Color.NegativeValue + "]2[/color] turns but its effects are halved on the next turn.";
+		return "Aim your next ranged attacks during this turn at the knees of your targets, making it harder to aim and dealing reduced damage but reducing the your targets' Melee and Ranged defense and causing them to spend additional Action Points per tile moved.";
 	}
 
 	function getTooltip()
 	{
 		local tooltip = this.skill.getDefaultUtilityTooltip();
+
+		tooltip.extend([
+			{
+				id = 10,
+				type = "text",
+				icon = "ui/icons/damage_dealt.png",
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]50%[/color] reduced Ranged Damage"
+			},
+			{
+				id = 10,
+				type = "text",
+				icon = "ui/icons/ranged_skill.png",
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-10[/color] Ranged Skill"
+			},
+			{
+				id = 10,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Target will have [color=" + this.Const.UI.Color.NegativeValue + "]-10%[/color] Melee and Ranged defense for 1 turn and [color=" + this.Const.UI.Color.NegativeValue + "]-5%[/color] in the turn after that"
+			},
+			{
+				id = 10,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Target will require [color=" + this.Const.UI.Color.NegativeValue + "]2[/color] additional Action Points per tile moved for 1 turn and [color=" + this.Const.UI.Color.NegativeValue + "]1[/color] in the turn after that"
+			}
+		]);		
 
 		if (this.getContainer().getActor().isEngagedInMelee())
 		{
@@ -38,7 +65,7 @@ this.ptr_arrow_to_the_knee_skill <- this.inherit("scripts/skills/skill", {
 				id = 7,
 				type = "text",
 				icon = "ui/icons/warning.png",
-				text = "Not usable when engaged in melee."
+				text = "Not usable when engaged in melee"
 			});
 		}
 

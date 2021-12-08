@@ -116,6 +116,7 @@ Barbarian Chosen - removed lone wolf, last stand, anticipation, crippling strike
 - Fixed Formidable Approach Debuff not updating properly on turn start or turn resume.
 - Fixed Cull having 40% threshold with non-axe two-handed weapons on enemies.
 - Fixed an error in the Old Swordmaster origin student duel event which didn't generate the new candidates list properly if the first candidate died.
+- Improved Arrow to the Knee attack effect and active skill tooltips. The tooltips now also mention that the attacks will do reduced damage and have lower chance to hit.
 
 ===================
 ==== Ver 1.4.9 ====
