@@ -42,7 +42,7 @@ this.perk_ptr_tempo <- this.inherit("scripts/skills/skill", {
 				id = 10,
 				type = "text",
 				icon = "ui/icons/special.png",
-				text = "This bonus will expire after using a skill or upon waiting this turn"
+				text = "This bonus has been carried over from the previous turn and will expire after using a skill or upon waiting or ending this turn"
 			});
 		}
 
@@ -109,7 +109,11 @@ this.perk_ptr_tempo <- this.inherit("scripts/skills/skill", {
 
 	function onTurnEnd()
 	{
-		this.m.IsPrimed = false;
+		if (this.m.IsPrimed)
+		{
+			this.m.Stacks = 0;
+			this.m.IsPrimed = false;
+		}
 	}
 
 	function onWaitTurn()
