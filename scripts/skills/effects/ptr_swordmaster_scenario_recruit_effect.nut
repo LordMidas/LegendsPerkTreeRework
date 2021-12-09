@@ -204,15 +204,15 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 
 		bg.m.RawDescription = oldDesc + " Under your tutelage, %name% has grown into a true master of the sword, having proven his mettle by defeating a famous swordmaster in single combat!";
 		bg.buildDescription(true);
-
-		foreach (row in this.Const.Perks.SwordTree.Tree)
+		
+		foreach (i, row in this.Const.Perks.SwordTree.Tree)
 		{
 			foreach (perk in row)
 			{
 				if (!actor.getSkills().hasSkill(this.Const.Perks.PerkDefObjects[perk].ID))
 				{
 					actor.getSkills().add(this.new(this.Const.Perks.PerkDefObjects[perk].Script));
-					bg.addPerk(perk);
+					bg.addPerk(perk, i);					
 				}
 				else if (this.m.FreePerks.find(perk) == null)
 				{
