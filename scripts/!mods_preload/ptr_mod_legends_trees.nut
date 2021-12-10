@@ -1084,7 +1084,7 @@ gt.Const.PTR.modClassTrees <- function()
 	};
 
 	gt.Const.Perks.EntertainerClassTree <- {
-		ID = "EntertainerProfessionTree",
+		ID = "EntertainerClassTree",
 		Descriptions = [
 			"entertainment",
 			"painting smiles on faces"

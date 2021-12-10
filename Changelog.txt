@@ -119,6 +119,7 @@ Barbarian Chosen - removed lone wolf, last stand, anticipation, crippling strike
 - Fixed the carried over bonus from Tempo not expiring at the end of the next turn.
 - Fixed a bug  in Always an Entertainer which allowed multiple bros to earn money from the same settlement in a single day.
 - Fixed a minor bug in the Old Swordmaster origin that could add the free perks to the wrong row upon winning the student's duel event.
+- Fixed wrong ID for entertaiiner class tree in code.
 - Improved Arrow to the Knee attack effect and active skill tooltips. The tooltips now also mention that the attacks will do reduced damage and have lower chance to hit.
 - Improved the tooltip of the Old Swordmaster origin to now show the free perks that you got.
 
