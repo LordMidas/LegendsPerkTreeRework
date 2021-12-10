@@ -2,23 +2,7 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 	m = {		
 		FreePerkLevels = [],
 		FreePerks = [],
-		IsSet = false,
-		SwordPerkDefs = [
-			this.Const.Perks.PerkDefs.PTRExploitOpening,
-			this.Const.Perks.PerkDefs.PTRFluidWeapon,
-			this.Const.Perks.PerkDefs.SpecSword,
-			this.Const.Perks.PerkDefs.PTRTempo,
-			this.Const.Perks.PerkDefs.PTRKata,
-			this.Const.Perks.PerkDefs.PTREnGarde
-		],
-		PerkNames = [
-			"Exploit Opening",
-			"Fluid Weapon",
-			"Sword Mastery",
-			"Tempo",
-			"Kata",
-			"En garde"
-		]
+		IsSet = false		
 	},
 	function create()
 	{
@@ -75,18 +59,23 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 			]);
 
 			local ids = [];
-			foreach (perk in this.m.SwordPerkDefs)
+			local swordPerkDefs = [];
+			foreach (row in this.Const.Perks.SwordTree.Tree)
 			{
-				ids.push(this.Const.Perks.PerkDefObjects[perk].ID);
+				foreach (perk in row)
+				{
+					swordPerkDefs.push(perk);
+					ids.push(this.Const.Perks.PerkDefObjects[perk].ID);
+				}
 			}
 
-			if (this.m.FreePerkLevels.len() != 0 && this.getContainer().getSkillsByFunction(this, @(_skill) ids.find(_skill) != null).len() != this.m.SwordPerkDefs.len())
+			if (this.m.FreePerkLevels.len() != 0 && this.getContainer().getSkillsByFunction(this, @(_skill) ids.find(_skill) != null).len() != swordPerkDefs.len())
 			{
 				local potentialPerks = "";
 
-				for (local i = this.m.SwordPerkDefs.len() - this.m.FreePerkLevels.len(); i < 6; i++)
+				for (local i = swordPerkDefs.len() - this.m.FreePerkLevels.len(); i < swordPerkDefs.len(); i++)
 				{
-					potentialPerks += this.m.PerkNames[i] + ", ";
+					potentialPerks += this.Const.Strings.PerkName[this.Const.Perks.PerkDefObjects[swordPerkDefs[i]]["Const"]] + ", ";
 				}
 
 				potentialPerks = potentialPerks.slice(0, -2);
@@ -97,6 +86,24 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 					icon = "ui/icons/special.png",
 					text = "Upon gaining a level, has a [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] chance to gain a free perk from the Sword perk group. [color=" + this.Const.UI.Color.PositiveValue + "]Potential Perks:[/color] " + potentialPerks
 				});
+			}
+
+			if (this.m.FreePerks.len() > 0)
+			{
+				local freePerks = "";
+				foreach (perk in this.m.FreePerks)
+				{					
+					freePerks += this.Const.Strings.PerkName[this.Const.Perks.PerkDefObjects[perk]["Const"]] + ", ";
+				}
+
+				freePerks = freePerks.slice(0, -2);
+
+				tooltip.push({
+					id = 10,
+					type = "text",
+					icon = "ui/icons/special.png",
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]Free Perks Gained:[/color] " + freePerks
+				});	
 			}
 		}
 
@@ -116,15 +123,21 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 		{
 			local currLevel = this.getContainer().getActor().getLevel();
 
-			foreach (i, perk in this.m.SwordPerkDefs)
+			foreach (i, row in this.Const.Perks.SwordTree.Tree)
 			{
-				if (this.Math.rand(1, 100) <= 50)
+				foreach (perk in row)
 				{
-					this.m.FreePerkLevels.push( { Success = true, Index = i } );
-				}	
-				else
-				{
-					this.m.FreePerkLevels.push( { Success = false, Index = i } );
+					if (!this.getContainer().hasSkill(this.Const.Perks.PerkDefObjects[perk].ID))
+					{
+						local success = this.Math.rand(1, 100) <= 50;
+						this.m.FreePerkLevels.push(
+							{
+								Success = success,
+								PerkDef = perk,
+								Row = i
+							}
+						);
+					}
 				}
 			}
 		}
@@ -151,10 +164,10 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 		{
 			if (this.m.FreePerkLevels[0].Success)
 			{
-				local perkDef = this.m.SwordPerkDefs[this.m.FreePerkLevels[0].Index];
+				local perkDef = this.m.FreePerkLevels[0].PerkDef;
 				this.m.FreePerks.push(perkDef);
 				this.getContainer().add(this.new(this.Const.Perks.PerkDefObjects[perkDef].Script));
-				this.getContainer().getActor().getBackground().addPerk(perkDef, this.m.FreePerkLevels[0].Index + 1);
+				this.getContainer().getActor().getBackground().addPerk(perkDef, this.m.FreePerkLevels[0].Row);
 			}
 
 			this.m.FreePerkLevels.remove(0);
@@ -165,9 +178,6 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 	{
 		local actor = this.getContainer().getActor();
 		local currentBackground = actor.getBackground();
-		local perkTree = currentBackground.m.PerkTree;
-		local perkTreeMap = currentBackground.m.PerkTreeMap;
-		local customPerkTree = currentBackground.m.CustomPerkTree;
 		local oldDesc = currentBackground.m.Description;
 		
 		foreach (skill in actor.getSkills().m.Skills)
@@ -182,9 +192,9 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 		local bg = this.new("scripts/skills/backgrounds/ptr_young_swordmaster_background");
 		bg.m.IsNew = false;
 
-		bg.m.PerkTree = perkTree;
-		bg.m.PerkTreeMap = perkTreeMap;
-		bg.m.CustomPerkTree = customPerkTree;
+		bg.m.PerkTree = clone currentBackground.m.PerkTree;
+		bg.m.PerkTreeMap = clone currentBackground.m.PerkTreeMap;
+		bg.m.CustomPerkTree = clone currentBackground.m.CustomPerkTree;
 		
 		local attributes = {
 			MeleeSkill = this.Math.rand(10, 15),
@@ -221,8 +231,6 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 				}
 			}
 		}
-
-		this.m.FreePerks.clear();
 
 		return attributes;
 	}
