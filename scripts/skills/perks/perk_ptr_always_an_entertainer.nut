@@ -83,7 +83,7 @@ this.perk_ptr_always_an_entertainer <- this.inherit("scripts/skills/skill", {
 
 	function hasVisitedSettlement(_settlement)
 	{
-		return this.m.SettlementsVisited.find(_settlement.getName());
+		return this.m.SettlementsVisited.find(_settlement.getName()) != null;
 	}
 
 	function canEarnFromSettlement(_settlement)
