@@ -2232,8 +2232,8 @@ gt.Const.PTR.modEnemies <- function()
 			assignRandomEquipment();
 			this.m.Skills.removeByID("perk.underdog");
 			this.m.Skills.removeByID("perk.adrenalin");		
-			this.m.Skills.add(this.new("scripts/skills/perks/ptr_vigorous_assault"));
-			this.m.Skills.add(this.new("scripts/skills/perks/ptr_know_their_weakness"));							
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vigorous_assault"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_know_their_weakness"));							
 
 			local weapon = this.getMainhandItem();
 			if (weapon != null)
