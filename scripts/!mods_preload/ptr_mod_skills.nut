@@ -245,10 +245,18 @@ gt.Const.PTR.modSkills <- function()
 		local onUpdate = o.onUpdate;
 		o.onUpdate = function( _properties )
 		{
-			local weapon = this.getContainer().getActor().getMainhandItem();
-			if (weapon == null || weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon) || weapon.isWeaponType(this.Const.Items.WeaponType.Throwing))
+			// Overwrite base function
+		}
+
+		o.onAnySkillUsed <- function( _skill, _targetEntity, _properties )
+		{
+			local item = _skill.getItem();
+			if (!_skill.isRanged() || (item != null && item.isItemType(this.Const.Items.ItemType.Weapon) && weapon.isWeaponType(this.Const.Items.WeaponType.Throwing)))
 			{
-				onUpdate( _properties );
+				local hp = this.getContainer().getActor().getHitpoints();
+				local bonus = _skill.b.ActionPointCost <= 4 ? this.Math.min(50, this.Math.floor(hp * 0.075)) : this.Math.min(50, this.Math.floor(hp * 0.15));
+				_properties.DamageRegularMin += bonus;
+				_properties.DamageRegularMax += bonus;
 			}
 		}
 	});
