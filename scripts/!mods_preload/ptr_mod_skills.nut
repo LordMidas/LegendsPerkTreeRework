@@ -1216,7 +1216,7 @@ gt.Const.PTR.modSkills <- function()
 				return false;
 			}
 
-			local user = _skill.getContainer().getActor();
+			local user = this.getContainer().getActor();
 			local ourInit = user.getInitiative();
 			local targetInit = _targetEntity.getInitiative();
 
