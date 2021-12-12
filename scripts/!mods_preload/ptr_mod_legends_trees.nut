@@ -630,7 +630,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 		"is shrewd and devious"
 	],
 
-	this.Const.Perks.DeviousTree.Tree[0] = [];
+	this.Const.Perks.DeviousTree.Tree[0] = [this.Const.Perks.PerkDefs.Pathfinder];
 	this.Const.Perks.DeviousTree.Tree[1] = [this.Const.Perks.PerkDefs.Backstabber];
 	this.Const.Perks.DeviousTree.Tree[2] = [this.Const.Perks.PerkDefs.LegendBlendIn];
 	this.Const.Perks.DeviousTree.Tree[3] = [];
