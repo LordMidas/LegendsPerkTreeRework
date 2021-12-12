@@ -242,7 +242,8 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 		foreach (level in this.m.FreePerkLevels)
 		{
 			_out.writeBool(level.Success);
-			_out.writeU8(level.Index);
+			_out.writeU16(level.PerkDef);
+			_out.writeU8(level.Row);
 		}
 
 		_out.writeU8(this.m.FreePerks.len());
@@ -265,7 +266,8 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 			this.m.FreePerkLevels.push(
 				{
 					Success = _in.readBool(),
-					Index = _in.readU8()
+					PerkDef = _in.readU16(),
+					Row = _in.readU8()
 				}
 			);
 		}
