@@ -893,7 +893,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 		}
 
 		return _tree;
-	}	
+	}
 
 	gt.Const.Perks.getWeightedRandomTreeFromTreeList <- function( _treeList )
 	{
@@ -927,5 +927,19 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 		}
 
 		return this.Const.Perks.NoTree;
+	}
+
+	gt.Const.Perks.getRandomTree <- function( _treeList, _exclude )
+	{
+		local L = [];
+		foreach (tree in _treeList)
+		{
+			if (_exclude.find(tree.ID) == null)
+			{
+				L.push(tree);
+			}
+		}
+
+		return L.len() > 0 ? L[this.Math.rand(0, L.len()-1)] : null;
 	}
 }
