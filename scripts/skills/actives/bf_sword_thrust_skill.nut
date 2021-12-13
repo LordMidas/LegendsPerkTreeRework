@@ -1,5 +1,7 @@
 this.bf_sword_thrust_skill <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		MaxHitChancePenalty = -35	
+	},
 	function create()
 	{
 		this.m.ID = "actives.bf_sword_thrust";
@@ -47,7 +49,7 @@ this.bf_sword_thrust_skill <- this.inherit("scripts/skills/skill", {
 				id = 6,
 				type = "text",
 				icon = "ui/icons/hitchance.png",
-				text = "Has [color=" + this.Const.UI.Color.NegativeValue + "]-15%[/color] chance to hit and an additional [color=" + this.Const.UI.Color.NegativeValue + "]-1%[/color] for every 10 points of Body Armor durability the target has above 125, up to a maximum of [color=" + this.Const.UI.Color.NegativeValue + "]-35%[/color]"
+				text = "Has [color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.HitChanceBonus + "%[/color] chance to hit and an additional [color=" + this.Const.UI.Color.NegativeValue + "]-1%[/color] for every 10 points of Body Armor durability the target has above 125, up to a maximum of [color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.MaxHitChancePenalty + "%[/color]"
 			}
 		);
 
@@ -59,18 +61,6 @@ this.bf_sword_thrust_skill <- this.inherit("scripts/skills/skill", {
 				text = "Has [color=" + this.Const.UI.Color.NegativeValue + "]-25%[/color] chance to hit the head"
 			}
 		);
-
-		if (this.getContainer().hasSkill("perk.bf_fencer"))
-		{
-			ret.push(
-				{
-					id = 6,
-					type = "text",
-					icon = "ui/icons/hitchance.png",
-					text = "Has [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit as this character is a Fencer"
-				}
-			);
-		}
 
 		return ret;
 	}
@@ -88,24 +78,22 @@ this.bf_sword_thrust_skill <- this.inherit("scripts/skills/skill", {
 
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
-		if (!this.getContainer().getActor().isPlayerControlled())
+		if (_skill == this)
 		{
-			return;
-		}
-
-		this.m.HitChanceBonus = -15;
-
-		if (_skill == this && _targetEntity != null)
-		{
+			this.m.HitChanceBonus = this.getContainer().getActor().isPlayerControlled() ? -15 : 0;
+			this.m.MaxHitChancePenalty = -35;
 			_properties.HitChance[this.Const.BodyPart.Head] -= 25;
 
-			local targetArmor = _targetEntity.getArmor(this.Const.BodyPart.Body);
-			if (targetArmor > 125)
+			if (_targetEntity != null && this.getContainer().getActor().isPlayerControlled())
 			{
-				this.m.HitChanceBonus = this.Math.max(-35, this.m.HitChanceBonus - (targetArmor - 125) / 10);
-			}		
+				local targetArmor = _targetEntity.getArmor(this.Const.BodyPart.Body);
+				if (targetArmor > 125)
+				{
+					this.m.HitChanceBonus = this.Math.max(this.m.MaxHitChancePenalty, this.m.HitChanceBonus - (targetArmor - 125) / 10);
+				}		
 
-			_properties.MeleeSkill += this.m.HitChanceBonus;
+				_properties.MeleeSkill += this.m.HitChanceBonus;
+			}
 		}
 	}
 });

@@ -1,6 +1,7 @@
 this.perk_bf_fencer <- this.inherit("scripts/skills/skill", {
 	m = {
-		FatigueMult = 0.80
+		FatigueMult = 0.80,
+		HitChanceBonus = 10
 	},
 	function create()
 	{
@@ -81,8 +82,9 @@ this.perk_bf_fencer <- this.inherit("scripts/skills/skill", {
 
 		if (_skill.getID() == "actives.lunge" || _skill.getID() == "actives.bf_sword_thrust")
 		{
-			_properties.MeleeSkill += 10;
-			_skill.m.HitChanceBonus += 10;
+			_properties.MeleeSkill += this.m.HitChanceBonus;
+			_skill.m.HitChanceBonus += this.m.HitChanceBonus;
+			_skill.m.MaxHitChancePenalty += this.m.HitChanceBonus;
 		}
 	}
 });
