@@ -126,6 +126,9 @@ Barbarian Chosen - removed lone wolf, last stand, anticipation, crippling strike
 - Fixed a minor bug in the Old Swordmaster origin that could add the free perks to the wrong row upon winning the student's duel event.
 - Fixed wrong ID for entertaiiner class tree in code.
 - Fixed Deep Cuts working even when it wasn't your turn. Updated the tooltip to be clearer.
+- Fixed AI not getting the damage bonus from Lunge.
+- Fixed the hit chance malus from Sword Thrust and Lunge applying to AI when it is supposed to be player only (the AI doesn't get the bonus hit-chance from the Fencer perk either).
+- Improved tooltip generation for Sword Thrust and Lunge.
 - The Kingsguard no longer has the Promised Potential perk in his perk tree.
 - Improved Arrow to the Knee attack effect and active skill tooltips. The tooltips now also mention that the attacks will do reduced damage and have lower chance to hit.
 - Improved the tooltip of the Old Swordmaster origin to now show the free perks that you got.
