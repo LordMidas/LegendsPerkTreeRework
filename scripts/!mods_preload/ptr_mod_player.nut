@@ -133,7 +133,17 @@ gt.Const.PTR.modPlayer <- function()
 			this.m.CurrentProperties = clone b;
 			this.m.Skills.update();
 			this.setHitpoints(this.m.CurrentProperties.Hitpoints);
+		}
 
+		local onHired = o.onHired;
+		o.onHired = function()
+		{
+			onHired();
+			if (this.getFlags().has("IsKingsGuard"))
+			{
+				this.logInfo("removing perk");
+				this.getBackground().removePerk(this.Const.Perks.PerkDefs.PTRPromisedPotential);
+			}
 		}
 
 		local onSerialize = o.onSerialize;
