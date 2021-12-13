@@ -55,6 +55,7 @@ gt.ModBetterFencing.modWeapons <- function()
 			o.m.ArmorDamageMult = 0.3;
 			o.m.DirectDamageMult = 0.25;
 			o.m.DirectDamageAdd = 0.3;
+			o.m.ChanceToHitHead = 0;
 			o.onEquip = function()
 			{
 				this.weapon.onEquip();
@@ -80,6 +81,7 @@ gt.ModBetterFencing.modWeapons <- function()
 			o.m.ShieldDamage = baseWeapon.m.ShieldDamage;
 			o.m.AdditionalAccuracy = baseWeapon.m.AdditionalAccuracy;
 			o.m.FatigueOnSkillUse = baseWeapon.m.FatigueOnSkillUse;
+			o.m.ChanceToHitHead = baseWeapon.m.ChanceToHitHead;
 			o.m.Value = 4200;
 			o.randomizeValues();
 
