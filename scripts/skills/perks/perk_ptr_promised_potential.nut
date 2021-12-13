@@ -141,7 +141,7 @@ this.perk_ptr_promised_potential <- this.inherit("scripts/skills/skill", {
 				}
 				else
 				{
-					perk.updatePerkVisuals();
+					this.updatePerkVisuals();
 				}
 			}
 		}
