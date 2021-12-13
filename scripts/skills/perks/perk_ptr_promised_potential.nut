@@ -97,14 +97,13 @@ this.perk_ptr_promised_potential <- this.inherit("scripts/skills/skill", {
 						local exclude = [];
 						foreach (tree in _treeList)
 						{
-							foreach (row in tree.Tree)
+							foreach (category in currentBackground.m.CustomPerkTreeMap)
 							{
-								foreach (perk in row)
+								foreach (treeInMap in category)
 								{
-									if (bg.hasPerk(perk))
+									if (treeInMap.ID == tree.ID)
 									{
 										exclude.push(tree.ID);
-										break;
 									}
 								}
 							}
@@ -113,15 +112,28 @@ this.perk_ptr_promised_potential <- this.inherit("scripts/skills/skill", {
 						return exclude;
 					}
 
-					bg.addPerkGroup(this.Const.Perks.WeaponTrees.getRandom(getExclude(this.Const.Perks.WeaponTrees.Tree)).Tree);
-					local traitsExclude = getExclude(this.Const.Perks.TraitsTrees.Tree);
+					local traitsExclude = getExclude(this.Const.Perks.TraitsTrees.Tree);			
 					traitsExclude.push(this.Const.Perks.TalentedTree.ID);
-					bg.addPerkGroup(this.Const.Perks.TraitsTrees.getRandom(traitsExclude).Tree);
-					bg.addPerkGroup(this.Const.Perks.ClassTrees.getRandom(getExclude(this.Const.Perks.ClassTrees.Tree)).Tree);
-					bg.addPerkGroup(this.Const.Perks.DefenseTrees.getRandom(getExclude(this.Const.Perks.DefenseTrees.Tree)).Tree);
+					local traitTree = this.Const.Perks.getRandomTree(this.Const.Perks.TraitsTrees.Tree, traitsExclude);
+					if (traitTree != null)
+					{
+						bg.addPerkGroup(traitTree.Tree);
+					}
+
+					local weaponExclude = getExclude(this.Const.Perks.WeaponTrees.Tree);	
+					local weaponTree = this.Const.Perks.getRandomTree(this.Const.Perks.WeaponTrees.Tree, weaponExclude);
+					if (weaponTree != null)
+					{
+						bg.addPerkGroup(weaponTree.Tree);
+						weaponExclude.push(weaponTree.ID);
+						local weaponTree2 = this.Const.Perks.getRandomTree(this.Const.Perks.WeaponTrees.Tree, weaponExclude);
+						if (weaponTree2 != null)
+						{
+							bg.addPerkGroup(weaponTree2.Tree);
+						}
+					}
 
 					local perksToRemove = [];
-
 					foreach (row in bg.m.CustomPerkTree)
 					{
 						for (local i = row.len() - 1; i > 12; i--)
@@ -133,6 +145,23 @@ this.perk_ptr_promised_potential <- this.inherit("scripts/skills/skill", {
 					foreach (perk in perksToRemove)
 					{
 						bg.removePerk(perk);
+					}
+
+					local row = 0;
+					foreach (perk in perksToRemove)
+					{
+						while (row < 7)
+						{
+							if (bg.m.CustomPerkTree[row].len() < 13)
+							{
+								bg.addPerk(perk, row);
+								break;
+							}
+							else
+							{
+								row++;
+							}
+						}
 					}
 
 					actor.resetPerks();
