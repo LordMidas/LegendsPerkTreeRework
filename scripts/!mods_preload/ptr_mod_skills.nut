@@ -251,7 +251,7 @@ gt.Const.PTR.modSkills <- function()
 		o.onAnySkillUsed <- function( _skill, _targetEntity, _properties )
 		{
 			local item = _skill.getItem();
-			if (!_skill.isRanged() || (item != null && item.isItemType(this.Const.Items.ItemType.Weapon) && weapon.isWeaponType(this.Const.Items.WeaponType.Throwing)))
+			if (!_skill.isRanged() || (item != null && item.isItemType(this.Const.Items.ItemType.Weapon) && item.isWeaponType(this.Const.Items.WeaponType.Throwing)))
 			{
 				local hp = this.getContainer().getActor().getHitpoints();
 				local bonus = _skill.b.ActionPointCost <= 4 ? this.Math.min(50, this.Math.floor(hp * 0.075)) : this.Math.min(50, this.Math.floor(hp * 0.15));
