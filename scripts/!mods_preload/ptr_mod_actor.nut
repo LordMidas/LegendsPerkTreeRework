@@ -90,7 +90,7 @@ gt.Const.PTR.modActor <- function()
 				}
 
 				local enemySkill = enemy.getSkills().getSkillByID("perk.ptr_long_reach");
-				if (enemySkill != null && enemySkill.isInEffect())
+				if (enemySkill != null && enemySkill.isEnabled())
 				{
 					c++;
 				}

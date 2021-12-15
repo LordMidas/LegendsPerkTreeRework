@@ -1,5 +1,7 @@
 this.perk_ptr_long_reach <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		IsForceEnabled = false	
+	},
 	function create()
 	{
 		this.m.ID = "perk.ptr_long_reach";
@@ -13,14 +15,20 @@ this.perk_ptr_long_reach <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 	
-	function isInEffect()
+	function isEnabled()
 	{
-		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon == null || !weapon.isItemType(this.Const.Items.ItemType.TwoHanded) || !weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon))
+		if (this.m.IsForceEnabled)
 		{
-			return false;
+			return true;
 		}
-		return true;
+
+		local weapon = this.getContainer().getActor().getMainhandItem();
+		if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.Polearm))
+		{
+			return true;
+		}
+
+		return false;
 	}
 });
 
