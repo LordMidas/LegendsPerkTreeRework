@@ -1164,6 +1164,7 @@ gt.Const.PTR.modEnemies <- function()
 			local ret = makeMiniboss();
 			if (ret)
 			{
+				this.m.Skills.removeByID("perk.adrenalin");				
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_personal_armor"));
 			}
 

@@ -24,7 +24,7 @@ Orc Young - Removed Fresh and Furious.
 Orc Warrior - Removed Man of Steel, Killing Frenzy, steadfast.
 Orc Berserker - Removed Unstoppable, Know Their Weakness, killing frenzy.
 Orc Elite - Removed Man of Steel, killing frenzy, know their weakness, the rush of battle, berserk.
-Orc Behemoth - Removed swordlike (if cleaver), exploit opening (if sword), killing frenzy, unstoppable, Survival Instinct, the rush of battle. Add fearless trait (+10 resolve).
+Orc Behemoth - Removed swordlike (if cleaver), exploit opening (if sword), killing frenzy, unstoppable, Survival Instinct, the rush of battle. Add fearless trait (+10 resolve). Champion loses adrenaline.
 Orc Warlord - Removed overwhelm, sundering strikes, Know Thier Weakness, Headsmasher, killing frenzy, Man of Steel, The Rush of Battle.
 Serpent - Removed know their weakness.
 Ancient Honor Guard - Removed Battleforged. Gained Personal Armor.
@@ -54,7 +54,7 @@ Orc Young - removed bully.
 Orc Warrior - Removed Man of Steel, Bully, colossus. Added Bulwark.
 Orc Berserker - Removed Bully, Double Strike.
 Orc Elite - removed second wind, sundering strikes, bully, assured conquest, executioner. Added Shield Mastery, crippling strikes.
-Orc Behemoth - Removed bully, relentless. Add Bulwark.
+Orc Behemoth - Removed bully, relentless. Add Bulwark. Champion loses adrenaline.
 Orc Warlord - Removed man of steel, fortified mind, relentless, Inspiring Presence, battle flow. Gained Exude Confidence.
 Spider - Regained Dodge.
 Ancient Auxiliary - Removed Shield Expert, Crippling Strikes, Executioner. Added Phalanx.
