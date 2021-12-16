@@ -9,6 +9,7 @@ Improved trait tree flavor text to make it more clear what tree it is referencin
 
 ==Enemy Balance==
 All enemies on legendary difficulty also get the perks from standard difficulty. The opposite is not true however.
+
 =Standard=
 Bear - Removed Mauler. Gained Survival Instinct.
 Brigand Raider - Removed Relentless, Dodge, shield expert and bullseye. Gain: If Shield - Shield Expert. If no shield - Dodge. If offhand free - Relentless.
@@ -37,7 +38,18 @@ Fallen Hero - Removed Mauler, soft metal, executioner. Added all tiers of equipp
 Fallen Betrayer - Removed Soft Metal.
 Conscript - Added Nimble (as they used to have).
 Assassin - Gained vigorous assault, know their weakness.
-Barbarian Chosen - removed anticipation, crippling strikes, the rush of battle, know their weakness.
+Barbarian Thrall - Removed rush of battle, resilient.
+Barbarian Reaver - Removed rush of battle, bloody harvest, reach advantage, sweeping strikes, formidable approach, resilient, survival instinct, t5 weapon perks, bullseye.
+Barbarian Chosen - removed man of steel, crippling strikes, the rush of battle, know their weakness, reach advantage.
+Barbarian King - Removed Devastating Strikes, Bulwark. If Miniboss: Retain Devastating Strikes.
+Bounty Hunter - Removed t5 weapon perks.
+Bounty Hunter Ranged - Removed arrow to the knee, flaming arrows, Iron Sights. Added Eyes Up (bow only), entrenched (crossbow only).
+Caravan Hand - 
+Caravan Guard - Removed survival instinct, anticipation.
+Conscript - removed fast adaptation, rush of battle. Added phalanx, pathfinder, rebound.
+Conscript Polearm - Full Tree: Equipped weapon tree t4, Brawny, Nimble, Crippling Strikes, Rotation, Recover, Strength in Numbers, Relentless, Pathfinder, Rebound
+Blade Dancer - removed fast adaptation, adrenaline.
+Footman - removed t5-6 weapon perks, fast adaptation, full 1h style tree, strength in numbers, resilient, rush of battle.
 
 =Legendary=
 Brigand Raider - If shield - Phalanx. If no shield - Survival Instinct.
@@ -64,7 +76,18 @@ Unhold  - Removed 2x hp from legends, Soft Metal, Bully. Added colossus.
 Necrosavant - removed composure. 
 Fallen Betrayer - Removed Cull.
 Assassin - Gained alert, pattern recognition, unstoppable.
-Barbarian Chosen - removed lone wolf, last stand, anticipation, crippling strikes, the rush of battle,  know their weakness.
+Barbarian Thrall - Removed rush of battle, resilient. Added menacing.
+Barbarian Reaver - Removed rush of battle, reach advantage, formidable approach, sweeping strikes, resilient, bullseye, battleforged, alert, balance, hand to hand mastery, backstabber, berserk. Added Menacing.
+Barbarian Chosen - removed lone wolf, last stand, crippling strikes, the rush of battle, know their weakness, alert, balance, backstabber, hand to hand mastery. Added menacing.
+Barbarian King - Removed Devastating Strikes, last stand, balance, backstabber, hand to hand mastery. Gain Menacing, Batttle Flow. If Miniboss: Retain Devastating Strikes.
+Bounty Hunter - Removed net mastery (unless net), trophy hunter, big game hunter, back to basics. 
+Bounty Hunter Ranged - Removed arrow to the knee, trophy hunter, big game hunter, back to basics, know their weakness. Added Eyes Up (bow), entrenched (crossbow only).
+Caravan Hand - Removed Fast Adaptation. Added weapon perks t2.
+Caravan Guard - Removed survival instinct, assured conquest, alert, anticipation.
+Conscript - removed fast adaptation, rush of battle, survival instinct. Added pathfinder, phalanx, alert, fresh and furious, hale and hearty, rebound, overwhelm, colossus, fearless trait, shield mastery.
+Conscript Polearm - Full Tree: Standard perks plus: Equipped weapon tree t7, Fearless Trait, Colossus, Alert, Dodge, Fresh and Furious, Hale and Hearty, Overwhelm
+Blade Dancer - removed fast adaptation, adrenaline.
+Footman - removed fast adaptation, full 1h style tree, smashing shields, strength in numbers, resilient, rush of battle, back to basics, perfect focus, overwhelm, immovable object, colossus, back to basics, rattle. Added underdog, weapon tree to t6, clarity.
 
 == MAJOR ==
 - New mechanic: "Encumbrance" - Wearing heavier armor will now start reducing Fatigue Recovery as well. If this is affecting your bro, a status effect by the name of Encumbrance will appear on your bro.
