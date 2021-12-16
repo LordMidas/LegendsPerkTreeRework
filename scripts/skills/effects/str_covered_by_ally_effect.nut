@@ -60,7 +60,7 @@ this.str_covered_by_ally_effect <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		_properties.InitiativeForTurnOrderAdditional += 25;
+		_properties.InitiativeForTurnOrderAdditional += 50;
 	}
 
 	function onAdded()
