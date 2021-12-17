@@ -174,11 +174,11 @@ gt.Const.PTR.modActor <- function()
 
 			local hasProfessional = false;
 			local professionalPerk = this.getSkills().getSkillByID("perk.ptr_professional");
-			local professionalAddedPerks = 0;
+			local numProfessionalAddedPerks = 0;
 			if (professionalPerk != null)
 			{
 				hasProfessional = true;
-				professionalAddedPerks = professionalPerk.m.PerksAdded;
+				numProfessionalAddedPerks = professionalPerk.m.PerksAdded.len();
 			}
 
 			resetPerks();
@@ -224,7 +224,7 @@ gt.Const.PTR.modActor <- function()
 
 			if (hasProfessional)
 			{
-				this.m.PerkPoints -= professionalAddedPerks;
+				this.m.PerkPoints -= numProfessionalAddedPerks;
 			}
 		}
 

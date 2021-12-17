@@ -1,7 +1,7 @@
 this.perk_ptr_professional <- this.inherit("scripts/skills/skill", {
 	m = {
 		IsSpent = false,
-		PerksAdded = 0
+		PerksAdded = []
 	},
 	function create()
 	{
@@ -23,34 +23,45 @@ this.perk_ptr_professional <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
+		local bg = this.getContainer().getActor().getBackground();
+
 		if (!this.getContainer().hasSkill("perk.shield_expert"))
 		{
-			this.getContainer().add(this.new("scripts/skills/perks/perk_shield_expert"));
-			this.m.PerksAdded++;
+			this.getContainer().add(this.new("scripts/skills/perks/perk_shield_expert"));			
+			local perk = this.Const.Perks.PerkDefs.ShieldExpert;
+			bg.addPerk(perk);
+			this.PerksAdded.push(perk);
 		}
 
 		if (!this.getContainer().hasSkill("perk.ptr_weapon_master"))
 		{
 			this.getContainer().add(this.new("scripts/skills/perks/perk_ptr_weapon_master"));
-			this.m.PerksAdded++;
+			local perk = this.Const.Perks.PerkDefs.PTRWeaponMaster;
+			bg.addPerk(perk);
+			this.PerksAdded.push(perk);
 		}
 
 		if (!this.getContainer().hasSkill("perk.duelist"))
 		{
 			this.getContainer().add(this.new("scripts/skills/perks/perk_duelist"));
-			this.m.PerksAdded++;
+			local perk = this.Const.Perks.PerkDefs.Duelist;
+			bg.addPerk(perk);
+			this.PerksAdded.push(perk);
 		}
 
 		if (!this.getContainer().hasSkill("perk.reach_advantage"))
 		{
 			this.getContainer().add(this.new("scripts/skills/perks/perk_reach_advantage"));
-			this.m.PerksAdded++;
-		}
+			local perk = this.Const.Perks.PerkDefs.ReachAdvantage;
+			bg.addPerk(perk);
+			this.PerksAdded.push(perk);		}
 
 		if (!this.getContainer().hasSkill("perk.ptr_bloody_harvest"))
 		{
 			this.getContainer().add(this.new("scripts/skills/perks/perk_ptr_bloody_harvest"));
-			this.m.PerksAdded++;
+			local perk = this.Const.Perks.PerkDefs.PTRBloodyHarvest;
+			bg.addPerk(perk);
+			this.PerksAdded.push(perk);
 		}
 
 		this.m.IsSpent = true;
@@ -58,28 +69,33 @@ this.perk_ptr_professional <- this.inherit("scripts/skills/skill", {
 
 	function onRemoved()
 	{
-		this.getContainer().removeByID("perk.shield_expert");
-		this.getContainer().removeByID("perk.ptr_weapon_master");
-		this.getContainer().removeByID("perk.duelist");
-		this.getContainer().removeByID("perk.reach_advantage");
-		this.getContainer().removeByID("perk.perk_ptr_bloody_harvest");
+		foreach (perk in this.m.PerksAdded)
+		{
+			this.getContainer().removeByID(this.Const.Perks.PerkDefObjects[perk].ID);
+		}
 	}
 
-	function onSerialize(_out)
+	function onSerialize( _out )
 	{
 		this.skill.onSerialize(_out);
-		_out.writeU8(this.m.PerksAdded);
+		local size = _out.writeU8(this.m.PerksAdded.len());
+		foreach (perk in this.m.PerksAdded)
+		{
+			_out.writeU16(perk);
+		}		
 	}
 
-	function onDeserialize(_in)
+	function onDeserialize( _in )
 	{
 		this.skill.onDeserialize(_in);
 
 		this.m.IsSpent = true;
 
-		if (this.Const.PTR.Version >= 1)
+		local size = _in.readU8();
+
+		for (local i = 0; i < size; i++)
 		{
-			this.m.PerksAdded = _in.readU8();
+			this.m.PerksAdded.push(_in.readU16());
 		}
 	}
 });
