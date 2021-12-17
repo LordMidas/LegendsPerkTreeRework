@@ -319,6 +319,9 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.InspiringPresence = "[color=" + this.Const.UI.Color.NegativeValue + "][u]Requires:[/u] Banner[/color]\nStanding next to the company\'s banner inspires your men to go beyond their limits!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Any member of your company who is engaged in melee, or is adjacent to an ally who is engaged in melee, gains [color=" + this.Const.UI.Color.PositiveValue + "]+3[/color] Action Points as long as they start their turn adjacent to you.";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.InspiringPresence].Tooltip = gt.Const.Strings.PerkDescription.InspiringPresence;
 
+	gt.Const.Strings.PerkDescription.LegendHairSplitter = "Years of practice throwing things at apples above heads have granted a magnetic attraction to the cranium.\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Gain [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit the head.";
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendHairSplitter].Tooltip = gt.Const.Strings.PerkDescription.LegendHairSplitter;
+
 	local poleWeaponStrings = [
 		"SpecAxe",
 		"SpecHammer",

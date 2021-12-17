@@ -33,9 +33,16 @@ gt.Const.PTR.modSkills <- function()
 		}
 	});
 
+	::mods_hookExactClass("skills/perks/perk_legend_hair_splitter", function(o) {
+		o.onUpdate = function( _properties )
+		{
+			_properties.HitChance[this.Const.BodyPart.Head] += 10;
+		}
+	});	
+
 	::mods_hookExactClass("skills/perks/perk_inspiring_presence", function(o) {
 		o.m.IsForceEnabled <- false;
-		
+
 		o.isEnabled <- function()
 		{
 			if (this.m.IsForceEnabled)
