@@ -95,6 +95,8 @@ Barbarian Chosen - removed lone wolf, last stand, anticipation, crippling strike
 - Muscularity tweaked: Now grants 7.5% bonus for attacks with a base Action Point cost of <=4 and 15% bonus for attacks with a base Action Point cost of >4.
 - Bear Down tweaked: Now grants a stacking 5% bonus per negative status effect on target. The only valid negative status effects are Stunned, Staggered, Dazed, Baffled.
 - Push It reworked: Requires mace. Successful stuns using maces now Stagger the target.
+- All Resolve Checks are now harder by 5 Resolve for player controlled characters.
+- Reduced Hair Splitter bonus headshot chance to 10%.
 
 == MINOR ==
 - Enemy Champions now boost the Resolve of nearby allies, just like enemy Leaders do.
@@ -110,6 +112,8 @@ Barbarian Chosen - removed lone wolf, last stand, anticipation, crippling strike
 - Realized Potential can no longer add too many new perks to the perk tree. It is now limited to 13 columns. It now adds 1 Traits tree and 2 Weapon Trees. Any added perks that would overflow the 13 columns limit are shifted to the next row.
 - Removed the extra headshot chance from Estoc.
 - Added Pathfinder to the Devious perk group t1 (in addition to already being on the Agile perk group t1).
+- Buffed Cover Ally bonus initiative for turn order to 50.
+- Professional now also adds the perks to the perk tree.
 
 == FIXES ==
 - Fixed Offhand Training sometimes not giving the 0 AP tool use.
@@ -128,6 +132,7 @@ Barbarian Chosen - removed lone wolf, last stand, anticipation, crippling strike
 - Fixed Deep Cuts working even when it wasn't your turn. Updated the tooltip to be clearer.
 - Fixed AI not getting the damage bonus from Lunge.
 - Fixed the hit chance malus from Sword Thrust and Lunge applying to AI when it is supposed to be player only (the AI doesn't get the bonus hit-chance from the Fencer perk either).
+- Fixed Long Reach working with all melee weapons instead of with Polearms only.
 - Improved tooltip generation for Sword Thrust and Lunge.
 - The Kingsguard no longer has the Promised Potential perk in his perk tree.
 - Improved Arrow to the Knee attack effect and active skill tooltips. The tooltips now also mention that the attacks will do reduced damage and have lower chance to hit.
