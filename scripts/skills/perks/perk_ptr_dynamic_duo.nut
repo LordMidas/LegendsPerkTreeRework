@@ -77,7 +77,7 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 
 		if (this.m.Opponents.len() > 0)
 		{
-			local t = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getHitChanceBonus() + "%[/color] Chance to Hit against: "
+			local t = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.HitChanceBonus + "%[/color] Chance to Hit against: "
 
 			foreach (opponentID in this.m.Opponents)
 			{
@@ -99,6 +99,18 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 		}
 
 		return tooltip;
+	}
+
+	function onGetHitFactors( _skill, _targetTile, _tooltip )
+	{	
+		local targetEntity = _targetTile.getEntity();
+		if (targetEntity != null && this.hasOpponent(targetEntity.getID()))
+		{
+			_tooltip.push({
+				icon = "ui/tooltips/positive.png",
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + this.m.HitChanceBonus + "%[/color]" + this.getName()
+			});
+		}
 	}
 
 	function addOpponent(_entityID)
@@ -136,11 +148,6 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 	function getMeleeDefenseBonus()
 	{
 		return this.m.MeleeDefenseBonus * (this.m.IsAllyDynamicDuo ? this.m.AllyDynamicDuoMultiplier : 1);
-	}
-
-	function getHitChanceBonus()
-	{
-		return this.m.HitChanceBonus;
 	}
 
 	function getAllyIfOnlyOneWithinAOE(_actor)
@@ -325,7 +332,7 @@ this.perk_ptr_dynamic_duo <- this.inherit("scripts/skills/skill", {
 
 		if (this.hasOpponent(_targetEntity.getID()) != null)
 		{
-			_properties.MeleeSkill += this.getHitChanceBonus();
+			_properties.MeleeSkill += this.m.HitChanceBonus;
 		}
 	}
 

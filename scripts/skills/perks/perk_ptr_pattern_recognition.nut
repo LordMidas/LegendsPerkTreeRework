@@ -68,6 +68,22 @@ this.perk_ptr_pattern_recognition <- this.inherit("scripts/skills/skill", {
 		return tooltip;
 	}
 
+	function onGetHitFactors( _skill, _targetTile, _tooltip )
+	{
+		local targetEntity = _targetTile.getEntity();
+		if (!_skill.isRanged() && targetEntity != null)
+		{
+			local opponentEntry = this.getOpponentEntry(targetEntity.getID());
+			if (opponentEntry != null)
+			{
+				_tooltip.push({
+					icon = "ui/tooltips/positive.png",
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + this.getBonus(opponentEntry) + "%[/color]" + this.getName()
+				});
+			}
+		}
+	}
+
 	function getBonus( _opponentEntry )
 	{
 		local bonus = 0;
