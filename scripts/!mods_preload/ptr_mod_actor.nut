@@ -102,6 +102,11 @@ gt.Const.PTR.modActor <- function()
 		local checkMorale = o.checkMorale;
 		o.checkMorale = function( _change, _difficulty, _type = this.Const.MoraleCheckType.Default, _showIconBeforeMoraleIcon = "", _noNewLine = false )
 		{
+			if (this.isPlayerControlled())
+			{
+				_difficulty -= 5;
+			}
+
 			if (this.isAlive() && !this.isDying())
 			{
 				if (_change > 0)
