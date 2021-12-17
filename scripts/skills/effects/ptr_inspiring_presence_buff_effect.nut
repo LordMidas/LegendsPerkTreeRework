@@ -59,13 +59,16 @@ this.ptr_inspiring_presence_buff_effect <- this.inherit("scripts/skills/skill", 
 
 		foreach (ally in allies)
 		{
-			local weapon = ally.getMainhandItem();
-			if (weapon != null && weapon.getID() == "weapon.player_banner" && ally.getSkills().hasSkill("perk.inspiring_presence"))
+			if (!hasInspirer)
 			{
-				hasInspirer = true;
+				local inspiringPresence = ally.getSkills().getSkillByID("perk.inspiring_presence");
+				if (inspiringPresence != null && inspiringPresence.isEnabled())
+				{
+					hasInspirer = true;
+				}
 			}
 
-			if (ally.isEngagedInMelee())
+			if (!hasMeleeEngagement && ally.isEngagedInMelee())
 			{
 				hasMeleeEngagement = true;
 			}
