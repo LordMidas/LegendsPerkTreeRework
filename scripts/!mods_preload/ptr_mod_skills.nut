@@ -86,7 +86,7 @@ gt.Const.PTR.modSkills <- function()
 				id = 10,
 				type = "text",
 				icon = "ui/icons/damage_dealt.png",
-				text = "Damage increased by [color=" + this.Const.UI.Color.NegativeValue + "]" + (this.m.Stacks * 20) + "%[/color]"
+				text = "Damage increased by [color=" + this.Const.UI.Color.NegativeValue + "]" + (this.m.Stacks * 25) + "%[/color]"
 			});
 		}
 
@@ -105,7 +105,7 @@ gt.Const.PTR.modSkills <- function()
 
 		o.onUpdate <- function( _properties )
 		{
-			_properties.DamageTotalMult *= 1.0 + 20 * this.m.Stacks * 0.01;
+			_properties.DamageTotalMult *= 1.0 + 25 * this.m.Stacks * 0.01;
 		}
 
 		o.onTurnEnd <- function()
