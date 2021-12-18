@@ -1,8 +1,7 @@
 this.perk_ptr_push_it <- this.inherit("scripts/skills/skill", {
 	m = {
 		IsForceEnabled = false,
-		IsValidHit = false,
-		WasStunned = false
+		IsHit = false
 	},
 	function create()
 	{
@@ -33,11 +32,16 @@ this.perk_ptr_push_it <- this.inherit("scripts/skills/skill", {
 		return false;
 	}
 
+	function onBeforeAnySkillExecuted( _skill, _targetTile, _targetEntity )
+	{
+		this.m.IsHit = false;
+	}
+
 	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
 	{
-		if (this.m.IsValidHit && _targetEntity != null && _targetEntity.isAlive() && !_targetEntity.isDying())
+		if (this.m.IsHit && _targetEntity != null && _targetEntity.isAlive() && !_targetEntity.isDying())
 		{
-			if (this.m.WasStunned || _targetEntity.getSkills().hasSkill("effects.stunned"))
+			if (_targetEntity.getSkills().hasSkill("effects.stunned"))
 			{
 				_targetEntity.getSkills().add(this.new("scripts/skills/effects/staggered_effect"));
 				local user = this.getContainer().getActor();
@@ -49,16 +53,13 @@ this.perk_ptr_push_it <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
+	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		this.m.IsValidHit = false;
-		if (_skill.isAttack() && this.isEnabled())
+		if (_skill.isAttack() && this.isEnabled() && _targetEntity.isAlive() && !_targetEntity.isDying())
 		{
-			local item = _skill.getItem();
-			if (this.m.IsForceEnabled || (item != null && item.isItemType(this.Const.Items.ItemType.Weapon) && item.isWeaponType(this.Const.Items.WeaponType.Mace)))
+			if (!_targetEntity.getSkills.hasSkill("effects.stunned"))
 			{
-				this.m.IsValidHit = true;
-				this.m.WasStunned = _targetEntity.getSkills().hasSkill("effects.stunned");
+				this.m.IsHit = true;
 			}
 		}
 	}
