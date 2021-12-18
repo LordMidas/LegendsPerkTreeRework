@@ -1,4 +1,11 @@
 ===================
+==== Ver 1.5.2 ====
+===================
+- Increased the roster size in Old Swordmaster origin to 15. Max bros in combat are still limited to 10. (This particular feature requires Legends v15.0.2.1 or later).
+- Fixed Footmen spawning without equipment.
+- Fixed a few enemies not getting their perks properly.
+
+===================
 ==== Ver 1.5.1 ====
 ===================
 - Fixed the Professional perk not properly adding perks.
