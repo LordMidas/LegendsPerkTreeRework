@@ -968,7 +968,7 @@ gt.Const.PTR.modSkills <- function()
 			if (!ret)
 			{
 				local attack = this.getContainer().getAttackOfOpportunity();
-				if (attack != null && attack.b.ActionPointCost <= 4 && attack.getMaxRange() == 1)
+				if (attack != null && attack.isDuelistValid())
 				{
 					return true;
 				}
