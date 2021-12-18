@@ -122,7 +122,7 @@ gt.Const.PTR.modSkills <- function()
 
 		o.onCombatStarted <- function()
 		{
-			ths.m.Stacks = 0;
+			this.m.Stacks = 0;
 		}
 
 		o.onCombatFinished <- function()
