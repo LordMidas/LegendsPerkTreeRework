@@ -1,14 +1,8 @@
 ===================
 ==== Ver 1.5.0 ====
 ===================
-Added Outlanders favored enemy tree to Scaling Beggar as intended.
-Deserters can now roll ranged weapon trees.
-Many commander background perk changes.
-Typo fix in Back to Basics description.
-Improved trait tree flavor text to make it more clear what tree it is referencing.
-
-==Enemy Balance==
-All enemies on legendary difficulty also get the perks from standard difficulty. The opposite is not true however.
+==ENEMY BALANCE==
+- NOTE:If a perk is added on Standard, it is also added to Legendary automatically. If a perk is removed on Standard, then it remains on Legendary unless the Legendary also mentions that it is removed.
 
 Brigand Peasant (Woodcutter, Butcher etc...):
 	- Legendary: Removed 2x hitpoints (from Legends).
@@ -46,7 +40,7 @@ Linwdurm:
 Lindwurm Tail: 
 	- Legendary: Removed 1.5x hp and +5 action points (from Legends).
 Stollwurm:
-	- Standard: Remove Bully, Cull, Survival Instinct, Soft Metal, Dent Armor.
+	- Standard: Remove Bully, Cull, Survival Instinct, Soft Metal, Dent Armor. Reduced Action Points from 15 to 7 (same as Lindwurm now).
 	- Legendary: Remove  1.5x hp and +5 action points (from Legends), Bully, Cull, Survival Instinct, Soft Metal, Dent Armor.
 Stollwurm Tail:
 	- Legendary: Remove  1.5x hp and +5 action points (from Legends).
@@ -238,6 +232,7 @@ Mercenary Ranged:
 	- Legendary: Removed Fast Adaptation, Overwhelm, Know Their Weakness, Pathfinder, Lone Wolf, Onslaught, Assured Conquest, Marksmanship, Relentless, Killing Frenzy, Battle Flow. Added Primal Fear(crossbow), Eyes Up(bow), Anticipation, Perfect Fit.
 
 == MAJOR ==
+- Improved Trait trees flavor text (in background icon tooltip during recruitment) to make it more clear what tree it is referencing.
 - New mechanic: "Encumbrance" - Wearing heavier armor will now start reducing Fatigue Recovery as well. If this is affecting your bro, a status effect by the name of Encumbrance will appear on your bro.
 - Duelist reworked: Now works with melee attacks with a base Action Point cost of 4 or less regardless of weapon type. For 1H weapons the bonus is 25% while for 2H it is 15%.
 - Removed the Marksmanship (Bow t6) perk. Moved Flaming Arrows to Bow t6.
@@ -268,8 +263,10 @@ Mercenary Ranged:
 - Push It reworked: Requires mace. Successful stuns using maces now Stagger the target.
 - All Resolve Checks are now harder by 5 Resolve for player controlled characters.
 - Reduced Hair Splitter bonus headshot chance to 10%.
+- Rising Star tweaked: Now grants the 2 perk points at 5 levels after picking this perk. During this time the experience gain is increased by 20% (down from 50%), and 5% after that.
 
 == MINOR ==
+- Renamed "Close Combat Archer" to "Whites of their Eyes".
 - Enemy Champions now boost the Resolve of nearby allies, just like enemy Leaders do.
 - Momentum is no longer lost when switching to/from a throwing weapon after moving.
 - Vigorous Assault is no longer lost when switching to/from a throwing weapon after moving.
@@ -285,6 +282,9 @@ Mercenary Ranged:
 - Added Pathfinder to the Devious perk group t1 (in addition to already being on the Agile perk group t1).
 - Buffed Cover Ally bonus initiative for turn order to 50.
 - Professional now also adds the perks to the perk tree.
+- Many commander background perk changes.
+- Deserters can now roll ranged weapon trees.
+- Added Outlanders favored enemy tree to Scaling Beggar as intended.
 
 == FIXES ==
 - Fixed Offhand Training sometimes not giving the 0 AP tool use.
@@ -304,6 +304,7 @@ Mercenary Ranged:
 - Fixed AI not getting the damage bonus from Lunge.
 - Fixed the hit chance malus from Sword Thrust and Lunge applying to AI when it is supposed to be player only (the AI doesn't get the bonus hit-chance from the Fencer perk either).
 - Fixed Long Reach working with all melee weapons instead of with Polearms only.
+- Typo fix in Back to Basics description.
 - Improved tooltip generation for Sword Thrust and Lunge.
 - The Kingsguard no longer has the Promised Potential perk in his perk tree.
 - Improved Arrow to the Kneww attack effect and active skill tooltips. The tooltips now also mention that the attacks will do reduced damage and have lower chance to hit.
