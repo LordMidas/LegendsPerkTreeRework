@@ -2,7 +2,10 @@
 ==== Ver 1.5.3 ====
 ===================
 - Fixed Minstrel profession guaranteeing sergeant tree instead of entertainer.
-- Fixed mainhanditem check for Hedge Knight.
+- Fixed Hedge Knight skills not receiving some skills properly.
+- Fixed Bounty Hunters not getting Alert and Net Mastery when they should with a net.
+- Fixed Conscripts spawning without equipment.
+- Fixed Duelist tooltip: Now mentions that it only works with attacks with a maximum range of 1 tile. Added missing information about the defense bonus. Clarified wording about armor ignore damage.
 
 ===================
 ==== Ver 1.5.2 ====
