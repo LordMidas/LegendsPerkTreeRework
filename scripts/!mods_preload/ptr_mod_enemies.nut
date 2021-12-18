@@ -2657,6 +2657,7 @@ gt.Const.PTR.modEnemies <- function()
 		local assignRandomEquipment = o.assignRandomEquipment;
 		o.assignRandomEquipment = function()
 		{
+			assignRandomEquipment();
 			this.m.Skills.addTreeOfEquippedWeapon(4);					
 			this.m.Skills.removeByID("perk.fast_adaption");					
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_nimble"));
