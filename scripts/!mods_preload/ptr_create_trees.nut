@@ -522,7 +522,7 @@ gt.Const.PTR.createProfessionTrees <- function()
 		Name = "Minstrel",
 		WeightMultipliers = [
 			{Multiplier = -1, Tree = this.Const.Perks.TalentedTree},
-			{Multiplier = -1, Tree = this.Const.Perks.SergeantClassTree},
+			{Multiplier = -1, Tree = this.Const.Perks.EntertainerClassTree},
 		],
 		Tree = [
 			[
