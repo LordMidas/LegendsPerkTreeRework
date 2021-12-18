@@ -141,7 +141,6 @@ gt.Const.PTR.modPlayer <- function()
 			onHired();
 			if (this.getFlags().has("IsKingsGuard"))
 			{
-				this.logInfo("removing perk");
 				this.getBackground().removePerk(this.Const.Perks.PerkDefs.PTRPromisedPotential);
 			}
 		}
