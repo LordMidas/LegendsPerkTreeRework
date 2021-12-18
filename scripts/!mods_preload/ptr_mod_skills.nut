@@ -2,6 +2,13 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modSkills <- function()
 {	
+	::mods_hookExactClass("skills/actives/lunge_skill", function(o) {
+		o.isDuelistValid <- function()
+		{
+			return this.b.ActionPointCost <= 4;
+		}
+	});
+
 	::mods_hookExactClass("skills/actives/sprint_skill_5", function(o) {
 		local getTooltip = o.getTooltip;
 		o.getTooltip = function()
