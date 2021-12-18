@@ -234,7 +234,7 @@ Mercenary Ranged:
 == MAJOR ==
 - Improved Trait trees flavor text (in background icon tooltip during recruitment) to make it more clear what tree it is referencing.
 - New mechanic: "Encumbrance" - Wearing heavier armor will now start reducing Fatigue Recovery as well. If this is affecting your bro, a status effect by the name of Encumbrance will appear on your bro.
-- Duelist reworked: Now works with melee attacks with a base Action Point cost of 4 or less regardless of weapon type. For 1H weapons the bonus is 25% while for 2H it is 15%.
+- Duelist reworked: Now works with melee attacks with a base Action Point cost of 4 or less regardless of weapon type. For 1H weapons the bonus is 25% while for 2H it is 15%. This also means it no longer requires the offhand to be free.
 - Removed the Marksmanship (Bow t6) perk. Moved Flaming Arrows to Bow t6.
 - New Perk: "Eyes Up" Bow t5 - Every attack from bows applies a stacking debuff on the target reducing their Melee Skill and Ranged Skill by 5 and Melee Defense by 3.
 - Overwhelm now only works with melee attacks.
@@ -242,14 +242,14 @@ Mercenary Ranged:
 - Removed Sundering Strikes from the Large tree.
 - Removed the Soft Metal (Hammer t5) perk. Moved Dismantle from Hammer t6 to t5.
 - New perk: "Internal Hemorrhage" Hammer t6. Requires Blunt Damage. Attacks now apply Internal Hemorrhage when hitting a body part which has no armor remaining. Internal Hemorrhage deals 20% of the damage dealt to Hitpoints as Bleeding damage to the target on their turn. Also triggers on the hit which brings the armor to 0 remaining durability.
-- Trait trees are no longer shown in the background icon tooltip in the recruitment screen without before Try Out.
+- Trait trees are no longer shown in the background icon tooltip in the recruitment screen before Try Out.
 - Strength in Numbers now also gives Resolve equal to number of allies present.
-- Clarity reworked: Now reduces Fatigue build-up up by 20%.
+- Clarity reworked: Now reduces Fatigue build-up by 20%.
 - Moved Clarity to from Calm t5 to Trained t6.
 - Moved The Rush of Battle to from Trained t6 to Unstoppable t4.
 - Close Combat Archer tweaked: For cutting attacks now gain 50% of ranged skill as percentage increase to total damage.
 - Swift Stabs reworked: Now reduces AP costs of all dagger skills after a successful dagger attack, but the effect is lost if you miss an attack or swap your weapon.
-- Vengeance tweaked: Now provides a stacking 20% damage increase for every hit you receive. Lasts until your next attack or the end of your turn.
+- Vengeance tweaked: Now provides a stacking 25% damage increase for every hit you receive. Lasts until your next attack or the end of your turn.
 - Goblins now have the AP cost of their melee attacks reduced by 1.
 - Inspiring Presence reworked: Now requires Banner. Any ally who is engaged in melee, or is adjacent to an ally engaged in melee, gains +3 Action Points as long as they start their turn adjacent to you.
 - Wears it Well reworked: Now reduces the penalty to Maximum Fatigue from all items equipped in the head, body, mainhand and offhand slots by 20%. Stacks with Brawny.
