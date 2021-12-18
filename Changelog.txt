@@ -10,154 +10,232 @@ Improved trait tree flavor text to make it more clear what tree it is referencin
 ==Enemy Balance==
 All enemies on legendary difficulty also get the perks from standard difficulty. The opposite is not true however.
 
-=Standard=
-Brigand Raider - Removed Relentless, Dodge, shield expert and bullseye. Gain: If Shield - Shield Expert. If no shield - Dodge. If offhand free - Relentless.
-Brigand Leader - Removed Sundering Strikes (except on hammer), smashing shield (except axe) Rebound, battle flow, berserk, menacing, know their weakness, personal armor, if champion (dodge, relentless). Added rush of battle, Reach Advantage (if 2h), Duelist (if 1h).
-Bandit Veteran - Removed Bullseye
-Brigand Warlord - Removed Sundering Strikes, Smashing Shields, Feint, Survival instinct, Pattern Recognition
-Bear - Removed Mauler. Gained Survival Instinct. Replaced Bully with Menacing as intended.
-Serpent - Removed know their weakness.
-Unhold - Removed survival instinct, Deep Impact, Soft Metal, Bully.
-Stollwurm - Remove bully, cull, survival instinct, soft metal, dent armor.
-Goblin Ambusher Low - Lose ranged supremacy and bow mastery. Gain Eyes Up.
-Goblin Ambushers - Gain Eyes Up.
-Goblin Fighter Low - Full List: equipped weapon up to t2, Net Mastery, Strength In Numbers, Kata (always).
-Goblin Fighter - Gain up to t4 in equipped weapon (up from 3)
-Orc Young - Removed Fresh and Furious.
-Orc Warrior - Removed Man of Steel, Killing Frenzy, steadfast.
-Orc Berserker - Removed Unstoppable, Know Their Weakness, killing frenzy.
-Orc Elite - Removed Man of Steel, killing frenzy, know their weakness, the rush of battle, berserk.
-Orc Behemoth - Removed swordlike (if cleaver), exploit opening (if sword), killing frenzy, unstoppable, Survival Instinct, the rush of battle. Add fearless trait (+10 resolve). Champion loses adrenaline.
-Orc Warlord - Removed overwhelm, sundering strikes, Know Thier Weakness, Headsmasher, killing frenzy, Man of Steel, The Rush of Battle.
-Ancient Honor Guard - Removed Battleforged. Gained Personal Armor.
-The Conqueror - PTRitized! Gained full tree of equipped weapon, full 1h and 2h weapon styles trees, personal armor, fearsome, man of steel, menacing, resilient.
-Embalmed Noble - Removed Bloodbath, Slaughter. Gained 2h styles tree.
-Wiederganger - Removed overwhelm. Added onslaught.
-Armored Weiderganger - Removed overwhelm. Added onslaught.
-Fallen Hero - Removed Mauler, soft metal, executioner. Added all tiers of equipped weapon (except kata if sword).
-Fallen Betrayer - Removed Soft Metal.
-Assassin - Gained vigorous assault, know their weakness.
-Barbarian Thrall - Removed rush of battle, resilient.
-Barbarian Reaver - Removed rush of battle, bloody harvest, reach advantage, sweeping strikes, formidable approach, resilient, survival instinct, t5 weapon perks, bullseye.
-Barbarian Chosen - removed man of steel, crippling strikes, the rush of battle, know their weakness, reach advantage.
-Barbarian King - Removed Devastating Strikes, Bulwark. If Miniboss: Retain Devastating Strikes.
-Bounty Hunter - Removed t5 weapon perks.
-Bounty Hunter Ranged - Removed arrow to the knee, flaming arrows, Iron Sights. Added Eyes Up (bow only), entrenched (crossbow only).
-Militia Ranged - removed entrenched. Added strength in numbers.
-Militia Guest Ranged - removed entrenched. Added strength in numbers.
-Militia Veteran - +10 rdef, anticipation, phalanx (if shield).
-Militia Captain - Removed formidable approach, reach advantage, duelist. Added strength in numbers, +10rdef, anticipation, survival instinct, phalanx. 
-Caravan Guard - Removed survival instinct, anticipation.
-Conscript - removed fast adaptation, rush of battle. Added phalanx, pathfinder, rebound Nimble.
-Conscript Polearm - Full Tree: Equipped weapon tree t4, Brawny, Nimble, Crippling Strikes, Rotation, Recover, Strength in Numbers, Relentless, Pathfinder, Rebound
-Officer - Removed full 1h/2h/sergeant/trained trees, berserk, fast adaptation, steel brow, personal armor, know their weakness. Added resilient, strength in numbers, exude confidence, underdog, Inspiring presence (force enabled).
-Indebted - Added strength in numbers. 
-Nomad Cutthroat - Removed strength in numbers, cover ally.
-Nomad Outlaw - Removed full 1h/2h styles trees, duelist (if sword). Added strength in numbers, cover ally. 
-Nomad Slinger - Replaced headhunter with small target (after day 30).
-Nomad Archer - Removed target practice, ranged supremacy. Added eyes up (if not flaming arrows)
-Nomad Leader - Removed full 2h/1h second wind, know their weakness, rebound, relentless, menacing, battleforged, personal armor, primal fear, man of steel,  Added nimble (at start instead of at day 40).
-Blade Dancer - removed fast adaptation, adrenaline, bloodbath, relentless, underdog, unstoppable, fresh and furious, headhunter, bloody harvest, reach advantage, t6-t7 of equipped weapon. Added Kata (always). If Miniboss: removed double strike.
-Desert Stalker - Removed know their weakness, headhunter, berserk, ranged supremacy, arrow to the knee. Added Steel Brow, small target.
-Executioner - removed fresh and furious, pattern recognition, full trained tree, full one handed tree, full 2h tree, battle flow, relentless, devastating strikes, fast adaptation, crippling strikes, executioner. Gained Underdog, menacing. If miniboss: removed reach advantage. Added Sweeping Strikes.
-Gladiator - removed smashing shields, fast adaptation, full 2h styles tree. Added Rotation, steel brow.
-Footman - removed t5-6 weapon perks, fast adaptation, full 1h style tree, strength in numbers, resilient, rush of battle.
-Billman - Removed full 2h tree, full trained tree, t6-7 of equipped weapon, leverage (on voulge/hammer), pattern recognition, crippling strikes, fast adaptation, backstabber. Added Follow up.
-Arbalaster - Removed Rush of battle, back to basics.
-Greatsword - Removed fast adaptation, overwhelm, full trained tree, full 2h tree, versatile weapon, exploit opening, tempo, en garde, berserk, relentless, fresh and furious, battle flow, killing frenzy, executioner, man of steel. Added underdog, bloody harvest.
-Standard Bearer - Removed lithe, perfect fit, back to basics, the rush of battle.  
-Sergeant - Removed fast adaptation, know their weakness, full 2h/trained/1h/sergeant trees, mind over body, man of steel, personal armor, duelist.
-Knight - removed fast adaptation, full 1h tree, full 2h tree, full trained tree, personal armor, menacing, unstoppable, crippling strikes, berserk. Added sundering strikes.
-Noble Slinger - removed bullseye, rotation. Added footwork.
-Halberdier - removed full 2h tree, full trained tree, backstabber, footwork, fast adaptation, executioner, crippling strikes, pattern recognition, clarity, leverage (unless halberd), reach advantage. Added bloodlust (voulge).
-Fencer - removed full 1h/2h styles, full trained tree, fast adaptation, back to basics, berserk, double strike, perfect fit, pattern recognition, lone wolf.
-Hedge Knight - removed personal armor, know their weakness, devastating strikes, battle flow, fearsome, fast adaption, crippling strikes, survival instinct, full 1h tree, full 2h tree, berserk, killing frenzy. Added reach advantage (if applicable), bully. If Champion: removed pattern recognition. Added killing frenzy.
-Swordmaster - Removed fast adapatation, pattern recognition, unstoppable, fresh and furious, bloodbath, overwhelm, relentless.
-Master Archer - Removed headhunter, know their weakness, fast adaptation, muscle memory, berserk. Added steel brow, iron sights.
-Mercenary - removed full 1h/2h styles trees, fast adaptatio, smashing shields, know their weakness, killing frenzy, berserk, momentum, bullseye, executioner. Added linebreaker (if shield), skirmisher
-Mercenary Low - removed smashing shields, know their weakness, reach advantage, t6 of equipped weapon, shield expert, executioner.
-Mercenary Ranged - Removed fast adaptation, overwhelm, ranged supremacy, know their weakness, dodge, pathfinder. Added primal fear(crossbow).
-
-=Legendary=
-All peasant brigand enemies (woodcutters, monks etc..) - removed 2x hitpoints (from legends)
-Peasant and Armed Peasant - removed 1.5x hitpoints (from legends)
-Brigand Raider - If shield - Phalanx. If no shield - Survival Instinct.
-Brigand Marksmen - Removed marksmanship, added Eyes Up.
-Brigand Leader - Removed smashing shield (except axe) Fast Adaptation, Relentless, menacing, personal armor, battle flow, berserk, killing frenzy, pattern recognition. Added rush of battle, Full 2h styles tree (if 2h), If 1h (double strike, pattern recognition), clarity, duelist, if champion (personal armor).
-Bandit Veteran - Removed Relentless. Regained (new) underdog.  If 2h get survival instinct.
-Brigand Warlord - Removed Relentless, Dodge.
-Spider - Day 30 += +10 mdef/rdef. Day 90 += +10 more mdef/rdef.
-Regular Unholds  - Removed 2x hp from legends, Soft Metal, Bully. Added colossus.
-Ifrit - Removed Last Stand.
-Rock Unhold - Removed 2x hp from legends.
-Greenwood Schrat - removed 2x hitpoints (from legends)
-Stollwurm - Remove  1.5x hp and +5 action points (from legends), bully, cull, survival instinct, soft metal, dent armor.
-Stollwurm Tail - Remove  1.5x hp and +5 action points (from legends).
-Lindwurm - Remove  1.5x hp and +5 action points (from legends).
-Lindwurm Tail - Remove  1.5x hp and +5 action points (from legends).
-Goblin Ambusher Low - Lose Crippling Strikes, Relentless, Dodge, Berserk.
-Goblin Ambushers - Gain Eyes Up.
-Goblin Fighter Low - Full List: Standard difficulty perks, equipped weapon up to t3, relentless, dodge.
-Goblin Fighter - Gain up to t5 in equipped weapon (up from 4). Removed net casting, overwhelm.
-Goblin Wolfrider - removed fast adaptation.
-Orc Young - removed bully. 
-Orc Warrior - Removed Man of Steel, Bully, colossus. Added Bulwark.
-Orc Berserker - Removed Bully, Double Strike.
-Orc Elite - Removed 2x hitpoints (from legends), second wind, sundering strikes, bully, assured conquest, executioner. Added Shield Mastery, crippling strikes.
-Orc Behemoth - Removed bully, relentless. Add Bulwark. Champion loses adrenaline.
-Orc Warlord - Removed man of steel, fortified mind, relentless, Inspiring Presence, battle flow. Gained Exude Confidence.
-Ancient Auxiliary - Removed Shield Expert, Crippling Strikes, Executioner. Added Phalanx.
-Ancient Honor Guard - Removed Overwhelm. Added Vigilant, Underdog.
-The Conqueror - PTRitized! In addition to Standard perks listed above, gained Vigilant, Battleheart, Unstoppable and Killing Frenzy.
-Necrosavant - removed composure. 
-Fallen Betrayer - Removed Cull.
-Barbarian Thrall - Removed rush of battle, resilient.
-Barbarian Reaver - Removed rush of battle, reach advantage, formidable approach, sweeping strikes, resilient, bullseye, battleforged, alert, balance, hand to hand mastery, backstabber, berserk.
-Barbarian Chosen - removed lone wolf, last stand, crippling strikes, the rush of battle, know their weakness, alert, balance, backstabber, hand to hand mastery. Added menacing.
-Barbarian King - Removed Devastating Strikes, last stand, balance, backstabber, hand to hand mastery. Gain Menacing, Batttle Flow. If Miniboss: Retain Devastating Strikes.
-Bounty Hunter - Removed net mastery (unless net), trophy hunter, big game hunter, back to basics. 
-Bounty Hunter Ranged - Removed arrow to the knee, trophy hunter, big game hunter, back to basics, know their weakness. Added Eyes Up (bow), entrenched (crossbow only).
-Militia - Removed fast adaptation. Added Colossus.
-Militia Ranged - removed entrenched. Added strength in numbers.
-Militia Guest - removed fast adaptation.
-Militia Guest Ranged - removed entrenched. Added strength in numbers.
-Militia Veteran - +10 rdef, anticipation, phalanx (if shield), reach advantage (if 2h), double strike (if 1h). Removed executioner, back to basics.
-Militia Captain - Removed formidable approach, reach advantage, duelist, smashing shields, back to basics, immovable object. Added strength in numbers, +10rdef, anticipation, colossus. 
-Caravan Hand - Removed Fast Adaptation. Added weapon perks t2.
-Caravan Guard - Removed survival instinct, assured conquest, alert, anticipation.
-Conscript - removed fast adaptation, rush of battle, survival instinct. Added pathfinder, phalanx, alert, fresh and furious, hale and hearty, rebound, overwhelm, colossus, fearless trait, shield mastery, nimble.
-Conscript Polearm - Full Tree: Standard perks plus: Equipped weapon tree t7, Fearless Trait, Colossus, Alert, Dodge, Fresh and Furious, Hale and Hearty, Overwhelm
-Officer - Removed full 1h/2h/sergeant/trained trees, berserk, fast adaptation, personal armor, know their weakness, last stand. Added resilient, strength in numbers, exude confidence, battleheart, unstoppable, phalanx, survival instinct.
-Assassin - Gained alert, pattern recognition, unstoppable.
-Nomad Cutthroat -  Removed cover ally.
-Nomad Outlaw - Removed full 1h/2h styles trees, duelist (if sword), fast adaptation, battleforged. Added strength in numbers, survival instinct. 
-Nomad Slinger - Replaced headhunter with small target (after day 30). Removed dodge. Added anticipation, heavy projectiles (after day 30).
-Nomad Archer - Removed target practice, ranged supremacy, onslaught, anticipation. Added eyes up (if not flaming arrows), target practice (if flaming arrows).
-Nomad Leader - Removed full 2h/1h second wind, know their weakness, rebound, menacing, battleforged, personal armor, primal fear, man of steel, pattern recognition, fast adaptation.  Added nimble (at start instead of at day 40), strength in numbers.
-Blade Dancer - removed fast adaptation, adrenaline, bloodbath, underdog, feint, battleheart, perfect fit, second wind, unstoppable, fresh and furious, pattern recognition, assured conquest.
-Desert Stalker - Removed know their weakness, headhunter, berserk, ranged supremacy, arrow to the knee, relentless. Added Steel Brow, small target, hair splitter, eyes up, clarity.
-Executioner - removed fresh and furious, pattern recognition, full trained tree, full one handed tree, full 2h tree, battle flow, relentless, devastating strikes, fast adaptation, crippling strikes, executioner dodge. Added Battleheart, bully. If miniboss: Added Sweeping Strikes.
-Gladiator - removed smashing shields, battleforged, killing frenzy, alert(if sword), last stand (if miniboss), full 2h styles tree. Added Colossus, survival instinct, rotation, duelist (if applicable), steel brow, fearless trait, reach advantage (if not duelist).
-Footman - removed fast adaptation, full 1h style tree, smashing shields, strength in numbers, resilient, rush of battle, back to basics, perfect focus, overwhelm, immovable object, colossus, back to basics, rattle. Added underdog, weapon tree to t6, clarity.
-Billman - removed 2x hitpoints (from legends), full 2h tree, full trained tree, leverage (on voulge/hammer), crippling strikes, fast adaptation, backstabber, executioner, feint, immovable object, berserk, battle flow, unstoppable, headhunter. Added anticipation, clarity, sundering strikes.
-Arbalaster - Removed Rush of battle, assured conquest, back to basics, feint, lone wolf. Added clarity.
-Greatsword - Removed fast adaptation, overwhelm, full trained tree, full 2h tree, berserk, relentless, fresh and furious, battle flow, killing frenzy, executioner, bloody harvest(legends version), return favor, rattle, survival instinct. Added formidable approach, bloody harvest, sweeping strikes, battle flow.
-Standard Bearer - Removed lithe, perfect fit, back to basics, the rush of battle. Added nimble, long reach.
-Sergeant - Removed fast adaptation, know their weakness, full 2h/trained/1h/sergeant trees, man of steel, personal armor, last stand, second wind, immovable object, back to basics, feint, fearless trait. Added colossus, reach advantage (if not duelist).
-Knight - removed fast adaptation, full 1h tree, full 2h tree, full trained tree, personal armor, menacing, unstoppable, crippling strikes, berserk, immovable object, last stand, feint, smashing shields, back to basics, bloody harvest (legends version), bear down, colossus, muscularity. Added sundering strikes, duelist (if applicable) phalanx (if shield) Formidable approach (if 2h) reach advantage (if no duelist), clarity.
-Noble Slinger - removed bullseye, rotation, death from afar. Added footwork, heavy projectiles.
-Halberdier - removed full 2h tree, full trained tree, backstabber, footwork, fast adaptation, executioner, assured conquest, crippling strikes, pattern recognition, clarity, leverage (unless halberd), unstoppable, headhunter, reach advantage, removed 2x hitpoints (from legends). Added bloodlust (voulge), perfect fit.
-Fencer - removed full 1h/2h styles, full trained tree, fast adaptation, back to basics, berserk, perfect fit, pattern recognition, 2x hitpoints (from legends), lone wolf, alert. Added, clarity.
-Hedge Knight - removed personal armor, know their weakness, devastating strikes, battle flow, fearsome, fast adaption, crippling strikes, survival instinct, full 1h tree, full 2h tree, back to basics, feint, immovable object, bloody harvest (legends version), adrenaline, berserk, smashing shields (unless axe), killing frenzy. Added reach advantage, line breaker (if shield), double strike (if 1h), bloody harvest (if 2h), exude confidence, bully. If Champion: Added killing frenzy.
-Swordmaster - Removed fast adapatation, pattern recognition, unstoppable, fresh and furious, bloodbath, overwhelm, relentless, immovable object, feint, headhunter, return favor, second wind. Added double strike.
-Master Archer - Removed headhunter, know their weakness, fast adaptation, berserk. Added steel brow, iron sights, eyes up (if bow), rebound.
-Mercenary - removed full 1h/2h styles trees, fast adaptation, smashing shields, know their weakness, killing frenzy, berserk, momentum, bullseye, executioner, resilient. Added linebreaker (if shield), reach advantage (if not duelist)
-Mercenary Low - removed smashing shields, know their weakness, executioner, pathfinder, berserk, bullseye, full 1h styles tree. Added survival instinct
-Mercenary Ranged - Removed fast adaptation, overwhelm, know their weakness, pathfinder, lone wolf, onslaught, assured conquest, marksmanship, relentless, killing frenzy, battle flow. Added primal fear(crossbow), eyes up(bow), anticipation, perfect fit.
-
-
-
-
+Brigand Peasant (Woodcutter, Butcher etc...):
+	- Legendary: Removed 2x hitpoints (from Legends).
+Brigand Raider:
+	- Standard: Removed Relentless, Dodge, Shield Expert and Bullseye. Gain: If shield - Shield Expert. If no shield - Dodge. If offhand free - Relentless.
+	- Legendary: Brigand Raider - If shield - Phalanx. If no shield - Survival Instinct.
+Brigand Marksman:
+	- Legendary: Brigand Marksmen - Removed Marksmanship, added Eyes Up.
+Brigand Leader:
+	- Standard: Removed Sundering Strikes (except on hammer), Smashing Shields (except axe) Rebound, Battle Flow, Berserk, Menacing, Know Their Weakness, Personal Armor, if champion (Dodge, Relentless). Added Rush of Battle, Reach Advantage (if 2h), Duelist (if 1h).
+	- Legendary: Removed Smashing Shields (except axe) Fast Adaptation, Relentless, Menacing, Personal Armor, Battle Flow, Berserk, Killing Frenzy, Pattern Recognition. Added Rush of Battle, Full 2h styles tree (if 2h), If 1h (Double Strike, Pattern Recognition), Clarity, Duelist, if champion: Personal Armor.
+Brigand Veteran:
+	- Standard: Removed Bullseye
+	- Legendary: Removed Relentless. Regained (new) Underdog.  If 2h get Survival Instinct.
+Brigand Warlord:
+	- Standard: Removed Sundering Strikes, Smashing Shields, Feint, Survival Instinct, Pattern Recognition
+	- Legendary: Brigand Warlord - Removed Relentless, Dodge.
+Bear:
+	- Standard: Removed Mauler. Gained Survival Instinct. Replaced Bully with Menacing as intended.
+Spider:
+	- Legendary: Day 30 += +10 mdef/rdef. Day 90 += +10 more mdef/rdef.
+Serpent:
+	- Standard: Removed Know Their Weakness.
+Regular Unholds:
+	- Standard: Removed Survival Instinct, Deep Impact, Soft Metal, Bully.
+	- Legendary: Removed 2x hp from Legends, Soft Metal, Bully. Added Colossus.
+Rock Unhold:
+	- Legendary: Removed 2x hp from Legends.
+Greenwood Schrat:
+	- Legendary: Removed 2x hitpoints (from Legends)
+Ifrit:
+	- Legendary: Removed Last Stand.
+Linwdurm: 
+	- Legendary: Removed 1.5x hp and +5 action points (from Legends).
+Lindwurm Tail: 
+	- Legendary: Removed 1.5x hp and +5 action points (from Legends).
+Stollwurm:
+	- Standard: Remove Bully, Cull, Survival Instinct, Soft Metal, Dent Armor.
+	- Legendary: Remove  1.5x hp and +5 action points (from Legends), Bully, Cull, Survival Instinct, Soft Metal, Dent Armor.
+Stollwurm Tail:
+	- Legendary: Remove  1.5x hp and +5 action points (from Legends).
+Goblin Ambusher Low:
+	- Standard: Lose Ranged Supremacy and Bow Mastery. Gain Eyes Up.
+	- Legendary: Lose Crippling Strikes, Relentless, Dodge, Berserk.
+Goblin Ambusher: 
+	- Standard: Gain Eyes Up.
+	- Legendary: Gain Eyes Up.
+Goblin Fighter Low:
+	- Standard: Full List: equipped weapon up to t2, Net Mastery, Strength in Numbers, Kata (always).
+	- Legendary: Full List: Standard difficulty perks, equipped weapon up to t3, Relentless, Dodge.
+Goblin Fighter: 
+	- Standard: Gain up to t4 in equipped weapon (up from 3)
+	- Legendary: Gain up to t5 in equipped weapon (up from 4). Removed Net Casting, Overwhelm.
+Goblin Wolfrider:
+	- Legendary: Removed Fast Adaptation.
+Orc Young: 
+	- Standard: Removed Fresh and Furious.
+	- Legendary: Removed Bully.
+Orc Warrior:
+	- Standard: Removed Man of Steel, Killing Frenzy, Steadfast.
+	- Legendary: Removed Man of Steel, Bully, Colossus. Added Bulwark.
+Orc Berserker:
+	- Standard: Removed Unstoppable, Know Their Weakness, Killing Frenzy.
+	- Legendary: Removed Bully, Double Strike.
+Orc Elite:
+	- Standard: Removed Man of Steel, Killing Frenzy, Know Their Weakness, The Rush of Battle, Berserk.
+	- Legendary: Removed 2x hitpoints (from Legends), Second Wind, Sundering Strikes, Bully, Assured Conquest, Executioner. Added Shield Mastery, Crippling Strikes.
+Orc Behemoth:
+	- Standard: Removed Swordlike (if cleaver), Exploit Opening (if sword), Killing Frenzy, Unstoppable, Survival Instinct, The Rush of Battle. Add Fearless trait (+10 resolve). Champion loses Adrenaline.
+	- Legendary: Removed Bully, Relentless. Add Bulwark. Champion loses Adrenaline.
+Orc Warlord:
+	- Standard: Removed Overwhelm, Sundering Strikes, Know Thier Weakness, Headsmasher, Killing Frenzy, Man of Steel, The Rush of Battle.
+	- Legendary: Removed Man of Steel, Fortified Mind, Relentless, Inspiring Presence, Battle Flow. Gained Exude Confidence.
+Ancient Auxiliary:
+	- Legendary: Removed Shield Expert, Crippling Strikes, Executioner. Added Phalanx.
+Ancient Honor Guard:
+	- Standard: Removed Battleforged. Gained Personal Armor.
+	- Legendary: Removed Overwhelm. Added Vigilant, Underdog.
+The Conqueror:
+	- Standard: PTRitized! Gained full tree of equipped weapon, full 1h and 2h weapon styles trees, Personal Armor, Fearsome, Man of Steel, Menacing, Resilient.
+	- Legendary: PTRitized! In addition to Standard perks listed above, gained Vigilant, Battleheart, Unstoppable and Killing Frenzy.
+Necrosavant:
+	- Legendary: Removed Composure.
+Embalmed Noble:
+	- Standard: Removed Bloodbath, Slaughter. Gained 2h styles tree.
+Weiderganger:
+	- Standard: Removed Overwhelm. Added Onslaught.
+Armored Weiderganger:
+	- Standard: Removed Overwhelm. Added Onslaught.
+Fallen Hero:
+	- Standard: Removed Mauler, Soft Metal, Executioner. Added all tiers of equipped weapon (except Kata if sword).
+Fallen Betrayer:
+	- Standard: Removed Soft Metal.
+	- Legendary: Removed Cull.
+Assassin:
+	- Standard: Gained Vigorous Assault, Know Their Weakness.
+Barbarian Thrall:
+	- Standard: Removed Rush of Battle, Resilient.
+	- Legendary: Removed Rush of Battle, Resilient.
+Barbarian Reaver:
+	- Standard: Removed Rush of Battle, Bloody Harvest, Reach Advantage, Sweeping Strikes, Formidable Approach, Resilient, Survival Instinct, t5 weapon perks, Bullseye.
+	- Legendary: Removed Rush of Battle, Reach Advantage, Formidable Approach, Sweeping Strikes, Resilient, Bullseye, Battleforged, Alert, Balance, Hand to Hand Mastery, Backstabber, Berserk.
+Barbarian Chosen:
+	- Standard: Removed Man of Steel, Crippling Strikes, The Rush of Battle, Know Their Weakness, Reach Advantage.
+	- Legendary: Removed Lone Wolf, Last Stand, Crippling Strikes, The Rush of Battle, Know Their Weakness, Alert, Balance, Backstabber, Hand to Hand Mastery. Added Menacing.
+Barbarian King:
+	- Standard: Removed Devastating Strikes, Bulwark. If Miniboss: Retain Devastating Strikes.
+	- Legendary: Removed Devastating Strikes, Last Stand, Balance, Backstabber, Hand to Hand Mastery. Gain Menacing, Batttle Flow. If Miniboss: Retain Devastating Strikes.
+Bounty Hunter:
+	- Standard: Removed t5 weapon perks.
+	- Legendary: Removed Net Mastery (unless net), Trophy Hunter, Big Game hunter, Back to Basics. 
+Bounty Hunter Ranged:
+	- Standard: Removed Arrow to the Knee, Flaming Arrows, Iron Sights. Added Eyes Up (bow only), Entrenched (crossbow only).
+	- Legendary: Removed Arrow to the Knee, Trophy Hunter, Big Game Hunter, Back to Basics, Know Their Weakness. Added Eyes Up (bow), Entrenched (crossbow only).
+Peasant: 
+	- Legendary: Removed 1.5x hitpoints (from Legends)
+Armed Peasant:
+	- Legendary: Removed 1.5x hitpoints (from Legends)
+Militia:
+	- Legendary: Removed Fast Adaptation. Added Colossus.
+Militia Ranged:
+	- Standard: Removed Entrenched. Added Strength in Numbers.
+	- Legendary: Removed Entrenched. Added Strength in Numbers.
+Militia Guest:
+	- Legendary: Removed Fast Adaptation.
+Militia Guest Ranged:
+	- Standard: Removed Entrenched. Added Strength in Numbers.
+	- Legendary: Removed Entrenched. Added Strength in Numbers.
+Militia Veteran:
+	- Standard: +10 rdef, Anticipation, Phalanx (if shield).
+	- Legendary: +10 rdef, Anticipation, Phalanx (if shield), Reach Advantage (if 2h), Double Strike (if 1h). Removed Executioner, Back to Basics.
+Militia Captain
+	- Standard: Removed Formidable Approach, Reach Advantage, Duelist. Added Strength in Numbers, +10rdef, Anticipation, Survival Instinct, Phalanx. 
+	- Legendary: Removed Formidable Approach, Reach Advantage, Duelist, Smashing Shields, Back to Basics, Immovable Object. Added Strength in Numbers, +10rdef, Anticipation, Colossus. 
+Caravan Hand:
+	- Legendary: Removed Fast Adaptation. Added weapon perks t2.
+Caravan Guard:
+	- Standard: Removed Survival Instinct, Anticipation.
+	- Legendary: Removed Survival Instinct, Assured Conquest, Alert, Anticipation.
+Conscript:
+	- Standard: Removed Fast Adaptation, Rush of Battle. Added Phalanx, Pathfinder, Rebound Nimble.
+	- Legendary: Removed Fast Adaptation, Rush of Battle, Survival Instinct. Added Pathfinder, Phalanx, Alert, Fresh and Furious, Hale and Hearty, Rebound, Overwhelm, Colossus, Fearless trait, Shield Mastery, Nimble.
+Conscript Polearm:
+	- Standard: Full Tree: Equipped weapon tree t4, Brawny, Nimble, Crippling Strikes, Rotation, Recover, Strength in Numbers, Relentless, Pathfinder, Rebound
+	- Legendary: Full Tree: Standard perks plus: Equipped weapon tree t7, Fearless Trait, Colossus, Alert, Dodge, Fresh and Furious, Hale and Hearty, Overwhelm
+Officer:
+	- Standard: Removed full 1h/2h/sergeant/trained trees, Berserk, Fast Adaptation, Steel Brow, Personal Armor, Know Their Weakness. Added Resilient, Strength in Numbers, Exude Confidence, Underdog, Inspiring presence (force enabled).
+	- Legendary: Removed full 1h/2h/sergeant/trained trees, Berserk, Fast Adaptation, Personal Armor, Know Their Weakness, Last Stand. Added Resilient, Strength in Numbers, Exude Confidence, Battleheart, Unstoppable, Phalanx, Survival Instinct.
+Assassin:
+	- Legendary: Gained Alert, Pattern Recognition, Unstoppable.
+Indebted:
+	- Standard: Added Strength in Numbers.
+Nomad Cutthroat:
+	- Standard: Removed Strength in Numbers, Cover Ally.
+	- Legendary: Removed Cover Ally.
+Nomad Outlaw:
+	- Standard: Removed full 1h/2h styles trees, Duelist (if sword). Added Strength in Numbers, Cover Ally. 
+	- Legendary: Removed full 1h/2h styles trees, Duelist (if sword), Fast Adaptation, Battleforged. Added Strength in Numbers, Survival Instinct. 
+Nomad Slinger:
+	- Standard: Replaced Headhunter with Small Target (after day 30).
+	- Legendary: Replaced Headhunter with Small Target (after day 30). Removed Dodge. Added Anticipation, Heavy Projectiles (after day 30).
+Nomad Archer:
+	- Standard: Removed Target Practice, Ranged Supremacy. Added Eyes Up (if not Flaming Arrows)
+	- Legendary: Removed Target Practice, Ranged Supremacy, Onslaught, Anticipation. Added Eyes Up (if not Flaming Arrows), Target Practice (if Flaming Arrows).
+Nomad Leader:
+	- Standard: Removed full 2h/1h Second Wind, Know Their Weakness, Rebound, Relentless, Menacing, Battleforged, Personal Armor, Primal Fear, Man of Steel,  Added Nimble (at start instead of at day 40).
+	- Legendary: Removed full 2h/1h Second Wind, Know Their Weakness, Rebound, Menacing, Battleforged, Personal Armor, Primal Fear, Man of Steel, Pattern Recognition, Fast Adaptation.  Added Nimble (at start instead of at day 40), Strength in Numbers.
+Blade Dancer:
+	- Standard: Removed Fast Adaptation, Adrenaline, Bloodbath, Relentless, Underdog, Unstoppable, Fresh and Furious, Headhunter, Bloody Harvest, Reach Advantage, t6-t7 of equipped weapon. Added Kata (always). If Miniboss: Removed Double Strike.
+	- Legendary: Removed Fast Adaptation, Adrenaline, Bloodbath, Underdog, Feint, Battleheart, Perfect Fit, Second Wind, Unstoppable, Fresh and Furious, Pattern Recognition, Assured Conquest.
+Desert Stalker:
+	- Standard: Removed Know Their Weakness, Headhunter, Berserk, Ranged Supremacy, Arrow to the Kneww. Added Steel Brow, Small Target.
+	- Legendary: Removed Know Their Weakness, Headhunter, Berserk, Ranged Supremacy, Arrow to the Kneww, Relentless. Added Steel Brow, Small Target, Hair Splitter, Eyes Up, Clarity.
+Executioner:
+	- Standard: Removed Fresh and Furious, Pattern Recognition, full trained tree, full one handed tree, full 2h tree, Battle Flow, Relentless, devastating strikes, Fast Adaptation, Crippling Strikes, Executioner. Gained Underdog, Menacing. If miniboss: Removed Reach Advantage. Added Sweeping Strikes.
+	- Legendary: Removed Fresh and Furious, Pattern Recognition, full trained tree, full one handed tree, full 2h tree, Battle Flow, Relentless, devastating strikes, Fast Adaptation, Crippling Strikes, Executioner Dodge. Added Battleheart, Bully. If Champion: Added Sweeping Strikes.
+Gladiator:
+	- Standard: Removed Smashing Shields, Fast Adaptation, full 2h styles tree. Added Rotation, Steel Brow.
+	- Legendary: Removed Smashing Shields, Battleforged, Killing Frenzy, Alert(if sword), Last Stand (if miniboss), full 2h styles tree. Added Colossus, Survival Instinct, Rotation, Duelist (if applicable), Steel Brow, Fearless trait, Reach Advantage (if not Duelist).
+Footman:
+	- Standard: Removed t5-6 weapon perks, Fast Adaptation, full 1h style tree, Strength in Numbers, Resilient, Rush of Battle.
+	- Legendary: Removed Fast Adaptation, full 1h style tree, Smashing Shields, Strength in Numbers, Resilient, Rush of Battle, Back to Basics, Perfect Focus, Overwhelm, Immovable Object, Colossus, Back to Basics, Rattle. Added Underdog, weapon tree to t6, Clarity.
+Billman:
+	- Standard: Removed full 2h tree, full trained tree, t6-7 of equipped weapon, Leverage (on voulge/hammer), Pattern Recognition, Crippling Strikes, Fast Adaptation, Backstabber. Added Follow up.
+	- Legendary: Removed 2x hitpoints (from legends), full 2h tree, full trained tree, Leverage (on voulge/hammer), Crippling Strikes, Fast Adaptation, Backstabber, Executioner, Feint, Immovable Object, Berserk, Battle Flow, Unstoppable, Headhunter. Added Anticipation, Clarity, Sundering Strikes.
+Arbalester:
+	- Standard: Removed Rush of Battle, Back to Basics.
+	- Legendary: Removed Rush of Battle, Assured Conquest, Back to Basics, Feint, Lone Wolf. Added Clarity.
+Greatsword:
+	- Standard: Removed Fast Adaptation, Overwhelm, full trained tree, full 2h tree, Versatile Weapon, Exploit Opening, Tempo, en garde, Berserk, Relentless, Fresh and Furious, Battle Flow, Killing Frenzy, Executioner, Man of Steel. Added Underdog, Bloody Harvest.
+	- Legendary: Removed Fast Adaptation, Overwhelm, full trained tree, full 2h tree, Berserk, Relentless, Fresh and Furious, Battle Flow, Killing Frenzy, Executioner, Bloody Harvest(legends version), Return Favor, Rattle, Survival Instinct. Added Formidable Approach, Bloody Harvest, Sweeping Strikes, Battle Flow.
+Standard Bearer:
+	- Standard: Removed Lithe, Perfect Fit, Back to Basics, The Rush of Battle.
+	- Legendary: Removed Lithe, Perfect Fit, Back to Basics, The Rush of Battle. Added Nimble, Long Reach.
+Sergeant:
+	- Standard: Removed Fast Adaptation, Know Their Weakness, full 2h/trained/1h/sergeant trees, Mind Over Body, Man of Steel, Personal Armor, Duelist.
+	- Legendary: Removed Fast Adaptation, Know Their Weakness, full 2h/trained/1h/sergeant trees, Man of Steel, Personal Armor, Last Stand, Second Wind, Immovable Object, Back to Basics, Feint, Fearless trait. Added Colossus, Reach Advantage (if not Duelist).
+Knight:
+	- Standard: Removed Fast Adaptation, full 1h tree, full 2h tree, full trained tree, Personal Armor, Menacing, Unstoppable, Crippling Strikes, Berserk. Added Sundering Strikes.
+	- Legendary: Removed Fast Adaptation, full 1h tree, full 2h tree, full trained tree, Personal Armor, Menacing, Unstoppable, Crippling Strikes, Berserk, Immovable Object, Last Stand, Feint, Smashing Shields, Back to Basics, Bloody Harvest (legends version), Bear Down, Colossus, Muscularity. Added Sundering Strikes, Duelist (if applicable) Phalanx (if shield) Formidable Approach (if 2h) Reach Advantage (if no Duelist), Clarity.
+Noble Slinger:
+	- Standard: Removed Bullseye, Rotation. Added Footwork.
+	- Legendary: Removed Bullseye, Rotation, Death From Afar. Added Footwork, Heavy Projectiles.
+Halberdier:
+	- Standard: Removed full 2h tree, full trained tree, Backstabber, Footwork, Fast Adaptation, Executioner, Crippling Strikes, Pattern Recognition, Clarity, Leverage (unless halberd), Reach Advantage. Added Bloodlust (voulge).
+	- Legendary: Removed full 2h tree, full trained tree, Backstabber, Footwork, Fast Adaptation, Executioner, Assured Conquest, Crippling Strikes, Pattern Recognition, Clarity, Leverage (unless halberd), Unstoppable, Headhunter, Reach Advantage, Removed 2x hitpoints (from legends). Added Bloodlust (voulge), Perfect Fit.
+Fencer:
+	- Standard: Removed full 1h/2h styles, full trained tree, Fast Adaptation, Back to Basics, Berserk, Double Strike, Perfect Fit, Pattern Recognition, Lone Wolf.
+	- Legendary: Removed full 1h/2h styles, full trained tree, Fast Adaptation, Back to Basics, Berserk, Perfect Fit, Pattern Recognition, 2x hitpoints (from legends), Lone Wolf, Alert. Added, Clarity.
+Hedge Knight:
+	- Standard: Removed Personal Armor, Know Their Weakness, devastating strikes, Battle Flow, Fearsome, Fast Adaptation, Crippling Strikes, Survival Instinct, full 1h tree, full 2h tree, Berserk, Killing Frenzy. Added Reach Advantage (if applicable), Bully. If Champion: Removed Pattern Recognition. Added Killing Frenzy.
+	- Legendary: Removed Personal Armor, Know Their Weakness, devastating strikes, Battle Flow, Fearsome, Fast Adaptation, Crippling Strikes, Survival Instinct, full 1h tree, full 2h tree, Back to Basics, Feint, Immovable Object, Bloody Harvest (legends version), Adrenaline, Berserk, Smashing Shields (unless axe), Killing Frenzy. Added Reach Advantage, Line Breaker (if shield), Double Strike (if 1h), Bloody Harvest (if 2h), Exude Confidence, Bully. If Champion: Added Killing Frenzy.
+Swordmaster:
+	- Standard: Removed Fast Adaptation, Pattern Recognition, Unstoppable, Fresh and Furious, Bloodbath, Overwhelm, Relentless.
+	- Legendary: Removed Fast Adaptation, Pattern Recognition, Unstoppable, Fresh and Furious, Bloodbath, Overwhelm, Relentless, Immovable Object, Feint, Headhunter, Return Favor, Second Wind. Added Double Strike.
+Master Archer:
+	- Standard: Removed Headhunter, Know Their Weakness, Fast Adaptation, Muscle Memory, Berserk. Added Steel Brow, Iron Sights.
+	- Legendary: Removed Headhunter, Know Their Weakness, Fast Adaptation, Berserk. Added Steel Brow, Iron Sights, Eyes Up (if bow), Rebound.
+Mercenary:
+	- Standard: Removed full 1h/2h styles trees, Fast Adaptation, Smashing Shields, Know Their Weakness, Killing Frenzy, Berserk, Momentum, Bullseye, Executioner. Added Linebreaker (if shield), Skirmisher
+	- Legendary: Removed full 1h/2h styles trees, Fast Adaptation, Smashing Shields, Know Their Weakness, Killing Frenzy, Berserk, Momentum, Bullseye, Executioner, Resilient. Added Linebreaker (if shield), Reach Advantage (if not Duelist)
+Mercenary Low:
+	- Standard: Removed Smashing Shields, Know Their Weakness, Reach Advantage, t6 of equipped weapon, Shield Expert, Executioner.
+	- Legendary: Removed Smashing Shields, Know Their Weakness, Executioner, Pathfinder, Berserk, Bullseye, full 1h styles tree. Added Survival Instinct
+Mercenary Ranged:
+	- Standard: Removed Fast Adaptation, Overwhelm, Ranged Supremacy, Know Their Weakness, Dodge, Pathfinder. Added Primal Fear(crossbow).
+	- Legendary: Removed Fast Adaptation, Overwhelm, Know Their Weakness, Pathfinder, Lone Wolf, Onslaught, Assured Conquest, Marksmanship, Relentless, Killing Frenzy, Battle Flow. Added Primal Fear(crossbow), Eyes Up(bow), Anticipation, Perfect Fit.
 
 == MAJOR ==
 - New mechanic: "Encumbrance" - Wearing heavier armor will now start reducing Fatigue Recovery as well. If this is affecting your bro, a status effect by the name of Encumbrance will appear on your bro.
@@ -201,7 +279,7 @@ Mercenary Ranged - Removed fast adaptation, overwhelm, know their weakness, path
 - Pattern Recognition +1 scaling now starts after reaching a bonus of 10 (down from 15).
 - The Rush of Battle effect now shows the number of stacks in its name.
 - Slight improvements to AI for using Cover Ally.
-- Immersive Damage System (IDS) now only adds an entry to the combat log if both the attacker and the target are visible to the player. Also removed the empty line before the combat log entry.
+- Immersive Damage System (IDS) now only adds an entry to the combat log if both the attacker and the target are visible to the player. Also Removed the empty line before the combat log entry.
 - Realized Potential can no longer add too many new perks to the perk tree. It is now limited to 13 columns. It now adds 1 Traits tree and 2 Weapon Trees. Any added perks that would overflow the 13 columns limit are shifted to the next row.
 - Removed the extra headshot chance from Estoc.
 - Added Pathfinder to the Devious perk group t1 (in addition to already being on the Agile perk group t1).
@@ -228,7 +306,7 @@ Mercenary Ranged - Removed fast adaptation, overwhelm, know their weakness, path
 - Fixed Long Reach working with all melee weapons instead of with Polearms only.
 - Improved tooltip generation for Sword Thrust and Lunge.
 - The Kingsguard no longer has the Promised Potential perk in his perk tree.
-- Improved Arrow to the Knee attack effect and active skill tooltips. The tooltips now also mention that the attacks will do reduced damage and have lower chance to hit.
+- Improved Arrow to the Kneww attack effect and active skill tooltips. The tooltips now also mention that the attacks will do reduced damage and have lower chance to hit.
 - Improved the tooltip of the Old Swordmaster origin to now show the free perks that you got.
 
 ===================
@@ -329,7 +407,7 @@ Mercenary Ranged - Removed fast adaptation, overwhelm, know their weakness, path
 	- The Fountain of Youth (Grotesque Tree) location no longer exists in this origin.
 	- Many bug fixes and tweaks.
 - Bone Breaker from the same attacker can no longer proc more than once on the same target in the same turn.
-- Made Flail Spinner non-lethal when AI uses it, but gave them a 25% damage boost for the free attack. This is a temporary fix for some AI issues which were causing battles to freeze after an enemy killed someone with Flail Spinner.
+- Made Flail Spinner non-lethal when AI uses it, but gave them a 25% damage boost for the free attack. This is a Temporary fix for some AI issues which were causing battles to freeze after an enemy killed someone with Flail Spinner.
 - Gave PTR perks and trees to Cultist Darksoul, Lurker and Magister.
 - Removed the mechanic that refunded Composure and Stalwart. These perks should no longer appear on the player anyway.
 - Moved Lithe from Medium Armor t5 to t6.
@@ -339,7 +417,7 @@ Mercenary Ranged - Removed fast adaptation, overwhelm, know their weakness, path
 	- Removed Last Stand
 	- Added Underdog
 	- Added permanent Return Favor
-- Removed nimble from Frenzied Direwolves.
+- Removed Nimble from Frenzied Direwolves.
 - Now that Underdog has been nerfed, it has been added back to Knight, Hedge Knight, Zweihander.
 - Squire and Militia now have the Trained perk group guaranteed on them.
 - Removed Man of Steel, Personal Armor and Survival Instinct from Crusader Commander, as well as some minor perks that won't be noticed (thanks The Indomitable Snowman!).
@@ -520,7 +598,7 @@ Mercenary Ranged - Removed fast adaptation, overwhelm, know their weakness, path
 ==== Ver 1.2.29 ====
 ====================
 - Requires Legends version 15.0.1.20d or later.
-- Always an Entertainer will now refresh at Midday rather than Morning. This is a temporary change to check what is causing the save-game crashes (MSU asset manager hook saving a flag to World is disabled).
+- Always an Entertainer will now refresh at Midday rather than Morning. This is a Temporary change to check what is causing the save-game crashes (MSU asset manager hook saving a flag to World is disabled).
 - Modding: Updated MSU to v0.6.14.
 
 ====================
@@ -577,7 +655,7 @@ Mercenary Ranged - Removed fast adaptation, overwhelm, know their weakness, path
 ==== Ver 1.2.20 ====
 ====================
 - Tweaked the perks of many enemies to improve combat balance. The list of changes is too long to mention here.
-- Underdog has been removed from almost all enemies. Surrounding is a fundamental game mechanic and should be useful again now.
+- Underdog has been Removed from almost all enemies. Surrounding is a fundamental game mechanic and should be useful again now.
 - Deep Cuts now applies to all subsequent attacks against the same target during that turn instead of every second attack.
 - Close Combat Archer now provides 25% of melee skill as additional chance to hit at 2 tiles distance (down from 50%).
 - Opportunist now shows an entry in the tooltip when hovering over a tile with a valid usable corpse during the turn of the Opportunist character.
@@ -803,7 +881,7 @@ Mercenary Ranged - Removed fast adaptation, overwhelm, know their weakness, path
 - AI characters wielding ranged or 2-tile weapons will now (hopefully) properly move out of zone of control when convered by ally.
 - Fixed Saif not getting the Riposte skill with Exploit Opening.
 - Fixed AI with fencing swords not getting the Fencing perk.
-- Fixed the Entrenched bonus starting the first turn as if entrenched for 2 turns.
+- Fixed the Entrenched bonus starting the first turn as if Entrenched for 2 turns.
 - Fixed Dismemberment having an extremely low threshold to inflict injury.
 - Fixed shots with Crossbow using Take Aim sometimes diverting to a nearby tile.
 - Fixed the chance of Bone Breaker with One-Handed maces being 33% whereas it should be 50% as mentioned in the tooltip.
@@ -828,7 +906,7 @@ Mercenary Ranged - Removed fast adaptation, overwhelm, know their weakness, path
 ==== Ver 1.1.3 ====
 ===================
 == MAJOR CHANGES ==
-- All Pole-type weapons (i.e. any two-handed weapon with 2-tile range) now have a -15% chance to hit adjacent targets. This is in addition to the regular -15% chance to hit that they already have for adjacent targets. That -15% is removed by the mastery of that weapon, but the newly added -15% always remains.
+- All Pole-type weapons (i.e. any two-handed weapon with 2-tile range) now have a -15% chance to hit adjacent targets. This is in addition to the regular -15% chance to hit that they already have for adjacent targets. That -15% is Removed by the mastery of that weapon, but the newly added -15% always remains.
 - Fluid Weapon reworked: Gain Initiative equal to 35% of the currently equipped sword's armor ignore damage percentage. Weapon Skills build up less Fatigue equal to 20% of the currently equipped sword's armor effectiveness.
 - Pattern Recognition tweaked: Every time an opponent attacks you or you attack an opponent, gain stacking Melee Skill and Melee Defense against that opponent for the remainder of the combat. Every subsequent attack gives a larger bonus, with the first attack giving +1, the second +2, the third +3, and so on. Once the bonus reaches 15, all subsequent attacks increase it by +1 only. Only works with dealing or receiving melee attacks.
 - Bloodlust tweaked: Now also procs when killing a target.
@@ -890,7 +968,7 @@ Mercenary Ranged - Removed fast adaptation, overwhelm, know their weakness, path
 - Added a new projectile for Flaming Arrows (Thanks to Necromancer!).
 - Updated all remaining status effect descriptions to now use the Legends vars system for pronouns.
 - Added new icons for the following: Exploit Opening, Weapon Master, Exploitable Opening effect, Covered by Ally effect.
-- Improved the icons for the following: Formidable Approach, Primal Fear, Follow Up skill, Arrow to the Knee skill, Cover Ally skill, Covering Ally effect.
+- Improved the icons for the following: Formidable Approach, Primal Fear, Follow Up skill, Arrow to the Kneww skill, Cover Ally skill, Covering Ally effect.
 - Added "mini" icons for almost all status effects. These are the icons that appear above the characters when you press the Alt key.
 
 == FIXES ==
@@ -955,12 +1033,12 @@ Mercenary Ranged - Removed fast adaptation, overwhelm, know their weakness, path
 - Fixed Unstoppable not giving a stack after 2 attacks at 2 tiles range as it should.
 - Fixed Militia Captain not getting some perks properly.
 - Fixed Noble Fencer not spawning and causing the battle to crash/freeze.
-- Fixed some language issues in the Arrow to the Knee perk tooltip.
+- Fixed some language issues in the Arrow to the Kneww perk tooltip.
 
 ===================
 ==== Ver 1.0.3 ====
 ===================
-- Changed guaranteed perks on Crusader Commander to account for getting rebound for free.
+- Changed guaranteed perks on Crusader Commander to account for getting Rebound for free.
 - Gave sickle skills back to Druid Commander as they spawn with one and also there are late-game-usable named ones.
 
 ===================
@@ -992,7 +1070,7 @@ Mercenary Ranged - Removed fast adaptation, overwhelm, know their weakness, path
 - PTR now includes WMS, Duelist Defense, and the Fencer Perk mod (now called Better Fencing). So, delete these from your data folder.
 
 == MAJOR CHANGES ==
-- Moved the Fencer perk to Light Armor t7 and removed it from Sword t7.
+- Moved the Fencer perk to Light Armor t7 and Removed it from Sword t7.
 - Tempo now carries over to the next turn but the carried over bonus only lasts until the first skill used, or waiting the turn.
 - Tumble no longer reduces the Action Point cost of fencing Lunge. Still reduces Fatigue Cost.
 
@@ -1013,8 +1091,8 @@ Mercenary Ranged - Removed fast adaptation, overwhelm, know their weakness, path
 - Requires MSU 0.6.4.
 - Perk trees are now limited to 13 columns for most recruits (only applies to new recruits).
 - Implemented code to conform to new MSU item-swapping functionality.
-- Removed the Fist Tree from Weapons (this will be removed in next Legends build too). Only the Unarmed Class tree will remain.
-- Removed Magic Missile and related perks from Evoker (just like they removed it in Legends) and gave it the magic perks it has in Legends.
+- Removed the Fist Tree from Weapons (this will be Removed in next Legends build too). Only the Unarmed Class tree will remain.
+- Removed Magic Missile and related perks from Evoker (just like they Removed it in Legends) and gave it the magic perks it has in Legends.
 - Fixed Offhand Training free item-swap not refreshing on new turn.
 - Hopefully fixed an issue when starting campaign as Lone Wolf.
 
@@ -1022,8 +1100,8 @@ Mercenary Ranged - Removed fast adaptation, overwhelm, know their weakness, path
 ==== Ver 0.14.7 ======
 ======================
 - Iron Sights now requires Crossbow or Firearm. The bonus chance to hit the head is now +25% (up from +15%).
-- Fixed Know their Weakness losing 10% Melee Skill upon getting hit instead of 5%.
-- Fixed Know their Weakness status effect tooltip to now correctly show the % bonuses gained.
+- Fixed Know Their Weakness losing 10% Melee Skill upon getting hit instead of 5%.
+- Fixed Know Their Weakness status effect tooltip to now correctly show the % bonuses gained.
 - Fixed Blunt and Cutting type attacks applying injuries to Undead without any perks.
 
 ======================
@@ -1148,8 +1226,8 @@ Mercenary Ranged - Removed fast adaptation, overwhelm, know their weakness, path
 ==== Ver 0.13.9 ======
 ======================
 - Temporarily disabled the "Hold the Line" and "Push Forward" skills on Bandit Leaders and other similar high-tier enemies as they were using it too often, hampering their offensive output. Once we find a solution for this, this change will be reverted.
-- The Follow Up effect will now be removed when the Morale State changes to Fleeing (it didn't proc when Fleeing anyway, but now the effect is removed as well).
-- Fixed the Follow Up effect being removed on moving, as this is no longer intended in the current Follow Up implementation.
+- The Follow Up effect will now be Removed when the Morale State changes to Fleeing (it didn't proc when Fleeing anyway, but now the effect is Removed as well).
+- Fixed the Follow Up effect being Removed on moving, as this is no longer intended in the current Follow Up implementation.
 - Fixed Phalanx status effect tooltip always showing bonus Melee Skill even when not equipping a Spear and no Melee Skill was being given by the perk.
 - Fixed the tooltip of the Survival Instinct status effect not showing up.
 
@@ -1166,7 +1244,7 @@ Mercenary Ranged - Removed fast adaptation, overwhelm, know their weakness, path
 - Fixed the perk group names in the tooltips of Hair Splitter, Leap, Tumble, Calm, Holy Man, and Field Repairs perks.
 
 == Code backend ==
-- The Fast perk group no longer has a weight to gain the Agile perk group, and the Sturdy perk group no longer has a weight to gain the Large perk group. This is a temporary thing, as it was causing some issues.
+- The Fast perk group no longer has a weight to gain the Agile perk group, and the Sturdy perk group no longer has a weight to gain the Large perk group. This is a Temporary thing, as it was causing some issues.
 - The Greatsword perk group in code now points directly to the Sword perk group, so we don't have to manage it separately.
 
 ======================
@@ -1180,7 +1258,7 @@ Mercenary Ranged - Removed fast adaptation, overwhelm, know their weakness, path
 ======================
 - Now requires WMS v1.4.0 or later.
 - Reverted Follow Up back to its original design i.e. now causes an instant free attack on a target who gets hit by your ally. Hopefully this no longer leads to battle freezes when it kills an enemy (it used to happen sometimes, not always). If it happens, please report in #bugs.
-- The damage bonuses from versatile weapon are now multiplicative, except the armor ignore bonus which is still additive.
+- The damage bonuses from Versatile Weapon are now multiplicative, except the armor ignore bonus which is still additive.
 - Clarified tooltip descriptions to no longer have a "+" next to bonuses which are multiplicative. For example, "gain +20% damage" is now described as "damage is increased by 20%" etc.
 - Fixed Named Shamshirs doing 0 - 0 damage.
 - Fixed the "Easy Target" perk working with all weapons instead of working only with Staves.
@@ -1190,7 +1268,7 @@ Mercenary Ranged - Removed fast adaptation, overwhelm, know their weakness, path
 ==== Ver 0.13.5 ======
 ======================
 - Fixed the Weapon Master perk not giving free swap of one-handed weapons.
-- Fixed the fact that Riposte was available on southern swords even without the Exploit Opening perk, and got removed when you picked the perk. Now it should work the other way around, as intended.
+- Fixed the fact that Riposte was available on southern swords even without the Exploit Opening perk, and got Removed when you picked the perk. Now it should work the other way around, as intended.
 - Fixed a case where Discovered Talent would bug out when picking the perk and didn't get activated, and caused all future levelups to be +1 only.
 
 ======================
@@ -1206,7 +1284,7 @@ Mercenary Ranged - Removed fast adaptation, overwhelm, know their weakness, path
 - Fixed a calculation mistake in Heightened Reflexes which was reducing the Fatigue Cost of skills much more than intended.
 - Fixed Kata Step not being usable if you hit other targets in an AOE attack but miss the last target.
 - Fixed The Rush of Battle tooltip saying that it is from the Soldier perk group, whereas actually it is from the Trained perk group.
-- Improved the tooltip of the Arrow to the Knee skill to now clearly state that it applies to attacks during this turn only.
+- Improved the tooltip of the Arrow to the Kneww skill to now clearly state that it applies to attacks during this turn only.
 
 ======================
 ==== Ver 0.13.3 ======
@@ -1260,12 +1338,12 @@ Mercenary Ranged - Removed fast adaptation, overwhelm, know their weakness, path
 - Made it clear in the tooltip of the Survival Instinct perk that it is a stacking buff.
 - Made it clear in the tooltip of the Swift Stabs perk that it only works with daggers equipped in the Mainhand.
 - Made it clear in the tooltip of the Cull perk that it ignores Nine Lives on the target.
-- Added quantitative information in the tooltip of the Arrow to the Knee perk about the effects of the debuff.
+- Added quantitative information in the tooltip of the Arrow to the Kneww perk about the effects of the debuff.
 - Discovered Talent: Now can be picked regardless of pending levelups but the increased talents will only apply to levelups obtained from Level 6 onwards. This was the original intent of the perk, and finally it has been implemented that way.
 
 == AI BALANCE ==
 - Removed the Kata perk from all orcs, except Orc Berserkers.
-- AI will no longer use Arrow to the Knee.
+- AI will no longer use Arrow to the Kneww.
 
 == FIXES ==
 - Fixed the game sometimes crashing/freezing when a character with the Exploit Opening perk died.
@@ -1284,7 +1362,7 @@ Mercenary Ranged - Removed fast adaptation, overwhelm, know their weakness, path
 ======================
 ==== Ver 0.12.4 ======
 ======================
--Edited some tooltips for clarity.
+-Edited some tooltips for Clarity.
 -Fixed Assassin, Event Noble and Trader backgrounds not receiving PTR perks.
 -Fixed Close Combat Archer adding too much armor penetration.
 
@@ -1320,7 +1398,7 @@ Mercenary Ranged - Removed fast adaptation, overwhelm, know their weakness, path
 - The Legendary Mage Swordstaff is exempt from the above changes.
 - Dent Armor: Increased the chance with two-handed hammers to 66% and with one-handed hammers to 33%.
 - Discovered Talent can no longer be picked if you have pending level-ups to assign.
-- Promised Potential can no longer be picked on the Kingsguard, even if he has the perk available. This is a temporary solution, ideally he shouldn't have the perk available.
+- Promised Potential can no longer be picked on the Kingsguard, even if he has the perk available. This is a Temporary solution, ideally he shouldn't have the perk available.
 - The Beggar Commander no longer has the Promised Potential perk.
 
 == BALANCE ==
@@ -1335,7 +1413,7 @@ Mercenary Ranged - Removed fast adaptation, overwhelm, know their weakness, path
 ======================
 ==== Ver 0.11.6 ======
 ======================
-- Should now be compatible with mods which add other backgrounds e.g. the Magic Mod Trio mod. Although such backgrounds will not be assigned the perk groups in a weighted random way, but rather in the way programmed by the respective mod. Except the Styles trees, which will be assigned by PTR because they contain some essential perks (e.g. duelist, reach advantage etc.) unless these perks are already assigned by the other mod.
+- Should now be compatible with mods which add other backgrounds e.g. the Magic Mod Trio mod. Although such backgrounds will not be assigned the perk groups in a weighted random way, but rather in the way programmed by the respective mod. Except the Styles trees, which will be assigned by PTR because they contain some essential perks (e.g. Duelist, Reach Advantage etc.) unless these perks are already assigned by the other mod.
 
 ======================
 ==== Ver 0.11.5 ======
@@ -1407,8 +1485,8 @@ Mercenary Ranged - Removed fast adaptation, overwhelm, know their weakness, path
 ======================
 - Added new AI behaviors for the "Hold the Line" and "Push Forward" skills. Still may not be perfect, so please provide feedback on how "intelligent" it feels now.
 - Removed the "Protect" AI behavior from Brigand Leaders, Brigand Warlords, Nomad Leaders, and Knights. Now these elite enemies will no longer waste time protecting their ranged units.
-- Made some improvements to Arrow to the Knee AI. Now it will be less likely to use the Arrow to the Knee skill against targets of low Melee Skill.
-- Hopefully fixed an AI "soft-lock" when using Arrow to the Knee.
+- Made some improvements to Arrow to the Kneww AI. Now it will be less likely to use the Arrow to the Kneww skill against targets of low Melee Skill.
+- Hopefully fixed an AI "soft-lock" when using Arrow to the Kneww.
 
 ======================
 ==== Ver 0.10.2 ======
@@ -1549,7 +1627,7 @@ Mercenary Ranged - Removed fast adaptation, overwhelm, know their weakness, path
 ====================
 - The Talented perk group is now rarer than before.
 - The Trained perk group is now rarer than before.
-- AI will now make use of the 'Arrow to the Knee' and 'Follow Up' skills.
+- AI will now make use of the 'Arrow to the Kneww' and 'Follow Up' skills.
 - Fixed Nomad Slingers causing a crash.
 - Fixed Hyenas not getting the Soft Metal perk, which also messed up them getting some other perks.
 - Fixed Clarity bugging out when picking it.
@@ -1568,7 +1646,7 @@ Mercenary Ranged - Removed fast adaptation, overwhelm, know their weakness, path
 ====================
 ==== Ver 0.8.2 =====
 ====================
-- Arrow to the Knee is no longer usable when engaged in melee.
+- Arrow to the Kneww is no longer usable when engaged in melee.
 - Fixed some enemies not getting proper PTR perks and/or causing crash.
 - Clarity should now be properly working as described. Plus, it will no longer appear as a Status Effect.
 - Battleforged should now be properly working as described.
@@ -1592,8 +1670,8 @@ Mercenary Ranged - Removed fast adaptation, overwhelm, know their weakness, path
 - Hedge Knights and Swordmasters will now always have the Favored Enemy Swordmaster perk available.
 - All AI Characters with the Rally the Troops, Push Forward, or Hold the Line perks will now make use of the abilities.
 - Heft rescaled: Now boosts maximum damage by 30% of the maximum damage of the currently equipped axe.
-- Arrow to the Knee attack: Now also reduces Ranged Skill of the attacker by -10 while the effect is active.
-- Arrow to the Knee debuff: The debuff now lasts 2 turns with the full malus on the first turn and halved malus on the second turn.
+- Arrow to the Kneww attack: Now also reduces Ranged Skill of the attacker by -10 while the effect is active.
+- Arrow to the Kneww debuff: The debuff now lasts 2 turns with the full malus on the first turn and halved malus on the second turn.
 - Fixed Deep Cuts always applying 2 stacks of bleeding.
 - Fixed Fresh and Furious not working on enemies.
 - Hopefully fixed Momentum for the last time!
@@ -1608,7 +1686,7 @@ Mercenary Ranged - Removed fast adaptation, overwhelm, know their weakness, path
 ==== Ver 0.7.10 ====
 ====================
 - The description of "Deep Impact" now correctly mentions that it enables applying injuries on Undead.
-- Flaming arrows now correctly adds 1 extra round of fire duration to an already burning tile, instead of adding 2 more rounds.
+- Flaming Arrows now correctly adds 1 extra round of fire duration to an already burning tile, instead of adding 2 more rounds.
 - Fixed Bone Breaker not applying a second injury.
 - Fixed Sanguinary conflicting with the Bloodthirsty trait or other sources of fatality chance multipliers.
 - Fixed Power Shot working with all kinds of ranged attacks instead of only with crossbows or firearms.
@@ -1689,7 +1767,7 @@ Mercenary Ranged - Removed fast adaptation, overwhelm, know their weakness, path
 - King of All Weapons tweaked: Now also allows affects Prong.
 - Updated all relevant perk tooltips to now show their correct perk group in PTR.
 - Pointy End description shows the damage type required i.e. Piercing, Melee.
-- Fixed Know their Weakness sometimes giving negative effects.
+- Fixed Know Their Weakness sometimes giving negative effects.
 - Modding: Bone Breaker, Deep Impact, Dent Armor, Dismantle, Mauler, and Cull can now be force enabled by using the this.m.IsForceEnabled boolean even if the actor does not fulfill the requirements.
 
 = FIXES =
