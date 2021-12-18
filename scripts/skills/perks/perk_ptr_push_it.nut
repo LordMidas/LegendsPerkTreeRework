@@ -57,7 +57,7 @@ this.perk_ptr_push_it <- this.inherit("scripts/skills/skill", {
 	{
 		if (_skill.isAttack() && this.isEnabled() && _targetEntity.isAlive() && !_targetEntity.isDying())
 		{
-			if (!_targetEntity.getSkills.hasSkill("effects.stunned"))
+			if (!_targetEntity.getSkills().hasSkill("effects.stunned"))
 			{
 				this.m.IsHit = true;
 			}
