@@ -2537,7 +2537,7 @@ gt.Const.PTR.modEnemies <- function()
 					}
 				}
 
-				if (offhandItem == null || offhandItem.isItemType(this.Const.Items.ItemType.Tool))
+				if (offhandItem != null && offhandItem.isItemType(this.Const.Items.ItemType.Tool))
 				{
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_alert"));
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_mastery_nets"));					
