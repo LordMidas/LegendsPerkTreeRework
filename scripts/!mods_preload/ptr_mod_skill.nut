@@ -5,6 +5,11 @@ gt.Const.PTR.modSkill <- function()
 	::mods_hookBaseClass("skills/skill", function(o) {
 		o = o[o.SuperName];
 
+		o.isDuelistValid <- function()
+		{
+			return this.isAttack() && !this.isRanged() && this.b.ActionPointCost <= 4 && this.getMaxRange() == 1;
+		}
+
 		local getHitFactors = ::mods_getMember(o, "getHitFactors");
 		::mods_override(o, "getHitFactors", function(_targetTile)
 		{

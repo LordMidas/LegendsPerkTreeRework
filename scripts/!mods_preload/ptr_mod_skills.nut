@@ -933,12 +933,12 @@ gt.Const.PTR.modSkills <- function()
 	::mods_hookNewObject("skills/perks/perk_duelist", function(o) {
 		o.onUpdate = function( _properties )
 		{
-			// Overwrite vanilla function			
+			// Overwrite vanilla function
 		}
 
 		o.onAnySkillUsed <- function( _skill, _targetEntity, _properties )
 		{
-			if (_skill.isAttack() && !_skill.isRanged() && _skill.b.ActionPointCost <= 4  && _skill.getMaxRange() == 1)
+			if (_skill.isDuelistValid())
 			{
 				local weapon = this.getContainer().getActor().getMainhandItem();
 				if (weapon == null || weapon.isItemType((this.Const.Items.ItemType.OneHanded)))
