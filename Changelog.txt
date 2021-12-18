@@ -285,6 +285,7 @@ Mercenary Ranged:
 - Many commander background perk changes.
 - Deserters can now roll ranged weapon trees.
 - Added Outlanders favored enemy tree to Scaling Beggar as intended.
+- Cover Ally is no longer usable on someone who is stunned or horrified.
 
 == FIXES ==
 - Fixed Offhand Training sometimes not giving the 0 AP tool use.
