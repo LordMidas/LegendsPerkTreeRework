@@ -91,8 +91,9 @@ this.perk_ptr_professional <- this.inherit("scripts/skills/skill", {
 
 		this.m.IsSpent = true;
 
+		this.m.PerksAdded = [];
+		
 		local size = _in.readU8();
-
 		for (local i = 0; i < size; i++)
 		{
 			this.m.PerksAdded.push(_in.readU16());

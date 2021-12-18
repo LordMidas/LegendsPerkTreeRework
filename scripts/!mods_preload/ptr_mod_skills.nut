@@ -990,6 +990,21 @@ gt.Const.PTR.modSkills <- function()
 			return true;
 		}
 
+		o.onGetHitFactors <- function( _skill, _targetTile, _tooltip )
+		{
+			local targetEntity = _targetTile.getEntity();
+			if (targetEntity != null)
+			{
+				if (_skill.isAttack() && _skill.isRanged() && targetEntity.getTile().getDistanceTo(this.getContainer().getActor().getTile()) <= 3)
+				{
+					_tooltip.push({
+						icon = "ui/tooltips/positive.png",
+						text = this.getName()
+					});
+				}
+			}
+		}
+
 		o.onAnySkillUsed = function( _skill, _targetEntity, _properties )
 		{
 			if (_targetEntity == null || !_skill.isRanged() || !this.isEnabled())

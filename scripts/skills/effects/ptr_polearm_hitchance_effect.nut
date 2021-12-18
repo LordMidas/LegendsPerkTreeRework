@@ -17,35 +17,38 @@ this.ptr_polearm_hitchance_effect <- this.inherit("scripts/skills/skill", {
 	function isEnabled()
 	{
 		local weapon = this.getContainer().getActor().getMainhandItem()
-		if (weapon != null && weapon.m.RangeMax == 2 && !weapon.isWeaponType(this.Const.Items.WeaponType.Staff))
+		if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.Staff))
 		{
-			return true;
+			return false;
 		}
 
-		return false;
-	}
-
-	function getMalus()
-	{
-		return this.m.HitChanceMalusAdjacent;
+		return true;
 	}
 
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
-		if (_targetEntity == null || _skill.getMaxRange() == 1 || !this.isEnabled())
+		if (_targetEntity == null || _skill.getMaxRange() == 1 || !this.isEnabled() || !this.Tactical.TurnSequenceBar.isActiveEntity(this.getContainer().getActor()))
 		{
 			return;
 		}
 
-		if (this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != this.getContainer().getActor().getID())
+		if (this.getContainer().getActor().getTile().getDistanceTo(_targetEntity.getTile()) == 1)
 		{
-			return;
+			_properties.MeleeSkill += this.m.HitChanceMalusAdjacent;
 		}
+	}
 
-		local distance = this.getContainer().getActor().getTile().getDistanceTo(_targetEntity.getTile());
-		if (distance == 1)
-		{
-			_properties.MeleeSkill += this.getMalus();
+	function onGetHitFactors( _skill, _targetTile, _tooltip )
+	{
+		if (_skill.getMaxRange() > 1)
+		{			
+			if (this.getContainer().getActor().getTile().getDistanceTo(_targetTile) == 1)
+			{
+				_tooltip.push({
+					icon = "ui/tooltips/negative.png",
+					text = "[color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.HitChanceMalusAdjacent + "%[/color] Adjacent Target"
+				});
+			}
 		}
 	}
 });

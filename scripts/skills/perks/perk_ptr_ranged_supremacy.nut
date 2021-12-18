@@ -30,7 +30,7 @@ this.perk_ptr_ranged_supremacy <- this.inherit("scripts/skills/skill", {
 		{
 			return;
 		}
-		_properties.RangedSkill += this.getRangedSkillBonus();
+		_properties.RangedSkill += this.m.RangedSkillBonus;
 	}
 
 	function onUpdate(_properties)
@@ -47,6 +47,18 @@ this.perk_ptr_ranged_supremacy <- this.inherit("scripts/skills/skill", {
 			{
 				s.m.MaxRange += 1;
 			}
+		}
+	}
+
+	function onGetHitFactors( _skill, _targetTile, _tooltip )
+	{
+		local targetEntity = _targetTile.getEntity();
+		if (targetEntity != null && targetEntity.isArmedWithRangedWeapon() && _skill.isAttack() && _skill.isRanged())
+		{
+			_tooltip.push({
+				icon = "ui/tooltips/positive.png",
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + this.m.RangedSkillBonus + "%[/color]" + this.getName()
+			});
 		}
 	}
 });
