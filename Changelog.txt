@@ -1,8 +1,9 @@
 ===================
-==== Ver 1.5.2 ====
+==== Ver 1.5.3 ====
 ===================
 - Fixed Minstrel profession guaranteeing sergeant tree instead of entertainer.
 - Fixed mainhanditem check for Hedge Knight.
+
 ===================
 ==== Ver 1.5.2 ====
 ===================
