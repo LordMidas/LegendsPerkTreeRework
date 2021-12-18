@@ -137,7 +137,7 @@ this.str_cover_ally_skill <- this.inherit("scripts/skills/skill", {
 			return false;
 		}
 
-		if (target.getSkills().hasSkill("effects.str_covered_by_ally") || target.getSkills().hasSkill("effects.str_covering_ally"))
+		if (target.getSkills().hasSkill("effects.str_covered_by_ally") || target.getSkills().hasSkill("effects.str_covering_ally") || target.getSkills().hasSkill("effects.stunned") || target.getSkills().hasSkill("effects.horrified"))
 		{
 			return false;
 		}
