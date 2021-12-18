@@ -2993,7 +2993,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bulwark"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_menacing"));			
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bully"));								
-
+		    local mainhandItem = this.getMainhandItem();
 			local attack = this.getSkills().getAttackOfOpportunity();			    
 		    if (mainhandItem != null && mainhandItem.isItemType(this.Const.Items.ItemType.TwoHanded))
 		    {
@@ -3016,7 +3016,6 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_personal_armor"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
 
-		    local mainhandItem = this.getMainhandItem();
 		    if (mainhandItem != null && mainhandItem.isItemType(this.Const.Items.ItemType.TwoHanded))
 		    {
 		    	this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bloody_harvest"));
