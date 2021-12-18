@@ -1,4 +1,12 @@
 ===================
+==== Ver 1.5.4 ====
+===================
+- Duelist now works with Lunge as long as the Base Action Point cost of Lunge is 4 or less.
+- Improved Duelist tooltip. Also stated clearly that it works with Lunge.
+- Reverted the Legends buff to Goblin Fighter Resolve. Now it is back to 55 (because they get Strength in Numbers in PTR).
+- Fixed infinite battle loading when a character spawned with the Vengeance perk.
+
+===================
 ==== Ver 1.5.3 ====
 ===================
 - Fixed Minstrel profession guaranteeing sergeant tree instead of entertainer.
