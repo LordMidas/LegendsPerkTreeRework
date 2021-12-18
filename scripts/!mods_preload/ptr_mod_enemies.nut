@@ -2932,13 +2932,13 @@ gt.Const.PTR.modEnemies <- function()
 				local attack = this.getSkills().getAttackOfOpportunity();			    
 			    if (mainhandItem != null && mainhandItem.isItemType(this.Const.Items.ItemType.TwoHanded))
 			    {
-	                if (attack != null && attack.b.ActionPointCost > 4)
+	                if (attack != null && !attack.isDuelistValid())
 	                {
 						this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));	
 					}			
 			    }
 
-                if (attack != null && attack.b.ActionPointCost <= 4 && attack.getMaxRange() == 1)
+                if (attack != null && attack.isDuelistValid())
                 {
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
                 }
@@ -3001,7 +3001,7 @@ gt.Const.PTR.modEnemies <- function()
 		    	if (mainhandItem.isItemType(this.Const.Items.ItemType.TwoHanded))
 		    	{
 		    		this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bloody_harvest"));
-	                if (attack != null && attack.b.ActionPointCost > 4)
+	                if (attack != null && !attack.isDuelistValid())
 	                {
 						this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));		
 					}	
@@ -3012,7 +3012,7 @@ gt.Const.PTR.modEnemies <- function()
 		    	}
 			}
 
-			if (attack != null && attack.b.ActionPointCost <= 4 && attack.getMaxRange() == 1)
+			if (attack != null && attack.isDuelistValid())
             {
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
             }
@@ -3106,7 +3106,7 @@ gt.Const.PTR.modEnemies <- function()
 
 			    local mainhandItem = this.getMainhandItem();
 				local attack = this.getSkills().getAttackOfOpportunity();
-	            if (attack != null && attack.b.ActionPointCost <= 4 && attack.getMaxRange() == 1)
+	            if (attack != null && attack.isDuelistValid())
 	            {
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
 	            }
@@ -3114,7 +3114,7 @@ gt.Const.PTR.modEnemies <- function()
 			    if (mainhandItem != null && mainhandItem.isItemType(this.Const.Items.ItemType.TwoHanded))
 			    {
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_formidable_approach"));				
-	                if (attack != null && attack.b.ActionPointCost > 4)
+	                if (attack != null && !attack.isDuelistValid())
 	                {
 						this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));				
 					}
@@ -3529,14 +3529,17 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bulwark"));
 
 				local attack = this.getSkills().getAttackOfOpportunity();
-	            if (attack != null && attack.b.ActionPointCost <= 4 && attack.getMaxRange() == 1)
+	            if (attack != null)
 	            {
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
+	            	if (attack.isDuelistValid())
+	            	{
+	            		this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
+	            	}
+					else
+				    {
+						this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));				
+					}
 	            }
-	            else
-			    {
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));				
-				}
 
 				local weapon = this.getMainhandItem();
 				if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.Polearm))
@@ -4074,13 +4077,13 @@ gt.Const.PTR.modEnemies <- function()
 				local attack = this.getSkills().getAttackOfOpportunity();			    
 			    if (mainhandItem != null && mainhandItem.isItemType(this.Const.Items.ItemType.TwoHanded))
 			    {
-	                if (attack != null && attack.b.ActionPointCost > 4)
+	                if (attack != null && !attack.isDuelistValid())
 	                {
 						this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));
 					}			
 			    }
 
-                if (attack != null && attack.b.ActionPointCost <= 4 && attack.getMaxRange() == 1)
+                if (attack != null && attack.isDuelistValid())
                 {
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
                 }
@@ -4187,13 +4190,13 @@ gt.Const.PTR.modEnemies <- function()
 				local attack = this.getSkills().getAttackOfOpportunity();			    
 			    if (mainhandItem != null && mainhandItem.isItemType(this.Const.Items.ItemType.TwoHanded))
 			    {
-	                if (attack != null && attack.b.ActionPointCost > 4)
+	                if (attack != null && !attack.isDuelistValid())
 	                {
 						this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));
 					}			
 			    }
 
-                if (attack != null && attack.b.ActionPointCost <= 4 && attack.getMaxRange() == 1)
+                if (attack != null && attack.isDuelistValid())
                 {
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
                 }		
@@ -4310,15 +4313,18 @@ gt.Const.PTR.modEnemies <- function()
 			local inspiringPresencePerk = this.new("scripts/skills/perks/perk_inspiring_presence");
 			inspiringPresencePerk.m.IsForceEnabled = true;
 			this.m.Skills.add(inspiringPresencePerk);
-			local attack = this.getSkills().getAttackOfOpportunity();			    
-            if (attack != null && attack.b.ActionPointCost > 4)
-            {
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));
-			}
-	        else
-	        {
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
-	        }		
+			local attack = this.getSkills().getAttackOfOpportunity();
+			if (attack != null)
+			{
+				if (attack.isDuelistValid())
+				{
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
+				}
+				else
+				{					
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));
+				}
+			}	
 
 			local offhandItem = this.getOffhandItem();
 			if (offhandItem != null && offhandItem.isItemType(this.Const.Items.ItemType.Shield))
@@ -4510,14 +4516,17 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_bf_fencer"));
 
 			local attack = this.getSkills().getAttackOfOpportunity();			    
-            if (attack != null && attack.b.ActionPointCost > 4)
-            {
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));
-			}
-	        else
-	        {
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
-	        }	
+            if (attack != null)
+			{
+				if (attack.isDuelistValid())
+				{
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
+				}
+				else
+				{					
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));
+				}
+			}	
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
