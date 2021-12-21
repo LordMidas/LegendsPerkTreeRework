@@ -1,4 +1,9 @@
 ===================
+==== Ver 1.5.5 ====
+===================
+Improved Concussive Strikes tooltip. Now properly states that attacks with maces must do blunt damage to get extra benefits.
+
+===================
 ==== Ver 1.5.4 ====
 ===================
 - Duelist now works with Lunge as long as the Base Action Point cost of Lunge is 4 or less.
