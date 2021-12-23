@@ -18,7 +18,7 @@ this.perk_ptr_pointy_end <- this.inherit("scripts/skills/skill", {
 
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
-		if (_targetEntity == null || !_targetEntity.isArmedWithShield() || !_skill.isAttack())
+		if (_targetEntity == null || _targetEntity.isArmedWithShield() || !_skill.isAttack())
 		{
 			return;
 		}
