@@ -3466,7 +3466,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_through_the_ranks"));	
 
 			local weapon = this.getMainhandItem();
-			if (weapon != null || !weapon.isWeaponType(this.Const.Items.WeaponType.Bow))
+			if (weapon != null || weapon.isWeaponType(this.Const.Items.WeaponType.Bow))
 			{
 				if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 				{

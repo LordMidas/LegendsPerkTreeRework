@@ -2,9 +2,10 @@
 ==== Ver 1.5.5 ====
 ===================
 ==Fixes==
-- Clarified dismantle toolltip that armor effectiveness refers to your weapon's armor effectiveness.
+- Clarified dismantle tooltip that armor effectiveness refers to your weapon's armor effectiveness.
 - Improved Concussive Strikes tooltip. Now properly states that attacks with maces must do blunt damage to get extra benefits.
 - Improved Nailed it tooltip. Now boldy states it requires a ranged attack.
+- Fixed Master Archer weapon check error.
 
 ===================
 ==== Ver 1.5.4 ====
