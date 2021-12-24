@@ -4537,7 +4537,7 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.removeByID("perk.returnFavor");							
 				this.m.Skills.removeByID("perk.legend_composure");
 				this.m.Skills.removeByID("perk.underdog");				
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_battleheart"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_pattern_recognition"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_nine_lives"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_assured_conquest"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_double_strike"));				

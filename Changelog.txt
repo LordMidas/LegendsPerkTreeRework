@@ -1,6 +1,9 @@
 ===================
 ==== Ver 1.5.5 ====
 ===================
+==Balance==
+- Swordmaster: Replaced Battleheart with Pattern Recognition on Legendary.
+
 ==Fixes==
 - Clarified dismantle tooltip that armor effectiveness refers to your weapon's armor effectiveness.
 - Improved Concussive Strikes tooltip. Now properly states that attacks with maces must do blunt damage to get extra benefits.
