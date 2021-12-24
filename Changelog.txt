@@ -6,6 +6,7 @@
 - Improved Concussive Strikes tooltip. Now properly states that attacks with maces must do blunt damage to get extra benefits.
 - Improved Nailed it tooltip. Now boldy states it requires a ranged attack.
 - Fixed Master Archer weapon check error.
+- Clarified length of debuff on Eyes Up description.
 
 ===================
 ==== Ver 1.5.4 ====
