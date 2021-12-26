@@ -4,6 +4,7 @@
 ==Balance==
 - Swordmaster: Replaced Battleheart with Pattern Recognition on Legendary.
 - Brigand Poacher: Removed rotation on all difficulties.
+- Bloodthirsty trait now guarantees cleaver tree. No longer gives 2 weight to Sword tree.
 
 ==Fixes==
 - Clarified dismantle tooltip that armor effectiveness refers to your weapon's armor effectiveness.
@@ -12,6 +13,7 @@
 - Fixed Master Archer weapon check error.
 - Clarified length of debuff on Eyes Up description.
 - Added Unarmed Tree to professions in breditor.
+- Improved Arrow to the Knee tooltips to state all effects and modifiers.
 
 ===================
 ==== Ver 1.5.4 ====

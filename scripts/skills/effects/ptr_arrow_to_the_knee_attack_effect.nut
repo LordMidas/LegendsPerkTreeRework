@@ -54,6 +54,12 @@ this.ptr_arrow_to_the_knee_attack_effect <- this.inherit("scripts/skills/skill",
 				id = 10,
 				type = "text",
 				icon = "ui/icons/special.png",
+				text = "Has a [color=" + this.Const.UI.Color.NegativeValue + "]0%[/color] chance to hit the head"
+			},					
+			{
+				id = 10,
+				type = "text",
+				icon = "ui/icons/special.png",
 				text = "Target will have [color=" + this.Const.UI.Color.NegativeValue + "]-10%[/color] Melee and Ranged defense for 1 turn and [color=" + this.Const.UI.Color.NegativeValue + "]-5%[/color] in the turn after that"
 			},
 			{
@@ -69,6 +75,7 @@ this.ptr_arrow_to_the_knee_attack_effect <- this.inherit("scripts/skills/skill",
 	{
 		_properties.RangedDamageMult *= 0.5;
 		_properties.RangedSkill -= 10;
+		_properties.ChanceToHitHead = 0;
 	}
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
