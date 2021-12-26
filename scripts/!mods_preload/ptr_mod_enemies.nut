@@ -166,8 +166,6 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			assignRandomEquipment();
 			this.m.Skills.removeByType(this.Const.SkillType.Perk);
-
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_rotation"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_recover"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_entrenched"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_target_practice"));
