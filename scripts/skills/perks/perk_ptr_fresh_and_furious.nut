@@ -51,7 +51,7 @@ this.perk_ptr_fresh_and_furious <- this.inherit("scripts/skills/skill", {
 	function onUpdate( _properties )
 	{
 		local item = _skill.getItem();
-		if (!_skill.isRanged() || (item != null && item.isItemType(this.Const.Items.ItemType.Weapon) && item.isWeaponType(this.Const.Items.WeaponType.Throwing)))
+		if (!_skill.isRanged() || (item != null && item.isItemType(this.Const.Items.ItemType.Weapon) && (item.isWeaponType(this.Const.Items.WeaponType.Throwing || item.isWeaponType(this.Const.Items.WeaponType.Bow)))
 		{
 			local bonus = this.getBonus();
 			if (bonus > 0)
