@@ -3,6 +3,7 @@
 ===================
 ==Balance==
 - Swordmaster: Replaced Battleheart with Pattern Recognition on Legendary.
+- Brigand Poacher: Removed rotation on all difficulties.
 
 ==Fixes==
 - Clarified dismantle tooltip that armor effectiveness refers to your weapon's armor effectiveness.
@@ -10,6 +11,7 @@
 - Improved Nailed it tooltip. Now boldy states it requires a ranged attack.
 - Fixed Master Archer weapon check error.
 - Clarified length of debuff on Eyes Up description.
+- Added Unarmed Tree to professions in breditor.
 
 ===================
 ==== Ver 1.5.4 ====
