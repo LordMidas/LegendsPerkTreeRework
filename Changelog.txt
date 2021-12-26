@@ -5,6 +5,7 @@
 - Swordmaster: Replaced Battleheart with Pattern Recognition on Legendary.
 - Brigand Poacher: Removed rotation on all difficulties.
 - Bloodthirsty trait now guarantees cleaver tree. No longer gives 2 weight to Sword tree.
+- Fresh and Furious is no longer usable with Crossbows or Firearms.
 
 ==Fixes==
 - Clarified dismantle tooltip that armor effectiveness refers to your weapon's armor effectiveness.
