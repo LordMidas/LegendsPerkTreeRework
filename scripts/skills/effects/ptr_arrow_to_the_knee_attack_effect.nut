@@ -75,7 +75,8 @@ this.ptr_arrow_to_the_knee_attack_effect <- this.inherit("scripts/skills/skill",
 	{
 		_properties.RangedDamageMult *= 0.5;
 		_properties.RangedSkill -= 10;
-		_properties.ChanceToHitHead = 0;
+		_properties.HitChanceMult[this.Const.BodyPart.Head] = 0.0;
+		_properties.HitChanceMult[this.Const.BodyPart.Body] = 1.0;
 	}
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
