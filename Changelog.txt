@@ -13,6 +13,7 @@
 - Militia Guest: Removed Militia Training and Militia Practice.
 - Swordmaster: Replaced Battleheart with Pattern Recognition on Legendary.
 - Brigand Poacher: Removed rotation on all difficulties.
+- Orc Berserker: Now properly removes +10 matk added on Legendary difficulty from Legends.
 
 ==Fixes==
 - Clarified dismantle tooltip that armor effectiveness refers to your weapon's armor effectiveness.
