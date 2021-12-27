@@ -2,11 +2,17 @@
 ==== Ver 1.5.5 ====
 ===================
 ==Balance==
-- Swordmaster: Replaced Battleheart with Pattern Recognition on Legendary.
-- Brigand Poacher: Removed rotation on all difficulties.
+- Arrow to the knee now has a 0% chance to hit the head.
 - Bloodthirsty trait now guarantees cleaver tree. No longer gives 2 weight to Sword tree.
 - Fresh and Furious is no longer usable with Crossbows or Firearms.
-- Removed previously unknown 2x regeneration on Bog Unholds.
+
+
+==Enemies==
+- Bog Unholds: Removed previously unknown 2x regeneration.
+- Militia: Removed Militia Training and Militia Practice.
+- Militia Guest: Removed Militia Training and Militia Practice.
+- Swordmaster: Replaced Battleheart with Pattern Recognition on Legendary.
+- Brigand Poacher: Removed rotation on all difficulties.
 
 ==Fixes==
 - Clarified dismantle tooltip that armor effectiveness refers to your weapon's armor effectiveness.
@@ -17,7 +23,7 @@
 - Added Unarmed Tree to professions in breditor.
 - Improved Arrow to the Knee tooltips to state all effects and modifiers.
 - Improved Overwhelm tooltip to state that it requires a melee weapon.
-
+- Fixed syntax error for Master Archer Perks.
 ===================
 ==== Ver 1.5.4 ====
 ===================

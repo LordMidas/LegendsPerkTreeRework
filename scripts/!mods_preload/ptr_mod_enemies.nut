@@ -2820,8 +2820,8 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_lone_wolf"));
 				this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));
 				this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
-				this.m.Skills.add(this.new("scripts/skills/traits/perk_ptr_eyes_up"));
-				this.m.Skills.add(this.new("scripts/skills/traits/perk_legend_clarity"));							
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_eyes_up"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_clarity"));							
 			}
 		}
 	});
@@ -3675,9 +3675,9 @@ gt.Const.PTR.modEnemies <- function()
 	 	o.onInit = function()
 	 	{
 	 		onInit();
+			this.m.Skills.removeByID("perk.legend_specialist_militia_skill"); 		
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
-
 			if (this.Math.rand(1,100) <= 25)
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));
@@ -3689,7 +3689,7 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));				
 				this.m.Skills.removeByID("perk.legend_specialist_spearwall");
 				this.m.Skills.removeByID("perk.legend_specialist_spearthrust");
-
+				this.m.Skills.removeByID("perk.legend_specialist_militia_damage");
 			}
 	 	}
 
@@ -3765,12 +3765,14 @@ gt.Const.PTR.modEnemies <- function()
 	 	o.onInit = function()
 	 	{
 	 		onInit();
+			this.m.Skills.removeByID("perk.legend_specialist_militia_skill");	 		
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));			
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
+				this.m.Skills.removeByID("perk.legend_specialist_militia_damage");				
 				this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));
 			}
 		}
