@@ -2015,6 +2015,7 @@ gt.Const.PTR.modEnemies <- function()
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Hitpoints = this.getBaseProperties().Hitpoints;
+				this.m.Skills.removeByID("perk.legend_bog_unhold_racial");				
 				this.m.Skills.removeByID("perk.legend_battleheart");
 				this.m.Skills.removeByID("perk.last_stand");
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_underdog"));				
