@@ -17,12 +17,12 @@ this.ptr_polearm_hitchance_effect <- this.inherit("scripts/skills/skill", {
 	function isEnabled()
 	{
 		local weapon = this.getContainer().getActor().getMainhandItem()
-		if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.Staff))
+		if (weapon != null && weapon.getRangeMax() > 1 && weapon.isItemType(this.Const.Items.ItemType.TwoHanded) && !weapon.isWeaponType(this.Const.Items.WeaponType.Staff))
 		{
-			return false;
+			return true;
 		}
 
-		return true;
+		return false;
 	}
 
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
@@ -40,7 +40,7 @@ this.ptr_polearm_hitchance_effect <- this.inherit("scripts/skills/skill", {
 
 	function onGetHitFactors( _skill, _targetTile, _tooltip )
 	{
-		if (_skill.getMaxRange() > 1)
+		if (_skill.getMaxRange() > 1 && this.isEnabled())
 		{			
 			if (this.getContainer().getActor().getTile().getDistanceTo(_targetTile) == 1)
 			{
