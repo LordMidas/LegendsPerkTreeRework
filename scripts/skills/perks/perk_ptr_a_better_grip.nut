@@ -14,25 +14,25 @@ this.perk_ptr_a_better_grip <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
+	
+	function isEnabled()
+	{
+		local weapon = this.getContainer().getActor().getMainhandItem();
+		return weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.Spear);
+	}
 
 	function onUpdate(_properties)
 	{
-		local actor = this.getContainer().getActor();
-		local weapon = actor.getMainhandItem();
-		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Spear) || !actor.isArmedWithShield())
+		if (this.isEnabled() && this.getContainer().getActor().isArmedWithShield())
 		{
-			return;
-		}
-
-		_properties.MeleeSkill += 5;
-		_properties.MeleeDefense += 10;
+			_properties.MeleeSkill += 5;
+			_properties.MeleeDefense += 10;
+		}		
 	}
 
 	function onAfterUpdate(_properties)
 	{
-		local actor = this.getContainer().getActor();
-		local weapon = actor.getMainhandItem();
-		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Spear))
+		if (!this.isEnabled())
 		{
 			return;
 		}
@@ -42,15 +42,15 @@ this.perk_ptr_a_better_grip <- this.inherit("scripts/skills/skill", {
 		{
 			s.m.MaxRange += 1;			
 		}
-
-		if (weapon.isItemType(this.Const.Items.ItemType.TwoHanded))
-		{
-			_properties.MeleeDamageMult *= 1.25;
-		}
 	}
 
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
+		if (!this.isEnabled())
+		{
+			return;
+		}
+		
 		if (_skill.getID() == "actives.thrust")
 		{
 			_skill.resetField("HitChanceBonus");
@@ -96,5 +96,14 @@ this.perk_ptr_a_better_grip <- this.inherit("scripts/skills/skill", {
 				}
 			}	
 		}
+		
+		if (_skill.hasDamageType(this.Const.Damage.DamageType.Piercing))
+		{
+			local weapon = this.getContainer().getActor().getMainhandItem();
+			if (weapon.isItemType(this.Const.Items.ItemType.TwoHanded))
+			{
+				_properties.MeleeDamageMult *= 1.25;
+			}
+		}		
 	}
 });
