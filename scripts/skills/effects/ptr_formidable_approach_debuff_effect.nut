@@ -18,19 +18,35 @@ this.ptr_formidable_approach_debuff_effect <- this.inherit("scripts/skills/skill
 		this.m.IsHidden = true;
 	}
 
+	function addEnemy( _entityID )
+	{
+		if (this.m.CurrentEnemies.find(_entityID) == null)
+		{
+			this.m.CurrentEnemies.push(_entityID);
+		}
+	}
+
+	function removeEnemy( _entityID )
+	{
+		local idx = this.m.CurrentEnemies.find(_entityID);
+		if (idx != null)
+		{
+			this.m.CurrentEnemies.remove(idx);
+			return true;
+		}
+		
+		return false;
+	}
+
+	function hasEnemy( _entityID )
+	{
+		return this.m.CurrentEnemies.find(_entityID) != null;
+	}
+
 	function getTooltip()
 	{
-		return [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			},
+		local tooltip = this.skill.getTooltip();
+		tooltip.extend([
 			{
 				id = 10,
 				type = "text",
@@ -43,7 +59,9 @@ this.ptr_formidable_approach_debuff_effect <- this.inherit("scripts/skills/skill
 				icon = "ui/icons/melee_defense.png",
 				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + this.m.CurrentMalus + "[/color] Melee Defense"
 			}
-		];
+		]);
+		
+		return tooltip;
 	}
 
 	function isHidden()
@@ -70,32 +88,21 @@ this.ptr_formidable_approach_debuff_effect <- this.inherit("scripts/skills/skill
 
 	function getCurrentMalus()
 	{
-		local currEnemies = [];
-		foreach (enemy in this.m.CurrentEnemies)
-		{
-			if (enemy.isAlive() && !enemy.isDying())
-			{
-				currEnemies.push(enemy);
-			}
-		}
+		this.pruneEnemies();
 
-		this.m.CurrentEnemies = currEnemies;
-
-		if (this.m.CurrentEnemies.len() == 0)
-		{
-			return 0;
-		}
-
-		if (!this.isEnabled())
+		if (this.m.CurrentEnemies.len() == 0 || !this.isEnabled())
 		{
 			return 0;
 		}
 
 		local meleeSkill = 0;
-		foreach (enemy in this.m.CurrentEnemies)
+		foreach (id in this.m.CurrentEnemies)
 		{
-			local enemyMeleeSkill = enemy.getCurrentProperties().getMeleeSkill();
-			meleeSkill = this.Math.max(meleeSkill, enemyMeleeSkill);
+			local enemy = this.Tactical.getEntityByID(id);
+			if (enemy != null)
+			{
+				meleeSkill = this.Math.max(meleeSkill, enemy.getCurrentProperties().getMeleeSkill());
+			}
 		}
 
 		local malusfactor = this.getContainer().getActor().isArmedWithTwoHandedWeapon() ? this.m.MalusFactor / 2 : this.m.MalusFactor;
@@ -107,39 +114,38 @@ this.ptr_formidable_approach_debuff_effect <- this.inherit("scripts/skills/skill
 	{
 		this.m.CurrentMalus = this.Math.floor(this.getCurrentMalus());
 	}
+	
+	function onMovementFinished( _tile )
+	{
+		if (this.isEnabled())
+		{
+			this.updateEnemies();
+			this.updateMalus();
+		}			
+	}
 
 	function onUpdate( _properties )
 	{
-		local actor = this.getContainer().getActor();
-		if (actor.m.IsMoving)
-		{
-			this.updateEnemies();
-		}
-
-		this.updateMalus();
-
 		_properties.MeleeSkill -= this.m.CurrentMalus;
 		_properties.MeleeDefense -= this.m.CurrentMalus;
 	}
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		local idx = this.m.CurrentEnemies.find(_targetEntity);
-		if (idx != null)
+		if (this.removeEnemy(_targetEntity.getID()))
 		{
-			this.m.CurrentEnemies.remove(idx);
 			this.updateMalus();
 		}
 	}
 
 	function updateEnemies()
 	{
-		this.m.CurrentEnemies.clear();
-
+		this.pruneEnemies();
+		
 		local adjacentEnemies = this.getContainer().getActor().getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.Enemy);
 		foreach (enemy in adjacentEnemies)
 		{
-			if (!enemy.hasZoneOfControl())
+			if (!enemy.hasZoneOfControl() || this.hasEnemy(enemy.getID()))
 			{
 				continue;
 			}
@@ -147,19 +153,47 @@ this.ptr_formidable_approach_debuff_effect <- this.inherit("scripts/skills/skill
 			local enemyPerk = enemy.getSkills().getSkillByID("perk.ptr_formidable_approach");
 			if (enemyPerk != null && enemyPerk.isEnabled())
 			{
-				this.m.CurrentEnemies.push(enemy);
+				this.addEnemy(enemy.getID());
 			}
 		}
+	}
+	
+	function pruneEnemies()
+	{
+		local pruned = false;
+		
+		for (local i = this.m.CurrentEnemies.len() - 1; i >= 0; i--)
+		{
+			local enemy = this.Tactical.getEntityById(this.m.CurrentEnemies[i]);
+			if (enemy == null)
+			{
+				continue;
+			}
+			
+			if (!enemy.isAlive() || !enemy.hasZoneOfControl() || enemy.getTile().getDistanceTo(this.getContainer().getActor().getTile()) > 1)
+			{
+				this.m.CurrentEnemies.remove(i);
+				pruned = true;
+			}
+		}
+		
+		return pruned;
 	}
 
 	function onTurnStart()
 	{
-		this.updateEnemies();
+		if (this.pruneEnemies())
+		{
+			this.updateMalus();
+		}
 	}
 
 	function onResumeTurn()
-	{
-		this.updateEnemies();
+	{		
+		if (this.pruneEnemies())
+		{
+			this.updateMalus();
+		}
 	}
 
 	function onCombatStarted()
