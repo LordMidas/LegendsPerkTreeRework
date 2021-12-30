@@ -104,40 +104,44 @@ this.perk_ptr_weapon_master <- this.inherit("scripts/skills/skill", {
 		local actor = this.getContainer().getActor();
 		if (actor.isPlayerControlled())
 		{
-			if (actor.getBackground().m.PerkTree != null)
+			local bg = actor.getBackground();
+			if (bg.m.PerkTree != null)
 			{
-				foreach (perk in actor.getBackground().m.PerkTree[3])
+				if (bg.hasPerk(this.Const.Perks.PerkDefs.SpecAxe))
 				{
-					switch (perk.ID)
-					{
-						case "perk.mastery.axe":
-							_properties.IsSpecializedInAxes = true;
-							break;
-						case "perk.mastery.cleaver":
-							_properties.IsSpecializedInCleavers = true;
-							break;
-						case "perk.mastery.dagger":
-							_properties.IsSpecializedInDaggers = true;
-							break;
-						case "perk.mastery.flail":
-							_properties.IsSpecializedInFlails = true;
-							break;
-						case "perk.mastery.hammer":
-							_properties.IsSpecializedInHammers = true;
-							break;
-						case "perk.mastery.mace":
-							_properties.IsSpecializedInMaces = true;
-							break;
-						case "perk.mastery.spear":
-							_properties.IsSpecializedInSpears = true;
-							break;
-						case "perk.mastery.sword":
-							_properties.IsSpecializedInSwords = true;
-							break;
-						case "perk.mastery.throwing":
-							_properties.IsSpecializedInThrowing = true;
-							break;
-					}
+					_properties.IsSpecializedInAxes = true;
+				}
+				if (bg.hasPerk(this.Const.Perks.PerkDefs.SpecCleaver))
+				{
+					_properties.IsSpecializedInCleavers = true;
+				}
+				if (bg.hasPerk(this.Const.Perks.PerkDefs.SpecDagger))
+				{
+					_properties.IsSpecializedInDaggers = true;
+				}
+				if (bg.hasPerk(this.Const.Perks.PerkDefs.SpecFlail))
+				{
+					_properties.IsSpecializedInFlails = true;
+				}
+				if (bg.hasPerk(this.Const.Perks.PerkDefs.SpecHammer))
+				{
+					_properties.IsSpecializedInHammers = true;
+				}
+				if (bg.hasPerk(this.Const.Perks.PerkDefs.SpecMace))
+				{
+					_properties.IsSpecializedInMaces = true;
+				}
+				if (bg.hasPerk(this.Const.Perks.PerkDefs.SpecSpear))
+				{
+					_properties.IsSpecializedInSpears = true;
+				}
+				if (bg.hasPerk(this.Const.Perks.PerkDefs.SpecSword))
+				{
+					_properties.IsSpecializedInSwords = true;
+				}
+				if (bg.hasPerk(this.Const.Perks.PerkDefs.SpecThrowing))
+				{
+					_properties.IsSpecializedInThrowing = true;
 				}
 			}
 		}
