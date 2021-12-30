@@ -1,4 +1,18 @@
 ===================
+==== Ver 1.5.5 ====
+===================
+- A Better Grip 25% damage boost for Two-Handed Spears now only applies to Piercing type attacks.
+- The Bloodthirsty trait now guarantees the Cleaver tree.
+- Reduced the armor penetration of Estoc from 55% to 35% because of the new Duelist changes.
+- Fixed the Weapon Master perk not giving some masteries to Scaling Beggar if those masteries were not on tier 4 of the perk tree.
+- Fixed Throwing Mastery perk tooltip missing info about damage at 3 tiles.
+- Fixed Formidable Approach debuff triggering when starting a turn next to an enemy with the perk.
+- Fixed the Adjacent Target hitchance malus showing up for Staves.
+- Fixed the Adjacent Target hitchance malus possibly applying in some cases where it shouldn't.
+- Fixed Pointy End not working as intended (it was increasing hitchance against shielded opponents instead of non-shielded ones). Now works properly.
+- Fixed One-Handed Slings showing up as Two-Handed.
+
+===================
 ==== Ver 1.5.4 ====
 ===================
 - Duelist now works with Lunge as long as the Base Action Point cost of Lunge is 4 or less.
