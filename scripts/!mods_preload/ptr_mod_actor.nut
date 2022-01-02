@@ -4,6 +4,21 @@ gt.Const.PTR.modActor <- function()
 {
 	::mods_hookExactClass("entity/tactical/actor", function(o)
 	{		
+		local onDamageReceived = o.onDamageReceived;
+		o.onDamageReceived = function( _attacker, _skill, _hitInfo )
+		{
+			if (_skill != null && _skill.getDirectDamage() < 1.0 && _hitinfo.DamageDirect >= 1.0)
+			{
+				local chance = this.Math.min(95, 100 * _hitinfo.DamageDirect - 95);
+				if (this.Math.rand(1, 100) > chance)
+				{
+					_hitinfo.DamageDirect = 0.95;
+				}				
+			}
+
+			return onDamageReceived(_attacker, _skill, _hitInfo);
+		}
+
 		local oldOnDeath = o.onDeath;
 		o.onDeath = function( _killer, _skill, _tile, _fatalityType )
 		{

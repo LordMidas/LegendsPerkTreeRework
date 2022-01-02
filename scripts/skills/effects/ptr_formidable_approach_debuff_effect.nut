@@ -164,7 +164,7 @@ this.ptr_formidable_approach_debuff_effect <- this.inherit("scripts/skills/skill
 		
 		for (local i = this.m.CurrentEnemies.len() - 1; i >= 0; i--)
 		{
-			local enemy = this.Tactical.getEntityById(this.m.CurrentEnemies[i]);
+			local enemy = this.Tactical.getEntityByID(this.m.CurrentEnemies[i]);
 			if (enemy == null)
 			{
 				continue;
@@ -199,11 +199,13 @@ this.ptr_formidable_approach_debuff_effect <- this.inherit("scripts/skills/skill
 	function onCombatStarted()
 	{
 		this.m.CurrentEnemies.clear();
+		this.m.CurrentMalus = 0;
 	}
 
 	function onCombatFinished()
 	{
 		this.skill.onCombatFinished();
 		this.m.CurrentEnemies.clear();
+		this.m.CurrentMalus = 0;
 	}
 });

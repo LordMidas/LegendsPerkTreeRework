@@ -47,7 +47,7 @@ this.perk_ptr_swift_stabs <- this.inherit("scripts/skills/skill", {
 			id = 10,
 			type = "text",
 			icon = "ui/icons/warning.png",
-			text = "Will be lost upon missing an attack, using any non-attack skill, or swapping your weapon"
+			text = "Will expire upon missing an attack, using any non-attack skill, swapping your weapon, or waiting or ending your turn"
 		});
 
 		return tooltip;
@@ -55,16 +55,14 @@ this.perk_ptr_swift_stabs <- this.inherit("scripts/skills/skill", {
 
 	function onAfterUpdate(_properties)
 	{
-		if (!this.isEnabled())
+		if (!this.m.IsSpent && this.isEnabled())
 		{
-			return;
-		}
-
-		local skills = this.getContainer().getSkillsByFunction(this, @(_skill) _skill.isAttack() && _skill.m.IsWeaponSkill)
-		foreach (s in skills)
-		{
-			skill.m.ActionPointCost = this.Math.max(2, skill.m.ActionPointCost - 2);
-		}
+			local skills = this.getContainer().getSkillsByFunction(this, @(_skill) _skill.isAttack() && _skill.m.IsWeaponSkill)
+			foreach (s in skills)
+			{
+				skill.m.ActionPointCost = this.Math.max(2, skill.m.ActionPointCost - 2);
+			}
+		}		
 	}
 
 	function onPayForItemAction( _skill, _items )
@@ -72,27 +70,44 @@ this.perk_ptr_swift_stabs <- this.inherit("scripts/skills/skill", {
 		this.m.IsSpent = true;
 	}
 
-	function onTurnStart()
+	function onTurnEnd()
 	{
-		this.m.IsSpent == true;
+		this.m.IsSpent = true;
+	}
+
+	function onWaitTurn()
+	{
+		this.m.IsSpent = true;
+	}
+
+	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
+	{
+		if (_targetEntity.isAlive() && !_targetEntity.isDying() && this.isEnabled() && _skill.isAttack() && _skill.m.IsWeaponSkill)
+		{
+			this.m.IsSpent = false;
+		}
+		else
+		{
+			this.m.IsSpent = true;
+		}
 	}
 
 	function onTargetMissed( _skill, _targetEntity )
 	{
-		this.m.IsSpent == true;
+		this.m.IsSpent = true;
 	}
 
-	function onAnySkillExecuted(_skill, _targetTile, _targetEntity)
+	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
 	{
 		if (!this.isEnabled() || !_skill.isAttack() || !_skill.m.IsWeaponSkill)
 		{
-			this.m.IsSpent == true;
+			this.m.IsSpent = true;
 		}
 	}
 
 	function onCombatFinished()
 	{
 		this.skill.onCombatFinished();
-		this.m.IsSpent == true;
+		this.m.IsSpent = true;
 	}
 });

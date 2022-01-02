@@ -10,6 +10,31 @@ gt.Const.PTR.modSkill <- function()
 			return this.isAttack() && !this.isRanged() && this.b.ActionPointCost <= 4 && this.getMaxRange() == 1;
 		}
 
+		local getDefaultTooltip = o.getDefaultTooltip;
+		o.getDefaultTooltip = function()
+		{
+			local tooltip = getDefaultTooltip();
+
+			if (this.m.DirectDamageMult < 1.0)
+			{
+				local p = this.m.Container.buildPropertiesForUse(this, null);
+				if (p.DamageDirectMult >= 1.0)
+				{
+					local chance = this.Math.min(95, 100 * p.DamageDirectMult - 95);
+					foreach (entry in tooltip)
+					{
+						if (entry.text.find("of which") != null && entry.text.find("can ignore armor") != null)
+						{
+							entry.text += ", with a " + chance + "% chance of completely ignoring armor";
+							break;
+						}
+					}
+				}				
+			}
+
+			return tooltip;
+		}
+
 		local getHitFactors = ::mods_getMember(o, "getHitFactors");
 		::mods_override(o, "getHitFactors", function(_targetTile)
 		{
