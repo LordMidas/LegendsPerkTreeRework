@@ -339,7 +339,7 @@ gt.Const.PTR.modStrings <- function()
 		gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs[s]].Tooltip = gt.Const.Strings.PerkDescription[s];
 	}
 	
-	gt.Const.Strings.PerkDescription.SpecThrowing = this.MSU.String.replace(gt.Const.Strings.PerkDescription[SpecThrowing], "at 3 tiles of distance.", "at 3 tiles of distance.\n\nThrowing Spear now ignores the damage reduction from the target\'s Shield Expert perk.");
+	gt.Const.Strings.PerkDescription.SpecThrowing = this.MSU.String.replace(gt.Const.Strings.PerkDescription.SpecThrowing, "at 3 tiles of distance.", "at 3 tiles of distance.\n\nThrowing Spear now ignores the damage reduction from the target\'s Shield Expert perk.");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.SpecThrowing].Tooltip = gt.Const.Strings.PerkDescription.SpecThrowing;
 
 	local changePerkGroupInTooltip = function (_tooltip, _newPerkGroup = "")

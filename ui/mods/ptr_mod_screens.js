@@ -193,8 +193,8 @@ CharacterScreenPerksModule.prototype.createPerkTreeDIV = function (_perkTree, _p
         {
             var centerDiv = $('.center').eq( row )
             centerDiv.find(".l-perk-container").css({ 'width': '4.0rem' });
-            centerDiv.css({ 'width': (4.0 * _perkTree[row].length) + 'rem' }); // css is retarded?
-            centerDiv.css({ 'left': ((660 - centerDiv.width()) / 2) + 'px' }); // css is retarded?
+            centerDiv.css({ 'width': (4.0 * _perkTree[row].length) + 'rem' }); // css is dumb?
+            centerDiv.css({ 'left': ((660 - centerDiv.width()) / 2) + 'px' }); // css is dumb?
         }
     }
     
