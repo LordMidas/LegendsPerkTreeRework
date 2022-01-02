@@ -7,12 +7,12 @@ gt.Const.PTR.modActor <- function()
 		local onDamageReceived = o.onDamageReceived;
 		o.onDamageReceived = function( _attacker, _skill, _hitInfo )
 		{
-			if (_skill != null && _skill.getDirectDamage() < 1.0 && _hitinfo.DamageDirect >= 1.0)
+			if (_skill != null && _skill.getDirectDamage() < 1.0 && _hitInfo.DamageDirect >= 1.0)
 			{
-				local chance = this.Math.min(95, 100 * _hitinfo.DamageDirect - 95);
+				local chance = this.Math.min(95, 100 * _hitInfo.DamageDirect - 95);
 				if (this.Math.rand(1, 100) > chance)
 				{
-					_hitinfo.DamageDirect = 0.95;
+					_hitInfo.DamageDirect = 0.95;
 				}				
 			}
 
