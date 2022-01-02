@@ -25,7 +25,7 @@ gt.Const.WMS.modWeapons <- function()
 		});
 
 		::mods_hookNewObject("items/weapons/legend_sling", function(o) {
-			o.setCategories("Sling, Two-Handed");
+			o.setCategories("Sling, One-Handed");
 		});
 	}
 };

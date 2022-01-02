@@ -166,8 +166,6 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			assignRandomEquipment();
 			this.m.Skills.removeByType(this.Const.SkillType.Perk);
-
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_rotation"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_recover"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_entrenched"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_target_practice"));
@@ -1503,7 +1501,7 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				this.m.MeleeSkill = this.getBaseProperties().MeleeSkill;					
+				this.getBaseProperties().MeleeSkill -= 10;
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_lone_wolf"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_fearsome"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_killing_frenzy"));
@@ -2017,6 +2015,7 @@ gt.Const.PTR.modEnemies <- function()
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Hitpoints = this.getBaseProperties().Hitpoints;
+				this.m.Skills.removeByID("perk.legend_bog_unhold_racial");				
 				this.m.Skills.removeByID("perk.legend_battleheart");
 				this.m.Skills.removeByID("perk.last_stand");
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_underdog"));				
@@ -2821,8 +2820,8 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_lone_wolf"));
 				this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));
 				this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
-				this.m.Skills.add(this.new("scripts/skills/traits/perk_ptr_eyes_up"));
-				this.m.Skills.add(this.new("scripts/skills/traits/perk_legend_clarity"));							
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_eyes_up"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_clarity"));							
 			}
 		}
 	});
@@ -3466,7 +3465,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_through_the_ranks"));	
 
 			local weapon = this.getMainhandItem();
-			if (weapon != null || !weapon.isWeaponType(this.Const.Items.WeaponType.Bow))
+			if (weapon != null || weapon.isWeaponType(this.Const.Items.WeaponType.Bow))
 			{
 				if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 				{
@@ -3676,9 +3675,9 @@ gt.Const.PTR.modEnemies <- function()
 	 	o.onInit = function()
 	 	{
 	 		onInit();
+			this.m.Skills.removeByID("perk.legend_specialist_militia_skill"); 		
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
-
 			if (this.Math.rand(1,100) <= 25)
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));
@@ -3690,7 +3689,7 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));				
 				this.m.Skills.removeByID("perk.legend_specialist_spearwall");
 				this.m.Skills.removeByID("perk.legend_specialist_spearthrust");
-
+				this.m.Skills.removeByID("perk.legend_specialist_militia_damage");
 			}
 	 	}
 
@@ -3766,12 +3765,14 @@ gt.Const.PTR.modEnemies <- function()
 	 	o.onInit = function()
 	 	{
 	 		onInit();
+			this.m.Skills.removeByID("perk.legend_specialist_militia_skill");	 		
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));			
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
+				this.m.Skills.removeByID("perk.legend_specialist_militia_damage");				
 				this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));
 			}
 		}
@@ -4537,7 +4538,7 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.removeByID("perk.returnFavor");							
 				this.m.Skills.removeByID("perk.legend_composure");
 				this.m.Skills.removeByID("perk.underdog");				
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_battleheart"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_pattern_recognition"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_nine_lives"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_assured_conquest"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_double_strike"));				

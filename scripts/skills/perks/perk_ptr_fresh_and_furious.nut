@@ -50,10 +50,14 @@ this.perk_ptr_fresh_and_furious <- this.inherit("scripts/skills/skill", {
 
 	function onUpdate( _properties )
 	{
-		local bonus = this.getBonus();
-		if (bonus > 0)
+		local item = _skill.getItem();
+		if (!_skill.isRanged() || (item != null && item.isItemType(this.Const.Items.ItemType.Weapon)) && (item.isWeaponType(this.Const.Items.WeaponType.Throwing) || item.isWeaponType(this.Const.Items.WeaponType.Bow)))
 		{
-			_properties.DamageTotalMult *= 1.0 + bonus / 100.0;
+			local bonus = this.getBonus();
+			if (bonus > 0)
+			{
+				_properties.DamageTotalMult *= 1.0 + bonus / 100.0;
+			}
 		}
 	}
 

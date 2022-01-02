@@ -800,6 +800,7 @@ gt.Const.PTR.createProfessionTrees <- function()
 			gt.Const.Perks.MilitiaProfessionTree,
 			gt.Const.Perks.MinerProfessionTree,
 			gt.Const.Perks.FarmerProfessionTree,
+			gt.Const.Perks.FistsClassTree,		
 			gt.Const.Perks.HunterProfessionTree,
 			gt.Const.Perks.DiggerProfessionTree,
 			gt.Const.Perks.LumberjackProfessionTree,

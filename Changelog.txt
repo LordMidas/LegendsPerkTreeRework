@@ -1,9 +1,32 @@
 ===================
 ==== Ver 1.5.5 ====
 ===================
+==Balance==
+- Arrow to the knee now has a 0% chance to hit the head.
+- Bloodthirsty trait now guarantees cleaver tree. No longer gives 2 weight to Sword tree.
+- Fresh and Furious is no longer usable with Crossbows or Firearms.
 - A Better Grip 25% damage boost for Two-Handed Spears now only applies to Piercing type attacks.
-- The Bloodthirsty trait now guarantees the Cleaver tree.
 - Reduced the armor penetration of Estoc from 55% to 35% because of the new Duelist changes.
+
+==Enemies==
+- Bog Unholds: Removed previously unknown 2x regeneration.
+- Militia: Removed Militia Training and Militia Practice.
+- Militia Guest: Removed Militia Training and Militia Practice.
+- Swordmaster: Replaced Battleheart with Pattern Recognition on Legendary.
+- Brigand Poacher: Removed rotation on all difficulties.
+- Orc Berserker: Now properly removes +10 matk added on Legendary difficulty from Legends.
+
+==Fixes==
+- Improved interoperability between Plan Your Perks and Scrollable Perk Trees (Thanks Taro!)
+- Clarified dismantle tooltip that armor effectiveness refers to your weapon's armor effectiveness.
+- Improved Concussive Strikes tooltip. Now properly states that attacks with maces must do blunt damage to get extra benefits.
+- Improved Nailed it tooltip. Now boldy states it requires a ranged attack.
+- Fixed Master Archer weapon check error.
+- Clarified length of debuff on Eyes Up description.
+- Added Unarmed Tree to professions in breditor.
+- Improved Arrow to the Knee tooltips to state all effects and modifiers.
+- Improved Overwhelm tooltip to state that it requires a melee weapon.
+- Fixed syntax error for Master Archer Perks.
 - Fixed the Weapon Master perk not giving some masteries to Scaling Beggar if those masteries were not on tier 4 of the perk tree.
 - Fixed Throwing Mastery perk tooltip missing info about damage at 3 tiles.
 - Fixed Formidable Approach debuff triggering when starting a turn next to an enemy with the perk.

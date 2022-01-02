@@ -1,6 +1,6 @@
 WorldTownScreenHireDialogModule.prototype.updateDetailsPanel = function(_element)
 {
-	if (_element !== null && _element.length > 0)
+    if (_element !== null && _element.length > 0)
     {
         var currentMoney = this.mAssets.getValues().Money;
         var data = _element.data('entry');
@@ -122,7 +122,7 @@ WorldTownScreenHireDialogModule.prototype.updateDetailsPanel = function(_element
             this.dismissButtonLayout.show();
             this.mDetailsPanel.DismissButton.removeClass('display-none').addClass('display-block');
             //this.mDetailsPanel.TryoutCostsContainer.removeClass('display-block').addClass('display-none');
-			this.mDetailsPanel.TryoutCostsContainer.addClass('display-block').removeClass('display-none');
+            this.mDetailsPanel.TryoutCostsContainer.addClass('display-block').removeClass('display-none');
             this.mDetailsPanel.DismissButton.bindTooltip({ contentType: 'ui-element', elementId: "world-town-screen.hire-dialog-module.DismissButton" });
         }
         else
@@ -180,4 +180,23 @@ WorldTownScreenHireDialogModule.prototype.updateListEntryValues = function()
             traitsContainer.append(icon);
         }
     });
+};
+
+var scroll_createPerkTreeDIV = CharacterScreenPerksModule.prototype.createPerkTreeDIV
+CharacterScreenPerksModule.prototype.createPerkTreeDIV = function (_perkTree, _parentDiv)
+{
+    var self = this;
+    scroll_createPerkTreeDIV.call(this, _perkTree, _parentDiv)
+    for (var row = 0; row < _perkTree.length; ++row)
+    {
+        if (_perkTree[row].length > 13)
+        {
+            var centerDiv = $('.center').eq( row )
+            centerDiv.find(".l-perk-container").css({ 'width': '4.0rem' });
+            centerDiv.css({ 'width': (4.0 * _perkTree[row].length) + 'rem' }); // css is dumb?
+            centerDiv.css({ 'left': ((660 - centerDiv.width()) / 2) + 'px' }); // css is dumb?
+        }
+    }
+    
+
 };

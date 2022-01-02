@@ -44,7 +44,6 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 	];
 	gt.Const.Perks.TraitMultipliers["trait.bloodthirsty"] <- [
 		{ Tree = this.Const.Perks.CleaverTree, Multiplier = -1 },
-		{ Tree = this.Const.Perks.SwordTree, Multiplier = 2 },
 		{ Tree = this.Const.Perks.AxeTree, Multiplier = 2 },
 		{ Tree = this.Const.Perks.SpearTree, Multiplier = 0.5 }	
 	];
