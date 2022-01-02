@@ -54,7 +54,7 @@ gt.ModBetterFencing.modWeapons <- function()
 			o.m.RegularDamageMax = 75;
 			o.m.ArmorDamageMult = 0.3;
 			o.m.DirectDamageMult = 0.25;
-			o.m.DirectDamageAdd = 0.3;
+			o.m.DirectDamageAdd = 0.1;
 			o.m.ChanceToHitHead = 0;
 			o.onEquip = function()
 			{

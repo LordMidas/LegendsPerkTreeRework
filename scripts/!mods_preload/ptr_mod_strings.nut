@@ -127,7 +127,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRTwoForOne <- "Two for One";
 	gt.Const.Strings.PerkDescription.PTRTwoForOne <- "[color=" + this.Const.UI.Color.NegativeValue + "][u]Requires:[/u] Spear[/color]\nPractice in spear-handling has taught you to strike in the most efficient way possible!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• When using a spear, the Action Point cost of Thrust, Prong and Glaive Slash is reduced by [color=" + this.Const.UI.Color.NegativeValue + "]1[/color].";
 	gt.Const.Strings.PerkName.PTRABetterGrip <- "A Better Grip";
-	gt.Const.Strings.PerkDescription.PTRABetterGrip <- "[color=" + this.Const.UI.Color.NegativeValue + "][u]Requires:[/u] Spear[/color]\n\'Don\'t hold it like that you buffoon... like THIS!\'\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• When using a shield with a One-Handed spear, gain [color=" + this.Const.UI.Color.PositiveValue + "]+5[/color] Melee Skill and [color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] Melee Defense.\n• When double-gripping One-Handed spears, the range of Thrust is increased to 2 tiles. When used at this range, it does [color=" + this.Const.UI.Color.NegativeValue + "]33%[/color] reduced damage, has no bonus chance to hit, and has [color=" + this.Const.UI.Color.NegativeValue + "]-20%[/color] chance to hit per character between you and the target.\n• Double-gripped One-Handed spears now gain benefit from the Reach Advantage perk.\n• When using Two-Handed spears, Melee Damage is increased by [color=" + this.Const.UI.Color.PositiveValue + "]25%[/color].";
+	gt.Const.Strings.PerkDescription.PTRABetterGrip <- "[color=" + this.Const.UI.Color.NegativeValue + "][u]Requires:[/u] Spear[/color]\n\'Don\'t hold it like that you buffoon... like THIS!\'\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• When using a shield with a One-Handed spear, gain [color=" + this.Const.UI.Color.PositiveValue + "]+5[/color] Melee Skill and [color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] Melee Defense.\n• When double-gripping One-Handed spears, the range of Thrust is increased to 2 tiles. When used at this range, it does [color=" + this.Const.UI.Color.NegativeValue + "]33%[/color] reduced damage, has no bonus chance to hit, and has [color=" + this.Const.UI.Color.NegativeValue + "]-20%[/color] chance to hit per character between you and the target.\n• Double-gripped One-Handed spears now gain benefit from the Reach Advantage perk.\n• When using Two-Handed spears, Melee Damage is increased by [color=" + this.Const.UI.Color.PositiveValue + "]25%[/color] for Piercing type attacks.";
 	gt.Const.Strings.PerkName.PTRKingOfAllWeapons <- "King of all Weapons";
 	gt.Const.Strings.PerkDescription.PTRKingOfAllWeapons <- "[color=" + this.Const.UI.Color.NegativeValue + "][u]Requires:[/u] Spear[/color]\nOne King to rule them all!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• When starting your turn with a Spear equipped, the first Thrust or Prong during your turn costs no Action Points and builds no Fatigue, but does [color=" + this.Const.UI.Color.NegativeValue + "]50%[/color] reduced Damage.";
 
@@ -338,20 +338,8 @@ gt.Const.PTR.modStrings <- function()
 		gt.Const.Strings.PerkDescription[s] = this.MSU.String.replace(gt.Const.Strings.PerkDescription[s], "no longer have a penalty", "have a reduced penalty");
 		gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs[s]].Tooltip = gt.Const.Strings.PerkDescription[s];
 	}
-
-	local throwingArray = split(gt.Const.Strings.PerkDescription.SpecThrowing, "[");
-	throwingArray.pop();
-	throwingArray.pop();
-	for (local i = 0; i < throwingArray.len() - 1; i++)
-	{
-		throwingArray[i] += "[";
-	}
-	gt.Const.Strings.PerkDescription.SpecThrowing = "";
-	foreach (s in throwingArray)
-	{
-		gt.Const.Strings.PerkDescription.SpecThrowing += s;
-	}
-	gt.Const.Strings.PerkDescription.SpecThrowing += "\nThrowing Spear now ignores the damage reduction from the target\'s Shield Expert perk.";
+	
+	gt.Const.Strings.PerkDescription.SpecThrowing = this.MSU.String.replace(gt.Const.Strings.PerkDescription[SpecThrowing], "at 3 tiles of distance.", "at 3 tiles of distance.\n\nThrowing Spear now ignores the damage reduction from the target\'s Shield Expert perk.");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.SpecThrowing].Tooltip = gt.Const.Strings.PerkDescription.SpecThrowing;
 
 	local changePerkGroupInTooltip = function (_tooltip, _newPerkGroup = "")
