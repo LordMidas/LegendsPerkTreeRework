@@ -18,7 +18,7 @@
 
 ==Fixes==
 - Improved interoperability between Plan Your Perks and Scrollable Perk Trees (Thanks Taro!)
-- Clarified dismantle tooltip that armor effectiveness refers to your weapon's armor effectiveness.
+- Clarified Deep Impact tooltip.
 - Improved Concussive Strikes tooltip. Now properly states that attacks with maces must do blunt damage to get extra benefits.
 - Improved Nailed it tooltip. Now boldy states it requires a ranged attack.
 - Fixed Master Archer weapon check error.
