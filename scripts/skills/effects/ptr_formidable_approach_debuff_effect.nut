@@ -199,11 +199,13 @@ this.ptr_formidable_approach_debuff_effect <- this.inherit("scripts/skills/skill
 	function onCombatStarted()
 	{
 		this.m.CurrentEnemies.clear();
+		this.m.CurrentMalus = 0;
 	}
 
 	function onCombatFinished()
 	{
 		this.skill.onCombatFinished();
 		this.m.CurrentEnemies.clear();
+		this.m.CurrentMalus = 0;
 	}
 });
