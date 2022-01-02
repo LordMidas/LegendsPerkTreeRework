@@ -1,4 +1,14 @@
 ===================
+==== Ver 1.5.6 ====
+===================
+- Armor Penetration is now capped at 95%. Any overflow armor penetration is converted into a % chance to ignore armor completely, capping out at 95% chance (will be achieved at 190% armor pen).
+- Fixed Formidable Approach cauing a freeze in battle.
+- Fixed Formidable Approach debuff potentially persisting after a battle.
+- Fixed Swift Stabs not triggering on a successful hit.
+- Fixed Swift Stabs not properly resetting.
+- Swift Stabs now resets on Turn End and Turn Wait instead of on Turn Start.
+
+===================
 ==== Ver 1.5.5 ====
 ===================
 ==Balance==
