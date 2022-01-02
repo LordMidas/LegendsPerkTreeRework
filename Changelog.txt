@@ -1,4 +1,9 @@
 ===================
+==== Ver 1.5.7 ====
+===================
+- Fixed typo in variable name causing actors to not receive any damage.
+
+===================
 ==== Ver 1.5.6 ====
 ===================
 - Armor Penetration is now capped at 95%. Any overflow armor penetration is converted into a % chance to ignore armor completely, capping out at 95% chance (will be achieved at 190% armor pen).
