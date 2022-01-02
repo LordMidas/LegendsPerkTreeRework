@@ -1,12 +1,12 @@
 ===================
 ==== Ver 1.5.5 ====
 ===================
-<<<<<<< HEAD
 ==Balance==
 - Arrow to the knee now has a 0% chance to hit the head.
 - Bloodthirsty trait now guarantees cleaver tree. No longer gives 2 weight to Sword tree.
 - Fresh and Furious is no longer usable with Crossbows or Firearms.
-
+- A Better Grip 25% damage boost for Two-Handed Spears now only applies to Piercing type attacks.
+- Reduced the armor penetration of Estoc from 55% to 35% because of the new Duelist changes.
 
 ==Enemies==
 - Bog Unholds: Removed previously unknown 2x regeneration.
@@ -17,6 +17,7 @@
 - Orc Berserker: Now properly removes +10 matk added on Legendary difficulty from Legends.
 
 ==Fixes==
+- Improved interoperability between Plan Your Perks and Scrollable Perk Trees (Thanks Taro!)
 - Clarified dismantle tooltip that armor effectiveness refers to your weapon's armor effectiveness.
 - Improved Concussive Strikes tooltip. Now properly states that attacks with maces must do blunt damage to get extra benefits.
 - Improved Nailed it tooltip. Now boldy states it requires a ranged attack.
@@ -26,10 +27,6 @@
 - Improved Arrow to the Knee tooltips to state all effects and modifiers.
 - Improved Overwhelm tooltip to state that it requires a melee weapon.
 - Fixed syntax error for Master Archer Perks.
-=======
-- A Better Grip 25% damage boost for Two-Handed Spears now only applies to Piercing type attacks.
-- The Bloodthirsty trait now guarantees the Cleaver tree.
-- Reduced the armor penetration of Estoc from 55% to 35% because of the new Duelist changes.
 - Fixed the Weapon Master perk not giving some masteries to Scaling Beggar if those masteries were not on tier 4 of the perk tree.
 - Fixed Throwing Mastery perk tooltip missing info about damage at 3 tiles.
 - Fixed Formidable Approach debuff triggering when starting a turn next to an enemy with the perk.
@@ -38,7 +35,6 @@
 - Fixed Pointy End not working as intended (it was increasing hitchance against shielded opponents instead of non-shielded ones). Now works properly.
 - Fixed One-Handed Slings showing up as Two-Handed.
 
->>>>>>> origin/midas-branch
 ===================
 ==== Ver 1.5.4 ====
 ===================
