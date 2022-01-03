@@ -1,6 +1,7 @@
 this.ptr_direct_damage_limiter_effect <- this.inherit("scripts/skills/skill", {
 	m = {
-		Max = 0.95
+		Max = 0.95,
+		FullArmorIgnoreChance = 0
 	},
 	function create()
 	{
@@ -17,13 +18,13 @@ this.ptr_direct_damage_limiter_effect <- this.inherit("scripts/skills/skill", {
 
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
-		_skill.FullArmorIgnoreChance = 0;
+		this.m.FullArmorIgnoreChance = 0;
 		if (_skill.getDirectDamage() < 1.0)
 		{
 			local damageDirect = _properties.DamageDirectMult * (_skill.getDirectDamage() + _properties.DamageDirectAdd);
 			if (damageDirect >= 1.0)
 			{
-				_skill.m.FullArmorIgnoreChance = this.Math.floor(this.Math.minf(0.95, damageDirect - this.m.Max) * 100);
+				this.m.FullArmorIgnoreChance = this.Math.floor(this.Math.minf(0.95, damageDirect - this.m.Max) * 100);
 
 				// If target entity is null, then change the damage direct mult so that
 				// the tooltip is calculated properly.
@@ -37,7 +38,7 @@ this.ptr_direct_damage_limiter_effect <- this.inherit("scripts/skills/skill", {
 
 	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
 	{
-		if (this.Math.rand(1, 100) < _skill.m.FullArmorIgnoreChance)
+		if (this.Math.rand(1, 100) < this.m.FullArmorIgnoreChance)
 		{
 			_hitInfo.DamageDirect = 1.0;
 		}
@@ -49,13 +50,13 @@ this.ptr_direct_damage_limiter_effect <- this.inherit("scripts/skills/skill", {
 
 	function onQueryTooltip( _skill, _tooltip )
 	{
-		if (_skill.m.FullArmorIgnoreChance > 0)
+		if (this.m.FullArmorIgnoreChance > 0)
 		{
 			foreach (entry in _tooltip)
 			{
 				if (entry.text.find("of which") != null && entry.text.find("can ignore armor") != null)
 				{
-					entry.text += ", with a [color=" + this.Const.UI.Color.PositiveValue + "]+" + _skill.m.FullArmorIgnoreChance + "%[/color] chance of completely ignoring armor";
+					entry.text += ", with a [color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.FullArmorIgnoreChance + "%[/color] chance of completely ignoring armor";
 					return;
 				}
 			}
