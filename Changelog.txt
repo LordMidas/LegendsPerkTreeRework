@@ -1,4 +1,8 @@
 ===================
+==== Ver 1.5.9 ====
+===================
+
+===================
 ==== Ver 1.5.8 ====
 ===================
 - Removed the integrated Scrollable Perk Tree mod by Leonion. Instead, we now use the system made by TaroEld (included from v1.5.5 onwards), which squishes the rows of the perk tree which overflow 13 columns. This has greater compatibility with the Plan Your Perks mod.

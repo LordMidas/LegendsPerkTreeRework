@@ -22,7 +22,7 @@ this.ptr_direct_damage_limiter_effect <- this.inherit("scripts/skills/skill", {
 		if (_skill.getDirectDamage() < 1.0)
 		{
 			local damageDirect = _properties.DamageDirectMult * (_skill.getDirectDamage() + _properties.DamageDirectAdd);
-			if (damageDirect >= 1.0)
+			if (damageDirect >= this.m.Max)
 			{
 				this.m.FullArmorIgnoreChance = this.Math.floor(this.Math.minf(0.95, damageDirect - this.m.Max) * 100);
 
