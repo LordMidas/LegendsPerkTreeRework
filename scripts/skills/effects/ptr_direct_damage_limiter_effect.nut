@@ -56,7 +56,7 @@ this.ptr_direct_damage_limiter_effect <- this.inherit("scripts/skills/skill", {
 			{
 				if (entry.text.find("of which") != null && entry.text.find("can ignore armor") != null)
 				{
-					entry.text += ", with a [color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.FullArmorIgnoreChance + "%[/color] chance of completely ignoring armor";
+					entry.text += ", with a [color=" + this.Const.UI.Color.PositiveValue + "]" + this.m.FullArmorIgnoreChance + "%[/color] chance of completely ignoring armor";
 					return;
 				}
 			}
