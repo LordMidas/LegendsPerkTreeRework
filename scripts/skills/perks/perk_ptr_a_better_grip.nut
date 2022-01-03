@@ -38,7 +38,7 @@ this.perk_ptr_a_better_grip <- this.inherit("scripts/skills/skill", {
 		}
 
 		local s = this.getContainer().getSkillByID("actives.thrust");
-		if (s != null && actor.isDoubleGrippingWeapon())
+		if (s != null && this.getContainer().getActor().isDoubleGrippingWeapon())
 		{
 			s.m.MaxRange += 1;			
 		}
