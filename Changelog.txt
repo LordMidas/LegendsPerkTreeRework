@@ -1,4 +1,9 @@
 ===================
+==== Ver 1.5.10 ====
+===================
+- Fixed item null checks on master archer and assassin enemies.
+
+===================
 ==== Ver 1.5.9 ====
 ===================
 - Fixed a bug in the armor penetration limiter system causing crashes and bugs in skills/perks.

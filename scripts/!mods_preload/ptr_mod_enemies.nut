@@ -2286,14 +2286,17 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.addTreeOfEquippedWeapon();
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_alert"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_pattern_recognition"));	
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_unstoppable"));								
-				if (weapon.isWeaponType(this.Const.Items.WeaponType.Sword))
-				{
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_double_strike"));
-				}
-				else if (weapon.isWeaponType(this.Const.Items.WeaponType.Dagger))
-				{
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_tempo"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_unstoppable"));	
+		  	 	if (weapon != null)
+		  	 	{
+					if (weapon.isWeaponType(this.Const.Items.WeaponType.Sword))
+					{
+						this.m.Skills.add(this.new("scripts/skills/perks/perk_double_strike"));
+					}
+					else if (weapon.isWeaponType(this.Const.Items.WeaponType.Dagger))
+					{
+						this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_tempo"));
+					}										
 				}
 			}
 		}
@@ -2529,7 +2532,7 @@ gt.Const.PTR.modEnemies <- function()
 				local weapon = this.getMainhandItem();
 				local offhandItem = this.getOffhandItem();	
 
-				if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.Sword) && weapon.isWeaponType(this.Const.Items.ItemType.OneHanded))
+				if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.Sword) && weapon.isItemType(this.Const.Items.ItemType.OneHanded))
 				{		
 					if (offhandItem == null || offhandItem.isItemType(this.Const.Items.ItemType.Tool))
 					{
@@ -3465,27 +3468,30 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_through_the_ranks"));	
 
 			local weapon = this.getMainhandItem();
-			if (weapon != null || weapon.isWeaponType(this.Const.Items.WeaponType.Bow))
-			{
-				if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+			if (weapon != null)
+			{			
+				if weapon.isWeaponType(this.Const.Items.WeaponType.Bow)
 				{
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_eyes_up"));
-				}					
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_target_practice"));	
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_ranged_supremacy"));	
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_flaming_arrows"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_hip_shooter"));	
-			}
-			else //if crossbow
-			{
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_power_shot"));	
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_iron_sights"));				
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_primal_fear"));
+					if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+					{
+						this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_eyes_up"));
+					}					
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_target_practice"));	
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_ranged_supremacy"));	
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_flaming_arrows"));
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_hip_shooter"));	
+				}
+				else //if crossbow
+				{
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_power_shot"));	
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_iron_sights"));				
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_primal_fear"));
 
-				if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
-				{
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_muscle_memory"));
-				}			
+					if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+					{
+						this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_muscle_memory"));
+					}			
+				}
 			}
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
