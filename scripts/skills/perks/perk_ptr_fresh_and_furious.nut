@@ -1,6 +1,6 @@
 this.perk_ptr_fresh_and_furious <- this.inherit("scripts/skills/skill", {
 	m = {
-		IsInCombat = false
+		IsForceEnabled = false
 	},
 	function create()
 	{
@@ -37,9 +37,25 @@ this.perk_ptr_fresh_and_furious <- this.inherit("scripts/skills/skill", {
 		return tooltip;
 	}
 
+	function isEnabled()
+	{
+		if (this.m.IsForceEnabled)
+		{
+			return true;
+		}
+
+		local weapon = this.getContainer().getActor().getMainhandItem();
+		if (weapon != null && (weapon.isWeaponType(this.Const.Items.WeaponType.Throwing) || weapon.isWeaponType(this.Const.Items.WeaponType.Bow)))
+		{
+			return true;
+		}
+
+		return false;
+	}
+
 	function getBonus()
 	{
-		if (!this.m.IsInCombat)
+		if (!this.getContainer().getActor().isPlacedOnMap())
 		{
 			return 0;
 		}
@@ -48,10 +64,9 @@ this.perk_ptr_fresh_and_furious <- this.inherit("scripts/skills/skill", {
 		return this.Math.floor(100 * (0.25 * (1.0 - (actor.getFatigue() / actor.getFatigueMax()) / 0.3)));
 	}
 
-	function onUpdate( _properties )
+	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
-		local item = _skill.getItem();
-		if (!_skill.isRanged() || (item != null && item.isItemType(this.Const.Items.ItemType.Weapon)) && (item.isWeaponType(this.Const.Items.WeaponType.Throwing) || item.isWeaponType(this.Const.Items.WeaponType.Bow)))
+		if ((_skill.isAttack() && !_skill.isRanged()) || this.isEnabled())
 		{
 			local bonus = this.getBonus();
 			if (bonus > 0)
@@ -59,24 +74,5 @@ this.perk_ptr_fresh_and_furious <- this.inherit("scripts/skills/skill", {
 				_properties.DamageTotalMult *= 1.0 + bonus / 100.0;
 			}
 		}
-	}
-
-	function onAdded()
-	{
-		if (("State" in this.Tactical) && this.Tactical.State != null)
-		{
-			this.m.IsInCombat = true;
-		}
-	}
-
-	function onCombatStarted()
-	{
-		this.m.IsInCombat = true;
-	}
-
-	function onCombatFinished()
-	{
-		this.skill.onCombatFinished();
-		this.m.IsInCombat = false;
 	}
 });
