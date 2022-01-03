@@ -3470,7 +3470,7 @@ gt.Const.PTR.modEnemies <- function()
 			local weapon = this.getMainhandItem();
 			if (weapon != null)
 			{			
-				if weapon.isWeaponType(this.Const.Items.WeaponType.Bow)
+				if (weapon.isWeaponType(this.Const.Items.WeaponType.Bow))
 				{
 					if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 					{
