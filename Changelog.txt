@@ -1,6 +1,7 @@
 ===================
 ==== Ver 1.5.9 ====
 ===================
+- Fixed a bug in the armor penetration limiter system causing crashes and bugs in skills/perks.
 
 ===================
 ==== Ver 1.5.8 ====
