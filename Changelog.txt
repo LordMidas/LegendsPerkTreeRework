@@ -1,6 +1,7 @@
 ===================
 ==== Ver 1.5.10 ====
 ===================
+- Added Formidable Approach to Lindwurm Tails.
 - Fixed item null checks on master archer and assassin enemies.
 
 ===================

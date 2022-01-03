@@ -1472,6 +1472,9 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Hitpoints = this.getBaseProperties().Hitpoints;					
 			this.m.ActionPoints = this.getBaseProperties().ActionPoints;				
 			this.m.Skills.addPerkTree(this.Const.Perks.HammerTree, 4);
+			local faPerk = this.new("scripts/skills/perks/perk_ptr_formidable_approach");
+			faPerk.m.IsForceEnabled = true;
+			this.m.Skills.add(faPerk);
 		}
 	});
 
