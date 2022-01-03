@@ -3,22 +3,7 @@ local gt = this.getroottable();
 gt.Const.PTR.modActor <- function()
 {
 	::mods_hookExactClass("entity/tactical/actor", function(o)
-	{		
-		local onDamageReceived = o.onDamageReceived;
-		o.onDamageReceived = function( _attacker, _skill, _hitInfo )
-		{
-			if (_skill != null && _skill.getDirectDamage() < 1.0 && _hitInfo.DamageDirect >= 1.0)
-			{
-				local chance = this.Math.min(95, 100 * _hitInfo.DamageDirect - 95);
-				if (this.Math.rand(1, 100) > chance)
-				{
-					_hitInfo.DamageDirect = 0.95;
-				}				
-			}
-
-			return onDamageReceived(_attacker, _skill, _hitInfo);
-		}
-
+	{
 		local oldOnDeath = o.onDeath;
 		o.onDeath = function( _killer, _skill, _tile, _fatalityType )
 		{
@@ -61,6 +46,7 @@ gt.Const.PTR.modActor <- function()
 			this.getSkills().add(this.new("scripts/skills/effects/ptr_inspired_by_champion_effect"));
 			this.getSkills().add(this.new("scripts/skills/effects/ptr_inspiring_presence_buff_effect"));
 			this.getSkills().add(this.new("scripts/skills/effects/ptr_armor_fatigue_recovery_effect"));
+			this.getSkills().add(this.new("scripts/skills/effects/ptr_direct_damage_limiter_effect"));
 
 			local flags = this.getFlags();
 			if (flags.has("undead") && !flags.has("ghost") && !flags.has("ghoul") && !flags.has("vampire"))
