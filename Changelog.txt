@@ -1,4 +1,14 @@
 ===================
+==== Ver 1.5.8 ====
+===================
+- Removed the integrated Scrollable Perk Tree mod by Leonion. Instead, we now use the system made by TaroEld (included from v1.5.5 onwards), which squishes the rows of the perk tree which overflow 13 columns. This has greater compatibility with the Plan Your Perks mod.
+- Made back-end improvements to the armor penetration limiter system.
+- Fixed A Better Grip causing characters and battles to bug out.
+- Fixed Fresh and Furious causing characters to bug out.
+- Fixed Fresh and Furious tooltip formatting.
+- Fixed a typo in Dent Armor tooltip.
+
+===================
 ==== Ver 1.5.7 ====
 ===================
 - Fixed typo in variable name causing actors to not receive any damage.
