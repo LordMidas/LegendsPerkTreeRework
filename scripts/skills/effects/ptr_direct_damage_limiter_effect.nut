@@ -38,14 +38,17 @@ this.ptr_direct_damage_limiter_effect <- this.inherit("scripts/skills/skill", {
 
 	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
 	{
-		if (this.Math.rand(1, 100) < this.m.FullArmorIgnoreChance)
+		if (_skill.getDirectDamage() < 1.0)
 		{
-			_hitInfo.DamageDirect = 1.0;
-		}
-		else
-		{
-			_hitInfo.DamageDirect = this.Math.minf(this.m.Max, _hitInfo.DamageDirect);
-		}
+			if (this.Math.rand(1, 100) < this.m.FullArmorIgnoreChance)
+			{
+				_hitInfo.DamageDirect = 1.0;
+			}
+			else
+			{
+				_hitInfo.DamageDirect = this.Math.minf(this.m.Max, _hitInfo.DamageDirect);
+			}
+		}		
 	}
 
 	function onQueryTooltip( _skill, _tooltip )
