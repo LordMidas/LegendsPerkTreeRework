@@ -1,6 +1,14 @@
-===================
+====================
+==== Ver 1.5.11 ====
+====================
+- The Fencer perk will no longer appear on a character with an Initiative before gear of less than 100. Swordmasters are still guaranteed to have it.
+- Improved arrow to the knee perk tooltip.
+- Fixed Armor Penetration limiter effect reducing the armor penetrating damage dealt from 100% armor ignore skills e.g. Puncture.
+- Fixed Arrow to the Knee causing all attacks to have a 0% chance to hit the head instead of only ranged attacks.
+
+====================
 ==== Ver 1.5.10 ====
-===================
+====================
 - Added Formidable Approach to Lindwurm Tails.
 - Fixed item null checks on master archer and assassin enemies.
 
