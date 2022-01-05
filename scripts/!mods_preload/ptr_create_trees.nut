@@ -927,53 +927,55 @@ gt.Const.PTR.createSpecialTrees <- function()
 	};
 
 	gt.Const.Perks.SpecialTrees.addSpecialPerk( gt.Const.Perks.PerkDefs.BFFencer, 7, "Has all the makings of a capable fencer.", function( _player, _localMap ) {
-		local chanceFencer = 25;
 		if (_player.getBackground().getID() == "background.swordmaster")
 		{
-			chanceFencer = 100;
+			return true;
 		}
-		else
-		{
-			local hasSwordTree = false;
 
-			local talents = _player.getTalents();
+		local chanceFencer = 25;
+		local hasSwordTree = false;
+		local talents = _player.getTalents();
 
-			chanceFencer = talents.len() == 0 ? 0 : chanceFencer * talents[this.Const.Attributes.Initiative] * talents[this.Const.Attributes.MeleeSkill];
+		chanceFencer = talents.len() == 0 ? 0 : chanceFencer * talents[this.Const.Attributes.Initiative] * talents[this.Const.Attributes.MeleeSkill];
 
-			if (chanceFencer > 0)
 		if (_player.getInitiative() + (this.Math.max(0, _player.getBaseProperties().Stamina - _player.getCurrentProperties().Stamina)) < 100)
 		{
 			return false;
 		}
+
+		if (chanceFencer > 0)
+		{
+			foreach (category in _localMap)
 			{
-				foreach (category in _localMap)
+				foreach (tree in category)
 				{
-					foreach (tree in category)
+					switch (tree.ID)
 					{
-						switch (tree.ID)
-						{
-							case this.Const.Perks.SwordTree.ID:
-								hasSwordTree = true;
-								break;
+						case this.Const.Perks.SwordTree.ID:
+							hasSwordTree = true;
+							break;
 
-							case this.Const.Perks.LightArmorTree.ID:
-								chanceFencer *= 2;
-								break;
+						case this.Const.Perks.LightArmorTree.ID:
+							chanceFencer *= 2;
+							break;
 
-							case this.Const.Perks.HeavyArmorTree.ID:
-								chanceFencer /= 2;
-								break;
-						}
+						case this.Const.Perks.HeavyArmorTree.ID:
+							chanceFencer /= 2;
+							break;
 					}
 				}
 			}
-
-			if (!hasSwordTree)
-			{
-				chanceFencer = 0;
-			}
+		}
+		else
+		{
+			return false;
 		}
 
-		return this.Math.rand(1, 100) <= chanceFencer;
+		if (!hasSwordTree)
+		{
+			return false;
+		}
+
+		return this.Math.rand(1, 100) <= chanceFencer;			
 	});
 }
