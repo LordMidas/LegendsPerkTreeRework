@@ -941,6 +941,10 @@ gt.Const.PTR.createSpecialTrees <- function()
 			chanceFencer = talents.len() == 0 ? 0 : chanceFencer * talents[this.Const.Attributes.Initiative] * talents[this.Const.Attributes.MeleeSkill];
 
 			if (chanceFencer > 0)
+		if (_player.getInitiative() + (this.Math.max(0, _player.getBaseProperties().Stamina - _player.getCurrentProperties().Stamina)) < 100)
+		{
+			return false;
+		}
 			{
 				foreach (category in _localMap)
 				{
