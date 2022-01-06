@@ -101,8 +101,7 @@ this.ptr_swordmaster_scenario_avatar_effect <- this.inherit("scripts/skills/effe
 				icon = "ui/icons/warning.png",
 				text = "The campaign will end if a total of 50 days pass with fewer than 3 recruits in your company. Currently " + this.m.DaysWithoutRecruits + " such days have passed"
 			});
-		}
-		
+		}		
 
 		return tooltip;
 	}
@@ -138,14 +137,13 @@ this.ptr_swordmaster_scenario_avatar_effect <- this.inherit("scripts/skills/effe
 			_properties.MeleeSkill += skillBonus;
 			_properties.MeleeDefense += skillBonus;
 			_properties.Bravery += skillBonus;
-
-			_properties.DamageDirectAdd += this.getDirectDamageBonus() * 0.01;
-
-			local skillMalus = this.getSkillMalus();
-			_properties.Stamina -= skillMalus;
-			_properties.Initiative -= skillMalus;
-			_properties.Hitpoints -= skillMalus;
+			_properties.DamageDirectAdd += this.getDirectDamageBonus() * 0.01;			
 		}
+
+		local skillMalus = this.getSkillMalus();
+		_properties.Stamina -= skillMalus;
+		_properties.Initiative -= skillMalus;
+		_properties.Hitpoints -= skillMalus;
 	}
 
 	function onNewDay()

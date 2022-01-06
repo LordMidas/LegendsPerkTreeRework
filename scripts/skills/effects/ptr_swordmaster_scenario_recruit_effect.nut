@@ -56,55 +56,55 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 					icon = "ui/icons/direct_damage.png",
 					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + level + "%[/color] damage ignores armor"
 				}
-			]);
+			]);			
+		}
 
-			local ids = [];
-			local swordPerkDefs = [];
-			foreach (row in this.Const.Perks.SwordTree.Tree)
+		local ids = [];
+		local swordPerkDefs = [];
+		foreach (row in this.Const.Perks.SwordTree.Tree)
+		{
+			foreach (perk in row)
 			{
-				foreach (perk in row)
-				{
-					swordPerkDefs.push(perk);
-					ids.push(this.Const.Perks.PerkDefObjects[perk].ID);
-				}
+				swordPerkDefs.push(perk);
+				ids.push(this.Const.Perks.PerkDefObjects[perk].ID);
+			}
+		}
+
+		if (this.m.FreePerkLevels.len() != 0 && this.getContainer().getSkillsByFunction(this, @(_skill) ids.find(_skill) != null).len() != swordPerkDefs.len())
+		{
+			local potentialPerks = "";
+
+			for (local i = swordPerkDefs.len() - this.m.FreePerkLevels.len(); i < swordPerkDefs.len(); i++)
+			{
+				potentialPerks += this.Const.Strings.PerkName[this.Const.Perks.PerkDefObjects[swordPerkDefs[i]]["Const"]] + ", ";
 			}
 
-			if (this.m.FreePerkLevels.len() != 0 && this.getContainer().getSkillsByFunction(this, @(_skill) ids.find(_skill) != null).len() != swordPerkDefs.len())
-			{
-				local potentialPerks = "";
+			potentialPerks = potentialPerks.slice(0, -2);
 
-				for (local i = swordPerkDefs.len() - this.m.FreePerkLevels.len(); i < swordPerkDefs.len(); i++)
-				{
-					potentialPerks += this.Const.Strings.PerkName[this.Const.Perks.PerkDefObjects[swordPerkDefs[i]]["Const"]] + ", ";
-				}
+			tooltip.push({
+				id = 10,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Upon gaining a level, has a [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] chance to gain a free perk from the Sword perk group. [color=" + this.Const.UI.Color.PositiveValue + "]Potential Perks:[/color] " + potentialPerks
+			});
+		}
 
-				potentialPerks = potentialPerks.slice(0, -2);
-
-				tooltip.push({
-					id = 10,
-					type = "text",
-					icon = "ui/icons/special.png",
-					text = "Upon gaining a level, has a [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] chance to gain a free perk from the Sword perk group. [color=" + this.Const.UI.Color.PositiveValue + "]Potential Perks:[/color] " + potentialPerks
-				});
+		if (this.m.FreePerks.len() > 0)
+		{
+			local freePerks = "";
+			foreach (perk in this.m.FreePerks)
+			{					
+				freePerks += this.Const.Strings.PerkName[this.Const.Perks.PerkDefObjects[perk]["Const"]] + ", ";
 			}
 
-			if (this.m.FreePerks.len() > 0)
-			{
-				local freePerks = "";
-				foreach (perk in this.m.FreePerks)
-				{					
-					freePerks += this.Const.Strings.PerkName[this.Const.Perks.PerkDefObjects[perk]["Const"]] + ", ";
-				}
+			freePerks = freePerks.slice(0, -2);
 
-				freePerks = freePerks.slice(0, -2);
-
-				tooltip.push({
-					id = 10,
-					type = "text",
-					icon = "ui/icons/special.png",
-					text = "[color=" + this.Const.UI.Color.PositiveValue + "]Free Perks Gained:[/color] " + freePerks
-				});	
-			}
+			tooltip.push({
+				id = 10,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]Free Perks Gained:[/color] " + freePerks
+			});	
 		}
 
 		tooltip.push({

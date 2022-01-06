@@ -24,7 +24,7 @@ this.ptr_swordmaster_scenario_effect <- this.inherit("scripts/skills/skill", {
 	function isEnabled()
 	{
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon != null && this.isValidWeapon(weapon))
+		if (weapon != null && this.isValidWeapon(weapon) && weapon.isWeaponType(this.Const.Items.WeaponType.Sword))
 		{
 			return true;
 		}
