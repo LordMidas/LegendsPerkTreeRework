@@ -1,4 +1,18 @@
 ====================
+==== Ver 1.5.12 ====
+====================
+- Staff Block tweaked: Now only grants Melee Defense. Gain +16 Melee Defense when wielding a staff and half of this bonus when wielding a musical instrument.
+- Shieldmaidens no longer have the Soldier perk group. Instead they have the Laborer perk group.
+- The Pole-type weapon hitchance malus has been tweaked. Now all pole-type weapons get a -15% chance to hit when engaged in melee, regardless of whether the target is adjacent or not. This only applies to skills which have a maximum range of more 2 or more tiles.
+- Clarified in Staff Spins tooltip that the upgrade from dazed to stun doesn't apply to AOE attacks.
+- The vala is now allowed to wield the vala staff in the Old Swordmaster origin.
+- The Old Swordmaster effect now only grants the Swordmaster's Training and Swordmaster's Finesse bonuses when wielding a Sword, and not when any valid weapon (e.g. banner and vala staff) is being wielded
+- Updated Old Swordmaster origin and intro event text about explanation of the origin.
+- Fixed Old Swordmaster's HP, Fatigue and Initiative maluses not applying when not wielding a sword.
+- Fixed Target Practice allowing swapping any item tagged as "ammo" for free. Now also requires that the item be equippable in the ammo slot.
+- Fixed missing tooltip for Vengeance status effect.
+
+====================
 ==== Ver 1.5.11 ====
 ====================
 - The Fencer perk will no longer appear on a character with an Initiative before gear of less than 100. Swordmasters are still guaranteed to have it.
