@@ -14,7 +14,7 @@ this.perk_ptr_target_practice <- this.inherit("scripts/skills/skill", {
 		this.m.ItemActionOrder = this.Const.ItemActionOrder.First;
 	}
 
-	function onAfterUpdate(_properties)
+	function onAfterUpdate( _properties )
 	{
 		local aimedShot = this.getContainer().getSkillByID("actives.aimed_shot")
 		if (aimedShot != null)
@@ -23,7 +23,7 @@ this.perk_ptr_target_practice <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-	function getItemActionCost(_items)
+	function getItemActionCost( _items )
 	{
 		local count = 0;
 
