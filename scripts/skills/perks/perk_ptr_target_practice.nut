@@ -29,7 +29,7 @@ this.perk_ptr_target_practice <- this.inherit("scripts/skills/skill", {
 
 		foreach (item in _items)
 		{
-			if (item != null && item.isItemType(this.Const.Items.ItemType.Ammo))
+			if (item != null && item.isItemType(this.Const.Items.ItemType.Ammo) && item.getSlotType() == this.Const.ItemSlot.Ammo)
 			{
 				count++;
 			}
