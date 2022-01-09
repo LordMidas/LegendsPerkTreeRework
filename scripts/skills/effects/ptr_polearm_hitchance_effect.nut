@@ -32,7 +32,7 @@ this.ptr_polearm_hitchance_effect <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		if (this.getContainer().getActor().getTile().getDistanceTo(_targetEntity.getTile()) == 1)
+		if (this.getContainer().getActor().isEngagedInMelee())
 		{
 			_properties.MeleeSkill += this.m.HitChanceMalusAdjacent;
 		}
@@ -42,11 +42,11 @@ this.ptr_polearm_hitchance_effect <- this.inherit("scripts/skills/skill", {
 	{
 		if (_skill.getMaxRange() > 1 && this.isEnabled())
 		{			
-			if (this.getContainer().getActor().getTile().getDistanceTo(_targetTile) == 1)
+			if (this.getContainer().getActor().isEngagedInMelee())
 			{
 				_tooltip.push({
 					icon = "ui/tooltips/negative.png",
-					text = "[color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.HitChanceMalusAdjacent + "%[/color] Adjacent Target"
+					text = "[color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.HitChanceMalusAdjacent + "%[/color] Engaged in Melee"
 				});
 			}
 		}
