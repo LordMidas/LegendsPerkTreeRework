@@ -95,6 +95,8 @@ gt.Const.PTR.modSkills <- function()
 				icon = "ui/icons/damage_dealt.png",
 				text = "Damage increased by [color=" + this.Const.UI.Color.NegativeValue + "]" + (this.m.Stacks * 25) + "%[/color]"
 			});
+
+			return tooltip;
 		}
 
 		o.onBeforeDamageReceived = function( _attacker, _skill, _hitInfo, _properties )
