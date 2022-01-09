@@ -324,6 +324,9 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.LegendHairSplitter = "Years of practice throwing things at apples above heads have granted a magnetic attraction to the cranium.\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Gain [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit the head.";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendHairSplitter].Tooltip = gt.Const.Strings.PerkDescription.LegendHairSplitter;
 
+	gt.Const.Strings.PerkDescription.LegendSpecStaffSkill = "[color=" + this.Const.UI.Color.NegativeValue + "][u]Requires:[/u] Staff or Musical Instrument[/color]\nTwist and thrust with your staff to deflect blows and intercept strikes.\n\n\n• Gain [color=" + this.Const.UI.Color.PositiveValue + "]+16[/color] Melee Defense when wielding a staff. Gain half of this bonus when wielding a musical instrument.";
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSpecStaffSkill].Tooltip = gt.Const.Strings.PerkDescription.LegendSpecStaffSkill;
+
 	local poleWeaponStrings = [
 		"SpecAxe",
 		"SpecHammer",
