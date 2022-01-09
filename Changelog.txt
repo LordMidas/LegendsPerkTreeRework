@@ -2,6 +2,7 @@
 ==== Ver 1.5.12 ====
 ====================
 - Staff Block tweaked: Now only grants Melee Defense. Gain +16 Melee Defense when wielding a staff and half of this bonus when wielding a musical instrument.
+- Man at Arms PTRitized! - Soldier tree guaranteed, Sergeant or Tactician tree 80/20.
 - Shieldmaidens no longer have the Soldier perk group. Instead they have the Laborer perk group.
 - The Pole-type weapon hitchance malus has been tweaked. Now all pole-type weapons get a -15% chance to hit when engaged in melee, regardless of whether the target is adjacent or not. This only applies to skills which have a maximum range of more 2 or more tiles.
 - Hopefully fixed the vanilla bug whereby Re-equipping a weapon removes the disarmed. It should now work properly whereby only equipping a different weapon will remove the effect.

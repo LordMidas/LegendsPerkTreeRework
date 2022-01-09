@@ -3059,6 +3059,22 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		};
 	});
 
+	::mods_hookNewObject("skills/backgrounds/legend_man_at_arms_background", function(o) {
+		o.m.PerkTreeDynamic = {			
+			WeightMultipliers = [
+				{Multiplier = 0.8, Tree = this.Const.Perks.CrossbowTree},
+				{Multiplier = 0.5, Tree = this.Const.Perks.SlingsTree}
+			],
+			Profession = [
+				[{Weight = 100, Tree = this.Const.Perks.SoldierProfessionTree}]
+			],
+			Class = [
+				{Weight = 80, Tree = this.Const.Perks.SergeantClassTree},
+				{Weight = 20, Tree = this.Const.Perks.TacticianClassTree}
+				]
+		};
+	});
+
  // 	::mods_hookNewObject("skills/backgrounds/legend_necromancer_background", function(o) {
 	// 	o.m.PerkTreeDynamic = {			
 	// 		WeightMultipliers = [
