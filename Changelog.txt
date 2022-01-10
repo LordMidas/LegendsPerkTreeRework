@@ -1,4 +1,9 @@
 ====================
+==== Ver 1.5.13 ====
+====================
+- Fixed error in Man at Arms perk code.
+
+====================
 ==== Ver 1.5.12 ====
 ====================
 - Staff Block tweaked: Now only grants Melee Defense. Gain +16 Melee Defense when wielding a staff and half of this bonus when wielding a musical instrument.

@@ -3069,9 +3069,11 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				[{Weight = 100, Tree = this.Const.Perks.SoldierProfessionTree}]
 			],
 			Class = [
+				[
 				{Weight = 80, Tree = this.Const.Perks.SergeantClassTree},
 				{Weight = 20, Tree = this.Const.Perks.TacticianClassTree}
 				]
+			]
 		};
 	});
 
