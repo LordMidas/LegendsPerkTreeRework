@@ -40,7 +40,7 @@ this.perk_ptr_swift_stabs <- this.inherit("scripts/skills/skill", {
 			id = 10,
 			type = "text",
 			icon = "ui/icons/action_points.png",
-			text = "The Action Point costs Dagger attacks are reduced"
+			text = "The Action Point costs of Dagger attacks are reduced"
 		});
 
 		tooltip.push({
