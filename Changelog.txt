@@ -1,4 +1,10 @@
 ====================
+==== Ver 1.5.14 ====
+====================
+- Fixed Goblin Ambusher Low not getting their full set of perks.
+
+
+====================
 ==== Ver 1.5.13 ====
 ====================
 - Fixed error in Man at Arms perk code.

@@ -574,6 +574,22 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.removeByID("perk.berserk");		
 			}
 		}
+
+		local assignRandomEquipment = o.assignRandomEquipment;
+		o.assignRandomEquipment = function()
+		{
+			assignRandomEquipment();
+			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+			{
+				this.m.Skills.addPerkTree(this.Const.Perks.DaggerTree, 4);
+			}
+			else
+			{
+				this.m.Skills.addPerkTree(this.Const.Perks.DaggerTree, 3);
+			}
+			this.m.Skills.addTreeOfEquippedWeapon(5);
+		}
+		
 	});
 
 	::mods_hookExactClass("entity/tactical/enemies/goblin_fighter", function(o) {
