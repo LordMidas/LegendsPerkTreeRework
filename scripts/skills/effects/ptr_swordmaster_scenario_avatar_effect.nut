@@ -30,7 +30,6 @@ this.ptr_swordmaster_scenario_avatar_effect <- this.inherit("scripts/skills/effe
 		else
 		{
 			local skillBonus = this.getSkillBonus();
-			local directDamageBonus = this.getDirectDamageBonus();
 
 			tooltip.extend([
 				{
@@ -55,7 +54,7 @@ this.ptr_swordmaster_scenario_avatar_effect <- this.inherit("scripts/skills/effe
 					id = 10,
 					type = "text",
 					icon = "ui/icons/direct_damage.png",
-					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + directDamageBonus + "%[/color] damage ignores armor"
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + skillBonus + "%[/color] damage ignores armor"
 				}
 			]);
 		}
@@ -111,11 +110,6 @@ this.ptr_swordmaster_scenario_avatar_effect <- this.inherit("scripts/skills/effe
 		return this.getContainer().getActor().getLevel() * 2;
 	}
 
-	function getDirectDamageBonus()
-	{
-		return this.Math.min(25, this.getSkillBonus());
-	}
-
 	function getSkillMalus()
 	{
 		if (this.World.Flags.get("PTR_SwordmasterScenario_OldAgeEvent_1"))
@@ -137,7 +131,7 @@ this.ptr_swordmaster_scenario_avatar_effect <- this.inherit("scripts/skills/effe
 			_properties.MeleeSkill += skillBonus;
 			_properties.MeleeDefense += skillBonus;
 			_properties.Bravery += skillBonus;
-			_properties.DamageDirectAdd += this.getDirectDamageBonus() * 0.01;			
+			_properties.DamageDirectAdd += skillBonus * 0.01;			
 		}
 
 		local skillMalus = this.getSkillMalus();
