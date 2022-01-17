@@ -684,6 +684,9 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_power_shot"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_primal_fear"));
+			local inspiringPresencePerk = this.new("scripts/skills/perks/perk_inspiring_presence");
+			inspiringPresencePerk.m.IsForceEnabled = true;
+			this.m.Skills.add(inspiringPresencePerk);			
 
 	 		if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 	 		{
@@ -926,7 +929,10 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bulwark"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_primal_fear"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_menacing"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bully"));			
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bully"));	
+			local inspiringPresencePerk = this.new("scripts/skills/perks/perk_inspiring_presence");
+			inspiringPresencePerk.m.IsForceEnabled = true;
+			this.m.Skills.add(inspiringPresencePerk);					
 
 			this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
 			this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
@@ -1494,13 +1500,16 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	# ::mods_hookExactClass("entity/tactical/enemies/necromancer", function(o) {
-	# 	local onInit = o.onInit;
-	# 	o.onInit = function()
-	# 	{
-	# 		onInit();
-	# 	}
-	# });
+	 ::mods_hookExactClass("entity/tactical/enemies/necromancer", function(o) {
+	 	local onInit = o.onInit;
+	 	o.onInit = function()
+	 	{
+	 		onInit();
+	 		local inspiringPresencePerk = this.new("scripts/skills/perks/perk_inspiring_presence");
+			inspiringPresencePerk.m.IsForceEnabled = true;
+			this.m.Skills.add(inspiringPresencePerk);	
+	 	}
+	});
 
 	::mods_hookExactClass("entity/tactical/enemies/orc_berserker", function(o) {
 		local onInit = o.onInit;
@@ -1560,6 +1569,9 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_unstoppable"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_true_believer"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bulwark"));
+			local inspiringPresencePerk = this.new("scripts/skills/perks/perk_inspiring_presence");
+			inspiringPresencePerk.m.IsForceEnabled = true;
+			this.m.Skills.add(inspiringPresencePerk);			
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -1924,14 +1936,17 @@ gt.Const.PTR.modEnemies <- function()
 		}
 	});
 
-	# ::mods_hookExactClass("entity/tactical/enemies/skeleton_priest", function(o) {
-	# 	local onInit = o.onInit;
-	# 	o.onInit = function()
-	# 	{
-	# 		onInit();
-	# 	}
-	# });
-	#
+	 ::mods_hookExactClass("entity/tactical/enemies/skeleton_priest", function(o) {
+	 	local onInit = o.onInit;
+	 	o.onInit = function()
+	 	{
+	 		onInit();
+			local inspiringPresencePerk = this.new("scripts/skills/perks/perk_inspiring_presence");
+			inspiringPresencePerk.m.IsForceEnabled = true;
+			this.m.Skills.add(inspiringPresencePerk);	 		
+	 	}
+	 });
+	
 	::mods_hookExactClass("entity/tactical/enemies/spider", function(o) {
 		local onInit = o.onInit;
 		o.onInit = function()
@@ -3361,6 +3376,9 @@ gt.Const.PTR.modEnemies <- function()
 			onInit();
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
+			local inspiringPresencePerk = this.new("scripts/skills/perks/perk_inspiring_presence");
+			inspiringPresencePerk.m.IsForceEnabled = true;
+			this.m.Skills.add(inspiringPresencePerk);			
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{

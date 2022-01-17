@@ -1,6 +1,7 @@
 ====================
 ==== Ver 1.5.14 ====
 ====================
+- Force enabled Inspiring Presence on Necromancer, Ancient Priest, Goblin Overseer, Orc Warlord and Monk enemies. On all difficulties.
 - Rattle now stacks with every attack.
 - Fixed a critical error in Old Swordmaster student duel event which caused the event to bug out after winning the duel.
 - Fixed Goblin Ambusher Low not getting their full set of perks.
