@@ -40,7 +40,7 @@ this.perk_ptr_swift_stabs <- this.inherit("scripts/skills/skill", {
 			id = 10,
 			type = "text",
 			icon = "ui/icons/action_points.png",
-			text = "The Action Point costs Dagger attacks are reduced"
+			text = "The Action Point costs of Dagger attacks are reduced"
 		});
 
 		tooltip.push({
@@ -58,7 +58,7 @@ this.perk_ptr_swift_stabs <- this.inherit("scripts/skills/skill", {
 		if (!this.m.IsSpent && this.isEnabled())
 		{
 			local skills = this.getContainer().getSkillsByFunction(this, @(_skill) _skill.isAttack() && _skill.m.IsWeaponSkill)
-			foreach (s in skills)
+			foreach (skill in skills)
 			{
 				skill.m.ActionPointCost = this.Math.max(2, skill.m.ActionPointCost - 2);
 			}

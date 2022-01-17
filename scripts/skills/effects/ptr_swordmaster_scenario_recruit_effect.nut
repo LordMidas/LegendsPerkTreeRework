@@ -179,15 +179,6 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 		local actor = this.getContainer().getActor();
 		local currentBackground = actor.getBackground();
 		local oldDesc = currentBackground.m.Description;
-		
-		foreach (skill in actor.getSkills().m.Skills)
-		{
-			if (skill.getID().find("background") != null)
-			{
-				actor.getSkills().removeByID(skill.getID());
-				break;
-			}
-		}
 
 		local bg = this.new("scripts/skills/backgrounds/ptr_young_swordmaster_background");
 		bg.m.IsNew = false;
@@ -195,6 +186,8 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 		bg.m.PerkTree = clone currentBackground.m.PerkTree;
 		bg.m.PerkTreeMap = clone currentBackground.m.PerkTreeMap;
 		bg.m.CustomPerkTree = clone currentBackground.m.CustomPerkTree;
+
+		actor.getSkills().removeByID(currentBackground.getID());
 		
 		local attributes = {
 			MeleeSkill = this.Math.rand(10, 15),
