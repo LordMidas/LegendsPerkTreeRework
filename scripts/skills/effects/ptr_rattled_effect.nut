@@ -1,5 +1,6 @@
 this.ptr_rattled_effect <- this.inherit("scripts/skills/skill", {
 	m = {
+		Stacks = 1,
 		DamageReductionPercentage = 10
 	},
 	function create()
@@ -23,15 +24,20 @@ this.ptr_rattled_effect <- this.inherit("scripts/skills/skill", {
 			id = 10,
 			type = "text",
 			icon = "ui/icons/damage_dealt.png",
-			text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + this.m.DamageReductionPercentage + "%[/color] Damage inflicted"
+			text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + (this.m.Stacks * this.m.DamageReductionPercentage) + "%[/color] Damage inflicted"
 		});
 		
 		return tooltip;
 	}
 
+	function onRefresh()
+	{
+		this.m.Stacks++;
+	}
+
 	function onUpdate( _properties )
 	{
-		_properties.DamageTotalMult *= 1.0 - (this.m.DamageReductionPercentage * 0.01);
+		_properties.DamageTotalMult *= 1.0 - (this.m.Stacks * this.m.DamageReductionPercentage * 0.01);
 	}
 	
 	function onTurnEnd()

@@ -39,10 +39,7 @@ this.perk_ptr_rattle <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 		
-		if (!_targetEntity.getSkills().hasSkill("effects.ptr_rattled"))
-		{
-			_targetEntity.getSkills().add(this.new("scripts/skills/effects/ptr_rattled_effect"));
-		}
+		_targetEntity.getSkills().add(this.new("scripts/skills/effects/ptr_rattled_effect"));
 	}
 });
 
