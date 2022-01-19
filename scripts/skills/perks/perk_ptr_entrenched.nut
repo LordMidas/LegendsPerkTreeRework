@@ -35,19 +35,27 @@ this.perk_ptr_entrenched <- this.inherit("scripts/skills/skill", {
 
 		local bonus = this.getBonus();
 
-		tooltip.push({
-			id = 10,
-			type = "text",
-			icon = "ui/icons/ranged_skill.png",
-			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + bonus + "[/color] Ranged Skill"
-		});
-		tooltip.push({
-			id = 10,
-			type = "text",
-			icon = "ui/icons/ranged_defense.png",
-			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + bonus + "[/color] Ranged Defense"
-		});
-		tooltip.push({
+		tooltip.extend([
+			{
+				id = 10,
+				type = "text",
+				icon = "ui/icons/ranged_skill.png",
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + bonus + "[/color] Ranged Skill"
+			},
+			{
+				id = 10,
+				type = "text",
+				icon = "ui/icons/ranged_defense.png",
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + bonus + "[/color] Ranged Defense"
+			},
+			{
+				id = 10,
+				type = "text",
+				icon = "ui/icons/bravery.png",
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + bonus + "[/color] Resolve"
+			}
+		]);
+
 		if (!this.m.IsSpent)
 		{
 			tooltip.push({
