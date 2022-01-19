@@ -48,10 +48,13 @@ this.perk_ptr_entrenched <- this.inherit("scripts/skills/skill", {
 			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + bonus + "[/color] Ranged Defense"
 		});
 		tooltip.push({
+		if (!this.m.IsSpent)
+		{
+			tooltip.push({
 			id = 10,
 			type = "text",
-			icon = "ui/icons/bravery.png",
-			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + bonus + "[/color] Resolve"
+			icon = "ui/icons/special.png",
+			text = "Can swap between two ranged weapons this turn at no Action Point cost"
 		});
 
 		return tooltip;
@@ -135,6 +138,8 @@ this.perk_ptr_entrenched <- this.inherit("scripts/skills/skill", {
 
 	function onTurnStart()
 	{
+		this.m.IsSpent = false;
+
 		if (this.isEnabled())
 		{
 			this.m.TurnsEntrenched++;
