@@ -26,7 +26,7 @@ this.perk_ptr_entrenched <- this.inherit("scripts/skills/skill", {
 
 	function getName()
 	{
-		return this.m.TurnsEntrenched > 0 ? this.m.Name + "(x" + this.m.TurnsEntrenched + " Turns)" : this.m.Name;
+		return this.m.TurnsEntrenched > 0 ? this.m.Name + " (x" + this.m.TurnsEntrenched + " Turns)" : this.m.Name;
 	}
 
 	function getTooltip()
