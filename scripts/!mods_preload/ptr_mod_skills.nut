@@ -378,7 +378,7 @@ gt.Const.PTR.modSkills <- function()
 						id = 6,
 						type = "text",
 						icon = "ui/icons/hitchance.png",
-						text = "Has [color=" + this.Const.UI.Color.PositiveValue + "]-20%[/color] chance to hit per character between you and the target"
+						text = "Has [color=" + this.Const.UI.Color.NegativeValue + "]-20%[/color] chance to hit per character between you and the target"
 					}
 				);
 
