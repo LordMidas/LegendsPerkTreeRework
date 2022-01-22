@@ -1,7 +1,7 @@
 this.perk_ptr_promised_potential <- this.inherit("scripts/skills/skill", {
 	m = {
 		StatBoost = 15,
-		ChanceToSucceed = 100,
+		ChanceToSucceed = 50,
 		IsSet = false,
 		IsSpent = false,
 		WillSucceed = true,
