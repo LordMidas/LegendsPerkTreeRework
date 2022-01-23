@@ -2,6 +2,61 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modWeapons <- function()
 {
+	local goblinWeapons = [
+		// "items/weapons/greenskins/goblin_bow",
+		// "items/weapons/greenskins/goblin_crossbow",
+		"items/weapons/greenskins/goblin_falchion",
+		// "items/weapons/greenskins/goblin_heavy_bow",
+		"items/weapons/greenskins/goblin_notched_blade",
+		"items/weapons/greenskins/goblin_pike",
+		"items/weapons/greenskins/goblin_spear",
+		"items/weapons/greenskins/goblin_staff",
+		"items/weapons/named/named_goblin_falchion",
+		// "items/weapons/named/named_goblin_heavy_bow",
+		"items/weapons/named/named_goblin_pike",
+		"items/weapons/named/named_goblin_spear",
+	];
+
+	foreach (weapon in goblinWeapons)
+	{
+		::mods_hookNewObject(weapon, function(o) {
+			o.m.FatigueOnSkillUse -= 2;
+
+			local getTooltip = ::mods_getMember(o, "getTooltip");
+			o.getTooltip <- function()
+			{
+				local tooltip = getTooltip();
+				tooltip.insert(tooltip.len() - 1, 
+					{
+						id = 10,
+						type = "text",
+						icon = "ui/icons/action_points.png",
+						text = "Melee attacks cost [color=" + this.Const.UI.Color.PositiveValue + "]-1[/color] Action Point"
+					}
+				);
+
+				return tooltip;
+			}
+
+			local onAfterUpdateProperties = ::mods_getMember(o, "onAfterUpdateProperties");
+			o.onAfterUpdateProperties <- function( _properties )
+			{
+				onAfterUpdateProperties(_properties);
+				if (!this.getContainer().hasSkill("racial.ptr_goblin"))
+				{
+					local skills = this.getSkills();
+					foreach (s in skills)
+					{
+						if (s.isAttack() && !s.isRanged())
+						{
+							s.m.ActionPointCost -= 1;
+						}						
+					}
+				}
+			}
+		});
+	}
+
 	::mods_hookExactClass("items/weapons/legend_staff", function(o) {
 		local onEquip = o.onEquip;
 		o.onEquip = function()
