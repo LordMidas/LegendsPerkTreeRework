@@ -15,6 +15,11 @@ this.ptr_rattled_effect <- this.inherit("scripts/skills/skill", {
 		this.m.IsActive = false;
 		this.m.IsRemovedAfterBattle = true;
 	}
+
+	function getName()
+	{
+		return this.m.Stacks > 1 ? this.m.Name + " (x" + this.m.Stacks + ")" : this.m.Name;
+	}
 	
 	function getTooltip()
 	{
