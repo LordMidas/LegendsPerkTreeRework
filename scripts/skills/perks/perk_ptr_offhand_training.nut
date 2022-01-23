@@ -88,8 +88,7 @@ this.perk_ptr_offhand_training <- this.inherit("scripts/skills/skill", {
 		local off = this.getContainer().getActor().getOffhandItem();
 		if (this.m.IsFreeUse && off != null && off.isItemType(this.Const.Items.ItemType.Tool))
 		{
-			local skills = this.getContainer().getSkillsByFunction(this, @(_skill) _skill.getItem() != null && _skill.getItem().getID() == off.getID());
-			foreach (skill in skills)
+			foreach (skill in off.getSkills())
 			{
 				this.m.Skills.push(skill.getID());
 				skill.m.ActionPointCost = 0;
