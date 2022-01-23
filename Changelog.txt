@@ -1,12 +1,15 @@
 ====================
 ==== Ver 1.5.15 ====
 ====================
+- Goblin weapons tweaked: Skills build -2 Fatigue and Melee attacks cost -1 Action Point. Goblins themselves are exempt from the -1 Action Point cost from the weapon. They instead use their racial bonus added by PTR which allows them to do all melee attacks at -1 Action Point cost. A key example being the Chain weapon, which isn't considered a goblin weapon for the aforementioned bonuses, but goblins can still use it for -1 AP cost.
 - Removed the 25% cap for the armor penetration bonus from the origin effect in the Old Swordmaster origin. This is because of the new PTR armor penetration cap system.
 - Fixed Entrenched only allowing the first swap in a battle to be free.
 - Improved Entrenched status effect tooltip formatting.
 - Fixed recruits in Old Swordmaster origin with higher level than 25 actually having their armor penetration bonus from the origin effect capped at 25% while the tooltip showed a higher value.
 - Fixed Promised Potential having 100% chance to succeed instead of 50% in code (a consequence of some debug testing in recent versions).
 - Fixed Thrust skill tooltip showing -20% in green instead of red.
+- Changed Offhand Training skill order to be Last so that the AP cost change is not overwritten by other skills (e.g. Net Casting).
+- Updated MSU to v0.6.25.
 
 ====================
 ==== Ver 1.5.14 ====
