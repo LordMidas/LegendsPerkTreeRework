@@ -8,7 +8,7 @@ this.perk_ptr_strength_in_numbers <- this.inherit("scripts/skills/skill", {
 		this.m.Name = "Strength in Numbers";
 		this.m.Description = "This character\'s martial prowess increases when fighting adjacent to allies.";
 		this.m.Icon = "ui/perks/ptr_strength_in_numbers.png";
-		this.m.IconMini = "ptr_strength_in_numbers_mini";
+		// this.m.IconMini = "ptr_strength_in_numbers_mini";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;
