@@ -11,7 +11,7 @@
 - Fixed Thrust skill tooltip showing -20% in green instead of red.
 - Fixed the Rattled effect not showing the number of stacks in its name in the tooltip.
 - Changed Offhand Training skill order to be Last so that the AP cost change is not overwritten by other skills (e.g. Net Casting).
-- Updated MSU to v0.6.25.
+- Updated MSU to v0.6.26.
 
 ====================
 ==== Ver 1.5.14 ====
