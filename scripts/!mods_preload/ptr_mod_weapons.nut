@@ -42,7 +42,7 @@ gt.Const.PTR.modWeapons <- function()
 			o.onAfterUpdateProperties <- function( _properties )
 			{
 				onAfterUpdateProperties(_properties);
-				if (!this.getContainer().hasSkill("racial.ptr_goblin"))
+				if (!this.getContainer().getActor().getSkills().hasSkill("racial.ptr_goblin"))
 				{
 					local skills = this.getSkills();
 					foreach (s in skills)
