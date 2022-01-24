@@ -1,6 +1,7 @@
 ====================
 ==== Ver 1.5.15 ====
 ====================
+- Brigand Warlords in Legends have gotten some stat increases as well as more perks. We've forgone these new perks in PTR in favor of our own perklist, but are keeping the new stat changes for now. Let us know how they feel in fights now.
 - Goblin weapons tweaked: Skills build -2 Fatigue and Melee attacks cost -1 Action Point. Goblins themselves are exempt from the -1 Action Point cost from the weapon. They instead use their racial bonus added by PTR which allows them to do all melee attacks at -1 Action Point cost. A key example being the Chain weapon, which isn't considered a goblin weapon for the aforementioned bonuses, but goblins can still use it for -1 AP cost.
 - Removed the 25% cap for the armor penetration bonus from the origin effect in the Old Swordmaster origin. This is because of the new PTR armor penetration cap system.
 - The following status effects no longer show up as mini-icons above characters: Utilitarian, Strength in Numbers, Fluid Weapon to help reduce icon spam.

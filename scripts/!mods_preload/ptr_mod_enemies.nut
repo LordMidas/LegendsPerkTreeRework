@@ -918,6 +918,12 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			onInit();
 			this.m.Skills.removeByID("perk.sundering_strikes");
+			this.m.Skills.removeByID("perk.rally_the_troops");
+			this.m.Skills.removeByID("perk.legend_full_force");
+			this.m.Skills.removeByID("perk.lone_wolf");	
+			this.m.Skills.removeByID("perk.legend_composure");	
+			this.m.Skills.removeByID("perk.underdog");		
+			this.m.Skills.removeByID("perk.legend_true_believer");										
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_close_combat_archer"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_momentum"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_battle_flow"));
@@ -939,15 +945,16 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				this.m.Skills.removeByID("perk.legend_composure");
 				this.m.Skills.removeByID("perk.relentless");				
-				this.m.Skills.removeByID("perk.legend_full_force");
 				this.m.Skills.removeByID("perk.mar_lithe");	
-				this.m.Skills.removeByID("effects.dodge");							
+				this.m.Skills.removeByID("effects.dodge");		
+				this.m.Skills.removeByID("perk.legend_battleheart");	
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_unstoppable"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_personal_armor"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_pattern_recognition"));	
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_killing_frenzy"));							
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_killing_frenzy"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_rally_the_troops"));	
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_underdog"));										
 			}
 
 			local agent = actor.getAIAgent();
