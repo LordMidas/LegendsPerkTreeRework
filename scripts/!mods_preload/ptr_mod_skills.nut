@@ -844,26 +844,6 @@ gt.Const.PTR.modSkills <- function()
 		o.m.ActionPointCost = 7;
 	});
 
-	::mods_hookExactClass("skills/actives/cleave", function(o) {
-		local getTooltip = o.getTooltip;
-		o.getTooltip = function()
-		{
-			local ret = getTooltip();
-			local swordlikePerk = this.getContainer().getSkillByID("perk.ptr_swordlike");
-			if (swordlikePerk != null)
-			{
-				ret.push({
-					id = 8,
-					type = "text",
-					icon = "ui/icons/hitchance.png",
-					text = "Has [color=" + this.Const.UI.Color.PositiveValue + "]+" + swordlikePerk.m.HitChanceBonus + "%[/color] chance to hit due to the Swordlike perk"
-				});
-			}
-
-			return ret;
-		}
-	});
-
 	::mods_hookExactClass("skills/perks/perk_quick_hands", function(o) {
 		local getItemActionCost = o.getItemActionCost;
 		o.getItemActionCost = function(_items)
