@@ -1,4 +1,14 @@
 ====================
+==== Ver 1.5.16 ====
+====================
+- The Resolve bonus from Strength in Numbers is now capped at +20.
+- Removed Knockback Immunity from Holding the Line status effect.
+- Updated vala perk descriptions to remove the mention of removed runes.
+- Fixed the -2 Fatigue cost for skills not applying to ranged goblin weapons. The -1 AP still only applies to melee weapons.
+- Fixed Swordlike not working (was most likely a consequence of recent MSU change).
+- Fixed Swordlike working with 2-tile range cleavers when it shouldn't.
+
+====================
 ==== Ver 1.5.15 ====
 ====================
 - Goblin weapons tweaked: Skills build -2 Fatigue and Melee attacks cost -1 Action Point. Goblins themselves are exempt from the -1 Action Point cost from the weapon. They instead use their racial bonus added by PTR which allows them to do all melee attacks at -1 Action Point cost. A key example being the Chain weapon, which isn't considered a goblin weapon for the aforementioned bonuses, but goblins can still use it for -1 AP cost.

@@ -216,7 +216,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRPersonalArmor <- "Personal Armor";
 	gt.Const.Strings.PerkDescription.PTRPersonalArmor <- "Give your own armor some of that special treatment!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Damage received to armor is reduced by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color].";
 	gt.Const.Strings.PerkName.PTRStrengthInNumbers <- "Strength in Numbers";
-	gt.Const.Strings.PerkDescription.PTRStrengthInNumbers <- "\'Yeah, skill doesn\'t mean so much when you\'re surrounded by 10 angry townsfolk with sharp pitchforks!\'\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Gain [color=" + this.Const.UI.Color.PositiveValue + "]+2[/color] Melee Skill, Ranged Skill, Melee  Defense and Ranged Defense for each adjacent ally.\n• Gain [color=" + this.Const.UI.Color.PositiveValue + "]+1[/color] Resolve for each ally on the battlefield.";
+	gt.Const.Strings.PerkDescription.PTRStrengthInNumbers <- "\'Yeah, skill doesn\'t mean so much when you\'re surrounded by 10 angry townsfolk with sharp pitchforks!\'\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Gain [color=" + this.Const.UI.Color.PositiveValue + "]+2[/color] Melee Skill, Ranged Skill, Melee  Defense and Ranged Defense for each adjacent ally.\n• Gain [color=" + this.Const.UI.Color.PositiveValue + "]+1[/color] Resolve for each ally on the battlefield, up to a maximum of [color=" + this.Const.UI.Color.PositiveValue + "]+20[/color].";
 	gt.Const.Strings.PerkName.PTRTunnelVision <- "Tunnel Vision";
 	gt.Const.Strings.PerkDescription.PTRTunnelVision <- "Years of working in dark mines has given you an advantage fighting at night!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• At night, vision is increased by [color=" + this.Const.UI.Color.PositiveValue + "]+1[/color] and Melee Skill and Melee Defense are increased by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color].";
 
@@ -326,6 +326,16 @@ gt.Const.PTR.modStrings <- function()
 
 	gt.Const.Strings.PerkDescription.LegendSpecStaffSkill = "[color=" + this.Const.UI.Color.NegativeValue + "][u]Requires:[/u] Staff or Musical Instrument[/color]\nTwist and thrust with your staff to deflect blows and intercept strikes.\n\n\n• Gain [color=" + this.Const.UI.Color.PositiveValue + "]+16[/color] Melee Defense when wielding a staff. Gain half of this bonus when wielding a musical instrument.";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSpecStaffSkill].Tooltip = gt.Const.Strings.PerkDescription.LegendSpecStaffSkill;
+
+	gt.Const.Strings.PerkDescription.LegendHoldTheLine = "Direct your troops to stand their ground, granting [color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] Melee Defense, reducing damage taken by [color=" + this.Const.UI.Color.NegativeValue + "]10%[/color] to all allies within [color=" + this.Const.UI.Color.PositiveValue + "]4[/color] tiles for one turn.",
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendHoldTheLine].Tooltip = gt.Const.Strings.PerkDescription.LegendHoldTheLine;
+
+	gt.Const.Strings.PerkDescription.LegendValaInscribeWeapon = "Allows the Vala to inscribe rocks with weapon specific rune sigils while encamped to create powerful rune stones.\n\nPossibilities: accuracy, power.",
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendValaInscribeWeapon].Tooltip = gt.Const.Strings.PerkDescription.LegendValaInscribeWeapon;
+	gt.Const.Strings.PerkDescription.LegendValaInscribeHelmet = "Allows the Vala to inscribe rocks with helmet specific rune sigils while encamped to create powerful rune stones.\n\nPossibilities: bravery, clarity, luck.",
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendValaInscribeHelmet].Tooltip = gt.Const.Strings.PerkDescription.LegendValaInscribeHelmet;
+	gt.Const.Strings.PerkDescription.LegendValaInscribeArmor = "Allows the Vala to inscribe rocks with armor specific rune sigils while encamped to create powerful rune stones.\n\nPossibilities: endurance, safety.",
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendValaInscribeArmor].Tooltip = gt.Const.Strings.PerkDescription.LegendValaInscribeArmor;
 
 	local poleWeaponStrings = [
 		"SpecAxe",

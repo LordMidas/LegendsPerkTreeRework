@@ -1,6 +1,7 @@
 this.perk_ptr_strength_in_numbers <- this.inherit("scripts/skills/skill", {
 	m = {
-		BonusPerAdjacentAlly = 2
+		BonusPerAdjacentAlly = 2,
+		MaxResolveBonus = 20
 	},
 	function create()
 	{
@@ -84,7 +85,7 @@ this.perk_ptr_strength_in_numbers <- this.inherit("scripts/skills/skill", {
 		}
 
 		// Subtract 1 to remove self from the count
-		return count - 1;
+		return this.Math.min(this.m.MaxResolveBonus, count - 1);
 	}
 
 	function onUpdate( _properties )
