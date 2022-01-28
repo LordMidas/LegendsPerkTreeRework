@@ -330,6 +330,13 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.LegendHoldTheLine = "Direct your troops to stand their ground, granting [color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] Melee Defense, reducing damage taken by [color=" + this.Const.UI.Color.NegativeValue + "]10%[/color] to all allies within [color=" + this.Const.UI.Color.PositiveValue + "]4[/color] tiles for one turn.",
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendHoldTheLine].Tooltip = gt.Const.Strings.PerkDescription.LegendHoldTheLine;
 
+	gt.Const.Strings.PerkDescription.LegendValaInscribeWeapon = "Allows the Vala to inscribe rocks with weapon specific rune sigils while encamped to create powerful rune stones.\n\nPossibilities: accuracy, power.",
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendValaInscribeWeapon].Tooltip = gt.Const.Strings.PerkDescription.LegendValaInscribeWeapon;
+	gt.Const.Strings.PerkDescription.LegendValaInscribeHelmet = "Allows the Vala to inscribe rocks with helmet specific rune sigils while encamped to create powerful rune stones.\n\nPossibilities: bravery, clarity, luck.",
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendValaInscribeHelmet].Tooltip = gt.Const.Strings.PerkDescription.LegendValaInscribeHelmet;
+	gt.Const.Strings.PerkDescription.LegendValaInscribeArmor = "Allows the Vala to inscribe rocks with armor specific rune sigils while encamped to create powerful rune stones.\n\nPossibilities: endurance, safety.",
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendValaInscribeArmor].Tooltip = gt.Const.Strings.PerkDescription.LegendValaInscribeArmor;
+
 	local poleWeaponStrings = [
 		"SpecAxe",
 		"SpecHammer",
