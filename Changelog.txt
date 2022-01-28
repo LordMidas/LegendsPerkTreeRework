@@ -1,4 +1,14 @@
 ====================
+==== Ver 1.5.16 ====
+====================
+- The Resolve bonus from Strength in Numbers is now capped at +20.
+- Removed Knockback Immunity from Holding the Line status effect.
+- Updated vala perk descriptions to remove the mention of removed runes.
+- Fixed the -2 Fatigue cost for skills not applying to ranged goblin weapons. The -1 AP still only applies to melee weapons.
+- Fixed Swordlike not working (was most likely a consequence of recent MSU change).
+- Fixed Swordlike working with 2-tile range cleavers when it shouldn't.
+
+====================
 ==== Ver 1.5.15 ====
 ====================
 - Brigand Warlords in Legends have gotten some stat increases as well as more perks. We've forgone these new perks in PTR in favor of our own perklist, but are keeping the new stat changes for now. Let us know how they feel in fights now.
