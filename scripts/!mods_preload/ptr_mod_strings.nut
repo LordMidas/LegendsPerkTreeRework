@@ -327,6 +327,9 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.LegendSpecStaffSkill = "[color=" + this.Const.UI.Color.NegativeValue + "][u]Requires:[/u] Staff or Musical Instrument[/color]\nTwist and thrust with your staff to deflect blows and intercept strikes.\n\n\n• Gain [color=" + this.Const.UI.Color.PositiveValue + "]+16[/color] Melee Defense when wielding a staff. Gain half of this bonus when wielding a musical instrument.";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSpecStaffSkill].Tooltip = gt.Const.Strings.PerkDescription.LegendSpecStaffSkill;
 
+	gt.Const.Strings.PerkDescription.LegendHoldTheLine = "Direct your troops to stand their ground, granting [color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] Melee Defense, reducing damage taken by [color=" + this.Const.UI.Color.NegativeValue + "]10%[/color] to all allies within [color=" + this.Const.UI.Color.PositiveValue + "]4[/color] tiles for one turn.",
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendHoldTheLine].Tooltip = gt.Const.Strings.PerkDescription.LegendHoldTheLine;
+
 	local poleWeaponStrings = [
 		"SpecAxe",
 		"SpecHammer",
