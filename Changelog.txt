@@ -1,4 +1,9 @@
 ====================
+==== Ver 1.5.17 ====
+====================
+- Fixed crash caused by Swordlike perk.
+
+====================
 ==== Ver 1.5.16 ====
 ====================
 - The Resolve bonus from Strength in Numbers is now capped at +20.

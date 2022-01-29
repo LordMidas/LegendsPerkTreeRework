@@ -1,5 +1,6 @@
 this.perk_ptr_swordlike <- this.inherit("scripts/skills/skill", {
 	m = {
+		IsForceEnabled = false,		
 		Bonus = 10
 	},
 	function create()
