@@ -1,4 +1,9 @@
 ====================
+==== Ver 1.5.18 ====
+====================
+- Removed quick hands from Nomad Outlaws on all difficulties.
+
+====================
 ==== Ver 1.5.17 ====
 ====================
 - Fixed crash caused by Swordlike perk.
