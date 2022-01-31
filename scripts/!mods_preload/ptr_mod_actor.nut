@@ -121,7 +121,7 @@ gt.Const.PTR.modActor <- function()
 
 				if (_change < 0)
 				{
-					if (_type = this.Const.MoraleCheckType.MentalAttack)
+					if (_type == this.Const.MoraleCheckType.MentalAttack)
 					{
 						local tsSkill = this.m.Skills.getSkillByID("perk.ptr_trauma_survivor");
 						if (tsSkill != null)
