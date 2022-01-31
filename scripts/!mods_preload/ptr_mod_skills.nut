@@ -482,6 +482,12 @@ gt.Const.PTR.modSkills <- function()
 			return ret;
 		}
 
+		// Set IsUsingHitChance to true before target hit so that the Nimble perk works properly
+		o.onBeforeTargetHit <- function( _skill, _targetEntity, _hitInfo )
+		{
+			this.m.IsUsingHitchance = true;
+		}
+
 		o.onAnySkillUsed = function( _skill, _targetEntity, _properties )
 		{
 			if (_skill == this && this.m.IsAttacking)
@@ -523,6 +529,12 @@ gt.Const.PTR.modSkills <- function()
 			this.m.IsAttacking = false;
 			this.m.IsUsingHitchance = true;
 			return ret;
+		}
+
+		// Set IsUsingHitChance to true before target hit so that the Nimble perk works properly
+		o.onBeforeTargetHit <- function( _skill, _targetEntity, _hitInfo )
+		{
+			this.m.IsUsingHitchance = true;
 		}
 
 		o.onAnySkillUsed = function( _skill, _targetEntity, _properties )
