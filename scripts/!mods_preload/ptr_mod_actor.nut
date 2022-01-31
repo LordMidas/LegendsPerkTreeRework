@@ -131,7 +131,7 @@ gt.Const.PTR.modActor <- function()
 					}
 					else
 					{
-						local bulwark = this.m.Skills.getSkillByID("perk.ptr_bulwark")
+						local bulwark = this.m.Skills.getSkillByID("perk.ptr_bulwark");
 						if (bulwark != null)
 						{
 							_difficulty += bulwark.getBonus();
@@ -140,7 +140,7 @@ gt.Const.PTR.modActor <- function()
 				}
 			}
 
-			return checkMorale( _change, _difficulty, _type, _showIconBeforeMoraleIcon, _noNewLine );
+			return checkMorale(_change, _difficulty, _type, _showIconBeforeMoraleIcon, _noNewLine);
 		}
 
 		local resetPerks = o.resetPerks;
