@@ -1786,35 +1786,35 @@ gt.Const.PTR.modSkills <- function()
 		function getMeleeSkillBonus(_baseProperties)
 		{
 			local baseValue = _baseProperties.getMeleeSkill();
-			local bonus = this.Math.floor((this.m.AttackSkillThreshold - baseValue) * 0.01 * baseValue);
+			local bonus = this.Math.round((this.m.AttackSkillThreshold - baseValue) * 0.01 * baseValue);
 			return this.Math.max(0, bonus);
 		}
 
 		function getRangedSkillBonus(_baseProperties)
 		{
 			local baseValue = _baseProperties.getRangedSkill();
-			local bonus = this.Math.floor((this.m.AttackSkillThreshold - baseValue) * 0.01 * baseValue);
+			local bonus = this.Math.round((this.m.AttackSkillThreshold - baseValue) * 0.01 * baseValue);
 			return this.Math.max(0, bonus);
 		}
 
 		function getMeleeDefenseBonus(_baseProperties)
 		{
 			local baseValue = _baseProperties.getMeleeDefense();
-			local bonus = this.Math.floor((this.m.DefenseSkillThreshold - baseValue) * 0.01 * baseValue);
+			local bonus = this.Math.round((this.m.DefenseSkillThreshold - baseValue) * 0.01 * baseValue);
 			return this.Math.max(0, bonus);
 		}
 
 		function getRangedDefenseBonus(_baseProperties)
 		{
 			local baseValue = _baseProperties.getRangedDefense();
-			local bonus = this.Math.floor((this.m.DefenseSkillThreshold - baseValue) * 0.01 * baseValue);
+			local bonus = this.Math.round((this.m.DefenseSkillThreshold - baseValue) * 0.01 * baseValue);
 			return this.Math.max(0, bonus);
 		}
 
 		function getBraveryBonus(_baseProperties)
 		{
 			local baseValue = _baseProperties.getBravery();
-			local bonus = this.Math.floor((this.m.ResolveThreshold - baseValue) * 0.01 * baseValue);
+			local bonus = this.Math.round((this.m.ResolveThreshold - baseValue) * 0.01 * baseValue);
 			return this.Math.max(0, bonus);
 		}
 
