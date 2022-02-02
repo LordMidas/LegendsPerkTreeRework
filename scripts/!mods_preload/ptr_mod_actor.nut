@@ -210,16 +210,19 @@ gt.Const.PTR.modActor <- function()
 				p.m.WillSucceed = promisedPotentialDetails.WillSucceed;
 				this.getSkills().add(p);
 
-				if (promisedPotentialDetails.hasPunchingBag)
+				if (promisedPotentialDetails.IsSpent && promisedPotentialDetails.WillSucceed)
 				{
-					this.m.PerkPointsSpent += 1;
-					this.getSkills().add(this.new("scripts/skills/perks/perk_ptr_punching_bag"));
-				}
+					if (promisedPotentialDetails.hasPunchingBag)
+					{
+						this.m.PerkPointsSpent += 1;
+						this.getSkills().add(this.new("scripts/skills/perks/perk_ptr_punching_bag"));
+					}
 
-				if (promisedPotentialDetails.hasTraumaSurvivor)
-				{
-					this.m.PerkPointsSpent += 1;
-					this.getSkills().add(this.new("scripts/skills/perks/perk_ptr_trauma_survivor"));
+					if (promisedPotentialDetails.hasTraumaSurvivor)
+					{
+						this.m.PerkPointsSpent += 1;
+						this.getSkills().add(this.new("scripts/skills/perks/perk_ptr_trauma_survivor"));
+					}
 				}
 			}
 
