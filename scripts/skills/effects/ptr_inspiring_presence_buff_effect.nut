@@ -58,7 +58,7 @@ this.ptr_inspiring_presence_buff_effect <- this.inherit("scripts/skills/skill", 
 		}
 
 		local actor = this.getContainer().getActor();
-		local allies = actor.getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.SameFactions);
+		local allies = actor.getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.SameFaction);
 		local hasAdjacentEnemy = hasAdjacentEnemy(actor);
 		local hasInspirer = false;
 
