@@ -51,19 +51,19 @@ this.ptr_inspiring_presence_buff_effect <- this.inherit("scripts/skills/skill", 
 
 	function onTurnStart()
 	{
-		local actor = this.getContainer().getActor();
-		local allies = actor.getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.SameFaction);
+		local hasAdjacentEnemy = function( _actor )
+		{
+			local adjacentEnemies = _actor.getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.Enemy);
+			return adjacentEnemies.len() > 0;
+		}
 
+		local actor = this.getContainer().getActor();
+		local allies = actor.getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.SameFactions);
+		local hasAdjacentEnemy = hasAdjacentEnemy(actor);
 		local hasInspirer = false;
-		local hasMeleeEngagement = actor.isEngagedInMelee();
 
 		foreach (ally in allies)
 		{
-			if (ally.getID() == actor.getID())
-			{
-				continue;
-			}
-
 			if (!hasInspirer)
 			{
 				local inspiringPresence = ally.getSkills().getSkillByID("perk.inspiring_presence");
@@ -73,13 +73,13 @@ this.ptr_inspiring_presence_buff_effect <- this.inherit("scripts/skills/skill", 
 				}
 			}
 
-			if (!hasMeleeEngagement && ally.isEngagedInMelee())
+			if (!hasAdjacentEnemy && hasAdjacentEnemy(ally))
 			{
-				hasMeleeEngagement = true;
+				hasAdjacentEnemy = true;
 			}
 		}
 
-		if (hasInspirer && hasMeleeEngagement)
+		if (hasInspirer && hasAdjacentEnemy)
 		{
 			this.m.IsInEffect = true;
 			this.m.IsStartingTurn = true;
