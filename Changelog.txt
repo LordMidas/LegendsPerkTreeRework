@@ -1,4 +1,17 @@
 ====================
+==== Ver 1.5.18 ====
+====================
+- The Militia origin now gets Strength in Numbers on all recruits for free.
+- Inspiring Presence "engaged in melee" requirement changed to "adjacent enemy".
+- Back to Basics now rounds its bonuses to the nearest integer instead of always rounding down (fixes some issues with floating point approximation leading to less than expected bonus).
+- Realized Potential no longer changes the character's background to Sellsword. Instead, it doubles the salary. This fixes the issue where the perk didn't work properly if the character had the Tool Drawers, Spare Parts perks or similar perks which have modifiers for tools/medicine etc.
+- Fixed a typo in Realized Potential perk tooltip.
+- Fixed an error when resetting a character's perk tree which also had Promised Potential perk.
+- Fixed a typo in inspiring presence buff status effect tooltip.
+- Fixed the 3H flail attacks ignoring Nimble on the target.
+- Fixed syntax error probably causing all negative morale checks to be mental attacks.
+
+====================
 ==== Ver 1.5.17 ====
 ====================
 - Fixed crash caused by Swordlike perk.
