@@ -98,6 +98,9 @@ gt.Const.PTR.ModID <- "mod_legends_PTR";
 	gt.Const.PTR.modTooltipEvents();
 	delete gt.Const.PTR.modTooltipEvents;
 
+	gt.Const.PTR.modScenarios();
+	delete gt.Const.PTR.modScenarios;
+
 	this.Const.Perks.updatePerkGroupTooltips();
 
 	::mods_registerJS("ptr_mod_screens.js");

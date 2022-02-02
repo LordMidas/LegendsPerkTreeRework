@@ -230,6 +230,12 @@ gt.Const.PTR.modActor <- function()
 			{
 				this.m.PerkPoints -= numProfessionalAddedPerks;
 			}
+
+			if (this.World.Assets.getOrigin().getID() == "scenario.militia")
+			{
+				--this.m.PerkPoints;
+				this.getSkills().add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
+			}
 		}
 
 		local getActionPointCosts = o.getActionPointCosts;
