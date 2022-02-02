@@ -66,19 +66,10 @@ this.perk_ptr_promised_potential <- this.inherit("scripts/skills/skill", {
 				{
 					++actor.m.PerkPoints;
 
-					local currentBackground = actor.getBackground();					
-					local oldDesc = currentBackground.m.Description;
-
-					local bg = this.new("scripts/skills/backgrounds/sellsword_background");
-					bg.m.IsNew = false;
-					bg.m.PerkTree = clone currentBackground.m.PerkTree;
-					bg.m.PerkTreeMap = clone currentBackground.m.PerkTreeMap;
-					bg.m.CustomPerkTree = clone currentBackground.m.CustomPerkTree;
-
-					this.getContainer().removeByID(currentBackground.getID());
-
+					local bg = actor.getBackground();
 					local b = actor.getBaseProperties();
 
+					b.DailyWageMult *= 2;
 					b.MeleeSkill += this.m.StatBoost;
 					b.MeleeDefense += this.m.StatBoost;
 					b.RangedSkill += this.m.StatBoost;
@@ -87,17 +78,16 @@ this.perk_ptr_promised_potential <- this.inherit("scripts/skills/skill", {
 					b.Stamina += this.m.StatBoost;
 					b.Initiative += this.m.StatBoost;
 					b.Bravery += this.m.StatBoost;
-
-					this.getContainer().add(bg);
-					bg.m.RawDescription = oldDesc + "Once a dreg of society, with your help, %name% has grown into a full-fledged mercenary.";
-					bg.buildDescription(true);
+					
+					bg.m.Description += " Once a dreg of society, with your help, " + actor.getNameOnly() + " has grown into a full-fledged mercenary.";
+					bg.m.RawDescription += " Once a dreg of society, with your help, %name% has grown into a full-fledged mercenary.";
 
 					local getExclude = function( _treeList )
 					{
 						local exclude = [];
 						foreach (tree in _treeList)
 						{
-							foreach (category in currentBackground.m.CustomPerkTreeMap)
+							foreach (category in bg.m.CustomPerkTreeMap)
 							{
 								foreach (treeInMap in category)
 								{
