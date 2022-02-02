@@ -51,7 +51,7 @@ this.ptr_inspiring_presence_buff_effect <- this.inherit("scripts/skills/skill", 
 
 	function onTurnStart()
 	{
-		local hasAdjacentEnemy = function( _actor )
+		local actorHasAdjacentEnemy = function( _actor )
 		{
 			local adjacentEnemies = _actor.getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.Enemy);
 			return adjacentEnemies.len() > 0;
@@ -59,7 +59,7 @@ this.ptr_inspiring_presence_buff_effect <- this.inherit("scripts/skills/skill", 
 
 		local actor = this.getContainer().getActor();
 		local allies = actor.getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.SameFaction);
-		local hasAdjacentEnemy = hasAdjacentEnemy(actor);
+		local hasAdjacentEnemy = actorHasAdjacentEnemy(actor);
 		local hasInspirer = false;
 
 		foreach (ally in allies)
@@ -73,7 +73,7 @@ this.ptr_inspiring_presence_buff_effect <- this.inherit("scripts/skills/skill", 
 				}
 			}
 
-			if (!hasAdjacentEnemy && hasAdjacentEnemy(ally))
+			if (!hasAdjacentEnemy && actorHasAdjacentEnemy(ally))
 			{
 				hasAdjacentEnemy = true;
 			}
