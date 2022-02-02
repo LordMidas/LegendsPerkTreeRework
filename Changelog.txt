@@ -1,4 +1,9 @@
 ====================
+==== Ver 1.5.19 ====
+====================
+- Fixed a bug introduced in 1.5.18 which caused battles to not load.
+
+====================
 ==== Ver 1.5.18 ====
 ====================
 - The Militia origin now gets Strength in Numbers on all recruits for free.
