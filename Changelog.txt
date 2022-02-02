@@ -2,6 +2,7 @@
 ==== Ver 1.5.18 ====
 ====================
 - The Militia origin now gets Strength in Numbers on all recruits for free.
+- Removed quick hands from Nomad Outlaws on all difficulties.
 - Inspiring Presence "engaged in melee" requirement changed to "adjacent enemy".
 - Back to Basics now rounds its bonuses to the nearest integer instead of always rounding down (fixes some issues with floating point approximation leading to less than expected bonus).
 - Realized Potential no longer changes the character's background to Sellsword. Instead, it doubles the salary. This fixes the issue where the perk didn't work properly if the character had the Tool Drawers, Spare Parts perks or similar perks which have modifiers for tools/medicine etc.
