@@ -7,6 +7,7 @@
 ==== Ver 1.5.19 ====
 ====================
 - Fixed a bug introduced in 1.5.18 which caused battles to not load.
+- Reverted all Brigand Warlord changes from Legends Patch 15.0.2.6 "The ImPossible Circus" and also reduced their fatigue recovery to 20 per turn (was 25 initially, Circus raised it to 30).
 
 ====================
 ==== Ver 1.5.18 ====

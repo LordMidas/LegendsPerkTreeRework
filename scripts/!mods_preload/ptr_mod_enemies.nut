@@ -4,6 +4,13 @@ gt.Const.PTR.modEnemies <- function()
 {
 	this.Const.Tactical.Actor.LegendStollwurm.ActionPoints = 7;
 	this.Const.Tactical.Actor.GoblinFighter.Bravery = 55;		
+	this.Const.Tactical.Actor.BanditWarlord.Hitpoints = 200;
+	this.Const.Tactical.Actor.BanditWarlord.Bravery = 140;	
+	this.Const.Tactical.Actor.BanditWarlord.MeleeSkill = 110;
+	this.Const.Tactical.Actor.BanditWarlord.MeleeDefense = 30;
+	this.Const.Tactical.Actor.BanditWarlord.RangedDefense = 30;
+	this.Const.Tactical.Actor.BanditWarlord.Initiative = 170;
+	this.Const.Tactical.Actor.BanditWarlord.FatigueRecoveryRate = 20;	
 
 	::mods_hookExactClass("entity/tactical/goblin", function(o) {
 		local onInit = o.onInit;
