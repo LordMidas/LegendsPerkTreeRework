@@ -1,4 +1,9 @@
 ====================
+==== Ver 1.5.20 ====
+====================
+- Guaranteed trained tree on militia background.
+
+====================
 ==== Ver 1.5.19 ====
 ====================
 - Fixed a bug introduced in 1.5.18 which caused battles to not load.

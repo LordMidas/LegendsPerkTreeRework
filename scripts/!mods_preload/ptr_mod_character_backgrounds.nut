@@ -4499,7 +4499,10 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			],
 			Profession = [
 				[{Weight = 100, Tree = this.Const.Perks.MilitiaProfessionTree}]
-			]
+			],
+			Traits = [
+				[{Weight = 100, Tree = this.Const.Perks.TrainedTree}]
+			]	
 		};
 	});
 
