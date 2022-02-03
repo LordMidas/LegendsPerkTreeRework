@@ -159,7 +159,9 @@ gt.Const.PTR.createProfessionTrees <- function()
 			[
 				gt.Const.Perks.PerkDefs.LegendSpecialistKnifeDamage
 			],
-			[],
+			[
+				gt.Const.Perks.PerkDefs.LegendTwirl				
+			],
 			[],
 			[
 				gt.Const.Perks.PerkDefs.LegendHidden
@@ -499,12 +501,16 @@ gt.Const.PTR.createProfessionTrees <- function()
 			[
 				gt.Const.Perks.PerkDefs.LegendHairSplitter
 			],
-			[],
-			[],
-			[],
+			[
+				gt.Const.Perks.PerkDefs.LegendLeap				
+			],
 			[],
 			[
-				gt.Const.Perks.PerkDefs.LegendLeap
+				gt.Const.Perks.PerkDefs.LegendTwirl				
+			],
+			[],
+			[
+				gt.Const.Perks.PerkDefs.LegendBackflip							
 			],
 			[
 				gt.Const.Perks.PerkDefs.LegendTumble
