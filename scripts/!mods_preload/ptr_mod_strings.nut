@@ -348,6 +348,8 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.PTRSavageStrength <- "Orcs call me brother!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• The extra Fatigue build-up on skills from weapons such as Orc Weapons is reduced by [color=" + this.Const.UI.Color.PositiveValue + "]-2[/color].";
 	gt.Const.Strings.PerkName.PTRBestialVigor <- "Bestial Vigor";
 	gt.Const.Strings.PerkDescription.PTRBestialVigor <- "Unleash the beast within!\n\n[color=" + this.Const.UI.Color.Active + "][u]Active:[/u][/color]\n• Costs 0 AP and builds 0 Fatigue.\n• Once per combat, reduce current Fatigue by [color=" + this.Const.UI.Color.NegativeValue + "]50%[/color] and gain [color=" + this.Const.UI.Color.PositiveValue + "]+3/color] Action Points for the current turn.";
+	gt.Const.Strings.PerkName.PTRFeralRage <- "Feral Rage";
+	gt.Const.Strings.PerkDescription.PTRFeralRage <- "[color=" + this.Const.UI.Color.NegativeValue + "][u]Requires:[/u] Melee Attack[/color]\nLike sheep before a wolf!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Gain stacking rage during combat. You gain 1 stack for getting hit, 3 for making a kill, 1 for every successful hit with a skill with a base Action Point cost of 4 or less and 2 for greater. You lose 2 rage at the start of every turn.\n• Each stack of rage increases Resolve, Initiative and Damage by [color=" + this.Const.UI.Color.PositiveValue + "]+1[/color], lowers Melee Defense by [color=" + this.Const.UI.Color.NegativeValue + "]-1[/color] and reduces incoming damage by [color=" + this.Const.UI.Color.PositiveValue + "]2%[/color].";
 
 	local poleWeaponStrings = [
 		"SpecAxe",

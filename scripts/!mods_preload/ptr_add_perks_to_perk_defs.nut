@@ -978,6 +978,15 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_bestial_vigor.png",
 			IconDisabled = "ui/perks/ptr_bestial_vigor_bw.png",
 			Const = "PTRBestialVigor"
+		},
+		{
+			ID = "perk.ptr_feral_rage",
+			Script = "scripts/skills/perks/perk_ptr_feral_rage",
+			Name = this.Const.Strings.PerkName.PTRFeralRage,
+			Tooltip = this.Const.Strings.PerkDescription.PTRFeralRage,
+			Icon = "ui/perks/ptr_feral_rage.png",
+			IconDisabled = "ui/perks/ptr_feral_rage_bw.png",
+			Const = "PTRFeralRage"
 		}
 	];
 

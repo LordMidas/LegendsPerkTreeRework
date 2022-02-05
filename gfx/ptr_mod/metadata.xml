@@ -33,6 +33,7 @@
 	
 	<sprite id="ptr_cull_mini" ic = "FF23165B" img="mini\ptr_cull_mini.png" />
 	
+	<sprite id="ptr_feral_rage_mini" ic = "FF23165B" img="mini\ptr_feral_rage_mini.png" />
 	<sprite id="ptr_dynamic_duo_mini" ic = "FF23165B" img="mini\ptr_dynamic_duo_mini.png" />
 	<sprite id="ptr_exploit_opening_mini" ic = "FF23165B" img="mini\ptr_exploit_opening_mini.png" />
 	<sprite id="ptr_exploitable_opening_effect_mini" ic = "FF23165B" img="mini\ptr_exploitable_opening_effect_mini.png" />	
