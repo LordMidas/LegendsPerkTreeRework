@@ -20,13 +20,13 @@
 - Moved Shields Up from Tactican t4 to t2.
 - Moved Push Forward from Tactician t6 to t3.
 - Moved Hold the Line from Tactician t5 to t4.
+- Moved Leap perk to t2 in Juggler tree.
+- Added Twirl to t4 and Backflip to t6 in Juggler Tree.
+- Added Twirl to Assassin tree t4.
 
 == BALANCE ==
 - Guaranteed Trained tree on Militia background.
 - Reverted all Brigand Warlord changes from Legends Patch 15.0.2.6 "The ImPossible Circus" and also reduced their fatigue recovery to 20 per turn (was 25 initially, Circus raised it to 30).
-- Moved Leap perk to t2 in Juggler tree.
-- Added Twirl to t4 and Backflip to t6 in Juggler Tree.
-- Added Twirl to Assassin tree t4.
 - Changed Crossbow weight from Juggler Profession to .8 from .66 to bring the total weight for crossbows on Juggler background to 1.
 - Adjusted Wild(wo)man background weights to accomodate Wildling Profession tree.
 - Added Vengeful Spite to the following enemies: Brigand Leader, Nomad Leader, Brigand Warlord, Goblin Overseer, Barbarian King, Noble Sergeant, Officer, Direwolf, Hyena, White Direwolf.
