@@ -356,27 +356,4 @@ gt.Const.PTR.modStrings <- function()
 	
 	gt.Const.Strings.PerkDescription.SpecThrowing = this.MSU.String.replace(gt.Const.Strings.PerkDescription.SpecThrowing, "at 3 tiles of distance.", "at 3 tiles of distance.\n\nThrowing Spear now ignores the damage reduction from the target\'s Shield Expert perk.");
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.SpecThrowing].Tooltip = gt.Const.Strings.PerkDescription.SpecThrowing;
-
-	local changePerkGroupInTooltip = function (_tooltip, _newPerkGroup = "")
-	{
-		local strArray = split(_tooltip, "[");
-
-		strArray.pop();
-		strArray.apply(@(a) a += "[" );
-
-		strArray[strArray.len()-1] = "color=#0b0084]From the " + _newPerkGroup + " perk group" + (_newPerkGroup.find(" and ") != null ? "s" : "") + "[/color]";
-
-		if (strArray[0].find("color=") != null)
-		{
-			strArray[0] = "[" + strArray[0];
-		}
-
-		local ret = "";
-		foreach (s in strArray)
-		{
-			ret += s;
-		}
-
-		return ret;
-	};
 }
