@@ -855,27 +855,8 @@ gt.Const.PTR.createProfessionTrees <- function()
 
 gt.Const.PTR.createSpecialTrees <- function()
 {
-	gt.Const.Perks.SpecialOne <- {
-		ID = "SpecialOne",
-		Descriptions = [
-			"special perks one"
-		],
-		Name = "Special Perks",
-		Tree = [
-			[],
-			[],
-			[],
-			[],
-			[],
-			[],
-			[]
-		]
-	};
-
 	gt.Const.Perks.SpecialTrees <- {
-		Tree = [
-			gt.Const.Perks.SpecialOne
-		],
+		Tree = [],
 		Perks = [],
 
 		function addSpecialPerk( _perk, _tier, _desc, _func )
@@ -887,7 +868,43 @@ gt.Const.PTR.createSpecialTrees <- function()
 				Row = _tier - 1
 			});
 
-			this.Const.Perks.SpecialOne.Tree[_tier-1].push(_perk);
+			local i = 0;			
+			while (true)
+			{
+				local name = "Special" + i;
+				if (!(name in this.Const.Perks))
+				{
+					this.Const.Perks[name] <- {
+						ID = name,
+						Descriptions = [""],
+						Name = "Special Perks",
+						Tree = [
+							[], [], [], [], [], [], []
+						]
+					};
+
+					this.Const.Perks.SpecialTrees.Tree.push(this.Const.Perks[name]);
+				}
+
+				if (this.Const.Perks[name].Tree[_tier-1].len() > 1)
+				{
+					local totalPerksInTree = 0;
+					foreach (row in this.Const.Perks[name].Tree)
+					{
+						totalPerksInTree += row.len();
+					}
+					if (totalPerksInTree >= 7)
+					{
+						i++;
+						continue;					
+					}
+				}
+				else
+				{
+					this.Const.Perks[name].Tree[_tier-1].push(_perk);
+					break;
+				}
+			}
 		}
 
 		function getRandom( _exclude )
