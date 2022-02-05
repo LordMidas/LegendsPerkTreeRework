@@ -53,9 +53,8 @@ this.ptr_blitzkrieg_skill <- this.inherit("scripts/skills/skill", {
 
 	function onUse( _user, _targetTile )
 	{
-		this.m.IsSpent = true;		
-		local bros = _user.getActorsWithinDistanceAsArray(4, this.Const.FactionRelation.SameFaction);
-		bros.push(_user);
+		this.m.IsSpent = true;
+		local bros = this.Tactical.Entities.getInstancesOfFaction(_user.getFaction());		
 
 		local sortByInitiative = function( _bro1, _bro2 )
 		{
@@ -69,21 +68,32 @@ this.ptr_blitzkrieg_skill <- this.inherit("scripts/skills/skill", {
 
 		bros.sort(sortByInitiative);
 
+		local myTile = _user.getTile();
+
 		foreach (bro in bros)
 		{
 			if (bro == _user)
 			{
 				this.getContainer().add(this.new("scripts/skills/effects/adrenaline_effect"));
-			}
-			else if (bro.getFatigueMax() - bro.getFatigue() >= 10)
+			}			
+			else 
 			{
-				bro.setFatigue(bro.getFatigue() + 10);
-				local effect = this.new("scripts/skills/effects/adrenaline_effect");				
-				if (!bro.isTurnStarted())
+				local perk = bro.getSkills().getSkillByID("actives.ptr_blitzkrieg");
+				if (perk != null)
 				{
-					effect.m.TurnsLeft++;
+					perk.m.IsSpent = true;
 				}
-				bro.getSkills().add(effect);
+
+				if (bro.getTile().getDistanceTo(myTile) <= 4 && bro.getFatigueMax() - bro.getFatigue() >= 10)
+				{
+					bro.setFatigue(bro.getFatigue() + 10);
+					local effect = this.new("scripts/skills/effects/adrenaline_effect");				
+					if (!bro.isTurnStarted())
+					{
+						effect.m.TurnsLeft++;
+					}
+					bro.getSkills().add(effect);
+				}
 			}
 		}
 	}

@@ -30,6 +30,7 @@ this.ptr_bestial_vigor_effect <- this.inherit("scripts/skills/skill", {
 
 	function onAdded()
 	{
+		local actor = this.getContainer().getActor();
 		actor.setFatigue(actor.getFatigue() / 2);
 		actor.setActionPoints(actor.getActionPoints() + 3);
 	}
