@@ -2,6 +2,37 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modSkills <- function()
 {	
+	::mods_hookExactClass("skills/traits/huge_trait", function(o) {
+		o.m.SkillOrder <- this.Const.SkillOrder.Last;
+
+		local getTooltip = o.getTooltip;
+		o.getTooltip = function()
+		{
+			local tooltip = getTooltip();
+			tooltip.push({
+				id = 11,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Weapons with extra Fatigue build-up on skills have this penalty reduced by [color=" + this.Const.UI.Color.PositiveValue + "]-2[/color]"
+			});
+
+			return tooltip;
+		}
+
+		o.onAfterUpdate <- function( _properties )
+		{
+			local weapon = this.getContainer().getActor().getMainhandItem();
+			if (weapon != null && weapon.m.FatigueOnSkillUse > 0)
+			{
+				local skills = weapon.getSkills();
+				foreach (skill in skills)
+				{
+					skill.m.FatigueCost -= this.Math.min(2, weapon.m.FatigueOnSkillUse);
+				}
+			}
+		}
+	});
+	
 	::mods_hookExactClass("skills/actives/shieldwall", function(o) {
 		o.onAfterUpdate <- function( _properties )
 		{
