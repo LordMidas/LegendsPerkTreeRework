@@ -815,7 +815,7 @@ gt.Const.PTR.createProfessionTrees <- function()
 				gt.Const.Perks.PerkDefs.PTRBestialVigor
 			],
 			[
-
+				gt.Const.Perks.PerkDefs.LegendGatherer
 			],
 			[
 				gt.Const.Perks.PerkDefs.PTRFeralRage
