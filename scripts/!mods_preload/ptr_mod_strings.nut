@@ -346,6 +346,8 @@ gt.Const.PTR.modStrings <- function()
 
 	gt.Const.Strings.PerkName.PTRSavageStrength <- "Savage Strength";
 	gt.Const.Strings.PerkDescription.PTRSavageStrength <- "Orcs call me brother!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• The extra Fatigue build-up on skills from weapons such as Orc Weapons is reduced by [color=" + this.Const.UI.Color.PositiveValue + "]-2[/color].";
+	gt.Const.Strings.PerkName.PTRBestialVigor <- "Bestial Vigor";
+	gt.Const.Strings.PerkDescription.PTRBestialVigor <- "Unleash the beast within!\n\n[color=" + this.Const.UI.Color.Active + "][u]Active:[/u][/color]\n• Costs 0 AP and builds 0 Fatigue.\n• Once per combat, reduce current Fatigue by [color=" + this.Const.UI.Color.NegativeValue + "]50%[/color] and gain [color=" + this.Const.UI.Color.PositiveValue + "]+3/color] Action Points for the current turn.";
 
 	local poleWeaponStrings = [
 		"SpecAxe",

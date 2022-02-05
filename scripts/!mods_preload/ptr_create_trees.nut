@@ -811,9 +811,15 @@ gt.Const.PTR.createProfessionTrees <- function()
 				gt.Const.Perks.PerkDefs.PTRSavageStrength
 			],
 			[],
-			[],
-			[],
-			[]
+			[
+				gt.Const.Perks.PerkDefs.PTRBestialVigor
+			],
+			[
+
+			],
+			[
+				
+			]
 		]
 	};
 
