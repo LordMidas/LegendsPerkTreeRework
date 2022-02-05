@@ -56,6 +56,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_push_forward"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_primal_fear"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_exude_confidence"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vengeful_spite"));
 
 		    local mainhandItem = this.getMainhandItem();
 		    if (mainhandItem != null)
@@ -417,11 +418,13 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_lone_wolf"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_relentless"));
 
+
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_fresh_and_furious"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_unstoppable"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vengeful_spite"));
 				local b = this.getBaseProperties();
 				b.MeleeDefense += 5;
 				b.RangedDefense += 5;
@@ -692,7 +695,8 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_primal_fear"));
 			local inspiringPresencePerk = this.new("scripts/skills/perks/perk_inspiring_presence");
 			inspiringPresencePerk.m.IsForceEnabled = true;
-			this.m.Skills.add(inspiringPresencePerk);			
+			this.m.Skills.add(inspiringPresencePerk);
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vengeful_spite"));
 
 	 		if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 	 		{
@@ -799,6 +803,7 @@ gt.Const.PTR.modEnemies <- function()
 				local dismantlePerk = this.new("scripts/skills/perks/perk_ptr_dismantle");
 				dismantlePerk.m.IsForceEnabled = true;
 				this.m.Skills.add(dismantlePerk);
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vengeful_spite"));
 			}
 		}
 	});
@@ -944,7 +949,8 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bully"));	
 			local inspiringPresencePerk = this.new("scripts/skills/perks/perk_inspiring_presence");
 			inspiringPresencePerk.m.IsForceEnabled = true;
-			this.m.Skills.add(inspiringPresencePerk);					
+			this.m.Skills.add(inspiringPresencePerk);
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vengeful_spite"));		
 
 			this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
 			this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
@@ -1451,6 +1457,7 @@ gt.Const.PTR.modEnemies <- function()
 
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_menacing"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bully"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vengeful_spite"));
 		}
 	});
 
@@ -2412,6 +2419,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_captain"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_rally_the_troops"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_lone_wolf"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vengeful_spite"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -4116,6 +4124,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_clarity"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_captain"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_rally_the_troops"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vengeful_spite"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -4230,6 +4239,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_rally_the_troops"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_hold_the_line"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_push_forward"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vengeful_spite"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -4368,6 +4378,8 @@ gt.Const.PTR.modEnemies <- function()
 			local inspiringPresencePerk = this.new("scripts/skills/perks/perk_inspiring_presence");
 			inspiringPresencePerk.m.IsForceEnabled = true;
 			this.m.Skills.add(inspiringPresencePerk);
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vengeful_spite"));
+
 			local attack = this.getSkills().getAttackOfOpportunity();
 			if (attack != null)
 			{
