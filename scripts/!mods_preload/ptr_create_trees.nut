@@ -493,7 +493,7 @@ gt.Const.PTR.createProfessionTrees <- function()
 			{Multiplier = 2, Tree = this.Const.Perks.AgileTree},
 			{Multiplier = 2, Tree = this.Const.Perks.FastTree},
 			{Multiplier = 0.5, Tree = this.Const.Perks.SlingsTree},
-			{Multiplier = 0.66, Tree = this.Const.Perks.CrossbowTree},
+			{Multiplier = 0.8, Tree = this.Const.Perks.CrossbowTree},
 			{Multiplier = 0.75, Tree = this.Const.Perks.PolearmTree},
 			{Multiplier = 0.33, Tree = this.Const.Perks.ShieldTree},
 		],

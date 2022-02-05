@@ -6,6 +6,7 @@
 - Moved Leap perk to t2 in Juggler tree.
 - Added Twirl to t4 and Backflip to t6 in Juggler Tree.
 - Added Twirl to Assassin tree t4.
+- Changed Crossbow weight from Juggler Profession to .8 from .66 to bring the total weight for crossbows on Juggler background to 1.
 
 ====================
 ==== Ver 1.5.19 ====
