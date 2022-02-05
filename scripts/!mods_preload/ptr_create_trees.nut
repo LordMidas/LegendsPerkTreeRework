@@ -792,6 +792,31 @@ gt.Const.PTR.createProfessionTrees <- function()
 		]
 	};
 
+	gt.Const.Perks.WildlingProfessionTree <- {
+		ID = "WildlingProfessionTree",
+		Descriptions = [
+			"hails from the wild",
+			"is wild and savage",
+			"looks like a feral predator"
+		],
+		Name = "Wildling",
+		WeightMultipliers = [
+		],
+		Tree = [
+			[
+				gt.Const.Perks.PerkDefs.Pathfinder
+			],
+			[],
+			[
+				gt.Const.Perks.PerkDefs.PTRSavageStrength
+			],
+			[],
+			[],
+			[],
+			[]
+		]
+	};
+
 	gt.Const.Perks.ProfessionTrees <- {
 		Tree = [
 			gt.Const.Perks.AssassinProfessionTree,
@@ -815,6 +840,7 @@ gt.Const.PTR.createProfessionTrees <- function()
 			gt.Const.Perks.ServiceProfessionTree,
 			gt.Const.Perks.RaiderProfessionTree,
 			gt.Const.Perks.SoldierProfessionTree,
+			gt.Const.Perks.WildlingProfessionTree
 		],
 		function getRandom( _exclude )
 		{

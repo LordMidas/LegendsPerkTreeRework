@@ -344,6 +344,9 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRVengefulSpite <- "Vengeful Spite";
 	gt.Const.Strings.PerkDescription.PTRVengefulSpite <- "You will pay for this!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Whenever an ally dies next to you, gain a stacking [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color] increased damage for the remainder of the combat.";
 
+	gt.Const.Strings.PerkName.PTRSavageStrength <- "Savage Strength";
+	gt.Const.Strings.PerkDescription.PTRSavageStrength <- "Orcs call me brother!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• The extra Fatigue build-up on skills from weapons such as Orc Weapons is reduced by [color=" + this.Const.UI.Color.PositiveValue + "]-2[/color].";
+
 	local poleWeaponStrings = [
 		"SpecAxe",
 		"SpecHammer",

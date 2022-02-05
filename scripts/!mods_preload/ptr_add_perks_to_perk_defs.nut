@@ -960,6 +960,15 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_blitzkrieg.png",
 			IconDisabled = "ui/perks/ptr_blitzkrieg_bw.png",
 			Const = "PTRBlitzkrieg"
+		},
+		{
+			ID = "perk.ptr_savage_strength",
+			Script = "scripts/skills/perks/perk_ptr_savage_strength",
+			Name = this.Const.Strings.PerkName.PTRSavageStrength,
+			Tooltip = this.Const.Strings.PerkDescription.PTRSavageStrength,
+			Icon = "ui/perks/ptr_savage_strength.png",
+			IconDisabled = "ui/perks/ptr_savage_strength_bw.png",
+			Const = "PTRSavageStrength"
 		}
 	];
 
