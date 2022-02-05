@@ -995,4 +995,46 @@ gt.Const.PTR.createSpecialTrees <- function()
 
 		return this.Math.rand(1, 100) <= chanceFencer;			
 	});
+
+	gt.Const.Perks.SpecialTrees.addSpecialPerk(gt.Const.Perks.PerkDefs.PTRRisingStar, 7, "Has the talent to rise and shine above all others!", function( _player, _localMap ) {
+		local chance = 2;
+
+		foreach (tree in _localMap.Traits)
+		{
+			if (tree.ID == this.Const.Perks.TalentedTree.ID)
+			{
+				chance *= 2;
+				break;
+			}
+		}
+
+		local traits = _player.getSkills().getAllSkillsOfType(this.Const.SkillType.Trait);
+		foreach (trait in traits)
+		{
+			switch (trait.getID())
+			{
+				case "trait.bright":
+				case "trait.ambitious":
+				case "trait.natural":
+				case "trait.determined":
+				case "trait.dexterous":
+				case "trait.lucky":
+				case "trait.unpredictable":
+					chance *= 2;
+					break;
+
+				case "trait.dumb":
+				case "trait.slack":
+				case "trait.frail":
+				case "trait.clumsy":
+				case "trait.drunkard":
+				case "trait.fainthearted":
+				case "trait.insecure":
+					chance /= 2;
+					break;
+			}
+		}
+
+		return this.Math.rand(1, 100) <= chance;
+	});
 }
