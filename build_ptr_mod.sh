@@ -30,9 +30,9 @@ function handleExit() {
 ./build_brushes.sh "$BBDir" "$RepoDir"
 handleExit
 
-# echo "Copying sounds to $BBDir\\sounds ..."
-# cp -R sounds/. "$BBDir\\sounds"
-# handleExit
+echo "Copying sounds to $BBDir\\sounds ..."
+cp -R sounds/. "$BBDir\\sounds"
+handleExit
 echo "Copying gfx to $BBDir\\gfx ..."
 cp -R gfx/. "$BBDir\\gfx"
 rm -rf "$BBDir\\gfx\\ptr_mod"
