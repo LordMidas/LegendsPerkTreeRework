@@ -34,7 +34,7 @@
 	
 	<sprite id="ptr_cull_mini" ic = "FF23165B" img="mini\ptr_cull_mini.png" />
 	
-	<sprite id="ptr_feral_rage_mini" ic = "FF23165B" img="mini\ptr_feral_rage_mini.png" />
+	<sprite id="ptr_feral_rage_mini" ic = "FF23165B" img="mini\ptr_feral_rage_mini.png" />	
 	<sprite id="ptr_dynamic_duo_mini" ic = "FF23165B" img="mini\ptr_dynamic_duo_mini.png" />
 	<sprite id="ptr_exploit_opening_mini" ic = "FF23165B" img="mini\ptr_exploit_opening_mini.png" />
 	<sprite id="ptr_exploitable_opening_effect_mini" ic = "FF23165B" img="mini\ptr_exploitable_opening_effect_mini.png" />	
@@ -53,6 +53,7 @@
 	<sprite id="ptr_the_rush_of_battle_mini" ic = "FF23165B" img="mini\ptr_the_rush_of_battle_mini.png" />
 	<sprite id="ptr_unstoppable_mini" ic = "FF23165B" img="mini\ptr_unstoppable_mini.png" />
 	<sprite id="ptr_utilitarian_mini" ic = "FF23165B" img="mini\ptr_utilitarian_mini.png" />
+	<sprite id="ptr_vengeful_spite_mini" ic = "FF23165B" img="mini\ptr_vengeful_spite_mini.png" />
 	<sprite id="ptr_vigilant_mini" ic = "FF23165B" img="mini\ptr_vigilant_mini.png" />
 	<sprite id="ptr_skirmisher_mini" ic = "FF23165B" img="mini\ptr_skirmisher_mini.png" />	
 	<sprite id="ptr_vigorous_assault_mini" ic = "FF23165B" img="mini\ptr_vigorous_assault_mini.png" />

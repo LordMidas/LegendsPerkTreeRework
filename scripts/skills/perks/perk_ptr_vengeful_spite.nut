@@ -9,6 +9,7 @@ this.perk_ptr_vengeful_spite <- this.inherit("scripts/skills/skill", {
 		this.m.Name = this.Const.Strings.PerkName.PTRVengefulSpite;
 		this.m.Description = "This character does more damage as allies die next to %them%.";
 		this.m.Icon = "ui/perks/ptr_vengeful_spite.png";
+		this.m.IconMini = "ptr_vengeful_spite_mini";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;
