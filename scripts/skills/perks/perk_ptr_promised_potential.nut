@@ -168,7 +168,7 @@ this.perk_ptr_promised_potential <- this.inherit("scripts/skills/skill", {
 
 	function onAdded()
 	{
-		if (this.m.IsSet)
+		if (this.m.IsSet || !this.isKindOf(this.getContainer().getActor(), "player"))
 		{
 			return;
 		}
