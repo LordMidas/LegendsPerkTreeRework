@@ -951,6 +951,15 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_internal_hemorrhage.png",
 			IconDisabled = "ui/perks/ptr_internal_hemorrhage_bw.png",
 			Const = "PTRInternalHemorrhage"
+		},
+		{
+			ID = "perk.ptr_blitzkrieg",
+			Script = "scripts/skills/perks/perk_ptr_blitzkrieg",
+			Name = this.Const.Strings.PerkName.PTRBlitzkrieg,
+			Tooltip = this.Const.Strings.PerkDescription.PTRBlitzkrieg,
+			Icon = "ui/perks/ptr_blitzkrieg.png",
+			IconDisabled = "ui/perks/ptr_blitzkrieg_bw.png",
+			Const = "PTRBlitzkrieg"
 		}
 	];
 

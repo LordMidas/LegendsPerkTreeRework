@@ -1079,7 +1079,9 @@ gt.Const.PTR.modClassTrees <- function()
 			[
 				gt.Const.Perks.PerkDefs.LegendForwardPush
 			],
-			[]
+			[
+				gt.Const.Perks.PerkDefs.PTRBlitzkrieg
+			]
 		]
 	};
 

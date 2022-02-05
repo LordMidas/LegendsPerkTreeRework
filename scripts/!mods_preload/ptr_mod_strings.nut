@@ -329,6 +329,8 @@ gt.Const.PTR.modStrings <- function()
 
 	gt.Const.Strings.PerkDescription.LegendHoldTheLine = "Direct your troops to stand their ground, granting [color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] Melee Defense, reducing damage taken by [color=" + this.Const.UI.Color.NegativeValue + "]10%[/color] to all allies within [color=" + this.Const.UI.Color.PositiveValue + "]4[/color] tiles for one turn.",
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendHoldTheLine].Tooltip = gt.Const.Strings.PerkDescription.LegendHoldTheLine;
+	gt.Const.Strings.PerkName.PTRBlitzkrieg <- "Blitzkrieg";
+	gt.Const.Strings.PerkDescription.PTRBlitzkrieg <- "It will be over in a flash!\n\n[color=" + this.Const.UI.Color.Active + "][u]Active:[/u][/color]\n• Costs 9 AP and builds 30 Fatigue.\n• You and other members of your company within 4 tiles, who have at least [color=" + this.Const.UI.Color.NegativeValue + "]10[/color] Fatigue remaining, gain the Adrenaline effect.\n• The affected allies build [color=" + this.Const.UI.Color.NegativeValue + "]10[/color] Fatigue.\n• Is only usable once per combat.";
 
 	gt.Const.Strings.PerkDescription.LegendValaInscribeWeapon = "Allows the Vala to inscribe rocks with weapon specific rune sigils while encamped to create powerful rune stones.\n\nPossibilities: accuracy, power.",
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendValaInscribeWeapon].Tooltip = gt.Const.Strings.PerkDescription.LegendValaInscribeWeapon;

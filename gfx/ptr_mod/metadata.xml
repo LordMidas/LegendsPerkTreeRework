@@ -8,7 +8,8 @@
 	<sprite id="perk_ptr_primal_fear" ic = "FF23165B" img="..\ui\perks\ptr_primal_fear.png" />	
 
 	<sprite id="ptr_arrow_to_the_knee_skill" ic = "FF23165B" img="..\skills\ptr_arrow_to_the_knee_skill.png" />
-	<sprite id="ptr_cover_ally_skill" ic = "FF23165B" img="..\skills\ptr_cover_ally_skill.png" />			
+	<sprite id="ptr_blitzkrieg_skill" ic = "FF23165B" img="..\skills\ptr_blitzkrieg_skill.png" />	
+	<sprite id="ptr_cover_ally_skill" ic = "FF23165B" img="..\skills\ptr_cover_ally_skill.png" />
 	<sprite id="ptr_line_breaker_skill" ic = "FF23165B" img="..\skills\ptr_line_breaker_skill.png" />
 	<sprite id="ptr_take_aim_skill" ic = "FF23165B" img="..\skills\ptr_take_aim_skill.png" />
 	<sprite id="ptr_between_the_eyes_skill" ic = "FF23165B" img="..\skills\ptr_between_the_eyes_skill.png" />
