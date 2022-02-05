@@ -49,7 +49,7 @@ this.perk_ptr_feral_rage <- this.inherit("scripts/skills/skill", {
 				id = 11,
 				type = "text",
 				icon = "ui/icons/melee_defense.png",
-				text = "Only receive [color=" + this.Const.UI.Color.PositiveValue + "]+" + (100 - this.Math.min(70, 2 * this.m.RageStacks)) + "%[/color] of incoming damage"
+				text = "Only receive [color=" + this.Const.UI.Color.PositiveValue + "]" + (100 - this.Math.min(70, 2 * this.m.RageStacks)) + "%[/color] of incoming damage"
 			},
 			{
 				id = 12,
