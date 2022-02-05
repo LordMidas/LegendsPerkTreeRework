@@ -2,6 +2,36 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modSkills <- function()
 {	
+	::mods_hookExactClass("skills/actives/shieldwall", function(o) {
+		o.onAfterUpdate <- function( _properties )
+		{
+			local adjacentAllies = this.getContainer().getActor().getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.SameFaction);
+			foreach (ally in adjacentAllies)
+			{
+				if (ally.getSkills().hasSkill("perk.legend_shields_up"))
+				{
+					this.m.ActionPointCost = this.Math.max(this.m.ActionPointCost * 0.5, 2);
+					this.m.FatigueCostMult *= 0.5;
+					return;
+				}
+			}
+		}
+
+		o.onTurnStart <- function()
+		{
+			local hasPerk = this.getContainer().hasSkill("perk.legend_shields_up");
+			local adjacentAllies = this.getContainer().getActor().getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.SameFaction);
+			foreach (ally in adjacentAllies)
+			{
+				if (ally.getSkills().hasSkill("actives.shieldwall") && (hasPerk || ally.getSkills().hasSkill("perk.legend_shields_up")))
+				{
+					this.useForFree(this.getContainer().getActor().getTile());
+					return;
+				}
+			}
+		}
+	});
+
 	::mods_hookExactClass("skills/effects/disarmed_effect", function(o) {
 		o.onUpdate = function( _properties )
 		{
@@ -580,7 +610,7 @@ gt.Const.PTR.modSkills <- function()
 	}	
 
 	::mods_hookExactClass("skills/effects/stunned_effect", function(o) {
-		local onAdded = o.onAdded;
+		o.m.ShakingOffSkill <- "";
 
 		local setTurns = o.setTurns;
 		o.setTurns = function( _t )
@@ -591,17 +621,14 @@ gt.Const.PTR.modSkills <- function()
 			}
 		}
 
+		local onAdded = o.onAdded;
 		o.onAdded = function()
 		{
 			local shieldwall = this.getContainer().getSkillByID("effects.shieldwall");
 			if (shieldwall != null)
-			{
-
-				if (this.getContainer().getActor().getTile().IsVisibleForPlayer)
-				{
-					this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(this.getContainer().getActor()) + " shakes off the stun but loses Shieldwall");
-				}
-				shieldwall.removeSelf();
+			{			
+				this.m.ShakingOffSkill = shieldwall.getName();
+				shieldwall.removeSelf();				
 				this.removeSelf();
 				return;
 			}
@@ -609,16 +636,26 @@ gt.Const.PTR.modSkills <- function()
 			local fortify = this.getContainer().getSkillByID("effects.legend_fortify")
 			if (fortify != null)
 			{
-				if (this.getContainer().getActor().getTile().IsVisibleForPlayer)
-				{
-					this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(this.getContainer().getActor()) + " shakes off the stun but loses Fortify");
-				}
+				this.m.ShakingOffSkill = fortify.getName();
 				fortify.removeSelf();
 				this.removeSelf();
 				return;
 			}
 
 			onAdded();
+		}
+
+		local onRemoved = o.onRemoved;
+		o.onRemoved = function()
+		{
+			onRemoved();
+			if (this.m.ShakingOffSkill != "")
+			{
+				if (this.getContainer().getActor().getTile().IsVisibleForPlayer)
+				{
+					this.Tactical.EventLog.logEx(this.Const.UI.getColorizedEntityName(this.getContainer().getActor()) + " shakes off the stun but loses " + this.m.SkillName);
+				}
+			}
 		}
 	});
 

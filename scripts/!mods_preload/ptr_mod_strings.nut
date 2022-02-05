@@ -329,6 +329,8 @@ gt.Const.PTR.modStrings <- function()
 
 	gt.Const.Strings.PerkDescription.LegendHoldTheLine = "Direct your troops to stand their ground, granting [color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] Melee Defense, reducing damage taken by [color=" + this.Const.UI.Color.NegativeValue + "]10%[/color] to all allies within [color=" + this.Const.UI.Color.PositiveValue + "]4[/color] tiles for one turn.";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendHoldTheLine].Tooltip = gt.Const.Strings.PerkDescription.LegendHoldTheLine;
+	gt.Const.Strings.PerkDescription.LegendShieldsUp = "Drilling your troops in a shieldwall prepares their reaction time to avoid early deaths on the battlefield.\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Allies with a shield will use Shieldwall for free at the start of each battle.\n• Allies adjacent to you will have the Action Point and Fatigue costs of their Shieldwall and Fortify skills halved. Cannot reduce the Action Point cost below [color=" + this.Const.UI.Color.NegativeValue + "]2[/color].\n• If you are carrying a shield which has the Shieldwall skill available, any ally who starts their turn adjacent to you will use Shieldwall for free.\n• Only members of your company are considered allies for this perk.";
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendShieldsUp].Tooltip = gt.Const.Strings.PerkDescription.LegendShieldsUp;
 	gt.Const.Strings.PerkName.PTRBlitzkrieg <- "Blitzkrieg";
 	gt.Const.Strings.PerkDescription.PTRBlitzkrieg <- "It will be over in a flash!\n\n[color=" + this.Const.UI.Color.Active + "][u]Active:[/u][/color]\n• Costs 9 AP and builds 30 Fatigue.\n• You and other members of your company within 4 tiles, who have at least [color=" + this.Const.UI.Color.NegativeValue + "]10[/color] Fatigue remaining, gain the Adrenaline effect.\n• The affected allies build [color=" + this.Const.UI.Color.NegativeValue + "]10[/color] Fatigue.\n• Is only usable once per combat.";
 
@@ -338,6 +340,9 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendValaInscribeHelmet].Tooltip = gt.Const.Strings.PerkDescription.LegendValaInscribeHelmet;
 	gt.Const.Strings.PerkDescription.LegendValaInscribeArmor = "Allows the Vala to inscribe rocks with armor specific rune sigils while encamped to create powerful rune stones.\n\nPossibilities: endurance, safety.";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendValaInscribeArmor].Tooltip = gt.Const.Strings.PerkDescription.LegendValaInscribeArmor;
+
+	gt.Const.Strings.PerkName.PTRVengefulSpite <- "Vengeful Spite";
+	gt.Const.Strings.PerkDescription.PTRVengefulSpite <- "You will pay for this!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Whenever an ally dies next to you, gain a stacking [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color] increased damage for the remainder of the combat.";
 
 	local poleWeaponStrings = [
 		"SpecAxe",
