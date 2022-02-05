@@ -987,6 +987,15 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_feral_rage.png",
 			IconDisabled = "ui/perks/ptr_feral_rage_bw.png",
 			Const = "PTRFeralRage"
+		},
+		{
+			ID = "perk.ptr_vanguard_deployment",
+			Script = "scripts/skills/perks/perk_ptr_vanguard_deployment",
+			Name = this.Const.Strings.PerkName.PTRVanguardDeployment,
+			Tooltip = this.Const.Strings.PerkDescription.PTRVanguardDeployment,
+			Icon = "ui/perks/ptr_vanguard_deployment.png",
+			IconDisabled = "ui/perks/ptr_vanguard_deployment_bw.png",
+			Const = "PTRVanguardDeployment"
 		}
 	];
 

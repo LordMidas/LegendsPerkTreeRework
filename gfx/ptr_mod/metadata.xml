@@ -11,6 +11,7 @@
 	<sprite id="ptr_blitzkrieg_skill" ic = "FF23165B" img="..\skills\ptr_blitzkrieg_skill.png" />
 	<sprite id="ptr_bestial_vigor_skill" ic = "FF23165B" img="..\skills\ptr_bestial_vigor_skill.png" />
 	<sprite id="ptr_cover_ally_skill" ic = "FF23165B" img="..\skills\ptr_cover_ally_skill.png" />
+	<sprite id="ptr_deploy_in_vanguard_skill" ic = "FF23165B" img="..\skills\ptr_deploy_in_vanguard_skill.png" />
 	<sprite id="ptr_line_breaker_skill" ic = "FF23165B" img="..\skills\ptr_line_breaker_skill.png" />
 	<sprite id="ptr_take_aim_skill" ic = "FF23165B" img="..\skills\ptr_take_aim_skill.png" />
 	<sprite id="ptr_between_the_eyes_skill" ic = "FF23165B" img="..\skills\ptr_between_the_eyes_skill.png" />
