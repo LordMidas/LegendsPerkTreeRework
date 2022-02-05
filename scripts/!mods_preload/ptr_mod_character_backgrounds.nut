@@ -3973,8 +3973,8 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			],
 			Profession = [
 				[
-				{Weight = 90, Tree = this.Const.Perks.LaborerProfessionTree},
-				{Weight = 10, Tree = this.Const.Perks.WildlingProfessionTree}				
+					{Weight = 90, Tree = this.Const.Perks.LaborerProfessionTree},
+					{Weight = 10, Tree = this.Const.Perks.WildlingProfessionTree}				
 				]
 			],
 			Defense = [
@@ -4937,8 +4937,8 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			],
 			Profession = [
 				[
-				{Weight = 50, Tree = this.Const.Perks.RaiderProfessionTree},
-				{Weight = 50, Tree = this.Const.Perks.WildlingProfessionTree}				
+					{Weight = 50, Tree = this.Const.Perks.RaiderProfessionTree},
+					{Weight = 50, Tree = this.Const.Perks.WildlingProfessionTree}				
 				]
 			]
 		};
