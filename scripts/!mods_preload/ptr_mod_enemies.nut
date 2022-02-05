@@ -670,7 +670,6 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.addTreeOfEquippedWeapon(3);
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_relentless"));
 				this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_net_casting"));													
 			}
 			else
 			{
