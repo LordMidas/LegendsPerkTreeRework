@@ -3,10 +3,10 @@
 ===================
 == NEW STUFF ==
 - New Profession tree: Wildling. - Guaranteed on Wildman/Wildwoman and Wildman/Wildwoman Slave. 50% chance on Barbarians. 10% chance on Shieldmaidens. This tree contains the Pathfinder and Gatherer perks on t1 and t6 respectively.
-- New Perk "Savage Strength" - Wildling t2. The extra Fatigue build-up on skills from weapons such as Orc Weapons is reduced by -2.";s
-- New Perk "Bestial Vigor" - Wildling t5. Costs 0 AP and builds 0 Fatigue. Once per combat, reduce current Fatigue by 50% and gain +3/color Action Points for the current turn.
+- New Perk "Savage Strength" - Wildling t2. The extra Fatigue build-up on skills from weapons such as Orc Weapons is reduced by -2."
+- New Perk "Bestial Vigor" - Wildling t5. Costs 0 AP and builds 0 Fatigue. Once per combat, reduce current Fatigue by 50% and gain +3 Action Points for the current turn.
 - New Perk "Feral Rage" - Wildling t7 - Gain stacking rage during combat. You gain 1 stack for getting hit, 3 for making a kill, 1 for every successful hit with a skill with a base Action Point cost of 4 or less and 2 for greater. You lose 2 rage at the start of every turn. Each stack of rage increases Resolve, Initiative and Damage by +1, lowers Melee Defense by -1 and reduces incoming damage by 2%.
-- New Perk "Vanguard Deployment" - Tactician t6. During the first round of combat, you and other members of your company gain the `Deploy in Vanguard` skill which allows a character to redeploy up to 7 tiles away or swap positions with an adjacent ally for no Action Point or Fatigue cost. Cannot be used after moving, waiting, or usng a skill.• Cannot be used to redeploy within 2 tiles of an enemy. Can only be used by a maximum of 2 characters per combat.
+- New Perk "Vanguard Deployment" - Tactician t6. During the first round of combat, you and other members of your company gain the `Deploy in Vanguard` skill which allows a character to redeploy up to 7 tiles away or swap positions with an adjacent ally for no Action Point or Fatigue cost. Cannot be used after moving, waiting, or usng a skill. Cannot be used to redeploy within 2 tiles of an enemy. Can only be used by a maximum of 2 characters per combat.
 - New perk "Blitzkrieg" - Tactician t7. Costs 9 AP and builds 30 Fatigue. You and other members of your company within 4 tiles, who have at least 10 Fatigue remaining, gain the Adrenaline effect. The affected allies build 10 Fatigue. Is only usable once per combat and cannot be used by more than one character.
 - New Perk for enemies "Vengeful Spite". Whenever an ally dies next to you, gain a stacking 5% increased damage for the remainder of the combat.
 
@@ -17,6 +17,9 @@
 - The Huge trait now reduces the extra fatigue cost on skills of weapons e.g. orc weapons by -2.
 - Converted Rising Star to Special perk and removed from Talented tree.
 - Perfect Focus can no longer increase available Action Points beyond 18.
+- Moved Shields Up from Tactican t4 to t2.
+- Moved Push Forward from Tactician t6 to t3.
+- Moved Hold the Line from Tactician t5 to t4.
 
 == BALANCE ==
 - Guaranteed Trained tree on Militia background.
@@ -26,6 +29,7 @@
 - Added Twirl to Assassin tree t4.
 - Changed Crossbow weight from Juggler Profession to .8 from .66 to bring the total weight for crossbows on Juggler background to 1.
 - Adjusted Wild(wo)man background weights to accomodate Wildling Profession tree.
+- Added Vengeful Spite to the following enemies: Brigand Leader, Nomad Leader, Brigand Warlord, Goblin Overseer, Barbarian King, Noble Sergeant, Officer, Direwolf, Hyena, White Direwolf.
 
 == FIXES ==
 - Fixed typo in Rising Star perk tooltip (was missing a space).
