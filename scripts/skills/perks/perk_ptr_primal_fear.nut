@@ -1,7 +1,8 @@
 this.perk_ptr_primal_fear <- this.inherit("scripts/skills/skill", {
 	m = {
-		Chance = 25,
-		ForceFullChance = false
+		TargetsHit = [],
+		BaseChance = 30,
+		ChanceDropPerHit = 10
 	},
 	function create()
 	{
@@ -16,30 +17,50 @@ this.perk_ptr_primal_fear <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
-	function getChance()
+	function getChance( _targetEntity )
 	{
-		if (this.m.ForceFullChance)
+		local hits = 0;
+		foreach (entry in this.m.TargetsHit)
 		{
-			return 100;
+			if (entry.TargetID == _targetEntity.getID())
+			{
+				hits = entry.Hits;
+			}
 		}
 
-		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.Crossbow))
+		local baseChance = this.m.BaseChance - this.m.ChanceDropPerHit * hits;
+		local HPChance = (1.0 - _targetEntity.getHitpointsPct()) * 100;
+
+		return baseChance + HPChance;
+	}
+
+	function addTargetHit( _targetEntity )
+	{
+		foreach (entry in this.m.TargetsHit)
 		{
-			return 100;
+			if (entry.TargetID == _targetEntity.getID())
+			{
+				entry.Hits += 1;
+				return;
+			}
 		}
 
-		return this.m.Chance;
+		this.m.TargetsHit.push(
+			{
+				TargetID = _targetEntity.getID(),
+				Hits = 1
+			}
+		);
 	}
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		if (_bodyPart != this.Const.BodyPart.Head || !_targetEntity.isAlive() || _targetEntity.isDying() || _targetEntity.getMoraleState() == this.Const.MoraleState.Ignore || _targetEntity.getMoraleState() == this.Const.MoraleState.Fleeing)
+		if (_bodyPart != this.Const.BodyPart.Head || !_targetEntity.isAlive() || _targetEntity.isDying() || _targetEntity.getMoraleState() == this.Const.MoraleState.Ignore || (_targetEntity.getMoraleState() == this.Const.MoraleState.Fleeing + 1))
 		{
 			return;
 		}
 
-		if (this.Math.rand(1, 100) > this.getChance())
+		if (this.Math.rand(1, 100) > this.getChance(_targetEntity))
 		{
 			return;
 		}
@@ -53,5 +74,13 @@ this.perk_ptr_primal_fear <- this.inherit("scripts/skills/skill", {
 
 		this.spawnIcon("perk_ptr_primal_fear", targetTile);
 		_targetEntity.setMoraleState(this.Math.max(0, _targetEntity.getMoraleState() - 1));
+
+		this.addTargetHit(_targetEntity);
+	}
+
+	function onCombatFinished()
+	{
+		this.skill.onCombatFinished();
+		this.m.TargetsHit.clear();
 	}
 });

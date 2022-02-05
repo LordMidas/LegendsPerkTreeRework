@@ -1697,9 +1697,7 @@ gt.Const.PTR.modEnemies <- function()
 		o.onInit = function()
 		{
 			onInit();
-			local primalFear = this.new("scripts/skills/perks/perk_ptr_primal_fear");
-			primalFear.m.ForceFullChance = true;
-			this.m.Skills.add(primalFear);
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_primal_fear"));		
 			this.m.Skills.removeByID("perk.last_stand");
 
 		}
@@ -2853,9 +2851,7 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_target_practice"));	
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_hip_shooter"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_flaming_arrows"));																				
-			local primalFear = this.new("scripts/skills/perks/perk_ptr_primal_fear");
-			primalFear.m.ForceFullChance = true;
-			this.m.Skills.add(primalFear);
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_primal_fear"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
