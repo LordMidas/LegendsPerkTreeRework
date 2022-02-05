@@ -7,7 +7,7 @@ this.perk_ptr_feral_rage <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "perk.ptr_feral_rage";
 		this.m.Name = this.Const.Strings.PerkName.PTRFeralRage;
-		this.m.Description = "The smell of blood and death sends you into an uncontrollable rage. Every taste of blood your weapon takes, every kill you make, and every hit you receive embolders you and increases your lethality. Once in a rage, you must continuously feed it to keep it going.";
+		this.m.Description = "The smell of blood and death sends you into an uncontrollable rage. Every taste of blood your weapon takes, every kill you make, and every hit you receive emboldens you and increases your lethality. Once in a rage, you must continuously feed it to keep it going.";
 		this.m.Icon = "ui/perks/ptr_feral_rage.png";
 		this.m.IconMini = "ptr_feral_rage_mini";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
