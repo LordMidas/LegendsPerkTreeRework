@@ -1599,7 +1599,7 @@ gt.Const.PTR.modSkills <- function()
 					id = 10,
 					type = "text",
 					icon = "ui/icons/special.png",
-					text = "Action Points will be doubled for the remainder of this round"
+					text = "Action Points will be doubled for the remainder of this round, capped at [color=" + this.Const.UI.Color.PositiveValue + "]18[/color]"
 				}
 			);
 
@@ -1705,7 +1705,7 @@ gt.Const.PTR.modSkills <- function()
 			local actor = this.getContainer().getActor();
 			this.m.StartingAPFraction = actor.getActionPoints() / actor.getActionPointsMax();
 			actor.getCurrentProperties().ActionPointsMult = 2.0;
-			actor.setActionPoints(actor.getActionPointsMax() * this.m.StartingAPFraction);
+			actor.setActionPoints(this.Math.max(18, actor.getActionPointsMax() * this.m.StartingAPFraction));
 		}
 
 		o.onUpdate = function (_properties)
