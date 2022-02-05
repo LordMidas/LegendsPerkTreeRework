@@ -2,6 +2,19 @@ local gt = this.getroottable();
 
 gt.Const.PTR.modSkills <- function()
 {	
+	// PATCH UNTIL LEGENDS UPDATES
+	::mods_hookExactClass("skills/racial/mummy_racial", function(o) {
+		o.onDeathWithInfo = function( _killer, _skill, _deathTile, _corpseTile, _fatalityType )
+		{
+			if (_killer != null)
+			{
+				_killer.getSkills().add(this.new("scripts/skills/effects/mummy_curse_effect"));
+			}
+		}
+	});
+
+	// END PATCH
+
 	::mods_hookExactClass("skills/traits/huge_trait", function(o) {
 		o.m.SkillOrder <- this.Const.SkillOrder.Last;
 
