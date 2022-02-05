@@ -8,6 +8,10 @@
 - Added Twirl to Assassin tree t4.
 - Changed Crossbow weight from Juggler Profession to .8 from .66 to bring the total weight for crossbows on Juggler background to 1.
 - Removed net casting from Gobling Fighter Low as intended.
+- Adjusted Wild(wo)man background weights to accomodate Wildling Profession tree.
+
+**Wildling Profession**
+- Guaranteed on Wild(wo)man and Wild(wo)man Slave. 50% chance on barbarians. 10% chance on Shieldmaidens.
 
 ====================
 ==== Ver 1.5.19 ====
