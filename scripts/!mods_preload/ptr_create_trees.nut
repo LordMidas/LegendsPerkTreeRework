@@ -1073,4 +1073,90 @@ gt.Const.PTR.createSpecialTrees <- function()
 
 		return this.Math.rand(1, 100) <= chance;
 	});
+
+	gt.Const.Perks.SpecialTrees.addSpecialPerk(gt.Const.Perks.PerkDefs.LegendBigGameHunter, 7, "Has a penchant for hunting big game.", function( _player, _localMap ) {
+		local chance = 10;
+
+		local talents = _player.getTalents();
+		if (talents.len() == 0 || talents[this.Const.Attributes.RangedSkill] < 2)
+		{
+			return false;
+		}
+		else
+		{
+			chance *= talents[this.Const.Attributes.RangedSkill];
+		}
+
+		local hasRangedStyles = false;
+		local hasBowOrCrossbow = false;
+
+		foreach (tree in _localMap.Styles)
+		{
+			if (tree.ID == this.Const.Perks.RangedTree.ID)
+			{
+				hasRangedStyles = true;
+				break;
+			}
+		}
+
+		foreach (tree in _localMap.Weapon)
+		{			
+			if (tree.ID == this.Const.Perks.BowTree.ID || tree.ID == this.Const.Perks.CrossbowTree.ID)
+			{
+				hasBowOrCrossbow = true;
+				break;
+			}
+		}
+
+		if (!hasRangedStyles || !hasBowOrCrossbow)
+		{
+			return false;
+		}
+
+		local traits = _player.getSkills().getAllSkillsOfType(this.Const.SkillType.Trait);
+		foreach (trait in traits)
+		{
+			switch (trait.getID())
+			{
+				case "trait.fear_beasts":
+					return false;
+				
+				case "trait.hate_beasts":
+					chance *= 4;
+					break;
+
+				case "trait.eagle_eyes":
+				case "trait.ambitious":
+				case "trait.determined":
+				case "trait.cocky":
+				case "trait.brave":
+				case "trait.fearless":
+					chance *= 2;
+					break;
+
+				case "trait.slack":
+				case "trait.fainthearted":
+				case "trait.insecure":
+					chance /= 2;
+					break;
+			}
+		}
+
+		switch (_player.getBackground().getID())
+		{
+			case "background.beast_slayer":
+				chance *= 5;
+				break;
+
+			case "background.hunter":
+				chance *= 2;
+				break;
+
+			case "background.poacher":
+				chance *= 1.5;
+				break;
+		}
+
+		return this.Math.rand(1, 100) <= chance;
+	});
 }
