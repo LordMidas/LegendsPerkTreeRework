@@ -1718,7 +1718,7 @@ gt.Const.PTR.modSkills <- function()
 			local actor = this.getContainer().getActor();
 			this.m.StartingAPFraction = actor.getActionPoints() / actor.getActionPointsMax();
 			actor.getCurrentProperties().ActionPointsMult = 2.0;
-			actor.setActionPoints(this.Math.max(18, actor.getActionPointsMax() * this.m.StartingAPFraction));
+			actor.setActionPoints(this.Math.min(18, actor.getActionPointsMax() * this.m.StartingAPFraction));
 		}
 
 		o.onUpdate = function (_properties)
