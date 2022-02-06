@@ -1,4 +1,14 @@
 ===================
+==== Ver 1.6.1 ====
+===================
+- Implemented AI for Blitzkrieg. Currently Noble Sergeants and Southern Officers have the Tactician tree, so they should be able to use Blitzkrieg now.
+- Gaining Feral Rage via successful hits now only works against adjacent targets.
+- Added Big Game Hunter as a special perk. Has a base 10% chance which is then modified by the recruit's background, perk trees and traits.
+- Added Marksmanship as special perk. Has a base 5% chance which is then modified by the recruit's background, perk trees and traits.
+- Added Man of Steel as special perk. Has a base 25% chance which is then modified by the recruit's perk trees and traits. Requires the Heavy Armor tree to be present on the recruit.
+- Fixed Perfect Focus always setting AP to 18 instead of doubling current AP.
+
+===================
 ==== Ver 1.6.0 ====
 ===================
 == NEW STUFF ==
