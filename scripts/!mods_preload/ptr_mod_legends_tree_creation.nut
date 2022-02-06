@@ -826,14 +826,31 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 
 		foreach (perk in this.Const.Perks.SpecialTrees.Perks)
 		{
-			local success = perk.Func(_player, _localMap);
+			local success = perk.Func(_player, _localMap);			
 			if (success)
 			{
+				local hasRow = false;
+				local direction = -1;
 				local row = perk.Row;
-				while (row > 0 && dynamicTree[row].len() >= 13)
+
+				while (row >= 0 && row <= 6)
 				{
-					row--;
+					if (dynamicTree[row].len() < 13)
+					{
+						hasRow = true;
+						break;
+					}
+
+					row += direction;
+
+					if (row == -1)
+					{
+						row = perk.Row;
+						direction = 1;
+					}
 				}
+
+				row = hasRow ? this.Math.max(0, this.Math.min(row, 6)) : perk.Row;
 
 				dynamicTree[row].push(perk.Perk);
 			}
