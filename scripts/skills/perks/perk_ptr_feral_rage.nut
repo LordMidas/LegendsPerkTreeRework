@@ -120,7 +120,7 @@ this.perk_ptr_feral_rage <- this.inherit("scripts/skills/skill", {
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		if (!_skill.isRanged())
+		if (!_skill.isRanged() && _targetEntity.isAlive() && !_targetEntity.isDying() && _targetEntity.getTile().getDistanceTo(this.getContainer().getActor().getTile()) == 1)
 		{
 			local rage = _skill.b.ActionPointCost > 4 ? 2 : 1;
 			this.addRage(rage);
