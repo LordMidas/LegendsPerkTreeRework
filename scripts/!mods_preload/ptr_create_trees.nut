@@ -1159,4 +1159,77 @@ gt.Const.PTR.createSpecialTrees <- function()
 
 		return this.Math.rand(1, 100) <= chance;
 	});
+
+	gt.Const.Perks.SpecialTrees.addSpecialPerk(gt.Const.Perks.PerkDefs.PTRMarksmanship, 7, "Has the talent to become a formidable marksman.", function( _player, _localMap ) {
+		local chance = 5;
+
+		local talents = _player.getTalents();
+		if (talents.len() == 0 || talents[this.Const.Attributes.RangedSkill] < 2)
+		{
+			return false;
+		}
+		else
+		{
+			chance *= talents[this.Const.Attributes.RangedSkill];
+		}
+
+		local hasRangedStyles = false;
+
+		foreach (tree in _localMap.Styles)
+		{
+			if (tree.ID == this.Const.Perks.RangedTree.ID)
+			{
+				hasRangedStyles = true;
+				break;
+			}
+		}
+
+		if (!hasRangedStyles)
+		{
+			return false;
+		}
+
+		local traits = _player.getSkills().getAllSkillsOfType(this.Const.SkillType.Trait);
+		foreach (trait in traits)
+		{
+			switch (trait.getID())
+			{
+				case "trait.clumsy":
+					return false;
+				
+				case "trait.sureshot":
+					return true;
+
+				case "trait.eagle_eyes":
+				case "trait.steady_hands":
+					chance *= 4;
+					break;
+
+				
+				case "trait.lucky":
+				case "trait.unpredictable":
+					chance *= 2;
+					break;
+				
+				case "trait.drunkard":
+				case "trait.predictable":
+				case "trait.short_sighted":
+					chance /= 2;
+					break;
+			}
+		}
+
+		switch (_player.getBackground().getID())
+		{
+			case "background.hunter":
+				chance *= 2;
+				break;
+
+			case "background.poacher":
+				chance *= 1.5;
+				break;
+		}
+
+		return this.Math.rand(1, 100) <= chance;
+	});
 }
