@@ -46,6 +46,23 @@ this.ptr_blitzkrieg_skill <- this.inherit("scripts/skills/skill", {
 		return this.m.IsSpent;
 	}
 
+	function onAdded()
+	{
+		local actor = this.getContainer().getActor();
+		if (actor.isPlayerControlled())
+		{
+			return;
+		}
+
+		local agent = actor.getAIAgent();
+
+		if (agent.findBehavior(this.Const.AI.Behavior.ID.PTRBlitzkrieg) == null)
+		{
+			agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_ptr_blitzkrieg"));
+			agent.finalizeBehaviors();
+		}
+	}
+
 	function isUsable()
 	{
 		return !this.m.IsSpent && this.skill.isUsable();
