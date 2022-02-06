@@ -926,7 +926,7 @@ gt.Const.PTR.createSpecialTrees <- function()
 
 				if (this.Const.Perks[name].Tree[_tier-1].len() > 1)
 				{
-					local totalPerksInTree = 0;
+					local totalPerksInTree = 0;					
 					foreach (row in this.Const.Perks[name].Tree)
 					{
 						totalPerksInTree += row.len();
@@ -937,11 +937,9 @@ gt.Const.PTR.createSpecialTrees <- function()
 						continue;					
 					}
 				}
-				else
-				{
-					this.Const.Perks[name].Tree[_tier-1].push(_perk);
-					break;
-				}
+
+				this.Const.Perks[name].Tree[_tier-1].push(_perk);
+				break;
 			}
 		}
 
