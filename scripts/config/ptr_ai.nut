@@ -20,6 +20,9 @@ id++;
 gt.Const.AI.Behavior.ID.STRCoverAlly <- id;
 gt.Const.AI.Behavior.Name.push("STR.CoverAlly");
 id++;
+gt.Const.AI.Behavior.ID.PTRBlitzkrieg <- id;
+gt.Const.AI.Behavior.Name.push("PTR.Blitzkrieg");
+id++;
 
 gt.Const.AI.Behavior.ID.COUNT = id;
 
@@ -40,3 +43,6 @@ gt.Const.AI.Behavior.Score.LegendPushForward <- this.Const.AI.Behavior.Score.Boo
 
 gt.Const.AI.Behavior.Order.STRCoverAlly <- this.Const.AI.Behavior.Order.Adrenaline;
 gt.Const.AI.Behavior.Score.STRCoverAlly <- 60;
+
+gt.Const.AI.Behavior.Order.PTRBlitzkrieg <- this.Const.AI.Behavior.Order.Rally;
+gt.Const.AI.Behavior.Score.PTRBlitzkrieg <- this.Const.AI.Behavior.Score.Rally;
