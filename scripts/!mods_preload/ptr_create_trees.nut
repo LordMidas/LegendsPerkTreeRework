@@ -1232,4 +1232,67 @@ gt.Const.PTR.createSpecialTrees <- function()
 
 		return this.Math.rand(1, 100) <= chance;
 	});
+
+	gt.Const.Perks.SpecialTrees.addSpecialPerk(gt.Const.Perks.PerkDefs.PTRManOfSteel, 7, "Is tough as if made of steel!", function( _player, _localMap ) {
+		local chance = 25;
+
+		local talents = _player.getTalents();
+		if (talents.len() == 0 || talents[this.Const.Attributes.Hitpoints] < 1)
+		{
+			return false;
+		}
+		else
+		{
+			chance *= talents[this.Const.Attributes.Hitpoints];
+		}
+		
+		local hasHeavyArmor = false;
+
+		foreach (tree in _localMap.Defense)
+		{
+			if (tree.ID == this.Const.Perks.HeavyArmorTree.ID)
+			{
+				hasHeavyArmor = true;
+				break;
+			}
+		}
+
+		if (!hasHeavyArmor)
+		{
+			return false;
+		}
+
+		local traits = _player.getSkills().getAllSkillsOfType(this.Const.SkillType.Trait);
+		foreach (trait in traits)
+		{
+			switch (trait.getID())
+			{
+				case "trait.frail":
+				case "trait.fragile":
+					return false;
+
+				case "trait.iron_jaw":
+				case "trait.tough":
+					return true;
+				
+				case "trait.deathwish":
+				case "trait.fat":
+				case "trait.firm":
+				case "trait.heavy":
+				case "trait.huge":
+				case "trait.strong":
+					chance *= 2;
+					break;
+				
+				case "trait.light":
+				case "trait.tiny":
+				case "trait.ailing":
+				case "trait.bleeder":
+					chance /= 2;
+					break;
+			}
+		}
+		
+		return this.Math.rand(1, 100) <= chance;
+	});
 }
