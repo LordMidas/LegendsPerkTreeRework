@@ -654,7 +654,7 @@ gt.Const.PTR.modSkills <- function()
 	}	
 
 	::mods_hookExactClass("skills/effects/stunned_effect", function(o) {
-		o.m.ShakingOffSkill <- "";
+		o.m.SkillToLoseName <- "";
 
 		local setTurns = o.setTurns;
 		o.setTurns = function( _t )
@@ -671,7 +671,7 @@ gt.Const.PTR.modSkills <- function()
 			local shieldwall = this.getContainer().getSkillByID("effects.shieldwall");
 			if (shieldwall != null)
 			{			
-				this.m.ShakingOffSkill = shieldwall.getName();
+				this.m.SkillToLoseName = shieldwall.getName();
 				shieldwall.removeSelf();				
 				this.removeSelf();
 				return;
@@ -680,7 +680,7 @@ gt.Const.PTR.modSkills <- function()
 			local fortify = this.getContainer().getSkillByID("effects.legend_fortify")
 			if (fortify != null)
 			{
-				this.m.ShakingOffSkill = fortify.getName();
+				this.m.SkillToLoseName = fortify.getName();
 				fortify.removeSelf();
 				this.removeSelf();
 				return;
@@ -693,11 +693,11 @@ gt.Const.PTR.modSkills <- function()
 		o.onRemoved = function()
 		{
 			onRemoved();
-			if (this.m.ShakingOffSkill != "")
+			if (this.m.SkillToLoseName != "")
 			{
 				if (this.getContainer().getActor().getTile().IsVisibleForPlayer)
 				{
-					this.Tactical.EventLog.logEx(this.Const.UI.getColorizedEntityName(this.getContainer().getActor()) + " shakes off the stun but loses " + this.m.SkillName);
+					this.Tactical.EventLog.logEx(this.Const.UI.getColorizedEntityName(this.getContainer().getActor()) + " shakes off the stun but loses " + this.m.SkillToLoseName);
 				}
 			}
 		}
