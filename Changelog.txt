@@ -1,4 +1,11 @@
 ===================
+==== Ver 1.6.2 ====
+===================
+- Updated Savage Strength perk icon (slightly smaller hand).
+- Updated Primal Fear icon (less bright).
+- Fixed the stun immunity from shieldwall crashing the game when you receive a stun. This bug was introduced in v1.6.0.
+
+===================
 ==== Ver 1.6.1 ====
 ===================
 - Implemented AI for Blitzkrieg. Currently Noble Sergeants and Southern Officers have the Tactician tree, so they should be able to use Blitzkrieg now.
