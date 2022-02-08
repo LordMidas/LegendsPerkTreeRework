@@ -840,7 +840,9 @@ gt.Const.PTR.createProfessionTrees <- function()
 		WeightMultipliers = [
 		],
 		Tree = [
-			[],
+			[
+				gt.Const.Perks.PerkDefs.PTRFamilyTies
+			],
 			[],
 			[],
 			[],

@@ -353,6 +353,9 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRFeralRage <- "Feral Rage";
 	gt.Const.Strings.PerkDescription.PTRFeralRage <- "[color=" + this.Const.UI.Color.NegativeValue + "][u]Requires:[/u] Melee Attack[/color]\nLike sheep before a wolf!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Gain stacking rage during combat. You gain 1 stack for getting hit, 3 for making a kill, 1 for every successful hit against an adjacent target with a skill with a base Action Point cost of 4 or less and 2 for greater. You lose 2 rage at the start of every turn.\n• Each stack of rage increases Resolve, Initiative and Damage by [color=" + this.Const.UI.Color.PositiveValue + "]+1[/color], lowers Melee Defense by [color=" + this.Const.UI.Color.NegativeValue + "]-1[/color] and reduces incoming damage by [color=" + this.Const.UI.Color.PositiveValue + "]2%[/color].";
 
+	gt.Const.Strings.PerkName.PTRFamilyTies <- "Family Ties";
+	gt.Const.Strings.PerkDescription.PTRFamilyTies <- "You can do anything. But never go against the family!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Once per day, improves the relations with the Noble faction of the next City, Fortress, or Citadel you enter.";
+
 	local poleWeaponStrings = [
 		"SpecAxe",
 		"SpecHammer",

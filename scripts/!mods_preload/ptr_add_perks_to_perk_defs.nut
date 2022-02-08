@@ -1005,6 +1005,15 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_vengeful_spite.png",
 			IconDisabled = "ui/perks/ptr_vengeful_spite_bw.png",
 			Const = "PTRVengefulSpite"
+		},
+		{
+			ID = "perk.ptr_family_ties",
+			Script = "scripts/skills/perks/perk_ptr_family_ties",
+			Name = this.Const.Strings.PerkName.PTRFamilyTies,
+			Tooltip = this.Const.Strings.PerkDescription.PTRFamilyTies,
+			Icon = "ui/perks/ptr_family_ties.png",
+			IconDisabled = "ui/perks/ptr_family_ties_bw.png",
+			Const = "PTRFamilyTies"
 		}
 	];
 

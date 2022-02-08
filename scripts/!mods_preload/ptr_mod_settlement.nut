@@ -24,6 +24,12 @@ gt.Const.PTR.modSettlement <- function()
 
 						perk.addSettlementVisited(this);
 					}
+
+					local familyTies = bro.getSkills().getSkillByID("perk.ptr_family_ties");
+					if (familyTies != null && !familyTies.m.IsSpent)
+					{
+						familyTies.improveRelations(this);
+					}
 				}
 
 				this.World.Assets.addMoney(moneyToAdd);
