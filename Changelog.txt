@@ -1,4 +1,10 @@
 ===================
+==== Ver 1.6.4 ====
+===================
+- Fixed Discovered Talent not working.
+- Fixed Promised Potential and Professional potentially not working.
+
+===================
 ==== Ver 1.6.3 ====
 ===================
 - Compatibility update for Legends version 15.0.2.10 or later. Older PTR versions will not work with these Legends builds.
