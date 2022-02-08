@@ -85,7 +85,7 @@ gt.Const.PTR.ImmersiveDamage.GoodnessThreshold <- {
 			"\'s attack was pathetic"
 		],
 		FluffRanged = [
-			"\'s shot was poorly aimed"
+			"\'s shot was poorly aimed",
 			"\'s shot barely grazed target"
 		]
 	},

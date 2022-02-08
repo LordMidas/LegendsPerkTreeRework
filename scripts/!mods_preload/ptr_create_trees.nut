@@ -423,8 +423,8 @@ gt.Const.PTR.createProfessionTrees <- function()
 			{Multiplier = 1.5, Tree = this.Const.Perks.ResilientTree},
 			{Multiplier = 2, Tree = this.Const.Perks.SturdyTree},
 			{Multiplier = 1.5, Tree = this.Const.Perks.UnstoppableTree},
-			{Multiplier = 0.5, Tree = this.Const.Perks.ClerkClassTree}
-			{Multiplier = 2, Tree = this.Const.Perks.ScoutClassTree}			
+			{Multiplier = 0.5, Tree = this.Const.Perks.ClerkClassTree},
+			{Multiplier = 2, Tree = this.Const.Perks.ScoutClassTree},		
 			{Multiplier = 2, Tree = this.Const.Perks.TwoHandedTree},
 			{Multiplier = -1, Tree = this.Const.Perks.AxeTree}
 		],

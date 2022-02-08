@@ -9,7 +9,7 @@ this.ai_ptr_arrow_to_the_knee <- this.inherit("scripts/ai/tactical/behavior", {
 		UsableWithSkills = [
 			"actives.quick_shot",
 			"actives.aimed_shot",
-			"actives.shoot_bolt"
+			"actives.shoot_bolt",
 			"actives.shoot_stake"
 		]
 	},

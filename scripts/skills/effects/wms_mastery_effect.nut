@@ -50,7 +50,7 @@ this.wms_mastery_effect <- this.inherit("scripts/skills/skill", {
 
 			if (weapon != null && weapon.isItemType(this.Const.Items.ItemType.TwoHanded) && weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon))
 			{
-				local skills = this.getContainer().getAllSkillsOfType(this.Const.SkillType.Active)
+				local skills = this.getContainer().getAllSkillsOfType(this.Const.SkillType.Active);
 				foreach (skill in skills)
 				{
 					 if (skill.m.IsWeaponSkill && skill.m.MaxRange == 2 && skill.m.ActionPointCost >= 5)

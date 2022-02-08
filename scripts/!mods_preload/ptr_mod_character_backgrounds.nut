@@ -285,9 +285,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 2, Tree = this.Const.Perks.TalentedTree}
 			],
 			Profession = [
-				[
-					{Weight = 50, Tree = this.Const.Perks.HunterProfessionTree}
-				]
+				[{Weight = 100, Tree = this.Const.Perks.HunterProfessionTree}]
 			],
 			Class = [
 				[
@@ -1043,9 +1041,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 2, Tree = this.Const.Perks.TalentedTree}
 			],
 			Profession = [
-				[
-					{Weight = 50, Tree = this.Const.Perks.HunterProfessionTree}
-				]
+				[{Weight = 100, Tree = this.Const.Perks.HunterProfessionTree}]
 			],
 			Class = [
 				[
@@ -3474,9 +3470,9 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 3, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 3, Tree = this.Const.Perks.TalentedTree}
+				{Multiplier = 3, Tree = this.Const.Perks.TalentedTree},
 				{Multiplier = 2, Tree = this.Const.Perks.TrainedTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ViciousTree}
+				{Multiplier = 2, Tree = this.Const.Perks.ViciousTree},
 				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
 				{Multiplier = 0, Tree = this.Const.Perks.ShieldTree},
 				{Multiplier = 3, Tree = this.Const.Perks.SwordTree}						
@@ -3701,9 +3697,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 0, Tree = this.Const.Perks.RangedTree}											
 			],
 			Profession = [
-				[
-					{Weight = 100, Tree = this.Const.Perks.RaiderProfessionTree}
-				]
+				[{Weight = 100, Tree = this.Const.Perks.RaiderProfessionTree}]
 			],
 		};
 	});

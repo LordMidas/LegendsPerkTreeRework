@@ -16,7 +16,7 @@ this.ptr_polearm_hitchance_effect <- this.inherit("scripts/skills/skill", {
 
 	function isEnabled()
 	{
-		local weapon = this.getContainer().getActor().getMainhandItem()
+		local weapon = this.getContainer().getActor().getMainhandItem();
 		if (weapon != null && weapon.getRangeMax() > 1 && weapon.isItemType(this.Const.Items.ItemType.TwoHanded) && !weapon.isWeaponType(this.Const.Items.WeaponType.Staff))
 		{
 			return true;

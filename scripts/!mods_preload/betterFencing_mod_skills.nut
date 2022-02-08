@@ -99,7 +99,7 @@ gt.ModBetterFencing.modSkills <- function()
 			}
 		}		
 
-		::mods_override(o, "onVerifyTarget" function( _originTile, _targetTile )
+		::mods_override(o, "onVerifyTarget", function( _originTile, _targetTile )
 		{
 			if (!this.skill.onVerifyTarget(_originTile, _targetTile))
 			{

@@ -264,7 +264,7 @@ gt.Const.PTR.modLegendsEnemyTrees <- function()
 		this.Const.Perks.OrcsTree.Tree.push(emptyArray);
 	}
 	this.Const.Perks.OrcsTree.WeightMultipliers <- [
-		{Multiplier = 1.25, Tree = this.Const.Perks.AgileTree}
+		{Multiplier = 1.25, Tree = this.Const.Perks.AgileTree},
 		{Multiplier = 1.25, Tree = this.Const.Perks.SturdyTree}
 	];
 	this.Const.Perks.OrcsTree.Tree[0] = [];

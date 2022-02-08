@@ -85,7 +85,7 @@ this.perk_ptr_fluid_weapon <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 		
-		local skills = this.getContainer().getAllSkillsOfType(this.Const.SkillType.Active)
+		local skills = this.getContainer().getAllSkillsOfType(this.Const.SkillType.Active);
 		foreach (s in skills)
 		{
 			if (s.m.IsWeaponSkill)

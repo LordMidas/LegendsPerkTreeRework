@@ -65,7 +65,7 @@ this.perk_ptr_primal_fear <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		local user = this.getContainer().getActor()
+		local user = this.getContainer().getActor();
 		local targetTile = _targetEntity.getTile();
 		if (!user.isHiddenToPlayer() && targetTile.IsVisibleForPlayer)
 		{

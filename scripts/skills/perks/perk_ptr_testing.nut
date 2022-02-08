@@ -73,7 +73,7 @@ this.perk_ptr_testing <- this.inherit("scripts/skills/skill", {
 			"scripts/skills/perks/perk_ptr_hybridization",
 			"scripts/skills/perks/perk_ptr_momentum",
 			"scripts/skills/perks/perk_ptr_opportunist",
-			"scripts/skills/perks/perk_ptr_nailed_it"
+			"scripts/skills/perks/perk_ptr_nailed_it",
 
 			"scripts/skills/perks/perk_reach_advantage",
 			"scripts/skills/perks/perk_ptr_bloody_harvest",

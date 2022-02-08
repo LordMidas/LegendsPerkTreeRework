@@ -16,7 +16,7 @@ this.perk_ptr_target_practice <- this.inherit("scripts/skills/skill", {
 
 	function onAfterUpdate( _properties )
 	{
-		local aimedShot = this.getContainer().getSkillByID("actives.aimed_shot")
+		local aimedShot = this.getContainer().getSkillByID("actives.aimed_shot");
 		if (aimedShot != null)
 		{
 			aimedShot.m.ActionPointCost -= 1;
