@@ -84,11 +84,13 @@ this.perk_ptr_momentum <- this.inherit("scripts/skills/skill", {
 	{
 		if (this.isEnabled() && this.m.TilesMovedThisTurn > 0)
 		{
-
-			local attacks = this.getContainer().getSkillsByFunction(this, @(_skill) _skill.isAttack() && _skill.m.IsWeaponSkill)
-			foreach (a in attacks)
+			local skills = this.getContainer().getMainhandItem().getSkills();
+			foreach (s in skills)
 			{
-				a.m.ActionPointCost = this.Math.max(1, a.m.ActionPointCost - this.m.TilesMovedThisTurn);
+				if (s.isAttack() && s.isRanged())
+				{
+					s.m.ActionPointCost = this.Math.max(1, s.m.ActionPointCost - this.m.TilesMovedThisTurn);
+				}
 			}
 		}
 	}

@@ -95,10 +95,13 @@ this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 		{
 			this.m.IsHidden = false;
 
-			local attacks = this.getContainer().getSkillsByFunction(this, @(_skill) _skill.isAttack() && _skill.m.IsWeaponSkill)
-			foreach (attack in attacks)
+			local skills = this.getContainer().getMainhandItem().getSkills();
+			foreach (s in skills)
 			{
-				attack.m.FatigueCostMult *= this.m.FatCostRed * 0.01;
+				if (s.isAttack() && s.isRanged())
+				{
+					s.m.FatigueCostMult *= this.m.FatCostRed * 0.01;
+				}
 			}
 		}
 	}

@@ -57,10 +57,13 @@ this.perk_ptr_swift_stabs <- this.inherit("scripts/skills/skill", {
 	{
 		if (!this.m.IsSpent && this.isEnabled())
 		{
-			local skills = this.getContainer().getSkillsByFunction(this, @(_skill) _skill.isAttack() && _skill.m.IsWeaponSkill)
+			local skills = this.getContainer().getActor().getMainhandItem().getSkills();
 			foreach (skill in skills)
 			{
-				skill.m.ActionPointCost = this.Math.max(2, skill.m.ActionPointCost - 2);
+				if (skill.isAttack() && !skill.isRanged())
+				{
+					skill.m.ActionPointCost = this.Math.max(2, skill.m.ActionPointCost - 2);
+				}
 			}
 		}		
 	}
