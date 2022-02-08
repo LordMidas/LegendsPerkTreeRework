@@ -1,4 +1,9 @@
 ===================
+==== Ver 1.6.3 ====
+===================
+- Compatible with Legends version 15.0.2.10 or later. Older PTR versions will not work with these Legends builds.
+
+===================
 ==== Ver 1.6.2 ====
 ===================
 - Updated Savage Strength perk icon (slightly smaller hand).
