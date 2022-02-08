@@ -829,6 +829,27 @@ gt.Const.PTR.createProfessionTrees <- function()
 		]
 	};
 
+	gt.Const.Perks.NobleProfessionTree <- {
+		ID = "NobleProfessionTree",
+		Descriptions = [
+			"is of noble birth",
+			"hails from a noble family",
+			"has noble blood in his veins"
+		],
+		Name = "Noble",
+		WeightMultipliers = [
+		],
+		Tree = [
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[]
+		]
+	};
+
 	gt.Const.Perks.ProfessionTrees <- {
 		Tree = [
 			gt.Const.Perks.AssassinProfessionTree,
@@ -852,7 +873,8 @@ gt.Const.PTR.createProfessionTrees <- function()
 			gt.Const.Perks.ServiceProfessionTree,
 			gt.Const.Perks.RaiderProfessionTree,
 			gt.Const.Perks.SoldierProfessionTree,
-			gt.Const.Perks.WildlingProfessionTree
+			gt.Const.Perks.WildlingProfessionTree,
+			gt.Const.Perks.NobleProfessionTree
 		],
 		function getRandom( _exclude )
 		{
