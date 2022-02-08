@@ -1,13 +1,7 @@
 ===================
 ==== Ver 1.6.3 ====
 ===================
-- Compatible with Legends version 15.0.2.10 or later. Older PTR versions will not work with these Legends builds.
-- Fixed how PTR submods add their perkDefObjects.
-- Removed the hook on Oblivion Potion as the change is now implemented in next Legends version.
-- Updated the buildPerkTree function move onBuildPerkTree call outside the if, in anticipation of new Legends build changes.
-- Fixed Discovered Talent and Professional causing errors when added to non-players (e.g. Mirror Battle breditor).
-- Updated how Professional adds perks to the perk tree (looks at lower tiers, then higher tiers, then same tier as a last resort).
-- Updated Militia scenario hook to now use the addScenarioPerk from Legends.
+- Compatibility update for Legends version 15.0.2.10 or later. Older PTR versions will not work with these Legends builds.
 
 ===================
 ==== Ver 1.6.2 ====
