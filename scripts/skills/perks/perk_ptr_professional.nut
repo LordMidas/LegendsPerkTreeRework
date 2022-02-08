@@ -25,7 +25,13 @@ this.perk_ptr_professional <- this.inherit("scripts/skills/skill", {
 
 		local addPerk = function ( _perk, _row = 0 )
 		{
-			if (!this.isKindOf(this.getContainer().getActor(), "player"))
+			local actor = this.getContainer().getActor();
+			if (typeof actor == "instance")
+			{
+				actor = actor.get();
+			}
+
+			if (!this.isKindOf(actor, "player"))
 			{
 				return;
 			}

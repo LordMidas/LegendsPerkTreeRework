@@ -17,7 +17,7 @@ this.perk_ptr_discovered_talent <- this.inherit("scripts/skills/skill", {
 
 	function onAdded()
 	{
-		if (this.m.IsApplied || !this.isKindOf(this.getContainer().getActor(), "player"))
+		if (this.m.IsApplied || !this.getContainer().getActor().isPlayerControlled())
 		{
 			return;
 		}
