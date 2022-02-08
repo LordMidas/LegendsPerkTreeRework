@@ -140,18 +140,17 @@ gt.Const.PTR.modCharacterBackground <- function()
 				{
 					this.m.CustomPerkTree = this.Const.Perks.DefaultCustomPerkTree;
 				}
-
-				local origin = this.World.Assets.getOrigin();
-
-				if (origin != null)
-				{
-					this.World.Assets.getOrigin().onBuildPerkTree(this);
-				}
 			}
 
 			local pT = this.Const.Perks.BuildCustomPerkTree(this.m.CustomPerkTree);
 			this.m.PerkTree = pT.Tree;
 			this.m.PerkTreeMap = pT.Map;
+
+			local origin = this.World.Assets.getOrigin();
+			if (origin != null)
+			{
+				this.World.Assets.getOrigin().onBuildPerkTree(this);
+			}
 			return a;
 		}
 
