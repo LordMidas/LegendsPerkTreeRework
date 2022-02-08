@@ -78,14 +78,7 @@ local modID = "mod_legends_STR";
 		}		
 	];
 	
-	this.Const.Perks.PerkDefObjects.extend(perks);
-
-	this.Const.Perks.PerkDefs.clear();
-
-	foreach( i, v in this.Const.Perks.PerkDefObjects )
-	{
-		this.Const.Perks.PerkDefs[v.Const] <- i;
-	}	
+	this.Const.Perks.addPerkDefObjects(perks);
 	
 	::mods_hookNewObject("ai/tactical/behaviors/ai_disengage", function (o)	{
 		o.m.PossibleSkills.push("actives.str_move_under_cover");

@@ -52,29 +52,19 @@ gt.ModBetterFencing <- {};
 	gt.Const.Strings.PerkName.BFFencer <- "Fencer";
 	gt.Const.Strings.PerkDescription.BFFencer <- "Master the art of fighting with a nimble sword. When using a fencing sword, skills build up [color=" + this.Const.UI.Color.NegativeValue + "]20%[/color] less Fatigue and gain [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit. Additionally, the Action Point costs of Sword Thrust, Riposte and Lunge are reduced by [color=" + this.Const.UI.Color.NegativeValue + "]1[/color].";
 
-	gt.Const.Perks.Perks[6].push(
-		{
-			ID = "perk.bf_fencer",
-			Script = "scripts/skills/perks/perk_bf_fencer",
-			Name = this.Const.Strings.PerkName.BFFencer,
-			Tooltip = this.Const.Strings.PerkDescription.BFFencer,
-			Icon = "ui/perks/bf_fencer.png",
-			IconDisabled = "ui/perks/bf_fencer_bw.png",
-		}
-	);
+	local perk = {
+		ID = "perk.bf_fencer",
+		Script = "scripts/skills/perks/perk_bf_fencer",
+		Name = this.Const.Strings.PerkName.BFFencer,
+		Tooltip = this.Const.Strings.PerkDescription.BFFencer,
+		Icon = "ui/perks/bf_fencer.png",
+		IconDisabled = "ui/perks/bf_fencer_bw.png",
+	};
 
-	this.Const.Perks.LookupMap.clear();
-
-	for( local row = 0; row < this.Const.Perks.Perks.len(); row++ )
-	{
-		for( local i = 0; i < this.Const.Perks.Perks[row].len(); i++ )
-		{
-			local perk = this.Const.Perks.Perks[row][i];
-			perk.Row <- row;
-			perk.Unlocks <- row;
-			gt.Const.Perks.LookupMap[perk.ID] <- perk;
-		}
-	}
+	gt.Const.Perks.Perks[6].push(perk);
+	perk.Row <- 6;
+	perk.Unlocks <- 6;
+	gt.Const.Perks.LookupMap[perk.ID] <- perk;
 
 	gt.ModBetterFencing.modSkills();
 	gt.ModBetterFencing.modWeapons();
@@ -91,22 +81,18 @@ gt.ModBetterFencing <- {};
 
 		gt.Const.Strings.PerkDescription.BFFencer <- "Master the art of fighting with a nimble sword. Skills build up [color=" + this.Const.UI.Color.NegativeValue + "]20%[/color] less Fatigue and gain [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit when using a fencing sword.\n\nFor two-handed fencing swords the range of Lunge is increased by [color=" + this.Const.UI.Color.PositiveValue + "]1[/color] tile.\n\nFor one-handed fencing swords, the Action Point costs of Sword Thrust, Riposte and Lunge are reduced by [color=" + this.Const.UI.Color.NegativeValue + "]1[/color].\n[color=#0b0084]From the Sword perk group[/color]";
 
-		this.Const.Perks.PerkDefObjects.push({
-			ID = "perk.bf_fencer",
-			Script = "scripts/skills/perks/perk_bf_fencer",
-			Name = this.Const.Strings.PerkName.BFFencer,
-			Tooltip = this.Const.Strings.PerkDescription.BFFencer,
-			Icon = "ui/perks/bf_fencer.png",
-			IconDisabled = "ui/perks/bf_fencer_bw.png",
-			Const = "BFFencer"
-		});
-
-		this.Const.Perks.PerkDefs.clear();
-
-		foreach( i, v in this.Const.Perks.PerkDefObjects )
-		{
-			this.Const.Perks.PerkDefs[v.Const] <- i;
-		}
+		local perkDefObjects = [
+			{
+				ID = "perk.bf_fencer",
+				Script = "scripts/skills/perks/perk_bf_fencer",
+				Name = this.Const.Strings.PerkName.BFFencer,
+				Tooltip = this.Const.Strings.PerkDescription.BFFencer,
+				Icon = "ui/perks/bf_fencer.png",
+				IconDisabled = "ui/perks/bf_fencer_bw.png",
+				Const = "BFFencer"
+			}
+		];
+		this.Const.Perks.addPerkDefObjects(perkDefObjects)
 
 		while (this.Const.Perks.SwordTree.Tree.len() < 7)
 		{
