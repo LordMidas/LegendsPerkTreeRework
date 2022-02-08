@@ -23,57 +23,42 @@ this.perk_ptr_professional <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		local bg = this.getContainer().getActor().getBackground();		
-
-		local addPerk = function ( _perk, _row = null )
+		local addPerk = function ( _perk, _row = 0 )
 		{
-			if (_row == null)
+			if (!this.isKindOf(this.getContainer().getActor(), "player"))
 			{
-				_row = 0;
+				return;
 			}
 
-			local intendedRow = _row;
+			local bg = this.getContainer().getActor().getBackground();	
+			local hasRow = false;
 
-			// First try adding it to the intended row and above
-			while (_row < 7)
+			while (row >= 0 && row <= 6)
 			{
-				if (bg.m.CustomPerkTree[_row].len() < 13)
+				if (bg.m.CustomPerkTree[row].len() < 13)
 				{
-					bg.addPerk(_perk, _row);
-					this.m.PerksAdded.push(_perk);
-					return;
+					hasRow = true;
+					break;
 				}
-				else
-				{
-					_row++;
-				}
-			}
 
-			// If that didn't work then try adding it to rows below
-			_row = intendedRow - 1;
-			while (_row >= 0)
-			{
-				if (bg.m.CustomPerkTree[_row].len() < 13)
+				row += direction;
+
+				if (row == -1)
 				{
-					bg.addPerk(_perk, _row);
-					this.m.PerksAdded.push(_perk);
-					return;
-				}
-				else
-				{
-					_row--;
+					row = perk.Row;
+					direction = 1;
 				}
 			}
 
-			// If nothing worked, then as a last resort, just add it to the first row
-			bg.addPerk(_perk, 0);
+			row = hasRow ? this.Math.max(0, this.Math.min(row, 6)) : perk.Row;
+			bg.addPerk(_perk, row);
 			this.m.PerksAdded.push(_perk);
 		}
 
 		if (!this.getContainer().hasSkill("perk.shield_expert"))
 		{
 			this.getContainer().add(this.new("scripts/skills/perks/perk_shield_expert"));
-			addPerk(this.Const.Perks.PerkDefs.ShieldExpert, 2);			
+			addPerk(this.Const.Perks.PerkDefs.ShieldExpert, 2);
 		}
 
 		if (!this.getContainer().hasSkill("perk.ptr_weapon_master"))

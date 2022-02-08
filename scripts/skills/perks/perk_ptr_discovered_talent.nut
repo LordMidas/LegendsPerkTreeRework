@@ -17,7 +17,7 @@ this.perk_ptr_discovered_talent <- this.inherit("scripts/skills/skill", {
 
 	function onAdded()
 	{
-		if (this.m.IsApplied)
+		if (this.m.IsApplied || !this.isKindOf(this.getContainer().getActor(), "player"))
 		{
 			return;
 		}
@@ -55,7 +55,7 @@ this.perk_ptr_discovered_talent <- this.inherit("scripts/skills/skill", {
 		actor.m.LevelUps += 1;
 		actor.fillAttributeLevelUpValues(1);
 
-		this.m.IsApplied = true;
+		this.m.IsApplied = true;		
 	}
 
 	function onDeserialize(_in)
