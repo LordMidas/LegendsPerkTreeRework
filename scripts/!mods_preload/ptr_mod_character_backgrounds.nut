@@ -59,6 +59,9 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{ Multiplier = 0.66, Tree = this.Const.Perks.SpearTree },
 				{ Multiplier = 1.25, Tree = this.Const.Perks.TrainedTree }
 			],
+			Profession = [
+				[{Weight = 100, Tree = this.Const.Perks.NobleProfessionTree}]
+			],
 			Class = [
 				[{Weight = 50, Tree = this.Const.Perks.SergeantClassTree}],
 				[{Weight = 50, Tree = this.Const.Perks.TacticianClassTree}],
@@ -997,6 +1000,9 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 3, Tree = this.Const.Perks.CrossbowTree},
 				{Multiplier = 0.33, Tree = this.Const.Perks.SlingsTree},
 				{Multiplier = 1.5, Tree = this.Const.Perks.PolearmTree},
+			],
+			Profession = [
+				[{Weight = 100, Tree = this.Const.Perks.NobleProfessionTree}]
 			],
 			Traits = [
 				[{Weight = 100, Tree = this.Const.Perks.AgileTree}]
