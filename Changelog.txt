@@ -1,4 +1,19 @@
 ===================
+==== Ver 1.6.5 ====
+===================
+- New Profession Tree - "Noble".
+- New perk "Family Ties" - Noble t1. Once per day, improves the relations with the Noble faction of the next City, Fortress, or Citadel you enter.
+- New perk "Family Pride" - Noble t3. Always start battles at Confident morale. Morale checks can never drop your morale below Confident for the first 5[/color rounds of battle (the entire battle if you have the Determined trait) and below Steady after that. Removes the Insecure and Dastard traits upon being picked.
+- Added Noble Profession to Adventurous Noble male/female backgrounds. More backgrounds will get this in future updates.
+- Encumbrance now has 4 levels. The first level starts at total head and body armor fatigue penalty of 40. Then for every additional 20 fatigue penalty, the level increases by 1.
+	- Level 1: -1 Fatigue Recovery.
+	- Level 2: -2 Fatigue Recovery. +1 Fatigue per tile moved.
+	- Level 3: -2 Fatigue Recovery. +3 Fatigue per tile moved.
+	- Level 4: -3 Fatigue Recovery. +3 Fatigue per tile moved.
+- The perk tree will no longer squish rows when the Scrollable Perk Tree mod is detected.
+- Fixed some recent errors introduced into the Professional perk causing it to not work properly.
+
+===================
 ==== Ver 1.6.4 ====
 ===================
 - Fixed Discovered Talent not working.

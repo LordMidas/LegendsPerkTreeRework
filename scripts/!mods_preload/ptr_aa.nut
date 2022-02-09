@@ -8,7 +8,7 @@ if (!("PTR" in gt.Const))
 gt.Const.PTR.Version <- 1;
 gt.Const.PTR.ModID <- "mod_legends_PTR";
 
-::mods_registerMod(gt.Const.PTR.ModID, gt.Const.PTR.Version, "Perk Trees Rework 1.6.4");
+::mods_registerMod(gt.Const.PTR.ModID, gt.Const.PTR.Version, "Perk Trees Rework 1.6.5");
 
 ::mods_queue(gt.Const.PTR.ModID, "mod_legends, mod_MSU, mod_betterFencing, mod_WMS, mod_mediumArmorRework, mod_legends_STR, mod_duelistDefense", function()
 {	
