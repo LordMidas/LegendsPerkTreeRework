@@ -3345,6 +3345,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
+				this.Const.Perks.NobleProfessionTree,
 				this.Const.Perks.PolearmTree,
 				this.Const.Perks.TwoHandedTree,
 				this.Const.Perks.LightArmorTree,
@@ -3411,6 +3412,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
+				this.Const.Perks.NobleProfessionTree,
 				this.Const.Perks.PolearmTree,
 				this.Const.Perks.TwoHandedTree,
 				this.Const.Perks.LightArmorTree,
@@ -3482,6 +3484,9 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
 				{Multiplier = 0, Tree = this.Const.Perks.ShieldTree},
 				{Multiplier = 3, Tree = this.Const.Perks.SwordTree}						
+			],
+			Profession = [
+				[{Weight = 100, Tree = this.Const.Perks.NobleProfessionTree}]
 			],
 			Class = [
 				[
