@@ -121,6 +121,12 @@ gt.Const.PTR.modActor <- function()
 
 				if (_change < 0)
 				{
+					local familyPride = this.m.Skills.getSkillByID("perk.ptr_family_pride");
+					if (familyPride != null && this.m.MoraleState <= familyPride.getMinMoraleState())
+					{
+						return false;
+					}
+					
 					if (_type == this.Const.MoraleCheckType.MentalAttack)
 					{
 						local tsSkill = this.m.Skills.getSkillByID("perk.ptr_trauma_survivor");

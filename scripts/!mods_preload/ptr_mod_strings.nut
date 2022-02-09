@@ -355,6 +355,8 @@ gt.Const.PTR.modStrings <- function()
 
 	gt.Const.Strings.PerkName.PTRFamilyTies <- "Family Ties";
 	gt.Const.Strings.PerkDescription.PTRFamilyTies <- "You can do anything. But never go against the family!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Once per day, improves the relations with the Noble faction of the next City, Fortress, or Citadel you enter.";
+	gt.Const.Strings.PerkName.PTRFamilyPride <- "Family Pride";
+	gt.Const.Strings.PerkDescription.PTRFamilyPride <- "Death before dishonor!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Always start battles at Confident morale.\n• Morale checks can never drop your morale below Confident for the first [color=" + this.Const.UI.Color.PositiveValue + "]5[/color] rounds of battle (the entire battle if you have the \'Determined\' trait) and below Steady after that.\n\n[color=" + this.Const.UI.Color.OneTimeEffect + "][u]One-Time Effect:[/u][/color]\n• Removes the \'Insecure\' and \'Dastard\' traits.";
 
 	local poleWeaponStrings = [
 		"SpecAxe",

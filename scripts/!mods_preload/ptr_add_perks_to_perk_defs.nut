@@ -1014,6 +1014,15 @@ gt.Const.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_family_ties.png",
 			IconDisabled = "ui/perks/ptr_family_ties_bw.png",
 			Const = "PTRFamilyTies"
+		},
+		{
+			ID = "perk.ptr_family_pride",
+			Script = "scripts/skills/perks/perk_ptr_family_pride",
+			Name = this.Const.Strings.PerkName.PTRFamilyPride,
+			Tooltip = this.Const.Strings.PerkDescription.PTRFamilyPride,
+			Icon = "ui/perks/ptr_family_pride.png",
+			IconDisabled = "ui/perks/ptr_family_pride_bw.png",
+			Const = "PTRFamilyPride"
 		}
 	];
 

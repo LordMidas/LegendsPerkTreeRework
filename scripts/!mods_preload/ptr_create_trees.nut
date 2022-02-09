@@ -844,7 +844,9 @@ gt.Const.PTR.createProfessionTrees <- function()
 				gt.Const.Perks.PerkDefs.PTRFamilyTies
 			],
 			[],
-			[],
+			[
+				gt.Const.Perks.PerkDefs.PTRFamilyPride
+			],
 			[],
 			[],
 			[],
