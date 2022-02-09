@@ -1607,67 +1607,51 @@ gt.Const.PTR.modSkills <- function()
 		{
 			local tooltip = this.skill.getDefaultUtilityTooltip();
 
-			tooltip.push(
+			tooltip.extend([
 				{
 					id = 10,
 					type = "text",
-					icon = "ui/icons/special.png",
+					icon = "ui/icons/action_points.png",
 					text = "Action Points will be doubled for the remainder of this round, capped at [color=" + this.Const.UI.Color.PositiveValue + "]18[/color]"
-				}
-			);
-
-			tooltip.push(
+				},
 				{
 					id = 10,
 					type = "text",
 					icon = "ui/icons/special.png",
-					text = "Will [color=" + this.Const.UI.Color.NegativeValue + "]not be able to move[/color] from your position while it is your turn"
-				}
-			);
-
-			tooltip.push(
+					text = "Become immune to being knocked back, grabbed or swallowed"
+				},
+				{
+					id = 10,
+					type = "text",
+					icon = "ui/icons/special.png",
+					text = "You will [color=" + this.Const.UI.Color.NegativeValue + "]not be able to move[/color] from your position"
+				},
 				{
 					id = 10,
 					type = "text",
 					icon = "ui/icons/special.png",
 					text = "You will be [color=" + this.Const.UI.Color.NegativeValue + "]exhausted[/color] on your next turn"
 				}
-			);
+			]);
 
 			if (this.getContainer().hasSkill("effects.ptr_exhausted"))
 			{
-				tooltip.push(
-					{
-						id = 10,
-						type = "text",
-						icon = "ui/icons/warning.png",
-						text = "Not usable when Exhausted"
-					}
-				);
-			}
-
-			if (this.getContainer().hasSkill("effects.inspired"))
-			{
-				tooltip.push(
-					{
-						id = 10,
-						type = "text",
-						icon = "ui/icons/warning.png",
-						text = "Not usable when Inspired"
-					}
-				);
+				tooltip.push({
+					id = 10,
+					type = "text",
+					icon = "ui/icons/warning.png",
+					text = "Not usable when Exhausted"
+				});
 			}
 
 			if (this.getContainer().getActor().isArmedWithRangedWeapon())
 			{
-				tooltip.push(
-					{
-						id = 10,
-						type = "text",
-						icon = "ui/icons/warning.png",
-						text = "Not usable when armed with a ranged weapon"
-					}
-				);
+				tooltip.push({
+					id = 10,
+					type = "text",
+					icon = "ui/icons/warning.png",
+					text = "Not usable when armed with a ranged weapon"
+				});
 			}			
 
 			return tooltip;
@@ -1675,7 +1659,7 @@ gt.Const.PTR.modSkills <- function()
 
 		o.isUsable = function()
 		{
-			return this.skill.isUsable() && !this.getContainer().getActor().isArmedWithRangedWeapon() && !this.getContainer().hasSkill("effects.perfect_focus") && !this.getContainer().hasSkill("effects.ptr_exhausted") && !this.getContainer().hasSkill("effects.inspired");
+			return this.skill.isUsable() && !this.getContainer().getActor().isArmedWithRangedWeapon() && !this.getContainer().hasSkill("effects.perfect_focus") && !this.getContainer().hasSkill("effects.ptr_exhausted");
 		}
 	});
 
@@ -1688,54 +1672,87 @@ gt.Const.PTR.modSkills <- function()
 
 		o.getTooltip <- function()
 		{
-			local ret = this.skill.getTooltip();
+			local tooltip = this.skill.getTooltip();
 			if (this.m.SkillsUsedCount > 0)
 			{
-				ret.push(
+				tooltip.push({
+					id = 10,
+					type = "text",
+					icon = "ui/icons/fatigue.png",
+					text = "[color=" + this.Const.UI.Color.NegativeValue + "]+" + this.getMalus() + "%[/color] Fatigue built"
+				});
+			}
+
+			if (this.m.IsSpent)
+			{
+				tooltip.extend([
 					{
 						id = 10,
 						type = "text",
-						icon = "ui/icons/fatigue.png",
-						text = "[color=" + this.Const.UI.Color.NegativeValue + "]+" + this.getMalus() + "%[/color] Fatigue built"
+						icon = "ui/icons/warning.png",
+						text = "[color=" + this.Const.UI.Color.NegativeValue + "]This character has lost focus due to switching to a ranged weapon[/color]"
+					},
+					{
+						id = 10,
+						type = "text",
+						icon = "ui/icons/special.png",
+						text = "Action Point and Fatigue costs of movement are greatly increased"
 					}
-				);
+				]);
+			}
+			else
+			{
+				tooltip.extend([
+					{
+						id = 10,
+						type = "text",
+						icon = "ui/icons/special.png",
+						text = "Cannot move from this position"
+					},
+					{
+						id = 10,
+						type = "text",
+						icon = "ui/icons/special.png",
+						text = "Immune to being knocked back, grabbed, or swallowed"
+					},
+					{
+						id = 10,
+						type = "text",
+						icon = "ui/icons/warning.png",
+						text = "[color=" + this.Const.UI.Color.NegativeValue + "]Will be lost upon switching to a ranged weapon[/color]"
+					}
+				]);
 			}
 
-			ret.push(
-				{
-					id = 10,
-					type = "text",
-					icon = "ui/icons/special.png",
-					text = "Cannot move from this position during this character\'s turn"
-				}
-			);
-
-			return ret;
+			return tooltip;
 		}
 
 		o.onAdded <- function()
 		{
 			local actor = this.getContainer().getActor();
-			this.m.StartingAPFraction = actor.getActionPoints() / actor.getActionPointsMax();
-			actor.getCurrentProperties().ActionPointsMult = 2.0;
-			actor.setActionPoints(this.Math.min(18, actor.getActionPointsMax() * this.m.StartingAPFraction));
+			actor.setActionPoints(this.Math.min(18, actor.getActionPoints() * 2));
 		}
 
 		o.onUpdate = function (_properties)
 		{
-			if (this.getContainer().getActor().isArmedWithRangedWeapon())
+			if (this.m.IsSpent)
 			{
-				this.m.IsSpent = true;
+				_properties.MovementAPCostAdditional += 99;
+				_properties.MovementFatigueCostAdditional += 99;
 				return;
 			}
 
-			if (!this.m.IsSpent && !this.isGarbage())
+			local actor  = this.getContainer().getActor();
+			if (actor.isArmedWithRangedWeapon())
 			{
-				if (this.Tactical.TurnSequenceBar.getActiveEntity() != null && this.Tactical.TurnSequenceBar.getActiveEntity().getID() == this.getContainer().getActor().getID())
-				{
-					_properties.IsRooted = true;
-				}
-
+				actor.setActionPoints(actor.getActionPoints() / 2);
+				this.m.IsSpent = true;
+				return;
+			}
+			else
+			{
+				_properties.IsRooted = true;
+				_properties.IsImmuneToKnockBackAndGrab = true;
 				_properties.ActionPointsMult = 2.0;
 			}
 		}
