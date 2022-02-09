@@ -39,26 +39,26 @@ this.perk_ptr_professional <- this.inherit("scripts/skills/skill", {
 			local bg = this.getContainer().getActor().getBackground();	
 			local hasRow = false;
 			local direction = 1;
-
-			while (_row >= 0 && _row <= 6)
+			local row = _row;
+			while (row >= 0 && row <= 6)
 			{
-				if (bg.m.CustomPerkTree[_row].len() < 13)
+				if (bg.m.CustomPerkTree[row].len() < 13)
 				{
 					hasRow = true;
 					break;
 				}
 
-				_row += direction;
+				row += direction;
 
-				if (_row == -1)
+				if (v == -1)
 				{
-					_row = perk.Row;
+					row = _row;
 					direction = 1;
 				}
 			}
 
-			_row = hasRow ? this.Math.max(0, this.Math.min(_row, 6)) : perk.Row;
-			bg.addPerk(_perk, _row);
+			row = hasRow ? this.Math.max(0, this.Math.min(row, 6)) : _row;
+			bg.addPerk(_perk, row);
 			this.m.PerksAdded.push(_perk);
 		}
 
