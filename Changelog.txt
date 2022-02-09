@@ -1,4 +1,10 @@
 ===================
+==== Ver 1.6.6 ====
+===================
+- Added the Noble Profession tree to legend_noble_commander, legend_noble_background, and legend_noble_event_background.
+- Fixed a bug introduced in 1.6.5 causing Momentum and Opportunist perks to bug out characters and their weapons.
+
+===================
 ==== Ver 1.6.5 ====
 ===================
 - New Profession Tree - "Noble".
