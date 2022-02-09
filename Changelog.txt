@@ -1,4 +1,16 @@
 ===================
+==== Ver 1.6.7 ====
+===================
+- Perfect Focus tweaked:
+	- Still has the condition that it can't be used with a ranged weapon equipped
+	- Now makes you immune to knock back and grab as long as you don't have a ranged weapon equipped
+	- All the benefits are lost upon switching to a ranged weapon, but the maluses remain
+	- Removed the condition that it can't be used when Inspired
+	- Now greatly increases movement AP and Fatigue costs upon switching to a ranged weapon (to prevent exploit)
+- Fixed Perfect Focus exploit allowing to move after waiting a turn.
+- Fixed a recently introduced bug that caused Professional to not give its perks if the perks didn't already exist in the perk tree.
+
+===================
 ==== Ver 1.6.6 ====
 ===================
 - Added the Noble Profession tree to legend_noble_commander, legend_noble_background, and legend_noble_event_background.
