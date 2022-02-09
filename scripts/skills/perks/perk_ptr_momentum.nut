@@ -84,7 +84,7 @@ this.perk_ptr_momentum <- this.inherit("scripts/skills/skill", {
 	{
 		if (this.isEnabled() && this.m.TilesMovedThisTurn > 0)
 		{
-			local skills = this.getContainer().getMainhandItem().getSkills();
+			local skills = this.getContainer().getActor().getMainhandItem().getSkills();
 			foreach (s in skills)
 			{
 				if (s.isAttack() && s.isRanged())

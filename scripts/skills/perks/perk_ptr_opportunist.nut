@@ -95,7 +95,7 @@ this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 		{
 			this.m.IsHidden = false;
 
-			local skills = this.getContainer().getMainhandItem().getSkills();
+			local skills = this.getContainer().getActor().getMainhandItem().getSkills();
 			foreach (s in skills)
 			{
 				if (s.isAttack() && s.isRanged())
