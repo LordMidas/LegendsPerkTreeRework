@@ -52,7 +52,7 @@ this.perk_ptr_family_ties <- this.inherit("scripts/skills/skill", {
 
 		this.logInfo("Settlement owner " + _settlement.getOwner().getName());
 
-		// this.m.IsSpent = true;		
+		this.m.IsSpent = true;		
 		_settlement.getOwner().addPlayerRelation(this.getBonus(), this.getContainer().getActor().getNameOnly() + "\'s family ties");
 	}
 
