@@ -1,4 +1,11 @@
 ===================
+==== Ver 1.6.8 ====
+===================
+- Reworked how Encumbrance levels are calculated. Instead of being based on total head and body armor Fatigue penalty, it now uses the character's Maximum Fatigue after gear. Encumbrance levels go up when the Maximum Fatigue after gear is less than 50, 40, 30, 20. Encumbrance only applies if the total head and body armor Fatigue penalty is more than -20.
+- Updated the tooltip of the Vigorous Assault perk to mention how the bonus can be lost.
+- Fixed a recently introduced bug in the Professional perk which caused it to not work properly when there wasn't enough space on certain rows in the perk tree to add the perks.
+
+===================
 ==== Ver 1.6.7 ====
 ===================
 - Perfect Focus tweaked:
@@ -21,7 +28,7 @@
 ===================
 - New Profession Tree - "Noble".
 - New perk "Family Ties" - Noble t1. Once per day, improves the relations with the Noble faction of the next City, Fortress, or Citadel you enter.
-- New perk "Family Pride" - Noble t3. Always start battles at Confident morale. Morale checks can never drop your morale below Confident for the first 5[/color rounds of battle (the entire battle if you have the Determined trait) and below Steady after that. Removes the Insecure and Dastard traits upon being picked.
+- New perk "Family Pride" - Noble t3. Always start battles at Confident morale. Morale checks can never drop your morale below Confident for the first 5 rounds of battle (the entire battle if you have the Determined trait) and below Steady after that. Removes the Insecure and Dastard traits upon being picked.
 - Added Noble Profession to Adventurous Noble male/female backgrounds. More backgrounds will get this in future updates.
 - Encumbrance now has 4 levels. The first level starts at total head and body armor fatigue penalty of 40. Then for every additional 20 fatigue penalty, the level increases by 1.
 	- Level 1: -1 Fatigue Recovery.
