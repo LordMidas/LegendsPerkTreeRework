@@ -4,7 +4,7 @@ this.ptr_armor_fatigue_recovery_effect <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "effects.ptr_armor_fatigue_recovery";
 		this.m.Name = "Encumbrance";
-		this.m.Description = "This character\'s armor\'s weight is reducing %their% endurance. Encumbrance levels increase at total head and body armor Fatigue penalty of -40, -60, -80, -100.";
+		this.m.Description = "This character\'s armor\'s weight is reducing %their% endurance. Encumbrance has 4 levels and it increases when your total remaining Fatigue after gear is less than 50, 40, 30, 20. Only applies when the total penalty to Fatigue from head and body armor is at least -20.";
 		this.m.Icon = "skills/ptr_armor_fatigue_recovery_effect.png";
 		//this.m.IconMini = "ptr_armor_fatigue_recovery_effect_mini";
 		this.m.Type = this.Const.SkillType.StatusEffect;
@@ -100,8 +100,30 @@ this.ptr_armor_fatigue_recovery_effect <- this.inherit("scripts/skills/skill", {
 
 	function getEncumbranceLevel()
 	{
-		local fat = this.getContainer().getActor().getTotalArmorStaminaModifier(); // Returns a negative number
-		return this.Math.max(0, (-1 * fat / 20) - 1); // Level 1 at 40, 2 at 60, 3 at 80, 4 at 100
+		if (this.getContainer().getActor().getTotalArmorStaminaModifier() > -20)
+		{
+			return 0;
+		}
+
+		local fat = this.getContainer().getActor().getFatigueMax();
+		if (fat < 20)
+		{
+			return 4;
+		}
+		else if (fat < 30)
+		{
+			return 3;
+		}
+		else if (fat < 40)
+		{
+			return 2;
+		}
+		else if (fat < 50)
+		{
+			return 1;
+		}
+
+		return 0;
 	}
 
 	function onUpdate( _properties )
