@@ -38,7 +38,7 @@ this.perk_ptr_professional <- this.inherit("scripts/skills/skill", {
 
 			local bg = this.getContainer().getActor().getBackground();	
 			local hasRow = false;
-			local direction = 1;
+			local direction = -1;
 			local row = _row;
 			while (row >= 0 && row <= 6)
 			{
@@ -50,7 +50,7 @@ this.perk_ptr_professional <- this.inherit("scripts/skills/skill", {
 
 				row += direction;
 
-				if (v == -1)
+				if (row == -1)
 				{
 					row = _row;
 					direction = 1;
