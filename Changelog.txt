@@ -1,7 +1,8 @@
 ===================
-==== Ver 1.6.8 ====
+==== Ver 1.6.9 ====
 ===================
-- Druid and Druid Commander static perk trees reworked to reflect the background's role as support.
+- Druid and Druid Commander static perk trees reworked to reflect the background's role as support. See reference manual for details.
+- Old Swordmaster static perk tree reworked to have more attractive perks and less dead perks. See reference manual for details.
 
 ===================
 ==== Ver 1.6.8 ====

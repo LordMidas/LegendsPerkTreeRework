@@ -110,60 +110,97 @@ this.ptr_swordmaster_commander_background <- this.inherit("scripts/skills/backgr
 
 		addPerkTreesToCustomPerkTree(this.m.CustomPerkTree,
 			[
-				this.Const.Perks.LightArmorTree,
-				this.Const.Perks.MediumArmorTree,
-				this.Const.Perks.UnstoppableTree,
 				this.Const.Perks.ViciousTree,
-				this.Const.Perks.TrainedTree,				
+				this.Const.Perks.TrapperClassTree,
 				this.Const.Perks.SwordTree,
-				this.Const.Perks.AxeTree,
-				this.Const.Perks.CleaverTree,
-				this.Const.Perks.SpearTree,
-				this.Const.Perks.TwoHandedTree,
+				this.Const.Perks.LightArmorTree,
+				this.Const.Perks.MediumArmorTree,				
+				this.Const.Perks.TwoHandedTree
 			]
 		);
 
 		addPerksToCustomPerkTree(1, this.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.PTRPatternRecognition,
-				this.Const.Perks.PerkDefs.PTRMenacing
+				this.Const.Perks.PerkDefs.PTRProfessional,
+				this.Const.Perks.PerkDefs.PTRMenacing,
+				this.Const.Perks.PerkDefs.LegendHairSplitter,
+				this.Const.Perks.PerkDefs.PTRFamilyTies,
+				this.Const.Perks.PerkDefs.LegendAlert,
+				this.Const.Perks.PerkDefs.BagsAndBelts,
+				this.Const.Perks.PerkDefs.LegendCheerOn,
+				this.Const.Perks.PerkDefs.PTRDeepCuts,
+				this.Const.Perks.PerkDefs.PTRSmallTarget,
+				this.Const.Perks.PerkDefs.LoneWolf,
+				this.Const.Perks.PerkDefs.PTRPatternRecognition			
 			]
 		);
 
 		addPerksToCustomPerkTree(2, this.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.PTRVigorousAssault,
-				this.Const.Perks.PerkDefs.PTROffhandTraining
+				this.Const.Perks.PerkDefs.PTROffhandTraining,
+				this.Const.Perks.PerkDefs.Anticipation,
+				this.Const.Perks.PerkDefs.LegendOnslaught,
+				this.Const.Perks.PerkDefs.PTRSanguinary,
+				this.Const.Perks.PerkDefs.PTRHeadSmasher,
+				this.Const.Perks.PerkDefs.Rotation,
+				this.Const.Perks.PerkDefs.LegendShieldsUp
 			]
 		);
 
 		addPerksToCustomPerkTree(3, this.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.PTRExudeConfidence
+				this.Const.Perks.PerkDefs.PTRExudeConfidence,
+				this.Const.Perks.PerkDefs.Taunt,
+				this.Const.Perks.PerkDefs.PTRFamilyPride,
+				this.Const.Perks.PerkDefs.PTRDismemberment,
+				this.Const.Perks.PerkDefs.PTRThroughTheGaps,
+				this.Const.Perks.PerkDefs.FortifiedMind,			
+				this.Const.Perks.PerkDefs.RallyTheTroops
 			]
 		);
 		
 		addPerksToCustomPerkTree(4, this.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.LegendFavouredEnemySwordmaster,			
+				this.Const.Perks.PerkDefs.ShieldExpert,
+				this.Const.Perks.PerkDefs.LegendFavouredEnemySwordmaster,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyNoble,
-				this.Const.Perks.PerkDefs.LegendFavouredEnemySoutherner
+				this.Const.Perks.PerkDefs.LegendFavouredEnemySoutherner,
+				this.Const.Perks.PerkDefs.PTRVigilant,
+				this.Const.Perks.PerkDefs.PTRTheRushOfBattle,			
+				this.Const.Perks.PerkDefs.DoubleStrike,			
+				this.Const.Perks.PerkDefs.LegendForwardPush,
+				this.Const.Perks.PerkDefs.LegendHoldTheLine
 			]
 		);
 
 		addPerksToCustomPerkTree(5, this.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.Footwork,
-				this.Const.Perks.PerkDefs.DoubleStrike		
+				this.Const.Perks.PerkDefs.PTRBetweenTheEyes,
+				this.Const.Perks.PerkDefs.LegendBattleheart,
+				this.Const.Perks.PerkDefs.Berserk,			
+				this.Const.Perks.PerkDefs.PTRVigorousAssault,			
+				this.Const.Perks.PerkDefs.PTRUnstoppable				
 			]
 		);
 
 		addPerksToCustomPerkTree(6, this.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.HeadHunter,
+				this.Const.Perks.PerkDefs.LegendMindOverBody,
 				this.Const.Perks.PerkDefs.PTRKnowTheirWeakness,
 				this.Const.Perks.PerkDefs.Overwhelm,
-				this.Const.Perks.PerkDefs.Duelist
+				this.Const.Perks.PerkDefs.LegendClarity,
+				this.Const.Perks.PerkDefs.Duelist,
+				this.Const.Perks.PerkDefs.PushTheAdvantage,
+				this.Const.Perks.PerkDefs.PTRBloodbath
 			]
 		);
 
 		addPerksToCustomPerkTree(7, this.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.PTRWeaponMaster,
 				this.Const.Perks.PerkDefs.BattleFlow,
 				this.Const.Perks.PerkDefs.LastStand,
-				this.Const.Perks.PerkDefs.BFFencer
+				this.Const.Perks.PerkDefs.BFFencer,
+				this.Const.Perks.PerkDefs.PerfectFocus,
+				this.Const.Perks.PerkDefs.KillingFrenzy,
+				this.Const.Perks.PerkDefs.Inspire,
+				this.Const.Perks.PerkDefs.PTRBlitzkrieg,
+				this.Const.Perks.PerkDefs.PTRFreshAndFurious
 			]
 		);
 	}
