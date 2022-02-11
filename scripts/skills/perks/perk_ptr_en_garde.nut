@@ -1,6 +1,6 @@
 this.perk_ptr_en_garde <- this.inherit("scripts/skills/skill", {
 	m = {
-		HasMoved = false
+		IsSpent = false
 	},
 	function create()
 	{
@@ -8,6 +8,9 @@ this.perk_ptr_en_garde <- this.inherit("scripts/skills/skill", {
 		this.m.Name = this.Const.Strings.PerkName.PTREnGarde;
 		this.m.Description = this.Const.Strings.PerkDescription.PTREnGarde;
 		this.m.Icon = "ui/perks/ptr_en_garde.png";
+		this.m.SoundOnUse = [
+			"sounds/combat/return_favor_01.wav"
+		];
 		this.m.Type = this.Const.SkillType.Perk;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;
@@ -17,20 +20,20 @@ this.perk_ptr_en_garde <- this.inherit("scripts/skills/skill", {
 
 	function onTurnStart()
 	{
-		this.m.HasMoved = false;
+		this.m.IsSpent = false;
 	}
 
 	function onUpdate( _properties )
 	{
 		if (this.getContainer().getActor().m.IsMoving)
 		{
-			this.m.HasMoved = true;
+			this.m.IsSpent = true;
 		}
 	}
 
 	function onTurnEnd()
 	{
-		if (this.m.HasMoved)
+		if (this.m.IsSpent)
 		{
 			return;
 		}
@@ -47,11 +50,6 @@ this.perk_ptr_en_garde <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		if (!("State" in this.Tactical) || this.Tactical.State.isBattleEnded() || this.Tactical.State.isAutoRetreat() || this.getContainer().hasSkill("effects.riposte"))
-		{
-			return;
-		}
-
 		local skill = this.getContainer().getSkillByID("actives.riposte");
 		if (skill != null)
 		{
@@ -60,9 +58,13 @@ this.perk_ptr_en_garde <- this.inherit("scripts/skills/skill", {
 				skill.useForFree(actor.getTile());
 			}
 		}
-		else
+		else if (this.getContainer().getAttackOfOpportunity().isAffordableBasedOnFatigue())
 		{
-			this.getContainer().add(this.new("scripts/skills/effects/ptr_en_garde_effect"));
+			this.getContainer().add(this.new("scripts/skills/effects/return_favor_effect"));
+			if (actor.getTile().IsVisibleForPlayer)
+			{
+				this.Sound.play(this.m.SoundOnUse[this.Math.rand(0, this.m.SoundOnUse.len() - 1)], this.Const.Sound.Volume.Skill * this.m.SoundVolume, actor.getPos());
+			}
 		}
 	}
 });

@@ -63,7 +63,7 @@ gt.Const.PTR.modAI <- function()
 			if (this.m.Skill != null && this.m.Skill.getID() == "actives.riposte")
 			{
 				local engarde = _entity.getSkills().getSkillByID("perk.ptr_en_garde");
-				if (engarde != null && !engarde.m.HasMoved)
+				if (engarde != null && !engarde.m.IsSpent)
 				{
 					score = this.Const.AI.Behavior.Score.Zero;
 				}
