@@ -5,6 +5,8 @@
 - En Garde no longer grants +10 Melee Defense if your weapon does not have Riposte, instead it grants the Return Favor effect in this case.
 - Significant improvements for Kata Step AI. It now also considers potential future Kata towards a more favorable tile/target.
 - Made some tweaks to Hold the Line and Push Forward AI. The AI for these skills is now re-enabled.
+- Druid and Druid Commander static perk trees reworked to reflect the background's role as support. See reference manual for details.
+- Old Swordmaster static perk tree reworked to have more attractive perks and fewer dead perks. See reference manual for details.
 
 ===================
 ==== Ver 1.6.8 ====
