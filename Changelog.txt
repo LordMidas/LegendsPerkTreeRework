@@ -1,6 +1,11 @@
 ===================
 ==== Ver 1.6.8 ====
 ===================
+- Druid and Druid Commander static perk trees reworked to reflect the background's role as support.
+
+===================
+==== Ver 1.6.8 ====
+===================
 - Reworked how Encumbrance levels are calculated. Instead of being based on total head and body armor Fatigue penalty, it now uses the character's Maximum Fatigue after gear. Encumbrance levels go up when the Maximum Fatigue after gear is less than 50, 40, 30, 20. Encumbrance only applies if the total head and body armor Fatigue penalty is more than -20.
 - Updated the tooltip of the Vigorous Assault perk to mention how the bonus can be lost.
 - Fixed a recently introduced bug in the Professional perk which caused it to not work properly when there wasn't enough space on certain rows in the perk tree to add the perks.
