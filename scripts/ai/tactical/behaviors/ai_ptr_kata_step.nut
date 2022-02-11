@@ -1,5 +1,5 @@
 this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
-	m = {
+	m = {		
 		TargetTile = null,
 		TargetActor = null,
 		PossibleSkills = [
@@ -11,7 +11,7 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 	{
 		this.m.ID = this.Const.AI.Behavior.ID.PTRKataStep;
 		this.m.Order = this.Const.AI.Behavior.Order.PTRKataStep;
-		this.m.IsThreaded = true;
+		// this.m.IsThreaded = true;		
 		this.behavior.create();
 	}
 
@@ -40,13 +40,6 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 		}
 
 		local attackSkill = _entity.getSkills().getAttackOfOpportunity();
-		local enGarde = _entity.getSkills().getSkillByID("perk.ptr_en_garde");
-		if (enGarde != null && !enGarde.m.HasMoved && attackSkill != null &&
-			  ((this.m.Skill.getActionPointCost() + attackSkill.getActionPointCost() > _entity.getActionPoints()) || this.m.Skill.getFatigueCost() + attackSkill.getFatigueCost() + _entity.getFatigue() > _entity.getFatigueMax())
-			 )
-		{
-			return this.Const.AI.Behavior.Score.Zero;
-		}
 
 		local targets = this.queryTargetsInMeleeRange(this.m.Skill.getMinRange(), this.m.Skill.getMaxRange() + 1, this.m.Skill.getMaxLevelDifference());
 		if (targets.len() == 0)
@@ -57,94 +50,90 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 		local score = this.getProperties().BehaviorMult[this.m.ID];
 		score *= this.getFatigueScoreMult(this.m.Skill);
 
-		local myTile = _entity.getTile();
-		local inZonesOfControl = myTile.getZoneOfControlCountOtherThan(_entity.getAlliedFactions());
+		local myTile = _entity.getTile();		
 		local knownAllies = this.getAgent().getKnownAllies();
-		local targetsInMelee = this.queryTargetsInMeleeRange(this.getProperties().EngageRangeMin, this.Math.max(_entity.getIdealRange(), this.getProperties().EngageRangeMax));
-		local AlreadyEngagedWithNum = targetsInMelee.len();
 		local lungeSkill = _entity.getSkills().getSkillByID("actives.lunge");
 
-		local potentialDestinations = [];
-
-		foreach (target in targets)
+		local evaluateTarget = function( _target, _startingTile )
 		{
-			if (this.isAllottedTimeReached(time))
-			{
-				yield null;
-				time = this.Time.getExactTime();
-			}
-
 			if (this.Const.AI.VerboseMode)
 			{
-				this.logInfo("Kata Step: Evaluating target " + target.getName() + " at a distance of " + target.getTile().getDistanceTo(myTile) + " from my tile with tile ID " + myTile.ID);
-			}
-
-			local targetTile = target.getTile();
-			local isTargetInEnemyZoneOfControl = targetTile.hasZoneOfControlOtherThan(target.getAlliedFactions());
-			local isTargetArmedWithRangedWeapon = !isTargetInEnemyZoneOfControl && this.isRangedUnit(target);
-			local isTargetFleeing = target.getMoraleState() == this.Const.MoraleState.Fleeing;
-			local engagementsDeclared = (target.getAIAgent().getEngagementsDeclared(_entity) + target.getTile().getZoneOfControlCount(_entity.getFaction()) * 2) * this.Const.AI.Behavior.EngageAlreadyEngagedPenaltyMult * this.getProperties().EngageTargetAlreadyBeingEngagedMult;
+				this.logInfo("Evaluating target " + _target.getName() + " considering starting tile to be " + _startingTile.ID);
+			}			
+			local ret = [];
+			local targetTile = _target.getTile();
+			local isTargetInEnemyZoneOfControl = targetTile.hasZoneOfControlOtherThan(_target.getAlliedFactions());
+			local isTargetArmedWithRangedWeapon = !isTargetInEnemyZoneOfControl && this.isRangedUnit(_target);
+			local isTargetFleeing = _target.getMoraleState() == this.Const.MoraleState.Fleeing;
+			local engagementsDeclared = (_target.getAIAgent().getEngagementsDeclared(_entity) + _target.getTile().getZoneOfControlCount(_entity.getFaction()) * 2) * this.Const.AI.Behavior.EngageAlreadyEngagedPenaltyMult * this.getProperties().EngageTargetAlreadyBeingEngagedMult;
 			local letOthersGoScore = 0.0;
-			local isSkillUsable = false;
 			local lockDownValue = 1.0;
-			local tile = null;
 
-			local targetValue = this.getProperties().IgnoreTargetValueOnEngage ? 0.5 : this.queryTargetValue(_entity, target);
+			local targetValue = this.getProperties().IgnoreTargetValueOnEngage ? 0.5 : this.queryTargetValue(_entity, _target);
 
-			if (lungeSkill != null && lungeSkill.isUsableOn(targetTile))
+			if (lungeSkill != null && lungeSkill.onVerifyTarget(_startingTile, targetTile) && lungeSkill.isInRange(targetTile, _startingTile))
 			{
-				local lungeValue = this.getProperties().IgnoreTargetValueOnEngage ? 0.5 : this.queryTargetValue(_entity, target, lungeSkill);				
+				local lungeValue = this.getProperties().IgnoreTargetValueOnEngage ? 0.5 : this.queryTargetValue(_entity, _target, lungeSkill);				
 				if (lungeValue > targetValue)
 				{
 					if (this.Const.AI.VerboseMode)
 					{
-						this.logInfo("Better to engage " + target.getName() + " with Lunge");
+						this.logInfo("Better to engage " + _target.getName() + " with Lunge");
 					}
-					continue;
+					return ret;
 				}
 			}
 
 			local potentialTiles = [];
-			if (targetTile.getDistanceTo(myTile) == 1)
+			if (_startingTile.isSameTileAs(myTile) && targetTile.getDistanceTo(_startingTile) == 1)
 			{
-				potentialTiles.push(myTile);
+				potentialTiles.push(_startingTile);
 			}
 
 			for (local i = 0; i < 6; i++)
 			{
 				if (targetTile.hasNextTile(i))
 				{
-					local nextTile = targetTile.getNextTile(i);
-
-					if (!nextTile.IsEmpty)
-					{
-						continue;
-					}
-
-					if (this.m.Skill.isUsableOn(nextTile))
+					local nextTile = targetTile.getNextTile(i);	
+				
+					if (nextTile.IsEmpty && this.m.Skill.onVerifyTarget(_startingTile, nextTile) && this.m.Skill.isInRange(nextTile, _startingTile))
 					{
 						potentialTiles.push(nextTile);
+						if (this.Const.AI.VerboseMode)
+						{
+							this.logInfo("Adding tile " + nextTile.ID + " for evaluation for Kata use from tile " + _startingTile.ID);
+						}
+					}
+					else if (this.Const.AI.VerboseMode)
+					{
+						this.logInfo("Ignoring tile " + nextTile.ID + " as we can't use Kata to get to there from tile " + _startingTile.ID);
 					}
 				}
+			}
+
+			if (potentialTiles.len() == 0 || (potentialTiles.len() == 1 && potentialTiles[0].isSameTileAs(myTile)))
+			{
+				return ret;
 			}
 
 			foreach (tile in potentialTiles)
 			{
 				if (this.Const.AI.VerboseMode)
 				{
-					this.logInfo("Evaluating tile " + tile.ID + " for kata use against target " + target.getName());
+					this.logInfo("Evaluating tile " + tile.ID + " for Kata use against target " + _target.getName());
 				}
 
-				if (!tile.isSameTileAs(myTile))
+				if (tile == null)
 				{
-					isSkillUsable = true;
+					continue;
 				}
 
+				local isSkillUsable = !tile.isSameTileAs(_startingTile);				
 				if (attackSkill == null || !attackSkill.onVerifyTarget(tile, targetTile) || !attackSkill.isInRange(targetTile, tile))
 				{
 					if (this.Const.AI.VerboseMode)
 					{
-						this.logInfo("Ignoring target " + target.getName() + " from tile " + tile.ID + " as we won\'t be able to use " + attackSkill.getName() + " against them from that tile");
+						this.logInfo("Ignoring target " + _target.getName() + " from tile " + tile.ID + " as we won\'t be able to use " + attackSkill.getName() + " against them from that tile");
 					}
 					continue;
 				}
@@ -158,7 +147,7 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 							continue;
 						}
 
-						local d = this.queryActorTurnsNearTarget(target, ally.getTile(), target);
+						local d = this.queryActorTurnsNearTarget(_target, ally.getTile(), _target);
 
 						if (d.Turns <= 1.0)
 						{
@@ -169,8 +158,8 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 
 				if (this.getProperties().IgnoreTargetValueOnEngage)
 				{
-					letOthersGoScore = letOthersGoScore + this.Math.abs(myTile.SquareCoords.Y - targetTile.SquareCoords.Y) * 20.0;
-					local myDistanceToTarget = myTile.getDistanceTo(targetTile);
+					letOthersGoScore = letOthersGoScore + this.Math.abs(_startingTile.SquareCoords.Y - targetTile.SquareCoords.Y) * 20.0;
+					local myDistanceToTarget = _startingTile.getDistanceTo(targetTile);
 					local targets = this.getAgent().getKnownAllies();
 
 					foreach( ally in targets )
@@ -188,7 +177,7 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 				}
 				else
 				{
-					local myDistanceToTarget = myTile.getDistanceTo(targetTile);
+					local myDistanceToTarget = _startingTile.getDistanceTo(targetTile);
 					local targets = this.getAgent().getKnownAllies();
 
 					foreach( ally in targets )
@@ -205,128 +194,33 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 					}
 				}
 
-				if (isSkillUsable)
-				{
-					// if (inZonesOfControl != 0 && targetsInMelee.len() > 0)
-					// {
-						// score = score * this.Math.pow(this.Const.AI.Behavior.EngageWithSkillToDisengagePOW, inZonesOfControl);
-
-						// local accumulatedAOO = 0;
-
-						// for( local i = 0; i < 6; i++ )
-						// {
-							// if (myTile.hasNextTile(i))
-							// {
-								// local nextTile = myTile.getNextTile(i);
-
-								// if (nextTile.IsOccupiedByActor)
-								// {
-									// local e = nextTile.getEntity();
-
-									// if (e.isExertingZoneOfControl() && this.Math.abs(nextTile.Level - myTile.Level) <= 1 && !e.isAlliedWith(_entity))
-									// {
-										// local aooSkill = e.getSkills().getAttackOfOpportunity();
-
-										// if (aooSkill != null)
-										// {
-											// accumulatedAOO = accumulatedAOO + aooSkill.getHitchance(_entity);
-										// }
-									// }
-								// }
-							// }
-						// }
-
-						// local accumulatedAOODestination = 0;
-
-						// for( local i = 0; i < 6; i++ )
-						// {
-							// if (tile.hasNextTile(i))
-							// {
-								// local nextTile = tile.getNextTile(i);
-
-								// if (nextTile.IsOccupiedByActor)
-								// {
-									// local e = nextTile.getEntity();
-
-									// if (e.isExertingZoneOfControl() && this.Math.abs(nextTile.Level - tile.Level) <= 1 && !e.isAlliedWith(_entity))
-									// {
-										// local aooSkill = e.getSkills().getAttackOfOpportunity();
-
-										// if (aooSkill != null)
-										// {
-											// accumulatedAOODestination = accumulatedAOODestination + aooSkill.getHitchance(_entity);
-										// }
-									// }
-								// }
-							// }
-						// }
-
-						// this.logInfo("target is " + target.getName() + ", accumulatedAOO = " + accumulatedAOO + ", accumulatedAOODestination = " + accumulatedAOODestination);
-						// // if (accumulatedAOODestination > accumulatedAOO)
-						// // {
-							// // accumulatedAOO += accumulatedAOODestination;
-						// // }
-						// // else
-						// // {
-							// // local targetsInMeleeAtDest = this.queryTargetsInMeleeRange(this.getProperties().EngageRangeMin, this.Math.max(_entity.getIdealRange(), this.getProperties().EngageRangeMax), this.m.Skill.getMaxLevelDifference(), tile);
-							// // accumulatedAOO = accumulatedAOODestination;
-						// // }
-
-						// this.logInfo("targetValue before: " + targetValue);
-						// //score = score * this.Math.maxf(0.0, 1.0 - accumulatedAOO * 0.01 * 1.0 / (this.getProperties().EngageWhenAlreadyEngagedMult * 2.0));
-						// targetValue = targetValue * this.Math.maxf(0.0, 1.0 - accumulatedAOO * 0.01 * 1.0 / (this.getProperties().EngageWhenAlreadyEngagedMult * 2.0));
-						// this.logInfo("targetValue after: " + targetValue);
-
-						// // if (score <= 0)
-						// // {
-							// // this.logInfo("returning because disengagegment score is 0");
-							// // return this.Const.AI.Behavior.Score.Zero;
-						// // }
-					// }
-					// else if (AlreadyEngagedWithNum != 0)
-					// {
-						// targetValue = targetValue * this.Math.pow(this.Const.AI.Behavior.EngageWhenAlreadyInRangeMult, targetsInMelee.len());
-					// }
-				}
-
-				if (tile == null)
-				{
-					continue;
-				}
-
 				local levelDifference = tile.Level - targetTile.Level;
-				local distance = tile.getDistanceTo(myTile);
+				local distance = tile.getDistanceTo(_startingTile);
 				local distanceFromTarget = tile.getDistanceTo(targetTile);
 				local zocs = tile.getZoneOfControlCountOtherThan(_entity.getAlliedFactions());
 				local tileScore = -distance * this.Const.AI.Behavior.EngageDistancePenaltyMult * (1.0 + this.Math.maxf(0.0, 1.0 - _entity.getActionPointsMax() / 9.0)) * (1.0 / this.getProperties().EngageFlankingMult) - letOthersGoScore;
-				local scoreBonus = 0 - letOthersGoScore;
 				local scoreMult = 1.0;
 
-				tileScore = tileScore + targetValue * this.Const.AI.Behavior.EngageTargetValueMult;
-				scoreBonus = scoreBonus + targetValue * this.Const.AI.Behavior.EngageTargetValueMult;
+				tileScore = tileScore + targetValue * this.Const.AI.Behavior.EngageTargetValueMult;				
 
 				tileScore = tileScore + this.Const.AI.Behavior.EngageWithSkillBonus;
 
 				if (engagementsDeclared != 0)
 				{
 					tileScore = tileScore - engagementsDeclared;
-					scoreBonus = scoreBonus - engagementsDeclared;
 				}
 
 				if (!isTargetInEnemyZoneOfControl)
 				{
 					scoreMult = scoreMult * (this.Const.AI.Behavior.EngageLockdownMult * lockDownValue);
-					scoreBonus = scoreBonus + this.Const.AI.Behavior.EngageLockOpponentBonus * lockDownValue;
 				}
 
 				tileScore = tileScore + levelDifference * this.Const.AI.Behavior.EngageTerrainLevelBonus * this.getProperties().EngageOnGoodTerrainBonusMult;
 				tileScore = tileScore + tile.TVTotal * this.Const.AI.Behavior.EngageTVValueMult * this.getProperties().EngageOnGoodTerrainBonusMult;
-				scoreBonus = scoreBonus + (levelDifference * this.Const.AI.Behavior.EngageTerrainLevelBonus + tile.TVTotal * this.Const.AI.Behavior.EngageTVValueMult) * this.getProperties().EngageOnGoodTerrainBonusMult;
 
 				if (zocs > 0)
 				{
 					tileScore = tileScore - zocs * this.Const.AI.Behavior.EngageMultipleOpponentsPenalty * this.getProperties().EngageTargetMultipleOpponentsMult;
-					scoreBonus = scoreBonus - zocs * this.Const.AI.Behavior.EngageMultipleOpponentsPenalty * this.getProperties().EngageTargetMultipleOpponentsMult;
 
 					if (zocs > 1 && this.getProperties().EngageTargetMultipleOpponentsMult != 0.0)
 					{
@@ -339,7 +233,6 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 				if (isSkillUsable && this.m.Skill.isSpearwallRelevant())
 				{
 					tileScore = tileScore - this.Const.AI.Behavior.EngageSpearwallTargetPenalty * spearwallMult;
-					scoreBonus = scoreBonus - this.Const.AI.Behavior.EngageSpearwallTargetPenalty * spearwallMult;
 				}
 
 				if (this.getProperties().EngageEnemiesInLinePreference > 1)
@@ -363,7 +256,6 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 								{
 									local v = this.queryTargetValue(_entity, nextTile.getEntity());
 									tileScore = tileScore + v * this.Const.AI.Behavior.EngageLineTargetValueMult * this.getProperties().TargetPriorityAoEMult;
-									scoreBonus = scoreBonus + v * this.Const.AI.Behavior.EngageLineTargetValueMult * this.getProperties().TargetPriorityAoEMult;
 								}
 							}
 						}
@@ -374,13 +266,11 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 				{
 					local mult = isTargetArmedWithRangedWeapon ? 0.5 : 1.0;
 					tileScore = tileScore - this.Const.AI.Behavior.EngageBadTerrainPenalty * this.getProperties().EngageOnBadTerrainPenaltyMult * mult;
-					scoreBonus = scoreBonus - this.Const.AI.Behavior.EngageBadTerrainPenalty * this.getProperties().EngageOnBadTerrainPenaltyMult * mult;
 				}
 
 				if (this.hasNegativeTileEffect(tile, _entity) || tile.Properties.IsMarkedForImpact)
 				{
 					tileScore = tileScore - this.Const.AI.Behavior.EngageBadTerrainEffectPenalty * this.getProperties().EngageOnBadTerrainPenaltyMult;
-					scoreBonus = scoreBonus - this.Const.AI.Behavior.EngageBadTerrainEffectPenalty * this.getProperties().EngageOnBadTerrainPenaltyMult;
 				}
 
 				if (this.getProperties().OverallFormationMult != 0)
@@ -394,27 +284,94 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 					}
 
 					tileScore = tileScore + formationValue;
-					scoreBonus = scoreBonus + formationValue;
 				}
 
-				potentialDestinations.push({
+				ret.push({
 					Tile = tile,
-					Actor = target,
+					Actor = _target,
 					TargetValue = targetValue,
-					IsSkillUsable = isSkillUsable,
-					IsTargetLocked = isTargetInEnemyZoneOfControl,
-					IsTargetLockable = distanceFromTarget == 1,
 					TileScore = tileScore,
-					ScoreMult = scoreMult,
-					Distance = distance
+					ScoreMult = scoreMult
 				});
+			}
+
+			return ret;
+		}
+
+		local potentialDestinations = [];
+
+		if (this.Const.AI.VerboseMode)
+		{
+			this.logInfo("My tile is " + myTile.ID);
+		}
+
+		foreach (target in targets)
+		{
+			// if (this.isAllottedTimeReached(time))
+			// {
+			// 	yield null;
+			// 	time = this.Time.getExactTime();
+			// }
+
+			if (this.Const.AI.VerboseMode)
+			{
+				this.logInfo("Evaluating target " + target.getName());
+			}
+
+			local evaluation = evaluateTarget(target, myTile);
+			if (evaluation.len() > 0)
+			{
+				potentialDestinations.extend(evaluation);
 			}
 		}
 
 		if (potentialDestinations.len() == 0)
 		{
-			// this.logInfo("returning because potential destinations 0");
 			return this.Const.AI.Behavior.Score.Zero;
+		}
+
+		if ((this.m.Skill.getActionPointCost() + attackSkill.getActionPointCost() <= _entity.getActionPoints()) && this.m.Skill.getFatigueCost() + attackSkill.getFatigueCost() + _entity.getFatigue() <= _entity.getFatigueMax())
+		{
+			foreach (dest in potentialDestinations)
+			{
+				// if (this.isAllottedTimeReached(time))
+				// {
+				// 	yield null;
+				// 	time = this.Time.getExactTime();
+				// }
+
+				if (!dest.Tile.isSameTileAs(myTile))
+				{
+					local extendedTargets = this.queryTargetsInMeleeRange(this.m.Skill.getMinRange(), this.m.Skill.getMaxRange() + 1, this.m.Skill.getMaxLevelDifference(), dest.Tile);
+					local furtherDestinations = [];
+					foreach (t in extendedTargets)
+					{
+						if (this.Const.AI.VerboseMode)
+						{
+							this.logInfo("Evaluating extended target " + t.getName() + " from primary target " + dest.Actor.getName());
+						}
+						local evaluation = evaluateTarget(t, dest.Tile);
+						if (evaluation.len() > 0)
+						{
+							furtherDestinations.extend(evaluation);
+						}
+					}
+
+					if (furtherDestinations.len() > 0)
+					{
+						furtherDestinations.sort(this.onSortByScore);
+						local d = furtherDestinations[0];
+						if (!d.Tile.isSameTileAs(myTile) && !d.Tile.isSameTileAs(dest.Tile))
+						{
+							if (this.Const.AI.VerboseMode)
+							{
+								this.logInfo("Increasing score of Kata against " + dest.Actor.getName() + " to tile " + dest.Tile.ID + " for future Kata towards " + d.Actor.getName() + " to tile " + d.Tile.ID);
+							}
+							dest.TileScore += d.TileScore;
+						}
+					}
+				}
+			}
 		}
 
 		potentialDestinations.sort(this.onSortByScore);
@@ -425,35 +382,26 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 			{
 				this.logInfo("* Possible target : " + dest.Actor.getName() +
 							 " at distance:" + dest.Actor.getTile().getDistanceTo(myTile) +
-							 " and is approachable by Kata: " + dest.IsSkillUsable +
 							 ". TargetValue is: " + dest.TargetValue +
-							 ", TileScore is: " + dest.TileScore);
+							 ". Fromm tile : " + dest.Tile.ID +
+							 ", with TileScore: " + dest.TileScore);
 			}
 		}
 
 		local bestTarget;
-		local bestTargetDistance = 0;
-		local bestIntermediateTile;
-		local bestLocked = false;
-		local bestLockable = false;
 		local bestScoreMult = 1.0;
-		local bestComplete = false;
 		local actorTargeted;
 
-		if (this.isAllottedTimeReached(time))
-		{
-			yield null;
-			time = this.Time.getExactTime();
-		}
+		// if (this.isAllottedTimeReached(time))
+		// {
+		// 	yield null;
+		// 	time = this.Time.getExactTime();
+		// }
 
-		if (potentialDestinations[0].IsSkillUsable)
+		if (!potentialDestinations[0].Tile.isSameTileAs(myTile))
 		{
 			bestTarget = potentialDestinations[0].Tile;
-			bestIntermediateTile = null;
-			bestLocked = potentialDestinations[0].IsTargetLocked;
-			bestLockable = potentialDestinations[0].IsTargetLockable;
 			bestScoreMult = potentialDestinations[0].ScoreMult;
-			bestComplete = true;
 			actorTargeted = potentialDestinations[0].Actor;
 		}
 		else
@@ -473,28 +421,13 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 
 				foreach( ally in allies )
 				{
-					if (this.isAllottedTimeReached(time))
-					{
-						yield null;
-						time = this.Time.getExactTime();
-					}
+					// if (this.isAllottedTimeReached(time))
+					// {
+					// 	yield null;
+					// 	time = this.Time.getExactTime();
+					// }
 
-					if (ally.isTurnDone())
-					{
-						continue;
-					}
-
-					if (ally.getMoraleState() == this.Const.MoraleState.Fleeing || ally.getCurrentProperties().IsRooted || ally.getCurrentProperties().IsStunned)
-					{
-						continue;
-					}
-
-					if (ally.getTile().hasZoneOfControlOtherThan(ally.getAlliedFactions()))
-					{
-						continue;
-					}
-
-					if (ally.getTile().getDistanceTo(bestTarget) > 5)
+					if (ally.isTurnDone() || ally.getMoraleState() == this.Const.MoraleState.Fleeing || ally.getCurrentProperties().IsRooted || ally.getCurrentProperties().IsStunned || ally.getTile().hasZoneOfControlOtherThan(ally.getAlliedFactions()) || ally.getTile().getDistanceTo(bestTarget) > 5)
 					{
 						continue;
 					}
@@ -509,87 +442,12 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 			this.m.TargetTile = bestTarget;
 			this.m.TargetActor = actorTargeted;
 
-			if (!this.getProperties().IgnoreTargetValueOnEngage && bestComplete && actorTargeted != null)
+			if (!this.getProperties().IgnoreTargetValueOnEngage && actorTargeted != null)
 			{
 				score = score * (1.0 + this.queryTargetValue(_entity, actorTargeted));
 			}
 
 			score = score * bestScoreMult;
-
-			// if (actorTargeted != null)
-			// {
-				// local actorTile = actorTargeted.getTile();
-
-				// score = score * this.Const.AI.Behavior.EngageWithSkillMult;
-
-				// if (this.getProperties().EngageOnGoodTerrainBonusMult != 0.0)
-				// {
-					// if (bestTarget.Level - actorTile.Level > 0)
-					// {
-						// score = score * this.Const.AI.Behavior.EngageOnLevelDifferenceMult;
-					// }
-					// else if (bestTarget.Level - actorTile.Level < 0)
-					// {
-						// score = score * (1.0 / this.Const.AI.Behavior.EngageOnLevelDifferenceMult);
-					// }
-
-					// if (!bestLocked && bestLockable && bestTarget.Level - myTile.Level < 0)
-					// {
-						// score = score * (1.0 / this.Const.AI.Behavior.EngageOnLevelDifferenceMult);
-					// }
-					// else if (!bestLocked && bestLockable && bestTarget.Level - myTile.Level > 0)
-					// {
-						// score = score * this.Const.AI.Behavior.EngageOnLevelDifferenceMult;
-					// }
-				// }
-
-				// if (this.getProperties().EngageOnBadTerrainPenaltyMult != 0.0)
-				// {
-					// if (bestTarget.IsBadTerrain)
-					// {
-						// score = score * this.Const.AI.Behavior.EngageOnBadTerrainMult;
-					// }
-
-					// if (!myTile.IsBadTerrain && bestTarget.IsBadTerrain)
-					// {
-						// score = score * this.Const.AI.Behavior.EngageOnBadTerrainMult;
-					// }
-				// }
-
-				// if (this.getProperties().EngageOnGoodTerrainBonusMult != 0.0)
-				// {
-					// if (!this.m.TargetTile.IsBadTerrain && this.m.TargetActor.getTile().IsBadTerrain)
-					// {
-						// score = score * this.Const.AI.Behavior.EngageOnTerrainAdvantage;
-					// }
-
-					// if (myTile.IsBadTerrain && !bestTarget.IsBadTerrain)
-					// {
-						// score = score * this.Const.AI.Behavior.EngageOnTerrainAdvantage;
-					// }
-				// }
-
-				// if (this.getProperties().EngageOnGoodTerrainBonusMult != 0.0)
-				// {
-					// if (this.hasNegativeTileEffect(myTile, _entity) && !this.hasNegativeTileEffect(this.m.TargetTile, _entity) || myTile.Properties.IsMarkedForImpact && !this.m.TargetTile.Properties.IsMarkedForImpact)
-					// {
-						// score = score * this.Const.AI.Behavior.EngageOnTerrainAdvantage;
-					// }
-				// }
-
-				// // if (this.isAllottedTimeReached(time))
-				// // {
-					// // yield null;
-					// // time = this.Time.getExactTime();
-				// // }
-
-				// if (this.m.Skill.isSpearwallRelevant())
-				// {
-					// local spearwallMult = this.querySpearwallValueForTile(_entity, this.m.TargetTile);
-
-					// score = score * this.Math.maxf(0.1, 1.0 - spearwallMult * 0.5);
-				// }
-			// }
 
 			return this.Const.AI.Behavior.Score.PTRKataStep * score * this.getProperties().BehaviorMult[this.m.ID] * this.Math.minf(2.0, 1.0 / this.getProperties().OverallDefensivenessMult);
 		}
@@ -611,7 +469,7 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 			return false;
 		}
 
-		if (this.m.TargetTile != null && !this.m.TargetTile.IsOccupiedByActor)
+		if (this.m.TargetTile != null)
 		{
 			if (this.Const.AI.VerboseMode)
 			{
@@ -623,16 +481,8 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 
 			if (_entity.isAlive() && (!_entity.isHiddenToPlayer() || this.m.TargetTile.IsVisibleForPlayer))
 			{
+				this.getAgent().declareEvaluationDelay(750);
 				this.getAgent().declareAction();
-
-				if (dist > 1 && this.m.Skill.isShowingProjectile())
-				{
-					this.getAgent().declareEvaluationDelay(750);
-				}
-				else if (this.m.Skill.getDelay() != 0)
-				{
-					this.getAgent().declareEvaluationDelay(this.m.Skill.getDelay());
-				}
 			}
 
 			this.m.TargetTile = null;
@@ -655,5 +505,4 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 
 		return 0;
 	}
-
 });
