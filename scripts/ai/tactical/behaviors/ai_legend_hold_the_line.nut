@@ -1,8 +1,7 @@
 this.ai_legend_hold_the_line <- this.inherit("scripts/ai/tactical/behavior", {
 	m = {
-		TargetTile = null,
 		PossibleSkills = [
-			# "actives.legend_hold_the_line"
+			"actives.legend_hold_the_line"
 		],
 		Skill = null
 	},
@@ -10,7 +9,6 @@ this.ai_legend_hold_the_line <- this.inherit("scripts/ai/tactical/behavior", {
 	{
 		this.m.ID = this.Const.AI.Behavior.ID.LegendHoldTheLine;
 		this.m.Order = this.Const.AI.Behavior.Order.LegendHoldTheLine;
-		this.m.IsThreaded = false;
 		this.behavior.create();
 	}
 
@@ -37,11 +35,39 @@ this.ai_legend_hold_the_line <- this.inherit("scripts/ai/tactical/behavior", {
 		}
 
 		score = score * this.getFatigueScoreMult(this.m.Skill);
-		local enemies = _entity.getActorsWithinDistanceAsArray(6, this.Const.FactionRelation.Enemy);
-		local allies = _entity.getActorsWithinDistanceAsArray(4, this.Const.FactionRelation.SameFaction);
 		local myTile = _entity.getTile();
+		local allies = this.Tactical.Entities.getInstancesOfFaction(_entity.getFaction());
+		for (local i = allies.len() - 1; i >= 0; i--)
+		{
+			if (allies[i].getTile().getDistanceTo(myTile) > 4)
+			{
+				allies.remove(i);
+			}
+		}
+		local enemies = this.Tactical.Entities.getInstancesHostileWithFaction(_entity.getFaction());		
 		local useScore = 0.0;
 		local numTargets = 0;
+
+		local getBestMeleeTarget = function( _entity, _skill, _targets )
+		{
+			local bestTarget;
+			local bestScore = -9000;
+
+			foreach( target in _targets )
+			{
+				if (_skill.onVerifyTarget(_entity.getTile(), target.getTile()) && _skill.isInRange(target.getTile(), _entity.getTile()))
+				{
+					local score = this.queryTargetValue(_entity, target, _skill);
+
+					if (score > bestScore)
+					{
+						bestTarget = target;						
+					}
+				}
+			}
+
+			return bestTarget;
+		}
 
 		foreach( enemy in enemies )
 		{
@@ -52,21 +78,25 @@ this.ai_legend_hold_the_line <- this.inherit("scripts/ai/tactical/behavior", {
 
 			local enemyAttack = enemy.getSkills().getAttackOfOpportunity();
 
-			local bestTarget = this.queryBestMeleeTarget(enemy, enemyAttack, allies);
-
-			if (bestTarget.Target == null || bestTarget.Target.getFaction() != _entity.getFaction() || bestTarget.Target.getMoraleState() == this.Const.MoraleState.Fleeing || bestTarget.Target.getSkills().hasSkill("effects.legend_holding_the_line"))
+			local bestTarget = this.getBestMeleeTarget(enemy, enemyAttack, allies);
+			if (bestTarget == null || bestTarget.getFaction() != _entity.getFaction() || bestTarget.getMoraleState() == this.Const.MoraleState.Fleeing || bestTarget.getSkills().hasSkill("effects.legend_holding_the_line"))
 			{
 				continue;
 			}
 
-			local thisScore = enemyAttack.getHitchance(bestTarget.Target);
+			local hitChance = enemyAttack.getHitchance(bestTarget.Target);
+
+			if (hitChance < 66)
+			{
+				continue;
+			}
 
 			numTargets++;
-
-			useScore = useScore + thisScore;
+			
+			useScore = useScore + hitChance - 60;
 		}
 
-		if (numTargets <= 1)
+		if (numTargets < 5)
 		{
 			return this.Const.AI.Behavior.Score.Zero;
 		}
@@ -93,7 +123,6 @@ this.ai_legend_hold_the_line <- this.inherit("scripts/ai/tactical/behavior", {
 		}
 
 		this.m.Skill = null;
-		this.m.TargetTile = null;
 		return true;
 	}
 });
