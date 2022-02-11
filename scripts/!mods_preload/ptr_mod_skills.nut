@@ -142,6 +142,23 @@ gt.Const.PTR.modSkills <- function()
 
 			return tooltip;
 		}
+
+		o.onAdded <- function()
+		{
+			local actor = this.getContainer().getActor();
+			if (actor.isPlayerControlled())
+			{
+				return;
+			}
+
+			local agent = actor.getAIAgent();
+
+			if (agent.findBehavior(this.Const.AI.Behavior.ID.LegendHoldTheLine) == null)
+			{
+				agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_legend_hold_the_line"));
+				agent.finalizeBehaviors();
+			}
+		}
 	});
 
 	::mods_hookExactClass("skills/effects/legend_holding_the_line", function(o) {
@@ -1298,27 +1315,6 @@ gt.Const.PTR.modSkills <- function()
 			if (agent.findBehavior(this.Const.AI.Behavior.ID.LegendPushForward) == null)
 			{
 				agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_legend_push_forward"));
-				agent.finalizeBehaviors();
-			}
-		}
-	});
-
-	::mods_hookNewObject("skills/actives/legend_hold_the_line", function(o) {
-		local onAdded = ::mods_getMember(o, "onAdded");
-		o.onAdded <- function()
-		{
-			onAdded();
-			local actor = this.getContainer().getActor();
-			if (actor.isPlayerControlled())
-			{
-				return;
-			}
-
-			local agent = actor.getAIAgent();
-
-			if (agent.findBehavior(this.Const.AI.Behavior.ID.LegendHoldTheLine) == null)
-			{
-				agent.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_legend_hold_the_line"));
 				agent.finalizeBehaviors();
 			}
 		}
