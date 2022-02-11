@@ -219,7 +219,7 @@ gt.Const.PTR.modWeapons <- function()
 
 		o.onEquip = function()
 		{
-			this.weapon.onEquip();			
+			this.named_weapon.onEquip();			
 			local prong = this.new("scripts/skills/actives/prong_skill");
 			this.addSkill(prong);
 
