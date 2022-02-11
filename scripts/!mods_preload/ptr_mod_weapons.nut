@@ -70,6 +70,49 @@ gt.Const.PTR.modWeapons <- function()
 		}
 	}
 
+	::mods_hookNewObject("items/weapons/legend_bastardsword", function(o) {
+		o.m.ChanceToHitHead = 10;
+		o.m.IsAoE = false;
+		o.onEquip = function()
+		{
+			this.weapon.onEquip();
+			this.addSkill(this.new("scripts/skills/actives/slash"));
+			local overhead = this.new("scripts/skills/actives/overhead_strike");
+			overhead.m.IsIgnoredAsAOO = true;
+			this.addSkill(overhead);
+			this.addSkill(this.new("scripts/skills/actives/riposte"));
+		}
+	});
+
+	::mods_hookNewObject("items/weapons/named/legend_named_bastardsword", function(o) {
+		local baseWeapon = this.new("scripts/items/weapons/legend_bastardsword");
+		o.m.IsAoE = baseWeapon.m.IsAoE;
+		o.m.Condition = baseWeapon.m.Condition;
+		o.m.ConditionMax = baseWeapon.m.ConditionMax;
+		o.m.RegularDamage = baseWeapon.m.RegularDamage;
+		o.m.RegularDamageMax = baseWeapon.m.RegularDamageMax;
+		o.m.ArmorDamageMult = baseWeapon.m.ArmorDamageMult;
+		o.m.ChanceToHitHead = baseWeapon.m.ChanceToHitHead;
+		o.m.DirectDamageMult = baseWeapon.m.DirectDamageMult;
+		o.m.DirectDamageAdd = baseWeapon.m.DirectDamageAdd;
+		o.m.StaminaModifier = baseWeapon.m.StaminaModifier;
+		o.m.ShieldDamage = baseWeapon.m.ShieldDamage;
+		o.m.AdditionalAccuracy = baseWeapon.m.AdditionalAccuracy;
+		o.m.FatigueOnSkillUse = baseWeapon.m.FatigueOnSkillUse;
+		o.m.Value = 4600;
+		o.randomizeValues();
+
+		o.onEquip = function()
+		{
+			this.named_weapon.onEquip();
+			this.addSkill(this.new("scripts/skills/actives/overhead_strike"));
+			local slash  = this.new("scripts/skills/actives/slash");
+			slash.m.IsIgnoredAsAOO = true;
+			this.addSkill(slash);
+			this.addSkill(this.new("scripts/skills/actives/riposte"));
+		}
+	});
+
 	::mods_hookExactClass("items/weapons/legend_staff", function(o) {
 		local onEquip = o.onEquip;
 		o.onEquip = function()
