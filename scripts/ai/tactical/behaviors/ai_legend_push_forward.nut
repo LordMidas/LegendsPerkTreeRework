@@ -82,14 +82,14 @@ this.ai_legend_push_forward <- this.inherit("scripts/ai/tactical/behavior", {
 			}
 
 			local allyAttack = ally.getSkills().getAttackOfOpportunity();
-			local bestTarget = this.queryBestMeleeTarget(ally, allyAttack, enemies);
+			local bestTarget = getBestMeleeTarget(ally, allyAttack, enemies);
 
 			if (bestTarget == null)
 			{
 				continue;
 			}
 
-			local hitChance = allyAttack.getHitchance(bestTarget.Target);
+			local hitChance = allyAttack.getHitchance(bestTarget);
 			if (hitChance < 40)
 			{
 				continue;
