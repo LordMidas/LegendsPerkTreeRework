@@ -1,3 +1,10 @@
+====================
+==== Ver 1.6.10 ====
+====================
+- Added Sundering Strikes to the Large tree t6.
+- Fixed the Hold the Line and Push Forward AI causing the game to lock up.
+- Fixed typo in Vanguard Deployment perk tooltip.
+
 ===================
 ==== Ver 1.6.9 ====
 ===================
