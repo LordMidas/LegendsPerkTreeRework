@@ -1,4 +1,11 @@
 ====================
+==== Ver 1.6.11 ====
+====================
+- Fixed a critical bug in Hold the Line and Push Forward AI causing enemies to retreat from battle prematurely. Also improved logic.
+- Eyes Up stacks are now capped at 10.
+- Added Rotation to the perk trees which have Twirl.
+
+====================
 ==== Ver 1.6.10 ====
 ====================
 - Added Sundering Strikes to the Large tree t6.
