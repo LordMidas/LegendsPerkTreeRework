@@ -63,7 +63,8 @@ gt.Const.PTR.modSkills <- function()
 
 		o.onTurnStart <- function()
 		{
-			if (this.getContainer().hasSkill("effects.shieldwall"))
+			local actor = this.getContainer().getActor();
+			if (actor.getCurrentProperties().IsStunned || actor.getMoraleState() == this.Const.MoraleState.Fleeing || this.getContainer().hasSkill("effects.shieldwall"))
 			{
 				return;
 			}
@@ -72,12 +73,11 @@ gt.Const.PTR.modSkills <- function()
 			local adjacentAllies = this.getContainer().getActor().getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.SameFaction);
 			foreach (ally in adjacentAllies)
 			{
-				if (ally.getSkills().hasSkill("actives.shieldwall") && (hasPerk || ally.getSkills().hasSkill("perk.legend_shields_up")))
+				if (this.Math.abs(ally.getTile().Level - actor.getTile().Level) <= 1 && ally.getSkills().hasSkill("actives.shieldwall") && (hasPerk || ally.getSkills().hasSkill("perk.legend_shields_up")))
 				{
-					this.getContainer().add(this.new("scripts/skills/effects/shieldwall_effect"));
-					local actor = this.getContainer().getActor();
+					this.getContainer().add(this.new("scripts/skills/effects/shieldwall_effect"));					
 					this.Sound.play(this.m.SoundOnUse[this.Math.rand(0, this.m.SoundOnUse.len() - 1)], this.Const.Sound.Volume.Skill * this.m.SoundVolume, actor.getPos());
-					this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " uses Shieldwall due to " + this.Const.UI.getColorizedEntityName(ally) + "\'s' Shields Up perk");
+					this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " uses Shieldwall due to " + this.Const.UI.getColorizedEntityName(hasPerk ? actor : ally) + "\'s Shields Up perk");
 					return;
 				}
 			}
@@ -85,7 +85,8 @@ gt.Const.PTR.modSkills <- function()
 
 		o.onTurnEnd <- function()
 		{
-			if (this.getContainer().hasSkill("effects.shieldwall"))
+			local actor = this.getContainer().getActor();
+			if (actor.getCurrentProperties().IsStunned || actor.getMoraleState() == this.Const.MoraleState.Fleeing || this.getContainer().hasSkill("effects.shieldwall"))
 			{
 				return;
 			}
@@ -94,12 +95,11 @@ gt.Const.PTR.modSkills <- function()
 			local adjacentAllies = this.getContainer().getActor().getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.SameFaction);
 			foreach (ally in adjacentAllies)
 			{
-				if (ally.getSkills().hasSkill("actives.shieldwall") && (hasPerk || ally.getSkills().hasSkill("perk.legend_shields_up")))
+				if (this.Math.abs(ally.getTile().Level - actor.getTile().Level) <= 1 && ally.getSkills().hasSkill("actives.shieldwall") && (hasPerk || ally.getSkills().hasSkill("perk.legend_shields_up")))
 				{
-					this.getContainer().add(this.new("scripts/skills/effects/shieldwall_effect"));
-					local actor = this.getContainer().getActor();
+					this.getContainer().add(this.new("scripts/skills/effects/shieldwall_effect"));					
 					this.Sound.play(this.m.SoundOnUse[this.Math.rand(0, this.m.SoundOnUse.len() - 1)], this.Const.Sound.Volume.Skill * this.m.SoundVolume, actor.getPos());
-					this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " uses Shieldwall due to " + this.Const.UI.getColorizedEntityName(ally) + "\'s' Shields Up perk");
+					this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " uses Shieldwall due to " + this.Const.UI.getColorizedEntityName(hasPerk ? actor : ally) + "\'s Shields Up perk");
 					return;
 				}
 			}
@@ -116,7 +116,7 @@ gt.Const.PTR.modSkills <- function()
 				if (skill != null)
 				{
 					ally.getSkills().add(this.new("scripts/skills/effects/shieldwall_effect"));
-					this.Tactical.EventLog.logEx(this.Const.UI.getColorizedEntityName(ally) + " uses Shieldwall due to " + this.Const.UI.getColorizedEntityName(this.getContainer().getActor()) + "\'s Shields Up perk");
+					this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(ally) + " uses Shieldwall due to " + this.Const.UI.getColorizedEntityName(this.getContainer().getActor()) + "\'s Shields Up perk");
 				}
 			}
 		}
