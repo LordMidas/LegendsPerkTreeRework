@@ -34,63 +34,35 @@ this.ai_legend_push_forward <- this.inherit("scripts/ai/tactical/behavior", {
 			return this.Const.AI.Behavior.Score.Zero;
 		}
 
-		local getBestMeleeTarget = function( _entity, _skill, _targets )
-		{
-			local bestTarget;
-			local bestScore = -9000;
-
-			foreach( target in _targets )
-			{
-				if (_skill.onVerifyTarget(_entity.getTile(), target.getTile()) && _skill.isInRange(target.getTile(), _entity.getTile()))
-				{
-					local score = this.queryTargetValue(_entity, target, _skill);
-
-					if (score > bestScore)
-					{
-						bestTarget = target;						
-					}
-				}
-			}
-
-			return bestTarget;
-		}
-
 		score = score * this.getFatigueScoreMult(this.m.Skill);
 		local myTile = _entity.getTile();
-		local allies = this.Tactical.Entities.getInstancesOfFaction(_entity.getFaction());
-		for (local i = allies.len() - 1; i >= 0; i--)
-		{
-			if (allies[i].getTile().getDistanceTo(myTile) > 4)
-			{
-				allies.remove(i);
-			}
-		}
+		local allies = this.Tactical.Entities.getInstancesOfFaction(_entity.getFaction());		
 		local enemies = this.Tactical.Entities.getInstancesHostileWithFaction(_entity.getFaction());		
 		local useScore = 0.0;
 		local numTargets = 0;
 
-		if (allies.len() <= 1)
-		{
-			return this.Const.AI.Behavior.Score.Zero;
-		}
-
 		foreach( ally in allies )
 		{
-			if (!ally.hasZoneOfControl() || ally.getSkills().hasSkill("effects.legend_pushing_forward"))
+			if (ally.getTile().getDistanceTo(myTile) > 4 || !ally.hasZoneOfControl() || ally.getSkills().hasSkill("effects.legend_pushing_forward"))
 			{
 				continue;
 			}
-
-			local allyAttack = ally.getSkills().getAttackOfOpportunity();
-			local bestTarget = getBestMeleeTarget(ally, allyAttack, enemies);
+			
+			local bestTarget = this.queryBestMeleeTarget(ally, null, enemies).Target;
 
 			if (bestTarget == null)
 			{
 				continue;
 			}
 
+			local allyAttack = ally.getSkills().getAttackOfOpportunity();
+			if (!allyAttack.onVerifyTarget(ally.getTile(), bestTarget.getTile()) || !allyAttack.isInRange(bestTarget.getTile(), ally.getTile()))
+			{
+				continue;
+			}
+
 			local hitChance = allyAttack.getHitchance(bestTarget);
-			if (hitChance < 40)
+			if (hitChance < 40 || hitChance > 85)
 			{
 				continue;
 			}

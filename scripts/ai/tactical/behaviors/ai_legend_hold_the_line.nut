@@ -36,38 +36,12 @@ this.ai_legend_hold_the_line <- this.inherit("scripts/ai/tactical/behavior", {
 
 		score = score * this.getFatigueScoreMult(this.m.Skill);
 		local myTile = _entity.getTile();
-		local allies = this.Tactical.Entities.getInstancesOfFaction(_entity.getFaction());
-		for (local i = allies.len() - 1; i >= 0; i--)
-		{
-			if (allies[i].getTile().getDistanceTo(myTile) > 4)
-			{
-				allies.remove(i);
-			}
-		}
+		local allies = this.Tactical.Entities.getInstancesOfFaction(_entity.getFaction());		
 		local enemies = this.Tactical.Entities.getInstancesHostileWithFaction(_entity.getFaction());		
 		local useScore = 0.0;
 		local numTargets = 0;
 
-		local getBestMeleeTarget = function( _entity, _skill, _targets )
-		{
-			local bestTarget;
-			local bestScore = -9000;
-
-			foreach( target in _targets )
-			{
-				if (_skill.onVerifyTarget(_entity.getTile(), target.getTile()) && _skill.isInRange(target.getTile(), _entity.getTile()))
-				{
-					local score = this.queryTargetValue(_entity, target, _skill);
-
-					if (score > bestScore)
-					{
-						bestTarget = target;						
-					}
-				}
-			}
-
-			return bestTarget;
-		}
+		local relevantAllies = [];		
 
 		foreach( enemy in enemies )
 		{
@@ -75,28 +49,35 @@ this.ai_legend_hold_the_line <- this.inherit("scripts/ai/tactical/behavior", {
 			{
 				continue;
 			}
+			
+			local bestTarget = this.queryBestMeleeTarget(enemy, null, allies).Target;			
+			if (bestTarget == null || bestTarget.getMoraleState() == this.Const.MoraleState.Fleeing || bestTarget.getTile().getDistanceTo(myTile) > 4 || bestTarget.getSkills().hasSkill("effects.legend_holding_the_line"))
+			{
+				continue;
+			}
 
 			local enemyAttack = enemy.getSkills().getAttackOfOpportunity();
-
-			local bestTarget = getBestMeleeTarget(enemy, enemyAttack, allies);
-			if (bestTarget == null || bestTarget.getFaction() != _entity.getFaction() || bestTarget.getMoraleState() == this.Const.MoraleState.Fleeing || bestTarget.getSkills().hasSkill("effects.legend_holding_the_line"))
+			if (!enemyAttack.onVerifyTarget(enemy.getTile(), bestTarget.getTile()) || !enemyAttack.isInRange(bestTarget.getTile(), enemy.getTile()))
 			{
 				continue;
 			}
 
 			local hitChance = enemyAttack.getHitchance(bestTarget);
 
-			if (hitChance < 66)
+			if (hitChance < 50 || hitChance > 90)
 			{
 				continue;
 			}
 
-			numTargets++;
+			if (relevantAllies.find(bestTarget.getID()) == null) 
+			{
+				relevantAllies.push(bestTarget.getID());
+			}
 			
-			useScore = useScore + hitChance - 60;
+			useScore = useScore + hitChance - 50;
 		}
 
-		if (numTargets < 5)
+		if (relevantAllies.len() < 5)
 		{
 			return this.Const.AI.Behavior.Score.Zero;
 		}
