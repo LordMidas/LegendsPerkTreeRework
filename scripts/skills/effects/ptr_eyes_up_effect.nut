@@ -8,7 +8,7 @@ this.ptr_eyes_up_effect <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "effects.ptr_eyes_up";
 		this.m.Name = "Eyes Up";
-		this.m.Description = "This character is being barraged by attacks coming from up high, causing %their% attention to be diverted towards them.";
+		this.m.Description = "This character is being barraged by attacks coming from up high, causing %their% attention to be diverted towards them. Can stack up to 10 times.";
 		this.m.Icon = "ui/perks/ptr_eyes_up.png";
 		this.m.IconMini = "ptr_eyes_up_mini";
 		this.m.Overlay = "ptr_eyes_up_effect";
@@ -56,8 +56,11 @@ this.ptr_eyes_up_effect <- this.inherit("scripts/skills/skill", {
 
 	function onRefresh()
 	{
-		this.spawnIcon("ptr_eyes_up_effect", this.getContainer().getActor().getTile());
-		this.m.Stacks++;
+		if (this.m.Stacks < 10)
+		{
+			this.m.Stacks++;
+			this.spawnIcon("ptr_eyes_up_effect", this.getContainer().getActor().getTile());		
+		}
 	}
 
 	function getSkillMalus()
