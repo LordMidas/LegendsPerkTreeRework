@@ -49,7 +49,7 @@ gt.Const.PTR.modSkills <- function()
 	::mods_hookExactClass("skills/actives/shieldwall", function(o) {
 		o.onAfterUpdate <- function( _properties )
 		{
-			local adjacentAllies = this.getContainer().getActor().getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.SameFaction);
+			local adjacentAllies = this.getContainer().getActor().getActorsWithinDistanceAsArray(2, this.Const.FactionRelation.SameFaction);
 			foreach (ally in adjacentAllies)
 			{
 				if (ally.getSkills().hasSkill("perk.legend_shields_up"))
@@ -63,14 +63,60 @@ gt.Const.PTR.modSkills <- function()
 
 		o.onTurnStart <- function()
 		{
+			if (this.getContainer().hasSkill("effects.shieldwall"))
+			{
+				return;
+			}
+
 			local hasPerk = this.getContainer().hasSkill("perk.legend_shields_up");
 			local adjacentAllies = this.getContainer().getActor().getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.SameFaction);
 			foreach (ally in adjacentAllies)
 			{
 				if (ally.getSkills().hasSkill("actives.shieldwall") && (hasPerk || ally.getSkills().hasSkill("perk.legend_shields_up")))
 				{
-					this.useForFree(this.getContainer().getActor().getTile());
+					this.getContainer().add(this.new("scripts/skills/effects/shieldwall_effect"));
+					local actor = this.getContainer().getActor();
+					this.Sound.play(this.m.SoundOnUse[this.Math.rand(0, this.m.SoundOnUse.len() - 1)], this.Const.Sound.Volume.Skill * this.m.SoundVolume, actor.getPos());
+					this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " uses Shieldwall due to " + this.Const.UI.getColorizedEntityName(ally) + "\'s' Shields Up perk");
 					return;
+				}
+			}
+		}
+
+		o.onTurnEnd <- function()
+		{
+			if (this.getContainer().hasSkill("effects.shieldwall"))
+			{
+				return;
+			}
+			
+			local hasPerk = this.getContainer().hasSkill("perk.legend_shields_up");
+			local adjacentAllies = this.getContainer().getActor().getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.SameFaction);
+			foreach (ally in adjacentAllies)
+			{
+				if (ally.getSkills().hasSkill("actives.shieldwall") && (hasPerk || ally.getSkills().hasSkill("perk.legend_shields_up")))
+				{
+					this.getContainer().add(this.new("scripts/skills/effects/shieldwall_effect"));
+					local actor = this.getContainer().getActor();
+					this.Sound.play(this.m.SoundOnUse[this.Math.rand(0, this.m.SoundOnUse.len() - 1)], this.Const.Sound.Volume.Skill * this.m.SoundVolume, actor.getPos());
+					this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " uses Shieldwall due to " + this.Const.UI.getColorizedEntityName(ally) + "\'s' Shields Up perk");
+					return;
+				}
+			}
+		}
+	});
+
+	::mods_hookExactClass("skills/perks/perk_legend_shields_up", function(o) {
+		o.onCombatStarted = function()
+		{
+			local allies = this.Tactical.Entities.getInstancesOfFaction(this.getContainer().getActor().getFaction());
+			foreach (ally in allies)
+			{
+				local skill = ally.getSkills().getSkillByID("actives.shieldwall");
+				if (skill != null)
+				{
+					ally.getSkills().add(this.new("scripts/skills/effects/shieldwall_effect"));
+					this.Tactical.EventLog.logEx(this.Const.UI.getColorizedEntityName(ally) + " uses Shieldwall due to " + this.Const.UI.getColorizedEntityName(this.getContainer().getActor()) + "\'s Shields Up perk");
 				}
 			}
 		}
