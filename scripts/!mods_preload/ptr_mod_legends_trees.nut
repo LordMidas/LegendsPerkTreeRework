@@ -1069,6 +1069,9 @@ gt.Const.PTR.modClassTrees <- function()
 				gt.Const.Perks.PerkDefs.LegendMarkTarget
 			],
 			[
+				
+			],
+			[
 				gt.Const.Perks.PerkDefs.LegendShieldsUp
 			],
 			[
@@ -1076,9 +1079,6 @@ gt.Const.PTR.modClassTrees <- function()
 			],
 			[
 				gt.Const.Perks.PerkDefs.LegendHoldTheLine
-			],
-			[
-				
 			],
 			[
 				gt.Const.Perks.PerkDefs.PTRVanguardDeployment	
