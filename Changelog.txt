@@ -1,4 +1,10 @@
 ====================
+==== Ver 1.6.12 ====
+====================
+- Embalmed Slaves no longer have hip shooter on standard difficulties, only legendary. They now have eyes up on standard *and* legendary.
+
+
+====================
 ==== Ver 1.6.11 ====
 ====================
 - Fixed a critical bug in Hold the Line and Push Forward AI causing enemies to retreat from battle prematurely. Also improved logic.

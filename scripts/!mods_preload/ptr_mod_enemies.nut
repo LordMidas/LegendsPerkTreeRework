@@ -1115,13 +1115,19 @@ gt.Const.PTR.modEnemies <- function()
 			}
 
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_str_phalanx"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_hip_shooter"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_eyes_up"));		
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_primal_fear"));
 
 			if (this.Math.rand(1,100) <= 25)
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));
 			}
+
+			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+			{
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_hip_shooter"));
+			}
+
 		}
 		});
 
