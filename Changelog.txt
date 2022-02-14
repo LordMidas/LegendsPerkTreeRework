@@ -2,7 +2,9 @@
 ==== Ver 1.6.12 ====
 ====================
 - Embalmed Slaves no longer have hip shooter on standard difficulties, only legendary. They now have eyes up on standard *and* legendary.
-
+- Militia Glaive armor effectiveness reduced to 75% (from 85%).
+- Glaive armor effectiveness reduced to 80% (from 90%).
+- Battle Glaive armor effectiveness reduced to 85% (from 100%).
 
 ====================
 ==== Ver 1.6.11 ====

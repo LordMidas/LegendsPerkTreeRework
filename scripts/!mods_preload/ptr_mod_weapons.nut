@@ -267,6 +267,7 @@ gt.Const.PTR.modWeapons <- function()
 		o.m.IsDoubleGrippable = false;
 		o.m.RegularDamage = 35;
 		o.m.RegularDamageMax = 50;
+		o.m.ArmorDamageMult = 0.75;
 
 		local onEquip = o.onEquip;
 		o.onEquip = function()
@@ -283,6 +284,7 @@ gt.Const.PTR.modWeapons <- function()
 		o.m.IsDoubleGrippable = false;
 		o.m.RegularDamage = 50;
 		o.m.RegularDamageMax = 55;
+		o.m.ArmorDamageMult = 0.80;
 
 		local onEquip = o.onEquip;
 		o.onEquip = function()
@@ -299,6 +301,7 @@ gt.Const.PTR.modWeapons <- function()
 		o.m.IsDoubleGrippable = false;
 		o.m.RegularDamage = 55;
 		o.m.RegularDamageMax = 60;
+		o.m.ArmorDamageMult = 0.85;
 
 		local onEquip = o.onEquip;
 		o.onEquip = function()
