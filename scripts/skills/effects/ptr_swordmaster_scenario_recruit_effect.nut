@@ -167,7 +167,7 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 				local perkDef = this.m.FreePerkLevels[0].PerkDef;
 				this.m.FreePerks.push(perkDef);
 				this.getContainer().add(this.new(this.Const.Perks.PerkDefObjects[perkDef].Script));
-				this.getContainer().getActor().getBackground().addPerk(perkDef, this.m.FreePerkLevels[0].Row);
+				this.getContainer().getActor().getBackground().addPerk(perkDef, this.m.FreePerkLevels[0].Row, false);
 			}
 
 			this.m.FreePerkLevels.remove(0);

@@ -124,8 +124,7 @@ this.ptr_swordmaster_scenario <- this.inherit("scripts/scenarios/world/starting_
 	}
 
 	function onHiredByScenario( bro )
-	{
-		bro.getSkills().add(this.new("scripts/skills/perks/perk_ptr_versatile_weapon"));
+	{		
 		local effect = this.new("scripts/skills/effects/ptr_swordmaster_scenario_recruit_effect");
 		effect.m.FreePerks.push(this.Const.Perks.PerkDefs.PTRVersatileWeapon);
 		bro.getSkills().add(effect);
@@ -159,11 +158,7 @@ this.ptr_swordmaster_scenario <- this.inherit("scripts/scenarios/world/starting_
 
 	function onBuildPerkTree( _background )
 	{
-		if (_background.m.CustomPerkTree == null)
-		{
-			return;
-		}
-		_background.m.CustomPerkTree[0].push(this.Const.Perks.PerkDefs.PTRVersatileWeapon);
+		this.addScenarioPerk(_background, this.Const.Perks.PerkDefs.PTRVersatileWeapon);
 	}
 });
 
