@@ -193,7 +193,6 @@ gt.Const.PTR.modActor <- function()
 			if (hasDiscoveredTalent)
 			{
 				this.m.PerkPoints -= 1;
-				this.m.PerkPointsSpent += 1;
 				local dtPerk = this.new("scripts/skills/perks/perk_ptr_discovered_talent");
 				dtPerk.m.IsApplied = true;
 				this.getSkills().add(dtPerk);
@@ -202,7 +201,6 @@ gt.Const.PTR.modActor <- function()
 			if (hasRisingStar)
 			{
 				this.m.PerkPoints -= 1;
-				this.m.PerkPointsSpent += 1;
 				this.getSkills().add(this.new("scripts/skills/perks/perk_ptr_rising_star"));
 			}
 
@@ -220,13 +218,11 @@ gt.Const.PTR.modActor <- function()
 				{
 					if (promisedPotentialDetails.hasPunchingBag)
 					{
-						this.m.PerkPointsSpent += 1;
 						this.getSkills().add(this.new("scripts/skills/perks/perk_ptr_punching_bag"));
 					}
 
 					if (promisedPotentialDetails.hasTraumaSurvivor)
 					{
-						this.m.PerkPointsSpent += 1;
 						this.getSkills().add(this.new("scripts/skills/perks/perk_ptr_trauma_survivor"));
 					}
 				}
