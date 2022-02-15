@@ -69,6 +69,31 @@ gt.Const.PTR.modWeapons <- function()
 			});
 		}
 	}
+	
+	::mods_hookNewObject("items/weapons/greenskins/goblin_falchion", function(o) {
+		o.m.RegularDamage = 30;
+		o.m.RegularDamageMax = 35;
+		o.m.ArmorDamageMult = 0.65;
+		o.m.DirectDamageAdd = 0.5;
+	});
+	
+	::mods_hookNewObject("items/weapons/named/named_goblin_falchion", function(o) {
+		local baseWeapon = this.new("items/weapons/greenskins/goblin_falchion");
+		o.m.Condition = baseWeapon.m.Condition;
+		o.m.ConditionMax = baseWeapon.m.ConditionMax;
+		o.m.RegularDamage = baseWeapon.m.RegularDamage;
+		o.m.RegularDamageMax = baseWeapon.m.RegularDamageMax;
+		o.m.ArmorDamageMult = baseWeapon.m.ArmorDamageMult;
+		o.m.ChanceToHitHead = baseWeapon.m.ChanceToHitHead;
+		o.m.DirectDamageMult = baseWeapon.m.DirectDamageMult;
+		o.m.DirectDamageAdd = baseWeapon.m.DirectDamageAdd;
+		o.m.StaminaModifier = baseWeapon.m.StaminaModifier;
+		o.m.ShieldDamage = baseWeapon.m.ShieldDamage;
+		o.m.AdditionalAccuracy = baseWeapon.m.AdditionalAccuracy;
+		o.m.FatigueOnSkillUse = baseWeapon.m.FatigueOnSkillUse;
+		o.m.Value = 2600;
+		o.randomizeValues();
+	});
 
 	::mods_hookNewObject("items/weapons/legend_bastardsword", function(o) {
 		o.m.ChanceToHitHead = 10;
