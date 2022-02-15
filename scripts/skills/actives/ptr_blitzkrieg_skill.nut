@@ -106,7 +106,7 @@ this.ptr_blitzkrieg_skill <- this.inherit("scripts/skills/skill", {
 
 		foreach (bro in bros)
 		{
-			if (bro == _user)
+			if (bro.getID() == _user.getID())
 			{
 				this.getContainer().add(this.new("scripts/skills/effects/adrenaline_effect"));
 			}			
