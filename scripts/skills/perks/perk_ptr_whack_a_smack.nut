@@ -79,6 +79,8 @@ this.perk_ptr_whack_a_smack <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		_targetEntity.getSkills().add(this.new("scripts/skills/effects/legend_baffled_effect"));
+		local effect = this.new("scripts/skills/effects/legend_baffled_effect");
+		_targetEntity.getSkills().add(effect);
+		this.m.TurnsLeft = this.Math.max(1, 2 + this.getContainer().getActor().getCurrentProperties().NegativeStatusEffectDuration);
 	}
 });
