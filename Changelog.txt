@@ -1,4 +1,9 @@
 ====================
+==== Ver 1.6.13 ====
+====================
+- Fixed the Goblin Falchion having 70% armor penetration instead of 25%.
+
+====================
 ==== Ver 1.6.12 ====
 ====================
 - Shields Up tweaked: The AP and Fatigue cost reduction for Shieldwall now extends up to 2 tiles. Adjacent allies use Shieldwall for free both at the start and end of their turns (as long as you are carrying a shield). Added combat log entry when the free Shieldwall occurs.
