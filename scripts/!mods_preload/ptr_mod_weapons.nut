@@ -74,7 +74,7 @@ gt.Const.PTR.modWeapons <- function()
 		o.m.RegularDamage = 30;
 		o.m.RegularDamageMax = 35;
 		o.m.ArmorDamageMult = 0.65;
-		o.m.DirectDamageAdd = 0.5;
+		o.m.DirectDamageAdd = 0.05;
 	});
 	
 	::mods_hookNewObject("items/weapons/named/named_goblin_falchion", function(o) {
