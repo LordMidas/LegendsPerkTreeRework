@@ -119,7 +119,7 @@ this.ptr_blitzkrieg_skill <- this.inherit("scripts/skills/skill", {
 				{
 					bro.setFatigue(bro.getFatigue() + 10);
 					local effect = this.new("scripts/skills/effects/adrenaline_effect");				
-					if (!bro.isTurnStarted())
+					if (!bro.isTurnStarted() && !bro.isTurnDone())
 					{
 						effect.m.TurnsLeft++;
 					}
