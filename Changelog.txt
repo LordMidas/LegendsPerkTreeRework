@@ -1,11 +1,22 @@
 ====================
 ==== Ver 1.6.12 ====
 ====================
-- Embalmed Slaves no longer have hip shooter on standard difficulties, only legendary. They now have eyes up on standard *and* legendary.
+- Shields Up tweaked: The AP and Fatigue cost reduction for Shieldwall now extends up to 2 tiles. Adjacent allies use Shieldwall for free both at the start and end of their turns (as long as you are carrying a shield). Added combat log entry when the free Shieldwall occurs.
+- Shields Up free Shieldwall no longer occurs if the character is stunned/fleeing or is at a tile height difference of more than 1.
+- Moved Tactician perks Shields Up, Forward Push and Hold the Line one tier higher (they are now at t3, t4, t5 respectively).
+- Blitzkrieg is now only usable once per day (company-wide).
+- Embalmed Slaves no longer have Hip Shooter on standard difficulties, only legendary. They now have eyes up on standard *and* legendary.
 - Militia Glaive armor effectiveness reduced to 75% (from 85%).
 - Glaive armor effectiveness reduced to 80% (from 90%).
 - Battle Glaive armor effectiveness reduced to 85% (from 100%).
-- Added footwork to Juggler tree(T5).
+- Goblin Falchion tweaked: Armor penetration increased from 20% to 25%. Armor effectiveness reduced from 70% to 65%. Damage reduced from 35-45 to 30-35.
+- Added Footwork to Juggler tree t5.
+- Fixed the Militia Origin causing characters to actually lose a perk point upon using resetPerks e.g. Oblivion Potion or Realized Potential.
+- Fixed having the Discovered Talent, Rising Star, Trauma Survivor, Punching Bag perks allowing you to pick higher tier perks earlier after having your perks reset.
+- Fixed Blitzkrieg also building 10 Fatigue on the user instead of only on affected allies.
+- The Baffled from Whack a Smack now lasts 2 turns i.e. current turn and the next (unless the attacker has Resilient).
+- Updated the Old Swordmaster origin code to now add its free perks as non-refundable via resetPerks (e.g. Oblivion Potion).
+- Slight improvements to Old Swordmaster event text.
 
 ====================
 ==== Ver 1.6.11 ====
