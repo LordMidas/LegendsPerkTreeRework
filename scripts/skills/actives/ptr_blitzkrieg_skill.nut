@@ -38,12 +38,18 @@ this.ptr_blitzkrieg_skill <- this.inherit("scripts/skills/skill", {
 			text = "Every ally within [color=" + this.Const.UI.Color.PositiveValue + "]4[/color] tiles who has at least [color=" + this.Const.UI.Color.NegativeValue + "]10[/color] Fatigue remaining will get the Adrenaline effect and build [color=" + this.Const.UI.Color.NegativeValue + "]10[/color] Fatigue"
 		});
 
-		return tooltip;
-	}
+		if (this.m.IsSpent)
+		{
+			tooltip.push({
+				id = 7,
+				type = "text",
+				icon = "ui/icons/warning.png",
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]Cannot be used more than once per day (company-wide)[/color]"
+			});
+		}
+		
 
-	function isHidden()
-	{
-		return this.m.IsSpent;
+		return tooltip;
 	}
 
 	function onAdded()
@@ -71,7 +77,18 @@ this.ptr_blitzkrieg_skill <- this.inherit("scripts/skills/skill", {
 	function onUse( _user, _targetTile )
 	{
 		this.m.IsSpent = true;
-		local bros = this.Tactical.Entities.getInstancesOfFaction(_user.getFaction());		
+
+		if (_user.isPlayerControlled())
+		{
+			local rosterBros = this.World.getPlayerRoster().getAll();
+			foreach (bro in rosterBros)
+			{
+				local skill = bro.getSkills().getSkillByID("actives.ptr_blitzkrieg");
+				if (skill != null) skill.m.IsSpent = true;
+			}
+		}
+
+		local bros = this.Tactical.Entities.getInstancesOfFaction(_user.getFaction());
 
 		local sortByInitiative = function( _bro1, _bro2 )
 		{
@@ -95,12 +112,9 @@ this.ptr_blitzkrieg_skill <- this.inherit("scripts/skills/skill", {
 			}			
 			else 
 			{
-				local perk = bro.getSkills().getSkillByID("actives.ptr_blitzkrieg");
-				if (perk != null)
-				{
-					perk.m.IsSpent = true;
-				}
-
+				local skill = bro.getSkills().getSkillByID("actives.ptr_blitzkrieg");
+				if (skill != null) skill.m.IsSpent = true;
+			
 				if (bro.getTile().getDistanceTo(myTile) <= 4 && bro.getFatigueMax() - bro.getFatigue() >= 10)
 				{
 					bro.setFatigue(bro.getFatigue() + 10);
@@ -115,9 +129,8 @@ this.ptr_blitzkrieg_skill <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-	function onCombatFinished()
+	function onNewMorning()
 	{
-		this.skill.onCombatFinished();
 		this.m.IsSpent = false;
 	}
 });
