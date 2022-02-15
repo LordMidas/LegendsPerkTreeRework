@@ -88,7 +88,7 @@ this.ptr_blitzkrieg_skill <- this.inherit("scripts/skills/skill", {
 			}
 		}
 
-		local bros = this.Tactical.Entities.getInstancesOfFaction(_user.getFaction());
+		local bros = clone this.Tactical.Entities.getInstancesOfFaction(_user.getFaction());
 
 		local sortByInitiative = function( _bro1, _bro2 )
 		{
