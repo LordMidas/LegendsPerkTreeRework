@@ -35,7 +35,7 @@ this.ptr_blitzkrieg_skill <- this.inherit("scripts/skills/skill", {
 			id = 7,
 			type = "text",
 			icon = "ui/icons/special.png",
-			text = "Every ally within [color=" + this.Const.UI.Color.PositiveValue + "]4[/color] tiles who has at least [color=" + this.Const.UI.Color.NegativeValue + "]10[/color] Fatigue remaining will get the Adrenaline effect and build [color=" + this.Const.UI.Color.NegativeValue + "]10[/color] Fatigue"
+			text = "Every ally within [color=" + this.Const.UI.Color.PositiveValue + "]4[/color] tiles who has at least [color=" + this.Const.UI.Color.NegativeValue + "]10[/color] Fatigue remaining and is not Stunned or Fleeing will get the Adrenaline effect and build [color=" + this.Const.UI.Color.NegativeValue + "]10[/color] Fatigue"
 		});
 
 		if (this.m.IsSpent)
@@ -106,6 +106,11 @@ this.ptr_blitzkrieg_skill <- this.inherit("scripts/skills/skill", {
 
 		foreach (bro in bros)
 		{
+			if (bro.getMoraleState() == this.Const.MoraleState.Fleeing || bro.getCurrentProperties().IsStunned)
+			{
+				continue;
+			}
+
 			if (bro.getID() == _user.getID())
 			{
 				this.getContainer().add(this.new("scripts/skills/effects/adrenaline_effect"));
