@@ -512,7 +512,9 @@ gt.Const.PTR.createProfessionTrees <- function()
 			[
 				gt.Const.Perks.PerkDefs.LegendTwirl				
 			],
-			[],
+			[
+				gt.Const.Perks.PerkDefs.Footwork				
+			],
 			[
 				gt.Const.Perks.PerkDefs.LegendBackflip							
 			],

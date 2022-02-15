@@ -5,6 +5,7 @@
 - Militia Glaive armor effectiveness reduced to 75% (from 85%).
 - Glaive armor effectiveness reduced to 80% (from 90%).
 - Battle Glaive armor effectiveness reduced to 85% (from 100%).
+- Added footwork to Juggler tree(T5).
 
 ====================
 ==== Ver 1.6.11 ====
