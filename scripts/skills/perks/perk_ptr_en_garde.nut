@@ -31,6 +31,29 @@ this.perk_ptr_en_garde <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
+	function pickSkill()
+	{
+		if (this.m.IsSpent) return null;
+
+		local weapon = this.getContainer().getActor().getMainhandItem();
+		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Sword))
+		{
+			return null;
+		}
+
+		local skill = this.getContainer().getSkillByID("actives.riposte");
+		if (skill != null)
+		{
+			if (skill.isAffordableBasedOnFatigue()) return skill;
+		}
+		else
+		{
+			if (this.getContainer().getAttackOfOpportunity().isAffordableBasedOnFatigue()) return this.new("scripts/skills/effects/return_favor_effect");
+		}
+
+		return null
+	}
+
 	function onTurnEnd()
 	{
 		if (this.m.IsSpent)
@@ -44,26 +67,20 @@ this.perk_ptr_en_garde <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		local weapon = actor.getMainhandItem();
-		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Sword))
-		{
-			return;
-		}
-
-		local skill = this.getContainer().getSkillByID("actives.riposte");
+		local skill = this.pickSkill();
 		if (skill != null)
 		{
-			if (skill.isAffordableBasedOnFatigue())
+			if (skill.getID() == "actives.riposte")
 			{
-				skill.useForFree(actor.getTile());
+				skill.useForFree(actor.getTile());	
 			}
-		}
-		else if (this.getContainer().getAttackOfOpportunity().isAffordableBasedOnFatigue())
-		{
-			this.getContainer().add(this.new("scripts/skills/effects/return_favor_effect"));
-			if (actor.getTile().IsVisibleForPlayer)
+			else
 			{
-				this.Sound.play(this.m.SoundOnUse[this.Math.rand(0, this.m.SoundOnUse.len() - 1)], this.Const.Sound.Volume.Skill * this.m.SoundVolume, actor.getPos());
+				this.getContainer().add(skill);
+				if (actor.getTile().IsVisibleForPlayer)
+				{
+					this.Sound.play(this.m.SoundOnUse[this.Math.rand(0, this.m.SoundOnUse.len() - 1)], this.Const.Sound.Volume.Skill * this.m.SoundVolume, actor.getPos());
+				}
 			}
 		}
 	}
