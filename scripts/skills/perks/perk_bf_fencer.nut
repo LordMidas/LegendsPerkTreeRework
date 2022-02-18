@@ -1,7 +1,7 @@
 this.perk_bf_fencer <- this.inherit("scripts/skills/skill", {
 	m = {
 		FatigueMult = 0.80,
-		HitChanceBonus = 10
+		Bonus = 10
 	},
 	function create()
 	{
@@ -10,7 +10,7 @@ this.perk_bf_fencer <- this.inherit("scripts/skills/skill", {
 		this.m.Description = this.Const.Strings.PerkDescription.BFFencer;
 		this.m.Icon = "ui/perks/bf_fencer.png";
 		this.m.Type = this.Const.SkillType.Perk;
-		this.m.Order = this.Const.SkillOrder.Last;
+		this.m.Order = this.Const.SkillOrder.Last;		
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
@@ -82,9 +82,9 @@ this.perk_bf_fencer <- this.inherit("scripts/skills/skill", {
 
 		if (_skill.getID() == "actives.lunge" || _skill.getID() == "actives.bf_sword_thrust")
 		{
-			_properties.MeleeSkill += this.m.HitChanceBonus;
-			_skill.m.HitChanceBonus += this.m.HitChanceBonus;
-			_skill.m.MaxHitChancePenalty += this.m.HitChanceBonus;
+			_properties.MeleeSkill += this.m.Bonus;
+			_skill.m.HitChanceBonus += this.m.Bonus;
+			_skill.m.MaxHitChancePenalty += this.m.Bonus;
 		}
 	}
 });
