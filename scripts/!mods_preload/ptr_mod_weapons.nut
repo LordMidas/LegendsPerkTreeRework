@@ -101,10 +101,10 @@ gt.Const.PTR.modWeapons <- function()
 		o.onEquip = function()
 		{
 			this.weapon.onEquip();
-			this.addSkill(this.new("scripts/skills/actives/slash"));
-			local overhead = this.new("scripts/skills/actives/overhead_strike");
-			overhead.m.IsIgnoredAsAOO = true;
-			this.addSkill(overhead);
+			local slash  = this.new("scripts/skills/actives/slash");
+			slash.m.DirectDamageMult = this.m.DirectDamageMult;
+			this.addSkill(slash);
+			this.addSkill(this.new("scripts/skills/actives/overhead_strike"));			
 			this.addSkill(this.new("scripts/skills/actives/riposte"));
 		}
 	});
@@ -130,10 +130,10 @@ gt.Const.PTR.modWeapons <- function()
 		o.onEquip = function()
 		{
 			this.named_weapon.onEquip();
-			this.addSkill(this.new("scripts/skills/actives/overhead_strike"));
 			local slash  = this.new("scripts/skills/actives/slash");
-			slash.m.IsIgnoredAsAOO = true;
+			slash.m.DirectDamageMult = this.m.DirectDamageMult;
 			this.addSkill(slash);
+			this.addSkill(this.new("scripts/skills/actives/overhead_strike"));			
 			this.addSkill(this.new("scripts/skills/actives/riposte"));
 		}
 	});
