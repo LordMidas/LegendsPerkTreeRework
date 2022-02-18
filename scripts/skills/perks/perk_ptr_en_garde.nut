@@ -1,5 +1,6 @@
 this.perk_ptr_en_garde <- this.inherit("scripts/skills/skill", {
 	m = {
+		IsOn = true,
 		IsSpent = false
 	},
 	function create()
@@ -31,6 +32,12 @@ this.perk_ptr_en_garde <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
+	function onCombatStarted()
+	{
+		this.m.IsOn = true;
+		this.getContainer().add(this.new("scripts/skills/actives/ptr_en_garde_toggle_skill"));
+	}
+	
 	function pickSkill()
 	{
 		if (this.m.IsSpent) return null;
@@ -56,7 +63,7 @@ this.perk_ptr_en_garde <- this.inherit("scripts/skills/skill", {
 
 	function onTurnEnd()
 	{
-		if (this.m.IsSpent)
+		if (this.m.IsSpent || !this.m.IsOn)
 		{
 			return;
 		}
