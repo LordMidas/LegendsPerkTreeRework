@@ -1,4 +1,14 @@
 ====================
+==== Ver 1.6.14 ====
+====================
+- The En Garde perk can now be toggled on/off during combat. When toggled off, it will no longer trigger Riposte or Return Favor automatically on Turn End. This can be useful e.g. when facing Orc Warriors or Unholds whose AI is programmed to strongly prefer using Linebreaker or Throw against bros using Riposte, causing the Riposte to be lost.
+- New icons for En Garde and Encumbrance.
+- The Adrenaline effect from Blitzkrieg will no longer apply to Fleeing or Stunned characters.
+- Fixed the Adrenaline from Blitzkrieg lasting 2 turns on bros who had ended their turn before Blitzkrieg was used.
+- Fixed the Slash skill on Longsword having less armor ignore than intended (20% instead of 25%).
+-  
+
+====================
 ==== Ver 1.6.13 ====
 ====================
 - Fixed the Goblin Falchion having 70% armor penetration instead of 25%.
