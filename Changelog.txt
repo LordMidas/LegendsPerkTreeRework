@@ -1,4 +1,10 @@
 ====================
+==== Ver 1.6.14 ====
+====================
+- Improved Opportunist tooltip.
+
+
+====================
 ==== Ver 1.6.13 ====
 ====================
 - Fixed the Goblin Falchion having 70% armor penetration instead of 25%.
