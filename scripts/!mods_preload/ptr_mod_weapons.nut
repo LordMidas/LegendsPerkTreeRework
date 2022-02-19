@@ -78,7 +78,7 @@ gt.Const.PTR.modWeapons <- function()
 	});
 	
 	::mods_hookNewObject("items/weapons/named/named_goblin_falchion", function(o) {
-		local baseWeapon = this.new("items/weapons/greenskins/goblin_falchion");
+		local baseWeapon = this.new("scripts/items/weapons/greenskins/goblin_falchion");
 		o.m.Condition = baseWeapon.m.Condition;
 		o.m.ConditionMax = baseWeapon.m.ConditionMax;
 		o.m.RegularDamage = baseWeapon.m.RegularDamage;
