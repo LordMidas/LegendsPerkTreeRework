@@ -2,7 +2,7 @@
 ==== Ver 1.6.14 ====
 ====================
 - Improved Opportunist tooltip.
-
+- Fixed Whack A Smack bug regarding how many turns baffle is applied.
 
 ====================
 ==== Ver 1.6.13 ====
