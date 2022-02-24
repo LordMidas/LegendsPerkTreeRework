@@ -3,6 +3,8 @@
 ====================
 - Improved Opportunist tooltip.
 - Fixed Whack A Smack bug regarding how many turns baffle is applied.
+- Fixed wrong path for base weapon in named goblin fachion hook.
+- Hopefully fixed Old Swordmaster scenario Student Duel event bugging out if the student wins while he has the Weapon Master (t7) perk.
 
 ====================
 ==== Ver 1.6.13 ====

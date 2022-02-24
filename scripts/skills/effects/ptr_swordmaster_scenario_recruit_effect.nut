@@ -187,7 +187,7 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 		bg.m.PerkTreeMap = clone currentBackground.m.PerkTreeMap;
 		bg.m.CustomPerkTree = clone currentBackground.m.CustomPerkTree;
 
-		actor.getSkills().removeByID(currentBackground.getID());
+		currentBackground.removeSelf();
 		
 		local attributes = {
 			MeleeSkill = this.Math.rand(10, 15),
