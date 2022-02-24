@@ -6,7 +6,7 @@
 - The Adrenaline effect from Blitzkrieg will no longer apply to Fleeing or Stunned characters.
 - Fixed the Adrenaline from Blitzkrieg lasting 2 turns on bros who had ended their turn before Blitzkrieg was used.
 - Fixed the Slash skill on Longsword having less armor ignore than intended (20% instead of 25%).
-- Fixed Whack A Smack bug regarding how many turns baffled is applied.
+- Fixed a bug in Whack a Smack not applying Baffled for the correct number of turns and potentially causing the skills of the character to bug out. 
 - Fixed a bug with named goblin falchions causing battles with such weapons to not load.
 - Hopefully fixed Old Swordmaster scenario Student Duel event bugging out if the student wins while he has the Weapon Master (t7) perk.
 - Improved Opportunist tooltip.
