@@ -14,6 +14,9 @@ gt.Const.PTR.ModID <- "mod_legends_PTR";
 {	
 	this.MSU.Log.setDebugLog(false, gt.Const.PTR.ModID);
 
+	gt.Const.PTR.modMSU();
+	delete gt.Const.PTR.modMSU;
+
 	gt.Const.PTR.modRetinue();
 	delete gt.Const.PTR.modRetinue;
 
