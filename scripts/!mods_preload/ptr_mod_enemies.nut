@@ -2253,13 +2253,13 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));	
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_coup_de_grace"));							
 			}
+		}
 
-			local assignRandomEquipment = o.assignRandomEquipment;
-			o.assignRandomEquipment = function()
-			{
-				assignRandomEquipment();
-				this.m.Skills.addTreeOfEquippedWeapon();
-			}
+		local assignRandomEquipment = o.assignRandomEquipment;
+		o.assignRandomEquipment = function()
+		{
+			assignRandomEquipment();
+			this.m.Skills.addTreeOfEquippedWeapon();
 		}
 	});
 
