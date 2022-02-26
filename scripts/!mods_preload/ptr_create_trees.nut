@@ -933,7 +933,7 @@ gt.Const.PTR.createSpecialTrees <- function()
 		{
 			this.Perks.push({
 				Perk = _perk,
-				Desc = _desc
+				Desc = "[color=" + this.Const.UI.Color.NegativeValue + "]" + _desc + "[/color]"
 				Func = _func,
 				Row = _tier - 1
 			});
