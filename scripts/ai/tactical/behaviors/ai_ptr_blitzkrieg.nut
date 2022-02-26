@@ -50,7 +50,7 @@ this.ai_ptr_blitzkrieg <- this.inherit("scripts/ai/tactical/behavior", {
 		local getPredictedInitiatve = function( _actor )
 		{
 			local ret = _actor.getInitiative();
-			if (!_actor.isTurnStarted())
+			if (!_actor.isTurnStarted() && !_actor.isTurnDone())
 			{
 				local aoo = _actor.getSkills().getAttackOfOpportunity();
 				if (aoo != null)
