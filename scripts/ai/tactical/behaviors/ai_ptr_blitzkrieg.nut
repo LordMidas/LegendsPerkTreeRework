@@ -15,7 +15,6 @@ this.ai_ptr_blitzkrieg <- this.inherit("scripts/ai/tactical/behavior", {
 	function onEvaluate( _entity )
 	{
 		this.m.Skill = null;
-		local score = this.getProperties().BehaviorMult[this.m.ID];
 
 		if (_entity.getActionPoints() < this.Const.Movement.AutoEndTurnBelowAP)
 		{
@@ -38,14 +37,22 @@ this.ai_ptr_blitzkrieg <- this.inherit("scripts/ai/tactical/behavior", {
 		{
 			return this.Const.AI.Behavior.Score.Zero;
 		}
-
-		score = score * this.getFatigueScoreMult(this.m.Skill);
+		
+		local enemies = this.Tactical.Entities.getInstancesHostileWithFaction(_entity.getFaction());
+		foreach (enemy in enemies)
+		{
+			local blitzkrieg = enemy.getSkills().getSkillByID("actives.ptr_blitzkrieg");
+			if (blitzkrieg != null && blitzkrieg.m.IsSpent && enemy.getSkills().hasSkill("effects.adrenaline"))
+			{
+				return this.Const.AI.Behavior.Score.Zero;
+			}
+		}
 
 		local allies = this.Tactical.Entities.getInstancesOfFaction(_entity.getFaction());
-		local enemies = this.Tactical.Entities.getInstancesHostileWithFaction(_entity.getFaction());
 		local myTile = _entity.getTile();
 		local useScore = 0.0;
 		local numTargets = 0;
+		local score = this.getProperties().BehaviorMult[this.m.ID] * this.getFatigueScoreMult(this.m.Skill);
 
 		local getPredictedInitiatve = function( _actor )
 		{
