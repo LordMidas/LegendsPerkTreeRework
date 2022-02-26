@@ -92,7 +92,7 @@ gt.Const.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRPushIt <- "Push It";
 	gt.Const.Strings.PerkDescription.PTRPushIt <- "[color=" + this.Const.UI.Color.NegativeValue + "][u]Requires:[/u] Mace[/color]\nPut your weight into it!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Successfully stunning an opponent with a mace now also applies the Staggered effect.";
 	gt.Const.Strings.PerkName.PTRHeavyStrikes <- "Heavy Strikes";
-	gt.Const.Strings.PerkDescription.PTRHeavyStrikes <- "[color=" + this.Const.UI.Color.NegativeValue + "][u]Requires:[/u] Mace[/color]\nYour strikes contain enough force that they disorient your enemies!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Successful hits with maces always apply the Baffled effect.";
+	gt.Const.Strings.PerkDescription.PTRHeavyStrikes <- "[color=" + this.Const.UI.Color.NegativeValue + "][u]Requires:[/u] Mace and Blunt Damage[/color]\nYour strikes contain enough force that they disorient your enemies!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Successful hits with maces that deal Blunt damage always apply the Baffled effect.";
 	gt.Const.Strings.PerkName.PTRBearDown <- "Bear Down";
 	gt.Const.Strings.PerkDescription.PTRBearDown <- "\'Give their \'ed a nice knock, then move in for the kill!\'\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Damage against enemies who have suffered a negative status effect is increased by [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color] per such status effect.\n• Only Stunned, Staggered, Dazed, and Baffled count as valid negative status effectst for this perk.";
 	gt.Const.Strings.PerkName.PTRConcussiveStrikes <- "Concussive Strikes";
