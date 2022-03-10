@@ -3211,10 +3211,10 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			onInit();
 			this.m.Skills.removeByID("perk.footwork");
-			this.m.Skills.removeByID("perk.feint");
-			this.m.Skills.removeByID("perk.fast_adaption");	
+			this.m.Skills.removeByID("perk.fast_adaption");
 			this.m.Skills.removeByID("perk.legend_back_to_basics");
-			this.m.Skills.removeByID("perk.berserk");	
+			this.m.Skills.removeByID("perk.feint");
+			this.m.Skills.removeByID("perk.berserk");
 			this.m.Skills.removeByID("perk.reach_advantage");
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_assured_conquest"));				
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_pathfinder"));
