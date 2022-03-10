@@ -2,6 +2,7 @@
 ==== Ver 2.0.0 ====
 ====================
 - Removed Born With a Board, Shield Bash and Push It from enemy Hedge Knights.
+- Removed Born With a Board, Shield Bash and Push It from enemy Knights.
 
 ====================
 ==== Ver 1.6.14 ====

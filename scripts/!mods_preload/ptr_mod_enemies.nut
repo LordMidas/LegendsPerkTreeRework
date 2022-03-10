@@ -3130,11 +3130,10 @@ gt.Const.PTR.modEnemies <- function()
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.removeByID("perk.legend_forceful_swing");
 			this.m.Skills.removeByID("perk.fast_adaption");
-			this.m.Skills.removeByID("perk.reach_advantage");
 			this.m.Skills.removeByID("perk.crippling_strikes");
-			this.m.Skills.removeByID("perk.coup_de_grace");			
+			this.m.Skills.removeByID("perk.coup_de_grace");		
+			this.m.Skills.removeByID("perk.reach_advantage");
 			this.m.Skills.removeByID("perk.berserk");						
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_assured_conquest"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_man_of_steel"));
@@ -3156,13 +3155,17 @@ gt.Const.PTR.modEnemies <- function()
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.removeByID("perk.steel_brow");
-				this.m.Skills.removeByID("perk.legend_composure");	
-				this.m.Skills.removeByID("perk.legend_full_force");		
-				this.m.Skills.removeByID("perk.last_stand");			
-				this.m.Skills.removeByID("perk.feint");		
-				this.m.Skills.removeByID("perk.legend_smashing_shields");	
+				this.m.Skills.removeByID("perk.feint");
+				this.m.Skills.removeByID("perk.legend_specialist_shield_skill");
+				this.m.Skills.removeByID("perk.legend_specialist_shield_push");
+				this.m.Skills.removeByID("perk.legend_smashing_shields");
+				this.m.Skills.removeByID("perk.shield_bash");
 				this.m.Skills.removeByID("perk.legend_back_to_basics");
-				this.m.Skills.removeByID("perk.bloody_harvest");																																															
+				this.m.Skills.removeByID("perk.legend_full_force");
+				this.m.Skills.removeByID("perk.last_stand");
+				this.m.Skills.removeByID("perk.legend_forceful_swing");
+				this.m.Skills.removeByID("perk.bloody_harvest");
+				this.m.Skills.removeByID("perk.legend_composure");
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_fearsome"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_personal_armor"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_clarity"));				
