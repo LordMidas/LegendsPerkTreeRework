@@ -1,4 +1,9 @@
 ====================
+==== Ver 2.0.0 ====
+====================
+- Removed Born With a Board, Shield Bash and Push It from enemy Hedge Knights.
+
+====================
 ==== Ver 1.6.14 ====
 ====================
 - The En Garde perk can now be toggled on/off during combat. When toggled off, it will no longer trigger Riposte or Return Favor automatically on Turn End. This can be useful e.g. when facing Orc Warriors or Unholds whose AI is programmed to strongly prefer using Linebreaker or Throw against bros using Riposte, causing the Riposte to be lost.

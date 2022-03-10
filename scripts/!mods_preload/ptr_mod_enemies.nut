@@ -3080,11 +3080,14 @@ gt.Const.PTR.modEnemies <- function()
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.removeByID("perk.steel_brow");
-				this.m.Skills.removeByID("perk.legend_back_to_basics");
 				this.m.Skills.removeByID("perk.feint");		
+				this.m.Skills.removeByID("perk.legend_specialist_shield_skill");
+				this.m.Skills.removeByID("perk.legend_specialist_shield_push");
+				this.m.Skills.removeByID("perk.legend_smashing_shields");
+				this.m.Skills.removeByID("perk.legend_back_to_basics");
+				this.m.Skills.removeByID("perk.shield_bash");
 				this.m.Skills.removeByID("perk.legend_full_force");	
-				this.m.Skills.removeByID("perk.bloody_harvest");	
-				this.m.Skills.removeByID("perk.legend_smashing_shields");																																			
+				this.m.Skills.removeByID("perk.bloody_harvest");
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_lone_wolf"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_exude_confidence"));				
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_personal_armor"));
