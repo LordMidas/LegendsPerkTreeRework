@@ -3702,6 +3702,8 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
+				this.m.Skills.removeByID("perk.lone_wolf");
+				this.m.Skills.removeByID("perk.berserk");
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));
 				this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));	
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_mar_perfect_fit"));							
