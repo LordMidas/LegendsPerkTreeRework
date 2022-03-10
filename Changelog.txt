@@ -6,6 +6,8 @@
 - Removed Born With a Board, Shield Bash and Push It from Knights.
 - Removed Born With a Board, Shield Bash, Smashing Shields and Push It from Footmen.
 - Removed Feint from Zweihander.
+- Swordmasters on Legendary difficulty now have underdog like their standard difficulty counterparts.
+
 ====================
 ==== Ver 1.6.14 ====
 ====================

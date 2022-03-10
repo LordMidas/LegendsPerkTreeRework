@@ -4145,11 +4145,11 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				this.m.Skills.removeByID("perk.legend_composure");	
-				this.m.Skills.removeByID("perk.last_stand");	
-				this.m.Skills.removeByID("perk.legend_full_force");														
-				this.m.Skills.removeByID("perk.legend_back_to_basics");	
-				this.m.Skills.removeByID("perk.feint");	
+				this.m.Skills.removeByID("perk.last_stand");
+				this.m.Skills.removeByID("perk.legend_composure");
+				this.m.Skills.removeByID("perk.feint");
+				this.m.Skills.removeByID("perk.legend_back_to_basics");
+				this.m.Skills.removeByID("perk.legend_full_force");
 				this.m.Skills.removeByID("trait.fearless");		
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_mind_over_body"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));	
@@ -4617,9 +4617,8 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.removeByID("perk.legend_full_force");	
 				this.m.Skills.removeByID("perk.feint");
 				this.m.Skills.removeByID("perk.head_hunter");
-				this.m.Skills.removeByID("perk.returnFavor");							
+				this.m.Skills.removeByID("perk.return_favor");							
 				this.m.Skills.removeByID("perk.legend_composure");
-				this.m.Skills.removeByID("perk.underdog");				
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_pattern_recognition"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_nine_lives"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_assured_conquest"));
@@ -4655,7 +4654,6 @@ gt.Const.PTR.modEnemies <- function()
 					this.m.Items.equip(this.new("scripts/items/weapons/named/named_fencing_sword"));
 				}
 
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_double_strike"));
 				local cullPerk = this.new("scripts/skills/perks/perk_ptr_cull");
 				cullPerk.m.IsForceEnabled = true;
 				this.m.Skills.add(cullPerk);
