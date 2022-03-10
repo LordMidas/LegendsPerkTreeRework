@@ -10,7 +10,9 @@ gt.Const.PTR.modEnemies <- function()
 	this.Const.Tactical.Actor.BanditWarlord.MeleeDefense = 30;
 	this.Const.Tactical.Actor.BanditWarlord.RangedDefense = 30;
 	this.Const.Tactical.Actor.BanditWarlord.Initiative = 170;
-	this.Const.Tactical.Actor.BanditWarlord.FatigueRecoveryRate = 20;	
+	this.Const.Tactical.Actor.BanditWarlord.FatigueRecoveryRate = 20;
+	this.Const.Tactical.Actor.Mercenary.Hitpoints = 90;
+	this.Const.Tactical.Actor.Mercenary.MeleeDefense = 20;
 
 	::mods_hookExactClass("entity/tactical/goblin", function(o) {
 		local onInit = o.onInit;
@@ -3574,7 +3576,9 @@ gt.Const.PTR.modEnemies <- function()
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.removeByID("perk.fast_adaption");			
+			this.m.Skills.removeByID("perk.fast_adaption");
+			this.m.Skills.removeByID("perk.legend_smashing_shields");
+			this.m.Skills.removeByID("perk.crippling_strikes");
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_quick_hands"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_close_combat_archer"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_skirmisher"));
@@ -3634,6 +3638,9 @@ gt.Const.PTR.modEnemies <- function()
 		o.onInit = function()
 		{
 			onInit();
+			this.m.Skills.removeByID("perk.nimble");
+			this.m.Skills.removeByID("perk.backstabber");
+			this.m.Skills.removeByID("perk.overwhelm");
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_quick_hands"));
 
 			local offhandItem = this.getOffhandItem();
@@ -3648,11 +3655,9 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				this.m.Hitpoints = this.getBaseProperties().Hitpoints;				
-				this.m.Skills.removeByID("perk.stalwart");
-				this.m.Skills.removeByID("perk.steel_brow");
-				this.m.Skills.removeByID("perk.pathfinder");	
-				this.m.Skills.removeByID("perk.rebound");															
+				this.m.Hitpoints = this.getBaseProperties().Hitpoints;
+				this.m.Skills.removeByID("perk.battle_forged");
+				this.m.Skills.removeByID("perk.pathfinder");
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
 
@@ -3702,6 +3707,7 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
+				this.m.Skills.removeByID("perk.nine_lives");
 				this.m.Skills.removeByID("perk.lone_wolf");
 				this.m.Skills.removeByID("perk.berserk");
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));
