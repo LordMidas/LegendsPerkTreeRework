@@ -2,10 +2,10 @@
 ==== Ver 2.0.0 ====
 ====================
 == Enemy Balance ==
-- Removed Born With a Board, Shield Bash and Push It from enemy Hedge Knights.
-- Removed Born With a Board, Shield Bash and Push It from enemy Knights.
-- Removed Born With a Board, Shield Bash, Smashing Shields and Push It from enemy Footmen.
-
+- Removed Born With a Board, Shield Bash and Push It from Hedge Knights.
+- Removed Born With a Board, Shield Bash and Push It from Knights.
+- Removed Born With a Board, Shield Bash, Smashing Shields and Push It from Footmen.
+- Removed Feint from Zweihander.
 ====================
 ==== Ver 1.6.14 ====
 ====================
