@@ -1,8 +1,10 @@
 ====================
 ==== Ver 2.0.0 ====
 ====================
+== Enemy Balance ==
 - Removed Born With a Board, Shield Bash and Push It from enemy Hedge Knights.
 - Removed Born With a Board, Shield Bash and Push It from enemy Knights.
+- Removed Born With a Board, Shield Bash, Smashing Shields and Push It from enemy Footmen.
 
 ====================
 ==== Ver 1.6.14 ====

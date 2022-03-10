@@ -3909,6 +3909,13 @@ gt.Const.PTR.modEnemies <- function()
 			b.RangedDefense += 10;
 			local c = this.getCurrentProperties();
 			c.RangedDefense += 10;	
+			this.m.Skills.removeByID("perk.shield_expert");
+			this.m.Skills.removeByID("perk.legend_specialist_militia_skill");				
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_rotation"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_anticipation"));	
+
 			local mainhandItem = this.getMainhandItem();		    
 			if (mainhandItem != null && mainhandItem.isItemType(this.Const.Items.ItemType.TwoHanded))
 			{
@@ -3929,14 +3936,7 @@ gt.Const.PTR.modEnemies <- function()
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));
 				}						    
 			}
-
-			this.m.Skills.removeByID("perk.shield_expert");
-			this.m.Skills.removeByID("perk.legend_specialist_militia_skill");				
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_rotation"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_anticipation"));			
-
+		
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.removeByID("perk.legend_specialist_militia_damage");					
@@ -4069,12 +4069,16 @@ gt.Const.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				this.m.Skills.addTreeOfEquippedWeapon(6);				
+				this.m.Skills.addTreeOfEquippedWeapon(6);
+				this.m.Skills.removeByID("perk.steel_brow");
+				this.m.Skills.removeByID("perk.feint");
 				this.m.Skills.removeByID("perk.stalwart");
-				this.m.Skills.removeByID("perk.steel_brow");	
-				this.m.Skills.removeByID("perk.legend_back_to_basics");		
+				this.m.Skills.removeByID("perk.legend_specialist_shield_skill");
+				this.m.Skills.removeByID("perk.legend_specialist_shield_push");
+				this.m.Skills.removeByID("perk.legend_smashing_shields");
+				this.m.Skills.removeByID("perk.legend_back_to_basics");
+				this.m.Skills.removeByID("perk.shield_bash");
 				this.m.Skills.removeByID("perk.legend_full_force");
-				this.m.Skills.removeByID("perk.feint");				
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_shield_expert"));										
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));				
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vigilant"));
