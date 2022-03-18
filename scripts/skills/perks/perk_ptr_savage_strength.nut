@@ -21,7 +21,7 @@ this.perk_ptr_savage_strength <- this.inherit("scripts/skills/skill", {
 			local skills = weapon.getSkills();
 			foreach (skill in skills)
 			{
-				skill.m.FatigueCost -= this.Math.min(2, weapon.m.FatigueOnSkillUse);
+				skill.m.FatigueCost -= 5;
 			}
 		}
 	}
