@@ -1,8 +1,8 @@
 this.perk_ptr_family_ties <- this.inherit("scripts/skills/skill", {
 	m = {
 		MinBoost = 1,
-		MaxBoost = 5,
-		BonusPerLevel = 0.5,
+		MaxBoost = 2,
+		BonusPerLevel = 0.25,
 		IsSpent = false,
 	},
 	function create()
