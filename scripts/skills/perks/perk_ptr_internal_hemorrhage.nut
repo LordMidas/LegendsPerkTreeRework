@@ -1,7 +1,6 @@
 this.perk_ptr_internal_hemorrhage <- this.inherit("scripts/skills/skill", {
 	m = {
 		IsForceEnabled = false,
-		HitpointsBeforeHit = 0,
 		PercentageOfDamage = 20
 	},
 	function create()
@@ -17,31 +16,29 @@ this.perk_ptr_internal_hemorrhage <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
-	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
-	{
-		this.m.HitpointsBeforeHit = _targetEntity.getHitpoints();
-	}
-
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		local actor = this.getContainer().getActor();
 		if (!_targetEntity.isAlive() || _targetEntity.isDying() || !_skill.isAttack() || (!_skill.hasDamageType(this.Const.Damage.DamageType.Blunt) && !this.m.IsForceEnabled))
 		{
 			return;
 		}
 
-		if (_targetEntity.getArmor(_bodyPart) == 0)
+		if (!_targetEntity.getCurrentProperties().IsImmuneToBleeding && _damageInflictedHitpoints >= this.Const.Combat.MinDamageToApplyBleeding )
 		{
-			if (!_targetEntity.getCurrentProperties().IsImmuneToBleeding && this.m.HitpointsBeforeHit - _targetEntity.getHitpoints() >= this.Const.Combat.MinDamageToApplyBleeding )
+			local hemorrhageDamage = this.Math.floor(_damageInflictedHitpoints * this.m.PercentageOfDamage * 0.01);
+			if (hemorrhageDamage < 1)
 			{
-				local effect = this.new("scripts/skills/effects/ptr_internal_hemorrhage_effect");
-				if (actor.getFaction() == this.Const.Faction.Player)
-				{
-					effect.setActor(actor);
-				}
-				effect.setDamage(this.Math.floor(_damageInflictedHitpoints * this.m.PercentageOfDamage * 0.01));
-				_targetEntity.getSkills().add(effect);
+				return;
 			}
+
+			local actor = this.getContainer().getActor();
+			local effect = this.new("scripts/skills/effects/ptr_internal_hemorrhage_effect");
+			if (actor.getFaction() == this.Const.Faction.Player)
+			{
+				effect.setActor(actor);
+			}
+			effect.setDamage(hemorrhageDamage);
+			_targetEntity.getSkills().add(effect);
 		}
 	}
 
@@ -53,7 +50,7 @@ this.perk_ptr_internal_hemorrhage <- this.inherit("scripts/skills/skill", {
 				id = 10,
 				type = "text",
 				icon = "ui/icons/special.png",
-				text = "Inflicts internal hemorrhage for [color=" + this.Const.UI.Color.DamageValue + "]" + this.m.PercentageOfDamage + "%[/color] of the damage dealt to Hitpoints when the body part hit has 0 armor remaining"
+				text = "Inflicts internal hemorrhage for [color=" + this.Const.UI.Color.DamageValue + "]" + this.m.PercentageOfDamage + "%[/color] of the damage dealt to Hitpoints"
 			});
 		}
 	}
