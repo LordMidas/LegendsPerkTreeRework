@@ -33,7 +33,7 @@ this.perk_ptr_internal_hemorrhage <- this.inherit("scripts/skills/skill", {
 
 			local actor = this.getContainer().getActor();
 			local effect = this.new("scripts/skills/effects/ptr_internal_hemorrhage_effect");
-			if (actor.getFaction() == this.Const.Faction.Player)
+			if (actor.getFaction() == this.Const.Faction.Player || actor.getFaction() == this.Const.Faction.PlayerAnimals)
 			{
 				effect.setActor(actor);
 			}
