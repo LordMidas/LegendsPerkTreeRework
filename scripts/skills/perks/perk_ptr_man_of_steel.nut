@@ -43,6 +43,12 @@ this.perk_ptr_man_of_steel <- this.inherit("scripts/skills/skill", {
 		return tooltip;
 	}
 
+	function onUpdate( _properties )
+	{
+		_properties.ArmorMult[this.Const.BodyPart.Head] *= 1.1;
+		_properties.ArmorMult[this.Const.BodyPart.Body] *= 1.1;
+	}
+
 	function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
 	{
 		if (_skill == null || !_skill.isRanged() || !_skill.isAttack())
