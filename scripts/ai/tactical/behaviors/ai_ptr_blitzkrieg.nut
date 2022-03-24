@@ -88,7 +88,7 @@ this.ai_ptr_blitzkrieg <- this.inherit("scripts/ai/tactical/behavior", {
 
 			foreach (enemy in enemies)
 			{
-				if (enemy.getTile().getDistanceTo(allyTile) <= 2 && !enemy.getCurrentProperties().IsStunned && enemy.getMoraleState() != this.Const.MoraleState.Fleeing && getPredictedInitiatve(enemy) > getPredictedInitiatve(ally))
+				if ((enemy.getFaction() == this.Const.Faction.Player || enemy.getMainhandItem() != null) && enemy.getTile().getDistanceTo(allyTile) <= 2 && !enemy.getCurrentProperties().IsStunned && enemy.getMoraleState() != this.Const.MoraleState.Fleeing && getPredictedInitiatve(enemy) > getPredictedInitiatve(ally))
 				{
 					numFasterEnemies++;
 				}
