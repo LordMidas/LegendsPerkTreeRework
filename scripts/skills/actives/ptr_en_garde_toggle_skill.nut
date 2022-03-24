@@ -42,7 +42,14 @@ this.ptr_en_garde_toggle_skill <- this.inherit("scripts/skills/skill", {
 
 	function isHidden()
 	{
-		return !this.getContainer().getActor().isPlayerControlled();
+		if (!this.getContainer().getActor().isPlayerControlled()) return true;
+		local weapon = this.getContainer().getActor().getMainhandItem();
+		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Sword))
+		{
+			return true;
+		}
+
+		return false;
 	}
 
 	function onVerifyTarget( _originTile, _targetTile )
