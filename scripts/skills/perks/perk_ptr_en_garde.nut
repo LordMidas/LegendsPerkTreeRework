@@ -1,7 +1,8 @@
 this.perk_ptr_en_garde <- this.inherit("scripts/skills/skill", {
 	m = {
 		IsOn = true,
-		IsSpent = false
+		IsSpent = false,
+		FatigueRequired = 15
 	},
 	function create()
 	{
@@ -42,23 +43,26 @@ this.perk_ptr_en_garde <- this.inherit("scripts/skills/skill", {
 	{
 		if (this.m.IsSpent) return null;
 
-		local weapon = this.getContainer().getActor().getMainhandItem();
+		local actor = this.getContainer().getActor();
+
+		local weapon = actor.getMainhandItem();
 		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Sword))
 		{
 			return null;
 		}
 
 		local skill = this.getContainer().getSkillByID("actives.riposte");
-		if (skill != null)
+		if (skill == null)
 		{
-			if (skill.isAffordableBasedOnFatigue()) return skill;
-		}
-		else
-		{
-			if (this.getContainer().getAttackOfOpportunity().isAffordableBasedOnFatigue()) return this.new("scripts/skills/effects/return_favor_effect");
+			skill = this.new("scripts/skills/effects/return_favor_effect");
 		}
 
-		return null
+		if (skill != null && !skill.isHidden() && (actor.getFatigueMax() - actor.getFatigue()) >= this.m.FatigueRequired)
+		{
+			return skill;
+		}
+
+		return null;
 	}
 
 	function onTurnEnd()
