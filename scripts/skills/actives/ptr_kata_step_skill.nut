@@ -1,7 +1,6 @@
 this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 	m = {
 		IsSpent = false,
-		SkillCounter = 0,
 		IsForceEnabled = false
 	},
 	function create()
@@ -263,8 +262,6 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		this.m.SkillCounter = this.Const.SkillCounter;
-
 		this.m.IsSpent = false;
 	}
 
@@ -276,12 +273,9 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-	function onTargetMissed( _skill, _targetEntity )
+	function onBeforeAnySkillExecuted( _skill, _targetTile, _targetEntity )
 	{
-		if (_skill.isAttack() && this.m.SkillCounter != this.Const.SkillCounter)
-		{
-			this.m.IsSpent = true;
-		}
+		this.m.IsSpent = true;
 	}
 
 	function onPayForItemAction( _skill, _items )
