@@ -5231,15 +5231,13 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	::mods_hookNewObject("skills/backgrounds/witchhunter_background", function(o) {
 		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
+				{Multiplier = 3, Tree = this.Const.Perks.CalmTree},			
 				{Multiplier = 2, Tree = this.Const.Perks.AgileTree},
 				{Multiplier = 3, Tree = this.Const.Perks.ViciousTree},
 				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
 				{Multiplier = 2, Tree = this.Const.Perks.TalentedTree},
 				{Multiplier = 0, Tree = this.Const.Perks.OrganisedTree},
 				{Multiplier = 3, Tree = this.Const.Perks.BowTree}
-			],
-			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.HolyManProfessionTree}]
 			],
 			Class = [
 				[{Weight = 100, Tree = this.Const.Perks.SergeantClassTree}]
@@ -5251,7 +5249,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				[{Weight = 100, Tree = this.Const.Perks.CrossbowTree}]
 			]
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+				[{Weight = 100, Tree = this.Const.Perks.RangedTree}]
 			]
 		};
 	});

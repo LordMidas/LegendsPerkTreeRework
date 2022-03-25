@@ -10,6 +10,7 @@
 - Removed Lone Wolf and Berserk on Legendary Ranged Mercenaries as was intended.
 - Reverted perk and stat changes to Mercenaries from Legends 15.0.2.11 "Bastard Blades" since we have our own balance.
 
+- Removed Holy Man profession fron Witch Hunter. Added 3x weight to calm tree. Guaranteed Ranged tree.
 ====================
 ==== Ver 1.6.14 ====
 ====================
