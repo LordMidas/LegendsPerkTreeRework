@@ -147,7 +147,6 @@ this.ptr_swordmaster_commander_background <- this.inherit("scripts/skills/backgr
 		addPerksToCustomPerkTree(3, this.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.PTRFormidableApproach,
 				this.Const.Perks.PerkDefs.PTRExudeConfidence,
-				this.Const.Perks.PerkDefs.Taunt,
 				this.Const.Perks.PerkDefs.PTRFamilyPride,
 				this.Const.Perks.PerkDefs.PTRDismemberment,
 				this.Const.Perks.PerkDefs.PTRThroughTheGaps,
@@ -164,7 +163,8 @@ this.ptr_swordmaster_commander_background <- this.inherit("scripts/skills/backgr
 				this.Const.Perks.PerkDefs.PTRTheRushOfBattle,			
 				this.Const.Perks.PerkDefs.DoubleStrike,			
 				this.Const.Perks.PerkDefs.LegendForwardPush,
-				this.Const.Perks.PerkDefs.LegendHoldTheLine
+				this.Const.Perks.PerkDefs.LegendHoldTheLine,
+				this.Const.Perks.PerkDefs.Taunt
 			]
 		);
 
