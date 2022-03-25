@@ -2373,16 +2373,15 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.HammerTree,			
 				this.Const.Perks.SwordTree,
 				this.Const.Perks.HeavyArmorTree,
-				this.Const.Perks.ShieldTree,
 				this.Const.Perks.ViciousTree,
-				this.Const.Perks.SturdyTree,
-				this.Const.Perks.TwoHandedTree
+				this.Const.Perks.SturdyTree
 			]
 		);
 
 
 		addPerksToCustomPerkTree(1, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.BagsAndBelts,
+				this.Const.Perks.PerkDefs.STRPhalanx,
 				this.Const.Perks.PerkDefs.LegendSmashingShields,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyZombie
 			]
@@ -2390,6 +2389,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 
 		addPerksToCustomPerkTree(2, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.RallyTheTroops,
+				this.Const.Perks.PerkDefs.STRCoverAlly,
 				this.Const.Perks.PerkDefs.PTRDismemberment,
 				this.Const.Perks.PerkDefs.PTRSanguinary,
 				this.Const.Perks.PerkDefs.QuickHands								
@@ -2400,12 +2400,14 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.HoldOut,
 				this.Const.Perks.PerkDefs.FortifiedMind,
 				this.Const.Perks.PerkDefs.Steadfast,
-				this.Const.Perks.PerkDefs.Rotation
+				this.Const.Perks.PerkDefs.Rotation,
+				this.Const.Perks.PerkDefs.PTRFormidableApproach
 			]
 		);
 
 		addPerksToCustomPerkTree(4, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.LegendFavouredEnemySkeleton,
+				this.Const.Perks.PerkDefs.STRLineBreaker,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyVampire,
 				this.Const.Perks.PerkDefs.SpecCleaver,
 				this.Const.Perks.PerkDefs.PTRTheRushOfBattle,				
@@ -2427,17 +2429,16 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		);
 
 		addPerksToCustomPerkTree(6, o.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.Duelist,			
 				this.Const.Perks.PerkDefs.PTRVigorousAssault,
 				this.Const.Perks.PerkDefs.LegendMindOverBody,				
 				this.Const.Perks.PerkDefs.LegendHolyFlame,
-				this.Const.Perks.PerkDefs.LegendClarity
+				this.Const.Perks.PerkDefs.LegendClarity,
+				this.Const.Perks.PerkDefs.PTRSweepingStrikes
 			]
 		);
 
 		addPerksToCustomPerkTree(7, o.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.BattleFlow,
-				this.Const.Perks.PerkDefs.PTRWeaponMaster,				
+				this.Const.Perks.PerkDefs.BattleFlow,		
 				this.Const.Perks.PerkDefs.LastStand,
 				this.Const.Perks.PerkDefs.Inspire,								
 				this.Const.Perks.PerkDefs.PTRProfessional,
