@@ -114,8 +114,7 @@ this.ptr_swordmaster_commander_background <- this.inherit("scripts/skills/backgr
 				this.Const.Perks.TrapperClassTree,
 				this.Const.Perks.SwordTree,
 				this.Const.Perks.LightArmorTree,
-				this.Const.Perks.MediumArmorTree,				
-				this.Const.Perks.TwoHandedTree
+				this.Const.Perks.MediumArmorTree
 			]
 		);
 
@@ -146,6 +145,7 @@ this.ptr_swordmaster_commander_background <- this.inherit("scripts/skills/backgr
 		);
 
 		addPerksToCustomPerkTree(3, this.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.PTRFormidableApproach,
 				this.Const.Perks.PerkDefs.PTRExudeConfidence,
 				this.Const.Perks.PerkDefs.Taunt,
 				this.Const.Perks.PerkDefs.PTRFamilyPride,
@@ -157,7 +157,6 @@ this.ptr_swordmaster_commander_background <- this.inherit("scripts/skills/backgr
 		);
 		
 		addPerksToCustomPerkTree(4, this.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.ShieldExpert,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemySwordmaster,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyNoble,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemySoutherner,
@@ -181,18 +180,17 @@ this.ptr_swordmaster_commander_background <- this.inherit("scripts/skills/backgr
 
 		addPerksToCustomPerkTree(6, this.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.HeadHunter,
+				this.Const.Perks.PerkDefs.PTRSweepingStrikes,
 				this.Const.Perks.PerkDefs.LegendMindOverBody,
 				this.Const.Perks.PerkDefs.PTRKnowTheirWeakness,
 				this.Const.Perks.PerkDefs.Overwhelm,
 				this.Const.Perks.PerkDefs.LegendClarity,
-				this.Const.Perks.PerkDefs.Duelist,
 				this.Const.Perks.PerkDefs.PushTheAdvantage,
 				this.Const.Perks.PerkDefs.PTRBloodbath
 			]
 		);
 
 		addPerksToCustomPerkTree(7, this.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.PTRWeaponMaster,
 				this.Const.Perks.PerkDefs.BattleFlow,
 				this.Const.Perks.PerkDefs.LastStand,
 				this.Const.Perks.PerkDefs.BFFencer,
