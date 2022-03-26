@@ -30,7 +30,7 @@ this.ptr_direct_damage_limiter_effect <- this.inherit("scripts/skills/skill", {
 				// the tooltip is calculated properly.
 				if (_targetEntity == null)
 				{
-					_properties.DamageDirectMult *= this.m.Max / (_skill.getDirectDamage() + _properties.DamageDirectAdd);
+					_properties.DamageDirectMult = this.m.Max / (_skill.getDirectDamage() + _properties.DamageDirectAdd);
 				}
 			}
 		}
