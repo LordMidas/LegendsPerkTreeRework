@@ -98,7 +98,7 @@ this.ptr_swordmaster_scenario_avatar_effect <- this.inherit("scripts/skills/effe
 				id = 10,
 				type = "text",
 				icon = "ui/icons/warning.png",
-				text = "The campaign will end if a total of 50 days pass with fewer than 3 recruits in your company. Currently " + this.m.DaysWithoutRecruits + " such days have passed"
+				text = "The campaign will end if a total of 25 days pass with fewer than 3 recruits in your company. Currently " + this.m.DaysWithoutRecruits + " such days have passed"
 			});
 		}		
 
@@ -187,7 +187,7 @@ this.ptr_swordmaster_scenario_avatar_effect <- this.inherit("scripts/skills/effe
 		if (this.World.getPlayerRoster().getAll().len() < 3)
 		{
 			this.m.DaysWithoutRecruits++;
-			if (this.m.DaysWithoutRecruits > 50)
+			if (this.m.DaysWithoutRecruits > 25)
 			{
 				this.World.Events.fire("event.ptr_swordmaster_scenario_no_recruits_force_end");
 			}
