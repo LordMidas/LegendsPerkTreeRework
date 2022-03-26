@@ -80,7 +80,13 @@ this.ptr_swordmaster_scenario_avatar_effect <- this.inherit("scripts/skills/effe
 					id = 10,
 					type = "text",
 					icon = "ui/icons/initiative.png",
-					text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + skillMalus + "[/color] Initiative"
+					text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + ::Math.floor(skillMalus * 1.5) + "[/color] Initiative"
+				},
+				{
+					id = 10,
+					type = "text",
+					icon = "ui/icons/fatigue.png",
+					text = "Skills build up [color=" + this.Const.UI.Color.NegativeValue + "]+" + (2 * skillMalus) + "%[/color] Fatigue"
 				}
 			]);
 		}
@@ -136,8 +142,9 @@ this.ptr_swordmaster_scenario_avatar_effect <- this.inherit("scripts/skills/effe
 
 		local skillMalus = this.getSkillMalus();
 		_properties.Stamina -= skillMalus;
-		_properties.Initiative -= skillMalus;
+		_properties.Initiative -= ::Math.floor(skillMalus * 1.5);
 		_properties.Hitpoints -= skillMalus;
+		_properties.FatigueEffectMult *= 1.0 + 2 * skillMalus * 0.01;
 	}
 
 	function onNewDay()
