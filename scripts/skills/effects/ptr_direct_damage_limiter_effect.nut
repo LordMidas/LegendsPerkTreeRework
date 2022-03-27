@@ -24,7 +24,7 @@ this.ptr_direct_damage_limiter_effect <- this.inherit("scripts/skills/skill", {
 			local damageDirect = _properties.DamageDirectMult * (_skill.getDirectDamage() + _properties.DamageDirectAdd);
 			if (damageDirect >= this.m.Max)
 			{
-				this.m.FullArmorIgnoreChance = this.Math.floor(this.Math.minf(0.95, damageDirect - this.m.Max) * 100);
+				this.m.FullArmorIgnoreChance = this.Math.floor(this.Math.minf(this.m.Max, damageDirect - this.m.Max) * 100);
 
 				// If target entity is null, then change the damage direct mult so that
 				// the tooltip is calculated properly.
