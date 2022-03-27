@@ -163,7 +163,7 @@ gt.MSU.modSkillContainer <- function ()
 
 		o.onUpdateLevel <- function()
 		{
-			this.doOnFunction("onUpdateLevel", null, false);
+			this.doOnFunction("onUpdateLevel");
 		}
 
 		o.onNewMorning <- function()
