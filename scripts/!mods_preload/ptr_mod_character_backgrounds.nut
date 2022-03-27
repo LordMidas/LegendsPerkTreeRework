@@ -1756,8 +1756,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 
 		addPerksToCustomPerkTree(2, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.PTRBetweenTheEyes,
-				this.Const.Perks.PerkDefs.DevastatingStrikes,
-				this.Const.Perks.PerkDefs.PTRBetweenTheEyes,
 				this.Const.Perks.PerkDefs.PTRBloodyHarvest			
 			]
 		);
@@ -1831,7 +1829,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 
 		addPerksToCustomPerkTree(2, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.PTRBetweenTheEyes,
-				this.Const.Perks.PerkDefs.DevastatingStrikes,
 				this.Const.Perks.PerkDefs.PTRBloodyHarvest
 			]
 		);
@@ -2164,7 +2161,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		);
 
 		addPerksToCustomPerkTree(2, o.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.DevastatingStrikes,
 				this.Const.Perks.PerkDefs.Anticipation
 			]
 		);
@@ -2232,7 +2228,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		);
 
 		addPerksToCustomPerkTree(2, o.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.DevastatingStrikes,
 				this.Const.Perks.PerkDefs.Anticipation
 			]
 		);
@@ -3954,7 +3949,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 
 		addPerksToCustomPerkTree(3, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.LegendHairSplitter,			
-				this.Const.Perks.PerkDefs.DevastatingStrikes,
 				this.Const.Perks.PerkDefs.PTRPatience,
 				this.Const.Perks.PerkDefs.LegendSummonFalcon,
 				this.Const.Perks.PerkDefs.LegendAmmoBinding

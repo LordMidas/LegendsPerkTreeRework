@@ -11,6 +11,7 @@
 - Reverted perk and stat changes to Mercenaries from Legends 15.0.2.11 "Bastard Blades" since we have our own balance.
 
 - Removed Holy Man profession fron Witch Hunter. Added 3x weight to calm tree. Guaranteed Ranged tree.
+- Removed Devastating Strikes from all static backgrounds that get it (Assassin, Berserker Ranger). We did not find it a mechanically compelling perk. 
 - Removed the perks you get from Professional from the trees of static backgrounds to prevent new players from picking a perk they will get for free from Professional later.
 ====================
 ==== Ver 1.6.14 ====
