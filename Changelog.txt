@@ -1,16 +1,33 @@
 ====================
 ==== Ver 1.6.15 ====
 ====================
-- Linebreaker (both Orc Warrior and human versions) can now be used to push people off ledges.
-- The Possessed Undead effect now adds 1 tier of the equipped weapon per 20 in-game days passed (so it adds the full weapon tree after day 140) as long as the zombie remains possessed.
-- Special perks will now show up in red text in the background tooltip on the recruitment screen after trying out a recruit.
+- Special perks text will now show up in red text in the background tooltip after recruit Try Out.
+- In addition to previous effects, Man of Steel now increases armor by 10%.
+- The Possessed Undead effect now adds 1 tier of the equipped weapon tree per 20 in-game days passed.
+- En Garde now requires 15 remaining Fatigue to trigger (regardless of whether it triggers Riposte or Return Favor). Still costs no AP and builds no Fatigue.
+- Savage Strength now reduces the Fatigue Cost of weapon skills by -5 when using a weapon which has extra fatigue on skill use.
+- Reduced the random relations gain from Family Ties from 1-5 to 1-2 and reduced the amount each character level increases this range by from 0.5 to 0.25.
+- Internal Hemorrhage now applies on all attacks instead of only after the armor is destroyed.
+- Enemies killed by player animals that have the Internal Hemorrhage perk (e.g. due to AC mod) also contribute XP to the party.
+- Linebreaker can now be used to push people off ledges. This means orcs can do the same.
+- Increased the maluses to Old Swordmaster from old age. Increased the Initiative malus by 1.5x and added a new malus to Fatigue cost of skills.
+- Reduced the forced ending of the Old Swordmaster origin when without at least 2 other recruits from 50 to 25 days.
+- Added PTR label to the Old Swordmaster origin name.
+- Implemented a system whereby skills such as Vigorous Assault and Momentum now properly reduce the Action Point and Fatigue cost preview of the affected skills while in a preview mode of e.g. movement or using a skill. This fixes the issue where previewing a 2 tile movement would show a 6 AP attack as "unaffordable" whereas after completing the movement the attack suddenly becomes affordable as its AP cost has been reduced to 5. This system is in beta-testing stage here and, if it works without bugs, will hopefully be ported to MSU.
+- The En Garde Toggle skill will now show as "unaffordable" when previewing a movement or skill which will leave you with less than 15 Fatigue, thereby causing En Garde to be not trigger. This way you can easily assess if a certain action will leave you with a triggerable En Garde or not.
+
+** FIXES **
+- Fixed Blitzkrieg AI incorrectly predicting some opponents' initiative while calculating the score for using the skill.
+- Implemented a rather good enough way for the AI to figure out that the player has used Blitzkrieg this turn and if yes then don't use Blitzkrieg this turn.
 - Headless zombies will no longer suffer head injuries.
-- Fixed Blitzkrieg AI incorrectly assessing the Initiative of opponents in some cases.
-- The AI will no longer use Blitzkrieg in the same turn when the player already used it. The implementation is not fool-proof but it should work for most situations.
 - Improved Executioner perk tooltip to mention the Debilitated effect.
-- Clarified in the Take Aim perk tooltip that the effect applies to the next attack during this turn only.
-- Clarified in Heavy Strikes tooltip that it requires Blunt damage.
+- Clarified in the Take Aim perk tooltip that the effect applies only to the next attack this turn.
+- Clarified in Heavy Strikes tooltip that it requires blunt damage.
 - Fixed a typo in Intimidate perk tooltip.
+- Blitzkrieg AI will ignore enemies who are unarmed and don't belong to Player faction (e.g. Wardogs).
+- Kata Step will now properly be disabled upon using any skill.
+- Fixed a bug in the armor penetration limitation system that resulted in wrong calculations for entities with a base DamageDirectMult different than 1.0 if the total armor penetration exceeded 95%.
+- Fixed the issue where leveling up via Training Camp XP (and perhaps also from Caravan contracts) didn't properly add/refund the perks from Old Swordmaster origin or Realized Potential.
 
 ====================
 ==== Ver 1.6.14 ====
