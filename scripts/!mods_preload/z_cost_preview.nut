@@ -1,5 +1,32 @@
 ::mods_registerMod("costPreview", 3);
 ::mods_queue("costPreview", "mod_legends_PTR", function() {
+	::PreviewTest <- {
+		PreviewApplicableFunctions = [
+			"getActionPointCost",
+			"getFatigueCost"
+		],
+
+		function modifyPreview( _sourceTable, _previewTable, _field, _currChange, _newChange, _multiplicative )
+		{
+			_previewTable[_field] <- _sourceTable[_field];
+
+			if (_multiplicative)
+			{
+				_previewTable[_field] /= _currChange;
+				_previewTable[_field] *= _newChange;
+			}
+			else if (typeof _newChange == "boolean")
+			{
+				_previewTable[_field] = _newChange;
+			}
+			else
+			{
+				_previewTable[_field] -= _currChange;
+				_previewTable[_field] += _newChange;
+			}
+		}
+	};
+
 	::mods_hookExactClass("states/tactical_state", function(o) {
 		local executeEntityTravel = o.executeEntityTravel;
 		o.executeEntityTravel = function( _activeEntity, _mouseEvent )
@@ -56,100 +83,57 @@
 
 		o.onAffordablePreview <- function( _skill, _movementTile )
 		{			
-		}
-
-		o.modifyPreview <- function( _sourceTable, _previewTable, _field, _currChange, _newChange, _multiplicative )
-		{
-			if (!this.getContainer().m.IsCallingOnAffordablePreview)
-			{
-				::logError("Trying to modify affordable preview at a wrong time");
-				return;
-			}
-
-			_previewTable[_field] <- _sourceTable[_field];
-
-			if (_multiplicative)
-			{
-				_previewTable[_field] /= _currChange;
-				_previewTable[_field] *= _newChange;
-			}
-			else if (typeof _newChange == "boolean")
-			{
-				_previewTable[_field] = _newChange;
-			}
-			else
-			{
-				_previewTable[_field] -= _currChange;
-				_previewTable[_field] += _newChange;
-			}
-		}
+		}		
 
 		o.modifyPreviewField <- function( _field, _currChange, _newChange, _multiplicative )
 		{
-			this.modifyPreview(this.m, this.PreviewField, _field, _currChange, _newChange, _multiplicative);
+			::PreviewTest.modifyPreview(this.m, this.PreviewField, _field, _currChange, _newChange, _multiplicative);
 		}
 
 		o.modifyPreviewProperty <- function( _field, _currChange, _newChange, _multiplicative )
 		{
-			this.modifyPreview(this.getContainer().getActor().getCurrentProperties(), this.PreviewProperty, _field, _currChange, _newChange, _multiplicative);
+			::PreviewTest.modifyPreview(this.getContainer().getActor().getCurrentProperties(), this.PreviewProperty, _field, _currChange, _newChange, _multiplicative);
 		}
 
-		o.getBeforePreview <- function()
+		foreach (func in ::PreviewTest.PreviewApplicableFunctions)
 		{
-			local ret = {};
-			foreach (k, v in this.PreviewField)
+			local oldFunc = o[func];
+			o[func] = function()
 			{
-				ret[k] <- this.m[k];
-				this.m[k] = v;
-			}
+				if (!this.m.IsApplyingPreview) return oldFunc();
 
-			local properties = this.getContainer().getActor().getCurrentProperties();
-			foreach (k, v in this.PreviewProperty)
-			{
-				ret[k] <- properties[k];
-				properties[k] = v;
-			}
-
-			return ret;
-		}
-
-		o.restoreFromBeforePreview <- function( _before )
-		{
-			if (_before.len() > 0)
-			{
+				local temp = {};
 				foreach (k, v in this.PreviewField)
 				{
-					this.m[k] = _before[k];
+					temp[k] <- this.m[k];
+					this.m[k] = v;
 				}
 
 				local properties = this.getContainer().getActor().getCurrentProperties();
 				foreach (k, v in this.PreviewProperty)
 				{
-					properties[k] <- _before[k];
+					temp[k] <- properties[k];
+					properties[k] = v;
 				}
+
+				local ret = oldFunc();
+
+				if (temp.len() > 0)
+				{
+					foreach (k, v in this.PreviewField)
+					{
+						this.m[k] = temp[k];
+					}
+
+					local properties = this.getContainer().getActor().getCurrentProperties();
+					foreach (k, v in this.PreviewProperty)
+					{
+						properties[k] = temp[k];
+					}
+				}
+
+				return ret;
 			}
-		}
-
-		local getActionPointCost = o.getActionPointCost;
-		o.getActionPointCost = function()
-		{
-			if (!this.m.IsApplyingPreview) return getActionPointCost();
-
-			local temp = this.getBeforePreview();
-			local ret = getActionPointCost();
-			this.restoreFromBeforePreview(temp);
-			return ret;
-		}
-
-		local getFatigueCost = o.getFatigueCost;
-		o.getFatigueCost = function()
-		{
-			if (!this.m.IsApplyingPreview) return getFatigueCost();
-			
-			local temp = this.getBeforePreview();
-			local ret = getFatigueCost();
-			this.restoreFromBeforePreview(temp);
-			return ret;
 		}
 
 		local isAffordablePreview = o.isAffordablePreview;
@@ -184,23 +168,19 @@
 
 	::mods_hookNewObject("skills/skill_container", function(o) {
 		o.m.IsPreviewing <- false;
-		o.m.IsCallingOnAffordablePreview <- false;
 
 		o.onAffordablePreview <- function( _skill, _movementTile )
 		{
-			local properties = this.getActor().getCurrentProperties();
 			foreach (skill in this.m.Skills)
 			{
 				skill.PreviewField.clear();
 				skill.PreviewProperty.clear();
 			}
 
-			this.m.IsCallingOnAffordablePreview <- true;
 			this.doOnFunction("onAffordablePreview", [
 				_skill,
 				_movementTile,
 			], false);
-			this.m.IsCallingOnAffordablePreview <- false;
 		}
 	});
 
