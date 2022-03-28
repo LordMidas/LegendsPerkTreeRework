@@ -3,7 +3,7 @@ this.ptr_swordmaster_scenario <- this.inherit("scripts/scenarios/world/starting_
 	function create()
 	{
 		this.m.ID = "scenario.ptr_swordmaster";
-		this.m.Name = "Old Swordmaster";
+		this.m.Name = "Old Swordmaster (PTR)";
 		this.m.Description = "[p=c][img]gfx/ui/events/event_17.png[/img][/p][p]You are a legendary swordmaster, eager to pass on your skills to others! [color=" + this.Const.UI.Color.NegativeValue + "]Read the text in the intro event for details on how this origin works![/color]\n\n[color=#bcad8c]Teacher:[/color] Upon leveling up, every recruit has a 50% chance to gain a free perk from the Sword perk group. Cannot have more than 10 recruits. Passing a total of 50 days without at least 2 other recruits will end the campaign.\n[color=#bcad8c]Swords Only:[/color] Recruits gain special bonuses when using swords. If anyone uses any weapon except swords, banner or ranged weapons in combat it will anger your entire company.\n[color=#bcad8c]Reputation:[/color] Squires and Apprentices have a lower upkeep and hiring cost. Retired Soldiers and Swordmasters cannot be hired.\n[color=#bcad8c]Avatar:[/color] If your swordmaster dies, the campaign ends.[/p]";
 		this.m.Difficulty = 1;
 		this.m.Order = 70;
