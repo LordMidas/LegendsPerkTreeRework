@@ -98,7 +98,7 @@ this.ptr_deploy_in_vanguard_skill <- this.inherit("scripts/skills/skill", {
 
 	function onVerifyTarget( _originTile, _targetTile )
 	{
-		if (!this.skill.onVerifyTarget(_originTile, _targetTile))
+		if (!this.skill.onVerifyTarget(_originTile, _targetTile) || _targetTile.getDistanceTo(this.getContainer().getActor().getTile()) > 7)
 		{
 			return false;
 		}
@@ -114,17 +114,10 @@ this.ptr_deploy_in_vanguard_skill <- this.inherit("scripts/skills/skill", {
 				}
 			}
 		}
-		else if (_targetTile.getDistanceTo(this.getContainer().getActor().getTile()) == 1)
+		else if (_targetTile.IsOccupiedByActor)
 		{
 			local ally = _targetTile.getEntity();
-			if (ally != null && ally.getFaction() == this.getContainer().getActor().getFaction())
-			{
-				return !ally.getCurrentProperties().IsStunned && !ally.getCurrentProperties().IsRooted && ally.getCurrentProperties().IsMovable && !ally.getCurrentProperties().IsImmuneToRotation;
-			}
-		}
-		else
-		{
-			return false;
+			return ally.getFaction() == this.getContainer().getActor().getFaction() && !ally.getCurrentProperties().IsStunned && !ally.getCurrentProperties().IsRooted && ally.getCurrentProperties().IsMovable && !ally.getCurrentProperties().IsImmuneToRotation;
 		}
 
 		return true;
@@ -138,7 +131,7 @@ this.ptr_deploy_in_vanguard_skill <- this.inherit("scripts/skills/skill", {
 		}
 		else
 		{
-			this.Tactical.getNavigator().switchEntities(_user, _targetTile.getEntity(), null, null, 1.0);
+			this.Tactical.getNavigator().switchEntities(_user, _targetTile.getEntity(), null, null, 2.0);
 		}
 
 		this.m.TacticianPerk.m.UsesRemaining--;
