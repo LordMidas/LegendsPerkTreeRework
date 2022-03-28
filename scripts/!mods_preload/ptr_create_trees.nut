@@ -67,9 +67,7 @@ gt.Const.PTR.createStylesTrees <- function()
 			],
 			[],
 			[],
-			[
-				gt.Const.Perks.PerkDefs.LegendWindReader
-			],
+			[],
 			[
 				gt.Const.Perks.PerkDefs.Ballistics
 			],

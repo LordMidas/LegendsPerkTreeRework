@@ -1756,8 +1756,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 
 		addPerksToCustomPerkTree(2, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.PTRBetweenTheEyes,
-				this.Const.Perks.PerkDefs.DevastatingStrikes,
-				this.Const.Perks.PerkDefs.PTRBetweenTheEyes,
 				this.Const.Perks.PerkDefs.PTRBloodyHarvest			
 			]
 		);
@@ -1831,7 +1829,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 
 		addPerksToCustomPerkTree(2, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.PTRBetweenTheEyes,
-				this.Const.Perks.PerkDefs.DevastatingStrikes,
 				this.Const.Perks.PerkDefs.PTRBloodyHarvest
 			]
 		);
@@ -2164,7 +2161,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		);
 
 		addPerksToCustomPerkTree(2, o.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.DevastatingStrikes,
 				this.Const.Perks.PerkDefs.Anticipation
 			]
 		);
@@ -2232,7 +2228,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		);
 
 		addPerksToCustomPerkTree(2, o.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.DevastatingStrikes,
 				this.Const.Perks.PerkDefs.Anticipation
 			]
 		);
@@ -2373,16 +2368,15 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.HammerTree,			
 				this.Const.Perks.SwordTree,
 				this.Const.Perks.HeavyArmorTree,
-				this.Const.Perks.ShieldTree,
 				this.Const.Perks.ViciousTree,
-				this.Const.Perks.SturdyTree,
-				this.Const.Perks.TwoHandedTree
+				this.Const.Perks.SturdyTree
 			]
 		);
 
 
 		addPerksToCustomPerkTree(1, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.BagsAndBelts,
+				this.Const.Perks.PerkDefs.STRPhalanx,
 				this.Const.Perks.PerkDefs.LegendSmashingShields,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyZombie
 			]
@@ -2390,6 +2384,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 
 		addPerksToCustomPerkTree(2, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.RallyTheTroops,
+				this.Const.Perks.PerkDefs.STRCoverAlly,
 				this.Const.Perks.PerkDefs.PTRDismemberment,
 				this.Const.Perks.PerkDefs.PTRSanguinary,
 				this.Const.Perks.PerkDefs.QuickHands								
@@ -2400,12 +2395,14 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.HoldOut,
 				this.Const.Perks.PerkDefs.FortifiedMind,
 				this.Const.Perks.PerkDefs.Steadfast,
-				this.Const.Perks.PerkDefs.Rotation
+				this.Const.Perks.PerkDefs.Rotation,
+				this.Const.Perks.PerkDefs.PTRFormidableApproach
 			]
 		);
 
 		addPerksToCustomPerkTree(4, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.LegendFavouredEnemySkeleton,
+				this.Const.Perks.PerkDefs.STRLineBreaker,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyVampire,
 				this.Const.Perks.PerkDefs.SpecCleaver,
 				this.Const.Perks.PerkDefs.PTRTheRushOfBattle,				
@@ -2427,17 +2424,16 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		);
 
 		addPerksToCustomPerkTree(6, o.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.Duelist,			
 				this.Const.Perks.PerkDefs.PTRVigorousAssault,
 				this.Const.Perks.PerkDefs.LegendMindOverBody,				
 				this.Const.Perks.PerkDefs.LegendHolyFlame,
-				this.Const.Perks.PerkDefs.LegendClarity
+				this.Const.Perks.PerkDefs.LegendClarity,
+				this.Const.Perks.PerkDefs.PTRSweepingStrikes
 			]
 		);
 
 		addPerksToCustomPerkTree(7, o.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.BattleFlow,
-				this.Const.Perks.PerkDefs.PTRWeaponMaster,				
+				this.Const.Perks.PerkDefs.BattleFlow,		
 				this.Const.Perks.PerkDefs.LastStand,
 				this.Const.Perks.PerkDefs.Inspire,								
 				this.Const.Perks.PerkDefs.PTRProfessional,
@@ -3953,7 +3949,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 
 		addPerksToCustomPerkTree(3, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.LegendHairSplitter,			
-				this.Const.Perks.PerkDefs.DevastatingStrikes,
 				this.Const.Perks.PerkDefs.PTRPatience,
 				this.Const.Perks.PerkDefs.LegendSummonFalcon,
 				this.Const.Perks.PerkDefs.LegendAmmoBinding
@@ -5231,15 +5226,13 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	::mods_hookNewObject("skills/backgrounds/witchhunter_background", function(o) {
 		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
+				{Multiplier = 3, Tree = this.Const.Perks.CalmTree},			
 				{Multiplier = 2, Tree = this.Const.Perks.AgileTree},
 				{Multiplier = 3, Tree = this.Const.Perks.ViciousTree},
 				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
 				{Multiplier = 2, Tree = this.Const.Perks.TalentedTree},
 				{Multiplier = 0, Tree = this.Const.Perks.OrganisedTree},
 				{Multiplier = 3, Tree = this.Const.Perks.BowTree}
-			],
-			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.HolyManProfessionTree}]
 			],
 			Class = [
 				[{Weight = 100, Tree = this.Const.Perks.SergeantClassTree}]
@@ -5251,7 +5244,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				[{Weight = 100, Tree = this.Const.Perks.CrossbowTree}]
 			]
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+				[{Weight = 100, Tree = this.Const.Perks.RangedTree}]
 			]
 		};
 	});

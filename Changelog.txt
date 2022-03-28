@@ -1,6 +1,20 @@
 ====================
 ==== Ver 1.6.15 ====
 ====================
+== Balance ==
+- Removed Windreader from the ranged style tree. We are considering a rework for this perk, but for the time being, we feel it is overpowered and should be removed.
+- Removed Holy Man profession fron Witch Hunter. Added 3x weight to calm tree. Guaranteed Ranged tree.
+- Removed Devastating Strikes from all static backgrounds that get it (Assassin, Berserker Ranger). We did not find it a mechanically compelling perk. 
+- Removed the perks you get from Professional from the trees of static backgrounds to prevent new players from picking a perk they will get for free from Professional later.
+
+== Enemies ==
+- Removed Born With a Board, Shield Bash and Push It from Hedge Knights.
+- Removed Born With a Board, Shield Bash and Push It from Knights.
+- Removed Born With a Board, Shield Bash, Smashing Shields and Push It from Footmen.
+- Swordmasters on Legendary difficulty now have underdog like their standard difficulty counterparts.
+- Removed Lone Wolf and Berserk on Legendary Ranged Mercenaries as was intended.
+- Reverted perk and stat changes to Mercenaries from Legends 15.0.2.11 "Bastard Blades" since we have our own balance.
+
 - Special perks text will now show up in red text in the background tooltip after recruit Try Out.
 - In addition to previous effects, Man of Steel now increases armor by 10%.
 - The Possessed Undead effect now adds 1 tier of the equipped weapon tree per 20 in-game days passed.
@@ -39,7 +53,7 @@
 - Fixed the Fencer perk not properly reducing the hit-chance malus from Sword Thrust and Lunge.
 - Fixed the Adrenaline from Blitzkrieg lasting 2 turns on bros who had ended their turn before Blitzkrieg was used.
 - Fixed the Slash skill on Longsword having less armor ignore than intended (20% instead of 25%).
-- Fixed Whack A Smack bug regarding how many turns baffled is applied.
+- Fixed a bug in Whack a Smack not applying Baffled for the correct number of turns and potentially causing the skills of the character to bug out. 
 - Fixed a bug with named goblin falchions causing battles with such weapons to not load.
 - Hopefully fixed Old Swordmaster scenario Student Duel event bugging out if the student wins while he has the Weapon Master (t7) perk.
 - Improved Opportunist tooltip.
