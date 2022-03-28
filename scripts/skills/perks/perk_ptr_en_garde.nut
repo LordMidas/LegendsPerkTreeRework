@@ -45,21 +45,22 @@ this.perk_ptr_en_garde <- this.inherit("scripts/skills/skill", {
 
 		local actor = this.getContainer().getActor();
 
+		if (actor.getFatigueMax() - actor.getFatigue() < this.m.FatigueRequired) return null;
+
 		local weapon = actor.getMainhandItem();
 		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Sword))
 		{
 			return null;
 		}
 
-		local skill = this.getContainer().getSkillByID("actives.riposte");
-		if (skill == null)
+		local riposte = this.getContainer().getSkillByID("actives.riposte");
+		if (riposte == null)
 		{
-			skill = this.new("scripts/skills/effects/return_favor_effect");
+			return this.new("scripts/skills/effects/return_favor_effect");
 		}
-
-		if (skill != null && !skill.isHidden() && (actor.getFatigueMax() - actor.getFatigue()) >= this.m.FatigueRequired)
+		else if (!riposte.isHidden())
 		{
-			return skill;
+			return riposte;
 		}
 
 		return null;
