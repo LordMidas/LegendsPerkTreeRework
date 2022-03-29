@@ -33,15 +33,6 @@ gt.ModBetterFencing.modSkills <- function()
 				}
 			);
 
-			ret.push(
-				{
-					id = 6,
-					type = "text",
-					icon = "ui/icons/chance_to_hit_head.png",
-					text = "Has [color=" + this.Const.UI.Color.NegativeValue + "]-25%[/color] chance to hit the head"
-				}
-			);
-
 			if (this.getContainer().getActor().getCurrentProperties().IsRooted)
 			{
 				ret.push({
@@ -80,7 +71,6 @@ gt.ModBetterFencing.modSkills <- function()
 			{
 				this.m.HitChanceBonus = this.getContainer().getActor().isPlayerControlled() ? -15 : 0;
 				this.m.MaxHitChancePenalty = -35;
-				_properties.HitChance[this.Const.BodyPart.Head] -= 25;
 
 				local a = this.getContainer().getActor();
 				local s = this.Math.minf(2.0, 2.0 * (this.Math.max(0, a.getInitiative() + (_targetEntity != null ? this.getFatigueCost() * a.getCurrentProperties().FatigueToInitiativeRate : 0)) / 175.0));

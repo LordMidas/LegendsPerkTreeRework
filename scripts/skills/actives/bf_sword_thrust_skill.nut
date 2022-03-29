@@ -53,15 +53,6 @@ this.bf_sword_thrust_skill <- this.inherit("scripts/skills/skill", {
 			}
 		);
 
-		ret.push(
-			{
-				id = 6,
-				type = "text",
-				icon = "ui/icons/chance_to_hit_head.png",
-				text = "Has [color=" + this.Const.UI.Color.NegativeValue + "]-25%[/color] chance to hit the head"
-			}
-		);
-
 		return ret;
 	}
 
@@ -82,7 +73,6 @@ this.bf_sword_thrust_skill <- this.inherit("scripts/skills/skill", {
 		{
 			this.m.HitChanceBonus = this.getContainer().getActor().isPlayerControlled() ? -15 : 0;
 			this.m.MaxHitChancePenalty = -35;
-			_properties.HitChance[this.Const.BodyPart.Head] -= 25;
 
 			if (_targetEntity != null && this.getContainer().getActor().isPlayerControlled())
 			{

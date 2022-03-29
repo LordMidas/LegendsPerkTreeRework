@@ -8,6 +8,7 @@ gt.ModBetterFencing.modWeapons <- function()
 		o.m.DirectDamageMult = 0.25;
 		o.m.DirectDamageAdd = 0.2;
 		o.m.ArmorDamageMult = 0.3;
+		o.m.ChanceToHitHead = -25;
 
 		o.onEquip = function()
 		{
@@ -15,6 +16,22 @@ gt.ModBetterFencing.modWeapons <- function()
 			this.addSkill(this.new("scripts/skills/actives/bf_sword_thrust_skill"));
 			this.addSkill(this.new("scripts/skills/actives/lunge_skill"));
 			this.addSkill(this.new("scripts/skills/actives/riposte"));
+		}
+
+		local getTooltip = ::mods_getMember(o, "getTooltip");
+		o.getTooltip <- function()
+		{
+			local tooltip = getTooltip();
+			tooltip.insert(tooltip.len() - 1, 
+				{
+					id = 9,
+					type = "text",
+					icon = "ui/icons/chance_to_hit_head.png",
+					text = "Chance to hit head [color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.ChanceToHitHead + "%[/color]"
+				}
+			);
+
+			return tooltip;
 		}
 	});
 
@@ -44,6 +61,22 @@ gt.ModBetterFencing.modWeapons <- function()
 			this.addSkill(this.new("scripts/skills/actives/lunge_skill"));
 			this.addSkill(this.new("scripts/skills/actives/riposte"));
 		}
+
+		local getTooltip = ::mods_getMember(o, "getTooltip");
+		o.getTooltip <- function()
+		{
+			local tooltip = getTooltip();
+			tooltip.insert(tooltip.len() - 1, 
+				{
+					id = 9,
+					type = "text",
+					icon = "ui/icons/chance_to_hit_head.png",
+					text = "Chance to hit head [color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.ChanceToHitHead + "%[/color]"
+				}
+			);
+
+			return tooltip;
+		}
 	});
 
 	if ("LegendMod" in gt.Const)
@@ -55,13 +88,30 @@ gt.ModBetterFencing.modWeapons <- function()
 			o.m.ArmorDamageMult = 0.3;
 			o.m.DirectDamageMult = 0.25;
 			o.m.DirectDamageAdd = 0.2;
-			o.m.ChanceToHitHead = 0;
+			o.m.ChanceToHitHead = -25;
+			
 			o.onEquip = function()
 			{
 				this.weapon.onEquip();
 				this.addSkill(this.new("scripts/skills/actives/bf_sword_thrust_skill"));
 				this.addSkill(this.new("scripts/skills/actives/lunge_skill"));
 				this.addSkill(this.new("scripts/skills/actives/riposte"));
+			}
+
+			local getTooltip = ::mods_getMember(o, "getTooltip");
+			o.getTooltip <- function()
+			{
+				local tooltip = getTooltip();
+				tooltip.insert(tooltip.len() - 1, 
+					{
+						id = 9,
+						type = "text",
+						icon = "ui/icons/chance_to_hit_head.png",
+						text = "Chance to hit head [color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.ChanceToHitHead + "%[/color]"
+					}
+				);
+
+				return tooltip;
 			}
 		});
 
@@ -91,6 +141,22 @@ gt.ModBetterFencing.modWeapons <- function()
 				this.addSkill(this.new("scripts/skills/actives/bf_sword_thrust_skill"));
 				this.addSkill(this.new("scripts/skills/actives/lunge_skill"));
 				this.addSkill(this.new("scripts/skills/actives/riposte"));
+			}
+
+			local getTooltip = ::mods_getMember(o, "getTooltip");
+			o.getTooltip <- function()
+			{
+				local tooltip = getTooltip();
+				tooltip.insert(tooltip.len() - 1, 
+					{
+						id = 9,
+						type = "text",
+						icon = "ui/icons/chance_to_hit_head.png",
+						text = "Chance to hit head [color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.ChanceToHitHead + "%[/color]"
+					}
+				);
+
+				return tooltip;
 			}
 		});
 	}
