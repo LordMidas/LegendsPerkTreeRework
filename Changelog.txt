@@ -29,6 +29,7 @@
 - Kata Step will now properly be disabled upon using any skill.
 - Fixed a bug in the armor penetration limitation system that resulted in wrong calculations for entities with a base DamageDirectMult different than 1.0 if the total armor penetration exceeded 95%.
 - Fixed the issue where leveling up via Training Camp XP (and perhaps also from Caravan contracts) didn't properly add/refund the perks from Old Swordmaster origin or Realized Potential.
+- Deploy in Vanguard skill will show Rotation icon when hovering over an ally.
 
 ====================
 ==== Ver 1.6.14 ====
