@@ -51,10 +51,10 @@ gt.ModBetterFencing.modWeapons <- function()
 		::mods_hookNewObject("items/weapons/legend_estoc", function(o) {
 			o.addWeaponType(this.Const.Items.WeaponType.BFFencing);
 			o.m.RegularDamage = 55;
-			o.m.RegularDamageMax = 75;
+			o.m.RegularDamageMax = 70;
 			o.m.ArmorDamageMult = 0.3;
 			o.m.DirectDamageMult = 0.25;
-			o.m.DirectDamageAdd = 0.1;
+			o.m.DirectDamageAdd = 0.2;
 			o.m.ChanceToHitHead = 0;
 			o.onEquip = function()
 			{
