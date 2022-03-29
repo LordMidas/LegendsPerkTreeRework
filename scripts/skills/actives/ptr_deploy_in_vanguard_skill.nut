@@ -91,6 +91,16 @@ this.ptr_deploy_in_vanguard_skill <- this.inherit("scripts/skills/skill", {
 		return tooltip;
 	}
 
+	function getCursorForTile( _tile )
+	{
+		if (_tile.IsOccupiedByActor && _tile.getEntity().getFaction() == this.getContainer().getActor().getFaction())
+		{
+			return  ::Const.UI.Cursor.Rotation;
+		}
+
+		return ::Const.UI.Cursor.Attack;
+	}
+
 	function isUsable()
 	{
 		return this.skill.isUsable() && !this.getContainer().getActor().getCurrentProperties().IsRooted && !this.getContainer().getActor().isEngagedInMelee();		
