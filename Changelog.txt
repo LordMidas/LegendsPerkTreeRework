@@ -16,6 +16,8 @@
 - Removed the perks you get from Professional from the trees of static backgrounds to prevent new players from picking a perk they will get for free from Professional later.
 
 == ENEMIES ==
+- Refactored code that was preventing certain enemies from getting their full perks. This affected Bandit Leaders, Reavers, Hedge Knights, Knights, Master Archers, Mercenaries, Low Mercenaries, Veteran Militia, Sergeants, Nomad Leaders, Southern Officers and Swordmasters. In all cases, this is only a handful of perks at most associated with their equipment. E.g. One Handed vs. Two Handed weapon, Offhand Free, Shield etc... 
+- Removed Colossus and Survival Instinct from Footmen on Legendary difficutly. Footmen were not intended to get these perks. 
 - Removed Born With a Board, Shield Bash and Push It from Hedge Knights.
 - Removed Born With a Board, Shield Bash and Push It from Knights.
 - Removed Born With a Board, Shield Bash, Smashing Shields and Push It from Footmen.

@@ -60,30 +60,6 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_exude_confidence"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vengeful_spite"));
 
-			local mainhandItem = this.getMainhandItem();
-			if (mainhandItem != null)
-			{
-				if (mainhandItem.isItemType(this.Const.Items.ItemType.TwoHanded))
-				{
-					if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
-					{
-						this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
-					}
-
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));
-				}
-				else
-				{
-					if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
-					{
-						this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
-						this.m.Skills.add(this.new("scripts/skills/perks/perk_double_strike"));
-						this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_pattern_recognition")); 
-					}
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
-				}
-			}
-
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
@@ -114,6 +90,30 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Items.unequip(off);
 				this.m.Items.equip(this.new("scripts/items/weapons/legend_glaive"));
 			}
+
+			if (weapon != null)
+			{
+				if (weapon.isItemType(this.Const.Items.ItemType.TwoHanded))
+				{
+					if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+					{
+						this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
+					}
+
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));
+				}
+				else
+				{
+					if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+					{
+						this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
+						this.m.Skills.add(this.new("scripts/skills/perks/perk_double_strike"));
+						this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_pattern_recognition")); 
+					}
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
+				}
+			}
+
 			this.m.Skills.addTreeOfEquippedWeapon();
 		}
 
@@ -2522,11 +2522,6 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));				
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vigorous_assault"));
 
-				local mainhandItem = this.getMainhandItem();
-				if (mainhandItem != null && mainhandItem.isItemType(this.Const.Items.ItemType.TwoHanded))
-				{
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bloody_harvest"));
-				}
 			}
 		}
 
@@ -2534,7 +2529,6 @@ gt.Const.PTR.modEnemies <- function()
 		o.assignRandomEquipment = function()
 		{
 			assignRandomEquipment();
-
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.addTreeOfEquippedWeapon(5);
@@ -2542,6 +2536,11 @@ gt.Const.PTR.modEnemies <- function()
 			else
 			{
 				this.m.Skills.addTreeOfEquippedWeapon(4);
+			}
+			local mainhandItem = this.getMainhandItem();
+			if (mainhandItem != null && mainhandItem.isItemType(this.Const.Items.ItemType.TwoHanded))
+			{
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bloody_harvest"));
 			}
 		}
 	});
@@ -3054,28 +3053,6 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bulwark"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_menacing"));			
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bully"));								
-			local mainhandItem = this.getMainhandItem();
-			local attack = this.getSkills().getAttackOfOpportunity();			    
-			if (mainhandItem != null)
-			{
-				if (mainhandItem.isItemType(this.Const.Items.ItemType.TwoHanded))
-				{
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bloody_harvest"));
-					if (attack != null && !attack.isDuelistValid())
-					{
-						this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));		
-					}	
-				}
-				else
-				{
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_double_strike"));
-				}
-			}
-
-			if (attack != null && attack.isDuelistValid())
-			{
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
-			}
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -3092,12 +3069,6 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_exude_confidence"));				
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_personal_armor"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
-
-				local offhandItem = this.getOffhandItem();
-				if (offhandItem != null && offhandItem.isItemType(this.Const.Items.ItemType.Shield))
-				{
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_str_line_breaker"));
-				}
 			}
 		}
 
@@ -3106,6 +3077,35 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			assignRandomEquipment();
 			this.m.Skills.addTreeOfEquippedWeapon();
+			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+			{
+				local offhandItem = this.getOffhandItem();
+				if (offhandItem != null && offhandItem.isItemType(this.Const.Items.ItemType.Shield))
+				{
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_str_line_breaker"));
+				}
+			}
+			local mainhandItem = this.getMainhandItem();
+			local attack = this.getSkills().getAttackOfOpportunity();			    
+			if (mainhandItem != null)
+			{
+				if (mainhandItem.isItemType(this.Const.Items.ItemType.TwoHanded))
+				{
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bloody_harvest"));
+					if (attack != null && !attack.isDuelistValid())
+					{
+						this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));		
+					}
+				}
+				else
+				{
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_double_strike"));
+				}
+			}
+			if (attack != null && attack.isDuelistValid())
+			{
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
+			}
 		}
 
 		local makeMiniboss = o.makeMiniboss;
@@ -3142,16 +3142,6 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_pattern_recognition"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_sundering_strikes"));
 
-			local offhandItem = this.getOffhandItem();
-			if (offhandItem != null && offhandItem.isItemType(this.Const.Items.ItemType.Shield))
-			{
-				if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
-				{
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_str_phalanx"));
-				}
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_str_line_breaker"));
-			}
-
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.removeByID("perk.steel_brow");
@@ -3168,24 +3158,7 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.removeByID("perk.legend_composure");
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_fearsome"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_personal_armor"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_clarity"));				
-
-				local mainhandItem = this.getMainhandItem();
-				local attack = this.getSkills().getAttackOfOpportunity();
-				if (attack != null && attack.isDuelistValid())
-				{
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
-				}
-
-				if (mainhandItem != null && mainhandItem.isItemType(this.Const.Items.ItemType.TwoHanded))
-				{
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_formidable_approach"));				
-					if (attack != null && !attack.isDuelistValid())
-					{
-						this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));				
-					}
-				}
-
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_clarity"));
 			}
 
 			local agent = actor.getAIAgent();
@@ -3202,6 +3175,35 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			assignRandomEquipment();
 			this.m.Skills.addTreeOfEquippedWeapon();
+			local offhandItem = this.getOffhandItem();
+
+			if (offhandItem != null && offhandItem.isItemType(this.Const.Items.ItemType.Shield))
+			{
+				if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+				{
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_str_phalanx"));
+				}
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_str_line_breaker"));
+			}
+
+			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+			{
+				local mainhandItem = this.getMainhandItem();
+				local attack = this.getSkills().getAttackOfOpportunity();
+				if (attack != null && attack.isDuelistValid())
+				{
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
+				}
+
+				if (mainhandItem != null && mainhandItem.isItemType(this.Const.Items.ItemType.TwoHanded))
+				{
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_formidable_approach"));				
+					if (attack != null && !attack.isDuelistValid())
+					{
+						this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));				
+					}
+				}
+			}
 		}
 	});
 
@@ -3533,6 +3535,18 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.removeByID("perk.fast_adaption");												
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_through_the_ranks"));	
 
+			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+			{
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_relentless"));
+				this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_rebound"));				
+			}
+		}
+
+		local assignRandomEquipment = o.assignRandomEquipment;
+		o.assignRandomEquipment = function()
+		{
+			assignRandomEquipment();
 			local weapon = this.getMainhandItem();
 			if (weapon != null)
 			{			
@@ -3559,13 +3573,6 @@ gt.Const.PTR.modEnemies <- function()
 					}			
 				}
 			}
-
-			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
-			{
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_relentless"));
-				this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_rebound"));				
-			}
 		}
 	});
 
@@ -3582,15 +3589,6 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_skirmisher"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_man_of_steel"));
 
-			local offhandItem = this.getOffhandItem();
-			if (offhandItem != null && offhandItem.isItemType(this.Const.Items.ItemType.Shield))
-			{
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_shield_expert"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_str_line_breaker"));			    			    
-			}
-
-
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.removeByID("perk.underdog");
@@ -3601,7 +3599,16 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bulwark"));
+			}
+		}
 
+		local assignRandomEquipment = o.assignRandomEquipment;
+		o.assignRandomEquipment = function()
+		{
+			assignRandomEquipment();
+			this.m.Skills.addTreeOfEquippedWeapon();
+			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+			{
 				local attack = this.getSkills().getAttackOfOpportunity();
 				if (attack != null)
 				{
@@ -3621,13 +3628,13 @@ gt.Const.PTR.modEnemies <- function()
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_crippling_strikes"));
 				}
 			}
-		}
-
-		local assignRandomEquipment = o.assignRandomEquipment;
-		o.assignRandomEquipment = function()
-		{
-			assignRandomEquipment();
-			this.m.Skills.addTreeOfEquippedWeapon();
+			local offhandItem = this.getOffhandItem();
+			if (offhandItem != null && offhandItem.isItemType(this.Const.Items.ItemType.Shield))
+			{
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_shield_expert"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_str_line_breaker"));			    			    
+			}
 		}
 	});
 
@@ -3640,25 +3647,17 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.removeByID("perk.backstabber");
 			this.m.Skills.removeByID("perk.overwhelm");
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_quick_hands"));
+		}
 
-			local offhandItem = this.getOffhandItem();
-			if (offhandItem != null && offhandItem.isItemType(this.Const.Items.ItemType.Shield))
-			{
-				if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
-				{
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_shield_expert"));
-				}				
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));	    			    
-			}
+		local assignRandomEquipment = o.assignRandomEquipment;
+		o.assignRandomEquipment = function()
+		{
+			assignRandomEquipment();
+			this.m.Skills.addTreeOfEquippedWeapon(5);
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				this.m.Hitpoints = this.getBaseProperties().Hitpoints;
-				this.m.Skills.removeByID("perk.battle_forged");
-				this.m.Skills.removeByID("perk.pathfinder");
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
-
+				this.m.Skills.addTreeOfEquippedWeapon(6);
 				local weapon = this.getMainhandItem();
 				if (weapon != null)
 				{
@@ -3680,17 +3679,14 @@ gt.Const.PTR.modEnemies <- function()
 					}
 				}
 			}
-		}
-
-		local assignRandomEquipment = o.assignRandomEquipment;
-		o.assignRandomEquipment = function()
-		{
-			assignRandomEquipment();
-			this.m.Skills.addTreeOfEquippedWeapon(5);
-
-			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+			local offhandItem = this.getOffhandItem();
+			if (offhandItem != null && offhandItem.isItemType(this.Const.Items.ItemType.Shield))
 			{
-				this.m.Skills.addTreeOfEquippedWeapon(6);
+				if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+				{
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_shield_expert"));
+				}				
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));	    			    
 			}
 		}
 	});
@@ -3921,27 +3917,6 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_rotation"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_anticipation"));	
-
-			local mainhandItem = this.getMainhandItem();		    
-			if (mainhandItem != null && mainhandItem.isItemType(this.Const.Items.ItemType.TwoHanded))
-			{
-				if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
-				{
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));	
-				}
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_formidable_approach"));
-			}
-
-			local offhandItem = this.getOffhandItem();
-			if (offhandItem != null && offhandItem.isItemType(this.Const.Items.ItemType.Shield))
-			{
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_shield_expert"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_str_phalanx"));	
-				if (this.Math.rand(1,100) <= 25)
-				{
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));
-				}						    
-			}
 		
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -3953,10 +3928,6 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.removeByID("perk.legend_back_to_basics");						
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_relentless"));
 				this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));
-				if (mainhandItem != null && mainhandItem.isItemType(this.Const.Items.ItemType.OneHanded))
-				{
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_double_strike"));			   		
-				}
 			}
 		}
 
@@ -3964,14 +3935,37 @@ gt.Const.PTR.modEnemies <- function()
 		o.assignRandomEquipment = function()
 		{
 			assignRandomEquipment();
-
+			local mainhandItem = this.getMainhandItem();
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.addTreeOfEquippedWeapon(5);
+				if (mainhandItem != null && mainhandItem.isItemType(this.Const.Items.ItemType.OneHanded))
+				{
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_double_strike"));			   		
+				}
 			}
 			else
 			{
-				this.m.Skills.addTreeOfEquippedWeapon(4);
+				this.m.Skills.addTreeOfEquippedWeapon(4);		    
+				if (mainhandItem != null && mainhandItem.isItemType(this.Const.Items.ItemType.TwoHanded))
+				{
+					if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+					{
+						this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));	
+					}
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_formidable_approach"));
+				}
+
+				local offhandItem = this.getOffhandItem();
+				if (offhandItem != null && offhandItem.isItemType(this.Const.Items.ItemType.Shield))
+				{
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_shield_expert"));
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_str_phalanx"));	
+					if (this.Math.rand(1,100) <= 25)
+					{
+						this.m.Skills.add(this.new("scripts/skills/perks/perk_str_cover_ally"));
+					}						    
+				}
 			}
 		}
 	});
@@ -4054,12 +4048,11 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			assignRandomEquipment();
 			this.m.Skills.addTreeOfEquippedWeapon(4);		
-			this.m.Skills.removeByID("perk.fast_adaption");			
+			this.m.Skills.removeByID("perk.fast_adaption");	
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_assured_conquest"));		
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_pattern_recognition"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_assured_conquest"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_the_rush_of_battle"));
-
+			
 			if (this.Math.rand(1,100) <= 25)
 			{
 				if (this.Math.rand(1,100) > 50)
@@ -4085,12 +4078,9 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.removeByID("perk.legend_back_to_basics");
 				this.m.Skills.removeByID("perk.shield_bash");
 				this.m.Skills.removeByID("perk.legend_full_force");
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_shield_expert"));										
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));				
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vigilant"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_underdog"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_return_favor"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_underdog"));	
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_clarity"));				
 
 			}
@@ -4159,20 +4149,6 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.removeByID("trait.fearless");		
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_mind_over_body"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));	
-				local mainhandItem = this.getMainhandItem();		    					
-				local attack = this.getSkills().getAttackOfOpportunity();			    
-				if (mainhandItem != null && mainhandItem.isItemType(this.Const.Items.ItemType.TwoHanded))
-				{
-					if (attack != null && !attack.isDuelistValid())
-					{
-						this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));
-					}			
-				}
-
-				if (attack != null && attack.isDuelistValid())
-				{
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
-				}
 			}
 		}
 
@@ -4181,6 +4157,20 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			assignRandomEquipment();
 			this.m.Skills.addTreeOfEquippedWeapon();
+			local mainhandItem = this.getMainhandItem();		    					
+			local attack = this.getSkills().getAttackOfOpportunity();			    
+			if (mainhandItem != null && mainhandItem.isItemType(this.Const.Items.ItemType.TwoHanded))
+			{
+				if (attack != null && !attack.isDuelistValid())
+				{
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));
+				}			
+			}
+
+			if (attack != null && attack.isDuelistValid())
+			{
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
+			}
 		}
 	});
 
@@ -4272,21 +4262,6 @@ gt.Const.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_exude_confidence"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_relentless"));
-
-				local mainhandItem = this.getMainhandItem();		    					
-				local attack = this.getSkills().getAttackOfOpportunity();			    
-				if (mainhandItem != null && mainhandItem.isItemType(this.Const.Items.ItemType.TwoHanded))
-				{
-					if (attack != null && !attack.isDuelistValid())
-					{
-						this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));
-					}			
-				}
-
-				if (attack != null && attack.isDuelistValid())
-				{
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
-				}		
 			}
 
 			local agent = actor.getAIAgent();
@@ -4320,6 +4295,23 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			assignRandomEquipment();
 			this.m.Skills.addTreeOfEquippedWeapon();
+			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+			{
+				local mainhandItem = this.getMainhandItem();		    					
+				local attack = this.getSkills().getAttackOfOpportunity();			    
+				if (mainhandItem != null && mainhandItem.isItemType(this.Const.Items.ItemType.TwoHanded))
+				{
+					if (attack != null && !attack.isDuelistValid())
+					{
+						this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));
+					}			
+				}
+
+				if (attack != null && attack.isDuelistValid())
+				{
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
+				}		
+			}
 		}
 	});
 
@@ -4403,30 +4395,6 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.add(inspiringPresencePerk);
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vengeful_spite"));
 
-			local attack = this.getSkills().getAttackOfOpportunity();
-			if (attack != null)
-			{
-				if (attack.isDuelistValid())
-				{
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
-				}
-				else
-				{					
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));
-				}
-			}	
-
-			local offhandItem = this.getOffhandItem();
-			if (offhandItem != null && offhandItem.isItemType(this.Const.Items.ItemType.Shield))
-			{
-				if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
-				{				
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_str_phalanx"));					
-				}				
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_shield_expert"));
-			}
-
-
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.removeByID("perk.underdog");					
@@ -4459,6 +4427,29 @@ gt.Const.PTR.modEnemies <- function()
 		{
 			assignRandomEquipment();
 			this.m.Skills.addTreeOfEquippedWeapon();
+
+			local attack = this.getSkills().getAttackOfOpportunity();
+			if (attack != null)
+			{
+				if (attack.isDuelistValid())
+				{
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
+				}
+				else
+				{					
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));
+				}
+			}
+
+			local offhandItem = this.getOffhandItem();
+			if (offhandItem != null && offhandItem.isItemType(this.Const.Items.ItemType.Shield))
+			{
+				if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+				{				
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_str_phalanx"));					
+				}				
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_shield_expert"));
+			}
 		}
 	});
 
@@ -4605,19 +4596,6 @@ gt.Const.PTR.modEnemies <- function()
 			this.m.Skills.removeByID("perk.duelist");			
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_bf_fencer"));
 
-			local attack = this.getSkills().getAttackOfOpportunity();			    
-			if (attack != null)
-			{
-				if (attack.isDuelistValid())
-				{
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
-				}
-				else
-				{					
-					this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));
-				}
-			}	
-
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.removeByID("perk.legend_full_force");	
@@ -4646,6 +4624,19 @@ gt.Const.PTR.modEnemies <- function()
 				}
 			}
 			this.m.Skills.addTreeOfEquippedWeapon();
+
+			local attack = this.getSkills().getAttackOfOpportunity();			    
+			if (attack != null)
+			{
+				if (attack.isDuelistValid())
+				{
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
+				}
+				else
+				{					
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));
+				}
+			}
 		}
 
 		local makeMiniboss = o.makeMiniboss;
