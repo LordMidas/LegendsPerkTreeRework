@@ -2,6 +2,8 @@
 ==== Ver 1.6.17 ====
 ====================
 - Fixed an error causing battles to crash when Low Mercenaries are present.
+- Removed Promised Potential perk from Indebted background in Sato's Escaped Slaves scenario. We felt that Promised Potential undermined the theme and challenge of this origin. The origin itself already has stat boosting events as well. Brothers recruited before this update will retain the perk, including those who have taken it.
+- Goblin Shaman Root skill now has a 3 turn cooldown.
 
 ====================
 ==== Ver 1.6.16 ====
