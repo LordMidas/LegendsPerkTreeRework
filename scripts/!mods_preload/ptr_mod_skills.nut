@@ -9,7 +9,7 @@ gt.Const.PTR.modSkills <- function()
 			this.m.Cooldown = ::Math.max(0, this.m.Cooldown - 1);
 		}
 
-		local isUsable = o.isUsable();
+		local isUsable = o.isUsable;
 		o.isUsable = function()
 		{
 			return isUsable() && (this.getContainer().getActor().isPlayerControlled() || this.m.Cooldown == 0);
