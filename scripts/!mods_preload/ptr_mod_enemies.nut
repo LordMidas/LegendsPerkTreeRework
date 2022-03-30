@@ -3672,6 +3672,7 @@ gt.Const.PTR.modEnemies <- function()
 					}
 					else if (weapon.isWeaponType(this.Const.Items.WeaponType.Sword))
 					{
+						local offhandItem = this.getOffhandItem();
 						if (offhandItem == null || offhandItem.isItemType(this.Const.Items.ItemType.Tool))
 						{
 							this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));

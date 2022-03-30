@@ -1,4 +1,9 @@
 ====================
+==== Ver 1.6.17 ====
+====================
+- Fixed an error causing battles to crash when Low Mercenaries are present.
+
+====================
 ==== Ver 1.6.16 ====
 ====================
 - Increased Estoc armor ignore from 35% to 45% and reduced its maximum damage from 75 to 70 to bring it into balance with 1h fencing sword.
