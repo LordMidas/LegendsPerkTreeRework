@@ -54,16 +54,14 @@ this.perk_ptr_en_garde <- this.inherit("scripts/skills/skill", {
 		}
 
 		local riposte = this.getContainer().getSkillByID("actives.riposte");
-		if (riposte == null)
-		{
-			return this.new("scripts/skills/effects/return_favor_effect");
-		}
-		else if (!riposte.isHidden())
+		if (riposte != null && !riposte.isHidden())
 		{
 			return riposte;
 		}
-
-		return null;
+		else
+		{
+			return this.new("scripts/skills/effects/return_favor_effect");
+		}
 	}
 
 	function onTurnEnd()
