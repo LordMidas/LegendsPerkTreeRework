@@ -1,4 +1,10 @@
 ====================
+==== Ver 1.6.18 ====
+====================
+- Fixed named fencing swords and estocs having 231% chance to hit head after loading a save.
+- Fixed En Garde not properly triggering Return Favor on southern curved swords when the Riposte skill is not available.
+
+====================
 ==== Ver 1.6.17 ====
 ====================
 - Fixed an error causing battles to crash when Low Mercenaries are present.
