@@ -1,4 +1,11 @@
 ====================
+==== Ver 1.6.19 ====
+====================
+- The Profession tree of a recruit is no longer visible before trying out the character in tooltip of the background icon in the recruitment screen.
+- The free perks gained in Old Swordmaster origin now refund a perk point if the free perk gained had already been manually picked. This makes leveling up characters according to the build you want more convenient as you don't have to wait until you check if a certain perk will be gained for free or not.
+- Fixed the free perks gained in the Old Swordmaster origin being refundable via resetting perks e.g. Oblivion Potion.
+
+====================
 ==== Ver 1.6.18 ====
 ====================
 - Fixed named fencing swords and estocs having 231% chance to hit head after loading a save.
