@@ -163,73 +163,68 @@ gt.Const.PTR.modCharacterBackground <- function()
 			}
 
 			local text = "";
-			local treesList = [];
 
-			local order = ["Profession", "Traits", "Class", "Weapon", "Styles", "Defense", "Enemy"];
-
-			foreach (categoryName in order)
+			if (!this.getContainer().getActor().isTryoutDone())
 			{
-				if (!(categoryName in this.m.CustomPerkTreeMap))
-				{
-					continue;
-				}
+				text += "[color=" + this.Const.UI.Color.NegativeValue + "]Try out[/color] this character to reveal [color=" + this.Const.UI.Color.PositiveValue + "]more[/color] information!";			
+			}
+			else
+			{	
+				local order = ["Profession", "Traits", "Class", "Weapon", "Styles", "Defense", "Enemy"];
 
-				if (this.m.CustomPerkTreeMap[categoryName].len() == 1 && this.m.CustomPerkTreeMap[categoryName][0].ID == this.Const.Perks.NoTree.ID)
+				local treesList = [];
+				foreach (categoryName in order)
 				{
-					continue;
-				}
-
-				if (!this.getContainer().getActor().isTryoutDone() && categoryName == "Traits")
-				{
-					break;
-				}				
-
-				local prefix = "";
-				switch (categoryName)
-				{
-					case "Weapon":
-						prefix = "Has an aptitude for";
-						break;
-					case "Defense":
-						prefix = "Likes using";
-						break;
-					case "Enemy":
-						prefix = "Prefers fighting";
-						break;
-					case "Class":
-						prefix = "Is skilled in";
-						break;
-					case "Profession":
-						prefix = this.getContainer().getActor().getName() + " ";
-						break;
-					case "Styles":
-						prefix = "Prefers using"
-						break;
-					case "Traits":
-						prefix = (this.isBackgroundType(this.Const.BackgroundType.Female) ? "She" : "He") + " ";
-						break;
-				}
-
-				foreach (perkTree in this.m.CustomPerkTreeMap[categoryName])
-				{
-					if (perkTree.ID == this.Const.Perks.NoTree.ID)
+					if (!(categoryName in this.m.CustomPerkTreeMap))
 					{
 						continue;
 					}
 
-					treesList.push(perkTree);
-				}				
+					if (this.m.CustomPerkTreeMap[categoryName].len() == 1 && this.m.CustomPerkTreeMap[categoryName][0].ID == this.Const.Perks.NoTree.ID)
+					{
+						continue;
+					}
 
-				text = text + this.getPerkTreeGroupDescription(treesList, prefix);
-				treesList.clear();
-			}
+					local prefix = "";
+					switch (categoryName)
+					{
+						case "Weapon":
+							prefix = "Has an aptitude for";
+							break;
+						case "Defense":
+							prefix = "Likes using";
+							break;
+						case "Enemy":
+							prefix = "Prefers fighting";
+							break;
+						case "Class":
+							prefix = "Is skilled in";
+							break;
+						case "Profession":
+							prefix = this.getContainer().getActor().getName() + " ";
+							break;
+						case "Styles":
+							prefix = "Prefers using"
+							break;
+						case "Traits":
+							prefix = (this.isBackgroundType(this.Const.BackgroundType.Female) ? "She" : "He") + " ";
+							break;
+					}
 
-			if (!this.getContainer().getActor().isTryoutDone())
-			{
-				text += "\n[color=" + this.Const.UI.Color.NegativeValue + "]Try out[/color] this character to reveal [color=" + this.Const.UI.Color.PositiveValue + "]more[/color] information!";
-			}
-			else
-			{
+					foreach (perkTree in this.m.CustomPerkTreeMap[categoryName])
+					{
+						if (perkTree.ID == this.Const.Perks.NoTree.ID)
+						{
+							continue;
+						}
+
+						treesList.push(perkTree);
+					}				
+
+					text = text + this.getPerkTreeGroupDescription(treesList, prefix);
+					treesList.clear();
+				}
+
 				foreach (perk in this.Const.Perks.SpecialTrees.Perks)
 				{
 					if (this.hasPerk(perk.Perk))
