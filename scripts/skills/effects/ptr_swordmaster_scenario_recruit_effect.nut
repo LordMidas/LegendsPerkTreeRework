@@ -85,7 +85,7 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 				id = 10,
 				type = "text",
 				icon = "ui/icons/special.png",
-				text = "Upon gaining a level, has a [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] chance to gain a free perk from the Sword perk group. [color=" + this.Const.UI.Color.PositiveValue + "]Potential Perks:[/color] " + potentialPerks
+				text = "Upon gaining a level, has a [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] chance to gain a free perk from the Sword perk group. Will refund the perk points spent on already picked perks. [color=" + this.Const.UI.Color.PositiveValue + "]Potential Perks:[/color] " + potentialPerks
 			});
 		}
 
@@ -166,8 +166,16 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 			{
 				local perkDef = this.m.FreePerkLevels[0].PerkDef;
 				this.m.FreePerks.push(perkDef);
-				this.getContainer().add(this.new(::Const.Perks.PerkDefObjects[perkDef].Script));
-				this.getContainer().getActor().getBackground().addPerk(perkDef, this.m.FreePerkLevels[0].Row);
+				if (this.getContainer().hasSkill(::Const.Perks.PerkDefObjects[perkDef].ID))
+				{
+					this.getContainer().getActor().m.PerkPoints++;
+				}
+				else
+				{
+					this.getContainer().add(this.new(::Const.Perks.PerkDefObjects[perkDef].Script));
+					this.getContainer().getActor().getBackground().addPerk(perkDef, this.m.FreePerkLevels[0].Row);
+				}
+
 				this.getContainer().getActor().getBackground().getPerk(perkDef).IsRefundable = false;
 			}
 
