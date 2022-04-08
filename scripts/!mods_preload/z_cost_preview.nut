@@ -182,6 +182,20 @@
 				_movementTile,
 			], false);
 		}
+
+		local onTurnEnd = o.onTurnEnd;
+		o.onTurnEnd = function()
+		{
+			this.m.IsPreviewing = false;
+			onTurnEnd();
+		}
+
+		local onWaitTurn = o.onWaitTurn;
+		o.onWaitTurn = function()
+		{
+			this.m.IsPreviewing = false;
+			onWaitTurn();
+		}
 	});
 
 	::mods_hookExactClass("skills/perks/perk_ptr_vigorous_assault", function(o) {
