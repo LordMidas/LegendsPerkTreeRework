@@ -91,6 +91,22 @@ gt.Const.PTR.modSkills <- function()
 		}
 	});
 	
+	::mods_hookExactClass("skills/actives/legend_fortify_skill", function(o) {
+		o.onAfterUpdate <- function( _properties )
+		{
+			local adjacentAllies = this.getContainer().getActor().getActorsWithinDistanceAsArray(2, this.Const.FactionRelation.SameFaction);
+			foreach (ally in adjacentAllies)
+			{
+				if (ally.getSkills().hasSkill("perk.legend_shields_up"))
+				{
+					this.m.ActionPointCost = this.Math.max(this.m.ActionPointCost * 0.5, 2);
+					this.m.FatigueCostMult *= 0.5;
+					return;
+				}
+			}
+		}
+	});
+	
 	::mods_hookExactClass("skills/actives/shieldwall", function(o) {
 		o.onAfterUpdate <- function( _properties )
 		{
