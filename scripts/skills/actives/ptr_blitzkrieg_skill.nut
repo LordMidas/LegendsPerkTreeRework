@@ -11,7 +11,9 @@ this.ptr_blitzkrieg_skill <- this.inherit("scripts/skills/skill", {
 		this.m.IconDisabled = "skills/ptr_blitzkrieg_skill_bw.png";
 		this.m.Overlay = "ptr_blitzkrieg_skill";
 		this.m.SoundOnUse = [
-			"sounds/combat/ptr_blitzkrieg_skill.wav"
+			"sounds/combat/legends_blitzkrieg_skill_1.wav",
+			"sounds/combat/legends_blitzkrieg_skill_2.wav"
+			"sounds/combat/legends_blitzkrieg_skill_3.wav"
 		];
 		this.m.Type = this.Const.SkillType.Active;
 		this.m.Order = this.Const.SkillOrder.Any;
