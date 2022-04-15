@@ -130,7 +130,7 @@ this.ptr_deploy_in_vanguard_skill <- this.inherit("scripts/skills/skill", {
 			return ally.getFaction() == this.getContainer().getActor().getFaction() && !ally.getCurrentProperties().IsStunned && !ally.getCurrentProperties().IsRooted && ally.getCurrentProperties().IsMovable && !ally.getCurrentProperties().IsImmuneToRotation;
 		}
 
-		return true;
+		return _targetTile.IsEmpty;
 	}
 
 	function onUse( _user, _targetTile )
