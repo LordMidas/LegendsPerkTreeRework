@@ -127,7 +127,7 @@ this.ptr_deploy_in_vanguard_skill <- this.inherit("scripts/skills/skill", {
 		else if (_targetTile.IsOccupiedByActor)
 		{
 			local ally = _targetTile.getEntity();
-			return ally.getFaction() == this.getContainer().getActor().getFaction() && !ally.getCurrentProperties().IsStunned && !ally.getCurrentProperties().IsRooted && ally.getCurrentProperties().IsMovable && !ally.getCurrentProperties().IsImmuneToRotation;
+			return ally.getFaction() == this.getContainer().getActor().getFaction() && !ally.isEngagedInMelee() && !ally.getCurrentProperties().IsStunned && !ally.getCurrentProperties().IsRooted && ally.getCurrentProperties().IsMovable && !ally.getCurrentProperties().IsImmuneToRotation;
 		}
 
 		return _targetTile.IsEmpty;
