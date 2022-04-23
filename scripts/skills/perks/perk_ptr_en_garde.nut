@@ -72,7 +72,7 @@ this.perk_ptr_en_garde <- this.inherit("scripts/skills/skill", {
 		}
 
 		local actor = this.getContainer().getActor();
-		if (!actor.isPlacedOnMap() || !actor.hasZoneOfControl())
+		if (!actor.isPlacedOnMap() || !actor.hasZoneOfControl() || ::Tactical.State.isAutoRetreat())
 		{
 			return;
 		}
