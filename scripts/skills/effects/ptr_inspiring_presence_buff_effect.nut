@@ -11,6 +11,11 @@ this.ptr_inspiring_presence_buff_effect <- this.inherit("scripts/skills/skill", 
 		this.m.Description = "This character started %their% turn in the presence of a highly inspiring character!";
 		this.m.Icon = "skills/ptr_inspiring_presence_buff_effect.png";		
 		this.m.Type = this.Const.SkillType.StatusEffect;
+		this.m.SoundOnUse = [
+			"sounds/combat/legends_inspiring_presence_01.wav",
+			"sounds/combat/legends_inspiring_presence_02.wav",
+			"sounds/combat/legends_inspiring_presence_03.wav"
+		];
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
@@ -84,6 +89,7 @@ this.ptr_inspiring_presence_buff_effect <- this.inherit("scripts/skills/skill", 
 			this.m.IsInEffect = true;
 			this.m.IsStartingTurn = true;
 			this.spawnIcon("ptr_inspiring_presence_buff_effect", actor.getTile());
+			this.Sound.play(this.m.SoundOnUse[this.Math.rand(0, this.m.SoundOnUse.len() - 1)], this.Const.Sound.Volume.Skill * this.m.SoundVolume, actor.getPos());
 		}
 	}
 
