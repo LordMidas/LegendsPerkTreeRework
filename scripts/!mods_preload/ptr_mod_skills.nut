@@ -1669,6 +1669,63 @@ gt.Const.PTR.modSkills <- function()
 	});
 
 	::mods_hookNewObject("skills/perks/perk_legend_assured_conquest", function(o) {
+		o.m.Type = ::Const.SkillType.Perk | ::Const.SkillType.StatusEffect;
+		o.m.Description = "This character believes that %their% victory is an absolute certainty."
+
+		o.getTooltip <- function()
+		{
+			local tooltip = this.skill.getTooltip();
+
+			local isConfident = this.getContainer().getActor().getMoraleState() == ::Const.MoraleState.Confident;
+
+			tooltip.extend([
+				{
+					id = 10,
+					type = "text",
+					icon = "ui/icons/bravery.png",
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + (isConfident ? 20 : 10) + "%[/color] Resolve"
+				},
+				{
+					id = 10,
+					type = "text",
+					icon = "ui/icons/bravery.png",
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + (isConfident ? 20 : 10) + "[/color] Resolve at positive morale checks"
+				}
+			]);
+
+			if (isConfident)
+			{
+				tooltip.extend([
+					{
+						id = 10,
+						type = "text",
+						icon = "ui/icons/melee_skill.png",
+						text = "[color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] Melee Skill"
+					},
+					{
+						id = 10,
+						type = "text",
+						icon = "ui/icons/ranged_skill.png",
+						text = "[color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] Ranged Skill"
+					},
+					{
+						id = 10,
+						type = "text",
+						icon = "ui/icons/melee_defense.png",
+						text = "[color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] Melee Defense"
+					},
+					{
+						id = 10,
+						type = "text",
+						icon = "ui/icons/ranged_defense.png",
+						text = "[color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] Ranged Defense"
+					}
+				]);
+			}
+
+			return tooltip;
+		}
+
 		o.onUpdate = function( _properties )
 		{
 			_properties.BraveryMult *= 1.1;
