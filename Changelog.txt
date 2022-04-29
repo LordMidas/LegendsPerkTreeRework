@@ -1,4 +1,18 @@
 ====================
+==== Ver 1.6.20 ====
+====================
+- Removed the always present 5% chance to have maximum damage reduction in IDS.
+- Added a Status Effect for Assured Conquest.
+- Added new sounds for Blitzkrieg usage.
+- Added new sounds for when Inspiring Presence triggers.
+- Fixed a bug in the cost preview system sometimes making skills bug out when ending a turn during preview mode.
+- Fixed the Shields Up perk not reducing the Fatigue and Action Point costs of nearby allies' Fortify skill.
+- Fixed Muscularity perk tooltip to mention 15% instead of 10%.
+- Fixed Deploy in Vanguard being usable on obstacles to switch places with them.
+- Fixed En Garde proccing during Auto-Retreat mode.
+- Fixed a wrong calculation in Assured Conquest providing a 10% boost to Resolve two times instead of providing a single 20% boost when at Confident morale.
+
+====================
 ==== Ver 1.6.19 ====
 ====================
 - The Profession tree of a recruit is no longer visible before trying out the character in tooltip of the background icon in the recruitment screen.
