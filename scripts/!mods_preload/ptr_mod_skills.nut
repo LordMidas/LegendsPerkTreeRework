@@ -1727,16 +1727,18 @@ gt.Const.PTR.modSkills <- function()
 		}
 
 		o.onUpdate = function( _properties )
-		{
-			_properties.BraveryMult *= 1.1;
-			
+		{	
 			if (this.getContainer().getActor().getMoraleState() == this.Const.MoraleState.Confident)
 			{
-				_properties.BraveryMult *= 1.1;
+				_properties.BraveryMult *= 1.2;
 				_properties.MeleeSkillMult *= 1.05;
 				_properties.RangedSkillMult *= 1.05;
 				_properties.MeleeDefenseMult *= 1.05;
 				_properties.RangedDefenseMult *= 1.05;
+			}
+			else
+			{
+				_properties.BraveryMult *= 1.1;
 			}
 		}
 
