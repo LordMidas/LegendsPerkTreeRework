@@ -1,4 +1,9 @@
 ====================
+==== OFAF Version ====
+====================
+- Added PTR perk trees to Anatomist, Oathtaker, Old Oathtaker.
+
+====================
 ==== Ver 1.6.20 ====
 ====================
 - Removed the always present 5% chance to have maximum damage reduction in IDS.

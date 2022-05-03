@@ -86,6 +86,42 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		};
 	});
 
+	::mods_hookNewObject("skills/backgrounds/anatomist_background", function(o) {
+		o.m.PerkTreeDynamic = {			
+			WeightMultipliers = [
+				{Multiplier = 0.5, Tree = this.Const.Perks.LargeTree},
+				{Multiplier = 0.5, Tree = this.Const.Perks.SturdyTree},
+				{Multiplier = 3, Tree = this.Const.Perks.TalentedTree},
+				{Multiplier = 0, Tree = this.Const.Perks.EntertainerClassTree},
+				{Multiplier = 3, Tree = this.Const.Perks.HealerClassTree},
+				{Multiplier = 0, Tree = this.Const.Perks.HoundmasterClassTree},
+				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
+				{Multiplier = 0.4, Tree = this.Const.Perks.CrossbowTree},
+				{Multiplier = 0, Tree = this.Const.Perks.SlingsTree},
+				{Multiplier = 0, Tree = this.Const.Perks.RangedTree}
+			],
+			Profession = [
+				[{Weight = 100, Tree = this.Const.Perks.ApothecaryProfessionTree}]
+			],
+			Enemy = [
+				[
+				{Weight = 8, Tree = this.Const.Perks.DirewolfTree},
+				{Weight = 8, Tree = this.Const.Perks.GhoulTree},
+				{Weight = 9, Tree = this.Const.Perks.LindwurmTree},
+				{Weight = 8, Tree = this.Const.Perks.GoblinTree},
+				{Weight = 8, Tree = this.Const.Perks.OrcTree},
+				{Weight = 8, Tree = this.Const.Perks.UnholdTree},
+				{Weight = 8, Tree = this.Const.Perks.AlpTree},
+				{Weight = 9, Tree = this.Const.Perks.HexenTree},
+				{Weight = 9, Tree = this.Const.Perks.SchratTree},
+				{Weight = 8, Tree = this.Const.Perks.SkeletonTree},
+				{Weight = 9, Tree = this.Const.Perks.VampireTree},
+				{Weight = 8, Tree = this.Const.Perks.ZombieTree}
+				]
+			]
+		};
+	});
+
 	::mods_hookNewObject("skills/backgrounds/apprentice_background", function(o) {
 		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
@@ -4713,6 +4749,32 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		};
 	});
 
+	::mods_hookNewObject("skills/backgrounds/old_paladin_background", function(o) {
+		o.m.PerkTreeDynamic = {			
+			WeightMultipliers = [
+				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
+				{Multiplier = 0, Tree = this.Const.Perks.OrganisedTree},
+				{Multiplier = 1.33, Tree = this.Const.Perks.TrainedTree},
+				{Multiplier = 0, Tree = this.Const.Perks.LightArmorTree},
+				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
+				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
+				{Multiplier = 0, Tree = this.Const.Perks.SlingsTree},
+				{Multiplier = 0.5, Tree = this.Const.Perks.DaggerTree},
+				{Multiplier = 0, Tree = this.Const.Perks.RangedTree}
+			],
+			Profession = [ 
+				[{Weight = 100, Tree = this.Const.Perks.SoldierProfessionTree}],
+				[{Weight = 100, Tree = this.Const.Perks.LaborerProfessionTree}]
+			],
+			Class = [ 
+				[{Weight = 100, Tree = this.Const.Perks.SergeantClassTree}]
+			],
+			Weapon = [
+				[{Weight = 100, Tree = this.Const.Perks.PolearmTree}]
+			]
+		};
+	});
+
 	::mods_hookNewObject("skills/backgrounds/orc_slayer_background", function(o) {
 		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
@@ -4754,6 +4816,44 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			]
 		};
 	}); */
+
+	::mods_hookNewObject("skills/backgrounds/paladin_background", function(o) {
+		o.m.PerkTreeDynamic = {			
+			WeightMultipliers = [
+				{Multiplier = 1.2, Tree = this.Const.Perks.AgileTree},
+				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
+				{Multiplier = 1.2, Tree = this.Const.Perks.FastTree},
+				{Multiplier = 0, Tree = this.Const.Perks.OrganisedTree},
+				{Multiplier = 1.33, Tree = this.Const.Perks.TrainedTree},
+				{Multiplier = 1.5, Tree = this.Const.Perks.MenderClassTree},
+				{Multiplier = 1.5, Tree = this.Const.Perks.SergeantClassTree},
+				{Multiplier = 1.5, Tree = this.Const.Perks.TacticianClassTree},
+				{Multiplier = 0, Tree = this.Const.Perks.LightArmorTree},
+				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
+				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
+				{Multiplier = 0, Tree = this.Const.Perks.SlingsTree},
+				{Multiplier = 0.5, Tree = this.Const.Perks.DaggerTree},
+				{Multiplier = 0, Tree = this.Const.Perks.RangedTree}
+			],
+			Profession = [ 
+				[
+				{Weight = 5, Tree = this.Const.Perks.SoldierProfessionTree},
+				{Weight = 5, Tree = this.Const.Perks.MilitiaProfessionTree},
+				{Weight = 3, Tree = this.Const.Perks.RaiderProfessionTree},
+				{Weight = 1, Tree = this.Const.Perks.NobleProfessionTree},
+				{Weight = 1, Tree = this.Const.Perks.WildlingProfessionTree},
+				{Weight = 1, Tree = this.Const.Perks.JugglerProfessionTree},
+				{Weight = 5, Tree = this.Const.Perks.ButcherProfessionTree},
+				{Weight = 5, Tree = this.Const.Perks.DiggerProfessionTree},
+				{Weight = 5, Tree = this.Const.Perks.FarmerProfessionTree},
+				{Weight = 5, Tree = this.Const.Perks.LaborerProfessionTree},
+				{Weight = 5, Tree = this.Const.Perks.LumberjackProfessionTree},
+				{Weight = 5, Tree = this.Const.Perks.MinerProfessionTree},
+				{Weight = 54, Tree = this.Const.Perks.NoTree}
+				]
+			]
+		};
+	});
 
 	::mods_hookNewObject("skills/backgrounds/peddler_background", function(o) {
 		o.m.PerkTreeDynamic = {			
