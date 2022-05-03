@@ -688,9 +688,9 @@ gt.Const.PTR.modTraitsTrees <- function()
 	{
 		this.Const.Perks.FastTree.Tree.push(emptyArray);
 	}
-	 this.Const.Perks.FastTree.WeightMultipliers <- [
-	 	{Multiplier = 1.5, Tree = this.Const.Perks.AgileTree}
-	 ];
+	 // this.Const.Perks.FastTree.WeightMultipliers <- [
+	 // 	{Multiplier = 1.5, Tree = this.Const.Perks.AgileTree}
+	 // ];
 
 	this.Const.Perks.FastTree.Descriptions = [
 		"is fast",
@@ -714,9 +714,9 @@ gt.Const.PTR.modTraitsTrees <- function()
 	{
 		this.Const.Perks.LargeTree.Tree.push(emptyArray);
 	}
-	this.Const.Perks.LargeTree.WeightMultipliers <- [
-		{Multiplier = 1.5, Tree = this.Const.Perks.SturdyTree}
-	];
+	// this.Const.Perks.LargeTree.WeightMultipliers <- [
+	// 	{Multiplier = 1.5, Tree = this.Const.Perks.SturdyTree}
+	// ];
 
 	this.Const.Perks.LargeTree.Descriptions = [
 		"is large",
@@ -763,7 +763,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	{
 		this.Const.Perks.SturdyTree.Tree.push(emptyArray);
 	}
-	# this.Const.Perks.AgileTree.WeightMultipliers <- [
+	# this.Const.Perks.SturdyTree.WeightMultipliers <- [
 	# 	{Multiplier = 1.5, Tree = this.Const.Perks.LargeTree}
 	# ];
 
