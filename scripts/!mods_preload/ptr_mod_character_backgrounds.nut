@@ -63,8 +63,10 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				[{Weight = 100, Tree = this.Const.Perks.NobleProfessionTree}]
 			],
 			Class = [
-				[{Weight = 50, Tree = this.Const.Perks.SergeantClassTree}],
-				[{Weight = 50, Tree = this.Const.Perks.TacticianClassTree}],
+				[
+				{Weight = 50, Tree = this.Const.Perks.SergeantClassTree},
+				{Weight = 50, Tree = this.Const.Perks.TacticianClassTree}
+				]
 			],
 			Defense = [
 				[
@@ -966,7 +968,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	::mods_hookNewObject("skills/backgrounds/disowned_noble_background", function(o) {
 		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
-				{Multiplier = 2, Tree = this.Const.Perks.NoblesTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.CalmTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.OrganisedTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.SergeantClassTree},
@@ -1394,7 +1395,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 			Class = [
 				[
 					{Weight = 50, Tree = this.Const.Perks.SergeantClassTree},
-					{Weight = 50, Tree = this.Const.Perks.ClerkClassTree},
+					{Weight = 50, Tree = this.Const.Perks.ClerkClassTree}
 				]
 			]
 		};
@@ -4530,6 +4531,27 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		);
 	});
 
+	::mods_hookNewObject("skills/backgrounds/lindwurm_slayer_background", function(o) {
+		o.m.PerkTreeDynamic = {			
+			WeightMultipliers = [
+				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
+				{Multiplier = 0, Tree = this.Const.Perks.OrganisedTree},
+				{Multiplier = 0, Tree = this.Const.Perks.LightArmorTree},
+				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
+				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
+				{Multiplier = 0.5, Tree = this.Const.Perks.DaggerTree},
+				{Multiplier = 0, Tree = this.Const.Perks.SlingsTree},				
+				{Multiplier = 0, Tree = this.Const.Perks.RangedTree}
+			],
+			Profession = [
+				[{Weight = 100, Tree = this.Const.Perks.SoldierProfessionTree}]
+			],
+			Enemy = [
+				[{Weight = 100, Tree = this.Const.Perks.LindwurmTree}]
+			]
+		};
+	});
+
 	::mods_hookNewObject("skills/backgrounds/manhunter_background", function(o) {
 		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
@@ -4783,12 +4805,12 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				{Multiplier = 0.5, Tree = this.Const.Perks.CalmTree},
 				{Multiplier = 0.5, Tree = this.Const.Perks.FastTree},
 				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingsTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},
 				{Multiplier = 0.33, Tree = this.Const.Perks.LightArmorTree},
+				{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},
+				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
+				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
 				{Multiplier = 0, Tree = this.Const.Perks.DaggerTree},
+				{Multiplier = 0, Tree = this.Const.Perks.SlingsTree},
 				{Multiplier = 0, Tree = this.Const.Perks.SpearTree}
 			],
 			Enemy = [
@@ -4996,6 +5018,34 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				[
 				{Weight = 50, Tree = this.Const.Perks.SergeantClassTree},
 				{Weight = 50, Tree = this.Const.Perks.TacticianClassTree}
+				]
+			]
+		};
+	});
+
+	::mods_hookNewObject("skills/backgrounds/regent_in_absentia_background", function(o) {
+		o.m.PerkTreeDynamic = {			
+			WeightMultipliers = [
+				{ Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree },
+				{ Multiplier = 0, Tree = this.Const.Perks.DeviousTree },
+				{ Multiplier = 0, Tree = this.Const.Perks.BowTree },
+				{ Multiplier = 0.4, Tree = this.Const.Perks.CrossbowTree },
+				{ Multiplier = 0, Tree = this.Const.Perks.SlingsTree },
+				{ Multiplier = 0.66, Tree = this.Const.Perks.SpearTree },
+				{ Multiplier = 1.25, Tree = this.Const.Perks.TrainedTree }
+			],
+			Profession = [
+				[{Weight = 100, Tree = this.Const.Perks.NobleProfessionTree}]
+			],
+			Weapon = [
+				[{Weight = 100, Tree = this.Const.Perks.SwordTree}]
+			],
+			Styles = [
+				[
+					{Weight = 100, Tree = this.Const.Perks.OneHandedTree}
+				],
+				[
+					{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}
 				]
 			]
 		};

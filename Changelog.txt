@@ -1,7 +1,7 @@
 ====================
 ==== OFAF Version ====
 ====================
-- Added PTR perk trees to Anatomist, Oathtaker, Old Oathtaker.
+- Added PTR perk trees to Anatomist, Lindwurm Slayer, Oathtaker, Old Oathtaker and Regent in Absentia backgrounds.
 
 ====================
 ==== Ver 1.6.20 ====
