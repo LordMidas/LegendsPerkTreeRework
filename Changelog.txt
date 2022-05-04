@@ -2,6 +2,7 @@
 ==== OFAF Version ====
 ====================
 - Added PTR perk trees to Anatomist, Lindwurm Slayer, Oathtaker, Old Oathtaker and Regent in Absentia backgrounds.
+- Added PTR perk trees to Monk Turned Flagellant and Pacified Flagellant backgrounds in case of rolling them on a random start.
 
 ====================
 ==== Ver 1.6.20 ====

@@ -4684,12 +4684,28 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		};
 	});
 
-	/* ::mods_hookNewObject("skills/backgrounds/monk_turned_flagellant_background", function(o) {
+	 ::mods_hookNewObject("skills/backgrounds/monk_turned_flagellant_background", function(o) {
 		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
+				{Multiplier = 2, Tree = this.Const.Perks.OrganisedTree},
+				{Multiplier = 3, Tree = this.Const.Perks.ResilientTree},
+				{Multiplier = 2, Tree = this.Const.Perks.SturdyTree},
+				{Multiplier = 3, Tree = this.Const.Perks.TalentedTree},
+				{Multiplier = 2, Tree = this.Const.Perks.ViciousTree},
+				{Multiplier = 3, Tree = this.Const.Perks.LightArmorTree},
+				{Multiplier = 0.33, Tree = this.Const.Perks.ShieldTree}
+			],
+			Profession = [
+				[{Weight = 100, Tree = this.Const.Perks.HolyManProfessionTree}]
+			],
+			Class = [
+				[{Weight = 100, Tree = this.Const.Perks.SergeantClassTree}]
+			],
+			Weapon = [
+				[{Weight = 100, Tree = this.Const.Perks.CleaverTree}]
 			]
 		};
-	}); */
+	});
 
 	::mods_hookNewObject("skills/backgrounds/nomad_background", function(o) {
 		o.m.PerkTreeDynamic = {			
@@ -4832,12 +4848,23 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		};
 	});
 
-	/* ::mods_hookNewObject("skills/backgrounds/pacified_flagellant_background", function(o) {
+	 ::mods_hookNewObject("skills/backgrounds/pacified_flagellant_background", function(o) {
 		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
+				{Multiplier = 3, Tree = this.Const.Perks.OrganisedTree},
+				{Multiplier = 3, Tree = this.Const.Perks.ResilientTree},
+				{Multiplier = 2, Tree = this.Const.Perks.SturdyTree},
+				{Multiplier = 2, Tree = this.Const.Perks.TalentedTree},
+				{Multiplier = 2, Tree = this.Const.Perks.LightArmorTree}
+			],
+			Profession = [
+				[{Weight = 100, Tree = this.Const.Perks.HolyManProfessionTree}]
+			],
+			Class = [
+				[{Weight = 100, Tree = this.Const.Perks.SergeantClassTree}]
 			]
 		};
-	}); */
+	});
 
 	::mods_hookNewObject("skills/backgrounds/paladin_background", function(o) {
 		o.m.PerkTreeDynamic = {			
