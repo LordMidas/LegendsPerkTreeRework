@@ -4,7 +4,7 @@
 == NEW ==
 - Added PTR perk trees to Anatomist, Lindwurm Slayer, Oathtaker, Old Oathtaker and Regent in Absentia backgrounds.
 - Added custom perk tree to new Lone Wolf background. Rolls 4 random trees from applicable melee weapons. Has earlier access to Soldier and Trained perks than standard backgrounds. Guaranteed Personal Armor perk.
-- Added PTR perk tree to Lonewolf Companion Melee background.
+- Added PTR perk trees to Lonewolf Companion Melee and Ranged backgrounds.
 
 == BACKGROUNDS ==
 - Legend Assassin Commander perks reworked. Reduced the tier of Assassin type perks to allow more specialization early, ultimately leading to a more unique character. Added Knife perks as requested. Added Twirl, Backflip and Tumble. Now has Vanguard Deployment at T7. 

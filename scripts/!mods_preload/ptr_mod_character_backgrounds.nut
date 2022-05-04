@@ -3170,6 +3170,40 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		};
 	});
 
+	::mods_hookNewObject("skills/backgrounds/legend_lonewolf_companion_ranged_background", function(o) {
+		o.m.PerkTreeDynamic = {			
+			WeightMultipliers = [
+				{Multiplier = 0.25, Tree = this.Const.Perks.OrganisedTree},
+				{Multiplier = 0, Tree = this.Const.Perks.HeavyArmorTree}
+			],
+
+			local trees = [
+				this.Const.Perks.BowTree,
+				this.Const.Perks.CrossbowTree,
+				this.Const.Perks.SlingsTree,
+				this.Const.Perks.ThrowingTree
+			];
+
+			for (local i = 0; i < 1; ++i)
+			{
+				addPerkTreesToCustomPerkTree(o.m.CustomPerkTree, [trees.remove(this.Math.rand(0, trees.len()-1))]);			
+			}
+
+			Profession = [ 
+				[
+				{Weight = 10, Tree = this.Const.Perks.ApothecaryProfessionTree},
+				{Weight = 10, Tree = this.Const.Perks.JugglerProfessionTree},
+				{Weight = 10, Tree = this.Const.Perks.LaborerProfessionTree},
+				{Weight = 10, Tree = this.Const.Perks.MilitiaProfessionTree},
+				{Weight = 10, Tree = this.Const.Perks.NobleProfessionTree},
+				{Weight = 5, Tree = this.Const.Perks.MinstrelProfessionTree},
+				{Weight = 5, Tree = this.Const.Perks.TraderProfessionTree},
+				{Weight = 40, Tree = this.Const.Perks.NoTree}
+				]
+			]
+		};
+	});
+
 	::mods_hookNewObject("skills/backgrounds/legend_master_archer_background", function(o) {
 		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
