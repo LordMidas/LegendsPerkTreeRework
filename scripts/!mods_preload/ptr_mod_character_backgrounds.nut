@@ -2215,7 +2215,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.SwordTree,
 				this.Const.Perks.TwoHandedTree,
 				this.Const.Perks.LightArmorTree,
-				this.Const.Perks.OrcsTree,
 				this.Const.Perks.ViciousTree,
 				this.Const.Perks.ResilientTree,
 				this.Const.Perks.LargeTree,
@@ -2228,52 +2227,55 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		addPerksToCustomPerkTree(1, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.BagsAndBelts,
 				this.Const.Perks.PerkDefs.Pathfinder,
-				this.Const.Perks.PerkDefs.LegendAlert
+				this.Const.Perks.PerkDefs.PTRFruitsOfLabor
 			]
 		);
 
 		addPerksToCustomPerkTree(2, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.PTRSavageStrength,
+				this.Const.Perks.PerkDefs.PTRMenacing,
 				this.Const.Perks.PerkDefs.Anticipation
 			]
 		);
 
 		addPerksToCustomPerkTree(3, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.Sprint,
-				this.Const.Perks.PerkDefs.PTRMenacing
+				this.Const.Perks.PerkDefs.PTRBestialVigor
 			]
 		);
 
 		addPerksToCustomPerkTree(4, o.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.PTRVigorousAssault,			
+				this.Const.Perks.PerkDefs.PTRVigorousAssault,
+				this.Const.Perks.PerkDefs.LegendFavouredEnemyGoblin,
+				this.Const.Perks.PerkDefs.PTRHaleAndHearty,
+				this.Const.Perks.PerkDefs.LegendFavouredEnemyOrk,			
 				this.Const.Perks.PerkDefs.LegendPoisonImmunity,
-				this.Const.Perks.PerkDefs.QuickHands,
-				this.Const.Perks.PerkDefs.PTRTheRushOfBattle
+				this.Const.Perks.PerkDefs.PTRTheRushOfBattle,
+				this.Const.Perks.PerkDefs.PTRBully
 			]
 		);
 
 		addPerksToCustomPerkTree(5, o.m.CustomPerkTree, [
-			this.Const.Perks.PerkDefs.BattleFlow
+			this.Const.Perks.PerkDefs.BattleFlow,
+			this.Const.Perks.PerkDefs.LegendFavouredEnemyUnhold
 			]
 		);
 
 		addPerksToCustomPerkTree(6, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.PTRFreshAndFurious,
-				this.Const.Perks.PerkDefs.PTRKnowTheirWeakness,
-				this.Const.Perks.PerkDefs.PTRHaleAndHearty
-			]
+				this.Const.Perks.PerkDefs.PTRKnowTheirWeakness			]
 		);
 
 		addPerksToCustomPerkTree(7, o.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.LegendUberNimble,			
-				this.Const.Perks.PerkDefs.LegendBerserkerRage,
+				this.Const.Perks.PerkDefs.PTRBlitzkrieg,			
+				this.Const.Perks.PerkDefs.PTRFeralRage,
 				this.Const.Perks.PerkDefs.Rebound
 			]
 		);
 	});
 
-	::mods_hookNewObject("skills/backgrounds/legend_berserker_commander_background", function(o) {
 		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
-
+		
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
 				this.Const.Perks.AxeTree,
@@ -2282,7 +2284,6 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.SwordTree,
 				this.Const.Perks.TwoHandedTree,
 				this.Const.Perks.LightArmorTree,
-				this.Const.Perks.OrcsTree,
 				this.Const.Perks.ViciousTree,
 				this.Const.Perks.ResilientTree,
 				this.Const.Perks.LargeTree,
@@ -2295,44 +2296,48 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		addPerksToCustomPerkTree(1, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.BagsAndBelts,
 				this.Const.Perks.PerkDefs.Pathfinder,
-				this.Const.Perks.PerkDefs.LegendAlert
+				this.Const.Perks.PerkDefs.PTRFruitsOfLabor
 			]
 		);
 
 		addPerksToCustomPerkTree(2, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.PTRSavageStrength,
+				this.Const.Perks.PerkDefs.PTRMenacing,
 				this.Const.Perks.PerkDefs.Anticipation
 			]
 		);
 
 		addPerksToCustomPerkTree(3, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.Sprint,
-				this.Const.Perks.PerkDefs.PTRMenacing
+				this.Const.Perks.PerkDefs.PTRBestialVigor
 			]
 		);
 
 		addPerksToCustomPerkTree(4, o.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.PTRVigorousAssault,			
+				this.Const.Perks.PerkDefs.PTRVigorousAssault,
+				this.Const.Perks.PerkDefs.LegendFavouredEnemyGoblin,
+				this.Const.Perks.PerkDefs.PTRHaleAndHearty,
+				this.Const.Perks.PerkDefs.LegendFavouredEnemyOrk,			
 				this.Const.Perks.PerkDefs.LegendPoisonImmunity,
-				this.Const.Perks.PerkDefs.QuickHands,
-				this.Const.Perks.PerkDefs.PTRTheRushOfBattle
+				this.Const.Perks.PerkDefs.PTRTheRushOfBattle,
+				this.Const.Perks.PerkDefs.PTRBully
 			]
 		);
 
 		addPerksToCustomPerkTree(5, o.m.CustomPerkTree, [
-			this.Const.Perks.PerkDefs.BattleFlow
+			this.Const.Perks.PerkDefs.BattleFlow,
+			this.Const.Perks.PerkDefs.LegendFavouredEnemyUnhold
 			]
 		);
 
 		addPerksToCustomPerkTree(6, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.PTRFreshAndFurious,
-				this.Const.Perks.PerkDefs.PTRKnowTheirWeakness,
-				this.Const.Perks.PerkDefs.PTRHaleAndHearty
-			]
+				this.Const.Perks.PerkDefs.PTRKnowTheirWeakness			]
 		);
 
 		addPerksToCustomPerkTree(7, o.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.LegendUberNimble,			
-				this.Const.Perks.PerkDefs.LegendBerserkerRage,
+				this.Const.Perks.PerkDefs.PTRBlitzkrieg,			
+				this.Const.Perks.PerkDefs.PTRFeralRage,
 				this.Const.Perks.PerkDefs.Rebound
 			]
 		);

@@ -1,10 +1,14 @@
 ====================
 ==== OFAF Version ====
 ====================
+== Dynamic Trees ==
 - Added PTR perk trees to Anatomist, Lindwurm Slayer, Oathtaker, Old Oathtaker and Regent in Absentia backgrounds.
 - Added PTR perk trees to Monk Turned Flagellant and Pacified Flagellant backgrounds in case of rolling them on a random start.
+
+== Static Trees ==
 - Legend Assassin Commander perks reworked. Reduced the tier of Assassin type perks to allow more specialization early, ultimately leading to a more unique character. Added Knife perks as requested. Added Twirl, Backflip and Tumble. Now has Vanguard Deployment at T7. 
 - Legend Assassin perks reworked. Added Knife perks. Added Twirl, Backflip, Tumble and Boondock Blade. Added some other relevant perks.
+- Berserker and Berserker Commander reworked. Added Wildling perks. Replaced Berserker Rage with PTR's Feral Rage. Removed Uber Nimble as it was ridiculously overpowered. Lowered the tier of some Berserker themed perks to allow more specialization early, ultimately leading to a more unique character. Give us your feedback on how the Berserker Origin feels now.
 
 ====================
 ==== Ver 1.6.20 ====
