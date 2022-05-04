@@ -4585,6 +4585,85 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		};
 	});
 
+	::mods_hookNewObject("skills/backgrounds/legend_lonewolf_background", function(o) {
+		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
+
+		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
+			[
+				this.Const.Perks.LargeTree,
+				this.Const.Perks.ResilientTree,
+				this.Const.Perks.SturdyTree,			
+				this.Const.Perks.UnstoppableTree,
+				this.Const.Perks.ViciousTree,
+				this.Const.Perks.HeavyArmorTree,
+				this.Const.Perks.ShieldTree,
+				this.Const.Perks.OneHandedTree,
+				this.Const.Perks.TwoHandedTree
+			]
+		);
+
+		local trees = [
+			this.Const.Perks.AxeTree,
+			this.Const.Perks.CleaverTree,
+			this.Const.Perks.FlailTree,
+			this.Const.Perks.HammerTree,
+			this.Const.Perks.MaceTree,
+			this.Const.Perks.SpearTree,
+			this.Const.Perks.SwordTree
+		];
+
+		for (local i = 0; i < 3; ++i)
+		{
+			addPerkTreesToCustomPerkTree(o.m.CustomPerkTree, [trees.remove(this.Math.rand(0, trees.len()-1))]);			
+		}
+
+		addPerksToCustomPerkTree(1, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.Student,
+				this.Const.Perks.PerkDefs.PTRProfessional,
+				this.Const.Perks.PerkDefs.PTRMenacing
+			]
+		);
+
+		addPerksToCustomPerkTree(2, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.FortifiedMind,
+				this.Const.Perks.PerkDefs.PTRExudeConfidence,
+				this.Const.Perks.PerkDefs.Rotation,
+				this.Const.Perks.PerkDefs.Gifted
+			]
+		);
+
+		addPerksToCustomPerkTree(3, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.PTRBully,
+				this.Const.Perks.PerkDefs.PTRPatternRecognition
+			]
+		);
+
+		addPerksToCustomPerkTree(4, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.Underdog,
+				this.Const.Perks.PerkDefs.PTRWearsItWell,
+				this.Const.Perks.PerkDefs.PTRPersonalArmor,
+				this.Const.Perks.PerkDefs.PTRVigilant
+			]
+		);
+
+		addPerksToCustomPerkTree(5, o.m.CustomPerkTree, [
+			]
+		);
+
+		addPerksToCustomPerkTree(6, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.PTRVigorousAssault,
+				this.Const.Perks.PerkDefs.PTRKnowTheirWeakness,				
+				this.Const.Perks.PerkDefs.LegendClarity
+			]
+		);
+
+		addPerksToCustomPerkTree(7, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.Rebound,				
+				this.Const.Perks.PerkDefs.PerfectFocus
+			]
+		);
+	});
+
 	::mods_hookNewObject("skills/backgrounds/manhunter_background", function(o) {
 		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
