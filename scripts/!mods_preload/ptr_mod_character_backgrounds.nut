@@ -3136,6 +3136,40 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		};
 	});
 
+	::mods_hookNewObject("skills/backgrounds/legend_lonewolf_companion_melee_background", function(o) {
+		o.m.PerkTreeDynamic = {			
+			WeightMultipliers = [
+				{Multiplier = 0.25, Tree = this.Const.Perks.OrganisedTree},
+				{Multiplier = 3, Tree = this.Const.Perks.HeavyArmorTree},
+				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
+				{Multiplier = 0.4, Tree = this.Const.Perks.CrossbowTree},
+				{Multiplier = 0, Tree = this.Const.Perks.SlingsTree},
+				{Multiplier = 0, Tree = this.Const.Perks.RangedTree}
+			],
+			Profession = [ 
+				[
+				{Weight = 10, Tree = this.Const.Perks.BlacksmithProfessionTree},
+				{Weight = 10, Tree = this.Const.Perks.LaborerProfessionTree},
+				{Weight = 10, Tree = this.Const.Perks.MilitiaProfessionTree},
+				{Weight = 10, Tree = this.Const.Perks.RaiderProfessionTree},
+				{Weight = 10, Tree = this.Const.Perks.SoldierProfessionTree},
+				{Weight = 5, Tree = this.Const.Perks.AssassinProfessionTree},
+				{Weight = 5, Tree = this.Const.Perks.JugglerProfessionTree},
+				{Weight = 5, Tree = this.Const.Perks.NobleProfessionTree},
+				{Weight = 5, Tree = this.Const.Perks.WildlingProfessionTree},
+				{Weight = 3, Tree = this.Const.Perks.CultistProfessionTree},
+				{Weight = 2, Tree = this.Const.Perks.HolyManProfessionTree},
+				{Weight = 1, Tree = this.Const.Perks.ApothecaryProfessionTree},
+				{Weight = 1, Tree = this.Const.Perks.ButcherProfessionTree},
+				{Weight = 1, Tree = this.Const.Perks.MinstrelProfessionTree},
+				{Weight = 1, Tree = this.Const.Perks.LumberjackProfessionTree},
+				{Weight = 1, Tree = this.Const.Perks.TraderProfessionTree},
+				{Weight = 20, Tree = this.Const.Perks.NoTree}
+				]
+			]
+		};
+	});
+
 	::mods_hookNewObject("skills/backgrounds/legend_master_archer_background", function(o) {
 		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
