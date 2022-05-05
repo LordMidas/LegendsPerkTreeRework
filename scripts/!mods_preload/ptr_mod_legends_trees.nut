@@ -836,6 +836,9 @@ gt.Const.PTR.modTraitsTrees <- function()
 	this.Const.Perks.ResilientTree <- this.Const.Perks.IndestructibleTree;
 	this.Const.Perks.TalentedTree <- this.Const.Perks.IntelligentTree;
 	this.Const.Perks.TalentedTree.SelfWeightMultiplier <- 0.25;
+	this.Const.Perks.TalentedTree.SpecialPerkMultipliers <- [
+		[2, ::Const.Perks.PerkDefs.PTRRisingStar]
+	];
 	this.Const.Perks.UnstoppableTree <- this.Const.Perks.FitTree;
 
 	gt.Const.Perks.TraitsTrees.Tree = [
@@ -1371,6 +1374,9 @@ gt.Const.PTR.modDefenseTrees <- function ()
 	}
 	gt.Const.Perks.HeavyArmorTree.SelfWeightMultiplier <- 0.33;
 	this.Const.Perks.HeavyArmorTree.WeightMultipliers <- [];
+	this.Const.Perks.HeavyArmorTree.SpecialPerkMultipliers <- [
+		[0.5, ::Const.Perks.PerkDefs.BFFencer]
+	];
 	this.Const.Perks.HeavyArmorTree.Tree[0] = [];
 	this.Const.Perks.HeavyArmorTree.Tree[1] = [];
 	this.Const.Perks.HeavyArmorTree.Tree[2] = [this.Const.Perks.PerkDefs.Brawny];
@@ -1384,6 +1390,9 @@ gt.Const.PTR.modDefenseTrees <- function ()
 		this.Const.Perks.LightArmorTree.Tree.push(emptyArray);
 	}
 	this.Const.Perks.LightArmorTree.WeightMultipliers <- [];
+	this.Const.Perks.LightArmorTree.SpecialPerkMultipliers <- [
+		[2, ::Const.Perks.PerkDefs.BFFencer]
+	];
 	this.Const.Perks.LightArmorTree.Tree[0] = [];
 	this.Const.Perks.LightArmorTree.Tree[1] = [this.Const.Perks.PerkDefs.Dodge];
 	this.Const.Perks.LightArmorTree.Tree[2] = [this.Const.Perks.PerkDefs.Relentless];

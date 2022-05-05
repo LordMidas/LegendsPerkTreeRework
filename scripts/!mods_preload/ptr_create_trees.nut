@@ -1025,16 +1025,10 @@ gt.Const.PTR.createSpecialTrees <- function()
 			return 0;
 		}
 
-		if (_background.hasPerkGroup(::Const.Perks.LightArmorTree)) _chance *= 2;
-		if (_background.hasPerkGroup(::Const.Perks.HeavyArmorTree)) _chance /= 2;
-
 		return _chance;		
 	});
 
-	gt.Const.Perks.SpecialTrees.addSpecialPerk(2, gt.Const.Perks.PerkDefs.PTRRisingStar, 7, "Has the talent to rise and shine above all others!", function( _background, _chance ) {
-		if (_background.hasPerkGroup(::Const.Perks.TalentedTree)) _chance *= 2;
-		return _chance;
-	});
+	gt.Const.Perks.SpecialTrees.addSpecialPerk(2, gt.Const.Perks.PerkDefs.PTRRisingStar, 7, "Has the talent to rise and shine above all others!");
 
 	gt.Const.Perks.SpecialTrees.addSpecialPerk(10, gt.Const.Perks.PerkDefs.LegendBigGameHunter, 7, "Has a penchant for hunting big game.", function( _player, _chance ) {
 		if (!_player.getBackground().hasPerkGroup(::Const.Perks.RangedTree) || !_player.getBackground().hasPerkGroup(::Const.Perks.BowTree) || !_player.getBackground().hasPerkGroup(::Const.Perks.CrossbowTree))
