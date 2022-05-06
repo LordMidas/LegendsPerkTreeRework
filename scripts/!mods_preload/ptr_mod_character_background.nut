@@ -81,7 +81,9 @@ gt.Const.PTR.modCharacterBackground <- function()
 	};
 
 	::mods_hookExactClass("skills/backgrounds/character_background", function(o) {
-		o.m.CustomPerkTreeMap <- null;		
+		o.m.CustomPerkTreeMap <- null;
+		o.m.SpecialPerkMultipliers <- [];
+		o.m.IsCreatingPerkTree <- false;
 
 		o.buildPerkTree = function()
 		{
@@ -129,12 +131,9 @@ gt.Const.PTR.modCharacterBackground <- function()
 			{
 				if (this.World.Assets.isLegendPerkTrees())
 				{
-					local mins = this.getPerkTreeDynamicMins();
-
-					local result = this.Const.Perks.GetDynamicPerkTree(mins, this.m.PerkTreeDynamic, this.getContainer().getActor());
+					local result = this.Const.Perks.GetDynamicPerkTree(this.getPerkTreeDynamicMins(), this.m.PerkTreeDynamic, this.getContainer().getActor());
 					this.m.CustomPerkTree = result.Tree;
 					a = result.Attributes;
-					this.m.CustomPerkTreeMap = result.TreeMap;
 				}
 				else
 				{
@@ -151,7 +150,34 @@ gt.Const.PTR.modCharacterBackground <- function()
 			{
 				this.World.Assets.getOrigin().onBuildPerkTree(this);
 			}
+
 			return a;
+		}
+
+		o.hasPerkGroup <- function( _group )
+		{
+			if (this.m.IsCreatingPerkTree)
+			{
+				foreach (category in this.m.CustomPerkTreeMap)
+				{
+					foreach (tree in category)
+					{
+						if (tree.ID == _group.ID) return true;
+					}
+				}
+
+				return false;
+			}
+
+			foreach (row in _group.Tree)
+			{
+				foreach (perk in row)
+				{
+					if (!this.hasPerk(perk)) return false;
+				}
+			}
+
+			return true;
 		}
 
 		local getPerkBackgroundDescription = o.getPerkBackgroundDescription;

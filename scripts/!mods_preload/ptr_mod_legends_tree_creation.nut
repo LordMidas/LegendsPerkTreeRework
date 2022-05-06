@@ -21,7 +21,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 
 	gt.Const.Perks.FirstAssignedCategories <- ["Profession", "Enemy", "Traits", "Class", "Defense", "Weapon"];
 	gt.Const.Perks.LastAssignedCategories <- ["Styles"];
-	gt.Const.Perks.SkippedCategories <- ["WeightMultipliers"];		
+	gt.Const.Perks.SkippedCategories <- ["WeightMultipliers"];
 
 	gt.Const.Perks.PerkTreeMinsChances <- {
 		Enemy1 = 95,
@@ -445,8 +445,19 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 		}
 
 		local attributes = this.Const.Perks.TraitsTrees.getBaseAttributes();
-		local characterTraits = _player == null ? null : _player.getSkills().getAllSkillsOfType(this.Const.SkillType.Trait);
-		local _localMap = {};
+		local characterTraits = _player == null ? null : _player.getSkills().getSkillsByFunction(this, @(skill) skill.m.Type == ::Const.SkillType.Trait);
+
+		local localMap;
+		if (_player != null)
+		{
+			if (_player.getBackground().m.CustomPerkTreeMap == null) _player.getBackground().m.CustomPerkTreeMap = {};
+			localMap = _player.getBackground().m.CustomPerkTreeMap;
+			_player.getBackground().m.IsCreatingPerkTree = true;
+		}
+		else
+		{
+			localMap = {};
+		}
 
 		local applyMultipliers = function( _multipliersList, _treeList )
 		{
@@ -471,7 +482,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 
 		local applyMultipliersBasedOnAssignedCategories = function( _treeList )
 		{
-			foreach (categoryName, treesInCategory in _localMap)
+			foreach (categoryName, treesInCategory in localMap)
 			{
 				foreach (tree in treesInCategory)
 				{
@@ -667,7 +678,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 			local treeListsInCategory = _map[_categoryName];
 
 			local exclude = [];
-			foreach (tree in _localMap[_categoryName])
+			foreach (tree in localMap[_categoryName])
 			{
 				exclude.push(tree.ID);
 			}
@@ -676,7 +687,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 			{
 				if (treeList.len() == 1)
 				{
-					_localMap[_categoryName].push(treeList[0].Tree);
+					localMap[_categoryName].push(treeList[0].Tree);
 				}
 				else
 				{
@@ -698,7 +709,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 						tree = getWeightedRandomTreeFromCategory(_categoryName, exclude);
 					}
 
-					_localMap[_categoryName].push(tree);
+					localMap[_categoryName].push(tree);
 					exclude.push(tree.ID);
 				}
 			}
@@ -707,13 +718,13 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 		local assignMins = function(_categoryName)
 		{
 			local exclude = [];
-			foreach (tree in _localMap[_categoryName])
+			foreach (tree in localMap[_categoryName])
 			{
 				exclude.push(tree.ID);
 			}
 
 			local r = this.Math.rand(0, 100);
-			for (local i = _localMap[_categoryName].len(); i < _mins[_categoryName]; i++)
+			for (local i = localMap[_categoryName].len(); i < _mins[_categoryName]; i++)
 			{
 				if (_categoryName == "Enemy")
 				{
@@ -729,7 +740,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 				}
 
 				local t = getWeightedRandomTreeFromCategory(_categoryName, exclude);
-				_localMap[_categoryName].push(t);
+				localMap[_categoryName].push(t);
 				exclude.push(t.ID);
 			}
 		}
@@ -765,9 +776,9 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 
 		foreach (categoryName in orderOfAssignment)
 		{
-			if (!(categoryName in _localMap))
+			if (!(categoryName in localMap))
 			{
-				_localMap[categoryName] <- [];
+				localMap[categoryName] <- [];
 			}
 
 			if (categoryName in _map)
@@ -781,7 +792,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 				{
 					local hasRangedWeaponTree = false;
 					local hasMeleeWeaponTree = false;
-					foreach (tree in _localMap.Weapon)
+					foreach (tree in localMap.Weapon)
 					{
 						if (!hasRangedWeaponTree && this.Const.Perks.RangedWeaponTrees.Tree.find(tree) != null)
 						{
@@ -810,7 +821,7 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 
 		local roll = 0;
 
-		foreach( categoryName, category in _localMap )
+		foreach( categoryName, category in localMap )
 		{
 			foreach( tree in category )
 			{
@@ -824,10 +835,83 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 			}
 		}
 
-		foreach (perk in this.Const.Perks.SpecialTrees.Perks)
+		foreach( tree in localMap.Traits )
 		{
-			local success = perk.Func(_player, _localMap);			
-			if (success)
+			if ("Attributes" in tree)
+			{
+				local c = tree.Attributes;
+				attributes.Hitpoints[0] += c.Hitpoints[0];
+				attributes.Hitpoints[1] += c.Hitpoints[1];
+				attributes.Bravery[0] += c.Bravery[0];
+				attributes.Bravery[1] += c.Bravery[1];
+				attributes.Stamina[0] += c.Stamina[0];
+				attributes.Stamina[1] += c.Stamina[1];
+				attributes.MeleeSkill[0] += c.MeleeSkill[0];
+				attributes.MeleeSkill[1] += c.MeleeSkill[1];
+				attributes.MeleeDefense[0] += c.MeleeDefense[0];
+				attributes.MeleeDefense[1] += c.MeleeDefense[1];
+				attributes.RangedSkill[0] += c.RangedSkill[0];
+				attributes.RangedSkill[1] += c.RangedSkill[1];
+				attributes.RangedDefense[0] += c.RangedDefense[0];
+				attributes.RangedDefense[1] += c.RangedDefense[1];
+				attributes.Initiative[0] += c.Initiative[0];
+				attributes.Initiative[1] += c.Initiative[1];
+			}
+		}
+
+		foreach (perk in ::Const.Perks.SpecialTrees.Perks)
+		{
+			local chance = perk.Func(_player, perk.Chance);
+
+			if (chance == 0) continue;
+
+			if (_player != null)
+			{
+				foreach (multiplier in _player.getBackground().m.SpecialPerkMultipliers)
+				{
+					if (multiplier[1] == perk.Perk)
+					{
+						chance *= multiplier[0];
+						break;
+					}
+				}
+
+				if (chance == 0) continue;
+
+				foreach (trait in characterTraits)
+				{
+					foreach (multiplier in trait.m.SpecialPerkMultipliers)
+					{
+						if (multiplier[1] == perk.Perk)
+						{
+							chance *= multiplier[0];
+							break;
+						}
+					}
+				}
+
+				if (chance == 0) continue;
+			}
+
+			foreach (category in localMap)
+			{
+				foreach (tree in category)
+				{
+					if ("SpecialPerkMultipliers" in tree)
+					{
+						foreach (multiplier in tree.SpecialPerkMultipliers)
+						{
+							if (multiplier[1] == perk.Perk)
+							{
+								chance *= multiplier[0];
+								break;
+							}
+						}
+					}
+				}
+			}
+
+			if (chance < 0 || ::Math.rand(1, 100) <= chance)
 			{
 				local hasRow = false;
 				local direction = -1;
@@ -856,34 +940,11 @@ gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
 			}
 		}
 
-		foreach( tree in _localMap.Traits )
-		{
-			if ("Attributes" in tree)
-			{
-				local c = tree.Attributes;
-				attributes.Hitpoints[0] += c.Hitpoints[0];
-				attributes.Hitpoints[1] += c.Hitpoints[1];
-				attributes.Bravery[0] += c.Bravery[0];
-				attributes.Bravery[1] += c.Bravery[1];
-				attributes.Stamina[0] += c.Stamina[0];
-				attributes.Stamina[1] += c.Stamina[1];
-				attributes.MeleeSkill[0] += c.MeleeSkill[0];
-				attributes.MeleeSkill[1] += c.MeleeSkill[1];
-				attributes.MeleeDefense[0] += c.MeleeDefense[0];
-				attributes.MeleeDefense[1] += c.MeleeDefense[1];
-				attributes.RangedSkill[0] += c.RangedSkill[0];
-				attributes.RangedSkill[1] += c.RangedSkill[1];
-				attributes.RangedDefense[0] += c.RangedDefense[0];
-				attributes.RangedDefense[1] += c.RangedDefense[1];
-				attributes.Initiative[0] += c.Initiative[0];
-				attributes.Initiative[1] += c.Initiative[1];
-			}
-		}
+		_player.getBackground().m.IsCreatingPerkTree = false;
 
 		return {
 			Tree = dynamicTree,
-			Attributes = attributes,
-			TreeMap = _localMap
+			Attributes = attributes
 		};
 	};
 

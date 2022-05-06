@@ -191,6 +191,9 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/beast_hunter_background", function(o) {
+		o.m.SpecialPerkMultipliers = [
+			[5, ::Const.Perks.PerkDefs.LegendBigGameHunter]
+		],
 		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 3, Tree = this.Const.Perks.ViciousTree},
@@ -1561,6 +1564,10 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/hunter_background", function(o) {
+		o.m.SpecialPerkMultipliers = [
+			[2, ::Const.Perks.PerkDefs.LegendBigGameHunter],
+			[2, ::Const.Perks.PerkDefs.PTRMarksmanship]
+		],
 		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.5, Tree = this.Const.Perks.ResilientTree},
@@ -4795,6 +4802,10 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/poacher_background", function(o) {
+		o.m.SpecialPerkMultipliers = [
+			[1.5, ::Const.Perks.PerkDefs.LegendBigGameHunter],
+			[1.5, ::Const.Perks.PerkDefs.PTRMarksmanship]
+		],
 		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.5, Tree = this.Const.Perks.AgileTree},
@@ -5037,6 +5048,9 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/swordmaster_background", function(o) {
+		o.m.SpecialPerkMultipliers = [
+			[-1, ::Const.Perks.PerkDefs.BFFencer]
+		],
 		o.m.PerkTreeDynamic = {			
 			WeightMultipliers = [
 				{Multiplier = 0.5, Tree = this.Const.Perks.AgileTree},

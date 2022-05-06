@@ -927,12 +927,13 @@ gt.Const.PTR.createSpecialTrees <- function()
 		Tree = [],
 		Perks = [],
 
-		function addSpecialPerk( _perk, _tier, _desc, _func )
+		function addSpecialPerk( _chance, _perk, _tier, _desc, _func = null )
 		{
 			this.Perks.push({
 				Perk = _perk,
+				Chance = _chance,
 				Desc = "[color=" + this.Const.UI.Color.NegativeValue + "]" + _desc + "[/color]"
-				Func = _func,
+				Func = _func != null ? _func : @(a, b) _chance,
 				Row = _tier - 1
 			});
 
@@ -1009,72 +1010,30 @@ gt.Const.PTR.createSpecialTrees <- function()
 		}
 	};
 
-	gt.Const.Perks.SpecialTrees.addSpecialPerk( gt.Const.Perks.PerkDefs.BFFencer, 7, "Has all the makings of a capable fencer.", function( _player, _localMap ) {
-		if (_player.getBackground().getID() == "background.swordmaster")
+	gt.Const.Perks.SpecialTrees.addSpecialPerk(25, gt.Const.Perks.PerkDefs.BFFencer, 7, "Has all the makings of a capable fencer.", function( _player, _chance ) {
+		if (!_player.getBackground().hasPerkGroup(::Const.Perks.SwordTree))
 		{
-			return true;
+			return 0;
 		}
 
-		local chanceFencer = 25;
-		local hasSwordTree = false;
 		local talents = _player.getTalents();
 
-		chanceFencer = talents.len() == 0 ? 0 : chanceFencer * talents[this.Const.Attributes.Initiative] * talents[this.Const.Attributes.MeleeSkill];
+		_chance = talents.len() == 0 ? 0 : _chance * talents[this.Const.Attributes.Initiative] * talents[this.Const.Attributes.MeleeSkill];
 
 		if (_player.getInitiative() + (this.Math.max(0, _player.getBaseProperties().Stamina - _player.getCurrentProperties().Stamina)) < 100)
 		{
-			return false;
+			return 0;
 		}
 
-		if (chanceFencer > 0)
-		{
-			foreach (category in _localMap)
-			{
-				foreach (tree in category)
-				{
-					switch (tree.ID)
-					{
-						case this.Const.Perks.SwordTree.ID:
-							hasSwordTree = true;
-							break;
+		if (_background.hasPerkGroup(::Const.Perks.LightArmorTree)) _chance *= 2;
+		if (_background.hasPerkGroup(::Const.Perks.HeavyArmorTree)) _chance /= 2;
 
-						case this.Const.Perks.LightArmorTree.ID:
-							chanceFencer *= 2;
-							break;
-
-						case this.Const.Perks.HeavyArmorTree.ID:
-							chanceFencer /= 2;
-							break;
-					}
-				}
-			}
-		}
-		else
-		{
-			return false;
-		}
-
-		if (!hasSwordTree)
-		{
-			return false;
-		}
-
-		return this.Math.rand(1, 100) <= chanceFencer;			
+		return _chance;		
 	});
 
-	gt.Const.Perks.SpecialTrees.addSpecialPerk(gt.Const.Perks.PerkDefs.PTRRisingStar, 7, "Has the talent to rise and shine above all others!", function( _player, _localMap ) {
-		local chance = 2;
-
-		foreach (tree in _localMap.Traits)
-		{
-			if (tree.ID == this.Const.Perks.TalentedTree.ID)
-			{
-				chance *= 2;
-				break;
-			}
-		}
-
-		local traits = _player.getSkills().getAllSkillsOfType(this.Const.SkillType.Trait);
+	gt.Const.Perks.SpecialTrees.addSpecialPerk(2, gt.Const.Perks.PerkDefs.PTRRisingStar, 7, "Has the talent to rise and shine above all others!", function( _background, _chance ) {
+		if (_background.hasPerkGroup(::Const.Perks.TalentedTree)) _chance *= 2;
+		local traits = _background.getContainer().getAllSkillsOfType(this.Const.SkillType.Trait);
 		foreach (trait in traits)
 		{
 			switch (trait.getID())
@@ -1086,7 +1045,7 @@ gt.Const.PTR.createSpecialTrees <- function()
 				case "trait.dexterous":
 				case "trait.lucky":
 				case "trait.unpredictable":
-					chance *= 2;
+					_chance *= 2;
 					break;
 
 				case "trait.dumb":
@@ -1096,63 +1055,40 @@ gt.Const.PTR.createSpecialTrees <- function()
 				case "trait.drunkard":
 				case "trait.fainthearted":
 				case "trait.insecure":
-					chance /= 2;
+					_chance /= 2;
 					break;
 			}
 		}
 
-		return this.Math.rand(1, 100) <= chance;
+		return _chance;
 	});
 
-	gt.Const.Perks.SpecialTrees.addSpecialPerk(gt.Const.Perks.PerkDefs.LegendBigGameHunter, 7, "Has a penchant for hunting big game.", function( _player, _localMap ) {
-		local chance = 10;
+	gt.Const.Perks.SpecialTrees.addSpecialPerk(10, gt.Const.Perks.PerkDefs.LegendBigGameHunter, 7, "Has a penchant for hunting big game.", function( _player, _chance ) {
+		if (!_player.getBackground().hasPerkGroup(::Const.Perks.RangedTree) || !_player.getBackground().hasPerkGroup(::Const.Perks.BowTree) || !_player.getBackground().hasPerkGroup(::Const.Perks.CrossbowTree))
+		{
+			return 0;
+		}
 
 		local talents = _player.getTalents();
 		if (talents.len() == 0 || talents[this.Const.Attributes.RangedSkill] < 2)
 		{
-			return false;
+			return 0;
 		}
 		else
 		{
-			chance *= talents[this.Const.Attributes.RangedSkill];
+			_chance *= talents[this.Const.Attributes.RangedSkill];
 		}
 
-		local hasRangedStyles = false;
-		local hasBowOrCrossbow = false;
-
-		foreach (tree in _localMap.Styles)
-		{
-			if (tree.ID == this.Const.Perks.RangedTree.ID)
-			{
-				hasRangedStyles = true;
-				break;
-			}
-		}
-
-		foreach (tree in _localMap.Weapon)
-		{			
-			if (tree.ID == this.Const.Perks.BowTree.ID || tree.ID == this.Const.Perks.CrossbowTree.ID)
-			{
-				hasBowOrCrossbow = true;
-				break;
-			}
-		}
-
-		if (!hasRangedStyles || !hasBowOrCrossbow)
-		{
-			return false;
-		}
-
-		local traits = _player.getSkills().getAllSkillsOfType(this.Const.SkillType.Trait);
+		local traits = _background.getContainer().getAllSkillsOfType(this.Const.SkillType.Trait);
 		foreach (trait in traits)
 		{
 			switch (trait.getID())
 			{
 				case "trait.fear_beasts":
-					return false;
+					return 0;
 				
 				case "trait.hate_beasts":
-					chance *= 4;
+					_chance *= 4;
 					break;
 
 				case "trait.eagle_eyes":
@@ -1161,149 +1097,97 @@ gt.Const.PTR.createSpecialTrees <- function()
 				case "trait.cocky":
 				case "trait.brave":
 				case "trait.fearless":
-					chance *= 2;
+					_chance *= 2;
 					break;
 
 				case "trait.slack":
 				case "trait.fainthearted":
 				case "trait.insecure":
-					chance /= 2;
+					_chance /= 2;
 					break;
 			}
 		}
 
-		switch (_player.getBackground().getID())
-		{
-			case "background.beast_slayer":
-				chance *= 5;
-				break;
-
-			case "background.hunter":
-				chance *= 2;
-				break;
-
-			case "background.poacher":
-				chance *= 1.5;
-				break;
-		}
-
-		return this.Math.rand(1, 100) <= chance;
+		return _chance;
 	});
 
-	gt.Const.Perks.SpecialTrees.addSpecialPerk(gt.Const.Perks.PerkDefs.PTRMarksmanship, 7, "Has the talent to become a formidable marksman.", function( _player, _localMap ) {
-		local chance = 5;
+	gt.Const.Perks.SpecialTrees.addSpecialPerk(5, gt.Const.Perks.PerkDefs.PTRMarksmanship, 7, "Has the talent to become a formidable marksman.", function( _player, _chance ) {
+		if (!_player.getBackground().hasPerkGroup(::Const.Perks.RangedTree))
+		{
+			return 0;
+		}
 
 		local talents = _player.getTalents();
 		if (talents.len() == 0 || talents[this.Const.Attributes.RangedSkill] < 2)
 		{
-			return false;
+			return 0;
 		}
 		else
 		{
-			chance *= talents[this.Const.Attributes.RangedSkill];
+			_chance *= talents[this.Const.Attributes.RangedSkill];
 		}
 
-		local hasRangedStyles = false;
-
-		foreach (tree in _localMap.Styles)
-		{
-			if (tree.ID == this.Const.Perks.RangedTree.ID)
-			{
-				hasRangedStyles = true;
-				break;
-			}
-		}
-
-		if (!hasRangedStyles)
-		{
-			return false;
-		}
-
-		local traits = _player.getSkills().getAllSkillsOfType(this.Const.SkillType.Trait);
+		local traits = _background.getContainer().getAllSkillsOfType(this.Const.SkillType.Trait);
 		foreach (trait in traits)
 		{
 			switch (trait.getID())
 			{
 				case "trait.clumsy":
-					return false;
+					return 0;
 				
 				case "trait.sureshot":
-					return true;
+					return -1;
 
 				case "trait.eagle_eyes":
 				case "trait.steady_hands":
-					chance *= 4;
+					_chance *= 4;
 					break;
 
 				
 				case "trait.lucky":
 				case "trait.unpredictable":
-					chance *= 2;
+					_chance *= 2;
 					break;
 				
 				case "trait.drunkard":
 				case "trait.predictable":
 				case "trait.short_sighted":
-					chance /= 2;
+					_chance /= 2;
 					break;
 			}
 		}
 
-		switch (_player.getBackground().getID())
-		{
-			case "background.hunter":
-				chance *= 2;
-				break;
-
-			case "background.poacher":
-				chance *= 1.5;
-				break;
-		}
-
-		return this.Math.rand(1, 100) <= chance;
+		return _chance;
 	});
 
-	gt.Const.Perks.SpecialTrees.addSpecialPerk(gt.Const.Perks.PerkDefs.PTRManOfSteel, 7, "Is tough as if made of steel!", function( _player, _localMap ) {
-		local chance = 25;
+	gt.Const.Perks.SpecialTrees.addSpecialPerk(25, gt.Const.Perks.PerkDefs.PTRManOfSteel, 7, "Is tough as if made of steel!", function( _player, _chance ) {
+		if (!_player.getBackground().hasPerkGroup(::Const.Perks.HeavyArmorTree))
+		{
+			return 0;
+		}
 
 		local talents = _player.getTalents();
 		if (talents.len() == 0 || talents[this.Const.Attributes.Hitpoints] < 1)
 		{
-			return false;
+			return 0;
 		}
 		else
 		{
-			chance *= talents[this.Const.Attributes.Hitpoints];
-		}
-		
-		local hasHeavyArmor = false;
-
-		foreach (tree in _localMap.Defense)
-		{
-			if (tree.ID == this.Const.Perks.HeavyArmorTree.ID)
-			{
-				hasHeavyArmor = true;
-				break;
-			}
+			_chance *= talents[this.Const.Attributes.Hitpoints];
 		}
 
-		if (!hasHeavyArmor)
-		{
-			return false;
-		}
-
-		local traits = _player.getSkills().getAllSkillsOfType(this.Const.SkillType.Trait);
+		local traits = _background.getContainer().getAllSkillsOfType(this.Const.SkillType.Trait);
 		foreach (trait in traits)
 		{
 			switch (trait.getID())
 			{
 				case "trait.frail":
 				case "trait.fragile":
-					return false;
+					return 0;
 
 				case "trait.iron_jaw":
 				case "trait.tough":
-					return true;
+					return -1;
 				
 				case "trait.deathwish":
 				case "trait.fat":
@@ -1311,18 +1195,18 @@ gt.Const.PTR.createSpecialTrees <- function()
 				case "trait.heavy":
 				case "trait.huge":
 				case "trait.strong":
-					chance *= 2;
+					_chance *= 2;
 					break;
 				
 				case "trait.light":
 				case "trait.tiny":
 				case "trait.ailing":
 				case "trait.bleeder":
-					chance /= 2;
+					_chance /= 2;
 					break;
 			}
 		}
 		
-		return this.Math.rand(1, 100) <= chance;
+		return _chance;
 	});
 }
