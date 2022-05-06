@@ -13,6 +13,7 @@ gt.PTR.ModID <- "mod_legends_PTR";
 
 ::mods_queue(gt.PTR.ModID, "mod_legends, mod_msu, mod_betterFencing, mod_WMS, mod_mediumArmorRework, mod_legends_STR, mod_duelistDefense", function()
 {	
+	::PTR.Mod <- ::MSU.Class.Mod(::PTR.ModID, ::PTR.Version, ::PTR.Name);
 	
 	gt.PTR.modRetinue();
 	delete gt.PTR.modRetinue;
