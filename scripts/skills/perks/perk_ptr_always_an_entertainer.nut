@@ -119,16 +119,13 @@ this.perk_ptr_always_an_entertainer <- this.inherit("scripts/skills/skill", {
 	{
 		this.skill.onDeserialize(_in);
 
-		if (this.PTR.Version >= 1)
+		this.m.IsSpent = _in.readBool();
+
+		local count = _in.readU8();
+
+		for (local i = 0; i < count; i++)
 		{
-			this.m.IsSpent = _in.readBool();
-
-			local count = _in.readU8();
-
-			for (local i = 0; i < count; i++)
-			{
-				this.m.SettlementsVisited.push(_in.readString());
-			}
+			this.m.SettlementsVisited.push(_in.readString());
 		}
 	}
 });

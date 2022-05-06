@@ -323,36 +323,33 @@ gt.PTR.modCharacterBackground <- function()
 		{
 			onDeserialize(_in);
 
-			if (this.PTR.Version >= 1)
+			local mapSize = _in.readU8();
+			if (mapSize == 0)
 			{
-				local mapSize = _in.readU8();
-				if (mapSize == 0)
+				this.m.CustomPerkTreeMap = null;
+			}
+			else
+			{
+				this.m.CustomPerkTreeMap = {};
+				for (local i = 0; i < mapSize; i++)
 				{
-					this.m.CustomPerkTreeMap = null;
-				}
-				else
-				{
-					this.m.CustomPerkTreeMap = {};
-					for (local i = 0; i < mapSize; i++)
-					{
-						local categoryName = _in.readString();
-						local category = [];
+					local categoryName = _in.readString();
+					local category = [];
 
-						local categorySize = _in.readU8();
-						for (local j = 0; j < categorySize; j++)
+					local categorySize = _in.readU8();
+					for (local j = 0; j < categorySize; j++)
+					{
+						local treeID = _in.readString();
+						foreach (t in this.Const.Perks[categoryName + "Trees"].Tree)
 						{
-							local treeID = _in.readString();
-							foreach (t in this.Const.Perks[categoryName + "Trees"].Tree)
+							if (t.ID == treeID)
 							{
-								if (t.ID == treeID)
-								{
-									category.push(t);
-								}
+								category.push(t);
 							}
 						}
-
-						this.m.CustomPerkTreeMap[categoryName] <- category;
 					}
+
+					this.m.CustomPerkTreeMap[categoryName] <- category;
 				}
 			}
 		}
