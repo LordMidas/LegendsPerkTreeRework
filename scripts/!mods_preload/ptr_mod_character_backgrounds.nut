@@ -4670,10 +4670,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.SturdyTree,			
 				this.Const.Perks.UnstoppableTree,
 				this.Const.Perks.ViciousTree,
-				this.Const.Perks.HeavyArmorTree,
-				this.Const.Perks.ShieldTree,
-				this.Const.Perks.OneHandedTree,
-				this.Const.Perks.TwoHandedTree
+				this.Const.Perks.HeavyArmorTree
 			]
 		);
 
@@ -4694,6 +4691,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 
 		addPerksToCustomPerkTree(1, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.Student,
+				this.Const.Perks.PerkDefs.STRPhalanx,
 				this.Const.Perks.PerkDefs.PTRProfessional,
 				this.Const.Perks.PerkDefs.PTRMenacing
 			]
@@ -4703,13 +4701,15 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.FortifiedMind,
 				this.Const.Perks.PerkDefs.PTRExudeConfidence,
 				this.Const.Perks.PerkDefs.Rotation,
+				this.Const.Perks.PerkDefs.STRCoverAlly,
 				this.Const.Perks.PerkDefs.Gifted
 			]
 		);
 
 		addPerksToCustomPerkTree(3, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.PTRBully,
-				this.Const.Perks.PerkDefs.PTRPatternRecognition
+				this.Const.Perks.PerkDefs.PTRPatternRecognition,
+				this.Const.Perks.PerkDefs.PTRFormidableApproach
 			]
 		);
 
@@ -4717,18 +4717,21 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.Underdog,
 				this.Const.Perks.PerkDefs.PTRWearsItWell,
 				this.Const.Perks.PerkDefs.PTRPersonalArmor,
-				this.Const.Perks.PerkDefs.PTRVigilant
+				this.Const.Perks.PerkDefs.PTRVigilant,
+				this.Const.Perks.PerkDefs.LineBreaker
 			]
 		);
 
 		addPerksToCustomPerkTree(5, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.DoubleStrike
 			]
 		);
 
 		addPerksToCustomPerkTree(6, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.PTRVigorousAssault,
 				this.Const.Perks.PerkDefs.PTRKnowTheirWeakness,				
-				this.Const.Perks.PerkDefs.LegendClarity
+				this.Const.Perks.PerkDefs.LegendClarity,
+				this.Const.Perks.PerkDefs.PTRSweepingStrikes
 			]
 		);
 
