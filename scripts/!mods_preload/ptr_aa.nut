@@ -41,6 +41,9 @@ gt.Const.PTR.ModID <- "mod_legends_PTR";
 	gt.Const.PTR.modSkills();
 	delete gt.Const.PTR.modSkills;
 
+	gt.Const.PTR.modTraits();
+	delete gt.Const.PTR.modTraits;
+
 	gt.Const.PTR.modWeapons();
 	delete gt.Const.PTR.modWeapons;
 	
