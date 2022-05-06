@@ -2440,22 +2440,34 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
-				this.Const.Perks.FlailTree,
-				this.Const.Perks.MaceTree,
-				this.Const.Perks.HammerTree,			
-				this.Const.Perks.SwordTree,
 				this.Const.Perks.HeavyArmorTree,
 				this.Const.Perks.ViciousTree,
 				this.Const.Perks.SturdyTree
 			]
 		);
 
+		local trees = [
+			this.Const.Perks.AxeTree,
+			this.Const.Perks.CleaverTree,
+			this.Const.Perks.FlailTree,
+			this.Const.Perks.HammerTree,
+			this.Const.Perks.MaceTree,
+			this.Const.Perks.SwordTree
+		];
+
+		for (local i = 0; i < 3; ++i)
+		{
+			addPerkTreesToCustomPerkTree(o.m.CustomPerkTree, [trees.remove(this.Math.rand(0, trees.len()-1))]);			
+		}
 
 		addPerksToCustomPerkTree(1, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.BagsAndBelts,
 				this.Const.Perks.PerkDefs.STRPhalanx,
-				this.Const.Perks.PerkDefs.LegendSmashingShields,
-				this.Const.Perks.PerkDefs.LegendFavouredEnemyZombie
+				this.Const.Perks.PerkDefs.LegendFavouredEnemyZombie,
+				this.Const.Perks.PerkDefs.LegendHairSplitter,
+				this.Const.Perks.PerkDefs.PTRExploitOpening,
+				this.Const.Perks.PerkDefs.HoldOut,
+				this.Const.Perks.PerkDefs.PTRSmallTarget
 			]
 		);
 
@@ -2463,13 +2475,14 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.RallyTheTroops,
 				this.Const.Perks.PerkDefs.STRCoverAlly,
 				this.Const.Perks.PerkDefs.PTRDismemberment,
+				this.Const.Perks.PerkDefs.PTRExudeConfidence,
 				this.Const.Perks.PerkDefs.PTRSanguinary,
-				this.Const.Perks.PerkDefs.QuickHands								
+				this.Const.Perks.PerkDefs.QuickHands
 			]
 		);
 
 		addPerksToCustomPerkTree(3, o.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.HoldOut,
+				this.Const.Perks.PerkDefs.LegendShieldsUp,
 				this.Const.Perks.PerkDefs.FortifiedMind,
 				this.Const.Perks.PerkDefs.Steadfast,
 				this.Const.Perks.PerkDefs.Rotation,
@@ -2481,9 +2494,9 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.LegendFavouredEnemySkeleton,
 				this.Const.Perks.PerkDefs.STRLineBreaker,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyVampire,
-				this.Const.Perks.PerkDefs.SpecCleaver,
+				this.Const.Perks.PerkDefs.SunderingStrikes,
 				this.Const.Perks.PerkDefs.PTRTheRushOfBattle,				
-				this.Const.Perks.PerkDefs.PTRExudeConfidence,			
+				this.Const.Perks.PerkDefs.LegendHoldTheLine,			
 				this.Const.Perks.PerkDefs.LegendPrayerOfFaith,
 				this.Const.Perks.PerkDefs.PTRVigilant,				
 				this.Const.Perks.PerkDefs.LegendPrayerOfLife

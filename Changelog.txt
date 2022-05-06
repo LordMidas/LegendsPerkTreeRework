@@ -10,6 +10,7 @@
 - Legend Assassin Commander perks reworked. Reduced the tier of Assassin type perks to allow more specialization early, ultimately leading to a more unique character. Added Knife perks as requested. Added Twirl, Backflip and Tumble. Now has Vanguard Deployment at T7. 
 - Legend Assassin perks reworked. Added Knife perks. Added Twirl, Backflip, Tumble and Boondock Blade. Added some other relevant perks.
 - Berserker and Berserker Commander reworked. Added Wildling perks. Replaced Berserker Rage with PTR's Feral Rage. Removed Uber Nimble as it was ridiculously overpowered. Lowered the tier of some Berserker themed perks to allow more specialization early, ultimately leading to a more unique character. Give us your feedback on how the Berserker Origin feels now.
+- Crusader Commander perks reworked. Now gets 4 random weapon trees, being Axe, Cleaver, Flail, Hammer, Mace or Sword. Now has Hair Splitter and Small Target on tier 1. Now has Shields Up on tier 3 and Hold The Line on tier 4. Our vision of the Crusader is that they're an exceptional warrior specializing in defense. This is achieved by having access to the excellent Pattern Recognition and Battleheart perks, as well as others. Now having access to Shields Up and Hold The Line gives the Crusader avenues to spread their defensive prowess to their allies.
 - Added PTR perk trees to Monk Turned Flagellant and Pacified Flagellant backgrounds in case of rolling them on a random start.
 
 ====================
