@@ -12,11 +12,6 @@ gt.Const.PTR.ModID <- "mod_legends_PTR";
 
 ::mods_queue(gt.Const.PTR.ModID, "mod_legends, mod_msu, mod_betterFencing, mod_WMS, mod_mediumArmorRework, mod_legends_STR, mod_duelistDefense", function()
 {	
-	this.MSU.Log.setDebugLog(false, gt.Const.PTR.ModID);
-
-	gt.Const.PTR.modMSU();
-	delete gt.Const.PTR.modMSU;
-
 	gt.Const.PTR.modRetinue();
 	delete gt.Const.PTR.modRetinue;
 
