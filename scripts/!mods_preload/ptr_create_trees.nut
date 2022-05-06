@@ -129,25 +129,25 @@ gt.Const.PTR.createProfessionTrees <- function()
 			"has the eyes and temperament of a cold blooded killer"
 		],
 		Name = "Assassin",
-		WeightMultipliers = [
-			{Multiplier = -1, Tree = this.Const.Perks.CivilizationTree},
-			{Multiplier = 3, Tree = this.Const.Perks.AgileTree},
-			{Multiplier = 3, Tree = this.Const.Perks.FastTree},
-			{Multiplier = 2, Tree = this.Const.Perks.ViciousTree},
-			{Multiplier = 2, Tree = this.Const.Perks.DeviousTree},
-			{Multiplier = 0, Tree = this.Const.Perks.OrganisedTree},
-			{Multiplier = 0.5, Tree = this.Const.Perks.LargeTree},
-			{Multiplier = 0.5, Tree = this.Const.Perks.SturdyTree},
-			{Multiplier = 3, Tree = this.Const.Perks.TrapperClassTree},
-			{Multiplier = -1, Tree = this.Const.Perks.LightArmorTree},
-			{Multiplier = 5, Tree = this.Const.Perks.MediumArmorTree},
-			{Multiplier = 0.5, Tree = this.Const.Perks.ShieldTree},
-			{Multiplier = -1, Tree = this.Const.Perks.OneHandedTree},
-			{Multiplier = -1, Tree = this.Const.Perks.DaggerTree},
-			{Multiplier = 2, Tree = this.Const.Perks.SwordTree},
-			{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-			{Multiplier = 0, Tree = this.Const.Perks.SlingsTree},
-			{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
+		PerkGroupMultipliers = [
+			[-1, ::Const.Perks.CivilizationTree],
+			[3, ::Const.Perks.AgileTree],
+			[3, ::Const.Perks.FastTree],
+			[2, ::Const.Perks.ViciousTree],
+			[2, ::Const.Perks.DeviousTree],
+			[0, ::Const.Perks.OrganisedTree],
+			[0.5, ::Const.Perks.LargeTree],
+			[0.5, ::Const.Perks.SturdyTree],
+			[3, ::Const.Perks.TrapperClassTree],
+			[-1, ::Const.Perks.LightArmorTree],
+			[5, ::Const.Perks.MediumArmorTree],
+			[0.5, ::Const.Perks.ShieldTree],
+			[-1, ::Const.Perks.OneHandedTree],
+			[-1, ::Const.Perks.DaggerTree],
+			[2, ::Const.Perks.SwordTree],
+			[0, ::Const.Perks.BowTree],
+			[0, ::Const.Perks.SlingsTree],
+			[0, ::Const.Perks.CrossbowTree]
 		],
 		Tree = [
 			[
@@ -180,14 +180,14 @@ gt.Const.PTR.createProfessionTrees <- function()
 			"claims to be well-experienced in butchering animals"
 		],
 		Name = "Butcher",
-		WeightMultipliers = [
-			{Multiplier = 3, Tree = this.Const.Perks.ViciousTree},
-			{Multiplier = 2, Tree = this.Const.Perks.OrganisedTree},
-			{Multiplier = 5, Tree = this.Const.Perks.ChefClassTree},
-			{Multiplier = -1, Tree = this.Const.Perks.OneHandedTree},
-			{Multiplier = -1, Tree = this.Const.Perks.CleaverTree},
-			{Multiplier = 2, Tree = this.Const.Perks.SwordTree},
-			{Multiplier = 3, Tree = this.Const.Perks.AxeTree},
+		PerkGroupMultipliers = [
+			[3, ::Const.Perks.ViciousTree],
+			[2, ::Const.Perks.OrganisedTree],
+			[5, ::Const.Perks.ChefClassTree],
+			[-1, ::Const.Perks.OneHandedTree],
+			[-1, ::Const.Perks.CleaverTree],
+			[2, ::Const.Perks.SwordTree],
+			[3, ::Const.Perks.AxeTree]
 		],
 		Tree = [
 			[
@@ -218,15 +218,15 @@ gt.Const.PTR.createProfessionTrees <- function()
 			"used to make tools and weapons at a smithy"
 		],
 		Name = "Blacksmith",
-		WeightMultipliers = [
-			{Multiplier = 2, Tree = this.Const.Perks.LargeTree},
-			{Multiplier = 3, Tree = this.Const.Perks.OrganisedTree},
-			{Multiplier = 1.25, Tree = this.Const.Perks.ResilientTree},
-			{Multiplier = 2, Tree = this.Const.Perks.SturdyTree},
-			{Multiplier = -1, Tree = this.Const.Perks.MenderClassTree},
-			{Multiplier = 2, Tree = this.Const.Perks.HeavyArmorTree},
-			{Multiplier = 1.5, Tree = this.Const.Perks.MediumArmorTree},			
-			{Multiplier = -1, Tree = this.Const.Perks.HammerTree},
+		PerkGroupMultipliers = [
+			[2, ::Const.Perks.LargeTree],
+			[3, ::Const.Perks.OrganisedTree],
+			[1.25, ::Const.Perks.ResilientTree],
+			[2, ::Const.Perks.SturdyTree],
+			[-1, ::Const.Perks.MenderClassTree],
+			[2, ::Const.Perks.HeavyArmorTree],
+			[1.5, ::Const.Perks.MediumArmorTree],			
+			[-1, ::Const.Perks.HammerTree]
 		],
 		Tree = [
 			[
@@ -255,14 +255,14 @@ gt.Const.PTR.createProfessionTrees <- function()
 			"has had experience with some weapons serving in the militia"
 		],
 		Name = "Militia",
-		WeightMultipliers = [
-			{Multiplier = 2, Tree = this.Const.Perks.OutlandersTree},
-			{Multiplier = -1, Tree = this.Const.Perks.TrainedTree},
-			{Multiplier = 0.8, Tree = this.Const.Perks.HealerClassTree},
-			{Multiplier = 2, Tree = this.Const.Perks.TacticianClassTree},
-			{Multiplier = 2, Tree = this.Const.Perks.LightArmorTree},
-			{Multiplier = -1, Tree = this.Const.Perks.SpearTree},
-			{Multiplier = -1, Tree = this.Const.Perks.ShieldTree},			
+		PerkGroupMultipliers = [
+			[2, ::Const.Perks.OutlandersTree],
+			[-1, ::Const.Perks.TrainedTree],
+			[0.8, ::Const.Perks.HealerClassTree],
+			[2, ::Const.Perks.TacticianClassTree],
+			[2, ::Const.Perks.LightArmorTree],
+			[-1, ::Const.Perks.SpearTree],
+			[-1, ::Const.Perks.ShieldTree]	
 		],
 		Tree = [
 			[
@@ -288,11 +288,11 @@ gt.Const.PTR.createProfessionTrees <- function()
 			"worked in a mine"
 		],
 		Name = "Miner",
-		WeightMultipliers = [
-			{Multiplier = 3, Tree = this.Const.Perks.LargeTree},
-			{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
-			{Multiplier = 3, Tree = this.Const.Perks.SturdyTree},
-			{Multiplier = -1, Tree = this.Const.Perks.HammerTree},
+		PerkGroupMultipliers = [
+			[3, ::Const.Perks.LargeTree],
+			[2, ::Const.Perks.ResilientTree],
+			[3, ::Const.Perks.SturdyTree],
+			[-1, ::Const.Perks.HammerTree]
 		],
 		Tree = [
 			[
@@ -320,19 +320,19 @@ gt.Const.PTR.createProfessionTrees <- function()
 			"ploughed the fields"
 		],
 		Name = "Farmer",
-		WeightMultipliers = [
-			{Multiplier = 3, Tree = this.Const.Perks.LargeTree},
-			{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
-			{Multiplier = 3, Tree = this.Const.Perks.SturdyTree},
-			{Multiplier = -1, Tree = this.Const.Perks.OrganisedTree},
-			{Multiplier = 2, Tree = this.Const.Perks.TrapperClassTree},
-			{Multiplier = 2, Tree = this.Const.Perks.ChefClassTree},
-			{Multiplier = 2, Tree = this.Const.Perks.MenderClassTree},
-			{Multiplier = 2, Tree = this.Const.Perks.HoundmasterClassTree},
-			{Multiplier = 2, Tree = this.Const.Perks.TwoHandedTree},
-			{Multiplier = 3, Tree = this.Const.Perks.PolearmTree},
-			{Multiplier = 1.5, Tree = this.Const.Perks.SpearTree},
-			{Multiplier = 1.5, Tree = this.Const.Perks.SlingsTree},
+		PerkGroupMultipliers = [
+			[3, ::Const.Perks.LargeTree],
+			[2, ::Const.Perks.ResilientTree],
+			[3, ::Const.Perks.SturdyTree],
+			[-1, ::Const.Perks.OrganisedTree],
+			[2, ::Const.Perks.TrapperClassTree],
+			[2, ::Const.Perks.ChefClassTree],
+			[2, ::Const.Perks.MenderClassTree],
+			[2, ::Const.Perks.HoundmasterClassTree],
+			[2, ::Const.Perks.TwoHandedTree],
+			[3, ::Const.Perks.PolearmTree],
+			[1.5, ::Const.Perks.SpearTree],
+			[1.5, ::Const.Perks.SlingsTree]
 		],
 		Tree = [
 			[
@@ -356,15 +356,15 @@ gt.Const.PTR.createProfessionTrees <- function()
 			"claims to have experience in hunting animals"
 		],
 		Name = "Hunter",
-		WeightMultipliers = [
-			{Multiplier = 2, Tree = this.Const.Perks.DeviousTree},
-			{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},		
-			{Multiplier = 5, Tree = this.Const.Perks.LightArmorTree},		
-			{Multiplier = 9, Tree = this.Const.Perks.BowTree},
-			{Multiplier = 3, Tree = this.Const.Perks.CrossbowTree},
-			{Multiplier = 3, Tree = this.Const.Perks.SlingsTree},
-			{Multiplier = 3, Tree = this.Const.Perks.ThrowingTree},
-			{Multiplier = -1, Tree = this.Const.Perks.RangedTree},
+		PerkGroupMultipliers = [
+			[2, ::Const.Perks.DeviousTree],
+			[0.66, ::Const.Perks.ShieldTree],		
+			[5, ::Const.Perks.LightArmorTree],		
+			[9, ::Const.Perks.BowTree],
+			[3, ::Const.Perks.CrossbowTree],
+			[3, ::Const.Perks.SlingsTree],
+			[3, ::Const.Perks.ThrowingTree],
+			[-1, ::Const.Perks.RangedTree]
 		],
 		Tree = [
 			[
@@ -388,11 +388,11 @@ gt.Const.PTR.createProfessionTrees <- function()
 			"dug holes and moved dirt to make a living"
 		],
 		Name = "Digger",
-		WeightMultipliers = [
-			{Multiplier = 2, Tree = this.Const.Perks.LargeTree},
-			{Multiplier = 1.5, Tree = this.Const.Perks.ResilientTree},
-			{Multiplier = 2, Tree = this.Const.Perks.SturdyTree},
-			{Multiplier = 0.5, Tree = this.Const.Perks.ClerkClassTree}
+		PerkGroupMultipliers = [
+			[2, ::Const.Perks.LargeTree],
+			[1.5, ::Const.Perks.ResilientTree],
+			[2, ::Const.Perks.SturdyTree],
+			[0.5, ::Const.Perks.ClerkClassTree]
 		],
 		Tree = [
 			[
@@ -417,16 +417,16 @@ gt.Const.PTR.createProfessionTrees <- function()
 			"appears to have the hands of a lumberjack"
 		],
 		Name = "Lumberjack",
-		WeightMultipliers = [
-			{Multiplier = -1, Tree = this.Const.Perks.SchratTree},
-			{Multiplier = 2, Tree = this.Const.Perks.LargeTree},
-			{Multiplier = 1.5, Tree = this.Const.Perks.ResilientTree},
-			{Multiplier = 2, Tree = this.Const.Perks.SturdyTree},
-			{Multiplier = 1.5, Tree = this.Const.Perks.UnstoppableTree},
-			{Multiplier = 0.5, Tree = this.Const.Perks.ClerkClassTree},
-			{Multiplier = 2, Tree = this.Const.Perks.ScoutClassTree},		
-			{Multiplier = 2, Tree = this.Const.Perks.TwoHandedTree},
-			{Multiplier = -1, Tree = this.Const.Perks.AxeTree}
+		PerkGroupMultipliers = [
+			[-1, ::Const.Perks.SchratTree],
+			[2, ::Const.Perks.LargeTree],
+			[1.5, ::Const.Perks.ResilientTree],
+			[2, ::Const.Perks.SturdyTree],
+			[1.5, ::Const.Perks.UnstoppableTree],
+			[0.5, ::Const.Perks.ClerkClassTree],
+			[2, ::Const.Perks.ScoutClassTree],		
+			[2, ::Const.Perks.TwoHandedTree],
+			[-1, ::Const.Perks.AxeTree]
 		],
 		Tree = [
 			[
@@ -453,12 +453,12 @@ gt.Const.PTR.createProfessionTrees <- function()
 			"claims to have experience with potions and herbs"
 		],
 		Name = "Apothecary",
-		WeightMultipliers = [
-			{Multiplier = 5, Tree = this.Const.Perks.OrganisedTree},
-			{Multiplier = 5, Tree = this.Const.Perks.TalentedTree},
-			{Multiplier = 2.5, Tree = this.Const.Perks.CalmTree},
-			{Multiplier = -1, Tree = this.Const.Perks.HealerClassTree},
-			{Multiplier = -1, Tree = this.Const.Perks.SwordTree},
+		PerkGroupMultipliers = [
+			[5, ::Const.Perks.OrganisedTree],
+			[5, ::Const.Perks.TalentedTree],
+			[2.5, ::Const.Perks.CalmTree],
+			[-1, ::Const.Perks.HealerClassTree],
+			[-1, ::Const.Perks.SwordTree]
 		],
 		Tree = [
 			[
@@ -489,13 +489,13 @@ gt.Const.PTR.createProfessionTrees <- function()
 			"is keen to show you some of his juggling tricks"
 		],
 		Name = "Juggler",
-		WeightMultipliers = [
-			{Multiplier = 2, Tree = this.Const.Perks.AgileTree},
-			{Multiplier = 2, Tree = this.Const.Perks.FastTree},
-			{Multiplier = 0.5, Tree = this.Const.Perks.SlingsTree},
-			{Multiplier = 0.8, Tree = this.Const.Perks.CrossbowTree},
-			{Multiplier = 0.75, Tree = this.Const.Perks.PolearmTree},
-			{Multiplier = 0.33, Tree = this.Const.Perks.ShieldTree},
+		PerkGroupMultipliers = [
+			[2, ::Const.Perks.AgileTree],
+			[2, ::Const.Perks.FastTree],
+			[0.5, ::Const.Perks.SlingsTree],
+			[0.8, ::Const.Perks.CrossbowTree],
+			[0.75, ::Const.Perks.PolearmTree],
+			[0.33, ::Const.Perks.ShieldTree]
 		],
 		Tree = [
 			[
@@ -530,9 +530,9 @@ gt.Const.PTR.createProfessionTrees <- function()
 			"is known around these parts to be quite the musician"
 		],
 		Name = "Minstrel",
-		WeightMultipliers = [
-			{Multiplier = -1, Tree = this.Const.Perks.TalentedTree},
-			{Multiplier = -1, Tree = this.Const.Perks.EntertainerClassTree},
+		PerkGroupMultipliers = [
+			[-1, ::Const.Perks.TalentedTree],
+			[-1, ::Const.Perks.EntertainerClassTree]
 		],
 		Tree = [
 			[
@@ -567,12 +567,12 @@ gt.Const.PTR.createProfessionTrees <- function()
 			"wants nothing more in life than to serve the gods"
 		],
 		Name = "Holy Man",
-		WeightMultipliers = [
-			{Multiplier = -1, Tree = this.Const.Perks.UndeadTree},
-			{Multiplier = -1, Tree = this.Const.Perks.CalmTree},
-			{Multiplier = 5, Tree = this.Const.Perks.HealerClassTree},
-			{Multiplier = 5, Tree = this.Const.Perks.SergeantClassTree},
-			{Multiplier = 0.25, Tree = this.Const.Perks.DeviousTree},
+		PerkGroupMultipliers = [
+			[-1, ::Const.Perks.UndeadTree],
+			[-1, ::Const.Perks.CalmTree],
+			[5, ::Const.Perks.HealerClassTree],
+			[5, ::Const.Perks.SergeantClassTree],
+			[0.25, ::Const.Perks.DeviousTree],
 		],
 		Tree = [
 			[],
@@ -601,9 +601,9 @@ gt.Const.PTR.createProfessionTrees <- function()
 			"belongs to a local cult pledged to a strange god"
 		],
 		Name = "Cultist",
-		WeightMultipliers = [
-			{Multiplier = 0.25, Tree = this.Const.Perks.TrainedTree},
-			{Multiplier = 0, Tree = this.Const.Perks.EntertainerClassTree},
+		PerkGroupMultipliers = [
+			[0.25, ::Const.Perks.TrainedTree],
+			[0, ::Const.Perks.EntertainerClassTree],
 		],
 		Tree = [
 			[
@@ -638,11 +638,11 @@ gt.Const.PTR.createProfessionTrees <- function()
 			"claims to have experience in trading and bartering"
 		],
 		Name = "Trader",
-		WeightMultipliers = [
-			{Multiplier = 5, Tree = this.Const.Perks.TalentedTree},
-			{Multiplier = 1.5, Tree = this.Const.Perks.CalmTree},
-			{Multiplier = -1, Tree = this.Const.Perks.OrganisedTree},
-			{Multiplier = -1, Tree = this.Const.Perks.ClerkClassTree}
+		PerkGroupMultipliers = [
+			[5, ::Const.Perks.TalentedTree],
+			[1.5, ::Const.Perks.CalmTree],
+			[-1, ::Const.Perks.OrganisedTree],
+			[-1, ::Const.Perks.ClerkClassTree]
 		],
 		Tree = [
 			[],
@@ -669,10 +669,10 @@ gt.Const.PTR.createProfessionTrees <- function()
 			"is a pitiful pile of flesh and bones"
 		],
 		Name = "Pauper",
-		WeightMultipliers = [
-			{Multiplier = 0.75, Tree = this.Const.Perks.SturdyTree},
-			{Multiplier = 0.75, Tree = this.Const.Perks.LargeTree},
-			{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
+		PerkGroupMultipliers = [
+			[0.75, ::Const.Perks.SturdyTree],
+			[0.75, ::Const.Perks.LargeTree],
+			[2, ::Const.Perks.ResilientTree],
 		],
 		Tree = [
 			[
@@ -698,11 +698,11 @@ gt.Const.PTR.createProfessionTrees <- function()
 			"has strong, calloused hands, just like those of a laborer"
 		],
 		Name = "Laborer",
-		WeightMultipliers = [
-			{Multiplier = 1.5, Tree = this.Const.Perks.ResilientTree},
-			{Multiplier = 2, Tree = this.Const.Perks.LargeTree},
-			{Multiplier = 2, Tree = this.Const.Perks.SturdyTree},
-			{Multiplier = 0.5, Tree = this.Const.Perks.TalentedTree},
+		PerkGroupMultipliers = [
+			[1.5, ::Const.Perks.ResilientTree],
+			[2, ::Const.Perks.LargeTree],
+			[2, ::Const.Perks.SturdyTree],
+			[0.5, ::Const.Perks.TalentedTree],
 		],
 		Tree = [
 			[
@@ -727,12 +727,12 @@ gt.Const.PTR.createProfessionTrees <- function()
 			"performed and provided services"
 		],
 		Name = "Service",
-		WeightMultipliers = [
-			{Multiplier = 1.5, Tree = this.Const.Perks.CalmTree},
-			{Multiplier = 2, Tree = this.Const.Perks.OrganisedTree},
-			{Multiplier = 0.75, Tree = this.Const.Perks.ViciousTree},
-			{Multiplier = 0.75, Tree = this.Const.Perks.UnstoppableTree},
-			{Multiplier = 3, Tree = this.Const.Perks.ClerkClassTree}
+		PerkGroupMultipliers = [
+			[1.5, ::Const.Perks.CalmTree],
+			[2, ::Const.Perks.OrganisedTree],
+			[0.75, ::Const.Perks.ViciousTree],
+			[0.75, ::Const.Perks.UnstoppableTree],
+			[3, ::Const.Perks.ClerkClassTree]
 		],
 		Tree = [
 			[],
@@ -752,11 +752,11 @@ gt.Const.PTR.createProfessionTrees <- function()
 			"is a well-known raider and looter in this area"
 		],
 		Name = "Raider",
-		WeightMultipliers = [
-			{Multiplier = 2, Tree = this.Const.Perks.CaravanTree},
-			{Multiplier = 2, Tree = this.Const.Perks.NoblesTree},
-			{Multiplier = 3, Tree = this.Const.Perks.ViciousTree},
-			{Multiplier = 0.25, Tree = this.Const.Perks.CalmTree},
+		PerkGroupMultipliers = [
+			[2, ::Const.Perks.CaravanTree],
+			[2, ::Const.Perks.NoblesTree],
+			[3, ::Const.Perks.ViciousTree],
+			[0.25, ::Const.Perks.CalmTree]
 		],
 		Tree = [
 			[],
@@ -781,9 +781,9 @@ gt.Const.PTR.createProfessionTrees <- function()
 			"claims to have served in a professional army"
 		],
 		Name = "Soldier",
-		WeightMultipliers = [
-			{Multiplier = -1, Tree = this.Const.Perks.TrainedTree},
-			{Multiplier = 2, Tree = this.Const.Perks.ShieldTree},
+		PerkGroupMultipliers = [
+			[-1, ::Const.Perks.TrainedTree],
+			[2, ::Const.Perks.ShieldTree],
 		],
 		Tree = [
 			[],
@@ -810,7 +810,7 @@ gt.Const.PTR.createProfessionTrees <- function()
 			"looks like a feral predator"
 		],
 		Name = "Wildling",
-		WeightMultipliers = [
+		PerkGroupMultipliers = [
 		],
 		Tree = [
 			[
@@ -841,7 +841,7 @@ gt.Const.PTR.createProfessionTrees <- function()
 			"has noble blood in his veins"
 		],
 		Name = "Noble",
-		WeightMultipliers = [
+		PerkGroupMultipliers = [
 		],
 		Tree = [
 			[
