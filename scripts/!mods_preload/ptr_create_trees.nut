@@ -1033,33 +1033,6 @@ gt.Const.PTR.createSpecialTrees <- function()
 
 	gt.Const.Perks.SpecialTrees.addSpecialPerk(2, gt.Const.Perks.PerkDefs.PTRRisingStar, 7, "Has the talent to rise and shine above all others!", function( _background, _chance ) {
 		if (_background.hasPerkGroup(::Const.Perks.TalentedTree)) _chance *= 2;
-		local traits = _background.getContainer().getAllSkillsOfType(this.Const.SkillType.Trait);
-		foreach (trait in traits)
-		{
-			switch (trait.getID())
-			{
-				case "trait.bright":
-				case "trait.ambitious":
-				case "trait.natural":
-				case "trait.determined":
-				case "trait.dexterous":
-				case "trait.lucky":
-				case "trait.unpredictable":
-					_chance *= 2;
-					break;
-
-				case "trait.dumb":
-				case "trait.slack":
-				case "trait.frail":
-				case "trait.clumsy":
-				case "trait.drunkard":
-				case "trait.fainthearted":
-				case "trait.insecure":
-					_chance /= 2;
-					break;
-			}
-		}
-
 		return _chance;
 	});
 
@@ -1077,35 +1050,6 @@ gt.Const.PTR.createSpecialTrees <- function()
 		else
 		{
 			_chance *= talents[this.Const.Attributes.RangedSkill];
-		}
-
-		local traits = _background.getContainer().getAllSkillsOfType(this.Const.SkillType.Trait);
-		foreach (trait in traits)
-		{
-			switch (trait.getID())
-			{
-				case "trait.fear_beasts":
-					return 0;
-				
-				case "trait.hate_beasts":
-					_chance *= 4;
-					break;
-
-				case "trait.eagle_eyes":
-				case "trait.ambitious":
-				case "trait.determined":
-				case "trait.cocky":
-				case "trait.brave":
-				case "trait.fearless":
-					_chance *= 2;
-					break;
-
-				case "trait.slack":
-				case "trait.fainthearted":
-				case "trait.insecure":
-					_chance /= 2;
-					break;
-			}
 		}
 
 		return _chance;
@@ -1127,36 +1071,6 @@ gt.Const.PTR.createSpecialTrees <- function()
 			_chance *= talents[this.Const.Attributes.RangedSkill];
 		}
 
-		local traits = _background.getContainer().getAllSkillsOfType(this.Const.SkillType.Trait);
-		foreach (trait in traits)
-		{
-			switch (trait.getID())
-			{
-				case "trait.clumsy":
-					return 0;
-				
-				case "trait.sureshot":
-					return -1;
-
-				case "trait.eagle_eyes":
-				case "trait.steady_hands":
-					_chance *= 4;
-					break;
-
-				
-				case "trait.lucky":
-				case "trait.unpredictable":
-					_chance *= 2;
-					break;
-				
-				case "trait.drunkard":
-				case "trait.predictable":
-				case "trait.short_sighted":
-					_chance /= 2;
-					break;
-			}
-		}
-
 		return _chance;
 	});
 
@@ -1174,37 +1088,6 @@ gt.Const.PTR.createSpecialTrees <- function()
 		else
 		{
 			_chance *= talents[this.Const.Attributes.Hitpoints];
-		}
-
-		local traits = _background.getContainer().getAllSkillsOfType(this.Const.SkillType.Trait);
-		foreach (trait in traits)
-		{
-			switch (trait.getID())
-			{
-				case "trait.frail":
-				case "trait.fragile":
-					return 0;
-
-				case "trait.iron_jaw":
-				case "trait.tough":
-					return -1;
-				
-				case "trait.deathwish":
-				case "trait.fat":
-				case "trait.firm":
-				case "trait.heavy":
-				case "trait.huge":
-				case "trait.strong":
-					_chance *= 2;
-					break;
-				
-				case "trait.light":
-				case "trait.tiny":
-				case "trait.ailing":
-				case "trait.bleeder":
-					_chance /= 2;
-					break;
-			}
 		}
 		
 		return _chance;

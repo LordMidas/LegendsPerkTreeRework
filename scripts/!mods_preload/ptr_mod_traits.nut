@@ -21,6 +21,10 @@
 	});
 
 	::mods_hookExactClass("skills/traits/bleeder_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[0.5, ::Const.Perks.PerkDefs.PTRManOfSteel]
+		]);
+		
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[0, ::Const.Perks.SturdyTree]
 		]);
@@ -35,6 +39,10 @@
 	});
 
 	::mods_hookExactClass("skills/traits/brave_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[2, ::Const.Perks.PerkDefs.LegendBigGameHunter]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[2, ::Const.Perks.ViciousTree],
 			[2, ::Const.Perks.SergeantClassTree]
@@ -42,6 +50,10 @@
 	});
 
 	::mods_hookExactClass("skills/traits/bright_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[2, ::Const.Perks.PerkDefs.PTRRisingStar]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[4, ::Const.Perks.TalentedTree]
 		]);
@@ -61,6 +73,10 @@
 	});
 
 	::mods_hookExactClass("skills/traits/cocky_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[2, ::Const.Perks.PerkDefs.LegendBigGameHunter]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[2, ::Const.Perks.UnstoppableTree],
 			[2, ::Const.Perks.SergeantClassTree],
@@ -76,6 +92,10 @@
 	});
 
 	::mods_hookExactClass("skills/traits/deathwish_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[2, ::Const.Perks.PerkDefs.PTRManOfSteel]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[-1, ::Const.Perks.ResilientTree],
 			[2, ::Const.Perks.SturdyTree]
@@ -83,6 +103,11 @@
 	});
 
 	::mods_hookExactClass("skills/traits/determined_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[2, ::Const.Perks.PerkDefs.PTRRisingStar],
+			[2, ::Const.Perks.PerkDefs.LegendBigGameHunter]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[2, ::Const.Perks.SergeantClassTree],
 			[2, ::Const.Perks.ViciousTree]
@@ -90,6 +115,10 @@
 	});
 
 	::mods_hookExactClass("skills/traits/dexterous_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[2, ::Const.Perks.PerkDefs.PTRRisingStar]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[2, ::Const.Perks.TrainedTree],
 			[2, ::Const.Perks.TalentedTree]
@@ -111,12 +140,42 @@
 	});
 
 	::mods_hookExactClass("skills/traits/dumb_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[0.5, ::Const.Perks.PerkDefs.PTRRisingStar]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[0, ::Const.Perks.TalentedTree]
 		]);
 	});
 
+	::mods_hookExactClass("skills/traits/slack_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[0.5, ::Const.Perks.PerkDefs.PTRRisingStar],
+			[0.5, ::Const.Perks.PerkDefs.LegendBigGameHunter]
+		]);
+	});
+
+	::mods_hookExactClass("skills/traits/clumsy_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[0.5, ::Const.Perks.PerkDefs.PTRRisingStar],
+			[0, ::Const.Perks.PerkDefs.PTRMarksmanship]
+		]);
+	});
+
+	::mods_hookExactClass("skills/traits/drunkard_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[0.5, ::Const.Perks.PerkDefs.PTRRisingStar],
+			[0.5, ::Const.Perks.PerkDefs.PTRMarksmanship]
+		]);
+	});
+
 	::mods_hookExactClass("skills/traits/eagle_eyes_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[2, ::Const.Perks.PerkDefs.LegendBigGameHunter],
+			[4, ::Const.Perks.PerkDefs.PTRMarksmanship]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[2, ::Const.Perks.BowTree],
 			[4, ::Const.Perks.ScoutClassTree]
@@ -124,12 +183,21 @@
 	});
 
 	::mods_hookExactClass("skills/traits/fainthearted_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[0.5, ::Const.Perks.PerkDefs.PTRRisingStar],
+			[0.5, ::Const.Perks.PerkDefs.LegendBigGameHunter]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[0, ::Const.Perks.CalmTree]
 		]);
 	});
 
 	::mods_hookExactClass("skills/traits/fat_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[2, ::Const.Perks.PerkDefs.PTRManOfSteel]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[0, ::Const.Perks.AgileTree],
 			[0.5, ::Const.Perks.FastTree]
@@ -137,6 +205,10 @@
 	});
 
 	::mods_hookExactClass("skills/traits/fearless_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[2, ::Const.Perks.PerkDefs.LegendBigGameHunter]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[-1, ::Const.Perks.CalmTree],
 			[4, ::Const.Perks.SergeantClassTree]
@@ -144,6 +216,10 @@
 	});
 
 	::mods_hookExactClass("skills/traits/firm_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[2, ::Const.Perks.PerkDefs.PTRManOfSteel]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[2, ::Const.Perks.LargeTree],
 			[2, ::Const.Perks.ViciousTree]
@@ -151,6 +227,10 @@
 	});
 
 	::mods_hookExactClass("skills/traits/fragile_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[0, ::Const.Perks.PerkDefs.PTRManOfSteel]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[0, ::Const.Perks.SturdyTree],
 			[0, ::Const.Perks.ResilientTree]
@@ -158,6 +238,10 @@
 	});
 
 	::mods_hookExactClass("skills/traits/frail_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[0.5, ::Const.Perks.PerkDefs.PTRRisingStar]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[0.25, ::Const.Perks.SturdyTree],
 			[0, ::Const.Perks.LargeTree],
@@ -185,6 +269,10 @@
 	});
 
 	::mods_hookExactClass("skills/traits/heavy_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[2, ::Const.Perks.PerkDefs.PTRManOfSteel]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[0 ::Const.Perks.FastTree],
 			[0.25, ::Const.Perks.AgileTree],
@@ -200,6 +288,10 @@
 	});
 
 	::mods_hookExactClass("skills/traits/huge_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[2, ::Const.Perks.PerkDefs.PTRManOfSteel]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[0, ::Const.Perks.LargeTree],
 			[4, ::Const.Perks.HeavyArmorTree]
@@ -212,7 +304,24 @@
 		]);
 	});
 
+	::mods_hookExactClass("skills/traits/fear_beasts_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[0, ::Const.Perks.PerkDefs.LegendBigGameHunter]
+		]);
+	});
+
+	::mods_hookExactClass("skills/traits/hate_beasts_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[4, ::Const.Perks.PerkDefs.LegendBigGameHunter]
+		]);
+	});
+
 	::mods_hookExactClass("skills/traits/insecure_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[0.5, ::Const.Perks.PerkDefs.PTRRisingStar],
+			[0.5, ::Const.Perks.PerkDefs.LegendBigGameHunter]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[0, ::Const.Perks.SergeantClassTree],
 			[0.25, ::Const.Perks.ViciousTree],
@@ -221,6 +330,10 @@
 	});
 
 	::mods_hookExactClass("skills/traits/iron_jaw_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[-1, ::Const.Perks.PerkDefs.PTRManOfSteel]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[2, ::Const.Perks.SturdyTree],
 			[-1, ::Const.Perks.ResilientTree]
@@ -265,6 +378,10 @@
 	});
 
 	::mods_hookExactClass("skills/traits/light_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[0.5, ::Const.Perks.PerkDefs.PTRManOfSteel]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[2, ::Const.Perks.RangedTree],
 			[4, ::Const.Perks.FastTree],
@@ -279,12 +396,21 @@
 	});
 
 	::mods_hookExactClass("skills/traits/lucky_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[2, ::Const.Perks.PerkDefs.PTRRisingStar],
+			[2, ::Const.Perks.PerkDefs.PTRMarksmanship]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[-1, ::Const.Perks.ResilientTree]
 		]);
 	});
 
 	::mods_hookExactClass("skills/traits/natural_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[2, ::Const.Perks.PerkDefs.PTRRisingStar]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[-1, ::Const.Perks.TalentedTree]
 		]);
@@ -331,6 +457,10 @@
 	});
 
 	::mods_hookExactClass("skills/traits/predictable_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[0.5, ::Const.Perks.PerkDefs.PTRMarksmanship]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[0.75, ::Const.Perks.FastTree],
 			[0.5, ::Const.Perks.FlailTree]
@@ -345,6 +475,10 @@
 	});
 
 	::mods_hookExactClass("skills/traits/short_sighted_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[0.5, ::Const.Perks.PerkDefs.PTRMarksmanship]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[0, ::Const.Perks.ScoutClassTree]
 		]);
@@ -358,6 +492,10 @@
 	});
 
 	::mods_hookExactClass("skills/traits/steady_hands_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[4, ::Const.Perks.PerkDefs.PTRMarksmanship]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[2, ::Const.Perks.RangedTree],
 			[2, ::Const.Perks.BowTree],
@@ -366,6 +504,10 @@
 	});
 
 	::mods_hookExactClass("skills/traits/strong_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[2, ::Const.Perks.PerkDefs.PTRManOfSteel]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[2, ::Const.Perks.UnstoppableTree],
 			[2, ::Const.Perks.LargeTree]
@@ -388,6 +530,10 @@
 	});
 
 	::mods_hookExactClass("skills/traits/sureshot_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[-1, ::Const.Perks.PerkDefs.PTRMarksmanship]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[-1, ::Const.Perks.BowTree],
 			[-1, ::Const.Perks.CrossbowTree],
@@ -417,12 +563,20 @@
 	});
 
 	::mods_hookExactClass("skills/traits/tiny_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[0.5, ::Const.Perks.PerkDefs.PTRManOfSteel]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[0, ::Const.Perks.LargeTree]
 		]);
 	});
 
 	::mods_hookExactClass("skills/traits/tough_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[-1, ::Const.Perks.PerkDefs.PTRManOfSteel]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[4, ::Const.Perks.LargeTree],
 			[-1, ::Const.Perks.SturdyTree],
@@ -431,12 +585,21 @@
 	});
 
 	::mods_hookExactClass("skills/traits/unpredictable_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[2, ::Const.Perks.PerkDefs.PTRRisingStar],
+			[2, ::Const.Perks.PerkDefs.PTRMarksmanship]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[4, ::Const.Perks.FlailTree]
 		]);
 	});
 
 	::mods_hookExactClass("skills/traits/frail_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[0, ::Const.Perks.PerkDefs.PTRManOfSteel]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[0.25, ::Const.Perks.SturdyTree],
 			[0, ::Const.Perks.LargeTree],
@@ -459,12 +622,21 @@
 	});
 
 	::mods_hookExactClass("skills/traits/ailing_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[0.5, ::Const.Perks.PerkDefs.PTRManOfSteel]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[0.5, ::Const.Perks.ResilientTree]
 		]);
 	});
 
 	::mods_hookExactClass("skills/traits/ambitious_trait", function(o) {
+		::mods_overrideField(o, "SpecialPerkMultipliers", [
+			[2, ::Const.Perks.PerkDefs.PTRRisingStar],
+			[2, ::Const.Perks.PerkDefs.LegendBigGameHunter]
+		]);
+
 		::mods_overrideField(o, "PerkGroupMultipliers", [
 			[2, ::Const.Perks.SergeantClassTree],
 			[2, ::Const.Perks.OrganisedTree],
