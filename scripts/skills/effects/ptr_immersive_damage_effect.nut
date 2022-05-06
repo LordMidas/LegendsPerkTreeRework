@@ -44,7 +44,7 @@ this.ptr_immersive_damage_effect <- this.inherit("scripts/skills/skill", {
 				local stdev = this.Math.min(this.Const.PTR.ImmersiveDamage.MaxHitChance, this.Math.max(this.Const.PTR.ImmersiveDamage.MinHitChance, _skill.getHitchance(_targetEntity)));
 				this.m.IsUpdating = false;
 
-				this.m.DamageMult = this.Math.maxf(this.Const.PTR.ImmersiveDamage.MinDamageMult, this.MSU.Math.normalDistDensity(this.m.Roll, 50, stdev));
+				this.m.DamageMult = this.Math.maxf(this.Const.PTR.ImmersiveDamage.MinDamageMult, this.MSU.Math.normalDistNorm(this.m.Roll, 50, stdev));
 			}
 		}
 
