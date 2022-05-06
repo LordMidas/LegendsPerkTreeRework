@@ -12,7 +12,8 @@
 - Berserker and Berserker Commander reworked. Added Wildling perks. Replaced Berserker Rage with PTR's Feral Rage. Removed Uber Nimble as it was ridiculously overpowered. Lowered the tier of some Berserker themed perks to allow more specialization early, ultimately leading to a more unique character. Give us your feedback on how the Berserker Origin feels now.
 - Crusader Commander perks reworked. Now gets 4 random weapon trees, being Axe, Cleaver, Flail, Hammer, Mace or Sword. Now has Hair Splitter and Small Target on tier 1. Now has Shields Up on tier 3 and Hold The Line on tier 4. Our vision of the Crusader is that they're an exceptional warrior specializing in defense. This is achieved by having access to the excellent Pattern Recognition and Battleheart perks, as well as others. Now having access to Shields Up and Hold The Line gives the Crusader avenues to spread their defensive prowess to their allies.
 - Added PTR perk trees to Monk Turned Flagellant and Pacified Flagellant backgrounds in case of rolling them on a random start.
-- Druid and Druid Commander reworked. Lost Sword tree, Sickle Specializations and One Handed Style tree. Gained Staff and Two Handed Style tree. Druid is meant to be a utility character. Staff tree fulfills this role much better than sword tree, especially considering some Druid spells are enhanced by Staff Mastery.
+- Druid and Druid Commander reworked. Lost Sword tree, Sickle Specializations and One Handed Style tree. Gained Staff and Two Handed Style tree. Gained Nightvision perk. Druid is meant to be a utility character. Staff tree fulfills this role much better than sword tree, especially considering some Druid spells are enhanced by Staff Mastery.
+- Ranger and Ranger Commander have had Nightvision removed from perk list.
 
 ====================
 ==== Ver 1.6.20 ====

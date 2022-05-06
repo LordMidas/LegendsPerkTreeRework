@@ -2587,6 +2587,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		addPerksToCustomPerkTree(2, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.LegendScryTrance,
 				this.Const.Perks.PerkDefs.QuickHands,
+				this.Const.Perks.PerkDefs.LegendNightvision,
 				this.Const.Perks.PerkDefs.LegendGatherer,
 				this.Const.Perks.PerkDefs.Gifted			
 			]
@@ -2681,6 +2682,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		addPerksToCustomPerkTree(2, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.LegendScryTrance,
 				this.Const.Perks.PerkDefs.QuickHands,
+				this.Const.Perks.PerkDefs.LegendNightvision,
 				this.Const.Perks.PerkDefs.LegendGatherer,
 				this.Const.Perks.PerkDefs.Gifted			
 			]
@@ -4013,10 +4015,8 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		);
 
 		addPerksToCustomPerkTree(2, o.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.LegendNightvision,
 				this.Const.Perks.PerkDefs.LegendOnslaught,
-				this.Const.Perks.PerkDefs.SpecSpear,
-				this.Const.Perks.PerkDefs.LegendOnslaught,				
+				this.Const.Perks.PerkDefs.SpecSpear,				
 				this.Const.Perks.PerkDefs.Rotation
 			]
 		);
@@ -4091,10 +4091,8 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 		);
 
 		addPerksToCustomPerkTree(2, o.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.LegendNightvision,
 				this.Const.Perks.PerkDefs.LegendOnslaught,
-				this.Const.Perks.PerkDefs.SpecSpear,
-				this.Const.Perks.PerkDefs.LegendOnslaught,				
+				this.Const.Perks.PerkDefs.SpecSpear,			
 				this.Const.Perks.PerkDefs.Rotation
 			]
 		);
