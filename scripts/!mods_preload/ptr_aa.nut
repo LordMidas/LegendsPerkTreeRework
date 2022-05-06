@@ -5,10 +5,11 @@ if (!("PTR" in gt))
 	gt.PTR <- {};
 }
 
-gt.PTR.Version <- 1;
+gt.PTR.Version <- "2.0.0";
 gt.PTR.ModID <- "mod_legends_PTR";
+::PTR.Name <- "Perk Trees Rework (PTR)";
 
-::mods_registerMod(gt.PTR.ModID, gt.PTR.Version, "Perk Trees Rework 1.6.20");
+::mods_registerMod(gt.PTR.ModID, gt.PTR.Version, ::PTR.Name + ::PTR.Version);
 
 ::mods_queue(gt.PTR.ModID, "mod_legends, mod_msu, mod_betterFencing, mod_WMS, mod_mediumArmorRework, mod_legends_STR, mod_duelistDefense", function()
 {	
