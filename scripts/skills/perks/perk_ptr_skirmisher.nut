@@ -120,7 +120,7 @@ this.perk_ptr_skirmisher <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
+	function onAnySkillExecuted( _skill, _targetTile, _targetEntity, _forFree )
 	{
 		if (this.isEnabled() && _skill.isAttack() && _skill.m.IsWeaponSkill)
 		{

@@ -150,7 +150,7 @@ this.ptr_deploy_in_vanguard_skill <- this.inherit("scripts/skills/skill", {
 		return true;
 	}
 
-	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
+	function onAnySkillExecuted( _skill, _targetTile, _targetEntity, _forFree )
 	{
 		this.removeSelf();
 	}

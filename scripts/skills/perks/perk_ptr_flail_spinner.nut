@@ -108,7 +108,7 @@ this.perk_ptr_flail_spinner <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
+	function onAnySkillExecuted( _skill, _targetTile, _targetEntity, _forFree )
 	{
 		local weapon = this.getContainer().getActor().getMainhandItem();
 		if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.Flail) && _skill.isAttack() && _skill.m.IsWeaponSkill)

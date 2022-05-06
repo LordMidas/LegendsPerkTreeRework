@@ -273,7 +273,7 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-	function onBeforeAnySkillExecuted( _skill, _targetTile, _targetEntity )
+	function onBeforeAnySkillExecuted( _skill, _targetTile, _targetEntity, _forFree )
 	{
 		if (_skill != this) this.m.IsSpent = true;
 	}

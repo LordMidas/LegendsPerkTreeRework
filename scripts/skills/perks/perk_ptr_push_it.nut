@@ -32,12 +32,12 @@ this.perk_ptr_push_it <- this.inherit("scripts/skills/skill", {
 		return false;
 	}
 
-	function onBeforeAnySkillExecuted( _skill, _targetTile, _targetEntity )
+	function onBeforeAnySkillExecuted( _skill, _targetTile, _targetEntity, _forFree )
 	{
 		this.m.IsHit = false;
 	}
 
-	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
+	function onAnySkillExecuted( _skill, _targetTile, _targetEntity, _forFree )
 	{
 		if (this.m.IsHit && _targetEntity != null && _targetEntity.isAlive() && !_targetEntity.isDying())
 		{

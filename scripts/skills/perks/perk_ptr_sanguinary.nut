@@ -44,7 +44,7 @@ this.perk_ptr_sanguinary <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
+	function onAnySkillExecuted( _skill, _targetTile, _targetEntity, _forFree )
 	{
 		if (_targetEntity != null && this.m.DidHit && (this.m.WasBleeding || (_targetEntity.isAlive() && !_targetEntity.isDying() && _targetEntity.getSkills().hasSkill("effects.bleeding"))))
 		{

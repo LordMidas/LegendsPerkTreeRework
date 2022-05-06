@@ -162,7 +162,7 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
+	function onAnySkillExecuted( _skill, _targetTile, _targetEntity, _forFree )
 	{
 		if (!this.getContainer().m.IsExecutingMoveSkill)
 		{

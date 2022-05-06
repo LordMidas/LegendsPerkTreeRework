@@ -74,7 +74,7 @@ this.ptr_take_aim_effect <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-	function onBeforeAnySkillExecuted( _skill, _targetTile, _targetEntity )
+	function onBeforeAnySkillExecuted( _skill, _targetTile, _targetEntity, _forFree )
 	{
 		this.m.DiversionMinDist = null;
 		
@@ -89,7 +89,7 @@ this.ptr_take_aim_effect <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
+	function onAnySkillExecuted( _skill, _targetTile, _targetEntity, _forFree )
 	{
 		if (_skill.isAttack() && _skill.isRanged())
 		{

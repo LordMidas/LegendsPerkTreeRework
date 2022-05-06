@@ -66,7 +66,7 @@ this.perk_ptr_offhand_training <- this.inherit("scripts/skills/skill", {
 		return null;
 	}
 
-	function onBeforeAnySkillExecuted( _skill, _targetTile, _targetEntity )
+	function onBeforeAnySkillExecuted( _skill, _targetTile, _targetEntity, _forFree )
 	{
 		if (this.m.Skills.find(_skill.getID()) != null)
 		{
@@ -74,7 +74,7 @@ this.perk_ptr_offhand_training <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
+	function onAnySkillExecuted( _skill, _targetTile, _targetEntity, _forFree )
 	{
 		if (this.m.IsUsingFreeSkill)
 		{

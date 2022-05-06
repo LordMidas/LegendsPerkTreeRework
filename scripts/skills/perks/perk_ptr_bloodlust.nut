@@ -45,7 +45,7 @@ this.perk_ptr_bloodlust <- this.inherit("scripts/skills/skill", {
 		];
 	}
 
-	function onBeforeAnySkillExecuted( _skill, _targetTile, _targetEntity )
+	function onBeforeAnySkillExecuted( _skill, _targetTile, _targetEntity, _forFree )
 	{
 		if (!_skill.isAttack() || _skill.isRanged() || _targetEntity == null)
 		{
@@ -55,7 +55,7 @@ this.perk_ptr_bloodlust <- this.inherit("scripts/skills/skill", {
 		this.m.BleedStacksBeforeAttack = _targetEntity.getSkills().getAllSkillsByID("effects.bleeding").len();
 	}
 
-	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
+	function onAnySkillExecuted( _skill, _targetTile, _targetEntity, _forFree )
 	{
 		if (!_skill.isAttack() || _skill.isRanged() || _targetEntity == null)
 		{

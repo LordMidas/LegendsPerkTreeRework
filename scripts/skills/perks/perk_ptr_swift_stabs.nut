@@ -100,7 +100,7 @@ this.perk_ptr_swift_stabs <- this.inherit("scripts/skills/skill", {
 		this.m.IsSpent = true;
 	}
 
-	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
+	function onAnySkillExecuted( _skill, _targetTile, _targetEntity, _forFree )
 	{
 		if (!this.isEnabled() || !_skill.isAttack() || !_skill.m.IsWeaponSkill)
 		{

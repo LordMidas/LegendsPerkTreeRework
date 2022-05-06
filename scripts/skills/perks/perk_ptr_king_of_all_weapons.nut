@@ -91,7 +91,7 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-	function onAnySkillExecuted( _skill, _targetTile, _targetEntity )
+	function onAnySkillExecuted( _skill, _targetTile, _targetEntity, _forFree )
 	{
 		if (_targetEntity != null && 
 			this.Tactical.TurnSequenceBar.getActiveEntity() != null && 
