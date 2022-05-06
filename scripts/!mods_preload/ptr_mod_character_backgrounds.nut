@@ -2565,8 +2565,8 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.CalmTree,				
 				this.Const.Perks.LightArmorTree,				
 				this.Const.Perks.MediumArmorTree,							
-				this.Const.Perks.SwordTree,
-				this.Const.Perks.OneHandedTree
+				this.Const.Perks.StavesTree,
+				this.Const.Perks.TwoHandedTree
 			]
 		);
 
@@ -2575,7 +2575,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.NineLives,
 				this.Const.Perks.PerkDefs.Recover,
 				this.Const.Perks.PerkDefs.LegendAlert,
-				this.Const.Perks.PerkDefs.LegendSpecialistSickleSkill,
+				this.Const.Perks.PerkDefs.LegendBlendIn,
 				this.Const.Perks.PerkDefs.LegendPoisonImmunity,
 				this.Const.Perks.PerkDefs.LegendWither,
 				this.Const.Perks.PerkDefs.LegendSummonHound,
@@ -2586,19 +2586,15 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 
 		addPerksToCustomPerkTree(2, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.LegendScryTrance,
-				this.Const.Perks.PerkDefs.Anticipation,
 				this.Const.Perks.PerkDefs.QuickHands,
-				this.Const.Perks.PerkDefs.PTRSurvivalInstinct,
 				this.Const.Perks.PerkDefs.LegendGatherer,
-				this.Const.Perks.PerkDefs.Gifted,
-				this.Const.Perks.PerkDefs.LegendSpecialistSickleDamage				
+				this.Const.Perks.PerkDefs.Gifted			
 			]
 		);
 
 		addPerksToCustomPerkTree(3, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.LegendRoots,
 				this.Const.Perks.PerkDefs.LegendHerbcraft,
-				this.Const.Perks.PerkDefs.LegendBlendIn,
 				this.Const.Perks.PerkDefs.ShieldExpert,
 				this.Const.Perks.PerkDefs.Rotation,
 				this.Const.Perks.PerkDefs.Sprint				
@@ -2610,6 +2606,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.LegendSummonWolf,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemySoutherner,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyNoble,
+				this.Const.Perks.PerkDefs.PTRBearDown,
 				this.Const.Perks.PerkDefs.PTRDiscoveredTalent,
 				this.Const.Perks.PerkDefs.PTRTunnelVision,
 				this.Const.Perks.PerkDefs.PTRDynamicDuo,
@@ -2662,8 +2659,8 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.CalmTree,				
 				this.Const.Perks.LightArmorTree,				
 				this.Const.Perks.MediumArmorTree,							
-				this.Const.Perks.SwordTree,
-				this.Const.Perks.OneHandedTree
+				this.Const.Perks.StavesTree,
+				this.Const.Perks.TwoHandedTree
 			]
 		);
 
@@ -2672,7 +2669,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.NineLives,
 				this.Const.Perks.PerkDefs.Recover,
 				this.Const.Perks.PerkDefs.LegendAlert,
-				this.Const.Perks.PerkDefs.LegendSpecialistSickleSkill,
+				this.Const.Perks.PerkDefs.LegendBlendIn,
 				this.Const.Perks.PerkDefs.LegendPoisonImmunity,
 				this.Const.Perks.PerkDefs.LegendWither,
 				this.Const.Perks.PerkDefs.LegendSummonHound,
@@ -2683,19 +2680,15 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 
 		addPerksToCustomPerkTree(2, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.LegendScryTrance,
-				this.Const.Perks.PerkDefs.Anticipation,
 				this.Const.Perks.PerkDefs.QuickHands,
-				this.Const.Perks.PerkDefs.PTRSurvivalInstinct,
 				this.Const.Perks.PerkDefs.LegendGatherer,
-				this.Const.Perks.PerkDefs.Gifted,
-				this.Const.Perks.PerkDefs.LegendSpecialistSickleDamage				
+				this.Const.Perks.PerkDefs.Gifted			
 			]
 		);
 
 		addPerksToCustomPerkTree(3, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.LegendRoots,
 				this.Const.Perks.PerkDefs.LegendHerbcraft,
-				this.Const.Perks.PerkDefs.LegendBlendIn,
 				this.Const.Perks.PerkDefs.ShieldExpert,
 				this.Const.Perks.PerkDefs.Rotation,
 				this.Const.Perks.PerkDefs.Sprint				
@@ -2707,6 +2700,7 @@ gt.Const.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.LegendSummonWolf,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemySoutherner,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyNoble,
+				this.Const.Perks.PerkDefs.PTRBearDown,
 				this.Const.Perks.PerkDefs.PTRDiscoveredTalent,
 				this.Const.Perks.PerkDefs.PTRTunnelVision,
 				this.Const.Perks.PerkDefs.PTRDynamicDuo,
