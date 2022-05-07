@@ -84,7 +84,7 @@ gt.PTR.modSkillContainer <- function()
 			}
 			if (weapon.isWeaponType(this.Const.Items.WeaponType.Sling))
 			{
-				trees.push(this.Const.Perks.SlingsTree);
+				trees.push(this.Const.Perks.SlingTree);
 			}
 			if (weapon.isWeaponType(this.Const.Items.WeaponType.Spear))
 			{
@@ -96,7 +96,7 @@ gt.PTR.modSkillContainer <- function()
 			}
 			if (weapon.isWeaponType(this.Const.Items.WeaponType.Staff))
 			{
-				trees.push(this.Const.Perks.StavesTree);
+				trees.push(this.Const.Perks.StaffTree);
 			}
 			if (weapon.isWeaponType(this.Const.Items.WeaponType.Throwing))
 			{

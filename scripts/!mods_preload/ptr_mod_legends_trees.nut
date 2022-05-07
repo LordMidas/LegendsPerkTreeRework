@@ -1081,14 +1081,14 @@ gt.PTR.modWeaponTrees <- function()
 	this.Const.Perks.PolearmTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRFollowUp];
 	this.Const.Perks.PolearmTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRLongReach];
 
-	this.Const.Perks.SlingsTree.Tree = array(7);
-	this.Const.Perks.SlingsTree.Tree[0] = [this.Const.Perks.PerkDefs.Lookout];
-	this.Const.Perks.SlingsTree.Tree[1] = [this.Const.Perks.PerkDefs.LegendSpecialistSlingSkill];
-	this.Const.Perks.SlingsTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRPatience];
-	this.Const.Perks.SlingsTree.Tree[3] = [this.Const.Perks.PerkDefs.LegendMasterySlings];
-	this.Const.Perks.SlingsTree.Tree[4] = [this.Const.Perks.PerkDefs.LegendSpecialistSlingDamage];
-	this.Const.Perks.SlingsTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRHeavyProjectiles];
-	this.Const.Perks.SlingsTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRDeathFromAfar];
+	this.Const.Perks.SlingTree.Tree = array(7);
+	this.Const.Perks.SlingTree.Tree[0] = [this.Const.Perks.PerkDefs.Lookout];
+	this.Const.Perks.SlingTree.Tree[1] = [this.Const.Perks.PerkDefs.LegendSpecialistSlingSkill];
+	this.Const.Perks.SlingTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRPatience];
+	this.Const.Perks.SlingTree.Tree[3] = [this.Const.Perks.PerkDefs.LegendMasterySlings];
+	this.Const.Perks.SlingTree.Tree[4] = [this.Const.Perks.PerkDefs.LegendSpecialistSlingDamage];
+	this.Const.Perks.SlingTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRHeavyProjectiles];
+	this.Const.Perks.SlingTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRDeathFromAfar];
 
 	this.Const.Perks.SpearTree.Tree = array(7);
 	this.Const.Perks.SpearTree.SelfWeightMultiplier <- 1.5;
@@ -1121,14 +1121,14 @@ gt.PTR.modWeaponTrees <- function()
 		}
 	}
 
-	this.Const.Perks.StavesTree.Tree = array(7);
-	this.Const.Perks.StavesTree.Tree[0] = [this.Const.Perks.PerkDefs.LegendSpecStaffSkill];
-	this.Const.Perks.StavesTree.Tree[1] = [this.Const.Perks.PerkDefs.LegendOnslaught];
-	this.Const.Perks.StavesTree.Tree[2] = [this.Const.Perks.PerkDefs.PTREasyTarget];
-	this.Const.Perks.StavesTree.Tree[3] = [this.Const.Perks.PerkDefs.LegendMasteryStaves];
-	this.Const.Perks.StavesTree.Tree[4] = [this.Const.Perks.PerkDefs.LegendSpecStaffStun];
-	this.Const.Perks.StavesTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRWearThemDown];
-	this.Const.Perks.StavesTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRWhackASmack];
+	this.Const.Perks.StaffTree.Tree = array(7);
+	this.Const.Perks.StaffTree.Tree[0] = [this.Const.Perks.PerkDefs.LegendSpecStaffSkill];
+	this.Const.Perks.StaffTree.Tree[1] = [this.Const.Perks.PerkDefs.LegendOnslaught];
+	this.Const.Perks.StaffTree.Tree[2] = [this.Const.Perks.PerkDefs.PTREasyTarget];
+	this.Const.Perks.StaffTree.Tree[3] = [this.Const.Perks.PerkDefs.LegendMasteryStaves];
+	this.Const.Perks.StaffTree.Tree[4] = [this.Const.Perks.PerkDefs.LegendSpecStaffStun];
+	this.Const.Perks.StaffTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRWearThemDown];
+	this.Const.Perks.StaffTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRWhackASmack];
 
 	this.Const.Perks.ThrowingTree.Tree = array(7);
 	this.Const.Perks.ThrowingTree.Tree[0] = [this.Const.Perks.PerkDefs.PTRHybridization];

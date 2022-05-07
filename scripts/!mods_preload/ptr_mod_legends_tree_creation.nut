@@ -41,13 +41,13 @@ gt.PTR.modLegendsPerkTreeCreationSystem <- function()
 	gt.Const.Perks.TalentMultipliers[this.Const.Attributes.MeleeSkill] = [
 		[0.5, ::Const.Perks.BowTree],
 		[0.5, ::Const.Perks.CrossbowTree],
-		[0.5, ::Const.Perks.SlingsTree],
+		[0.5, ::Const.Perks.SlingTree],
 		[0.5, ::Const.Perks.RangedTree]
 	];
 	gt.Const.Perks.TalentMultipliers[this.Const.Attributes.RangedSkill] = [
 		[2, ::Const.Perks.BowTree],
 		[2, ::Const.Perks.CrossbowTree],
-		[2, ::Const.Perks.SlingsTree],
+		[2, ::Const.Perks.SlingTree],
 		[1.5, ::Const.Perks.ThrowingTree],
 		[2, ::Const.Perks.RangedTree]
 	];

@@ -146,7 +146,7 @@ gt.PTR.createProfessionTrees <- function()
 			[-1, ::Const.Perks.DaggerTree],
 			[2, ::Const.Perks.SwordTree],
 			[0, ::Const.Perks.BowTree],
-			[0, ::Const.Perks.SlingsTree],
+			[0, ::Const.Perks.SlingTree],
 			[0, ::Const.Perks.CrossbowTree]
 		],
 		Tree = [
@@ -332,7 +332,7 @@ gt.PTR.createProfessionTrees <- function()
 			[2, ::Const.Perks.TwoHandedTree],
 			[3, ::Const.Perks.PolearmTree],
 			[1.5, ::Const.Perks.SpearTree],
-			[1.5, ::Const.Perks.SlingsTree]
+			[1.5, ::Const.Perks.SlingTree]
 		],
 		Tree = [
 			[
@@ -362,7 +362,7 @@ gt.PTR.createProfessionTrees <- function()
 			[5, ::Const.Perks.LightArmorTree],		
 			[9, ::Const.Perks.BowTree],
 			[3, ::Const.Perks.CrossbowTree],
-			[3, ::Const.Perks.SlingsTree],
+			[3, ::Const.Perks.SlingTree],
 			[3, ::Const.Perks.ThrowingTree],
 			[-1, ::Const.Perks.RangedTree]
 		],
@@ -492,7 +492,7 @@ gt.PTR.createProfessionTrees <- function()
 		PerkGroupMultipliers = [
 			[2, ::Const.Perks.AgileTree],
 			[2, ::Const.Perks.FastTree],
-			[0.5, ::Const.Perks.SlingsTree],
+			[0.5, ::Const.Perks.SlingTree],
 			[0.8, ::Const.Perks.CrossbowTree],
 			[0.75, ::Const.Perks.PolearmTree],
 			[0.33, ::Const.Perks.ShieldTree]
