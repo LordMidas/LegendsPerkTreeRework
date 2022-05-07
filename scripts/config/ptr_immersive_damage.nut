@@ -7,12 +7,12 @@ if (!("PTR" in gt))
 
 gt.PTR.ImmersiveDamage <- {};
 
-gt.PTR.ImmersiveDamage.MinDamageMult <- 0.4;
-gt.PTR.ImmersiveDamage.MaxDamageMult <- 1.0;
+gt.PTR.ImmersiveDamage.MinReduction <- 0;
+gt.PTR.ImmersiveDamage.MaxReduction <- 60;
 gt.PTR.ImmersiveDamage.MinHitChance <- 35;
 gt.PTR.ImmersiveDamage.MaxHitChance <- 70;
-gt.PTR.ImmersiveDamage.ChanceCriticalFailure <- 0;
 gt.PTR.ImmersiveDamage.ChanceFullDamage <- 20;
+gt.PTR.ImmersiveDamage.ChanceCriticalFailure <- 0;
 
 gt.PTR.ImmersiveDamage.GoodnessThresholds <- [
 	"Perfect",

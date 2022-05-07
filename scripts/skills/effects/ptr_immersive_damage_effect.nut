@@ -28,23 +28,26 @@ this.ptr_immersive_damage_effect <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		this.m.DamageMult = this.PTR.ImmersiveDamage.MaxDamageMult;		
+		this.m.DamageMult = 1.0 - ::PTR.Mod.ModSettings.getSetting("IDS_MinReduction").getValue() * 0.01;		
 
 		this.m.Roll = this.Math.rand(1, 100);
-		if (this.m.Roll > 100 - this.PTR.ImmersiveDamage.ChanceCriticalFailure)
+
+		local minDamageMult = 1.0 - ::PTR.Mod.ModSettings.getSetting("IDS_MaxReduction").getValue() * 0.01;
+
+		if (this.m.Roll > 100 - ::PTR.Mod.ModSettings.getSetting("IDS_ChanceCriticalFailure").getValue())
 		{
-			this.m.DamageMult = this.PTR.ImmersiveDamage.MinDamageMult;
+			this.m.DamageMult = minDamageMult;
 		}
 		else
 		{	
-			local half = this.PTR.ImmersiveDamage.ChanceFullDamage / 2.0;
+			local half = ::PTR.Mod.ModSettings.getSetting("IDS_ChanceFullDamage").getValue() / 2.0;
 			if (this.m.Roll < 50 - half || this.m.Roll > 50 + half)
 			{
 				this.m.IsUpdating = true;
-				local stdev = this.Math.min(this.PTR.ImmersiveDamage.MaxHitChance, this.Math.max(this.PTR.ImmersiveDamage.MinHitChance, _skill.getHitchance(_targetEntity)));
+				local stdev = this.Math.min(::PTR.Mod.ModSettings.getSetting("IDS_MaxHitChance").getValue(), this.Math.max(::PTR.Mod.ModSettings.getSetting("IDS_MinHitChance").getValue(), _skill.getHitchance(_targetEntity)));
 				this.m.IsUpdating = false;
 
-				this.m.DamageMult = this.Math.maxf(this.PTR.ImmersiveDamage.MinDamageMult, this.MSU.Math.normalDistNorm(this.m.Roll, 50, stdev));
+				this.m.DamageMult = this.Math.maxf(minDamageMult, this.MSU.Math.normalDistNorm(this.m.Roll, 50, stdev));
 			}
 		}
 
@@ -58,7 +61,10 @@ this.ptr_immersive_damage_effect <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		local goodness = (this.m.DamageMult - this.PTR.ImmersiveDamage.MinDamageMult) / (this.PTR.ImmersiveDamage.MaxDamageMult - this.PTR.ImmersiveDamage.MinDamageMult);
+		local minDamageMult = 1.0 - ::PTR.Mod.ModSettings.getSetting("IDS_MaxReduction").getValue() * 0.01;
+		local maxDamageMult = 1.0 - ::PTR.Mod.ModSettings.getSetting("IDS_MinReduction").getValue() * 0.01;
+
+		local goodness = (this.m.DamageMult - minDamageMult) / (maxDamageMult - minDamageMult);
 
 		local key = "";
 		foreach (g in this.PTR.ImmersiveDamage.GoodnessThresholds)
