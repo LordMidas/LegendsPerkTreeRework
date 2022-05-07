@@ -119,7 +119,7 @@ this.perk_ptr_always_an_entertainer <- this.inherit("scripts/skills/skill", {
 	{
 		this.skill.onDeserialize(_in);
 
-		if (this.Const.PTR.Version >= 1)
+		if (this.PTR.Version >= 1)
 		{
 			this.m.IsSpent = _in.readBool();
 

@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.PTR.modSkillContainer <- function()
+gt.PTR.modSkillContainer <- function()
 {
 	::mods_hookNewObject("skills/skill_container", function(o) {
 		o.getArrayOfNegativeStatusEffects <- function()

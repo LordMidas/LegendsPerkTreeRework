@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.PTR.modScenarios <- function()
+gt.PTR.modScenarios <- function()
 {
 	::mods_hookExactClass("scenarios/world/militia_scenario", function(o) {
 		o.onBuildPerkTree <- function( _background )

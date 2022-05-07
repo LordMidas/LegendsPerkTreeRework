@@ -1,106 +1,107 @@
 local gt = this.getroottable();
 
-if (!("PTR" in gt.Const))
+if (!("PTR" in gt))
 {
-	gt.Const.PTR <- {};
+	gt.PTR <- {};
 }
 
-gt.Const.PTR.Version <- 1;
-gt.Const.PTR.ModID <- "mod_legends_PTR";
+gt.PTR.Version <- 1;
+gt.PTR.ModID <- "mod_legends_PTR";
 
-::mods_registerMod(gt.Const.PTR.ModID, gt.Const.PTR.Version, "Perk Trees Rework 1.6.20");
+::mods_registerMod(gt.PTR.ModID, gt.PTR.Version, "Perk Trees Rework 1.6.20");
 
-::mods_queue(gt.Const.PTR.ModID, "mod_legends, mod_msu, mod_betterFencing, mod_WMS, mod_mediumArmorRework, mod_legends_STR, mod_duelistDefense", function()
+::mods_queue(gt.PTR.ModID, "mod_legends, mod_msu, mod_betterFencing, mod_WMS, mod_mediumArmorRework, mod_legends_STR, mod_duelistDefense", function()
 {	
-	gt.Const.PTR.modRetinue();
-	delete gt.Const.PTR.modRetinue;
+	
+	gt.PTR.modRetinue();
+	delete gt.PTR.modRetinue;
 
-	gt.Const.PTR.modCharacterInjuries();
-	delete gt.Const.PTR.modCharacterInjuries;
+	gt.PTR.modCharacterInjuries();
+	delete gt.PTR.modCharacterInjuries;
 
-	gt.Const.PTR.modStrings();
-	delete gt.Const.PTR.modStrings;
+	gt.PTR.modStrings();
+	delete gt.PTR.modStrings;
 
-	gt.Const.PTR.modSkill();
-	delete gt.Const.PTR.modSkill;
+	gt.PTR.modSkill();
+	delete gt.PTR.modSkill;
 
-	gt.Const.PTR.modSkillContainer();
-	delete gt.Const.PTR.modSkillContainer;
+	gt.PTR.modSkillContainer();
+	delete gt.PTR.modSkillContainer;
 
-	gt.Const.PTR.modActor();
-	delete gt.Const.PTR.modActor;
+	gt.PTR.modActor();
+	delete gt.PTR.modActor;
 
-	gt.Const.PTR.modPlayer();
-	delete gt.Const.PTR.modPlayer;
+	gt.PTR.modPlayer();
+	delete gt.PTR.modPlayer;
 
-	gt.Const.PTR.modSkills();
-	delete gt.Const.PTR.modSkills;
+	gt.PTR.modSkills();
+	delete gt.PTR.modSkills;
 
-	gt.Const.PTR.modTraits();
-	delete gt.Const.PTR.modTraits;
+	gt.PTR.modTraits();
+	delete gt.PTR.modTraits;
 
-	gt.Const.PTR.modWeapons();
-	delete gt.Const.PTR.modWeapons;
+	gt.PTR.modWeapons();
+	delete gt.PTR.modWeapons;
 	
-	gt.Const.PTR.modItems();
-	delete gt.Const.PTR.modItems;
+	gt.PTR.modItems();
+	delete gt.PTR.modItems;
 	
-	gt.Const.PTR.modSettlement();	
-	delete gt.Const.PTR.modSettlement;
+	gt.PTR.modSettlement();	
+	delete gt.PTR.modSettlement;
 	
-	gt.Const.PTR.addPerksToPerkDefs();
-	delete gt.Const.PTR.addPerksToPerkDefs;
+	gt.PTR.addPerksToPerkDefs();
+	delete gt.PTR.addPerksToPerkDefs;
 	
-	gt.Const.PTR.modDefenseTrees();
-	delete gt.Const.PTR.modDefenseTrees;
+	gt.PTR.modDefenseTrees();
+	delete gt.PTR.modDefenseTrees;
 	
-	gt.Const.PTR.modWeaponTrees();
-	delete gt.Const.PTR.modWeaponTrees;
+	gt.PTR.modWeaponTrees();
+	delete gt.PTR.modWeaponTrees;
 	
-	gt.Const.PTR.modTraitsTrees();
-	delete gt.Const.PTR.modTraitsTrees;
+	gt.PTR.modTraitsTrees();
+	delete gt.PTR.modTraitsTrees;
 	
-	gt.Const.PTR.modClassTrees();
-	delete gt.Const.PTR.modClassTrees;
+	gt.PTR.modClassTrees();
+	delete gt.PTR.modClassTrees;
 	
-	gt.Const.PTR.modMagicTrees();
-	delete gt.Const.PTR.modMagicTrees;	
+	gt.PTR.modMagicTrees();
+	delete gt.PTR.modMagicTrees;	
 
-	gt.Const.PTR.createStylesTrees();
-	delete gt.Const.PTR.createStylesTrees;
+	gt.PTR.createStylesTrees();
+	delete gt.PTR.createStylesTrees;
 	
-	gt.Const.PTR.createProfessionTrees();
-	delete gt.Const.PTR.createProfessionTrees;
+	gt.PTR.createProfessionTrees();
+	delete gt.PTR.createProfessionTrees;
 
-	gt.Const.PTR.createSpecialTrees();
-	delete gt.Const.PTR.createSpecialTrees;
+	gt.PTR.createSpecialTrees();
+	delete gt.PTR.createSpecialTrees;
 	
-	gt.Const.PTR.modLegendsPerkTreeCreationSystem();
-	delete gt.Const.PTR.modLegendsPerkTreeCreationSystem;
+	gt.PTR.modLegendsPerkTreeCreationSystem();
+	delete gt.PTR.modLegendsPerkTreeCreationSystem;
 	
-	gt.Const.PTR.modCharacterBackground();
-	delete gt.Const.PTR.modCharacterBackground;
+	gt.PTR.modCharacterBackground();
+	delete gt.PTR.modCharacterBackground;
 	
-	gt.Const.PTR.modCharacterBackgrounds();
-	delete gt.Const.PTR.modCharacterBackgrounds;
+	gt.PTR.modCharacterBackgrounds();
+	delete gt.PTR.modCharacterBackgrounds;
 	
-	gt.Const.PTR.modLegendsEnemyTrees();
-	delete gt.Const.PTR.modLegendsEnemyTrees;
+	gt.PTR.modLegendsEnemyTrees();
+	delete gt.PTR.modLegendsEnemyTrees;
 	
-	gt.Const.PTR.modEnemies();
-	delete gt.Const.PTR.modEnemies;
+	gt.PTR.modEnemies();
+	delete gt.PTR.modEnemies;
 	
-	gt.Const.PTR.modAI();
-	delete gt.Const.PTR.modAI;
+	gt.PTR.modAI();
+	delete gt.PTR.modAI;
 	
-	gt.Const.PTR.modRunes();
-	delete gt.Const.PTR.modRunes;
+	gt.PTR.modRunes();
+	delete gt.PTR.modRunes;
 
-	gt.Const.PTR.modTooltipEvents();
-	delete gt.Const.PTR.modTooltipEvents;
+	gt.PTR.modTooltipEvents();
+	delete gt.PTR.modTooltipEvents;
 
-	gt.Const.PTR.modScenarios();
-	delete gt.Const.PTR.modScenarios;
+	gt.PTR.modScenarios();
+	delete gt.PTR.modScenarios;
 
 	this.Const.Perks.updatePerkGroupTooltips();
 

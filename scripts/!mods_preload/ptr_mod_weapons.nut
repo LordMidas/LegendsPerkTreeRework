@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.PTR.modWeapons <- function()
+gt.PTR.modWeapons <- function()
 {
 	local goblinWeapons = [
 		"items/weapons/greenskins/goblin_bow",

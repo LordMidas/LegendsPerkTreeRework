@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.PTR.modStrings <- function()
+gt.PTR.modStrings <- function()
 {
 	gt.Const.Strings.PerkDescription.LegendSmashingShields = "\'If you can\'t get around it, try smashing through. It works!\'.\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Abilities targeting shields do [color=" + this.Const.UI.Color.PositiveValue + "]15%[/color] more damage.\n• If a shield is destroyed using the \'Split Shield\' skill, [color=" + this.Const.UI.Color.PositiveValue + "]4[/color] Action Points are immediately regained.";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.LegendSmashingShields].Tooltip = gt.Const.Strings.PerkDescription.LegendSmashingShields;

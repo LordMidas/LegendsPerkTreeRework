@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.PTR.modRunes <- function()
+gt.PTR.modRunes <- function()
 {
 	local blueprints = [
 		"legend_rune_poison_blueprint",

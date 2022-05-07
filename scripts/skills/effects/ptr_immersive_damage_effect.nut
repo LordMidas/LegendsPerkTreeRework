@@ -28,23 +28,23 @@ this.ptr_immersive_damage_effect <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		this.m.DamageMult = this.Const.PTR.ImmersiveDamage.MaxDamageMult;		
+		this.m.DamageMult = this.PTR.ImmersiveDamage.MaxDamageMult;		
 
 		this.m.Roll = this.Math.rand(1, 100);
-		if (this.m.Roll > 100 - this.Const.PTR.ImmersiveDamage.ChanceCriticalFailure)
+		if (this.m.Roll > 100 - this.PTR.ImmersiveDamage.ChanceCriticalFailure)
 		{
-			this.m.DamageMult = this.Const.PTR.ImmersiveDamage.MinDamageMult;
+			this.m.DamageMult = this.PTR.ImmersiveDamage.MinDamageMult;
 		}
 		else
 		{	
-			local half = this.Const.PTR.ImmersiveDamage.ChanceFullDamage / 2.0;
+			local half = this.PTR.ImmersiveDamage.ChanceFullDamage / 2.0;
 			if (this.m.Roll < 50 - half || this.m.Roll > 50 + half)
 			{
 				this.m.IsUpdating = true;
-				local stdev = this.Math.min(this.Const.PTR.ImmersiveDamage.MaxHitChance, this.Math.max(this.Const.PTR.ImmersiveDamage.MinHitChance, _skill.getHitchance(_targetEntity)));
+				local stdev = this.Math.min(this.PTR.ImmersiveDamage.MaxHitChance, this.Math.max(this.PTR.ImmersiveDamage.MinHitChance, _skill.getHitchance(_targetEntity)));
 				this.m.IsUpdating = false;
 
-				this.m.DamageMult = this.Math.maxf(this.Const.PTR.ImmersiveDamage.MinDamageMult, this.MSU.Math.normalDistNorm(this.m.Roll, 50, stdev));
+				this.m.DamageMult = this.Math.maxf(this.PTR.ImmersiveDamage.MinDamageMult, this.MSU.Math.normalDistNorm(this.m.Roll, 50, stdev));
 			}
 		}
 
@@ -58,19 +58,19 @@ this.ptr_immersive_damage_effect <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		local goodness = (this.m.DamageMult - this.Const.PTR.ImmersiveDamage.MinDamageMult) / (this.Const.PTR.ImmersiveDamage.MaxDamageMult - this.Const.PTR.ImmersiveDamage.MinDamageMult);
+		local goodness = (this.m.DamageMult - this.PTR.ImmersiveDamage.MinDamageMult) / (this.PTR.ImmersiveDamage.MaxDamageMult - this.PTR.ImmersiveDamage.MinDamageMult);
 
 		local key = "";
-		foreach (g in this.Const.PTR.ImmersiveDamage.GoodnessThresholds)
+		foreach (g in this.PTR.ImmersiveDamage.GoodnessThresholds)
 		{
-			if (goodness >= this.Const.PTR.ImmersiveDamage.GoodnessThreshold[g].Threshold)
+			if (goodness >= this.PTR.ImmersiveDamage.GoodnessThreshold[g].Threshold)
 			{
 				key = g;
 				break;
 			}
 		}
 
-		local fluff = _skill.isRanged() ? this.Const.PTR.ImmersiveDamage.GoodnessThreshold[key].FluffRanged : this.Const.PTR.ImmersiveDamage.GoodnessThreshold[key].FluffMelee;
+		local fluff = _skill.isRanged() ? this.PTR.ImmersiveDamage.GoodnessThreshold[key].FluffRanged : this.PTR.ImmersiveDamage.GoodnessThreshold[key].FluffMelee;
 
 		local fluffString = fluff.len() > 0 ? fluff[this.Math.rand(0, fluff.len() - 1)] : "";
 

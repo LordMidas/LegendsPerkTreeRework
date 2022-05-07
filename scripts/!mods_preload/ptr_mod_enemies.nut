@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.PTR.modEnemies <- function()
+gt.PTR.modEnemies <- function()
 {
 	this.Const.Tactical.Actor.LegendStollwurm.ActionPoints = 7;
 	this.Const.Tactical.Actor.GoblinFighter.Bravery = 55;		

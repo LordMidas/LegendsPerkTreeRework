@@ -1,8 +1,8 @@
 local gt = this.getroottable();
 
-gt.Const.PTR.modCharacterBackground <- function()
+gt.PTR.modCharacterBackground <- function()
 {
-	gt.Const.PTR.PerkTreeDynamicMins <- {
+	gt.PTR.PerkTreeDynamicMins <- {
 		//Profession = 1,
 		Weapon = 4,
 		Defense = 2,
@@ -15,7 +15,7 @@ gt.Const.PTR.modCharacterBackground <- function()
 		MagicChance = 0,
 		Styles = 2
 	};
-	gt.Const.PTR.PerkTreeDynamicMinsMagic <- {
+	gt.PTR.PerkTreeDynamicMinsMagic <- {
 		//Profession = 1,
 		Weapon = 4,
 		Defense = 2,
@@ -28,7 +28,7 @@ gt.Const.PTR.modCharacterBackground <- function()
 		MagicChance = 0.001,
 		Styles = 2
 	};
-	gt.Const.PTR.PerkTreeDynamicMinsBeast <- {
+	gt.PTR.PerkTreeDynamicMinsBeast <- {
 		//Profession = 1,
 		Weapon = 4,
 		Defense = 2,
@@ -265,15 +265,15 @@ gt.Const.PTR.modCharacterBackground <- function()
 
 		o.getPerkTreeDynamicMins = function()
 		{
-			local mins = this.Const.PTR.PerkTreeDynamicMins;
+			local mins = this.PTR.PerkTreeDynamicMins;
 
 			if (this.World.Assets.getOrigin().getID() == "scenario.beast_hunters")
 			{
-				mins = this.Const.PTR.PerkTreeDynamicMinsBeast;
+				mins = this.PTR.PerkTreeDynamicMinsBeast;
 			}
 			else if (this.LegendsMod.Configs().LegendMagicEnabled())
 			{
-				mins = this.Const.PTR.PerkTreeDynamicMinsMagic;
+				mins = this.PTR.PerkTreeDynamicMinsMagic;
 			}
 
 			return mins;
@@ -323,7 +323,7 @@ gt.Const.PTR.modCharacterBackground <- function()
 		{
 			onDeserialize(_in);
 
-			if (this.Const.PTR.Version >= 1)
+			if (this.PTR.Version >= 1)
 			{
 				local mapSize = _in.readU8();
 				if (mapSize == 0)

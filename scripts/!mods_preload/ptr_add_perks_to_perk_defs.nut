@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.PTR.addPerksToPerkDefs <- function()
+gt.PTR.addPerksToPerkDefs <- function()
 {
 	gt.Const.Strings.PerkName.PTRTesting <- "Testing perk";
 	gt.Const.Strings.PerkDescription.PTRTesting <- "Will add other perks for testing them.";

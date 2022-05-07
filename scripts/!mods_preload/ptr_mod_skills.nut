@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.PTR.modSkills <- function()
+gt.PTR.modSkills <- function()
 {
 	::mods_hookExactClass("skills/actives/root_skill", function(o) {
 		o.m.Cooldown <- 0;

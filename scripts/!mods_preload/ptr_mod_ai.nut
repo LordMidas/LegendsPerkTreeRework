@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.PTR.modAI <- function()
+gt.PTR.modAI <- function()
 {
 	gt.Const.Movement.AutoEndTurnBelowAP = 1;
 	

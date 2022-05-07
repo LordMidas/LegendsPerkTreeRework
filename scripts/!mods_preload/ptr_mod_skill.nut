@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.PTR.modSkill <- function()
+gt.PTR.modSkill <- function()
 {
 	::mods_hookBaseClass("skills/skill", function(o) {
 		o = o[o.SuperName];

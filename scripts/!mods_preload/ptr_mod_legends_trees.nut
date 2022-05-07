@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.PTR.modLegendsEnemyTrees <- function()
+gt.PTR.modLegendsEnemyTrees <- function()
 {
 	# Beasts Tree
 	this.Const.Perks.BeastsTree.Tree = array(7);
@@ -442,7 +442,7 @@ gt.Const.PTR.modLegendsEnemyTrees <- function()
 	this.Const.Perks.SwordmastersTree.Tree[6] = [];
 }
 
-gt.Const.PTR.modTraitsTrees <- function()
+gt.PTR.modTraitsTrees <- function()
 {
 	// this.Const.Perks.AgileTree.PerkGroupMultipliers <- [
 	// 	[1.5, ::Const.Perks.FastTree]
@@ -703,7 +703,7 @@ gt.Const.PTR.modTraitsTrees <- function()
 	];
 }
 
-gt.Const.PTR.modClassTrees <- function()
+gt.PTR.modClassTrees <- function()
 {
 	gt.Const.Perks.SergeantClassTree <- {
 		ID = "SergeantClassTree",
@@ -994,7 +994,7 @@ gt.Const.PTR.modClassTrees <- function()
 	];
 }
 
-gt.Const.PTR.modWeaponTrees <- function()
+gt.PTR.modWeaponTrees <- function()
 {
 	this.Const.Perks.AxeTree.Tree = array(7);
 	this.Const.Perks.AxeTree.Tree[0] = [this.Const.Perks.PerkDefs.LegendSmashingShields];
@@ -1146,7 +1146,7 @@ gt.Const.PTR.modWeaponTrees <- function()
 	}	
 }
 
-gt.Const.PTR.modDefenseTrees <- function ()
+gt.PTR.modDefenseTrees <- function ()
 {
 	this.Const.Perks.ShieldTree.Tree = array(7);
 	gt.Const.Perks.ShieldTree.SelfWeightMultiplier <- 1.25;
@@ -1187,7 +1187,7 @@ gt.Const.PTR.modDefenseTrees <- function ()
 	this.Const.Perks.LightArmorTree.Tree[6] = [];
 }
 
-gt.Const.PTR.modMagicTrees <- function()
+gt.PTR.modMagicTrees <- function()
 {
 	gt.Const.Perks.CaptainMagicTree.Tree[1] = [];
 }

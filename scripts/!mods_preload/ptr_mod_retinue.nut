@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.PTR.modRetinue <- function()
+gt.PTR.modRetinue <- function()
 {
 	local retinuesToFixGuaranteedTooltip = [
 		"retinue/followers/blacksmith_follower",

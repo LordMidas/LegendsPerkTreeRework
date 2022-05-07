@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.PTR.modCharacterBackgrounds <- function()
+gt.PTR.modCharacterBackgrounds <- function()
 {
 	local addPerkTreesToCustomPerkTree = function (_customPerkTree, _treesToAdd)
 	{

@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.PTR.modActor <- function()
+gt.PTR.modActor <- function()
 {
 	::mods_hookExactClass("entity/tactical/actor", function(o)
 	{

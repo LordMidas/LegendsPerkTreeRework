@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.PTR.createStylesTrees <- function()
+gt.PTR.createStylesTrees <- function()
 {
 	gt.Const.Perks.OneHandedTree <- {
 		ID = "OneHandedTree",
@@ -119,7 +119,7 @@ gt.Const.PTR.createStylesTrees <- function()
 	};
 }
 
-gt.Const.PTR.createProfessionTrees <- function()
+gt.PTR.createProfessionTrees <- function()
 {
 	gt.Const.Perks.AssassinProfessionTree <- {
 		ID = "AssassinProfessionTree",
@@ -921,7 +921,7 @@ gt.Const.PTR.createProfessionTrees <- function()
 	};
 }
 
-gt.Const.PTR.createSpecialTrees <- function()
+gt.PTR.createSpecialTrees <- function()
 {
 	gt.Const.Perks.SpecialTrees <- {
 		Tree = [],

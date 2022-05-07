@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.PTR.modCharacterInjuries <- function()
+gt.PTR.modCharacterInjuries <- function()
 {
 	this.Const.Injury.ExcludedInjuries.add(
 		"PTRUndead",

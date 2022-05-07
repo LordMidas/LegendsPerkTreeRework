@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.PTR.modSettlement <- function()
+gt.PTR.modSettlement <- function()
 {
 	::mods_hookExactClass("entity/world/settlement", function(o) {
 		local onEnter = o.onEnter;

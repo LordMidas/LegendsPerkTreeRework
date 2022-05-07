@@ -1,20 +1,20 @@
 local gt = this.getroottable();
 
-if (!("PTR" in gt.Const))
+if (!("PTR" in gt))
 {
-	gt.Const.PTR <- {};
+	gt.PTR <- {};
 }
 
-gt.Const.PTR.ImmersiveDamage <- {};
+gt.PTR.ImmersiveDamage <- {};
 
-gt.Const.PTR.ImmersiveDamage.MinDamageMult <- 0.4;
-gt.Const.PTR.ImmersiveDamage.MaxDamageMult <- 1.0;
-gt.Const.PTR.ImmersiveDamage.MinHitChance <- 35;
-gt.Const.PTR.ImmersiveDamage.MaxHitChance <- 70;
-gt.Const.PTR.ImmersiveDamage.ChanceCriticalFailure <- 0;
-gt.Const.PTR.ImmersiveDamage.ChanceFullDamage <- 20;
+gt.PTR.ImmersiveDamage.MinDamageMult <- 0.4;
+gt.PTR.ImmersiveDamage.MaxDamageMult <- 1.0;
+gt.PTR.ImmersiveDamage.MinHitChance <- 35;
+gt.PTR.ImmersiveDamage.MaxHitChance <- 70;
+gt.PTR.ImmersiveDamage.ChanceCriticalFailure <- 0;
+gt.PTR.ImmersiveDamage.ChanceFullDamage <- 20;
 
-gt.Const.PTR.ImmersiveDamage.GoodnessThresholds <- [
+gt.PTR.ImmersiveDamage.GoodnessThresholds <- [
 	"Perfect",
 	"Good",
 	"Decent",
@@ -23,7 +23,7 @@ gt.Const.PTR.ImmersiveDamage.GoodnessThresholds <- [
 	"Pathetic"
 ];
 
-gt.Const.PTR.ImmersiveDamage.GoodnessThreshold <- {
+gt.PTR.ImmersiveDamage.GoodnessThreshold <- {
 	Perfect = { 
 		Threshold = 1.0,
 		FluffMelee = [

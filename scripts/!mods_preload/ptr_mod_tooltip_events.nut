@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.PTR.modTooltipEvents <- function()
+gt.PTR.modTooltipEvents <- function()
 {
 	::mods_hookNewObject("ui/screens/tooltip/tooltip_events", function(o) {
 		local tactical_queryTileTooltipData = o.tactical_queryTileTooltipData;

@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.PTR.modLegendsPerkTreeCreationSystem <- function()
+gt.PTR.modLegendsPerkTreeCreationSystem <- function()
 {
 	gt.Const.Perks.RandomTree <- {ID = "RandomTree"};
 	gt.Const.Perks.NoTree <- {

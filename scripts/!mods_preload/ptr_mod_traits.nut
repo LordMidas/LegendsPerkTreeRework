@@ -1,4 +1,4 @@
-::Const.PTR.modTraits <- function()
+::PTR.modTraits <- function()
 {
 	::mods_hookExactClass("skills/traits/character_trait", function(o) {
 		o.m.SpecialPerkMultipliers <- [];

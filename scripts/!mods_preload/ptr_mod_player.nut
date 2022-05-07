@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.PTR.modPlayer <- function()
+gt.PTR.modPlayer <- function()
 {
 	::mods_hookExactClass("entity/tactical/player", function(o) {
 		o.m.LevelUpsSpent <- 0;
