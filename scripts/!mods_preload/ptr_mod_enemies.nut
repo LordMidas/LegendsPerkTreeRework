@@ -959,7 +959,7 @@ gt.PTR.modEnemies <- function()
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.removeByID("perk.relentless");				
-				this.m.Skills.removeByID("perk.mar_lithe");	
+				this.m.Skills.removeByID("perk.legend_lithe");	
 				this.m.Skills.removeByID("effects.dodge");		
 				this.m.Skills.removeByID("perk.legend_battleheart");	
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_unstoppable"));
@@ -2387,7 +2387,7 @@ gt.PTR.modEnemies <- function()
 			{
 				this.m.Skills.removeByID("perk.last_stand");
 				this.m.Skills.removeByID("perk.legend_alert");		
-				this.m.Skills.removeByID("perk.mar_balance");
+				this.m.Skills.removeByID("perk.legend_balance");
 				this.m.Skills.removeByID("perk.backstabber");		
 				this.m.Skills.removeByID("perk.mastery_fist");																										
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_second_wind"));
@@ -2429,7 +2429,7 @@ gt.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				this.m.Skills.removeByID("perk.mar_balance");
+				this.m.Skills.removeByID("perk.legend_balance");
 				this.m.Skills.removeByID("perk.backstabber");		
 				this.m.Skills.removeByID("perk.mastery_fist");	
 				this.m.Skills.removeByID("perk.last_stand");		
@@ -2516,7 +2516,7 @@ gt.PTR.modEnemies <- function()
 			{
 				this.m.Skills.removeByID("perk.last_stand");
 				this.m.Skills.removeByID("perk.legend_alert");	
-				this.m.Skills.removeByID("perk.mar_balance");	
+				this.m.Skills.removeByID("perk.legend_balance");	
 				this.m.Skills.removeByID("perk.backstabber");		
 				this.m.Skills.removeByID("perk.mastery_fist");											
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));				
@@ -2554,7 +2554,7 @@ gt.PTR.modEnemies <- function()
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.removeByID("perk.last_stand");
-				this.m.Skills.removeByID("perk.mar_balance");	
+				this.m.Skills.removeByID("perk.legend_balance");	
 				this.m.Skills.removeByID("perk.backstabber");		
 				this.m.Skills.removeByID("perk.mastery_fist");											
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
@@ -3262,7 +3262,7 @@ gt.PTR.modEnemies <- function()
 			{
 				this.m.Hitpoints = this.getBaseProperties().Hitpoints;	
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_killing_frenzy"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_mar_perfect_fit"));				
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_perfect_fit"));				
 			}
 		}
 	});
@@ -3707,7 +3707,7 @@ gt.PTR.modEnemies <- function()
 				this.m.Skills.removeByID("perk.berserk");
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));
 				this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));	
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_mar_perfect_fit"));							
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_perfect_fit"));							
 			}
 		}
 
