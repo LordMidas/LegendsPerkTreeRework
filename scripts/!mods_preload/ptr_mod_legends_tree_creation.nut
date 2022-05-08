@@ -137,7 +137,7 @@ gt.PTR.modLegendsPerkTreeCreationSystem <- function()
 		}
 
 		local attributes = this.Const.Perks.TraitsTrees.getBaseAttributes();
-		local characterTraits = _player.getSkills().getSkillsByFunction(this, @(skill) skill.m.Type == ::Const.SkillType.Trait);
+		local characterTraits = _player == null ? null : _player.getSkills().getSkillsByFunction(@(skill) skill.m.Type == ::Const.SkillType.Trait);
 
 		if (_player.getBackground().m.CustomPerkTreeMap == null) _player.getBackground().m.CustomPerkTreeMap = {};
 		local localMap = _player.getBackground().m.CustomPerkTreeMap;

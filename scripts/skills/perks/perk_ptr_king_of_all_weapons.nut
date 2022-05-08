@@ -58,7 +58,7 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 		}
 
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Spear) || this.getContainer().getSkillsByFunction(this, @(_skill) this.m.Skills.find(_skill.getID()) != null).len() == 0)
+		if (weapon == null || !weapon.isWeaponType(this.Const.Items.WeaponType.Spear) || this.getContainer().getSkillsByFunction(@(_skill) this.m.Skills.find(_skill.getID()) != null).len() == 0)
 		{
 			return false;
 		}
@@ -74,7 +74,7 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		local skills = this.getContainer().getSkillsByFunction(this, @(_skill) this.m.Skills.find(_skill.getID()) != null);
+		local skills = this.getContainer().getSkillsByFunction(@(_skill) this.m.Skills.find(_skill.getID()) != null);
 
 		if (skills.len() == 0)
 		{

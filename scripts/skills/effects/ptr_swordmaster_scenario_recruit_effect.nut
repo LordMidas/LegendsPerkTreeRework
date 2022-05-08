@@ -70,7 +70,7 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 			}
 		}
 
-		if (this.m.FreePerkLevels.len() != 0 && this.getContainer().getSkillsByFunction(this, @(_skill) ids.find(_skill) != null).len() != swordPerkDefs.len())
+		if (this.m.FreePerkLevels.len() != 0 && this.getContainer().getSkillsByFunction(@(_skill) ids.find(_skill) != null).len() != swordPerkDefs.len())
 		{
 			local potentialPerks = "";
 

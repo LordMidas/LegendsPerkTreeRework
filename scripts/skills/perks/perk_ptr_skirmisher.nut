@@ -71,7 +71,7 @@ this.perk_ptr_skirmisher <- this.inherit("scripts/skills/skill", {
 		{
 			if (this.m.AttacksRemaining > 0)
 			{
-				local attacks = this.getContainer().getSkillsByFunction(this, @(_skill) _skill.isAttack() && _skill.m.IsWeaponSkill)
+				local attacks = this.getContainer().getSkillsByFunction(@(_skill) _skill.isAttack() && _skill.m.IsWeaponSkill)
 				foreach (a in attacks)
 				{
 					a.m.ActionPointCost = this.Math.max(1, a.m.ActionPointCost / 2);
