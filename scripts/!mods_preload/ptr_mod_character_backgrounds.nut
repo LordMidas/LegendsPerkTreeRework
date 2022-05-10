@@ -2163,7 +2163,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 			actor.getBaseProperties().RangedDefense += (actor.getBaseProperties().RangedDefense < _targetEntity.getBaseProperties().RangedDefense ? 1 : 0);
 			actor.getBaseProperties().Initiative += (actor.getBaseProperties().Initiative < _targetEntity.getBaseProperties().Initiative ? 1 : 0);
 
-			local target_skills = _targetEntity.getSkills().query(this.Const.SkillType.Perk);
+			local target_skills = _targetEntity.getSkills().getSkillsByFunction(@(skill) skill.isType(::Const.SkillType.Perk));
 			local potentialPerks = [];
 
 			foreach (perk in target_skills)
