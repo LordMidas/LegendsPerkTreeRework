@@ -2195,7 +2195,12 @@ gt.PTR.modCharacterBackgrounds <- function()
 					{
 						this.Tactical.EventLog.log("The framed beggar learned [color=" + this.Const.UI.Color.NegativeValue + "]" + perk.getName() + "[/color] from " + _targetEntity.getName());
 						actor.getSkills().add(this.new(v.Script));
-						actor.getBackground().addPerk(i, this.Math.rand(0,6));
+						local rowToAddPerk = 0;
+						foreach (i, row in actor.getBackground().getPerkTree())
+						{
+							if (row.len() < rowToAddPerk) rowToAddPerk = i;
+						}
+						actor.getBackground().addPerk(i, rowToAddPerk);
 						break;
 					}
 				}
