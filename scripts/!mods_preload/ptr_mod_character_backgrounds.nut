@@ -2048,9 +2048,8 @@ gt.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.MysticTree,
 				this.Const.Perks.UndeadTree,
 				this.Const.Perks.CivilizationTree,
-				this.Const.Perks.ArchersTree,
-				this.Const.Perks.OutlandersTree,				
-				this.Const.Perks.SwordmastersTree																		
+				this.Const.Perks.OutlandersTree,
+				this.Const.Perks.OrcsTree
 			]
 		);
 
@@ -2098,7 +2097,9 @@ gt.PTR.modCharacterBackgrounds <- function()
 			]
 		);
 
-		addPerksToCustomPerkTree(7, o.m.CustomPerkTree, [		
+		addPerksToCustomPerkTree(7, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.LegendFavouredEnemyArcher,
+				this.Const.Perks.PerkDefs.LegendFavouredEnemySwordmaster,
 				this.Const.Perks.PerkDefs.LastStand,
 				this.Const.Perks.PerkDefs.Indomitable,
 				this.Const.Perks.PerkDefs.PerfectFocus

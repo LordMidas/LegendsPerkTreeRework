@@ -14,6 +14,7 @@
 - Added PTR perk trees to Monk Turned Flagellant and Pacified Flagellant backgrounds in case of rolling them on a random start.
 - Druid and Druid Commander reworked. Lost Sword tree, Sickle Specializations and One Handed Style tree. Gained Staff and Two Handed Style tree. Gained Nightvision perk. Druid is meant to be a utility character. Staff tree fulfills this role much better than sword tree, especially considering some Druid spells are enhanced by Staff Mastery.
 - Ranger and Ranger Commander have had Nightvision removed from perk list.
+- Scaling Beggar given Greenskins favored enemy tree as intended.
 
 ====================
 ==== Ver 1.6.20 ====
