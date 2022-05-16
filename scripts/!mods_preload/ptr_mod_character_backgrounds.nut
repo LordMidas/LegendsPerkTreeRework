@@ -46,184 +46,183 @@ gt.PTR.modCharacterBackgrounds <- function()
 	};
 
 	::mods_hookNewObject("skills/backgrounds/adventurous_noble_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{ Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree },
-				{ Multiplier = 0, Tree = this.Const.Perks.DeviousTree },
-				{ Multiplier = 0.33, Tree = this.Const.Perks.LightArmorTree },
-				{ Multiplier = 3, Tree = this.Const.Perks.HeavyArmorTree },
-				{ Multiplier = 2, Tree = this.Const.Perks.PolearmTree },
-				{ Multiplier = 0, Tree = this.Const.Perks.BowTree },
-				{ Multiplier = 0, Tree = this.Const.Perks.CrossbowTree },
-				{ Multiplier = 0, Tree = this.Const.Perks.SlingTree },
-				{ Multiplier = 0.66, Tree = this.Const.Perks.SpearTree },
-				{ Multiplier = 1.25, Tree = this.Const.Perks.TrainedTree }
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.1, this.Const.Perks.OrganisedTree],
+			[0, this.Const.Perks.DeviousTree],
+			[0.33, this.Const.Perks.LightArmorTree],
+			[3, this.Const.Perks.HeavyArmorTree],
+			[2, this.Const.Perks.PolearmTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0, this.Const.Perks.SlingTree],
+			[0.66, this.Const.Perks.SpearTree],
+			[1.25, this.Const.Perks.TrainedTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.NobleProfessionTree}]
+				::Const.Perks.NobleProfessionTree
 			],
 			Class = [
-				[
-				{Weight = 50, Tree = this.Const.Perks.SergeantClassTree},
-				{Weight = 50, Tree = this.Const.Perks.TacticianClassTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[50, ::Const.Perks.SergeantClassTree],
+					[50, ::Const.Perks.TacticianClassTree]
+				])
 			],
 			Defense = [
-				[
-					{Weight = 50, Tree = this.Const.Perks.MediumArmorTree},
-					{Weight = 50, Tree = this.Const.Perks.HeavyArmorTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[50, ::Const.Perks.MediumArmorTree],
+					[50, ::Const.Perks.HeavyArmorTree]
+				])
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.SwordTree}]
+				::Const.Perks.SwordTree
 			],
 			Styles = [
-				[
-					{Weight = 100, Tree = this.Const.Perks.OneHandedTree}
-				],
-				[
-					{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}
-				]
+				::Const.Perks.OneHandedTree,
+				::Const.Perks.TwoHandedTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/anatomist_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.5, Tree = this.Const.Perks.LargeTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.SturdyTree},
-				{Multiplier = 3, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.EntertainerClassTree},
-				{Multiplier = 3, Tree = this.Const.Perks.HealerClassTree},
-				{Multiplier = 0, Tree = this.Const.Perks.HoundmasterClassTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0.4, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0, Tree = this.Const.Perks.RangedTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.5, this.Const.Perks.LargeTree],
+			[0.5, this.Const.Perks.SturdyTree],
+			[3, this.Const.Perks.TalentedTree],
+			[0, this.Const.Perks.EntertainerClassTree],
+			[3, this.Const.Perks.HealerClassTree],
+			[0, this.Const.Perks.HoundmasterClassTree],
+			[0, this.Const.Perks.BowTree],
+			[0.4, this.Const.Perks.CrossbowTree],
+			[0, this.Const.Perks.SlingTree],
+			[0, this.Const.Perks.RangedTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.ApothecaryProfessionTree}]
+				::Const.Perks.ApothecaryProfessionTree
 			],
 			Enemy = [
-				[
-				{Weight = 8, Tree = this.Const.Perks.DirewolfTree},
-				{Weight = 8, Tree = this.Const.Perks.GhoulTree},
-				{Weight = 9, Tree = this.Const.Perks.LindwurmTree},
-				{Weight = 8, Tree = this.Const.Perks.GoblinTree},
-				{Weight = 8, Tree = this.Const.Perks.OrcTree},
-				{Weight = 8, Tree = this.Const.Perks.UnholdTree},
-				{Weight = 8, Tree = this.Const.Perks.AlpTree},
-				{Weight = 9, Tree = this.Const.Perks.HexenTree},
-				{Weight = 9, Tree = this.Const.Perks.SchratTree},
-				{Weight = 8, Tree = this.Const.Perks.SkeletonTree},
-				{Weight = 9, Tree = this.Const.Perks.VampireTree},
-				{Weight = 8, Tree = this.Const.Perks.ZombieTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[8, ::Const.Perks.DirewolfTree],
+					[8, ::Const.Perks.GhoulTree],
+					[9, ::Const.Perks.LindwurmTree],
+					[8, ::Const.Perks.GoblinTree],
+					[8, ::Const.Perks.OrcTree],
+					[8, ::Const.Perks.UnholdTree],
+					[8, ::Const.Perks.AlpTree],
+					[9, ::Const.Perks.HexenTree],
+					[9, ::Const.Perks.SchratTree],
+					[8, ::Const.Perks.SkeletonTree],
+					[9, ::Const.Perks.VampireTree],
+					[8, ::Const.Perks.ZombieTree]
+				])
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/apprentice_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-					{ Multiplier = 3, Tree = this.Const.Perks.TalentedTree }
-			],
+		o.m.PerkGroupMultipliers = [
+			[3, this.Const.Perks.TalentedTree ]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-					{Weight = 12, Tree = this.Const.Perks.ButcherProfessionTree},
-					{Weight = 12, Tree = this.Const.Perks.BlacksmithProfessionTree},
-					{Weight = 12, Tree = this.Const.Perks.TraderProfessionTree},
-					{Weight = 12, Tree = this.Const.Perks.ApothecaryProfessionTree},
-					{Weight = 12, Tree = this.Const.Perks.LaborerProfessionTree},
-					{Weight = 12, Tree = this.Const.Perks.ServiceProfessionTree},
-					{Weight = 28, Tree = this.Const.Perks.NoTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[12, ::Const.Perks.ButcherProfessionTree],
+					[12, ::Const.Perks.BlacksmithProfessionTree],
+					[12, ::Const.Perks.TraderProfessionTree],
+					[12, ::Const.Perks.ApothecaryProfessionTree],
+					[12, ::Const.Perks.LaborerProfessionTree],
+					[12, ::Const.Perks.ServiceProfessionTree],
+					[28, ::Const.Perks.NoTree]
+				])
 			],
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/assassin_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-			],
+		o.m.PerkGroupMultipliers = [
+			];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.AssassinProfessionTree}]
+				::Const.Perks.AssassinProfessionTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/assassin_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-			],
+		o.m.PerkGroupMultipliers = [
+			];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.AssassinProfessionTree}]
+				::Const.Perks.AssassinProfessionTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/barbarian_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.25, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 0, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 3, Tree = this.Const.Perks.UnstoppableTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ViciousTree},
-				{Multiplier = 0.2, Tree = this.Const.Perks.ClerkClassTree},
-				{Multiplier = 0, Tree = this.Const.Perks.EntertainerClassTree},
-				{Multiplier = 0.2, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 3, Tree = this.Const.Perks.HeavyArmorTree},
-				{Multiplier = 2, Tree = this.Const.Perks.AxeTree},
-				{Multiplier = 2, Tree = this.Const.Perks.HammerTree},
-				{Multiplier = 2, Tree = this.Const.Perks.MaceTree},
-				{Multiplier = 2, Tree = this.Const.Perks.CleaverTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.DaggerTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.PolearmTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.SpearTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.StaffTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.25, this.Const.Perks.CalmTree],
+			[0, this.Const.Perks.OrganisedTree],
+			[3, this.Const.Perks.UnstoppableTree],
+			[2, this.Const.Perks.ViciousTree],
+			[0.2, this.Const.Perks.ClerkClassTree],
+			[0, this.Const.Perks.EntertainerClassTree],
+			[0.2, this.Const.Perks.ShieldTree],
+			[3, this.Const.Perks.HeavyArmorTree],
+			[2, this.Const.Perks.AxeTree],
+			[2, this.Const.Perks.HammerTree],
+			[2, this.Const.Perks.MaceTree],
+			[2, this.Const.Perks.CleaverTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.SlingTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0.5, this.Const.Perks.DaggerTree],
+			[0.5, this.Const.Perks.PolearmTree],
+			[0.66, this.Const.Perks.SpearTree],
+			[0.5, this.Const.Perks.StaffTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-					{Weight = 50, Tree = this.Const.Perks.RaiderProfessionTree},
-					{Weight = 50, Tree = this.Const.Perks.WildlingProfessionTree}					
-				]
+				::MSU.Class.WeightedContainer([
+					[50, ::Const.Perks.RaiderProfessionTree],
+					[50, ::Const.Perks.WildlingProfessionTree]
+				])
 			],
 			Traits = [
-				[
-					{Weight = 50, Tree = this.Const.Perks.LargeTree},
-					{Weight = 50, Tree = this.Const.Perks.AgileTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[50, ::Const.Perks.LargeTree],
+					[50, ::Const.Perks.AgileTree]
+				])
 			],
 			Styles = [
-				[
-					{Weight = 100, Tree = this.Const.Perks.OneHandedTree}
-				],
-				[
-					{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}
-				]
+				::Const.Perks.OneHandedTree,
+				::Const.Perks.TwoHandedTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/bastard_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 2, Tree = this.Const.Perks.NoblesTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.HeavyArmorTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 2, Tree = this.Const.Perks.TacticianClassTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.SpearTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[2, this.Const.Perks.NoblesTree],
+			[1.5, this.Const.Perks.HeavyArmorTree],
+			[0.5, this.Const.Perks.CalmTree],
+			[0.5, this.Const.Perks.OrganisedTree],
+			[2, this.Const.Perks.TacticianClassTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0, this.Const.Perks.SlingTree],
+			[0, this.Const.Perks.BowTree],
+			[0.66, this.Const.Perks.SpearTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.SwordTree}]
+				::Const.Perks.SwordTree
 			]
 		};
 	});
@@ -231,1371 +230,1324 @@ gt.PTR.modCharacterBackgrounds <- function()
 	::mods_hookNewObject("skills/backgrounds/beast_hunter_background", function(o) {
 		o.m.SpecialPerkMultipliers = [
 			[5, ::Const.Perks.PerkDefs.LegendBigGameHunter]
-		],
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 3, Tree = this.Const.Perks.ViciousTree},
-				{Multiplier = 0.33, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.FlailTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.HammerTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.MaceTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.StaffTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0, Tree = this.Const.Perks.ApothecaryProfessionTree},
-				{Multiplier = 0, Tree = this.Const.Perks.MinstrelProfessionTree}
-			],
+		];
+
+		o.m.PerkGroupMultipliers = [
+			[3, this.Const.Perks.ViciousTree],
+			[0.33, this.Const.Perks.ShieldTree],
+			[0.5, this.Const.Perks.FlailTree],
+			[0.5, this.Const.Perks.HammerTree],
+			[0.5, this.Const.Perks.MaceTree],
+			[0.5, this.Const.Perks.StaffTree],
+			[0.25, this.Const.Perks.SlingTree],
+			[0, this.Const.Perks.ApothecaryProfessionTree],
+			[0, this.Const.Perks.MinstrelProfessionTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-					{Weight = 90, Tree = this.Const.Perks.NoTree},
-					{Weight = 10, Tree = this.Const.Perks.RandomTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[90, ::Const.Perks.NoTree],
+					[10, ::Const.Perks.RandomTree]
+				])
 			],
 			Enemy = [
-				[{Weight = 100, Tree = this.Const.Perks.BeastsTree}]
+				::Const.Perks.BeastsTree
 			],
 			Class = [
-				[
-					{Weight = 90, Tree = this.Const.Perks.TrapperClassTree},
-					{Weight = 5, Tree = this.Const.Perks.ScoutClassTree},
-					{Weight = 5, Tree = this.Const.Perks.NoTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[90, ::Const.Perks.TrapperClassTree],
+					[5, ::Const.Perks.ScoutClassTree],
+					[5, ::Const.Perks.NoTree]
+				])
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.SpearTree}]
+				::Const.Perks.SpearTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/beggar_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.ClerkClassTree},
-				{Multiplier = 0, Tree = this.Const.Perks.EntertainerClassTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0, this.Const.Perks.TalentedTree],
+			[0.25, this.Const.Perks.ClerkClassTree],
+			[0, this.Const.Perks.EntertainerClassTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.PauperProfessionTree}]
+				::Const.Perks.PauperProfessionTree
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.StaffTree}]
+				::Const.Perks.StaffTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/beggar_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-			{Multiplier = 0, Tree = this.Const.Perks.TalentedTree},
-			{Multiplier = 0.25, Tree = this.Const.Perks.ClerkClassTree},
-			{Multiplier = 0, Tree = this.Const.Perks.EntertainerClassTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0, this.Const.Perks.TalentedTree],
+			[0.25, this.Const.Perks.ClerkClassTree],
+			[0, this.Const.Perks.EntertainerClassTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.PauperProfessionTree}]
+				::Const.Perks.PauperProfessionTree
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.StaffTree}]
+				::Const.Perks.StaffTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/belly_dancer_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.5, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.LargeTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.SturdyTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 2, Tree = this.Const.Perks.MediumArmorTree},
-				{Multiplier = 4, Tree = this.Const.Perks.LightArmorTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.5, this.Const.Perks.ResilientTree],
+			[0.25, this.Const.Perks.LargeTree],
+			[0.25, this.Const.Perks.SturdyTree],
+			[1.5, this.Const.Perks.TalentedTree],
+			[2, this.Const.Perks.MediumArmorTree],
+			[4, this.Const.Perks.LightArmorTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.FastTree}]
+				::Const.Perks.FastTree
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.EntertainerClassTree}]
+				::Const.Perks.EntertainerClassTree
 			],
 			Defense = [
-				[
-					{Weight = 50, Tree = this.Const.Perks.LightArmorTree},
-					{Weight = 50, Tree = this.Const.Perks.MediumArmorTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[50, ::Const.Perks.LightArmorTree],
+					[50, ::Const.Perks.MediumArmorTree]
+				])
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/bowyer_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 2, Tree = this.Const.Perks.TalentedTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[2, this.Const.Perks.TalentedTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.HunterProfessionTree}]
+				::Const.Perks.HunterProfessionTree
 			],
 			Class = [
-				[
-					{Weight = 50, Tree = this.Const.Perks.NoTree},
-					{Weight = 50, Tree = this.Const.Perks.MenderClassTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[50, ::Const.Perks.NoTree],
+					[50, ::Const.Perks.MenderClassTree]
+				])
 			],
 			Defense = [
-				[
-					{Weight = 50, Tree = this.Const.Perks.LightArmorTree},
-					{Weight = 50, Tree = this.Const.Perks.MediumArmorTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[50, ::Const.Perks.LightArmorTree],
+					[50, ::Const.Perks.MediumArmorTree]
+				])
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.BowTree}]
+				::Const.Perks.BowTree
 			]			
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/brawler_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.5, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 2, Tree = this.Const.Perks.SergeantClassTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ViciousTree},
-				{Multiplier = 2, Tree = this.Const.Perks.UnstoppableTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.HeavyArmorTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.5, this.Const.Perks.TalentedTree],
+			[0.25, this.Const.Perks.OrganisedTree],
+			[2, this.Const.Perks.SergeantClassTree],
+			[2, this.Const.Perks.ViciousTree],
+			[2, this.Const.Perks.UnstoppableTree],
+			[1.5, this.Const.Perks.HeavyArmorTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.FistsClassTree}]
+				::Const.Perks.FistsClassTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/butcher_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-			],
+		o.m.PerkGroupMultipliers = [
+			];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.ButcherProfessionTree}]
+				::Const.Perks.ButcherProfessionTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/butcher_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-			],
+		o.m.PerkGroupMultipliers = [
+			];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.ButcherProfessionTree}]
+				::Const.Perks.ButcherProfessionTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/caravan_hand_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 2, Tree = this.Const.Perks.OutlandersTree},
-				{Multiplier = 2, Tree = this.Const.Perks.MenderClassTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ChefClassTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ClerkClassTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[2, this.Const.Perks.OutlandersTree],
+			[2, this.Const.Perks.MenderClassTree],
+			[2, this.Const.Perks.ChefClassTree],
+			[2, this.Const.Perks.ClerkClassTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.LaborerProfessionTree}]
+				::Const.Perks.LaborerProfessionTree
 			],
 			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.OrganisedTree}]
+				::Const.Perks.OrganisedTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/caravan_hand_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 2, Tree = this.Const.Perks.OutlandersTree},
-				{Multiplier = 2, Tree = this.Const.Perks.MenderClassTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ChefClassTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ClerkClassTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[2, this.Const.Perks.OutlandersTree],
+			[2, this.Const.Perks.MenderClassTree],
+			[2, this.Const.Perks.ChefClassTree],
+			[2, this.Const.Perks.ClerkClassTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.LaborerProfessionTree}]
+				::Const.Perks.LaborerProfessionTree
 			],
 			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.OrganisedTree}]
+				::Const.Perks.OrganisedTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/companion_1h_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 2, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 2, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 2, Tree = this.Const.Perks.TrainedTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
-				{Multiplier = 2, Tree = this.Const.Perks.SergeantClassTree},
-				{Multiplier = 2, Tree = this.Const.Perks.TacticianClassTree},
-				{Multiplier = 3, Tree = this.Const.Perks.HeavyArmorTree},
-				{Multiplier = 3, Tree = this.Const.Perks.MediumArmorTree},
-				{Multiplier = 2, Tree = this.Const.Perks.LightArmorTree},
-				{Multiplier = 3, Tree = this.Const.Perks.TwoHandedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[2, this.Const.Perks.CalmTree],
+			[2, this.Const.Perks.TalentedTree],
+			[2, this.Const.Perks.TrainedTree],
+			[0.25, this.Const.Perks.OrganisedTree],
+			[0, this.Const.Perks.DeviousTree],
+			[2, this.Const.Perks.SergeantClassTree],
+			[2, this.Const.Perks.TacticianClassTree],
+			[3, this.Const.Perks.HeavyArmorTree],
+			[3, this.Const.Perks.MediumArmorTree],
+			[2, this.Const.Perks.LightArmorTree],
+			[3, this.Const.Perks.TwoHandedTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.SlingTree],
+			[0, this.Const.Perks.CrossbowTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-					{Weight = 6, Tree = this.Const.Perks.MilitiaProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.ButcherProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.BlacksmithProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.MinerProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.FarmerProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.DiggerProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.LumberjackProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.LaborerProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.SoldierProfessionTree},
-					{Weight = 1, Tree = this.Const.Perks.JugglerProfessionTree},
-					{Weight = 43, Tree = this.Const.Perks.NoTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[6, ::Const.Perks.MilitiaProfessionTree],
+					[6, ::Const.Perks.ButcherProfessionTree],
+					[6, ::Const.Perks.BlacksmithProfessionTree],
+					[6, ::Const.Perks.MinerProfessionTree],
+					[6, ::Const.Perks.FarmerProfessionTree],
+					[6, ::Const.Perks.DiggerProfessionTree],
+					[6, ::Const.Perks.LumberjackProfessionTree],
+					[6, ::Const.Perks.LaborerProfessionTree],
+					[6, ::Const.Perks.SoldierProfessionTree],
+					[1, ::Const.Perks.JugglerProfessionTree],
+					[43, ::Const.Perks.NoTree]
+				])
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.SpearTree}]
+				::Const.Perks.SpearTree
 			],
 			Defense = [
-				[{Weight = 100, Tree = this.Const.Perks.ShieldTree}]
+				::Const.Perks.ShieldTree
 			],
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}]
+				::Const.Perks.OneHandedTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/companion_1h_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 2, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 2, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 2, Tree = this.Const.Perks.TrainedTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
-				{Multiplier = 2, Tree = this.Const.Perks.SergeantClassTree},
-				{Multiplier = 2, Tree = this.Const.Perks.TacticianClassTree},
-				{Multiplier = 3, Tree = this.Const.Perks.HeavyArmorTree},
-				{Multiplier = 3, Tree = this.Const.Perks.MediumArmorTree},
-				{Multiplier = 2, Tree = this.Const.Perks.LightArmorTree},
-				{Multiplier = 3, Tree = this.Const.Perks.TwoHandedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[2, this.Const.Perks.CalmTree],
+			[2, this.Const.Perks.TalentedTree],
+			[2, this.Const.Perks.TrainedTree],
+			[0.25, this.Const.Perks.OrganisedTree],
+			[0, this.Const.Perks.DeviousTree],
+			[2, this.Const.Perks.SergeantClassTree],
+			[2, this.Const.Perks.TacticianClassTree],
+			[3, this.Const.Perks.HeavyArmorTree],
+			[3, this.Const.Perks.MediumArmorTree],
+			[2, this.Const.Perks.LightArmorTree],
+			[3, this.Const.Perks.TwoHandedTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.SlingTree],
+			[0, this.Const.Perks.CrossbowTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-					{Weight = 6, Tree = this.Const.Perks.MilitiaProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.ButcherProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.BlacksmithProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.MinerProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.FarmerProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.DiggerProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.LumberjackProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.LaborerProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.SoldierProfessionTree},
-					{Weight = 1, Tree = this.Const.Perks.JugglerProfessionTree},
-					{Weight = 43, Tree = this.Const.Perks.NoTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[6, ::Const.Perks.MilitiaProfessionTree],
+					[6, ::Const.Perks.ButcherProfessionTree],
+					[6, ::Const.Perks.BlacksmithProfessionTree],
+					[6, ::Const.Perks.MinerProfessionTree],
+					[6, ::Const.Perks.FarmerProfessionTree],
+					[6, ::Const.Perks.DiggerProfessionTree],
+					[6, ::Const.Perks.LumberjackProfessionTree],
+					[6, ::Const.Perks.LaborerProfessionTree],
+					[6, ::Const.Perks.SoldierProfessionTree],
+					[1, ::Const.Perks.JugglerProfessionTree],
+					[43, ::Const.Perks.NoTree]
+				])
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.SpearTree}]
+				::Const.Perks.SpearTree
 			],
 			Defense = [
-				[{Weight = 100, Tree = this.Const.Perks.ShieldTree}]
+				::Const.Perks.ShieldTree
 			],
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}]
+				::Const.Perks.OneHandedTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/companion_2h_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.5, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.FastTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.AgileTree},
-				{Multiplier = 0, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.DaggerTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.SpearTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.5, this.Const.Perks.CalmTree],
+			[0.25, this.Const.Perks.OrganisedTree],
+			[0, this.Const.Perks.DeviousTree],
+			[0.5, this.Const.Perks.FastTree],
+			[0.5, this.Const.Perks.AgileTree],
+			[0, this.Const.Perks.ShieldTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.SlingTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0.5, this.Const.Perks.DaggerTree],
+			[0.66, this.Const.Perks.SpearTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-					{Weight = 6, Tree = this.Const.Perks.MilitiaProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.ButcherProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.BlacksmithProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.MinerProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.FarmerProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.DiggerProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.LumberjackProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.LaborerProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.SoldierProfessionTree},
-					{Weight = 1, Tree = this.Const.Perks.JugglerProfessionTree},
-					{Weight = 43, Tree = this.Const.Perks.NoTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[6, ::Const.Perks.MilitiaProfessionTree],
+					[6, ::Const.Perks.ButcherProfessionTree],
+					[6, ::Const.Perks.BlacksmithProfessionTree],
+					[6, ::Const.Perks.MinerProfessionTree],
+					[6, ::Const.Perks.FarmerProfessionTree],
+					[6, ::Const.Perks.DiggerProfessionTree],
+					[6, ::Const.Perks.LumberjackProfessionTree],
+					[6, ::Const.Perks.LaborerProfessionTree],
+					[6, ::Const.Perks.SoldierProfessionTree],
+					[1, ::Const.Perks.JugglerProfessionTree],
+					[43, ::Const.Perks.NoTree]
+				])
 			],
 			Defense = [
-				[{Weight = 100, Tree = this.Const.Perks.HeavyArmorTree}]
+				::Const.Perks.HeavyArmorTree
 			],
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
-				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]				
+				::Const.Perks.OneHandedTree,
+				::Const.Perks.TwoHandedTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/companion_2h_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.5, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.FastTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.AgileTree},
-				{Multiplier = 0, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.DaggerTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.SpearTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.5, this.Const.Perks.CalmTree],
+			[0.25, this.Const.Perks.OrganisedTree],
+			[0, this.Const.Perks.DeviousTree],
+			[0.5, this.Const.Perks.FastTree],
+			[0.5, this.Const.Perks.AgileTree],
+			[0, this.Const.Perks.ShieldTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.SlingTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0.5, this.Const.Perks.DaggerTree],
+			[0.66, this.Const.Perks.SpearTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-					{Weight = 6, Tree = this.Const.Perks.MilitiaProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.ButcherProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.BlacksmithProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.MinerProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.FarmerProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.DiggerProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.LumberjackProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.LaborerProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.SoldierProfessionTree},
-					{Weight = 1, Tree = this.Const.Perks.JugglerProfessionTree},
-					{Weight = 43, Tree = this.Const.Perks.NoTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[6, ::Const.Perks.MilitiaProfessionTree],
+					[6, ::Const.Perks.ButcherProfessionTree],
+					[6, ::Const.Perks.BlacksmithProfessionTree],
+					[6, ::Const.Perks.MinerProfessionTree],
+					[6, ::Const.Perks.FarmerProfessionTree],
+					[6, ::Const.Perks.DiggerProfessionTree],
+					[6, ::Const.Perks.LumberjackProfessionTree],
+					[6, ::Const.Perks.LaborerProfessionTree],
+					[6, ::Const.Perks.SoldierProfessionTree],
+					[1, ::Const.Perks.JugglerProfessionTree],
+					[43, ::Const.Perks.NoTree]
+				])
 			],
 			Defense = [
-				[{Weight = 100, Tree = this.Const.Perks.HeavyArmorTree}]
+				::Const.Perks.HeavyArmorTree
 			],
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],			
-				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+				::Const.Perks.OneHandedTree,
+				::Const.Perks.TwoHandedTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/companion_ranged_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.25, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SturdyTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.LargeTree},
-				{Multiplier = 0, Tree = this.Const.Perks.TrainedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.HeavyArmorTree},
-				{Multiplier = 0, Tree = this.Const.Perks.ShieldTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.25, this.Const.Perks.ResilientTree],
+			[0.5, this.Const.Perks.CalmTree],
+			[0, this.Const.Perks.SturdyTree],
+			[0.25, this.Const.Perks.LargeTree],
+			[0, this.Const.Perks.TrainedTree],
+			[0, this.Const.Perks.HeavyArmorTree],
+			[0, this.Const.Perks.ShieldTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.HunterProfessionTree}]
+				::Const.Perks.HunterProfessionTree
 			],
 			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.AgileTree}]
+				::Const.Perks.AgileTree
 			],
 			Defense = [
-				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+				::Const.Perks.LightArmorTree
 			],
 			Weapon = [
-				[
-					{Weight = 25, Tree = this.Const.Perks.BowTree},
-					{Weight = 25, Tree = this.Const.Perks.CrossbowTree},
-					{Weight = 25, Tree = this.Const.Perks.SlingTree},
-					{Weight = 25, Tree = this.Const.Perks.ThrowingTree}									
-				]
+				::MSU.Class.WeightedContainer([
+					[25, ::Const.Perks.BowTree],
+					[25, ::Const.Perks.CrossbowTree],
+					[25, ::Const.Perks.SlingTree],
+					[25, ::Const.Perks.ThrowingTree]
+				])
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/companion_ranged_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.25, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SturdyTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.LargeTree},
-				{Multiplier = 0, Tree = this.Const.Perks.TrainedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.HeavyArmorTree},
-				{Multiplier = 0, Tree = this.Const.Perks.ShieldTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.25, this.Const.Perks.ResilientTree],
+			[0.5, this.Const.Perks.CalmTree],
+			[0, this.Const.Perks.SturdyTree],
+			[0.25, this.Const.Perks.LargeTree],
+			[0, this.Const.Perks.TrainedTree],
+			[0, this.Const.Perks.HeavyArmorTree],
+			[0, this.Const.Perks.ShieldTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.HunterProfessionTree}]
+				::Const.Perks.HunterProfessionTree
 			],
 			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.AgileTree}]
+				::Const.Perks.AgileTree
 			],
 			Defense = [
-				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+				::Const.Perks.LightArmorTree
 			],
 			Weapon = [
-				[
-					{Weight = 25, Tree = this.Const.Perks.BowTree},
-					{Weight = 25, Tree = this.Const.Perks.CrossbowTree},
-					{Weight = 25, Tree = this.Const.Perks.SlingTree},
-					{Weight = 25, Tree = this.Const.Perks.ThrowingTree}									
-				]
+				::MSU.Class.WeightedContainer([
+					[25, ::Const.Perks.BowTree],
+					[25, ::Const.Perks.CrossbowTree],
+					[25, ::Const.Perks.SlingTree],
+					[25, ::Const.Perks.ThrowingTree]
+				])
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/converted_cultist_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-			],
+		o.m.PerkGroupMultipliers = [
+			];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.CultistProfessionTree}]
+				::Const.Perks.CultistProfessionTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/cripple_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.5, Tree = this.Const.Perks.FastTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.AgileTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.SturdyTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 0, Tree = this.Const.Perks.EntertainerClassTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.5, this.Const.Perks.FastTree],
+			[0.5, this.Const.Perks.AgileTree],
+			[0.5, this.Const.Perks.SturdyTree],
+			[2, this.Const.Perks.ResilientTree],
+			[0, this.Const.Perks.EntertainerClassTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-					{Weight = 99, Tree = this.Const.Perks.PauperProfessionTree},
-					{Weight = 0.25, Tree = this.Const.Perks.ApothecaryProfessionTree},
-					{Weight = 0.25, Tree = this.Const.Perks.JugglerProfessionTree},
-					{Weight = 0.25, Tree = this.Const.Perks.MinstrelProfessionTree},
-					{Weight = 0.25, Tree = this.Const.Perks.AssassinProfessionTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[99, ::Const.Perks.PauperProfessionTree],
+					[0.25, ::Const.Perks.ApothecaryProfessionTree],
+					[0.25, ::Const.Perks.JugglerProfessionTree],
+					[0.25, ::Const.Perks.MinstrelProfessionTree],
+					[0.25, ::Const.Perks.AssassinProfessionTree]
+				])
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/cripple_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.5, Tree = this.Const.Perks.FastTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.AgileTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.SturdyTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 0, Tree = this.Const.Perks.EntertainerClassTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.5, this.Const.Perks.FastTree],
+			[0.5, this.Const.Perks.AgileTree],
+			[0.5, this.Const.Perks.SturdyTree],
+			[2, this.Const.Perks.ResilientTree],
+			[0, this.Const.Perks.EntertainerClassTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-					{Weight = 99, Tree = this.Const.Perks.PauperProfessionTree},
-					{Weight = 0.25, Tree = this.Const.Perks.ApothecaryProfessionTree},
-					{Weight = 0.25, Tree = this.Const.Perks.JugglerProfessionTree},
-					{Weight = 0.25, Tree = this.Const.Perks.MinstrelProfessionTree},
-					{Weight = 0.25, Tree = this.Const.Perks.AssassinProfessionTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[99, ::Const.Perks.PauperProfessionTree],
+					[0.25, ::Const.Perks.ApothecaryProfessionTree],
+					[0.25, ::Const.Perks.JugglerProfessionTree],
+					[0.25, ::Const.Perks.MinstrelProfessionTree],
+					[0.25, ::Const.Perks.AssassinProfessionTree]
+				])
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/crucified_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.ViciousTree},
-				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
-				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.LightArmorTree},
-				{Multiplier = 1.33, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.DaggerTree},
-				{Multiplier = 2, Tree = this.Const.Perks.SwordTree},
-				{Multiplier = 2, Tree = this.Const.Perks.MaceTree},
-				{Multiplier = 2, Tree = this.Const.Perks.FlailTree},
-				{Multiplier = 2, Tree = this.Const.Perks.HammerTree},
-				{Multiplier = 0.33, Tree = this.Const.Perks.PolearmTree},
-				{Multiplier = 0, Tree = this.Const.Perks.ThrowingTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.SpearTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[2, this.Const.Perks.ResilientTree],
+			[0.25, this.Const.Perks.ViciousTree],
+			[0, this.Const.Perks.DeviousTree],
+			[0.1, this.Const.Perks.OrganisedTree],
+			[0, this.Const.Perks.LightArmorTree],
+			[1.33, this.Const.Perks.ShieldTree],
+			[0.5, this.Const.Perks.DaggerTree],
+			[2, this.Const.Perks.SwordTree],
+			[2, this.Const.Perks.MaceTree],
+			[2, this.Const.Perks.FlailTree],
+			[2, this.Const.Perks.HammerTree],
+			[0.33, this.Const.Perks.PolearmTree],
+			[0, this.Const.Perks.ThrowingTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0, this.Const.Perks.SlingTree],
+			[0.5, this.Const.Perks.SpearTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-				{Weight = 70, Tree = this.Const.Perks.HolyManProfessionTree},
-				{Weight = 30, Tree = this.Const.Perks.SoldierProfessionTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[70, ::Const.Perks.HolyManProfessionTree],
+					[30, ::Const.Perks.SoldierProfessionTree]
+				])
 			],
 			Defense = [
-				[{Weight = 100, Tree = this.Const.Perks.HeavyArmorTree}]
+				::Const.Perks.HeavyArmorTree
 			],
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
-				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+				::Const.Perks.OneHandedTree,
+				::Const.Perks.TwoHandedTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/crusader_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.ViciousTree},
-				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
-				{Multiplier = 0, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.LightArmorTree},
-				{Multiplier = 3, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.DaggerTree},
-				{Multiplier = 2, Tree = this.Const.Perks.SwordTree},
-				{Multiplier = 2, Tree = this.Const.Perks.MaceTree},
-				{Multiplier = 2, Tree = this.Const.Perks.FlailTree},
-				{Multiplier = 2, Tree = this.Const.Perks.HammerTree},
-				{Multiplier = 0.33, Tree = this.Const.Perks.PolearmTree},
-				{Multiplier = 0, Tree = this.Const.Perks.ThrowingTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.SpearTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[2, this.Const.Perks.ResilientTree],
+			[0.25, this.Const.Perks.ViciousTree],
+			[0, this.Const.Perks.DeviousTree],
+			[0, this.Const.Perks.OrganisedTree],
+			[0, this.Const.Perks.LightArmorTree],
+			[3, this.Const.Perks.ShieldTree],
+			[0.5, this.Const.Perks.DaggerTree],
+			[2, this.Const.Perks.SwordTree],
+			[2, this.Const.Perks.MaceTree],
+			[2, this.Const.Perks.FlailTree],
+			[2, this.Const.Perks.HammerTree],
+			[0.33, this.Const.Perks.PolearmTree],
+			[0, this.Const.Perks.ThrowingTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0, this.Const.Perks.SlingTree],
+			[0.66, this.Const.Perks.SpearTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-					{Weight = 70, Tree = this.Const.Perks.HolyManProfessionTree},
-					{Weight = 30, Tree = this.Const.Perks.SoldierProfessionTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[70, ::Const.Perks.HolyManProfessionTree],
+					[30, ::Const.Perks.SoldierProfessionTree]
+				])
 			],
 			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.CalmTree}]
+				::Const.Perks.CalmTree
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.SergeantClassTree}]
+				::Const.Perks.SergeantClassTree
 			],
 			Defense = [
-				[{Weight = 100, Tree = this.Const.Perks.HeavyArmorTree}]
+				::Const.Perks.HeavyArmorTree
 			],
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
-				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+				::Const.Perks.OneHandedTree,
+				::Const.Perks.TwoHandedTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/cultist_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 1.5, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.ViciousTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.UnstoppableTree}						
-			],
+		o.m.PerkGroupMultipliers = [
+			[1.5, this.Const.Perks.CalmTree],
+			[1.5, this.Const.Perks.ResilientTree],
+			[1.5, this.Const.Perks.ViciousTree],
+			[1.5, this.Const.Perks.UnstoppableTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.CultistProfessionTree}]
+				::Const.Perks.CultistProfessionTree
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.CleaverTree}]
+				::Const.Perks.CleaverTree
 			]
 		};
 	});
-
-	::mods_hookNewObject("skills/backgrounds/cultist_darksoul_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 0, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.TrainedTree},				
-				{Multiplier = 0, Tree = this.Const.Perks.SergeantClassTree},
-				{Multiplier = 0, Tree = this.Const.Perks.HealerClassTree},
-				{Multiplier = 0, Tree = this.Const.Perks.TrapperClassTree},
-				{Multiplier = 0, Tree = this.Const.Perks.ChefClassTree},
-				{Multiplier = 0, Tree = this.Const.Perks.ClerkClassTree},
-				{Multiplier = 0, Tree = this.Const.Perks.HoundmasterClassTree},
-				{Multiplier = 0, Tree = this.Const.Perks.TacticianClassTree},
-				{Multiplier = 0, Tree = this.Const.Perks.ScoutClassTree},
-				{Multiplier = 0, Tree = this.Const.Perks.EntertainerClassTree},
-				{Multiplier = 0, Tree = this.Const.Perks.RangedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.DaggerTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.PolearmTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.ThrowingTree}							
-			],
-			Profession = [
-				[
-					{Weight = 100, Tree = this.Const.Perks.CultistProfessionTree}
-				]
-			],
-			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.CleaverTree}],
-				[{Weight = 100, Tree = this.Const.Perks.FlailTree}]
-			]
-		};
-	});
-
-	::mods_hookNewObject("skills/backgrounds/cultist_lurker_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0, Tree = this.Const.Perks.SergeantClassTree},
-				{Multiplier = 3, Tree = this.Const.Perks.ScoutClassTree},				
-				{Multiplier = 3, Tree = this.Const.Perks.MediumArmorTree},
-				{Multiplier = 9, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 2.4, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 3, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.StaffTree},
-				{Multiplier = 3, Tree = this.Const.Perks.ThrowingTree},
-				{Multiplier = 2, Tree = this.Const.Perks.OneHandedTree}
-			],
-			Profession = [
-				[
-					{Weight = 100, Tree = this.Const.Perks.CultistProfessionTree}
-				]
-			],
-			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.AgileTree}]
-			],
-			Defense = [
-				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
-			],
-			Weapon = [
-				[
-					{Weight = 25, Tree = this.Const.Perks.BowTree},
-					{Weight = 25, Tree = this.Const.Perks.CrossbowTree},
-					{Weight = 25, Tree = this.Const.Perks.SlingTree},
-					{Weight = 25, Tree = this.Const.Perks.ThrowingTree}									
-				]
-			],		
-			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.RangedTree}]
-			]
-		};
-	});
-
-	::mods_hookNewObject("skills/backgrounds/cultist_magister_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.ThrowingTree},
-				{Multiplier = 2, Tree = this.Const.Perks.TalentedTree}
-			],
-			Profession = [
-				[
-					{Weight = 100, Tree = this.Const.Perks.CultistProfessionTree}
-				]
-			],
-			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.CalmTree}]
-			],
-			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.SergeantClassTree}]
-			],
-			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.CleaverTree}],
-				[{Weight = 100, Tree = this.Const.Perks.PolearmTree}]
-			],					
-			Magic = [
-				[{Weight = 100, Tree = this.Const.Perks.PremonitionMagicTree}]
-			]
-		};
-	});		
 
 	::mods_hookNewObject("skills/backgrounds/daytaler_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.25, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.TrainedTree},
-				{Multiplier = 1.25, Tree = this.Const.Perks.OrganisedTree},
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.25, this.Const.Perks.TalentedTree],
+			[0.5, this.Const.Perks.TrainedTree],
+			[1.25, this.Const.Perks.OrganisedTree],
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-					{Weight = 51, Tree = this.Const.Perks.LaborerProfessionTree},
-					{Weight = 7, Tree = this.Const.Perks.ButcherProfessionTree},
-					{Weight = 7, Tree = this.Const.Perks.BlacksmithProfessionTree},
-					{Weight = 7, Tree = this.Const.Perks.MinerProfessionTree},
-					{Weight = 7, Tree = this.Const.Perks.FarmerProfessionTree},
-					{Weight = 7, Tree = this.Const.Perks.HunterProfessionTree},
-					{Weight = 7, Tree = this.Const.Perks.DiggerProfessionTree},
-					{Weight = 7, Tree = this.Const.Perks.LumberjackProfessionTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[51, ::Const.Perks.LaborerProfessionTree],
+					[7, ::Const.Perks.ButcherProfessionTree],
+					[7, ::Const.Perks.BlacksmithProfessionTree],
+					[7, ::Const.Perks.MinerProfessionTree],
+					[7, ::Const.Perks.FarmerProfessionTree],
+					[7, ::Const.Perks.HunterProfessionTree],
+					[7, ::Const.Perks.DiggerProfessionTree],
+					[7, ::Const.Perks.LumberjackProfessionTree]
+				])
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/daytaler_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.25, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.TrainedTree},
-				{Multiplier = 1.25, Tree = this.Const.Perks.OrganisedTree},
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.25, this.Const.Perks.TalentedTree],
+			[0.5, this.Const.Perks.TrainedTree],
+			[1.25, this.Const.Perks.OrganisedTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-					{Weight = 51, Tree = this.Const.Perks.LaborerProfessionTree},
-					{Weight = 7, Tree = this.Const.Perks.ButcherProfessionTree},
-					{Weight = 7, Tree = this.Const.Perks.BlacksmithProfessionTree},
-					{Weight = 7, Tree = this.Const.Perks.MinerProfessionTree},
-					{Weight = 7, Tree = this.Const.Perks.FarmerProfessionTree},
-					{Weight = 7, Tree = this.Const.Perks.HunterProfessionTree},
-					{Weight = 7, Tree = this.Const.Perks.DiggerProfessionTree},
-					{Weight = 7, Tree = this.Const.Perks.LumberjackProfessionTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[51, ::Const.Perks.LaborerProfessionTree],
+					[7, ::Const.Perks.ButcherProfessionTree],
+					[7, ::Const.Perks.BlacksmithProfessionTree],
+					[7, ::Const.Perks.MinerProfessionTree],
+					[7, ::Const.Perks.FarmerProfessionTree],
+					[7, ::Const.Perks.HunterProfessionTree],
+					[7, ::Const.Perks.DiggerProfessionTree],
+					[7, ::Const.Perks.LumberjackProfessionTree]
+				])
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/deserter_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.25, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 0.75, Tree = this.Const.Perks.DeviousTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.SergeantClassTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 2, Tree = this.Const.Perks.HeavyArmorTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.LightArmorTree},
-				{Multiplier = 2, Tree = this.Const.Perks.PolearmTree}			
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.25, this.Const.Perks.CalmTree],
+			[0.75, this.Const.Perks.DeviousTree],
+			[0.25, this.Const.Perks.SergeantClassTree],
+			[2, this.Const.Perks.ShieldTree],
+			[2, this.Const.Perks.HeavyArmorTree],
+			[0.5, this.Const.Perks.LightArmorTree],
+			[2, this.Const.Perks.PolearmTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.SoldierProfessionTree}]
+				::Const.Perks.SoldierProfessionTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/disowned_noble_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.5, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.SergeantClassTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.TacticianClassTree},
-				{Multiplier = 0.8, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 2, Tree = this.Const.Perks.HeavyArmorTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.SpearTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.5, this.Const.Perks.CalmTree],
+			[0.5, this.Const.Perks.OrganisedTree],
+			[0.5, this.Const.Perks.SergeantClassTree],
+			[1.5, this.Const.Perks.TacticianClassTree],
+			[0.8, this.Const.Perks.ShieldTree],
+			[2, this.Const.Perks.HeavyArmorTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0, this.Const.Perks.SlingTree],
+			[0.66, this.Const.Perks.SpearTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.SwordTree}]
+				::Const.Perks.SwordTree
 			],
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
-				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+				::Const.Perks.OneHandedTree,
+				::Const.Perks.TwoHandedTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/eunuch_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 3, Tree = this.Const.Perks.HexenTree},
-				{Multiplier = 3, Tree = this.Const.Perks.TalentedTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[3, this.Const.Perks.HexenTree],
+			[3, this.Const.Perks.TalentedTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.ServiceProfessionTree}]
+				::Const.Perks.ServiceProfessionTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/eunuch_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 3, Tree = this.Const.Perks.HexenTree},
-				{Multiplier = 3, Tree = this.Const.Perks.TalentedTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[3, this.Const.Perks.HexenTree],
+			[3, this.Const.Perks.TalentedTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.ServiceProfessionTree}]
+				::Const.Perks.ServiceProfessionTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/farmhand_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.5, Tree = this.Const.Perks.TalentedTree},
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.5, this.Const.Perks.TalentedTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-					{Weight = 8.33, Tree = this.Const.Perks.ButcherProfessionTree},
-					{Weight = 8.33, Tree = this.Const.Perks.BlacksmithProfessionTree},
-					{Weight = 8.33, Tree = this.Const.Perks.LaborerProfessionTree},
-					{Weight = 75, Tree = this.Const.Perks.FarmerProfessionTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[8.33, ::Const.Perks.ButcherProfessionTree],
+					[8.33, ::Const.Perks.BlacksmithProfessionTree],
+					[8.33, ::Const.Perks.LaborerProfessionTree],
+					[75, ::Const.Perks.FarmerProfessionTree]
+				])
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_adventurous_noble_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.25, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.LargeTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.SturdyTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 2, Tree = this.Const.Perks.MediumArmorTree},				
-				{Multiplier = 3, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0.33, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.PolearmTree},
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.25, this.Const.Perks.ResilientTree],
+			[0.25, this.Const.Perks.LargeTree],
+			[0.25, this.Const.Perks.SturdyTree],
+			[0.5, this.Const.Perks.ShieldTree],
+			[2, this.Const.Perks.MediumArmorTree],
+			[3, this.Const.Perks.CrossbowTree],
+			[0.33, this.Const.Perks.SlingTree],
+			[1.5, this.Const.Perks.PolearmTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.NobleProfessionTree}]
+				::Const.Perks.NobleProfessionTree
 			],
 			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.AgileTree}]
+				::Const.Perks.AgileTree
 			],
 			Class = [
-				[
-				{Weight = 50, Tree = this.Const.Perks.SergeantClassTree},
-				{Weight = 50, Tree = this.Const.Perks.TacticianClassTree}				
-				]
+				::MSU.Class.WeightedContainer([
+					[50, ::Const.Perks.SergeantClassTree],
+					[50, ::Const.Perks.TacticianClassTree]
+				])
 			],
 			Defense = [
-				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+				::Const.Perks.LightArmorTree
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.BowTree}]
+				::Const.Perks.BowTree
 			],
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.RangedTree}]
+				::Const.Perks.RangedTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_beggar_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.1, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.ClerkClassTree},
-				{Multiplier = 0, Tree = this.Const.Perks.EntertainerClassTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.1, this.Const.Perks.TalentedTree],
+			[0.25, this.Const.Perks.ClerkClassTree],
+			[0, this.Const.Perks.EntertainerClassTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.PauperProfessionTree}]
+				::Const.Perks.PauperProfessionTree
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.StaffTree}]
+				::Const.Perks.StaffTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_bowyer_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 2, Tree = this.Const.Perks.TalentedTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[2, this.Const.Perks.TalentedTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.HunterProfessionTree}]
+				::Const.Perks.HunterProfessionTree
 			],
 			Class = [
-				[
-					{Weight = 50, Tree = this.Const.Perks.NoTree},
-					{Weight = 50, Tree = this.Const.Perks.MenderClassTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[50, ::Const.Perks.NoTree],
+					[50, ::Const.Perks.MenderClassTree]
+				])
 			],
 			Defense = [
-				[
-					{Weight = 50, Tree = this.Const.Perks.LightArmorTree},
-					{Weight = 50, Tree = this.Const.Perks.MediumArmorTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[50, ::Const.Perks.LightArmorTree],
+					[50, ::Const.Perks.MediumArmorTree]
+				])
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.BowTree}]
+				::Const.Perks.BowTree
 			]			
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_butcher_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-			],
+		o.m.PerkGroupMultipliers = [
+			];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.ButcherProfessionTree}]
+				::Const.Perks.ButcherProfessionTree,
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_daytaler_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.25, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.TrainedTree},
-				{Multiplier = 1.25, Tree = this.Const.Perks.OrganisedTree},
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.25, this.Const.Perks.TalentedTree],
+			[0.5, this.Const.Perks.TrainedTree],
+			[1.25, this.Const.Perks.OrganisedTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-					{Weight = 51, Tree = this.Const.Perks.LaborerProfessionTree},
-					{Weight = 7, Tree = this.Const.Perks.ButcherProfessionTree},
-					{Weight = 7, Tree = this.Const.Perks.BlacksmithProfessionTree},
-					{Weight = 7, Tree = this.Const.Perks.MinerProfessionTree},
-					{Weight = 7, Tree = this.Const.Perks.FarmerProfessionTree},
-					{Weight = 7, Tree = this.Const.Perks.HunterProfessionTree},
-					{Weight = 7, Tree = this.Const.Perks.DiggerProfessionTree},
-					{Weight = 7, Tree = this.Const.Perks.LumberjackProfessionTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[51, ::Const.Perks.LaborerProfessionTree],
+					[7, ::Const.Perks.ButcherProfessionTree],
+					[7, ::Const.Perks.BlacksmithProfessionTree],
+					[7, ::Const.Perks.MinerProfessionTree],
+					[7, ::Const.Perks.FarmerProfessionTree],
+					[7, ::Const.Perks.HunterProfessionTree],
+					[7, ::Const.Perks.DiggerProfessionTree],
+					[7, ::Const.Perks.LumberjackProfessionTree]
+				])
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_disowned_noble_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 2, Tree = this.Const.Perks.NoblesTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.SergeantClassTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.TacticianClassTree},
-				{Multiplier = 0.8, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 2, Tree = this.Const.Perks.HeavyArmorTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},				
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.SpearTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[2, this.Const.Perks.NoblesTree],
+			[0.5, this.Const.Perks.CalmTree],
+			[0.5, this.Const.Perks.OrganisedTree],
+			[0.5, this.Const.Perks.SergeantClassTree],
+			[1.5, this.Const.Perks.TacticianClassTree],
+			[0.8, this.Const.Perks.ShieldTree],
+			[2, this.Const.Perks.HeavyArmorTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0, this.Const.Perks.SlingTree],
+			[0.66, this.Const.Perks.SpearTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.SwordTree}]
+				::Const.Perks.SwordTree
 			],
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
-				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+				::Const.Perks.OneHandedTree,
+				::Const.Perks.TwoHandedTree
 			]
 
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_farmhand_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.5, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.LightArmorTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.5, this.Const.Perks.TalentedTree],
+			[0.5, this.Const.Perks.LightArmorTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-					{Weight = 8.33, Tree = this.Const.Perks.ButcherProfessionTree},
-					{Weight = 8.33, Tree = this.Const.Perks.BlacksmithProfessionTree},
-					{Weight = 8.33, Tree = this.Const.Perks.LaborerProfessionTree},
-					{Weight = 75, Tree = this.Const.Perks.FarmerProfessionTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[8.33, ::Const.Perks.ButcherProfessionTree],
+					[8.33, ::Const.Perks.BlacksmithProfessionTree],
+					[8.33, ::Const.Perks.LaborerProfessionTree],
+					[75, ::Const.Perks.FarmerProfessionTree]
+				])
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_miller_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 1.5, Tree = this.Const.Perks.LargeTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.SturdyTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.TrainedTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.OrganisedTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[1.5, this.Const.Perks.LargeTree],
+			[1.5, this.Const.Perks.ResilientTree],
+			[1.5, this.Const.Perks.SturdyTree],
+			[0.5, this.Const.Perks.TrainedTree],
+			[1.5, this.Const.Perks.OrganisedTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.LaborerProfessionTree}]
+				::Const.Perks.LaborerProfessionTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_minstrel_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-			],
+		o.m.PerkGroupMultipliers = [
+			];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.MinstrelProfessionTree}]
+				::Const.Perks.MinstrelProfessionTree
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.EntertainerClassTree}]
+				::Const.Perks.EntertainerClassTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_servant_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 1.25, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 2, Tree = this.Const.Perks.OrganisedTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[1.25, this.Const.Perks.TalentedTree],
+			[2, this.Const.Perks.OrganisedTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.ServiceProfessionTree}]
+				::Const.Perks.ServiceProfessionTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_slave_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 2, Tree = this.Const.Perks.SouthernersTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 2, Tree = this.Const.Perks.FlailTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[2, this.Const.Perks.SouthernersTree],
+			[1.5, this.Const.Perks.CalmTree],
+			[2, this.Const.Perks.FlailTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.PauperProfessionTree}]
+				::Const.Perks.PauperProfessionTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_slave_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 2, Tree = this.Const.Perks.SouthernersTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 2, Tree = this.Const.Perks.FlailTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[2, this.Const.Perks.SouthernersTree],
+			[1.5, this.Const.Perks.CalmTree],
+			[2, this.Const.Perks.FlailTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.PauperProfessionTree}]
+				::Const.Perks.PauperProfessionTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_tailor_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 1.5, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 3, Tree = this.Const.Perks.MenderClassTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[1.5, this.Const.Perks.TalentedTree],
+			[1.5, this.Const.Perks.OrganisedTree],
+			[3, this.Const.Perks.MenderClassTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.ServiceProfessionTree}]
+				::Const.Perks.ServiceProfessionTree
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.MenderClassTree}]
+				::Const.Perks.MenderClassTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_thief_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.5, Tree = this.Const.Perks.LargeTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.SturdyTree},
-				{Multiplier = 0.75, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.FastTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.AgileTree},
-				{Multiplier = 1.25, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 2, Tree = this.Const.Perks.OneHandedTree},
-				{Multiplier = 3, Tree = this.Const.Perks.DaggerTree},
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.5, this.Const.Perks.LargeTree],
+			[0.5, this.Const.Perks.SturdyTree],
+			[0.75, this.Const.Perks.ResilientTree],
+			[1.5, this.Const.Perks.FastTree],
+			[1.5, this.Const.Perks.AgileTree],
+			[1.25, this.Const.Perks.TalentedTree],
+			[0.66, this.Const.Perks.ShieldTree],
+			[2, this.Const.Perks.OneHandedTree],
+			[3, this.Const.Perks.DaggerTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.DeviousTree}]
+				::Const.Perks.DeviousTree
 			],
 			Defense = [
-				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+				::Const.Perks.LightArmorTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_thief_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.5, Tree = this.Const.Perks.LargeTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.SturdyTree},
-				{Multiplier = 0.75, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.FastTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.AgileTree},
-				{Multiplier = 1.25, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 2, Tree = this.Const.Perks.OneHandedTree},
-				{Multiplier = 3, Tree = this.Const.Perks.DaggerTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.5, this.Const.Perks.LargeTree],
+			[0.5, this.Const.Perks.SturdyTree],
+			[0.75, this.Const.Perks.ResilientTree],
+			[1.5, this.Const.Perks.FastTree],
+			[1.5, this.Const.Perks.AgileTree],
+			[1.25, this.Const.Perks.TalentedTree],
+			[0.66, this.Const.Perks.ShieldTree],
+			[2, this.Const.Perks.OneHandedTree],
+			[3, this.Const.Perks.DaggerTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.DeviousTree}]
+				::Const.Perks.DeviousTree
 			],
 			Defense = [
-				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+				::Const.Perks.LightArmorTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/fisherman_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.5, Tree = this.Const.Perks.LargeTree},
-				{Multiplier = 0.75, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.SturdyTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.ChefClassTree},
-				{Multiplier = 1.25, Tree = this.Const.Perks.SpearTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.ThrowingTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.5, this.Const.Perks.LargeTree],
+			[0.75, this.Const.Perks.ResilientTree],
+			[0.5, this.Const.Perks.SturdyTree],
+			[1.5, this.Const.Perks.OrganisedTree],
+			[1.5, this.Const.Perks.ChefClassTree],
+			[1.25, this.Const.Perks.SpearTree],
+			[0.66, this.Const.Perks.ThrowingTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-					{Weight = 30, Tree = this.Const.Perks.ButcherProfessionTree},
-					{Weight = 30, Tree = this.Const.Perks.LaborerProfessionTree},
-					{Weight = 10, Tree = this.Const.Perks.TraderProfessionTree},
-					{Weight = 30, Tree = this.Const.Perks.NoTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[30, ::Const.Perks.ButcherProfessionTree],
+					[30, ::Const.Perks.LaborerProfessionTree],
+					[10, ::Const.Perks.TraderProfessionTree],
+					[30, ::Const.Perks.NoTree]
+				])
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.TrapperClassTree}]
+				::Const.Perks.TrapperClassTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/fisherman_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.5, Tree = this.Const.Perks.LargeTree},
-				{Multiplier = 0.75, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.SturdyTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.ChefClassTree},
-				{Multiplier = 1.25, Tree = this.Const.Perks.SpearTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.ThrowingTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.5, this.Const.Perks.LargeTree],
+			[0.75, this.Const.Perks.ResilientTree],
+			[0.5, this.Const.Perks.SturdyTree],
+			[1.5, this.Const.Perks.OrganisedTree],
+			[1.5, this.Const.Perks.ChefClassTree],
+			[1.25, this.Const.Perks.SpearTree],
+			[0.66, this.Const.Perks.ThrowingTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-					{Weight = 30, Tree = this.Const.Perks.ButcherProfessionTree},
-					{Weight = 30, Tree = this.Const.Perks.LaborerProfessionTree},
-					{Weight = 10, Tree = this.Const.Perks.TraderProfessionTree},
-					{Weight = 30, Tree = this.Const.Perks.NoTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[30, ::Const.Perks.ButcherProfessionTree],
+					[30, ::Const.Perks.LaborerProfessionTree],
+					[10, ::Const.Perks.TraderProfessionTree],
+					[30, ::Const.Perks.NoTree]
+				])
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.TrapperClassTree}]
+				::Const.Perks.TrapperClassTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/flagellant_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 3, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 3, Tree = this.Const.Perks.ViciousTree},
-				{Multiplier = 2, Tree = this.Const.Perks.SturdyTree},
-				{Multiplier = 0.2, Tree = this.Const.Perks.HealerClassTree},
-				{Multiplier = 0.1, Tree = this.Const.Perks.ShieldTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[3, this.Const.Perks.ResilientTree],
+			[3, this.Const.Perks.ViciousTree],
+			[2, this.Const.Perks.SturdyTree],
+			[0.2, this.Const.Perks.HealerClassTree],
+			[0.1, this.Const.Perks.ShieldTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.HolyManProfessionTree}]
+				::Const.Perks.HolyManProfessionTree
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.SergeantClassTree}]
+				::Const.Perks.SergeantClassTree
 			],
 			Defense = [
-				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+				::Const.Perks.LightArmorTree
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.CleaverTree}]
+				::Const.Perks.CleaverTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/gambler_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 1.5, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 2, Tree = this.Const.Perks.TalentedTree},
-			],
+		o.m.PerkGroupMultipliers = [
+			[1.5, this.Const.Perks.CalmTree],
+			[2, this.Const.Perks.ResilientTree],
+			[2, this.Const.Perks.TalentedTree],
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.ServiceProfessionTree}]
+				::Const.Perks.ServiceProfessionTree
 			],
 			Class = [
-				[
-					{Weight = 50, Tree = this.Const.Perks.SergeantClassTree},
-					{Weight = 50, Tree = this.Const.Perks.ClerkClassTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[50, ::Const.Perks.SergeantClassTree],
+					[50, ::Const.Perks.ClerkClassTree]
+				])
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/gambler_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 1.5, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 2, Tree = this.Const.Perks.TalentedTree},
-			],
+		o.m.PerkGroupMultipliers = [
+			[1.5, this.Const.Perks.CalmTree],
+			[2, this.Const.Perks.ResilientTree],
+			[2, this.Const.Perks.TalentedTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.ServiceProfessionTree}]
+				::Const.Perks.ServiceProfessionTree
 			],
 			Class = [
-				[
-					{Weight = 50, Tree = this.Const.Perks.SergeantClassTree},
-					{Weight = 50, Tree = this.Const.Perks.ClerkClassTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[50, ::Const.Perks.SergeantClassTree],
+					[50, ::Const.Perks.ClerkClassTree]
+				])
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/gladiator_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ViciousTree},
-				{Multiplier = 3, Tree = this.Const.Perks.HeavyArmorTree},
-				{Multiplier = 0.8, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.SpearTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.1, this.Const.Perks.OrganisedTree],
+			[2, this.Const.Perks.ViciousTree],
+			[3, this.Const.Perks.HeavyArmorTree],
+			[0.8, this.Const.Perks.ShieldTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0, this.Const.Perks.SlingTree],
+			[0.66, this.Const.Perks.SpearTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-					{Weight = 20, Tree = this.Const.Perks.RaiderProfessionTree},
-					{Weight = 10, Tree = this.Const.Perks.SoldierProfessionTree},
-					{Weight = 70, Tree = this.Const.Perks.NoTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[20, ::Const.Perks.RaiderProfessionTree],
+					[10, ::Const.Perks.SoldierProfessionTree],
+					[70, ::Const.Perks.NoTree]
+				])
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.TrapperClassTree}]
+				::Const.Perks.TrapperClassTree
 			],
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
-				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+				::Const.Perks.OneHandedTree,
+				::Const.Perks.TwoHandedTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/gladiator_origin_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ViciousTree},
-				{Multiplier = 3, Tree = this.Const.Perks.HeavyArmorTree},
-				{Multiplier = 0.8, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.SpearTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.1, this.Const.Perks.OrganisedTree],
+			[2, this.Const.Perks.ViciousTree],
+			[3, this.Const.Perks.HeavyArmorTree],
+			[0.8, this.Const.Perks.ShieldTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0, this.Const.Perks.SlingTree],
+			[0.66, this.Const.Perks.SpearTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-					{Weight = 20, Tree = this.Const.Perks.RaiderProfessionTree},
-					{Weight = 10, Tree = this.Const.Perks.SoldierProfessionTree},
-					{Weight = 70, Tree = this.Const.Perks.NoTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[20, ::Const.Perks.RaiderProfessionTree],
+					[10, ::Const.Perks.SoldierProfessionTree],
+					[70, ::Const.Perks.NoTree]
+				])
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.TrapperClassTree}]
+				::Const.Perks.TrapperClassTree
 			],
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
-				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+				::Const.Perks.OneHandedTree,
+				::Const.Perks.TwoHandedTree
 			]
 		};
 	});
 
 
 	::mods_hookNewObject("skills/backgrounds/gravedigger_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 1.5, Tree = this.Const.Perks.SkeletonTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.ZombieTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.VampireTree},
-				{Multiplier = 2, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 2, Tree = this.Const.Perks.SergeantClassTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.TwoHandedTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[1.5, this.Const.Perks.SkeletonTree],
+			[1.5, this.Const.Perks.ZombieTree],
+			[1.5, this.Const.Perks.VampireTree],
+			[2, this.Const.Perks.CalmTree],
+			[2, this.Const.Perks.SergeantClassTree],
+			[0.5, this.Const.Perks.TalentedTree],
+			[1.5, this.Const.Perks.TwoHandedTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.DiggerProfessionTree}]
+				::Const.Perks.DiggerProfessionTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/graverobber_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 1.5, Tree = this.Const.Perks.SkeletonTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.ZombieTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.VampireTree},
-				{Multiplier = 2, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 2, Tree = this.Const.Perks.DeviousTree},
-				{Multiplier = 2, Tree = this.Const.Perks.SergeantClassTree}
-			]
-		};
+		o.m.PerkGroupMultipliers = [
+			[1.5, this.Const.Perks.SkeletonTree],
+			[1.5, this.Const.Perks.ZombieTree],
+			[1.5, this.Const.Perks.VampireTree],
+			[2, this.Const.Perks.CalmTree],
+			[2, this.Const.Perks.DeviousTree],
+			[2, this.Const.Perks.SergeantClassTree]
+		];
+
+		o.m.PerkTreeDynamic = {};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/hedge_knight_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.25, Tree = this.Const.Perks.AgileTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.FastTree},
-				{Multiplier = 0.1, Tree = this.Const.Perks.DeviousTree},
-				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 2, Tree = this.Const.Perks.TacticianClassTree},
-				{Multiplier = 2, Tree = this.Const.Perks.MediumArmorTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 0.1, Tree = this.Const.Perks.LightArmorTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.DaggerTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0.16, Tree = this.Const.Perks.SpearTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.StaffTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.ThrowingTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.25, this.Const.Perks.AgileTree],
+			[0.25, this.Const.Perks.FastTree],
+			[0.1, this.Const.Perks.DeviousTree],
+			[0.1, this.Const.Perks.OrganisedTree],
+			[0.5, this.Const.Perks.TalentedTree],
+			[0.5, this.Const.Perks.CalmTree],
+			[2, this.Const.Perks.TacticianClassTree],
+			[2, this.Const.Perks.MediumArmorTree],
+			[0.66, this.Const.Perks.ShieldTree],
+			[0.1, this.Const.Perks.LightArmorTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0.5, this.Const.Perks.DaggerTree],
+			[0, this.Const.Perks.SlingTree],
+			[0.16, this.Const.Perks.SpearTree],
+			[0.25, this.Const.Perks.StaffTree],
+			[0.25, this.Const.Perks.ThrowingTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-					{Weight = 20, Tree = this.Const.Perks.RaiderProfessionTree},
-					{Weight = 10, Tree = this.Const.Perks.SoldierProfessionTree},
-					{Weight = 70, Tree = this.Const.Perks.NoTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[20, ::Const.Perks.RaiderProfessionTree],
+					[10, ::Const.Perks.SoldierProfessionTree],
+					[70, ::Const.Perks.NoTree]
+				])
 			],
 			Defense = [
-				[{Weight = 100, Tree = this.Const.Perks.HeavyArmorTree}]
+				::Const.Perks.HeavyArmorTree
 			],
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
-				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+				::Const.Perks.OneHandedTree,
+				::Const.Perks.TwoHandedTree
 			],
 			Enemy = [
-				[{Weight = 100, Tree = this.Const.Perks.SwordmastersTree}]
+				::Const.Perks.SwordmastersTree
 			]
 
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/historian_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 1.66, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.TrapperClassTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[1.66, this.Const.Perks.OrganisedTree],
+			[0.25, this.Const.Perks.TrapperClassTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.PhilosophyMagicTree}]
+				::Const.Perks.PhilosophyMagicTree
 			],
 			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.TalentedTree}],
-				[{Weight = 100, Tree = this.Const.Perks.CalmTree}]
+				::Const.Perks.TalentedTree,
+				::Const.Perks.CalmTree
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.TacticianClassTree}],
+				::Const.Perks.TacticianClassTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/historian_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 1.66, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.TrapperClassTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[1.66, this.Const.Perks.OrganisedTree],
+			[0.25, this.Const.Perks.TrapperClassTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.PhilosophyMagicTree}]
+				::Const.Perks.PhilosophyMagicTree
 			],
 			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.TalentedTree}],
-				[{Weight = 100, Tree = this.Const.Perks.CalmTree}]
+				::Const.Perks.TalentedTree,
+				::Const.Perks.CalmTree
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.TacticianClassTree}],
+				::Const.Perks.TacticianClassTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/houndmaster_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 2, Tree = this.Const.Perks.AlpTree},
-			],
+		o.m.PerkGroupMultipliers = [
+			[2, this.Const.Perks.AlpTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.HoundmasterClassTree}]
+				::Const.Perks.HoundmasterClassTree
 			]
 		};
 	});
@@ -1604,173 +1556,180 @@ gt.PTR.modCharacterBackgrounds <- function()
 		o.m.SpecialPerkMultipliers = [
 			[2, ::Const.Perks.PerkDefs.LegendBigGameHunter],
 			[2, ::Const.Perks.PerkDefs.PTRMarksmanship]
-		],
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.5, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.LargeTree}
-			],
+		];
+
+		o.m.PerkGroupMultipliers = [
+			[0.5, this.Const.Perks.ResilientTree],
+			[0.5, this.Const.Perks.LargeTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.HunterProfessionTree}]
+				::Const.Perks.HunterProfessionTree
 			],
 			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.AgileTree}]
+				::Const.Perks.AgileTree
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.ScoutClassTree}]
+				::Const.Perks.ScoutClassTree
 			],
 			Defense = [
-				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+				::Const.Perks.LightArmorTree
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.BowTree}]
+				::Const.Perks.BowTree
 			]			
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/juggler_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 2, Tree = this.Const.Perks.TalentedTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[2, this.Const.Perks.TalentedTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.JugglerProfessionTree}]
+				::Const.Perks.JugglerProfessionTree
 			],
 			Traits = [
-				[
-					{Weight = 50, Tree = this.Const.Perks.AgileTree},
-					{Weight = 50, Tree = this.Const.Perks.FastTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[50, ::Const.Perks.AgileTree],
+					[50, ::Const.Perks.FastTree]
+				])
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.EntertainerClassTree}]
+				::Const.Perks.EntertainerClassTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/juggler_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 2, Tree = this.Const.Perks.TalentedTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[2, this.Const.Perks.TalentedTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.JugglerProfessionTree}]
+				::Const.Perks.JugglerProfessionTree
 			],
 			Traits = [
-				[
-					{Weight = 50, Tree = this.Const.Perks.AgileTree},
-					{Weight = 50, Tree = this.Const.Perks.FastTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[50, ::Const.Perks.AgileTree],
+					[50, ::Const.Perks.FastTree]
+				])
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.EntertainerClassTree}]
+				::Const.Perks.EntertainerClassTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/killer_on_the_run_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 5, Tree = this.Const.Perks.ViciousTree},
-				{Multiplier = 2, Tree = this.Const.Perks.UnstoppableTree},
-				{Multiplier = 0.1, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.SergeantClassTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.HealerClassTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[5, this.Const.Perks.ViciousTree],
+			[2, this.Const.Perks.UnstoppableTree],
+			[0.1, this.Const.Perks.CalmTree],
+			[0.5, this.Const.Perks.SergeantClassTree],
+			[0.5, this.Const.Perks.HealerClassTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-					{Weight = 6, Tree = this.Const.Perks.MilitiaProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.ButcherProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.BlacksmithProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.MinerProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.FarmerProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.DiggerProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.LumberjackProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.LaborerProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.SoldierProfessionTree},
-					{Weight = 6, Tree = this.Const.Perks.ServiceProfessionTree},
-					{Weight = 0.25, Tree = this.Const.Perks.JugglerProfessionTree},
-					{Weight = 0.25, Tree = this.Const.Perks.MinstrelProfessionTree},
-					{Weight = 0.25, Tree = this.Const.Perks.AssassinProfessionTree},
-					{Weight = 0.25, Tree = this.Const.Perks.ApothecaryProfessionTree},
-					{Weight = 39, Tree = this.Const.Perks.NoTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[6, ::Const.Perks.MilitiaProfessionTree],
+					[6, ::Const.Perks.ButcherProfessionTree],
+					[6, ::Const.Perks.BlacksmithProfessionTree],
+					[6, ::Const.Perks.MinerProfessionTree],
+					[6, ::Const.Perks.FarmerProfessionTree],
+					[6, ::Const.Perks.DiggerProfessionTree],
+					[6, ::Const.Perks.LumberjackProfessionTree],
+					[6, ::Const.Perks.LaborerProfessionTree],
+					[6, ::Const.Perks.SoldierProfessionTree],
+					[6, ::Const.Perks.ServiceProfessionTree],
+					[0.25, ::Const.Perks.JugglerProfessionTree],
+					[0.25, ::Const.Perks.MinstrelProfessionTree],
+					[0.25, ::Const.Perks.AssassinProfessionTree],
+					[0.25, ::Const.Perks.ApothecaryProfessionTree],
+					[39, ::Const.Perks.NoTree]
+				])
 			],
 			Enemy = [
-				[{Weight = 100, Tree = this.Const.Perks.CivilizationTree}]
+				::Const.Perks.CivilizationTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/kings_guard_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.1, Tree = this.Const.Perks.DeviousTree},
-				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 3, Tree = this.Const.Perks.HeavyArmorTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 0, Tree = this.Const.Perks.RangedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.DaggerTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.SpearTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.1, this.Const.Perks.DeviousTree],
+			[0.1, this.Const.Perks.OrganisedTree],
+			[3, this.Const.Perks.HeavyArmorTree],
+			[0.66, this.Const.Perks.ShieldTree],
+			[0, this.Const.Perks.RangedTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0.5, this.Const.Perks.DaggerTree],
+			[0, this.Const.Perks.SlingTree],
+			[0.66, this.Const.Perks.SpearTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.SoldierProfessionTree}]
+				::Const.Perks.SoldierProfessionTree
 			],
 			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.TrainedTree}]
+				::Const.Perks.TrainedTree
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.TacticianClassTree}]
+				::Const.Perks.TacticianClassTree
 			],
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
-				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+				::Const.Perks.OneHandedTree,
+				::Const.Perks.TwoHandedTree
 			]
 		};
 	});
 
 	// ::mods_hookNewObject("skills/backgrounds/legend_ancient_summoner_background", function(o) {
 	// 	o.m.PerkTreeDynamic = {			
-	// 		WeightMultipliers = [
-	// 			{Multiplier = 0.5, Tree = this.Const.Perks.SwordTree},
-	// 			{Multiplier = 0.25, Tree = this.Const.Perks.AxeTree},
-	// 			{Multiplier = 2, Tree = this.Const.Perks.DaggerTree},
-	// 			{Multiplier = 0.2, Tree = this.Const.Perks.ChefClassTree},
+	// 			[0.5, ::Const.Perks.SwordTree],
+	// 			[0.25, ::Const.Perks.AxeTree],
+	// 			[2, ::Const.Perks.DaggerTree],
+	// 			[0.2, ::Const.Perks.ChefClassTree],
 	// 		],
-	// 		Profession = [
-	// 			[{Weight = 100, Tree = this.Const.Perks.ButcherProfessionTree}]
+
+	// 	o.m.PerkTreeDynamic = {
+	//		Profession = [
+	// 			::Const.Perks.ButcherProfessionTree,
 	// 		],
 	// 		Traits = [
-	// 			[{Weight = 100, Tree = this.Const.Perks.ViciousTree}],
-	// 			[{Weight = 100, Tree = this.Const.Perks.CalmTree}],
-	// 			[{Weight = 100, Tree = this.Const.Perks.TalentedTree}],
-	// 			[{Weight = 100, Tree = this.Const.Perks.UnstoppableTree}]
+	// 			::Const.Perks.ViciousTree,,
+	// 			::Const.Perks.CalmTree,,
+	// 			::Const.Perks.TalentedTree,,
+	// 			::Const.Perks.UnstoppableTree,
 	// 		],
 	// 		Class = [
-	// 			[{Weight = 100, Tree = this.Const.Perks.HealerClassTree}]
+	// 			::Const.Perks.HealerClassTree,
 	// 		],
 	// 		Defense = [
-	// 			[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}],
-	// 			[{Weight = 100, Tree = this.Const.Perks.MediumArmorTree}],
+	// 			::Const.Perks.LightArmorTree,,
+	// 			::Const.Perks.MediumArmorTree,,
 	// 		],
 	// 		Weapon = [
-	// 			[{Weight = 100, Tree = this.Const.Perks.StaffTree}]
+	// 			::Const.Perks.StaffTree,
 	// 		],
 	// 		Styles = [
-	// 			[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
-	// 			[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+	// 			::Const.Perks.OneHandedTree,,
+	// 			::Const.Perks.TwoHandedTree,
 	// 		],
 	// 		Magic = [
-	// 			[{Weight = 100, Tree = this.Const.Perks.BasicNecroMagicTree}]
+	// 			::Const.Perks.BasicNecroMagicTree,
 	// 		]
 	// 	};
 	// });
 
 	::mods_hookNewObject("skills/backgrounds/legend_assassin_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
+		o.m.CustomPerkclearCustomPerkTree(o.m.CustomPerkTree);
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
 				this.Const.Perks.DaggerTree,
@@ -1850,7 +1809,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_assassin_commander_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
+		o.m.CustomPerkclearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -1942,23 +1901,24 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_astrologist_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 5, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 1.66, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 5, Tree = this.Const.Perks.StaffTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[5, this.Const.Perks.TalentedTree],
+			[1.66, this.Const.Perks.OrganisedTree],
+			[5, this.Const.Perks.StaffTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.ServiceProfessionTree}]
+				::Const.Perks.ServiceProfessionTree
 			],
 			Magic = [
-				[{Weight = 100, Tree = this.Const.Perks.PremonitionMagicTree}]
+				::Const.Perks.PremonitionMagicTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_beggar_commander_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
+		o.m.CustomPerkclearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -2080,7 +2040,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_beggar_commander_op_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
+		o.m.CustomPerkclearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -2210,7 +2170,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 
 
 	::mods_hookNewObject("skills/backgrounds/legend_berserker_background", function(o) {		
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
+		o.m.CustomPerkclearCustomPerkTree(o.m.CustomPerkTree);
 		
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -2279,7 +2239,8 @@ gt.PTR.modCharacterBackgrounds <- function()
 		);
 	});
 
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
+	::mods_hookNewObject("skills/backgrounds/legend_berserker_commander_background", function(o) {
+		o.m.CustomPerkclearCustomPerkTree(o.m.CustomPerkTree);
 		
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -2349,99 +2310,101 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_blacksmith_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.5, Tree = this.Const.Perks.AgileTree},
-				{Multiplier = 0.1, Tree = this.Const.Perks.DeviousTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.FastTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.LargeTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.SturdyTree},
-				{Multiplier = 2, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0.33, Tree = this.Const.Perks.LightArmorTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0.1, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.5, this.Const.Perks.AgileTree],
+			[0.1, this.Const.Perks.DeviousTree],
+			[0.5, this.Const.Perks.FastTree],
+			[1.5, this.Const.Perks.LargeTree],
+			[1.5, this.Const.Perks.ResilientTree],
+			[1.5, this.Const.Perks.SturdyTree],
+			[2, this.Const.Perks.OrganisedTree],
+			[0.33, this.Const.Perks.LightArmorTree],
+			[0, this.Const.Perks.BowTree],
+			[0.1, this.Const.Perks.CrossbowTree],
+			[0, this.Const.Perks.SlingTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.BlacksmithProfessionTree}]
+				::Const.Perks.BlacksmithProfessionTree
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.MenderClassTree}]	
+				::Const.Perks.MenderClassTree
 			],
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
-				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
-			],
+				::Const.Perks.OneHandedTree,
+				::Const.Perks.TwoHandedTree
+			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_cannibal_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-			],
+		o.m.PerkGroupMultipliers = [
+			];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.ButcherProfessionTree}]
+				::Const.Perks.ButcherProfessionTree
 			]
 			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.ViciousTree}]
+				::Const.Perks.ViciousTree
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.ChefClassTree}]
+				::Const.Perks.ChefClassTree
 			],
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}]
+				::Const.Perks.OneHandedTree
 			]
 		};
 	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_conjurer_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
+		o.m.PerkGroupMultipliers = [
 			]
 		};
 	}); */
 
 	::mods_hookNewObject("skills/backgrounds/legend_crusader_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.ViciousTree},
-				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
-				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.LightArmorTree},
-				{Multiplier = 3, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.DaggerTree},
-				{Multiplier = 2, Tree = this.Const.Perks.SwordTree},
-				{Multiplier = 2, Tree = this.Const.Perks.MaceTree},
-				{Multiplier = 2, Tree = this.Const.Perks.FlailTree},
-				{Multiplier = 2, Tree = this.Const.Perks.HammerTree},
-				{Multiplier = 0.33, Tree = this.Const.Perks.PolearmTree},
-				{Multiplier = 0, Tree = this.Const.Perks.ThrowingTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.SpearTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[2, this.Const.Perks.ResilientTree],
+			[0.25, this.Const.Perks.ViciousTree],
+			[0, this.Const.Perks.DeviousTree],
+			[0.1, this.Const.Perks.OrganisedTree],
+			[0, this.Const.Perks.LightArmorTree],
+			[3, this.Const.Perks.ShieldTree],
+			[0.5, this.Const.Perks.DaggerTree],
+			[2, this.Const.Perks.SwordTree],
+			[2, this.Const.Perks.MaceTree],
+			[2, this.Const.Perks.FlailTree],
+			[2, this.Const.Perks.HammerTree],
+			[0.33, this.Const.Perks.PolearmTree],
+			[0, this.Const.Perks.ThrowingTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0, this.Const.Perks.SlingTree],
+			[0.5, this.Const.Perks.SpearTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-					{Weight = 70, Tree = this.Const.Perks.HolyManProfessionTree},
-					{Weight = 30, Tree = this.Const.Perks.SoldierProfessionTree},
-				]
+				::MSU.Class.WeightedContainer([
+					[70, ::Const.Perks.HolyManProfessionTree],
+					[30, ::Const.Perks.SoldierProfessionTree]
+				])
 			],
 			Defense = [
-				[{Weight = 100, Tree = this.Const.Perks.HeavyArmorTree}]
+				::Const.Perks.HeavyArmorTree
 			],
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
-				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+				::Const.Perks.OneHandedTree,
+				::Const.Perks.TwoHandedTree
 			]
 		};
 	});
 
 
 	::mods_hookNewObject("skills/backgrounds/legend_crusader_commander_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
+		o.m.CustomPerkclearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -2539,28 +2502,25 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_death_summoner_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
+		o.m.PerkGroupMultipliers = [
 			]
 		};
 	}); */
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_diviner_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
+		o.m.PerkGroupMultipliers = [
 			]
 		};
 	}); */
 
-	/* ::mods_hookNewObject("skills/backgrounds/legend_donkey", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
+	/* ::mods_hookNewObject("skills/backgrounds/legend_donkey_background", function(o) {
+		o.m.PerkGroupMultipliers = [
 			]
 		};
 	}); */
 
 	::mods_hookNewObject("skills/backgrounds/legend_druid_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
+		o.m.CustomPerkclearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -2655,7 +2615,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_druid_commander_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
+		o.m.CustomPerkclearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -2750,21 +2710,19 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_enchanter_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
+		o.m.PerkGroupMultipliers = [
 			]
 		};
 	}); */
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_entrancer_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
+		o.m.PerkGroupMultipliers = [
 			]
 		};
 	}); */
 
 	::mods_hookNewObject("skills/backgrounds/legend_female_beggar_commander_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
+		o.m.CustomPerkclearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -2886,7 +2844,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_female_inventor_commander_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
+		o.m.CustomPerkclearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -2958,106 +2916,137 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_healer_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
+		o.m.PerkGroupMultipliers = [
 			]
 		};
 	}); */
 
 	::mods_hookNewObject("skills/backgrounds/legend_herbalist_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-			],
+		o.m.PerkGroupMultipliers = [
+			];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.ApothecaryProfessionTree}]
+				::Const.Perks.ApothecaryProfessionTree
+			]
+		};
+	});
+
+	::mods_hookNewObject("skills/backgrounds/legend_husk_background", function(o) {
+		o.m.PerkGroupMultipliers = [
+			[0, this.Const.Perks.TalentedTree],
+			[0, this.Const.Perks.DeviousTree],
+			[0, this.Const.Perks.CalmTree],
+			[0, this.Const.Perks.OrganisedTree],
+			[0, this.Const.Perks.TrainedTree],
+			[0, this.Const.Perks.SergeantClassTree],
+			[0, this.Const.Perks.HealerClassTree],
+			[0, this.Const.Perks.TrapperClassTree],
+			[0, this.Const.Perks.ChefClassTree],
+			[0, this.Const.Perks.ClerkClassTree],
+			[0, this.Const.Perks.HoundmasterClassTree],
+			[0, this.Const.Perks.TacticianClassTree],
+			[0, this.Const.Perks.ScoutClassTree],
+			[0, this.Const.Perks.EntertainerClassTree],
+			[0, this.Const.Perks.RangedTree],
+			[0, this.Const.Perks.DaggerTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0.5, this.Const.Perks.PolearmTree],
+			[0, this.Const.Perks.SlingTree],
+			[0.5, this.Const.Perks.ThrowingTree]
+		];
+
+		o.m.PerkTreeDynamic = {
+			Profession = [
+				::Const.Perks.CultistProfessionTree
+			],
+			Weapon = [
+				::Const.Perks.CleaverTree,
+				::Const.Perks.FlailTree
 			]
 		};
 	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_horse", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
+		o.m.PerkGroupMultipliers = [
 			]
 		};
 	}); */
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_horserider", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
+		o.m.PerkGroupMultipliers = [
 			]
 		};
 	}); */
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_horse_courser", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
+		o.m.PerkGroupMultipliers = [
 			]
 		};
 	}); */
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_horse_destrier", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
+		o.m.PerkGroupMultipliers = [
 			]
 		};
 	}); */
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_horse_rouncey", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
+		o.m.PerkGroupMultipliers = [
 			]
 		};
 	}); */
 
 	// ::mods_hookNewObject("skills/backgrounds/legend_illusionist_background", function(o) {
 	// 	o.m.PerkTreeDynamic = {			
-	// 		WeightMultipliers = [
-	// 			{Multiplier = 3, Tree = this.Const.Perks.DeviousTree}
+	// 			[3, ::Const.Perks.DeviousTree]
 	// 		],
 	// 		Magic = [
-	// 			[{Weight = 100, Tree = this.Const.Perks.IllusionistMagicTree}]
+	// 			::Const.Perks.IllusionistMagicTree,
 	// 		],
 	// 		Traits = [
-	// 			[{Weight = 100, Tree = this.Const.Perks.FastTree}],
-	// 			[{Weight = 100, Tree = this.Const.Perks.TalentedTree}]
+	// 			::Const.Perks.FastTree,,
+	// 			::Const.Perks.TalentedTree,
 	// 		],
 	// 		Weapon = [
-	// 			[{Weight = 100, Tree = this.Const.Perks.StaffTree}],
-	// 			[{Weight = 100, Tree = this.Const.Perks.ThrowingTree}]
+	// 			::Const.Perks.StaffTree,,
+	// 			::Const.Perks.ThrowingTree,
 	// 		]
 	// 		Defense = [
-	// 			[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+	// 			::Const.Perks.LightArmorTree,
 	// 		],
 	// 		Styles = [
-	// 			[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}],
-	// 			[{Weight = 100, Tree = this.Const.Perks.RangedTree}]
+	// 			::Const.Perks.TwoHandedTree,,
+	// 			::Const.Perks.RangedTree,
 	// 		]
 	// 	};
 	// });
 
 	::mods_hookNewObject("skills/backgrounds/legend_inventor_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-			],
+		o.m.PerkGroupMultipliers = [
+			];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.InventorMagicTree}]
+				::Const.Perks.InventorMagicTree
 			],
 			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.OrganisedTree}],
-				[{Weight = 100, Tree = this.Const.Perks.TalentedTree}]
+				::Const.Perks.OrganisedTree,
+				::Const.Perks.TalentedTree
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.MenderClassTree}]
+				::Const.Perks.MenderClassTree
 			]
 			Magic = [
-				[{Weight = 100, Tree = this.Const.Perks.InventorMagicTree}],
-				[{Weight = 100, Tree = this.Const.Perks.PhilosophyMagicTree}]	
+				::Const.Perks.InventorMagicTree,
+				::Const.Perks.PhilosophyMagicTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_inventor_commander_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
+		o.m.CustomPerkclearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -3127,69 +3116,69 @@ gt.PTR.modCharacterBackgrounds <- function()
 		);
 	});
 
+
 	::mods_hookNewObject("skills/backgrounds/legend_ironmonger_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-			],
+		o.m.PerkGroupMultipliers = [
+			];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.ApothecaryProfessionTree}]
-			],
-			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.HealerClassTree}]
-			]		
+				::Const.Perks.BlacksmithProfessionTree
+			]
 		};
 	});
 
-	::mods_hookNewObject("skills/backgrounds/legend_ironmonger_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-			],
+	::mods_hookNewObject("skills/backgrounds/legend_leech_peddler_background", function(o) {
+		o.m.PerkGroupMultipliers = [
+			];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.BlacksmithProfessionTree}]
+				::Const.Perks.ApothecaryProfessionTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_lonewolf_companion_melee_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.25, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 3, Tree = this.Const.Perks.HeavyArmorTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0.4, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0, Tree = this.Const.Perks.RangedTree}
-			],
-			Profession = [ 
-				[
-				{Weight = 10, Tree = this.Const.Perks.BlacksmithProfessionTree},
-				{Weight = 10, Tree = this.Const.Perks.LaborerProfessionTree},
-				{Weight = 10, Tree = this.Const.Perks.MilitiaProfessionTree},
-				{Weight = 10, Tree = this.Const.Perks.RaiderProfessionTree},
-				{Weight = 10, Tree = this.Const.Perks.SoldierProfessionTree},
-				{Weight = 5, Tree = this.Const.Perks.AssassinProfessionTree},
-				{Weight = 5, Tree = this.Const.Perks.JugglerProfessionTree},
-				{Weight = 5, Tree = this.Const.Perks.NobleProfessionTree},
-				{Weight = 5, Tree = this.Const.Perks.WildlingProfessionTree},
-				{Weight = 3, Tree = this.Const.Perks.CultistProfessionTree},
-				{Weight = 2, Tree = this.Const.Perks.HolyManProfessionTree},
-				{Weight = 1, Tree = this.Const.Perks.ApothecaryProfessionTree},
-				{Weight = 1, Tree = this.Const.Perks.ButcherProfessionTree},
-				{Weight = 1, Tree = this.Const.Perks.MinstrelProfessionTree},
-				{Weight = 1, Tree = this.Const.Perks.LumberjackProfessionTree},
-				{Weight = 1, Tree = this.Const.Perks.TraderProfessionTree},
-				{Weight = 20, Tree = this.Const.Perks.NoTree}
-				]
+		o.m.PerkGroupMultipliers = [
+			[0.25, this.Const.Perks.OrganisedTree],
+			[3, this.Const.Perks.HeavyArmorTree],
+			[0, this.Const.Perks.BowTree],
+			[0.4, this.Const.Perks.CrossbowTree],
+			[0, this.Const.Perks.SlingTree],
+			[0, this.Const.Perks.RangedTree]
+		];
+
+		o.m.PerkTreeDynamic = {
+			Profession = [
+				::MSU.Class.WeightedContainer([
+					[10, ::Const.Perks.BlacksmithProfessionTree],
+					[10, ::Const.Perks.LaborerProfessionTree],
+					[10, ::Const.Perks.MilitiaProfessionTree],
+					[10, ::Const.Perks.RaiderProfessionTree],
+					[10, ::Const.Perks.SoldierProfessionTree],
+					[5, ::Const.Perks.AssassinProfessionTree],
+					[5, ::Const.Perks.JugglerProfessionTree],
+					[5, ::Const.Perks.NobleProfessionTree],
+					[5, ::Const.Perks.WildlingProfessionTree],
+					[3, ::Const.Perks.CultistProfessionTree],
+					[2, ::Const.Perks.HolyManProfessionTree],
+					[1, ::Const.Perks.ApothecaryProfessionTree],
+					[1, ::Const.Perks.ButcherProfessionTree],
+					[1, ::Const.Perks.MinstrelProfessionTree],
+					[1, ::Const.Perks.LumberjackProfessionTree],
+					[1, ::Const.Perks.TraderProfessionTree],
+					[20, ::Const.Perks.NoTree]
+				])
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_lonewolf_companion_ranged_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.25, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.HeavyArmorTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.25, this.Const.Perks.OrganisedTree],
+			[0, this.Const.Perks.HeavyArmorTree]
+		];
 
 			local trees = [
 				this.Const.Perks.BowTree,
@@ -3203,138 +3192,208 @@ gt.PTR.modCharacterBackgrounds <- function()
 				addPerkTreesToCustomPerkTree(o.m.CustomPerkTree, [trees.remove(this.Math.rand(0, trees.len()-1))]);			
 			}
 
-			Profession = [ 
-				[
-				{Weight = 10, Tree = this.Const.Perks.ApothecaryProfessionTree},
-				{Weight = 10, Tree = this.Const.Perks.JugglerProfessionTree},
-				{Weight = 10, Tree = this.Const.Perks.LaborerProfessionTree},
-				{Weight = 10, Tree = this.Const.Perks.MilitiaProfessionTree},
-				{Weight = 10, Tree = this.Const.Perks.NobleProfessionTree},
-				{Weight = 5, Tree = this.Const.Perks.MinstrelProfessionTree},
-				{Weight = 5, Tree = this.Const.Perks.TraderProfessionTree},
-				{Weight = 40, Tree = this.Const.Perks.NoTree}
-				]
+		o.m.PerkTreeDynamic = {
+			Profession = [
+				::MSU.Class.WeightedContainer([
+					[10, ::Const.Perks.ApothecaryProfessionTree],
+					[10, ::Const.Perks.JugglerProfessionTree],
+					[10, ::Const.Perks.LaborerProfessionTree],
+					[10, ::Const.Perks.MilitiaProfessionTree],
+					[10, ::Const.Perks.NobleProfessionTree],
+					[5, ::Const.Perks.MinstrelProfessionTree],
+					[5, ::Const.Perks.TraderProfessionTree],
+					[40, ::Const.Perks.NoTree]
+				])
+			]
+		};
+	});
+
+	::mods_hookNewObject("skills/backgrounds/legend_lurker_background", function(o) {
+		o.m.PerkGroupMultipliers = [
+			[0, this.Const.Perks.SergeantClassTree],
+			[3, this.Const.Perks.ScoutClassTree],
+			[3, this.Const.Perks.MediumArmorTree],
+			[9, this.Const.Perks.BowTree],
+			[2.4, this.Const.Perks.CrossbowTree],
+			[3, this.Const.Perks.SlingTree],
+			[0.5, this.Const.Perks.StaffTree],
+			[3, this.Const.Perks.ThrowingTree],
+			[2, this.Const.Perks.OneHandedTree]
+		];
+
+		o.m.PerkTreeDynamic = {
+			Profession = [
+				::Const.Perks.CultistProfessionTree
+			],
+			Traits = [
+				::Const.Perks.AgileTree
+			],
+			Defense = [
+				::Const.Perks.LightArmorTree
+			],
+			Weapon = [
+				::MSU.Class.WeightedContainer([
+					[25, ::Const.Perks.BowTree],
+					[25, ::Const.Perks.CrossbowTree],
+					[25, ::Const.Perks.SlingTree],
+					[25, ::Const.Perks.ThrowingTree]
+				])
+			],
+			Styles = [
+				::Const.Perks.RangedTree
+			]
+		};
+	});
+
+	::mods_hookNewObject("skills/backgrounds/legend_magister_background", function(o) {
+		o.m.PerkGroupMultipliers = [
+			[0, this.Const.Perks.ShieldTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.ThrowingTree],
+			[2, this.Const.Perks.TalentedTree]
+		];
+
+		o.m.PerkTreeDynamic = {
+			Profession = [
+				::Const.Perks.CultistProfessionTree
+			],
+			Traits = [
+				::Const.Perks.CalmTree
+			],
+			Class = [
+				::Const.Perks.SergeantClassTree
+			],
+			Weapon = [
+				::Const.Perks.CleaverTree,
+				::Const.Perks.PolearmTree
+			],
+			Magic = [
+				::Const.Perks.PremonitionMagicTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_master_archer_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 3, Tree = this.Const.Perks.MediumArmorTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.66, this.Const.Perks.ShieldTree],
+			[3, this.Const.Perks.MediumArmorTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.HunterProfessionTree}]
+				::Const.Perks.HunterProfessionTree
 			],
 			Enemy = [
-				[{Weight = 100, Tree = this.Const.Perks.ArchersTree}]
+				::Const.Perks.ArchersTree
 			],
 			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.AgileTree}]
+				::Const.Perks.AgileTree
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.ScoutClassTree}]
+				::Const.Perks.ScoutClassTree
 			],
 			Defense = [
-				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+				::Const.Perks.LightArmorTree
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.BowTree}],
-				[{Weight = 100, Tree = this.Const.Perks.CrossbowTree}],
-				[{Weight = 100, Tree = this.Const.Perks.SlingTree}],
-				[{Weight = 100, Tree = this.Const.Perks.ThrowingTree}]							
+				::Const.Perks.BowTree,
+				::Const.Perks.CrossbowTree,
+				::Const.Perks.SlingTree,
+				::Const.Perks.ThrowingTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_man_at_arms_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.8, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.SlingTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.8, this.Const.Perks.CrossbowTree],
+			[0.5, this.Const.Perks.SlingTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.SoldierProfessionTree}]
+				::Const.Perks.SoldierProfessionTree
 			],
 			Class = [
-				[
-				{Weight = 80, Tree = this.Const.Perks.SergeantClassTree},
-				{Weight = 20, Tree = this.Const.Perks.TacticianClassTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[80, ::Const.Perks.SergeantClassTree],
+					[20, ::Const.Perks.TacticianClassTree]
+				])
 			]
 		};
 	});
 
  // 	::mods_hookNewObject("skills/backgrounds/legend_necromancer_background", function(o) {
-	// 	o.m.PerkTreeDynamic = {			
-	// 		WeightMultipliers = [
-	// 			{Multiplier = 3, Tree = this.Const.Perks.ViciousTree},
-	// 			{Multiplier = 3, Tree = this.Const.Perks.CalmTree},
-	// 			{Multiplier = 3, Tree = this.Const.Perks.TalentedTree},
-	// 			{Multiplier = 2, Tree = this.Const.Perks.UnstoppableTree},
-	// 			{Multiplier = 0.5, Tree = this.Const.Perks.SwordTree},
-	// 			{Multiplier = 0.25, Tree = this.Const.Perks.AxeTree},
-	// 			{Multiplier = 2, Tree = this.Const.Perks.DaggerTree},
-	// 			{Multiplier = 0.2, Tree = this.Const.Perks.ChefClassTree}
+	// 	o.m.PerkGroupMultipliers = [
+	// 			[3, this.Const.Perks.ViciousTree],
+	// 			[3, this.Const.Perks.CalmTree],
+	// 			[3, this.Const.Perks.TalentedTree],
+	// 			[2, this.Const.Perks.UnstoppableTree],
+	// 			[0.5, this.Const.Perks.SwordTree],
+	// 			[0.25, this.Const.Perks.AxeTree],
+	// 			[2, this.Const.Perks.DaggerTree],
+	// 			[0.2, this.Const.Perks.ChefClassTree]
 	// 		],
-	// 		Profession = [
-	// 			[{Weight = 100, Tree = this.Const.Perks.BasicNecroMagicTree}]
+
+	// 	o.m.PerkTreeDynamic = {
+	//		Profession = [
+	// 			::Const.Perks.BasicNecroMagicTree,
 	// 		],
 	// 		Class = [
-	// 			[{Weight = 100, Tree = this.Const.Perks.HealerClassTree}]
+	// 			::Const.Perks.HealerClassTree,
 	// 		],
 	// 		Defense = [
-	// 			[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+	// 			::Const.Perks.LightArmorTree,
 	// 		],
 	// 		Weapon = [
-	// 			[{Weight = 100, Tree = this.Const.Perks.StaffTree}]
+	// 			::Const.Perks.StaffTree,
 	// 		],
 	// 		Styles = [
-	// 			[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+	// 			::Const.Perks.TwoHandedTree,
 	// 		],
 	// 	};
 	// });
 
 	::mods_hookNewObject("skills/backgrounds/legend_necrosavant_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.2, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 3, Tree = this.Const.Perks.FastTree},
-				{Multiplier = 3, Tree = this.Const.Perks.AgileTree},
-				{Multiplier = 3, Tree = this.Const.Perks.ViciousTree},
-				{Multiplier = 2, Tree = this.Const.Perks.UnstoppableTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 0.2, Tree = this.Const.Perks.ChefClassTree},
-				{Multiplier = 0, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 0, Tree = this.Const.Perks.HeavyArmorTree},
-				{Multiplier = 3, Tree = this.Const.Perks.DaggerTree},
-				{Multiplier = 2, Tree = this.Const.Perks.SwordTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.AxeTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.2, this.Const.Perks.OrganisedTree],
+			[3, this.Const.Perks.FastTree],
+			[3, this.Const.Perks.AgileTree],
+			[3, this.Const.Perks.ViciousTree],
+			[2, this.Const.Perks.UnstoppableTree],
+			[2, this.Const.Perks.ResilientTree],
+			[0.2, this.Const.Perks.ChefClassTree],
+			[0, this.Const.Perks.ShieldTree],
+			[0, this.Const.Perks.HeavyArmorTree],
+			[3, this.Const.Perks.DaggerTree],
+			[2, this.Const.Perks.SwordTree],
+			[0.5, this.Const.Perks.AxeTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.VampireMagicTree}]
+				::Const.Perks.VampireMagicTree
 			],
 			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.ViciousTree}],
-				[{Weight = 100, Tree = this.Const.Perks.UnstoppableTree}],
-				[{Weight = 100, Tree = this.Const.Perks.ResilientTree}]
+				::Const.Perks.ViciousTree,
+				::Const.Perks.UnstoppableTree,
+				::Const.Perks.ResilientTree
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.HealerClassTree}]
+				::Const.Perks.HealerClassTree
 			],
 			Defense = [
-				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+				::Const.Perks.LightArmorTree
 			],
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
-				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+				::Const.Perks.OneHandedTree,
+				::Const.Perks.TwoHandedTree
 			],
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_necro_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);		
+		o.m.CustomPerkclearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -3414,7 +3473,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_necro_commander_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);		
+		o.m.CustomPerkclearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -3491,44 +3550,46 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
  	::mods_hookNewObject("skills/backgrounds/legend_nightwatch_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.5, Tree = this.Const.Perks.TrainedTree},
-				{Multiplier = 2, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.LightArmorTree},
-				{Multiplier = 3, Tree = this.Const.Perks.SergeantClassTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ScoutClassTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.5, this.Const.Perks.TrainedTree],
+			[2, this.Const.Perks.CalmTree],
+			[0.5, this.Const.Perks.LightArmorTree],
+			[3, this.Const.Perks.SergeantClassTree],
+			[2, this.Const.Perks.ScoutClassTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.MilitiaProfessionTree}]
+				::Const.Perks.MilitiaProfessionTree
 			]
 		};
 	});
 
  	::mods_hookNewObject("skills/backgrounds/legend_noble_2h", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
-				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.DaggerTree},
-				{Multiplier = 0.33, Tree = this.Const.Perks.ThrowingTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.SpearTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0, this.Const.Perks.ShieldTree],
+			[0, this.Const.Perks.DeviousTree],
+			[0.1, this.Const.Perks.OrganisedTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0, this.Const.Perks.SlingTree],
+			[0.5, this.Const.Perks.DaggerTree],
+			[0.33, this.Const.Perks.ThrowingTree],
+			[0.66, this.Const.Perks.SpearTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.SoldierProfessionTree}]
+				::Const.Perks.SoldierProfessionTree
 			],
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
-			],
+				::Const.Perks.TwoHandedTree
+			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_noble_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
+		o.m.CustomPerkclearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -3595,7 +3656,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_noble_commander_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
+		o.m.CustomPerkclearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -3662,130 +3723,134 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_noble_event_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 3, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 3, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 2, Tree = this.Const.Perks.TrainedTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ViciousTree},
-				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
-				{Multiplier = 0, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 3, Tree = this.Const.Perks.SwordTree}						
-			],
+		o.m.PerkGroupMultipliers = [
+			[3, this.Const.Perks.CalmTree],
+			[3, this.Const.Perks.TalentedTree],
+			[2, this.Const.Perks.TrainedTree],
+			[2, this.Const.Perks.ViciousTree],
+			[0, this.Const.Perks.DeviousTree],
+			[0, this.Const.Perks.ShieldTree],
+			[3, this.Const.Perks.SwordTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.NobleProfessionTree}]
+				::Const.Perks.NobleProfessionTree
 			],
 			Class = [
-				[
-				{Weight = 50, Tree = this.Const.Perks.SergeantClassTree},
-				{Weight = 50, Tree = this.Const.Perks.TacticianClassTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[50, ::Const.Perks.SergeantClassTree],
+					[50, ::Const.Perks.TacticianClassTree]
+				])
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.PolearmTree}],
+				::Const.Perks.PolearmTree
 			],
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}],
-				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}]
+				::Const.Perks.TwoHandedTree,
+				::Const.Perks.OneHandedTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_noble_ranged", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 3, Tree = this.Const.Perks.MediumArmorTree},
-				{Multiplier = 9, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.PolearmTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.StaffTree},
-				{Multiplier = 3, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 3, Tree = this.Const.Perks.ThrowingTree}						
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.1, this.Const.Perks.OrganisedTree],
+			[3, this.Const.Perks.MediumArmorTree],
+			[9, this.Const.Perks.BowTree],
+			[0.5, this.Const.Perks.PolearmTree],
+			[0.5, this.Const.Perks.StaffTree],
+			[3, this.Const.Perks.SlingTree],
+			[3, this.Const.Perks.ThrowingTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Defense = [
-				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+				::Const.Perks.LightArmorTree
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.CrossbowTree}],
+				::Const.Perks.CrossbowTree
 			],			
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.RangedTree}],
-				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}]
+				::Const.Perks.RangedTree,
+				::Const.Perks.OneHandedTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_noble_shield", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
-				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.DaggerTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.SpearTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0, this.Const.Perks.DeviousTree],
+			[0.1, this.Const.Perks.OrganisedTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0, this.Const.Perks.SlingTree],
+			[0.5, this.Const.Perks.DaggerTree],
+			[0.66, this.Const.Perks.SpearTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.SoldierProfessionTree}]
+				::Const.Perks.SoldierProfessionTree
 			],
 			Defense = [
-				[{Weight = 100, Tree = this.Const.Perks.ShieldTree}]
+				::Const.Perks.ShieldTree
 			]
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}]
+				::Const.Perks.OneHandedTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_nun_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.25, Tree = this.Const.Perks.UnstoppableTree},
-				{Multiplier = 3, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.ViciousTree},
-				{Multiplier = 2, Tree = this.Const.Perks.TalentedTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.25, this.Const.Perks.UnstoppableTree],
+			[3, this.Const.Perks.OrganisedTree],
+			[0.25, this.Const.Perks.ViciousTree],
+			[2, this.Const.Perks.TalentedTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.HolyManProfessionTree}]
+				::Const.Perks.HolyManProfessionTree
 			],
 			Class = [
-				[
-				{Weight = 50, Tree = this.Const.Perks.SergeantClassTree},
-				{Weight = 50, Tree = this.Const.Perks.HealerClassTree}				
-				]
+				::MSU.Class.WeightedContainer([
+					[50, ::Const.Perks.SergeantClassTree],
+					[50, ::Const.Perks.HealerClassTree]
+				])
 
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.StaffTree}]
+				::Const.Perks.StaffTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_philosopher_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 1.66, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.TrapperClassTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[1.66, this.Const.Perks.OrganisedTree],
+			[0.25, this.Const.Perks.TrapperClassTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.PhilosophyMagicTree}]
+				::Const.Perks.PhilosophyMagicTree
 			],
 			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.TalentedTree}]
+				::Const.Perks.TalentedTree
 			]
 		};
 	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_premonitionist_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
+		o.m.PerkGroupMultipliers = [
 			]
 		};
 	}); */
 
 	::mods_hookNewObject("skills/backgrounds/legend_preserver_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
+		o.m.CustomPerkclearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree, [
 				this.Const.Perks.AgileTree,
@@ -3878,30 +3943,31 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_puppet_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.5, Tree = this.Const.Perks.CaravanTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.NoblesTree},			
-				{Multiplier = 0.33, Tree = this.Const.Perks.ViciousTree},
-				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
-				{Multiplier = 0, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 0, Tree = this.Const.Perks.OrganisedTree},				
-				{Multiplier = 0, Tree = this.Const.Perks.TrainedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0, Tree = this.Const.Perks.ThrowingTree},
-				{Multiplier = 0, Tree = this.Const.Perks.RangedTree}											
-			],
+		o.m.PerkGroupMultipliers = [
+				[0.5, this.Const.Perks.CaravanTree],
+				[0.5, this.Const.Perks.NoblesTree],
+				[0.33, this.Const.Perks.ViciousTree],
+				[0, this.Const.Perks.DeviousTree],
+				[0, this.Const.Perks.TalentedTree],
+				[0, this.Const.Perks.CalmTree],
+				[0, this.Const.Perks.OrganisedTree],
+				[0, this.Const.Perks.TrainedTree],
+				[0, this.Const.Perks.BowTree],
+				[0, this.Const.Perks.CrossbowTree],
+				[0, this.Const.Perks.SlingTree],
+				[0, this.Const.Perks.ThrowingTree],
+				[0, this.Const.Perks.RangedTree]
+			];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.RaiderProfessionTree}]
+				::Const.Perks.RaiderProfessionTree
 			],
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_puppet_master_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
+		o.m.CustomPerkclearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree, [
 				this.Const.Perks.ResilientTree,
@@ -3989,7 +4055,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_ranger_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
+		o.m.CustomPerkclearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -4065,7 +4131,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 
 
 	::mods_hookNewObject("skills/backgrounds/legend_ranger_commander_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
+		o.m.CustomPerkclearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -4140,70 +4206,70 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_runesmith_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
+		o.m.PerkGroupMultipliers = [
 			]
 		};
 	}); */
 
 	::mods_hookNewObject("skills/backgrounds/legend_shieldmaiden_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.FastTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.AgileTree},
-				{Multiplier = 0.1, Tree = this.Const.Perks.LightArmorTree},
-				{Multiplier = 3, Tree = this.Const.Perks.HeavyArmorTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.DaggerTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.1, this.Const.Perks.OrganisedTree],
+			[0.25, this.Const.Perks.FastTree],
+			[0.25, this.Const.Perks.AgileTree],
+			[0.1, this.Const.Perks.LightArmorTree],
+			[3, this.Const.Perks.HeavyArmorTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.SlingTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0.5, this.Const.Perks.DaggerTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-					{Weight = 90, Tree = this.Const.Perks.LaborerProfessionTree},
-					{Weight = 10, Tree = this.Const.Perks.WildlingProfessionTree}				
-				]
+				::MSU.Class.WeightedContainer([
+					[90, ::Const.Perks.LaborerProfessionTree],
+					[10, ::Const.Perks.WildlingProfessionTree]
+				])
 			],
 			Defense = [
-				[{Weight = 100, Tree = this.Const.Perks.ShieldTree}]
+				::Const.Perks.ShieldTree
 			],
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}]
+				::Const.Perks.OneHandedTree
 			]
 		};
 	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_spiritualist_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
+		o.m.PerkGroupMultipliers = [
 			]
 		};
 	}); */
 
 	::mods_hookNewObject("skills/backgrounds/legend_taxidermist_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 5, Tree = this.Const.Perks.TrapperClassTree},
-				{Multiplier = 2, Tree = this.Const.Perks.HoundmasterClassTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[5, this.Const.Perks.TrapperClassTree],
+			[2, this.Const.Perks.HoundmasterClassTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.ServiceProfessionTree}]
+				::Const.Perks.ServiceProfessionTree
 			],
 			Enemy = [
-				[{Weight = 100, Tree = this.Const.Perks.BeastsTree}]
+				::Const.Perks.BeastsTree
 			],
 		 	Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.OrganisedTree}]
+				::Const.Perks.OrganisedTree
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.MenderClassTree}]
+				::Const.Perks.MenderClassTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_trader_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
+		o.m.CustomPerkclearCustomPerkTree(o.m.CustomPerkTree);
 
 	 	addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			 [
@@ -4269,7 +4335,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_trader_commander_background", function(o) {
-	 	o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
+	 	o.m.CustomPerkclearCustomPerkTree(o.m.CustomPerkTree);
 
 	 	addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			 [
@@ -4380,37 +4446,38 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	// ::mods_hookNewObject("skills/backgrounds/legend_warlock_background", function(o) {
-	// 	o.m.PerkTreeDynamic = {			
-	// 		WeightMultipliers = [
-	// 			{Multiplier = 0, Tree = this.Const.Perks.OrganisedTree},
-	// 			{Multiplier = 0, Tree = this.Const.Perks.ViciousTree},
-	// 			{Multiplier = 0, Tree = this.Const.Perks.CalmTree},
-	// 			{Multiplier = 0, Tree = this.Const.Perks.TalentedTree},
-	// 			{Multiplier = 0, Tree = this.Const.Perks.UnstoppableTree},				
-	// 			{Multiplier = 0.2, Tree = this.Const.Perks.ChefClassTree},
-	// 			{Multiplier = 0.5, Tree = this.Const.Perks.SwordTree},
-	// 			{Multiplier = 0.25, Tree = this.Const.Perks.AxeTree}
+	// 	o.m.PerkGroupMultipliers = [
+	// 			[0, this.Const.Perks.OrganisedTree],
+	// 			[0, this.Const.Perks.ViciousTree],
+	// 			[0, this.Const.Perks.CalmTree],
+	// 			[0, this.Const.Perks.TalentedTree],
+	// 			[0, this.Const.Perks.UnstoppableTree],
+	// 			[0.2, this.Const.Perks.ChefClassTree],
+	// 			[0.5, this.Const.Perks.SwordTree],
+	// 			[0.25, this.Const.Perks.AxeTree]
 	// 		],
-	// 		Profession = [
-	// 			[{Weight = 100, Tree = this.Const.Perks.WarlockMagicTree}]
+
+	// 	o.m.PerkTreeDynamic = {
+	//		Profession = [
+	// 			::Const.Perks.WarlockMagicTree,
 	// 		],
 	// 		Class = [
-	// 			[{Weight = 100, Tree = this.Const.Perks.HealerClassTree}]
+	// 			::Const.Perks.HealerClassTree,
 	// 		],
 	// 		Weapon = [
-	// 			[{Weight = 100, Tree = this.Const.Perks.StaffTree}]
+	// 			::Const.Perks.StaffTree,
 	// 		],
 	// 		Defense = [
-	// 			[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+	// 			::Const.Perks.LightArmorTree,
 	// 		],
 	// 		Styles = [
-	// 			[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+	// 			::Const.Perks.TwoHandedTree,
 	// 		],
 	// 	};
 	// });
 
 	::mods_hookNewObject("skills/backgrounds/legend_warlock_summoner_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
+		o.m.CustomPerkclearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree, [
 				this.Const.Perks.TalentedTree,
@@ -4495,25 +4562,24 @@ gt.PTR.modCharacterBackgrounds <- function()
 
 	// ::mods_hookNewObject("skills/backgrounds/legend_witch_background", function(o) {
 	// 	o.m.PerkTreeDynamic = {			
-	// 		WeightMultipliers = [
 	// 		],
 	// 		Traits = [
-	// 			[{Weight = 100, Tree = this.Const.Perks.TalentedTree}],
-	// 			[{Weight = 100, Tree = this.Const.Perks.CalmTree}]
+	// 			::Const.Perks.TalentedTree,,
+	// 			::Const.Perks.CalmTree,
 	// 		],
 	// 		Defense = [
-	// 			[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+	// 			::Const.Perks.LightArmorTree,
 	// 		],
 	// 		Weapon = [
-	// 			[{Weight = 100, Tree = this.Const.Perks.StaffTree}]
+	// 			::Const.Perks.StaffTree,
 	// 		],
 	// 		Styles = [
-	// 			[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+	// 			::Const.Perks.TwoHandedTree,
 	// 		],
 	// 		Magic = [
-	// 			[{Weight = 100, Tree = this.Const.Perks.PremonitionMagicTree}],
-	// 			[{Weight = 100, Tree = this.Const.Perks.PhilosophyMagicTree}],
-	// 			[{Weight = 100, Tree = this.Const.Perks.InventorMagicTree}]
+	// 			::Const.Perks.PremonitionMagicTree,,
+	// 			::Const.Perks.PhilosophyMagicTree,,
+	// 			::Const.Perks.InventorMagicTree,
 	// 		]
 	// 	};
 	// });
@@ -4542,11 +4608,12 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/lumberjack_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-			],
+		o.m.PerkGroupMultipliers = [
+			];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.LumberjackProfessionTree}]
+				::Const.Perks.LumberjackProfessionTree
 			]
 		};
 	});
@@ -4554,7 +4621,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	::mods_hookNewObject("skills/backgrounds/mage_background", function(o) {
 		o.m.PerkTreeDynamic = null;
 
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
+		o.m.CustomPerkclearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -4598,7 +4665,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/mage_legend_mage_commander_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
+		o.m.CustomPerkclearCustomPerkTree(o.m.CustomPerkTree);
 
 	 	addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -4643,28 +4710,29 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/lindwurm_slayer_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
-				{Multiplier = 0, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.LightArmorTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.DaggerTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},				
-				{Multiplier = 0, Tree = this.Const.Perks.RangedTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0, this.Const.Perks.DeviousTree],
+			[0, this.Const.Perks.OrganisedTree],
+			[0, this.Const.Perks.LightArmorTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0.5, this.Const.Perks.DaggerTree],
+			[0, this.Const.Perks.SlingTree],
+			[0, this.Const.Perks.RangedTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.SoldierProfessionTree}]
+				::Const.Perks.SoldierProfessionTree
 			],
 			Enemy = [
-				[{Weight = 100, Tree = this.Const.Perks.LindwurmTree}]
+				::Const.Perks.LindwurmTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_lonewolf_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
+		o.m.CustomPerkclearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -4746,399 +4814,419 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/manhunter_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 3, Tree = this.Const.Perks.NomadsTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.HealerClassTree},
-				{Multiplier = 2, Tree = this.Const.Perks.TacticianClassTree},
-				{Multiplier = 2, Tree = this.Const.Perks.MaceTree},				
-				{Multiplier = 4, Tree = this.Const.Perks.CleaverTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[3, this.Const.Perks.NomadsTree],
+			[0.5, this.Const.Perks.OrganisedTree],
+			[0.5, this.Const.Perks.HealerClassTree],
+			[2, this.Const.Perks.TacticianClassTree],
+			[2, this.Const.Perks.MaceTree],
+			[4, this.Const.Perks.CleaverTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.SlingTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.RaiderProfessionTree}]
+				::Const.Perks.RaiderProfessionTree
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.TrapperClassTree}]
+				::Const.Perks.TrapperClassTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/mason_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 1.5, Tree = this.Const.Perks.LargeTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.SturdyTree},
-				{Multiplier = 6, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 2, Tree = this.Const.Perks.HeavyArmorTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[1.5, this.Const.Perks.LargeTree],
+			[1.5, this.Const.Perks.ResilientTree],
+			[1.5, this.Const.Perks.SturdyTree],
+			[6, this.Const.Perks.TalentedTree],
+			[2, this.Const.Perks.HeavyArmorTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.LaborerProfessionTree}]
+				::Const.Perks.LaborerProfessionTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/messenger_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 1.5, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.LargeTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.FastTree},
-				{Multiplier = 6, Tree = this.Const.Perks.AgileTree},
-				{Multiplier = 2, Tree = this.Const.Perks.UnstoppableTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[1.5, this.Const.Perks.ResilientTree],
+			[1.5, this.Const.Perks.LargeTree],
+			[1.5, this.Const.Perks.FastTree],
+			[6, this.Const.Perks.AgileTree],
+			[2, this.Const.Perks.UnstoppableTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-					{Weight = 50, Tree = this.Const.Perks.LaborerProfessionTree},
-					{Weight = 50, Tree = this.Const.Perks.ServiceProfessionTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[50, ::Const.Perks.LaborerProfessionTree],
+					[50, ::Const.Perks.ServiceProfessionTree]
+				])
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.ScoutClassTree}]
+				::Const.Perks.ScoutClassTree
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.SlingTree}]
+				::Const.Perks.SlingTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/militia_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-			],
+		o.m.PerkGroupMultipliers = [
+			];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.MilitiaProfessionTree}]
+				::Const.Perks.MilitiaProfessionTree
 			],
 			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.TrainedTree}]
+				::Const.Perks.TrainedTree
 			]	
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/miller_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 1.5, Tree = this.Const.Perks.LargeTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.SturdyTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.TrainedTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.OrganisedTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[1.5, this.Const.Perks.LargeTree],
+			[1.5, this.Const.Perks.ResilientTree],
+			[1.5, this.Const.Perks.SturdyTree],
+			[0.5, this.Const.Perks.TrainedTree],
+			[1.5, this.Const.Perks.OrganisedTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.LaborerProfessionTree}]
+				::Const.Perks.LaborerProfessionTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/miner_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-			],
+		o.m.PerkGroupMultipliers = [
+			];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.MinerProfessionTree}]
+				::Const.Perks.MinerProfessionTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/minstrel_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-			],
+		o.m.PerkGroupMultipliers = [
+			];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.MinstrelProfessionTree}]
+				::Const.Perks.MinstrelProfessionTree
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.EntertainerClassTree}]
+				::Const.Perks.EntertainerClassTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/monk_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.25, Tree = this.Const.Perks.UnstoppableTree},
-				{Multiplier = 3, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.ViciousTree},
-				{Multiplier = 2, Tree = this.Const.Perks.TalentedTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.25, this.Const.Perks.UnstoppableTree],
+			[3, this.Const.Perks.OrganisedTree],
+			[0.25, this.Const.Perks.ViciousTree],
+			[2, this.Const.Perks.TalentedTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.HolyManProfessionTree}]
+				::Const.Perks.HolyManProfessionTree
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.SergeantClassTree}]
+				::Const.Perks.SergeantClassTree
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.StaffTree}]
+				::Const.Perks.StaffTree
 			]
 		};
 	});
 
 	 ::mods_hookNewObject("skills/backgrounds/monk_turned_flagellant_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 2, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 3, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 2, Tree = this.Const.Perks.SturdyTree},
-				{Multiplier = 3, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ViciousTree},
-				{Multiplier = 3, Tree = this.Const.Perks.LightArmorTree},
-				{Multiplier = 0.33, Tree = this.Const.Perks.ShieldTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[2, this.Const.Perks.OrganisedTree],
+			[3, this.Const.Perks.ResilientTree],
+			[2, this.Const.Perks.SturdyTree],
+			[3, this.Const.Perks.TalentedTree],
+			[2, this.Const.Perks.ViciousTree],
+			[3, this.Const.Perks.LightArmorTree],
+			[0.33, this.Const.Perks.ShieldTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.HolyManProfessionTree}]
+				::Const.Perks.HolyManProfessionTree
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.SergeantClassTree}]
+				::Const.Perks.SergeantClassTree
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.CleaverTree}]
+				::Const.Perks.CleaverTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/nomad_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 3, Tree = this.Const.Perks.SouthernersTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ScoutClassTree},
-				{Multiplier = 2, Tree = this.Const.Perks.HeavyArmorTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.SpearTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[3, this.Const.Perks.SouthernersTree],
+			[2, this.Const.Perks.ResilientTree],
+			[0.25, this.Const.Perks.OrganisedTree],
+			[2, this.Const.Perks.ScoutClassTree],
+			[2, this.Const.Perks.HeavyArmorTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0, this.Const.Perks.SlingTree],
+			[0.66, this.Const.Perks.SpearTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.RaiderProfessionTree}]
+				::Const.Perks.RaiderProfessionTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/nomad_ranged_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 3, Tree = this.Const.Perks.SouthernersTree},
-				{Multiplier = 5, Tree = this.Const.Perks.ViciousTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ScoutClassTree},
-				{Multiplier = 0.33, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 2, Tree = this.Const.Perks.MediumArmorTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.CalmTree},
-			],
+		o.m.PerkGroupMultipliers = [
+			[3, this.Const.Perks.SouthernersTree],
+			[5, this.Const.Perks.ViciousTree],
+			[0.5, this.Const.Perks.ResilientTree],
+			[2, this.Const.Perks.ScoutClassTree],
+			[0.33, this.Const.Perks.ShieldTree],
+			[2, this.Const.Perks.MediumArmorTree],
+			[0.25, this.Const.Perks.CalmTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.HunterProfessionTree}]
+				::Const.Perks.HunterProfessionTree
 			],
 			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.AgileTree}]
+				::Const.Perks.AgileTree
 			],
 			Defense = [
-				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+				::Const.Perks.LightArmorTree
 			],
 			Weapon = [
-				[
-					{Weight = 25, Tree = this.Const.Perks.BowTree},
-					{Weight = 25, Tree = this.Const.Perks.CrossbowTree},
-					{Weight = 25, Tree = this.Const.Perks.SlingTree},
-					{Weight = 25, Tree = this.Const.Perks.ThrowingTree}									
-				]
+				::MSU.Class.WeightedContainer([
+					[25, ::Const.Perks.BowTree],
+					[25, ::Const.Perks.CrossbowTree],
+					[25, ::Const.Perks.SlingTree],
+					[25, ::Const.Perks.ThrowingTree]
+				])
 			]			
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/old_gladiator_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
-				{Multiplier = 2, Tree = this.Const.Perks.TacticianClassTree},
-				{Multiplier = 3, Tree = this.Const.Perks.HeavyArmorTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.SpearTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.1, this.Const.Perks.OrganisedTree],
+			[0, this.Const.Perks.DeviousTree],
+			[2, this.Const.Perks.TacticianClassTree],
+			[3, this.Const.Perks.HeavyArmorTree],
+			[0.66, this.Const.Perks.ShieldTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0, this.Const.Perks.SlingTree],
+			[0.66, this.Const.Perks.SpearTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-					{Weight = 20, Tree = this.Const.Perks.RaiderProfessionTree},
-					{Weight = 10, Tree = this.Const.Perks.SoldierProfessionTree},
-					{Weight = 70, Tree = this.Const.Perks.NoTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[20, ::Const.Perks.RaiderProfessionTree],
+					[10, ::Const.Perks.SoldierProfessionTree],
+					[70, ::Const.Perks.NoTree]
+				])
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.TrapperClassTree}]
+				::Const.Perks.TrapperClassTree
 			],
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
-				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+				::Const.Perks.OneHandedTree,
+				::Const.Perks.TwoHandedTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/old_paladin_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
-				{Multiplier = 0, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 1.33, Tree = this.Const.Perks.TrainedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.LightArmorTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.DaggerTree},
-				{Multiplier = 0, Tree = this.Const.Perks.RangedTree}
-			],
-			Profession = [ 
-				[{Weight = 100, Tree = this.Const.Perks.SoldierProfessionTree}],
-				[{Weight = 100, Tree = this.Const.Perks.LaborerProfessionTree}]
+		o.m.PerkGroupMultipliers = [
+			[0, this.Const.Perks.DeviousTree],
+			[0, this.Const.Perks.OrganisedTree],
+			[1.33, this.Const.Perks.TrainedTree],
+			[0, this.Const.Perks.LightArmorTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0, this.Const.Perks.SlingTree],
+			[0.5, this.Const.Perks.DaggerTree],
+			[0, this.Const.Perks.RangedTree]
+		];
+
+		o.m.PerkTreeDynamic = {
+			Profession = [
+				::Const.Perks.SoldierProfessionTree,
+				::Const.Perks.LaborerProfessionTree
 			],
 			Class = [ 
-				[{Weight = 100, Tree = this.Const.Perks.SergeantClassTree}]
+				::Const.Perks.SergeantClassTree
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.PolearmTree}]
+				::Const.Perks.PolearmTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/orc_slayer_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.5, Tree = this.Const.Perks.AgileTree},
-				{Multiplier = 0.1, Tree = this.Const.Perks.DeviousTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.FastTree},
-				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0.33, Tree = this.Const.Perks.LightArmorTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.DaggerTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SpearTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.5, this.Const.Perks.AgileTree],
+			[0.1, this.Const.Perks.DeviousTree],
+			[0.5, this.Const.Perks.CalmTree],
+			[0.5, this.Const.Perks.FastTree],
+			[0.1, this.Const.Perks.OrganisedTree],
+			[0.33, this.Const.Perks.LightArmorTree],
+			[0.66, this.Const.Perks.ShieldTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0, this.Const.Perks.DaggerTree],
+			[0, this.Const.Perks.SlingTree],
+			[0, this.Const.Perks.SpearTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Enemy = [
-				[{Weight = 100, Tree = this.Const.Perks.OrcTree}]
+				::Const.Perks.OrcTree
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.SergeantClassTree}]
+				::Const.Perks.SergeantClassTree
 			],
 			Defense = [
-				[{Weight = 100, Tree = this.Const.Perks.HeavyArmorTree}]
+				::Const.Perks.HeavyArmorTree
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.HammerTree}]
+				::Const.Perks.HammerTree
 			],
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
-				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+				::Const.Perks.OneHandedTree,
+				::Const.Perks.TwoHandedTree
 			]
 		};
 	});
 
 	 ::mods_hookNewObject("skills/backgrounds/pacified_flagellant_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 3, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 3, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 2, Tree = this.Const.Perks.SturdyTree},
-				{Multiplier = 2, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 2, Tree = this.Const.Perks.LightArmorTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[3, this.Const.Perks.OrganisedTree],
+			[3, this.Const.Perks.ResilientTree],
+			[2, this.Const.Perks.SturdyTree],
+			[2, this.Const.Perks.TalentedTree],
+			[2, this.Const.Perks.LightArmorTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.HolyManProfessionTree}]
+				::Const.Perks.HolyManProfessionTree
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.SergeantClassTree}]
+				::Const.Perks.SergeantClassTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/paladin_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 1.2, Tree = this.Const.Perks.AgileTree},
-				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
-				{Multiplier = 1.2, Tree = this.Const.Perks.FastTree},
-				{Multiplier = 0, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 1.33, Tree = this.Const.Perks.TrainedTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.MenderClassTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.SergeantClassTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.TacticianClassTree},
-				{Multiplier = 0, Tree = this.Const.Perks.LightArmorTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.DaggerTree},
-				{Multiplier = 0, Tree = this.Const.Perks.RangedTree}
-			],
-			Profession = [ 
-				[
-				{Weight = 5, Tree = this.Const.Perks.SoldierProfessionTree},
-				{Weight = 5, Tree = this.Const.Perks.MilitiaProfessionTree},
-				{Weight = 3, Tree = this.Const.Perks.RaiderProfessionTree},
-				{Weight = 1, Tree = this.Const.Perks.NobleProfessionTree},
-				{Weight = 1, Tree = this.Const.Perks.WildlingProfessionTree},
-				{Weight = 1, Tree = this.Const.Perks.JugglerProfessionTree},
-				{Weight = 5, Tree = this.Const.Perks.ButcherProfessionTree},
-				{Weight = 5, Tree = this.Const.Perks.DiggerProfessionTree},
-				{Weight = 5, Tree = this.Const.Perks.FarmerProfessionTree},
-				{Weight = 5, Tree = this.Const.Perks.LaborerProfessionTree},
-				{Weight = 5, Tree = this.Const.Perks.LumberjackProfessionTree},
-				{Weight = 5, Tree = this.Const.Perks.MinerProfessionTree},
-				{Weight = 54, Tree = this.Const.Perks.NoTree}
-				]
+		o.m.PerkGroupMultipliers = [
+			[1.2, this.Const.Perks.AgileTree],
+			[0, this.Const.Perks.DeviousTree],
+			[1.2, this.Const.Perks.FastTree],
+			[0, this.Const.Perks.OrganisedTree],
+			[1.33, this.Const.Perks.TrainedTree],
+			[1.5, this.Const.Perks.MenderClassTree],
+			[1.5, this.Const.Perks.SergeantClassTree],
+			[1.5, this.Const.Perks.TacticianClassTree],
+			[0, this.Const.Perks.LightArmorTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0, this.Const.Perks.SlingTree],
+			[0.5, this.Const.Perks.DaggerTree],
+			[0, this.Const.Perks.RangedTree]
+		];
+
+		o.m.PerkTreeDynamic = {
+			Profession = [
+				::MSU.Class.WeightedContainer([
+					[5, ::Const.Perks.SoldierProfessionTree],
+					[5, ::Const.Perks.MilitiaProfessionTree],
+					[3, ::Const.Perks.RaiderProfessionTree],
+					[1, ::Const.Perks.NobleProfessionTree],
+					[1, ::Const.Perks.WildlingProfessionTree],
+					[1, ::Const.Perks.JugglerProfessionTree],
+					[5, ::Const.Perks.ButcherProfessionTree],
+					[5, ::Const.Perks.DiggerProfessionTree],
+					[5, ::Const.Perks.FarmerProfessionTree],
+					[5, ::Const.Perks.LaborerProfessionTree],
+					[5, ::Const.Perks.LumberjackProfessionTree],
+					[5, ::Const.Perks.MinerProfessionTree],
+					[54, ::Const.Perks.NoTree]
+				])
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/peddler_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-			],
+		o.m.PerkGroupMultipliers = [
+			];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.TraderProfessionTree}]
+				::Const.Perks.TraderProfessionTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/peddler_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-			],
+		o.m.PerkGroupMultipliers = [
+			];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.TraderProfessionTree}]
+				::Const.Perks.TraderProfessionTree
 			]
 		};
 	});
 
-	::mods_hookNewObject("skills/backgrounds/pilgrim_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 4, Tree = this.Const.Perks.DeviousTree},
-				{Multiplier = 0.2, Tree = this.Const.Perks.SergeantClassTree},
-				{Multiplier = 0.2, Tree = this.Const.Perks.HealerClassTree}			
-			],
+	::mods_hookNewObject("skills/backgrounds/legend_pilgrim_background", function(o) {
+		o.m.PerkGroupMultipliers = [
+			[4, this.Const.Perks.DeviousTree],
+			[0.2, this.Const.Perks.SergeantClassTree],
+			[0.2, this.Const.Perks.HealerClassTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.HolyManProfessionTree}]
+				::Const.Perks.HolyManProfessionTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/pimp_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-			],
+		o.m.PerkGroupMultipliers = [
+			];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.ServiceProfessionTree}]
+				::Const.Perks.ServiceProfessionTree
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.ClerkClassTree}]
+				::Const.Perks.ClerkClassTree
 			]
 		};
 	});
@@ -5147,272 +5235,289 @@ gt.PTR.modCharacterBackgrounds <- function()
 		o.m.SpecialPerkMultipliers = [
 			[1.5, ::Const.Perks.PerkDefs.LegendBigGameHunter],
 			[1.5, ::Const.Perks.PerkDefs.PTRMarksmanship]
-		],
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.5, Tree = this.Const.Perks.AgileTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.LargeTree}
-			],
+		];
+		o.m.PerkGroupMultipliers = [
+			[0.5, ::Const.Perks.AgileTree],
+			[0.5, ::Const.Perks.ResilientTree],
+			[0.5, ::Const.Perks.LargeTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.HunterProfessionTree}]
+				::Const.Perks.HunterProfessionTree
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.ScoutClassTree}]
+				::Const.Perks.ScoutClassTree
 			],
 			Defense = [
-				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+				::Const.Perks.LightArmorTree
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.BowTree}]
+				::Const.Perks.BowTree
 			]			
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/raider_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.25, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 2, Tree = this.Const.Perks.HeavyArmorTree},
-				{Multiplier = 2, Tree = this.Const.Perks.MediumArmorTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.SpearTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.25, this.Const.Perks.OrganisedTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0, this.Const.Perks.SlingTree],
+			[2, this.Const.Perks.HeavyArmorTree],
+			[2, this.Const.Perks.MediumArmorTree],
+			[0.66, this.Const.Perks.ShieldTree],
+			[0.66, this.Const.Perks.SpearTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.RaiderProfessionTree}]
+				::Const.Perks.RaiderProfessionTree
 			],
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
-				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+				::Const.Perks.OneHandedTree,
+				::Const.Perks.TwoHandedTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/ratcatcher_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 5, Tree = this.Const.Perks.FastTree},
-				{Multiplier = 5, Tree = this.Const.Perks.AgileTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ViciousTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[5, this.Const.Perks.FastTree],
+			[5, this.Const.Perks.AgileTree],
+			[2, this.Const.Perks.ViciousTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.TrapperClassTree}]
+				::Const.Perks.TrapperClassTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/refugee_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.5, Tree = this.Const.Perks.CalmTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.5, this.Const.Perks.CalmTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.PauperProfessionTree}]
+				::Const.Perks.PauperProfessionTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/retired_soldier_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.66, Tree = this.Const.Perks.AgileTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.FastTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
-				{Multiplier = 2, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 2, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.LightArmorTree},
-				{Multiplier = 2, Tree = this.Const.Perks.HeavyArmorTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.SpearTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.66, this.Const.Perks.AgileTree],
+			[0.66, this.Const.Perks.FastTree],
+			[0.25, this.Const.Perks.OrganisedTree],
+			[0, this.Const.Perks.DeviousTree],
+			[2, this.Const.Perks.CalmTree],
+			[2, this.Const.Perks.TalentedTree],
+			[0.66, this.Const.Perks.LightArmorTree],
+			[2, this.Const.Perks.HeavyArmorTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0, this.Const.Perks.SlingTree],
+			[0.66, this.Const.Perks.SpearTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.SoldierProfessionTree}]
+				::Const.Perks.SoldierProfessionTree
 			],
 			Class = [
-				[
-				{Weight = 50, Tree = this.Const.Perks.SergeantClassTree},
-				{Weight = 50, Tree = this.Const.Perks.TacticianClassTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[50, ::Const.Perks.SergeantClassTree],
+					[50, ::Const.Perks.TacticianClassTree]
+				])
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/regent_in_absentia_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{ Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree },
-				{ Multiplier = 0, Tree = this.Const.Perks.DeviousTree },
-				{ Multiplier = 0, Tree = this.Const.Perks.BowTree },
-				{ Multiplier = 0.4, Tree = this.Const.Perks.CrossbowTree },
-				{ Multiplier = 0, Tree = this.Const.Perks.SlingTree },
-				{ Multiplier = 0.66, Tree = this.Const.Perks.SpearTree },
-				{ Multiplier = 1.25, Tree = this.Const.Perks.TrainedTree }
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.1, this.Const.Perks.OrganisedTree],
+			[0, this.Const.Perks.DeviousTree],
+			[0, this.Const.Perks.BowTree],
+			[0.4, this.Const.Perks.CrossbowTree],
+			[0, this.Const.Perks.SlingTree],
+			[0.66, this.Const.Perks.SpearTree],
+			[1.25, this.Const.Perks.TrainedTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.NobleProfessionTree}]
+				::Const.Perks.NobleProfessionTree
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.SwordTree}]
+				::Const.Perks.SwordTree
 			],
 			Styles = [
-				[
-					{Weight = 100, Tree = this.Const.Perks.OneHandedTree}
-				],
-				[
-					{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}
-				]
+				::Const.Perks.OneHandedTree,
+				::Const.Perks.TwoHandedTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/sellsword_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 2, Tree = this.Const.Perks.MercenaryTree},
-				{Multiplier = 0.1, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 2, Tree = this.Const.Perks.HeavyArmorTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.SpearTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[2, this.Const.Perks.MercenaryTree],
+			[0.1, this.Const.Perks.OrganisedTree],
+			[2, this.Const.Perks.HeavyArmorTree],
+			[0.66, this.Const.Perks.ShieldTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0, this.Const.Perks.SlingTree],
+			[0.66, this.Const.Perks.SpearTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-					{Weight = 60, Tree = this.Const.Perks.RaiderProfessionTree},
-					{Weight = 25, Tree = this.Const.Perks.SoldierProfessionTree},
-					{Weight = 15, Tree = this.Const.Perks.NoTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[60, ::Const.Perks.RaiderProfessionTree],
+					[25, ::Const.Perks.SoldierProfessionTree],
+					[15, ::Const.Perks.NoTree]
+				])
 			],
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
-				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+				::Const.Perks.OneHandedTree,
+				::Const.Perks.TwoHandedTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/servant_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 1.5, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 2, Tree = this.Const.Perks.OrganisedTree},
-			],
+		o.m.PerkGroupMultipliers = [
+			[1.5, this.Const.Perks.TalentedTree],
+			[2, this.Const.Perks.OrganisedTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 60, Tree = this.Const.Perks.ServiceProfessionTree}]
+				[
+					::Const.Perks.ServiceProfessionTree
+				]
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/servant_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 1.5, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 2, Tree = this.Const.Perks.OrganisedTree},
-			],
+		o.m.PerkGroupMultipliers = [
+			[1.5, this.Const.Perks.TalentedTree],
+			[2, this.Const.Perks.OrganisedTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 60, Tree = this.Const.Perks.ServiceProfessionTree}]
+				[
+					::Const.Perks.ServiceProfessionTree
+				]
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/shepherd_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-			],
+		o.m.PerkGroupMultipliers = [
+			];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 60, Tree = this.Const.Perks.LaborerProfessionTree}]
+				::Const.Perks.LaborerProfessionTree
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.SlingTree}],
-				[{Weight = 100, Tree = this.Const.Perks.StaffTree}]
+				::Const.Perks.SlingTree,
+				::Const.Perks.StaffTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/shepherd_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-			],
+		o.m.PerkGroupMultipliers = [
+			];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 60, Tree = this.Const.Perks.LaborerProfessionTree}]
+				::Const.Perks.LaborerProfessionTree
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.SlingTree}],
-				[{Weight = 100, Tree = this.Const.Perks.StaffTree}]
+				::Const.Perks.SlingTree,
+				::Const.Perks.StaffTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/slave_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 3, Tree = this.Const.Perks.SouthernersTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[3, this.Const.Perks.SouthernersTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 60, Tree = this.Const.Perks.PauperProfessionTree}]
+				::Const.Perks.PauperProfessionTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/slave_barbarian_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 3, Tree = this.Const.Perks.SouthernersTree},
-				{Multiplier = 0.4, Tree = this.Const.Perks.ViciousTree},
-				{Multiplier = 2, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 5, Tree = this.Const.Perks.ResilientTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[3, this.Const.Perks.SouthernersTree],
+			[0.4, this.Const.Perks.ViciousTree],
+			[2, this.Const.Perks.CalmTree],
+			[5, this.Const.Perks.ResilientTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-					{Weight = 50, Tree = this.Const.Perks.RaiderProfessionTree},
-					{Weight = 50, Tree = this.Const.Perks.WildlingProfessionTree}				
-				]
+				::MSU.Class.WeightedContainer([
+					[50, ::Const.Perks.RaiderProfessionTree],
+					[50, ::Const.Perks.WildlingProfessionTree]
+				])
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/slave_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 3, Tree = this.Const.Perks.SouthernersTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[3, this.Const.Perks.SouthernersTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 60, Tree = this.Const.Perks.PauperProfessionTree}]
+				::Const.Perks.PauperProfessionTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/squire_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 3, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 0.2, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 0.25, Tree = this.Const.Perks.DeviousTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 2, Tree = this.Const.Perks.HeavyArmorTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.SpearTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[3, this.Const.Perks.CalmTree],
+			[0.2, this.Const.Perks.OrganisedTree],
+			[0.25, this.Const.Perks.DeviousTree],
+			[0.5, this.Const.Perks.ShieldTree],
+			[2, this.Const.Perks.HeavyArmorTree],
+			[0.5, this.Const.Perks.SpearTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 30, Tree = this.Const.Perks.SoldierProfessionTree}],
-				[{Weight = 70, Tree = this.Const.Perks.NoTree}]
+				::MSU.Class.WeightedContainer([
+					[30, ::Const.Perks.SoldierProfessionTree],
+					[70, ::Const.Perks.NoTree]
+				])
 			],
 			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.TrainedTree}]				
+				::Const.Perks.TrainedTree
 			],
 			Class = [
-				[
-					{Weight = 75, Tree = this.Const.Perks.SergeantClassTree},
-					{Weight = 25, Tree = this.Const.Perks.TacticianClassTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[75, ::Const.Perks.SergeantClassTree],
+					[25, ::Const.Perks.TacticianClassTree]
+				])
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.PolearmTree}],
-				[{Weight = 100, Tree = this.Const.Perks.SwordTree}],
+				::Const.Perks.PolearmTree,
+				::Const.Perks.SwordTree
 			]
 		};
 	});
@@ -5420,305 +5525,319 @@ gt.PTR.modCharacterBackgrounds <- function()
 	::mods_hookNewObject("skills/backgrounds/swordmaster_background", function(o) {
 		o.m.SpecialPerkMultipliers = [
 			[-1, ::Const.Perks.PerkDefs.BFFencer]
-		],
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.5, Tree = this.Const.Perks.AgileTree},
-				{Multiplier = 2, Tree = this.Const.Perks.CalmTree},
-				{Multiplier = 3, Tree = this.Const.Perks.ViciousTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.FastTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 3, Tree = this.Const.Perks.UnstoppableTree},
-				{Multiplier = 0, Tree = this.Const.Perks.HeavyArmorTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree},
-				{Multiplier = 0, Tree = this.Const.Perks.ThrowingTree},
-				{Multiplier = 2, Tree = this.Const.Perks.PolearmTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.SpearTree},
-			],
+		];
+
+		o.m.PerkGroupMultipliers = [
+			[0.5, this.Const.Perks.AgileTree],
+			[2, this.Const.Perks.CalmTree],
+			[3, this.Const.Perks.ViciousTree],
+			[0.5, this.Const.Perks.FastTree],
+			[0.5, this.Const.Perks.OrganisedTree],
+			[3, this.Const.Perks.UnstoppableTree],
+			[0, this.Const.Perks.HeavyArmorTree],
+			[0.66, this.Const.Perks.ShieldTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0, this.Const.Perks.SlingTree],
+			[0, this.Const.Perks.ThrowingTree],
+			[2, this.Const.Perks.PolearmTree],
+			[0.66, this.Const.Perks.SpearTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Enemy = [
-				[{Weight = 100, Tree = this.Const.Perks.SwordmastersTree}]
+				::Const.Perks.SwordmastersTree
 			],
 			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.TalentedTree}]
+				::Const.Perks.TalentedTree
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.SwordTree}]
+				::Const.Perks.SwordTree
 			],
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}],
-				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+				::Const.Perks.OneHandedTree,
+				::Const.Perks.TwoHandedTree
 			],
 			Enemy = [
-				[{Weight = 100, Tree = this.Const.Perks.SwordmastersTree}]
+				::Const.Perks.SwordmastersTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/tailor_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 1.5, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.OrganisedTree},
-			],
+		o.m.PerkGroupMultipliers = [
+			[1.5, this.Const.Perks.TalentedTree],
+			[1.5, this.Const.Perks.OrganisedTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.ServiceProfessionTree}]
+				::Const.Perks.ServiceProfessionTree
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.MenderClassTree}]
+				::Const.Perks.MenderClassTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/tailor_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 1.5, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.OrganisedTree},
-			],
+		o.m.PerkGroupMultipliers = [
+			[1.5, this.Const.Perks.TalentedTree],
+			[1.5, this.Const.Perks.OrganisedTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.ServiceProfessionTree}]
+				::Const.Perks.ServiceProfessionTree
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.MenderClassTree}]
+				::Const.Perks.MenderClassTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/thief_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.5, Tree = this.Const.Perks.LargeTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.SturdyTree},
-				{Multiplier = 0.75, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.FastTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.AgileTree},
-				{Multiplier = 1.25, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 2, Tree = this.Const.Perks.OneHandedTree},
-				{Multiplier = 3, Tree = this.Const.Perks.DaggerTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.5, this.Const.Perks.LargeTree],
+			[0.5, this.Const.Perks.SturdyTree],
+			[0.75, this.Const.Perks.ResilientTree],
+			[1.5, this.Const.Perks.FastTree],
+			[1.5, this.Const.Perks.AgileTree],
+			[1.25, this.Const.Perks.TalentedTree],
+			[0.66, this.Const.Perks.ShieldTree],
+			[2, this.Const.Perks.OneHandedTree],
+			[3, this.Const.Perks.DaggerTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.DeviousTree}]
+				::Const.Perks.DeviousTree
 			],
 			Defense = [
-				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+				::Const.Perks.LightArmorTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/thief_southern_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.5, Tree = this.Const.Perks.LargeTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.SturdyTree},
-				{Multiplier = 0.75, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.FastTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.AgileTree},
-				{Multiplier = 1.25, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 2, Tree = this.Const.Perks.OneHandedTree},
-				{Multiplier = 3, Tree = this.Const.Perks.DaggerTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.5, this.Const.Perks.LargeTree],
+			[0.5, this.Const.Perks.SturdyTree],
+			[0.75, this.Const.Perks.ResilientTree],
+			[1.5, this.Const.Perks.FastTree],
+			[1.5, this.Const.Perks.AgileTree],
+			[1.25, this.Const.Perks.TalentedTree],
+			[0.66, this.Const.Perks.ShieldTree],
+			[2, this.Const.Perks.OneHandedTree],
+			[3, this.Const.Perks.DaggerTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.DeviousTree}]
+				::Const.Perks.DeviousTree
 			],
 			Defense = [
-				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+				::Const.Perks.LightArmorTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/vagabond_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 0.5, Tree = this.Const.Perks.LargeTree},
-				{Multiplier = 2, Tree = this.Const.Perks.UnstoppableTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[0.5, this.Const.Perks.LargeTree],
+			[2, this.Const.Perks.UnstoppableTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.LaborerProfessionTree}]
+				::Const.Perks.LaborerProfessionTree
 			],
 			Class = [
-				[
-				{Weight = 75, Tree = this.Const.Perks.ScoutClassTree},
-				{Weight = 25, Tree = this.Const.Perks.NoTree}
-				]
+				::MSU.Class.WeightedContainer([
+					[75, ::Const.Perks.ScoutClassTree],
+					[25, ::Const.Perks.NoTree]
+				])
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/wildman_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ViciousTree},
-				{Multiplier = 0.4, Tree = this.Const.Perks.DeviousTree},
-				{Multiplier = 2, Tree = this.Const.Perks.LargeTree},
-				{Multiplier = 2, Tree = this.Const.Perks.SturdyTree},
-				{Multiplier = 2, Tree = this.Const.Perks.UnstoppableTree},
-				{Multiplier = 0.4, Tree = this.Const.Perks.TrainedTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.MenderClassTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ScoutClassTree},
-				{Multiplier = 3, Tree = this.Const.Perks.HeavyArmorTree},
-				{Multiplier = 3, Tree = this.Const.Perks.MaceTree},
-				{Multiplier = 3, Tree = this.Const.Perks.HammerTree},
-				{Multiplier = 2, Tree = this.Const.Perks.AxeTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.SpearTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.SwordTree},
-				{Multiplier = 2, Tree = this.Const.Perks.StaffTree},
-			],
+		o.m.PerkGroupMultipliers = [
+			[2, this.Const.Perks.ResilientTree],
+			[2, this.Const.Perks.ViciousTree],
+			[0.4, this.Const.Perks.DeviousTree],
+			[2, this.Const.Perks.LargeTree],
+			[2, this.Const.Perks.SturdyTree],
+			[2, this.Const.Perks.UnstoppableTree],
+			[0.4, this.Const.Perks.TrainedTree],
+			[0.5, this.Const.Perks.MenderClassTree],
+			[2, this.Const.Perks.ScoutClassTree],
+			[3, this.Const.Perks.HeavyArmorTree],
+			[3, this.Const.Perks.MaceTree],
+			[3, this.Const.Perks.HammerTree],
+			[2, this.Const.Perks.AxeTree],
+			[0.66, this.Const.Perks.SpearTree],
+			[0.5, this.Const.Perks.SwordTree],
+			[2, this.Const.Perks.StaffTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.WildlingProfessionTree}]
+				::Const.Perks.WildlingProfessionTree
 			],			
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+				::Const.Perks.TwoHandedTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/wildwoman_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 2, Tree = this.Const.Perks.ResilientTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ViciousTree},
-				{Multiplier = 0.4, Tree = this.Const.Perks.DeviousTree},
-				{Multiplier = 2, Tree = this.Const.Perks.LargeTree},
-				{Multiplier = 2, Tree = this.Const.Perks.SturdyTree},
-				{Multiplier = 2, Tree = this.Const.Perks.UnstoppableTree},
-				{Multiplier = 0.4, Tree = this.Const.Perks.TrainedTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.MenderClassTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ScoutClassTree},
-				{Multiplier = 3, Tree = this.Const.Perks.HeavyArmorTree},
-				{Multiplier = 3, Tree = this.Const.Perks.MaceTree},
-				{Multiplier = 3, Tree = this.Const.Perks.HammerTree},
-				{Multiplier = 2, Tree = this.Const.Perks.AxeTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.SpearTree},
-				{Multiplier = 0.5, Tree = this.Const.Perks.SwordTree},
-				{Multiplier = 2, Tree = this.Const.Perks.StaffTree},
-			],
+		o.m.PerkGroupMultipliers = [
+			[2, this.Const.Perks.ResilientTree],
+			[2, this.Const.Perks.ViciousTree],
+			[0.4, this.Const.Perks.DeviousTree],
+			[2, this.Const.Perks.LargeTree],
+			[2, this.Const.Perks.SturdyTree],
+			[2, this.Const.Perks.UnstoppableTree],
+			[0.4, this.Const.Perks.TrainedTree],
+			[0.5, this.Const.Perks.MenderClassTree],
+			[2, this.Const.Perks.ScoutClassTree],
+			[3, this.Const.Perks.HeavyArmorTree],
+			[3, this.Const.Perks.MaceTree],
+			[3, this.Const.Perks.HammerTree],
+			[2, this.Const.Perks.AxeTree],
+			[0.66, this.Const.Perks.SpearTree],
+			[0.5, this.Const.Perks.SwordTree],
+			[2, this.Const.Perks.StaffTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.WildlingProfessionTree}]
+				::Const.Perks.WildlingProfessionTree
 			],			
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.TwoHandedTree}]
+				::Const.Perks.TwoHandedTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/witchhunter_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 3, Tree = this.Const.Perks.CalmTree},			
-				{Multiplier = 2, Tree = this.Const.Perks.AgileTree},
-				{Multiplier = 3, Tree = this.Const.Perks.ViciousTree},
-				{Multiplier = 0, Tree = this.Const.Perks.DeviousTree},
-				{Multiplier = 2, Tree = this.Const.Perks.TalentedTree},
-				{Multiplier = 0, Tree = this.Const.Perks.OrganisedTree},
-				{Multiplier = 3, Tree = this.Const.Perks.BowTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[3, this.Const.Perks.CalmTree],
+			[2, this.Const.Perks.AgileTree],
+			[3, this.Const.Perks.ViciousTree],
+			[0, this.Const.Perks.DeviousTree],
+			[2, this.Const.Perks.TalentedTree],
+			[0, this.Const.Perks.OrganisedTree],
+			[3, this.Const.Perks.BowTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.SergeantClassTree}]
+				::Const.Perks.SergeantClassTree
 			],
 			Defense = [
-				[{Weight = 100, Tree = this.Const.Perks.LightArmorTree}]
+				::Const.Perks.LightArmorTree
 			],
 			Weapon = [
-				[{Weight = 100, Tree = this.Const.Perks.CrossbowTree}]
+				::Const.Perks.CrossbowTree
 			]
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.RangedTree}]
+				::Const.Perks.RangedTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_alchemist_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-			],
+		o.m.PerkGroupMultipliers = [
+			];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.ApothecaryProfessionTree}]
+				::Const.Perks.ApothecaryProfessionTree
 			],
 			Enemy = [
-				[{Weight = 100, Tree = this.Const.Perks.MysticTree}]
+				::Const.Perks.MysticTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_dervish_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 3, Tree = this.Const.Perks.BarbarianTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ViciousTree},
-				{Multiplier = 2, Tree = this.Const.Perks.UnstoppableTree},
-				{Multiplier = 2, Tree = this.Const.Perks.TrainedTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.LightArmorTree},
-				{Multiplier = 1.5, Tree = this.Const.Perks.MediumArmorTree},
-				{Multiplier = 2, Tree = this.Const.Perks.TwoHandedTree},
-				{Multiplier = 2, Tree = this.Const.Perks.SwordTree},
-				{Multiplier = 2, Tree = this.Const.Perks.CleaverTree},
-				{Multiplier = 0, Tree = this.Const.Perks.BowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.CrossbowTree},
-				{Multiplier = 0, Tree = this.Const.Perks.SlingTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[3, this.Const.Perks.BarbarianTree],
+			[2, this.Const.Perks.ViciousTree],
+			[2, this.Const.Perks.UnstoppableTree],
+			[2, this.Const.Perks.TrainedTree],
+			[1.5, this.Const.Perks.LightArmorTree],
+			[1.5, this.Const.Perks.MediumArmorTree],
+			[2, this.Const.Perks.TwoHandedTree],
+			[2, this.Const.Perks.SwordTree],
+			[2, this.Const.Perks.CleaverTree],
+			[0, this.Const.Perks.BowTree],
+			[0, this.Const.Perks.CrossbowTree],
+			[0, this.Const.Perks.SlingTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.HolyManProfessionTree}]
+				::Const.Perks.HolyManProfessionTree
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.SergeantClassTree}]
+				::Const.Perks.SergeantClassTree
 			],
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}]
+				::Const.Perks.OneHandedTree
 			]
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_muladi_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 2, Tree = this.Const.Perks.ResilientTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[2, this.Const.Perks.ResilientTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.HunterProfessionTree}]
+				::Const.Perks.HunterProfessionTree
 			],
 			Traits = [
-				[{Weight = 100, Tree = this.Const.Perks.AgileTree}]
+				::Const.Perks.AgileTree
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.ScoutClassTree}]
+				::Const.Perks.ScoutClassTree
 			],
 			Weapon = [
-				[
-					{Weight = 25, Tree = this.Const.Perks.BowTree},
-					{Weight = 25, Tree = this.Const.Perks.CrossbowTree},
-					{Weight = 25, Tree = this.Const.Perks.SlingTree},
-					{Weight = 25, Tree = this.Const.Perks.ThrowingTree}									
-				]
+				::MSU.Class.WeightedContainer([
+					[25, ::Const.Perks.BowTree],
+					[25, ::Const.Perks.CrossbowTree],
+					[25, ::Const.Perks.SlingTree],
+					[25, ::Const.Perks.ThrowingTree]
+				])
 			]			
 		};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_qiyan_background", function(o) {
-		o.m.PerkTreeDynamic = {			
-			WeightMultipliers = [
-				{Multiplier = 3, Tree = this.Const.Perks.ViciousTree},
-				{Multiplier = 2, Tree = this.Const.Perks.AgileTree},
-				{Multiplier = 2, Tree = this.Const.Perks.FastTree},
-				{Multiplier = 3, Tree = this.Const.Perks.LightArmorTree},
-				{Multiplier = 0.66, Tree = this.Const.Perks.ShieldTree},
-				{Multiplier = 3, Tree = this.Const.Perks.DaggerTree},
-				{Multiplier = 2, Tree = this.Const.Perks.SwordTree},
-				{Multiplier = 2, Tree = this.Const.Perks.ThrowingTree}
-			],
+		o.m.PerkGroupMultipliers = [
+			[3, this.Const.Perks.ViciousTree],
+			[2, this.Const.Perks.AgileTree],
+			[2, this.Const.Perks.FastTree],
+			[3, this.Const.Perks.LightArmorTree],
+			[0.66, this.Const.Perks.ShieldTree],
+			[3, this.Const.Perks.DaggerTree],
+			[2, this.Const.Perks.SwordTree],
+			[2, this.Const.Perks.ThrowingTree]
+		];
+
+		o.m.PerkTreeDynamic = {
 			Profession = [
-				[{Weight = 100, Tree = this.Const.Perks.MinstrelProfessionTree}]
+				::Const.Perks.MinstrelProfessionTree
 			],
 			Class = [
-				[{Weight = 100, Tree = this.Const.Perks.EntertainerClassTree}]
+				::Const.Perks.EntertainerClassTree
 			],
 			Styles = [
-				[{Weight = 100, Tree = this.Const.Perks.OneHandedTree}]
+				::Const.Perks.OneHandedTree
 			]
 		};
 	});
