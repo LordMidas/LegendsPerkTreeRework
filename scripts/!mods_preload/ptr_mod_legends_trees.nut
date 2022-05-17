@@ -1111,7 +1111,7 @@ gt.PTR.modWeaponTrees <- function()
 	this.Const.Perks.SwordTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRKata];
 	this.Const.Perks.SwordTree.Tree[6] = [this.Const.Perks.PerkDefs.PTREnGarde];
 
-	this.Const.Perks.GreatSwordTree.Tree = array(7);
+	this.Const.Perks.GreatSwordTree.Tree = array(7,[]);
 
 	foreach (i, row in this.Const.Perks.SwordTree.Tree)
 	{
