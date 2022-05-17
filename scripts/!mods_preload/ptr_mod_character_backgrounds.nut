@@ -3827,6 +3827,11 @@ gt.PTR.modCharacterBackgrounds <- function()
 		};
 	});
 
+	::mods_hookNewObject("skills/backgrounds/legend_peddler_commander_background", function(o) {
+		o.m.PerkGroupMultipliers = [];
+		o.m.PerkTreeDynamic = {};
+	});
+
 	::mods_hookNewObject("skills/backgrounds/legend_philosopher_background", function(o) {
 		o.m.PerkGroupMultipliers = [
 			[1.66, this.Const.Perks.OrganisedTree],

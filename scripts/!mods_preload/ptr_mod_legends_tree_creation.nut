@@ -149,7 +149,7 @@ gt.PTR.modLegendsPerkTreeCreationSystem <- function()
 			foreach (multiplier in _multipliersList)
 			{
 				local tree = multiplier[1];
-				if (_treeContainer.containes(tree)) _treeContainer.setWeight(tree, _treeContainer.getWeight(tree) * multiplier[0]);
+				if (_treeContainer.contains(tree)) _treeContainer.setWeight(tree, _treeContainer.getWeight(tree) * multiplier[0]);
 			}
 		}
 
@@ -220,7 +220,7 @@ gt.PTR.modLegendsPerkTreeCreationSystem <- function()
 
 			foreach (trait in characterTraits)
 			{
-				multiplier.extend(trait.m.PerkGroupMultipliers);
+				multipliers.extend(trait.m.PerkGroupMultipliers);
 			}
 
 			applyMultipliers(multipliers, _treeContainer);
