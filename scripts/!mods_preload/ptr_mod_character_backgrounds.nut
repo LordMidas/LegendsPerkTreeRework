@@ -4789,7 +4789,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 				this.Const.Perks.PerkDefs.PTRWearsItWell,
 				this.Const.Perks.PerkDefs.PTRPersonalArmor,
 				this.Const.Perks.PerkDefs.PTRVigilant,
-				this.Const.Perks.PerkDefs.LineBreaker
+				this.Const.Perks.PerkDefs.STRLineBreaker
 			]
 		);
 
