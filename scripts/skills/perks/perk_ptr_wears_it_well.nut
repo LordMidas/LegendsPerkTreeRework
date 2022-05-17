@@ -18,7 +18,7 @@ this.perk_ptr_wears_it_well <- this.inherit("scripts/skills/skill", {
 	function onUpdate(_properties)
 	{
 		local actor = this.getContainer().getActor();
-		local fat = actor.getTotalArmorStaminaModifier();
+		local fat = actor.getItems().getStaminaModifier([::Const.ItemSlot.Body, ::Const.ItemSlot.Head]);
 
 		local mainhand = actor.getMainhandItem();
 		if (mainhand != null)

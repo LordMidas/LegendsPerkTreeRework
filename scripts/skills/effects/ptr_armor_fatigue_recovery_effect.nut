@@ -100,7 +100,7 @@ this.ptr_armor_fatigue_recovery_effect <- this.inherit("scripts/skills/skill", {
 
 	function getEncumbranceLevel()
 	{
-		if (this.getContainer().getActor().getTotalArmorStaminaModifier() > -20)
+		if (this.getContainer().getActor().getItems().getStaminaModifier([::Const.ItemSlot.Body, ::Const.ItemSlot.Head]) > -20)
 		{
 			return 0;
 		}
