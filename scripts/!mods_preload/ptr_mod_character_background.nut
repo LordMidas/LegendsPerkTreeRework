@@ -284,7 +284,7 @@ gt.PTR.modCharacterBackground <- function()
 		{
 			this.m.CustomPerkTree = _tree;
 
-			if (this.World.Assets.isLegendPerkTrees())
+			if (::Legends.Mod.ModSettings.getSetting("PerkTrees").getValue())
 			{
 				this.m.CustomPerkTree = this.Const.Perks.MergeDynamicPerkTree(_tree, this.Const.Perks.GetDynamicPerkTree(this.getPerkTreeDynamicMins(), this.m.PerkTreeDynamic, this.getContainer().getActor()).TreeMap);
 			}
