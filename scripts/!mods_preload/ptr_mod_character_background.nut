@@ -83,7 +83,6 @@ gt.PTR.modCharacterBackground <- function()
 	::mods_hookExactClass("skills/backgrounds/character_background", function(o) {
 		o.m.CustomPerkTreeMap <- null;
 		o.m.SpecialPerkMultipliers <- [];
-		o.m.PerkGroupMultipliers <- [];
 		o.m.IsCreatingPerkTree <- false;
 
 		o.buildPerkTree = function()

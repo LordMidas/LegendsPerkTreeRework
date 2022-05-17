@@ -46,7 +46,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	};
 
 	::mods_hookNewObject("skills/backgrounds/adventurous_noble_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.1, this.Const.Perks.OrganisedTree],
 			[0, this.Const.Perks.DeviousTree],
 			[0.33, this.Const.Perks.LightArmorTree],
@@ -86,7 +86,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/anatomist_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.5, this.Const.Perks.LargeTree],
 			[0.5, this.Const.Perks.SturdyTree],
 			[3, this.Const.Perks.TalentedTree],
@@ -123,7 +123,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/apprentice_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[3, this.Const.Perks.TalentedTree ]
 		];
 
@@ -143,7 +143,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/assassin_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			];
 
 		o.m.PerkTreeDynamic = {
@@ -154,7 +154,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/assassin_southern_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			];
 
 		o.m.PerkTreeDynamic = {
@@ -165,7 +165,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/barbarian_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.25, this.Const.Perks.CalmTree],
 			[0, this.Const.Perks.OrganisedTree],
 			[3, this.Const.Perks.UnstoppableTree],
@@ -208,7 +208,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/bastard_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[2, this.Const.Perks.NoblesTree],
 			[1.5, this.Const.Perks.HeavyArmorTree],
 			[0.5, this.Const.Perks.CalmTree],
@@ -232,7 +232,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 			[5, ::Const.Perks.PerkDefs.LegendBigGameHunter]
 		];
 
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[3, this.Const.Perks.ViciousTree],
 			[0.33, this.Const.Perks.ShieldTree],
 			[0.5, this.Const.Perks.FlailTree],
@@ -268,7 +268,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/beggar_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0, this.Const.Perks.TalentedTree],
 			[0.25, this.Const.Perks.ClerkClassTree],
 			[0, this.Const.Perks.EntertainerClassTree]
@@ -285,7 +285,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/beggar_southern_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0, this.Const.Perks.TalentedTree],
 			[0.25, this.Const.Perks.ClerkClassTree],
 			[0, this.Const.Perks.EntertainerClassTree]
@@ -302,7 +302,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/belly_dancer_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.5, this.Const.Perks.ResilientTree],
 			[0.25, this.Const.Perks.LargeTree],
 			[0.25, this.Const.Perks.SturdyTree],
@@ -328,7 +328,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/bowyer_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[2, this.Const.Perks.TalentedTree]
 		];
 
@@ -355,7 +355,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/brawler_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.5, this.Const.Perks.TalentedTree],
 			[0.25, this.Const.Perks.OrganisedTree],
 			[2, this.Const.Perks.SergeantClassTree],
@@ -372,7 +372,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/butcher_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			];
 
 		o.m.PerkTreeDynamic = {
@@ -383,7 +383,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/butcher_southern_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			];
 
 		o.m.PerkTreeDynamic = {
@@ -394,7 +394,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/caravan_hand_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[2, this.Const.Perks.OutlandersTree],
 			[2, this.Const.Perks.MenderClassTree],
 			[2, this.Const.Perks.ChefClassTree],
@@ -412,7 +412,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/caravan_hand_southern_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[2, this.Const.Perks.OutlandersTree],
 			[2, this.Const.Perks.MenderClassTree],
 			[2, this.Const.Perks.ChefClassTree],
@@ -430,7 +430,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/companion_1h_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[2, this.Const.Perks.CalmTree],
 			[2, this.Const.Perks.TalentedTree],
 			[2, this.Const.Perks.TrainedTree],
@@ -476,7 +476,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/companion_1h_southern_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[2, this.Const.Perks.CalmTree],
 			[2, this.Const.Perks.TalentedTree],
 			[2, this.Const.Perks.TrainedTree],
@@ -522,7 +522,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/companion_2h_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.5, this.Const.Perks.CalmTree],
 			[0.25, this.Const.Perks.OrganisedTree],
 			[0, this.Const.Perks.DeviousTree],
@@ -563,7 +563,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/companion_2h_southern_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.5, this.Const.Perks.CalmTree],
 			[0.25, this.Const.Perks.OrganisedTree],
 			[0, this.Const.Perks.DeviousTree],
@@ -604,7 +604,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/companion_ranged_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.25, this.Const.Perks.ResilientTree],
 			[0.5, this.Const.Perks.CalmTree],
 			[0, this.Const.Perks.SturdyTree],
@@ -636,7 +636,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/companion_ranged_southern_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.25, this.Const.Perks.ResilientTree],
 			[0.5, this.Const.Perks.CalmTree],
 			[0, this.Const.Perks.SturdyTree],
@@ -668,7 +668,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/converted_cultist_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			];
 
 		o.m.PerkTreeDynamic = {
@@ -679,7 +679,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/cripple_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.5, this.Const.Perks.FastTree],
 			[0.5, this.Const.Perks.AgileTree],
 			[0.5, this.Const.Perks.SturdyTree],
@@ -701,7 +701,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/cripple_southern_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.5, this.Const.Perks.FastTree],
 			[0.5, this.Const.Perks.AgileTree],
 			[0.5, this.Const.Perks.SturdyTree],
@@ -723,7 +723,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/crucified_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[2, this.Const.Perks.ResilientTree],
 			[0.25, this.Const.Perks.ViciousTree],
 			[0, this.Const.Perks.DeviousTree],
@@ -761,7 +761,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/crusader_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[2, this.Const.Perks.ResilientTree],
 			[0.25, this.Const.Perks.ViciousTree],
 			[0, this.Const.Perks.DeviousTree],
@@ -805,7 +805,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/cultist_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[1.5, this.Const.Perks.CalmTree],
 			[1.5, this.Const.Perks.ResilientTree],
 			[1.5, this.Const.Perks.ViciousTree],
@@ -823,7 +823,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/daytaler_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.25, this.Const.Perks.TalentedTree],
 			[0.5, this.Const.Perks.TrainedTree],
 			[1.25, this.Const.Perks.OrganisedTree],
@@ -846,7 +846,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/daytaler_southern_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.25, this.Const.Perks.TalentedTree],
 			[0.5, this.Const.Perks.TrainedTree],
 			[1.25, this.Const.Perks.OrganisedTree]
@@ -869,7 +869,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/deserter_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.25, this.Const.Perks.CalmTree],
 			[0.75, this.Const.Perks.DeviousTree],
 			[0.25, this.Const.Perks.SergeantClassTree],
@@ -887,7 +887,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/disowned_noble_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.5, this.Const.Perks.CalmTree],
 			[0.5, this.Const.Perks.OrganisedTree],
 			[0.5, this.Const.Perks.SergeantClassTree],
@@ -912,7 +912,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/eunuch_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[3, this.Const.Perks.HexenTree],
 			[3, this.Const.Perks.TalentedTree]
 		];
@@ -925,7 +925,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/eunuch_southern_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[3, this.Const.Perks.HexenTree],
 			[3, this.Const.Perks.TalentedTree]
 		];
@@ -938,7 +938,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/farmhand_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.5, this.Const.Perks.TalentedTree]
 		];
 
@@ -955,7 +955,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_adventurous_noble_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.25, this.Const.Perks.ResilientTree],
 			[0.25, this.Const.Perks.LargeTree],
 			[0.25, this.Const.Perks.SturdyTree],
@@ -992,7 +992,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_beggar_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.1, this.Const.Perks.TalentedTree],
 			[0.25, this.Const.Perks.ClerkClassTree],
 			[0, this.Const.Perks.EntertainerClassTree]
@@ -1009,7 +1009,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_bowyer_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[2, this.Const.Perks.TalentedTree]
 		];
 
@@ -1036,7 +1036,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_butcher_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			];
 
 		o.m.PerkTreeDynamic = {
@@ -1047,7 +1047,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_daytaler_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.25, this.Const.Perks.TalentedTree],
 			[0.5, this.Const.Perks.TrainedTree],
 			[1.25, this.Const.Perks.OrganisedTree]
@@ -1070,7 +1070,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_disowned_noble_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[2, this.Const.Perks.NoblesTree],
 			[0.5, this.Const.Perks.CalmTree],
 			[0.5, this.Const.Perks.OrganisedTree],
@@ -1097,7 +1097,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_farmhand_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.5, this.Const.Perks.TalentedTree],
 			[0.5, this.Const.Perks.LightArmorTree]
 		];
@@ -1115,7 +1115,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_miller_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[1.5, this.Const.Perks.LargeTree],
 			[1.5, this.Const.Perks.ResilientTree],
 			[1.5, this.Const.Perks.SturdyTree],
@@ -1131,7 +1131,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_minstrel_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			];
 
 		o.m.PerkTreeDynamic = {
@@ -1145,7 +1145,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_servant_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[1.25, this.Const.Perks.TalentedTree],
 			[2, this.Const.Perks.OrganisedTree]
 		];
@@ -1158,7 +1158,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_slave_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[2, this.Const.Perks.SouthernersTree],
 			[1.5, this.Const.Perks.CalmTree],
 			[2, this.Const.Perks.FlailTree]
@@ -1172,7 +1172,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_slave_southern_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[2, this.Const.Perks.SouthernersTree],
 			[1.5, this.Const.Perks.CalmTree],
 			[2, this.Const.Perks.FlailTree]
@@ -1186,7 +1186,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_tailor_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[1.5, this.Const.Perks.TalentedTree],
 			[1.5, this.Const.Perks.OrganisedTree],
 			[3, this.Const.Perks.MenderClassTree]
@@ -1203,7 +1203,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_thief_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.5, this.Const.Perks.LargeTree],
 			[0.5, this.Const.Perks.SturdyTree],
 			[0.75, this.Const.Perks.ResilientTree],
@@ -1226,7 +1226,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/female_thief_southern_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.5, this.Const.Perks.LargeTree],
 			[0.5, this.Const.Perks.SturdyTree],
 			[0.75, this.Const.Perks.ResilientTree],
@@ -1249,7 +1249,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/fisherman_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.5, this.Const.Perks.LargeTree],
 			[0.75, this.Const.Perks.ResilientTree],
 			[0.5, this.Const.Perks.SturdyTree],
@@ -1275,7 +1275,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/fisherman_southern_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.5, this.Const.Perks.LargeTree],
 			[0.75, this.Const.Perks.ResilientTree],
 			[0.5, this.Const.Perks.SturdyTree],
@@ -1301,7 +1301,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/flagellant_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[3, this.Const.Perks.ResilientTree],
 			[3, this.Const.Perks.ViciousTree],
 			[2, this.Const.Perks.SturdyTree],
@@ -1326,7 +1326,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/gambler_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[1.5, this.Const.Perks.CalmTree],
 			[2, this.Const.Perks.ResilientTree],
 			[2, this.Const.Perks.TalentedTree],
@@ -1346,7 +1346,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/gambler_southern_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[1.5, this.Const.Perks.CalmTree],
 			[2, this.Const.Perks.ResilientTree],
 			[2, this.Const.Perks.TalentedTree]
@@ -1366,7 +1366,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/gladiator_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.1, this.Const.Perks.OrganisedTree],
 			[2, this.Const.Perks.ViciousTree],
 			[3, this.Const.Perks.HeavyArmorTree],
@@ -1396,7 +1396,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/gladiator_origin_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.1, this.Const.Perks.OrganisedTree],
 			[2, this.Const.Perks.ViciousTree],
 			[3, this.Const.Perks.HeavyArmorTree],
@@ -1427,7 +1427,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 
 
 	::mods_hookNewObject("skills/backgrounds/gravedigger_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[1.5, this.Const.Perks.SkeletonTree],
 			[1.5, this.Const.Perks.ZombieTree],
 			[1.5, this.Const.Perks.VampireTree],
@@ -1445,7 +1445,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/graverobber_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[1.5, this.Const.Perks.SkeletonTree],
 			[1.5, this.Const.Perks.ZombieTree],
 			[1.5, this.Const.Perks.VampireTree],
@@ -1458,7 +1458,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/hedge_knight_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.25, this.Const.Perks.AgileTree],
 			[0.25, this.Const.Perks.FastTree],
 			[0.1, this.Const.Perks.DeviousTree],
@@ -1501,7 +1501,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/historian_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[1.66, this.Const.Perks.OrganisedTree],
 			[0.25, this.Const.Perks.TrapperClassTree]
 		];
@@ -1521,7 +1521,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/historian_southern_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[1.66, this.Const.Perks.OrganisedTree],
 			[0.25, this.Const.Perks.TrapperClassTree]
 		];
@@ -1541,7 +1541,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/houndmaster_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[2, this.Const.Perks.AlpTree]
 		];
 
@@ -1558,7 +1558,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 			[2, ::Const.Perks.PerkDefs.PTRMarksmanship]
 		];
 
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.5, this.Const.Perks.ResilientTree],
 			[0.5, this.Const.Perks.LargeTree]
 		];
@@ -1583,7 +1583,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/juggler_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[2, this.Const.Perks.TalentedTree]
 		];
 
@@ -1604,7 +1604,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/juggler_southern_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[2, this.Const.Perks.TalentedTree]
 		];
 
@@ -1625,7 +1625,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/killer_on_the_run_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[5, this.Const.Perks.ViciousTree],
 			[2, this.Const.Perks.UnstoppableTree],
 			[0.1, this.Const.Perks.CalmTree],
@@ -1660,7 +1660,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/kings_guard_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.1, this.Const.Perks.DeviousTree],
 			[0.1, this.Const.Perks.OrganisedTree],
 			[3, this.Const.Perks.HeavyArmorTree],
@@ -1901,7 +1901,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_astrologist_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[5, this.Const.Perks.TalentedTree],
 			[1.66, this.Const.Perks.OrganisedTree],
 			[5, this.Const.Perks.StaffTree]
@@ -2310,7 +2310,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_blacksmith_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.5, this.Const.Perks.AgileTree],
 			[0.1, this.Const.Perks.DeviousTree],
 			[0.5, this.Const.Perks.FastTree],
@@ -2339,7 +2339,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_cannibal_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			];
 
 		o.m.PerkTreeDynamic = {
@@ -2359,13 +2359,13 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_conjurer_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			]
 		};
 	}); */
 
 	::mods_hookNewObject("skills/backgrounds/legend_crusader_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[2, this.Const.Perks.ResilientTree],
 			[0.25, this.Const.Perks.ViciousTree],
 			[0, this.Const.Perks.DeviousTree],
@@ -2502,19 +2502,19 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_death_summoner_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			]
 		};
 	}); */
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_diviner_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			]
 		};
 	}); */
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_donkey_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			]
 		};
 	}); */
@@ -2710,13 +2710,13 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_enchanter_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			]
 		};
 	}); */
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_entrancer_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			]
 		};
 	}); */
@@ -2916,13 +2916,13 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_healer_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			]
 		};
 	}); */
 
 	::mods_hookNewObject("skills/backgrounds/legend_herbalist_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			];
 
 		o.m.PerkTreeDynamic = {
@@ -2933,7 +2933,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_husk_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0, this.Const.Perks.TalentedTree],
 			[0, this.Const.Perks.DeviousTree],
 			[0, this.Const.Perks.CalmTree],
@@ -2969,31 +2969,31 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_horse", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			]
 		};
 	}); */
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_horserider", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			]
 		};
 	}); */
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_horse_courser", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			]
 		};
 	}); */
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_horse_destrier", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			]
 		};
 	}); */
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_horse_rouncey", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			]
 		};
 	}); */
@@ -3024,7 +3024,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	// });
 
 	::mods_hookNewObject("skills/backgrounds/legend_inventor_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			];
 
 		o.m.PerkTreeDynamic = {
@@ -3118,7 +3118,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 
 
 	::mods_hookNewObject("skills/backgrounds/legend_ironmonger_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			];
 
 		o.m.PerkTreeDynamic = {
@@ -3129,7 +3129,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_leech_peddler_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			];
 
 		o.m.PerkTreeDynamic = {
@@ -3140,7 +3140,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_lonewolf_companion_melee_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.25, this.Const.Perks.OrganisedTree],
 			[3, this.Const.Perks.HeavyArmorTree],
 			[0, this.Const.Perks.BowTree],
@@ -3175,7 +3175,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_lonewolf_companion_ranged_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.25, this.Const.Perks.OrganisedTree],
 			[0, this.Const.Perks.HeavyArmorTree]
 		];
@@ -3209,7 +3209,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_lurker_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0, this.Const.Perks.SergeantClassTree],
 			[3, this.Const.Perks.ScoutClassTree],
 			[3, this.Const.Perks.MediumArmorTree],
@@ -3246,7 +3246,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_magister_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0, this.Const.Perks.ShieldTree],
 			[0, this.Const.Perks.BowTree],
 			[0, this.Const.Perks.ThrowingTree],
@@ -3274,7 +3274,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_master_archer_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.66, this.Const.Perks.ShieldTree],
 			[3, this.Const.Perks.MediumArmorTree]
 		];
@@ -3305,7 +3305,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_man_at_arms_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.8, this.Const.Perks.CrossbowTree],
 			[0.5, this.Const.Perks.SlingTree]
 		];
@@ -3324,7 +3324,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
  // 	::mods_hookNewObject("skills/backgrounds/legend_necromancer_background", function(o) {
-	// 	o.m.PerkGroupMultipliers = [
+	// 	o.m.PerkGroupMultipliers <- [
 	// 			[3, this.Const.Perks.ViciousTree],
 	// 			[3, this.Const.Perks.CalmTree],
 	// 			[3, this.Const.Perks.TalentedTree],
@@ -3355,7 +3355,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	// });
 
 	::mods_hookNewObject("skills/backgrounds/legend_necrosavant_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.2, this.Const.Perks.OrganisedTree],
 			[3, this.Const.Perks.FastTree],
 			[3, this.Const.Perks.AgileTree],
@@ -3550,7 +3550,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
  	::mods_hookNewObject("skills/backgrounds/legend_nightwatch_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.5, this.Const.Perks.TrainedTree],
 			[2, this.Const.Perks.CalmTree],
 			[0.5, this.Const.Perks.LightArmorTree],
@@ -3566,7 +3566,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
  	::mods_hookNewObject("skills/backgrounds/legend_noble_2h", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0, this.Const.Perks.ShieldTree],
 			[0, this.Const.Perks.DeviousTree],
 			[0.1, this.Const.Perks.OrganisedTree],
@@ -3723,7 +3723,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_noble_event_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[3, this.Const.Perks.CalmTree],
 			[3, this.Const.Perks.TalentedTree],
 			[2, this.Const.Perks.TrainedTree],
@@ -3754,7 +3754,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_noble_ranged", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.1, this.Const.Perks.OrganisedTree],
 			[3, this.Const.Perks.MediumArmorTree],
 			[9, this.Const.Perks.BowTree],
@@ -3779,7 +3779,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_noble_shield", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0, this.Const.Perks.DeviousTree],
 			[0.1, this.Const.Perks.OrganisedTree],
 			[0, this.Const.Perks.BowTree],
@@ -3803,7 +3803,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_nun_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.25, this.Const.Perks.UnstoppableTree],
 			[3, this.Const.Perks.OrganisedTree],
 			[0.25, this.Const.Perks.ViciousTree],
@@ -3828,12 +3828,12 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_peddler_commander_background", function(o) {
-		o.m.PerkGroupMultipliers = [];
+		o.m.PerkGroupMultipliers <- [];
 		o.m.PerkTreeDynamic = {};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_philosopher_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[1.66, this.Const.Perks.OrganisedTree],
 			[0.25, this.Const.Perks.TrapperClassTree]
 		];
@@ -3849,7 +3849,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_premonitionist_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			]
 		};
 	}); */
@@ -3948,7 +3948,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_puppet_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 				[0.5, this.Const.Perks.CaravanTree],
 				[0.5, this.Const.Perks.NoblesTree],
 				[0.33, this.Const.Perks.ViciousTree],
@@ -4211,13 +4211,13 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_runesmith_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			]
 		};
 	}); */
 
 	::mods_hookNewObject("skills/backgrounds/legend_shieldmaiden_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.1, this.Const.Perks.OrganisedTree],
 			[0.25, this.Const.Perks.FastTree],
 			[0.25, this.Const.Perks.AgileTree],
@@ -4246,13 +4246,13 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	/* ::mods_hookNewObject("skills/backgrounds/legend_spiritualist_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			]
 		};
 	}); */
 
 	::mods_hookNewObject("skills/backgrounds/legend_taxidermist_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[5, this.Const.Perks.TrapperClassTree],
 			[2, this.Const.Perks.HoundmasterClassTree]
 		];
@@ -4451,7 +4451,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	// ::mods_hookNewObject("skills/backgrounds/legend_warlock_background", function(o) {
-	// 	o.m.PerkGroupMultipliers = [
+	// 	o.m.PerkGroupMultipliers <- [
 	// 			[0, this.Const.Perks.OrganisedTree],
 	// 			[0, this.Const.Perks.ViciousTree],
 	// 			[0, this.Const.Perks.CalmTree],
@@ -4613,7 +4613,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/lumberjack_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			];
 
 		o.m.PerkTreeDynamic = {
@@ -4715,7 +4715,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/lindwurm_slayer_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0, this.Const.Perks.DeviousTree],
 			[0, this.Const.Perks.OrganisedTree],
 			[0, this.Const.Perks.LightArmorTree],
@@ -4819,7 +4819,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/manhunter_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[3, this.Const.Perks.NomadsTree],
 			[0.5, this.Const.Perks.OrganisedTree],
 			[0.5, this.Const.Perks.HealerClassTree],
@@ -4842,7 +4842,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/mason_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[1.5, this.Const.Perks.LargeTree],
 			[1.5, this.Const.Perks.ResilientTree],
 			[1.5, this.Const.Perks.SturdyTree],
@@ -4858,7 +4858,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/messenger_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[1.5, this.Const.Perks.ResilientTree],
 			[1.5, this.Const.Perks.LargeTree],
 			[1.5, this.Const.Perks.FastTree],
@@ -4883,7 +4883,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/militia_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			];
 
 		o.m.PerkTreeDynamic = {
@@ -4897,7 +4897,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/miller_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[1.5, this.Const.Perks.LargeTree],
 			[1.5, this.Const.Perks.ResilientTree],
 			[1.5, this.Const.Perks.SturdyTree],
@@ -4913,7 +4913,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/miner_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			];
 
 		o.m.PerkTreeDynamic = {
@@ -4924,7 +4924,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/minstrel_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			];
 
 		o.m.PerkTreeDynamic = {
@@ -4938,7 +4938,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/monk_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.25, this.Const.Perks.UnstoppableTree],
 			[3, this.Const.Perks.OrganisedTree],
 			[0.25, this.Const.Perks.ViciousTree],
@@ -4959,7 +4959,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	 ::mods_hookNewObject("skills/backgrounds/monk_turned_flagellant_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[2, this.Const.Perks.OrganisedTree],
 			[3, this.Const.Perks.ResilientTree],
 			[2, this.Const.Perks.SturdyTree],
@@ -4983,7 +4983,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/nomad_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[3, this.Const.Perks.SouthernersTree],
 			[2, this.Const.Perks.ResilientTree],
 			[0.25, this.Const.Perks.OrganisedTree],
@@ -5003,7 +5003,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/nomad_ranged_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[3, this.Const.Perks.SouthernersTree],
 			[5, this.Const.Perks.ViciousTree],
 			[0.5, this.Const.Perks.ResilientTree],
@@ -5035,7 +5035,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/old_gladiator_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.1, this.Const.Perks.OrganisedTree],
 			[0, this.Const.Perks.DeviousTree],
 			[2, this.Const.Perks.TacticianClassTree],
@@ -5066,7 +5066,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/old_paladin_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0, this.Const.Perks.DeviousTree],
 			[0, this.Const.Perks.OrganisedTree],
 			[1.33, this.Const.Perks.TrainedTree],
@@ -5093,7 +5093,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/orc_slayer_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.5, this.Const.Perks.AgileTree],
 			[0.1, this.Const.Perks.DeviousTree],
 			[0.5, this.Const.Perks.CalmTree],
@@ -5129,7 +5129,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	 ::mods_hookNewObject("skills/backgrounds/pacified_flagellant_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[3, this.Const.Perks.OrganisedTree],
 			[3, this.Const.Perks.ResilientTree],
 			[2, this.Const.Perks.SturdyTree],
@@ -5148,7 +5148,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/paladin_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[1.2, this.Const.Perks.AgileTree],
 			[0, this.Const.Perks.DeviousTree],
 			[1.2, this.Const.Perks.FastTree],
@@ -5187,7 +5187,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/peddler_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			];
 
 		o.m.PerkTreeDynamic = {
@@ -5198,7 +5198,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/peddler_southern_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			];
 
 		o.m.PerkTreeDynamic = {
@@ -5209,7 +5209,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_pilgrim_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[4, this.Const.Perks.DeviousTree],
 			[0.2, this.Const.Perks.SergeantClassTree],
 			[0.2, this.Const.Perks.HealerClassTree]
@@ -5223,7 +5223,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/pimp_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			];
 
 		o.m.PerkTreeDynamic = {
@@ -5241,7 +5241,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 			[1.5, ::Const.Perks.PerkDefs.LegendBigGameHunter],
 			[1.5, ::Const.Perks.PerkDefs.PTRMarksmanship]
 		];
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.5, ::Const.Perks.AgileTree],
 			[0.5, ::Const.Perks.ResilientTree],
 			[0.5, ::Const.Perks.LargeTree]
@@ -5264,7 +5264,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/raider_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.25, this.Const.Perks.OrganisedTree],
 			[0, this.Const.Perks.BowTree],
 			[0, this.Const.Perks.CrossbowTree],
@@ -5287,7 +5287,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/ratcatcher_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[5, this.Const.Perks.FastTree],
 			[5, this.Const.Perks.AgileTree],
 			[2, this.Const.Perks.ViciousTree]
@@ -5301,7 +5301,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/refugee_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.5, this.Const.Perks.CalmTree]
 		];
 
@@ -5313,7 +5313,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/retired_soldier_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.66, this.Const.Perks.AgileTree],
 			[0.66, this.Const.Perks.FastTree],
 			[0.25, this.Const.Perks.OrganisedTree],
@@ -5342,7 +5342,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/regent_in_absentia_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.1, this.Const.Perks.OrganisedTree],
 			[0, this.Const.Perks.DeviousTree],
 			[0, this.Const.Perks.BowTree],
@@ -5367,7 +5367,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/sellsword_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[2, this.Const.Perks.MercenaryTree],
 			[0.1, this.Const.Perks.OrganisedTree],
 			[2, this.Const.Perks.HeavyArmorTree],
@@ -5393,7 +5393,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/servant_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[1.5, this.Const.Perks.TalentedTree],
 			[2, this.Const.Perks.OrganisedTree]
 		];
@@ -5408,7 +5408,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/servant_southern_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[1.5, this.Const.Perks.TalentedTree],
 			[2, this.Const.Perks.OrganisedTree]
 		];
@@ -5423,7 +5423,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/shepherd_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			];
 
 		o.m.PerkTreeDynamic = {
@@ -5438,7 +5438,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/shepherd_southern_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			];
 
 		o.m.PerkTreeDynamic = {
@@ -5453,7 +5453,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/slave_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[3, this.Const.Perks.SouthernersTree]
 		];
 
@@ -5465,7 +5465,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/slave_barbarian_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[3, this.Const.Perks.SouthernersTree],
 			[0.4, this.Const.Perks.ViciousTree],
 			[2, this.Const.Perks.CalmTree],
@@ -5483,7 +5483,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/slave_southern_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[3, this.Const.Perks.SouthernersTree]
 		];
 
@@ -5495,7 +5495,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/squire_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[3, this.Const.Perks.CalmTree],
 			[0.2, this.Const.Perks.OrganisedTree],
 			[0.25, this.Const.Perks.DeviousTree],
@@ -5532,7 +5532,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 			[-1, ::Const.Perks.PerkDefs.BFFencer]
 		];
 
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.5, this.Const.Perks.AgileTree],
 			[2, this.Const.Perks.CalmTree],
 			[3, this.Const.Perks.ViciousTree],
@@ -5570,7 +5570,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/tailor_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[1.5, this.Const.Perks.TalentedTree],
 			[1.5, this.Const.Perks.OrganisedTree]
 		];
@@ -5586,7 +5586,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/tailor_southern_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[1.5, this.Const.Perks.TalentedTree],
 			[1.5, this.Const.Perks.OrganisedTree]
 		];
@@ -5602,7 +5602,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/thief_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.5, this.Const.Perks.LargeTree],
 			[0.5, this.Const.Perks.SturdyTree],
 			[0.75, this.Const.Perks.ResilientTree],
@@ -5625,7 +5625,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/thief_southern_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.5, this.Const.Perks.LargeTree],
 			[0.5, this.Const.Perks.SturdyTree],
 			[0.75, this.Const.Perks.ResilientTree],
@@ -5648,7 +5648,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/vagabond_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[0.5, this.Const.Perks.LargeTree],
 			[2, this.Const.Perks.UnstoppableTree]
 		];
@@ -5667,7 +5667,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/wildman_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[2, this.Const.Perks.ResilientTree],
 			[2, this.Const.Perks.ViciousTree],
 			[0.4, this.Const.Perks.DeviousTree],
@@ -5697,7 +5697,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/wildwoman_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[2, this.Const.Perks.ResilientTree],
 			[2, this.Const.Perks.ViciousTree],
 			[0.4, this.Const.Perks.DeviousTree],
@@ -5727,7 +5727,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/witchhunter_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[3, this.Const.Perks.CalmTree],
 			[2, this.Const.Perks.AgileTree],
 			[3, this.Const.Perks.ViciousTree],
@@ -5754,7 +5754,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_alchemist_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			];
 
 		o.m.PerkTreeDynamic = {
@@ -5768,7 +5768,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_dervish_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[3, this.Const.Perks.BarbarianTree],
 			[2, this.Const.Perks.ViciousTree],
 			[2, this.Const.Perks.UnstoppableTree],
@@ -5797,7 +5797,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_muladi_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[2, this.Const.Perks.ResilientTree]
 		];
 
@@ -5823,7 +5823,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_qiyan_background", function(o) {
-		o.m.PerkGroupMultipliers = [
+		o.m.PerkGroupMultipliers <- [
 			[3, this.Const.Perks.ViciousTree],
 			[2, this.Const.Perks.AgileTree],
 			[2, this.Const.Perks.FastTree],
