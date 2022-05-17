@@ -3,7 +3,7 @@ local modID = "mod_duelistDefense";
 
 local gt = this.getroottable();
 
-::mods_queue(modID, "mod_MSU, >mod_legends, >mod_fencerPerk", function()
+::mods_queue(modID, "mod_msu, >mod_legends, >mod_fencerPerk", function()
 {	
 	::mods_hookChildren("ai/tactical/agent", function(o) {
 		

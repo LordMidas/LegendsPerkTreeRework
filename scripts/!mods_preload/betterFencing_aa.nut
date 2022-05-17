@@ -5,7 +5,7 @@ local modID = "mod_betterFencing";
 
 gt.ModBetterFencing <- {};
 
-::mods_queue(modID, "mod_MSU, >mod_legends", function () {
+::mods_queue(modID, "mod_msu, >mod_legends", function () {
 	// gt.Const.AI.VerboseMode = true;
 
 	this.Const.Items.addNewWeaponType("BFFencing", "Fencing");

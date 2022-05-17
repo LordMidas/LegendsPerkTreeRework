@@ -3,7 +3,7 @@ local gt = this.getroottable();
 local modID = "mod_legends_STR";
 ::mods_registerMod(modID, 1.0, "Shield Tree Rework 1.0.0");
 
-::mods_queue(modID, "mod_legends, mod_MSU", function()
+::mods_queue(modID, "mod_legends, mod_msu", function()
 {
 	gt.Const.Strings.PerkName.STRPhalanx <- "Phalanx";
 	gt.Const.Strings.PerkDescription.STRPhalanx <- "[color=" + this.Const.UI.Color.NegativeValue + "]Requires: Shield[/color]\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• When engaged in melee and equipped with a shield, gain [color=" + this.Const.UI.Color.PositiveValue + "]+5[/color] Melee Defense per adjacent ally holding a shield who is also engaged in melee.\n• When holding a shield and spear, additionally gain [color=" + this.Const.UI.Color.PositiveValue + "]+5[/color] Melee Skill per adjacent ally holding a shield who is also engaged in melee.\n\n[color=#0b0084]From the Shield perk group[/color]";

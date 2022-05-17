@@ -5,7 +5,7 @@ local gt = this.getroottable();
 
 gt.Const.WMS <- {};
 
-::mods_queue(modID, "mod_MSU, >mod_legends", function() {
+::mods_queue(modID, "mod_msu, >mod_legends", function() {
 	gt.Const.WMS.Mastery <- {
 		Axe = "Axe",
 		Bow = "Bow",
