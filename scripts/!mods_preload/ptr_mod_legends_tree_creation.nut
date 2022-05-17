@@ -90,6 +90,7 @@ gt.PTR.modLegendsPerkTreeCreationSystem <- function()
 	gt.Const.Perks.GetDynamicPerkTree = function ( _mins, _map, _player )
 	{
 		if (!("PerkGroupMultipliers" in _player.getBackground()))
+		if (!("PerkGroupMultipliers" in _player.getBackground().m))
 		{
 			local PTRMap = {};
 			_player.getBackground().m.PerkGroupMultipliers <- [];
@@ -129,7 +130,7 @@ gt.PTR.modLegendsPerkTreeCreationSystem <- function()
 		{
 			foreach (treeContainer in treeContainersInCategory)
 			{
-				if (typeof treeContainer != "table" || typeof treeContainer != "instance" || !(treeContainer instanceof ::MSU.Class.WeightedContainer))
+				if (typeof treeContainer != "table" && (typeof treeContainer != "instance" || !(treeContainer instanceof ::MSU.Class.WeightedContainer)))
 				{
 					this.logError("GetDynamicPerkTree: Background " + _player.getBackground().getID() + " has wrongly formatted dynamic perk tree -- Category: " + categoryName);
 				}
@@ -161,7 +162,7 @@ gt.PTR.modLegendsPerkTreeCreationSystem <- function()
 				{
 					if ("PerkGroupMultipliers" in tree)
 					{	
-						_treeContainer = applyMultipliers(tree.PerkGroupMultipliers, _treeContainer);
+						applyMultipliers(tree.PerkGroupMultipliers, _treeContainer);
 					}
 				}
 			}
@@ -187,7 +188,7 @@ gt.PTR.modLegendsPerkTreeCreationSystem <- function()
 
 			if (trees.len() > 0)
 			{
-				applyMultipliers([[-1, ::Math.randArray(trees)]], _treeContainer);
+				applyMultipliers([[-1, ::MSU.Array.rand(trees)]], _treeContainer);
 			}
 		}
 
@@ -288,7 +289,7 @@ gt.PTR.modLegendsPerkTreeCreationSystem <- function()
 						applyMultipliersBasedOnTalents(treeContainer);
 						applyMultipliersBasedOnEquipment(treeContainer);
 
-						local tree = treeContainer.roll();
+						tree = treeContainer.roll();
 
 						if (tree == ::Const.Perks.RandomTree)
 						{
