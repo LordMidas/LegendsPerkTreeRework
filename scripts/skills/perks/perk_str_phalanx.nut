@@ -64,16 +64,19 @@ this.perk_str_phalanx <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		local adjacentAllies = actor.getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.Allied);
-
-		foreach (ally in adjacentAllies)
+		if (::Tactical.isActive())
 		{
-			if (!ally.isArmedWithShield() || !ally.isEngagedInMelee())
-			{
-				continue;
-			}
+			local adjacentAllies = ::Tactical.Entities.getAlliedActors(actor.getFaction(), actor.getTile(), 1);
 
-			this.m.Count += 1;
+			foreach (ally in adjacentAllies)
+			{
+				if (!ally.isArmedWithShield() || !ally.isEngagedInMelee())
+				{
+					continue;
+				}
+
+				this.m.Count += 1;
+			}
 		}
 
 		local bonus = this.getBonus();

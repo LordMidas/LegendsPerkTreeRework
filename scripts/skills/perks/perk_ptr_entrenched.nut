@@ -77,8 +77,8 @@ this.perk_ptr_entrenched <- this.inherit("scripts/skills/skill", {
 		{
 			return false;
 		}
-
-		local adjacentAllies = this.getContainer().getActor().getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.SameFaction);
+		local actor = this.getContainer().getActor();
+		local adjacentAllies = ::Tactical.Entities.getFactionActors(actor.getFaction(), actor.getTile(), 1);
 		foreach (ally in adjacentAllies)
 		{
 			if (!ally.isEngagedInMelee() && ally.hasZoneOfControl())

@@ -240,7 +240,7 @@ this.ai_ptr_arrow_to_the_knee <- this.inherit("scripts/ai/tactical/behavior", {
 					score = score * this.Const.AI.Behavior.DistractPriorityMult;
 					if (targetWeapon.getRangeMax() > 1)
 					{
-						if (target.getActorsWithinDistanceAsArray(2, this.Const.FactionRelation.Enemy).len() > 0)
+						if (::Tactical.Entities.getHostileActors(target.getFaction(), target.getTile(), 2).len() > 0)
 						{
 							continue;
 						}

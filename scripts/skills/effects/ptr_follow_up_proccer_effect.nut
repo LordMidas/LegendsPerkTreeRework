@@ -41,7 +41,7 @@ this.ptr_follow_up_proccer_effect <- this.inherit("scripts/skills/skill", {
 
 		this.m.SkillCount = this.Const.SkillCounter;
 
-		local allies = _targetEntity.getActorsWithinDistanceAsArray(2, this.Const.FactionRelation.Enemy);
+		local allies = ::Tactical.Entities.getHostileActors(_targetEntity.getFaction(), _targetEntity.getTile(), 2);
 		foreach (ally in allies)
 		{
 			if (ally.getID() == actor.getID() || !ally.isAlliedWith(actor))

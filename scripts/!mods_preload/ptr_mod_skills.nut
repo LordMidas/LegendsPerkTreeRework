@@ -94,7 +94,9 @@ gt.PTR.modSkills <- function()
 	::mods_hookExactClass("skills/actives/legend_fortify_skill", function(o) {
 		o.onAfterUpdate <- function( _properties )
 		{
-			local adjacentAllies = this.getContainer().getActor().getActorsWithinDistanceAsArray(2, this.Const.FactionRelation.SameFaction);
+			if (!::Tactical.isActive()) return;
+			local actor = this.getContainer().getActor();
+			local adjacentAllies = ::Tactical.Entities.getFactionActors(actor.getFaction(), actor.getTile(), 2)
 			foreach (ally in adjacentAllies)
 			{
 				if (ally.getSkills().hasSkill("perk.legend_shields_up"))
@@ -110,7 +112,9 @@ gt.PTR.modSkills <- function()
 	::mods_hookExactClass("skills/actives/shieldwall", function(o) {
 		o.onAfterUpdate <- function( _properties )
 		{
-			local adjacentAllies = this.getContainer().getActor().getActorsWithinDistanceAsArray(2, this.Const.FactionRelation.SameFaction);
+			if (!::Tactical.isActive()) return;
+			local actor = this.getContainer().getActor();
+			local adjacentAllies = ::Tactical.Entities.getFactionActors(actor.getFaction(), actor.getTile(), 2)
 			foreach (ally in adjacentAllies)
 			{
 				if (ally.getSkills().hasSkill("perk.legend_shields_up"))
@@ -131,7 +135,7 @@ gt.PTR.modSkills <- function()
 			}
 
 			local hasPerk = this.getContainer().hasSkill("perk.legend_shields_up");
-			local adjacentAllies = this.getContainer().getActor().getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.SameFaction);
+			local adjacentAllies = ::Tactical.Entities.getFactionActors(actor.getFaction(), actor.getTile(), 1)
 			foreach (ally in adjacentAllies)
 			{
 				if (this.Math.abs(ally.getTile().Level - actor.getTile().Level) <= 1 && ally.getSkills().hasSkill("actives.shieldwall") && (hasPerk || ally.getSkills().hasSkill("perk.legend_shields_up")))
@@ -153,7 +157,7 @@ gt.PTR.modSkills <- function()
 			}
 			
 			local hasPerk = this.getContainer().hasSkill("perk.legend_shields_up");
-			local adjacentAllies = this.getContainer().getActor().getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.SameFaction);
+			local adjacentAllies = ::Tactical.Entities.getFactionActors(actor.getFaction(), actor.getTile(), 2)
 			foreach (ally in adjacentAllies)
 			{
 				if (this.Math.abs(ally.getTile().Level - actor.getTile().Level) <= 1 && ally.getSkills().hasSkill("actives.shieldwall") && (hasPerk || ally.getSkills().hasSkill("perk.legend_shields_up")))

@@ -142,7 +142,8 @@ this.ptr_formidable_approach_debuff_effect <- this.inherit("scripts/skills/skill
 	{
 		this.pruneEnemies();
 		
-		local adjacentEnemies = this.getContainer().getActor().getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.Enemy);
+		local actor = this.getContainer().getActor();
+		local adjacentEnemies = ::Tactical.Entities.getHostileActors(actor.getFaction(), actor.getTile(), 1);
 		foreach (enemy in adjacentEnemies)
 		{
 			if (!enemy.hasZoneOfControl() || this.hasEnemy(enemy.getID()))

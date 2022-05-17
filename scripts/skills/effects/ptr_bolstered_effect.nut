@@ -61,21 +61,24 @@ this.ptr_bolstered_effect <- this.inherit("scripts/skills/skill", {
 		}
 
 		local allyMeleeSkill = 0;
-		local adjacentAllies = actor.getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.SameFaction);
-
-		foreach (ally in adjacentAllies)
+		if (::Tactical.isActive())
 		{
-			if (!ally.hasZoneOfControl())
+			local adjacentAllies = ::Tactical.Entities.getFactionActors(actor.getFaction(), actor.getTile(), 1);
+			foreach (ally in adjacentAllies)
 			{
-				continue;
-			}
+				if (!ally.hasZoneOfControl())
+				{
+					continue;
+				}
 
-			local allyPerk = ally.getSkills().getSkillByID("perk.ptr_bolster");
-			if (allyPerk != null && allyPerk.isInEffect())
-			{
-				allyMeleeSkill = this.Math.max(allyMeleeSkill, ally.getCurrentProperties().getMeleeSkill());
+				local allyPerk = ally.getSkills().getSkillByID("perk.ptr_bolster");
+				if (allyPerk != null && allyPerk.isInEffect())
+				{
+					allyMeleeSkill = this.Math.max(allyMeleeSkill, ally.getCurrentProperties().getMeleeSkill());
+				}
 			}
 		}
+
 		if (allyMeleeSkill > 0)
 		{
 			this.m.Bonus = this.Math.floor(allyMeleeSkill * this.m.AllyMeleeSkillFactor);

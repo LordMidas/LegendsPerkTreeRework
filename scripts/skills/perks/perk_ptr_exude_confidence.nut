@@ -21,7 +21,7 @@ this.perk_ptr_exude_confidence <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		local allies = actor.getActorsWithinDistanceAsArray(1, this.Const.FactionRelation.Allied);
+		local allies = ::Tactical.Entities.getAlliedActors(actor.getFaction(), actor.getTile(), 1);
 		foreach (ally in allies)
 		{
 			if (ally.getMoraleState() < actor.getMoraleState())
