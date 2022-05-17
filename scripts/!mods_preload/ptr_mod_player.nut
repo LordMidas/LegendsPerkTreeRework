@@ -21,10 +21,10 @@ gt.PTR.modPlayer <- function()
 
 			local background = this.new("scripts/skills/backgrounds/" + _backgrounds[this.Math.rand(0, _backgrounds.len() - 1)]);
 
-			if (this.LegendsMod.Configs().LegendGenderLevel() == 2)
-			{
-				background.setGender(_gender);
-			}
+			if (::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() == "All")
+            {
+                background.setGender(_gender);
+            }
 			this.m.Skills.add(background);
 
 			/*Skill onAdded sets these values
