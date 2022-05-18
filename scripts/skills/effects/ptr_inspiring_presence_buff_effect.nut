@@ -58,7 +58,7 @@ this.ptr_inspiring_presence_buff_effect <- this.inherit("scripts/skills/skill", 
 	{
 		local actorHasAdjacentEnemy = function( _actor )
 		{
-			local adjacentEnemies = ::Tactical.Entities.getHostilesActors(actor.getFaction(), actor.getTile(), 1);
+			local adjacentEnemies = ::Tactical.Entities.getHostileActors(actor.getFaction(), actor.getTile(), 1);
 			return adjacentEnemies.len() > 0;
 		}
 
