@@ -5400,9 +5400,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 
 		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-					::Const.Perks.ServiceProfessionTree
-				]
+				::Const.Perks.ServiceProfessionTree
 			]
 		};
 	});
@@ -5415,9 +5413,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 
 		o.m.PerkTreeDynamic = {
 			Profession = [
-				[
-					::Const.Perks.ServiceProfessionTree
-				]
+				::Const.Perks.ServiceProfessionTree
 			]
 		};
 	});
