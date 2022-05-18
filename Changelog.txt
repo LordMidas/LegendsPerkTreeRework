@@ -2,6 +2,7 @@
 ==== Ver 2.0.2 =====
 ====================
 - Moved From All Sides from Flail t3 to t1 and Small Target from t1 to t3.
+- Fixed bugs during battle caused by Exploit Opening and Cover Ally.
 
 ====================
 ==== Ver 2.0.1 =====
