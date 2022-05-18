@@ -28,7 +28,7 @@ this.perk_ptr_bear_down <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		local count = _targetEntity.getSkills().getSkillsByFunction(@(_skill) this.m.Effects.find(_skill.getID()) != null).len();
+		local count = _targetEntity.getSkills().getSkillsByFunction((@(_skill) this.m.Effects.find(_skill.getID()) != null).bindenv(this)).len();
 		
 		_properties.DamageTotalMult *= 1.0 + (count * this.m.BonusPerNegativeStatusEffect);
 	}
