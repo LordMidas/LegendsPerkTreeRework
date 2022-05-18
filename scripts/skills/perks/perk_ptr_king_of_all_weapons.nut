@@ -74,7 +74,7 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		local skills = this.getContainer().getSkillsByFunction((@(_skill) this.m.Skills.find(_skill.getID()).bindenv(this)) != null);
+		local skills = this.getContainer().getSkillsByFunction((@(_skill) this.m.Skills.find(_skill.getID()) != null).bindenv(this));
 
 		if (skills.len() == 0)
 		{
