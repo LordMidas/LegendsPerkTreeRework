@@ -37,7 +37,7 @@ this.ai_legend_push_forward <- this.inherit("scripts/ai/tactical/behavior", {
 		score = score * this.getFatigueScoreMult(this.m.Skill);
 		local myTile = _entity.getTile();
 		local allies = this.Tactical.Entities.getInstancesOfFaction(_entity.getFaction());		
-		local enemies = this.Tactical.Entities.getInstancesHostileWithFaction(_entity.getFaction());		
+		local enemies = this.Tactical.Entities.getHostileActors(_entity.getFaction());
 		local useScore = 0.0;
 		local numTargets = 0;
 

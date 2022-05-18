@@ -38,7 +38,7 @@ this.ai_ptr_blitzkrieg <- this.inherit("scripts/ai/tactical/behavior", {
 			return this.Const.AI.Behavior.Score.Zero;
 		}
 		
-		local enemies = this.Tactical.Entities.getInstancesHostileWithFaction(_entity.getFaction());
+		local enemies = this.Tactical.Entities.getHostileActors(_entity.getFaction());
 		foreach (enemy in enemies)
 		{
 			local blitzkrieg = enemy.getSkills().getSkillByID("actives.ptr_blitzkrieg");

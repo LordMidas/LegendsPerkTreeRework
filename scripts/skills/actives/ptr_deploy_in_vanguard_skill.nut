@@ -115,7 +115,7 @@ this.ptr_deploy_in_vanguard_skill <- this.inherit("scripts/skills/skill", {
 
 		if (_targetTile.IsEmpty)
 		{
-			local enemies = this.Tactical.Entities.getInstancesHostileWithFaction(this.getContainer().getActor().getFaction());
+			local enemies = this.Tactical.Entities.getHostileActors(this.getContainer().getActor().getFaction());
 			foreach (enemy in enemies)
 			{
 				if (_targetTile.getDistanceTo(enemy.getTile()) <= 2)
