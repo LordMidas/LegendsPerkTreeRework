@@ -2,6 +2,7 @@
 ==== Ver 2.0.3 =====
 ====================
 - Fixed Servant and Southern Servant Backgrounds recursive error.
+- fix: Defined _fatalityType where missing in onDeath functions causing crashes.
 
 ====================
 ==== Ver 2.0.2 =====
