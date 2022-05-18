@@ -53,7 +53,7 @@ this.ai_ptr_arrow_to_the_knee <- this.inherit("scripts/ai/tactical/behavior", {
 		{
 			if (this.Const.AI.VerboseMode)
 			{
-				::PTR.Debug.printLog("Checking pre-existing arrow to the knee buff and setting its parameters to null");
+				::PTR.Mod.Debug.printLog("Checking pre-existing arrow to the knee buff and setting its parameters to null");
 			}
 			e.m.AIForcedTarget = null;
 			e.m.AIForcedSkill = null;
@@ -87,7 +87,7 @@ this.ai_ptr_arrow_to_the_knee <- this.inherit("scripts/ai/tactical/behavior", {
 
 		if (this.Const.AI.VerboseMode)
 		{
-			::PTR.Debug.printLog("Chosen best target for arrow to the knee: " + this.m.Target.getName());
+			::PTR.Mod.Debug.printLog("Chosen best target for arrow to the knee: " + this.m.Target.getName());
 		}
 
 		if (this.m.Target.getCurrentProperties().getMeleeSkill() < 80)
@@ -142,7 +142,7 @@ this.ai_ptr_arrow_to_the_knee <- this.inherit("scripts/ai/tactical/behavior", {
 
 		if (this.Const.AI.VerboseMode)
 		{
-			::PTR.Debug.printLog("Chosen attack skill for arrow to the knee: " + this.m.AttackSkill.getID());
+			::PTR.Mod.Debug.printLog("Chosen attack skill for arrow to the knee: " + this.m.AttackSkill.getID());
 		}
 
 		local apRequiredForAttack = this.m.AttackSkill != null ? this.m.AttackSkill.getActionPointCost() : 4;
