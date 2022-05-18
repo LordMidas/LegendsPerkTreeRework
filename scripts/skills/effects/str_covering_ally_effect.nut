@@ -108,7 +108,7 @@ this.str_covering_ally_effect <- this.inherit("scripts/skills/skill", {
 		_properties.RangedSkillMult *= 1.0 - skillMalus;
 	}
 
-	function onDeath()
+	function onDeath( _fatalityType )
 	{
 		this.onRemoved();
 	}
