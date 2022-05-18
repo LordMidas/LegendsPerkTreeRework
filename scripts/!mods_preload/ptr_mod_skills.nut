@@ -421,7 +421,7 @@ gt.PTR.modSkills <- function()
 			this.m.Stacks++;
 		}
 
-		o.onAnySkillExecuted <- function( _skill, _targetTile, _targetEntity )
+		o.onAnySkillExecuted <- function( _skill, _targetTile, _targetEntity, _forFree )
 		{
 			if (_skill.isAttack())
 			{
@@ -1913,7 +1913,7 @@ gt.PTR.modSkills <- function()
 			this.getContainer().add(this.new("scripts/skills/effects/ptr_exhausted_effect"));
 		}
 
-		o.onAnySkillExecuted <- function(_skill, _targetTile, _targetEntity)
+		o.onAnySkillExecuted <- function(_skill, _targetTile, _targetEntity, _forFree)
 		{
 			if (this.Tactical.TurnSequenceBar.getActiveEntity() != null && this.Tactical.TurnSequenceBar.getActiveEntity().getID() == this.getContainer().getActor().getID())
 			{

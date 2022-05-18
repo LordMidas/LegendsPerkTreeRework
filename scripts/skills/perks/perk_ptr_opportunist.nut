@@ -111,7 +111,7 @@ this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 		this.m.IsPrimed = false;
 	}
 
-	function onAnySkillExecuted ( _skill, _targetTile, _targetEntity )
+	function onAnySkillExecuted ( _skill, _targetTile, _targetEntity, _forFree )
 	{
 		this.m.IsPrimed = false;
 	}
