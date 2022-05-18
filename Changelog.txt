@@ -2,6 +2,8 @@
 ==== Ver 2.0.0 ====
 ====================
 == NEW ==
+- Legends v16 or later Required
+- Now requires Modding Standards and Utilities (MSU) https://www.nexusmods.com/battlebrothers/mods/479
 - Added PTR perk trees to Anatomist, Lindwurm Slayer, Oathtaker, Old Oathtaker and Regent in Absentia backgrounds.
 - Added custom perk tree to new Lone Wolf background. Rolls 4 random trees from applicable melee weapons. Has earlier access to Soldier and Trained perks than standard backgrounds. Guaranteed Personal Armor perk.
 - Added PTR perk trees to Lonewolf Companion Melee and Ranged backgrounds.
@@ -15,6 +17,10 @@
 - Druid and Druid Commander reworked. Lost Sword tree, Sickle Specializations and One Handed Style tree. Gained Staff and Two Handed Style tree. Gained Nightvision perk. Druid is meant to be a utility character. Staff tree fulfills this role much better than sword tree, especially considering some Druid spells are enhanced by Staff Mastery.
 - Ranger and Ranger Commander have had Nightvision removed from perk list.
 - Scaling Beggar given Greenskins favored enemy tree as intended.
+
+== BACKEND ==
+- MSU code was removed as it is now an independent mod.
+- Medium Armor Rework (MAR) code removed as it has been fully incorporated into Legends v16.
 
 ====================
 ==== Ver 1.6.20 ====
