@@ -1,4 +1,9 @@
 ====================
+==== Ver 2.0.4 =====
+====================
+- Bugfixes
+
+====================
 ==== Ver 2.0.3 =====
 ====================
 - Fixed Servant and Southern Servant Backgrounds recursive error.
