@@ -81,7 +81,7 @@ this.perk_ptr_bone_breaker <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		if (_targetEntity.getSkills().getSkillsByFunction(@(_skill) this.m.ValidEffects.find(_skill.getID()) != null).len() > 0)
+		if (_targetEntity.getSkills().getSkillsByFunction((@(_skill) this.m.ValidEffects.find(_skill.getID()) != null).bindenv(this)).len() > 0)
 		{
 			local weapon = this.getContainer().getActor().getMainhandItem();
 			if ((weapon != null && weapon.isItemType(this.Const.Items.ItemType.TwoHanded)) || this.m.IsForceTwoHanded || this.Math.rand(1,100) <= this.m.ChanceOneHanded)
