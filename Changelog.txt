@@ -1,7 +1,10 @@
 ====================
 ==== Ver 2.0.4 =====
 ====================
-- Bugfixes
+- PTR now sets the ExpandedSkillTooltips setting of MSU to Enabled and locks it.
+- Fixed bugs in Vigorous Assault, Perfect Focus, Vengeance, Exploit Opening.
+- Fixed Sword perks mentioning a bit too many times that they belong to the Two-Handed Sword perk group as well.
+- Fixed a crash when someone died with a shield equipped.
 
 ====================
 ==== Ver 2.0.3 =====
