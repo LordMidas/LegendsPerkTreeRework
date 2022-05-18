@@ -23,7 +23,7 @@ this.perk_ptr_pointy_end <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		if (!_skill.isRanged() && (this.m.IsForceEnabled || _skill.hasDamageType(this.Const.Damage.DamageType.Piercing)))
+		if (!_skill.isRanged() && (this.m.IsForceEnabled || _skill.getDamageType().contains(this.Const.Damage.DamageType.Piercing)))
 		{
 			_properties.MeleeSkill += this.m.MeleeSkillBonus;
 		}
@@ -32,7 +32,7 @@ this.perk_ptr_pointy_end <- this.inherit("scripts/skills/skill", {
 	function onGetHitFactors( _skill, _targetTile, _tooltip )
 	{
 		local targetEntity = _targetTile.getEntity();
-		if (targetEntity != null && !targetEntity.isArmedWithShield() && _skill.isAttack() && !_skill.isRanged() && (this.m.IsForceEnabled || _skill.hasDamageType(this.Const.Damage.DamageType.Piercing)))
+		if (targetEntity != null && !targetEntity.isArmedWithShield() && _skill.isAttack() && !_skill.isRanged() && (this.m.IsForceEnabled || _skill.getDamageType().contains(this.Const.Damage.DamageType.Piercing)))
 		{
 			_tooltip.push({
 				icon = "ui/tooltips/positive.png",

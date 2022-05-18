@@ -18,7 +18,7 @@ this.perk_ptr_internal_hemorrhage <- this.inherit("scripts/skills/skill", {
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		if (!_targetEntity.isAlive() || _targetEntity.isDying() || !_skill.isAttack() || (!_skill.hasDamageType(this.Const.Damage.DamageType.Blunt) && !this.m.IsForceEnabled))
+		if (!_targetEntity.isAlive() || _targetEntity.isDying() || !_skill.isAttack() || (!_skill.getDamageType().contains(this.Const.Damage.DamageType.Blunt) && !this.m.IsForceEnabled))
 		{
 			return;
 		}
@@ -44,7 +44,7 @@ this.perk_ptr_internal_hemorrhage <- this.inherit("scripts/skills/skill", {
 
 	function onQueryTooltip( _skill, _tooltip )
 	{
-		if (_skill.isAttack() && (_skill.hasDamageType(this.Const.Damage.DamageType.Blunt) || this.m.IsForceEnabled))
+		if (_skill.isAttack() && (_skill.getDamageType().contains(this.Const.Damage.DamageType.Blunt) || this.m.IsForceEnabled))
 		{
 			_tooltip.push({
 				id = 10,

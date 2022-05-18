@@ -23,7 +23,7 @@ this.perk_ptr_dismemberment <- this.inherit("scripts/skills/skill", {
 
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
-		if (_skill.isAttack() && (_skill.hasDamageType(this.Const.Damage.DamageType.Cutting) || this.m.IsForceEnabled) && this.isEnabled())
+		if (_skill.isAttack() && (_skill.getDamageType().contains(this.Const.Damage.DamageType.Cutting) || this.m.IsForceEnabled) && this.isEnabled())
 		{
 			_properties.ThresholdToInflictInjuryMult *= 1.0 - (this.m.PercentageOfMaximumDamage * 0.01 * _properties.getDamageRegularMax() * 0.01);
 		}

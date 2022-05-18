@@ -97,7 +97,7 @@ this.perk_ptr_a_better_grip <- this.inherit("scripts/skills/skill", {
 			}	
 		}
 		
-		if (_skill.hasDamageType(this.Const.Damage.DamageType.Piercing))
+		if (_skill.getDamageType().contains(this.Const.Damage.DamageType.Piercing))
 		{
 			local weapon = this.getContainer().getActor().getMainhandItem();
 			if (weapon.isItemType(this.Const.Items.ItemType.TwoHanded))

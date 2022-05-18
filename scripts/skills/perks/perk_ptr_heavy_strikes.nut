@@ -39,7 +39,7 @@ this.perk_ptr_heavy_strikes <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		if (this.isEnabled() && (this.m.IsForceEnabled || _skill.hasDamageType(this.Const.Damage.DamageType.Blunt)))
+		if (this.isEnabled() && (this.m.IsForceEnabled || _skill.getDamageType().contains(this.Const.Damage.DamageType.Blunt)))
 		{
 			_targetEntity.getSkills().add(this.new("scripts/skills/effects/legend_baffled_effect"));
 		}

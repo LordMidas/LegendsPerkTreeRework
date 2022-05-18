@@ -66,7 +66,7 @@ this.perk_ptr_deep_cuts <- this.inherit("scripts/skills/skill", {
 
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
-		if (_targetEntity != null && this.m.TargetID == _targetEntity.getID() && _skill.isAttack() && _skill.hasDamageType(this.Const.Damage.DamageType.Cutting) && this.Tactical.TurnSequenceBar.isActiveEntity(this.getContainer().getActor()))
+		if (_targetEntity != null && this.m.TargetID == _targetEntity.getID() && _skill.isAttack() && _skill.getDamageType().contains(this.Const.Damage.DamageType.Cutting) && this.Tactical.TurnSequenceBar.isActiveEntity(this.getContainer().getActor()))
 		{
 			_properties.ThresholdToInflictInjuryMult *= 1.0 - this.m.InjuryThresholdReduction * 0.01;
 		}
@@ -74,7 +74,7 @@ this.perk_ptr_deep_cuts <- this.inherit("scripts/skills/skill", {
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		if (!_targetEntity.isAlive() || _targetEntity.isDying() || !_skill.isAttack() || !_skill.hasDamageType(this.Const.Damage.DamageType.Cutting) || _targetEntity.getCurrentProperties().IsImmuneToBleeding || !this.Tactical.TurnSequenceBar.isActiveEntity(this.getContainer().getActor()))
+		if (!_targetEntity.isAlive() || _targetEntity.isDying() || !_skill.isAttack() || !_skill.getDamageType().contains(this.Const.Damage.DamageType.Cutting) || _targetEntity.getCurrentProperties().IsImmuneToBleeding || !this.Tactical.TurnSequenceBar.isActiveEntity(this.getContainer().getActor()))
 		{
 			this.m.TargetID = 0;
 			this.m.IsInjuryInflicted = false;

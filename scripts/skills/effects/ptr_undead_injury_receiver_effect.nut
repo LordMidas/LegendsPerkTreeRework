@@ -22,7 +22,7 @@ this.ptr_undead_injury_receiver_effect <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		if (_skill.hasDamageType(this.Const.Damage.DamageType.Cutting))
+		if (_skill.getDamageType().contains(this.Const.Damage.DamageType.Cutting))
 		{
 			local dismemberment = _attacker.getSkills().getSkillByID("perk.ptr_dismemberment");
 			if (dismemberment != null && dismemberment.isEnabled())
@@ -32,7 +32,7 @@ this.ptr_undead_injury_receiver_effect <- this.inherit("scripts/skills/skill", {
 			}
 		}
 
-		if (_skill.hasDamageType(this.Const.Damage.DamageType.Blunt))
+		if (_skill.getDamageType().contains(this.Const.Damage.DamageType.Blunt))
 		{
 			local deepImpact = _attacker.getSkills().getSkillByID("perk.ptr_deep_impact");
 			if (deepImpact != null && deepImpact.isEnabled())
