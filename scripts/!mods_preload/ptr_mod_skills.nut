@@ -96,14 +96,17 @@ gt.PTR.modSkills <- function()
 		{
 			if (!::Tactical.isActive()) return;
 			local actor = this.getContainer().getActor();
-			local adjacentAllies = ::Tactical.Entities.getFactionActors(actor.getFaction(), actor.getTile(), 2)
-			foreach (ally in adjacentAllies)
+			if (actor.isPlacedOnMap())
 			{
-				if (ally.getSkills().hasSkill("perk.legend_shields_up"))
+				local adjacentAllies = ::Tactical.Entities.getFactionActors(actor.getFaction(), actor.getTile(), 2)
+				foreach (ally in adjacentAllies)
 				{
-					this.m.ActionPointCost = this.Math.max(this.m.ActionPointCost * 0.5, 2);
-					this.m.FatigueCostMult *= 0.5;
-					return;
+					if (ally.getSkills().hasSkill("perk.legend_shields_up"))
+					{
+						this.m.ActionPointCost = this.Math.max(this.m.ActionPointCost * 0.5, 2);
+						this.m.FatigueCostMult *= 0.5;
+						return;
+					}
 				}
 			}
 		}
@@ -114,14 +117,17 @@ gt.PTR.modSkills <- function()
 		{
 			if (!::Tactical.isActive()) return;
 			local actor = this.getContainer().getActor();
-			local adjacentAllies = ::Tactical.Entities.getFactionActors(actor.getFaction(), actor.getTile(), 2)
-			foreach (ally in adjacentAllies)
+			if (actor.isPlacedOnMap())
 			{
-				if (ally.getSkills().hasSkill("perk.legend_shields_up"))
+				local adjacentAllies = ::Tactical.Entities.getFactionActors(actor.getFaction(), actor.getTile(), 2)
+				foreach (ally in adjacentAllies)
 				{
-					this.m.ActionPointCost = this.Math.max(this.m.ActionPointCost * 0.5, 2);
-					this.m.FatigueCostMult *= 0.5;
-					return;
+					if (ally.getSkills().hasSkill("perk.legend_shields_up"))
+					{
+						this.m.ActionPointCost = this.Math.max(this.m.ActionPointCost * 0.5, 2);
+						this.m.FatigueCostMult *= 0.5;
+						return;
+					}
 				}
 			}
 		}
