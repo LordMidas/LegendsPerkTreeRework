@@ -14,6 +14,9 @@ gt.PTR.ModID <- "mod_legends_PTR";
 ::mods_queue(gt.PTR.ModID, "mod_legends, mod_msu, mod_betterFencing, mod_WMS, mod_legends_STR, mod_duelistDefense, <mod_clever_recruiter", function()
 {	
 	::PTR.Mod <- ::MSU.Class.Mod(::PTR.ModID, ::PTR.Version, ::PTR.Name);
+	local setting = ::MSU.Mod.ModSettings.getSetting("ExpandedSkillTooltips");
+	setting.set(true);
+	setting.lock("Locked by PTR");
 	
 	gt.PTR.modRetinue();
 	delete gt.PTR.modRetinue;
