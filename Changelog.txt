@@ -1,4 +1,9 @@
 ====================
+==== Ver 2.0.3 =====
+====================
+- Fixed Servant and Southern Servant Backgrounds recursive error.
+
+====================
 ==== Ver 2.0.2 =====
 ====================
 - Moved From All Sides from Flail t3 to t1 and Small Target from t1 to t3.
