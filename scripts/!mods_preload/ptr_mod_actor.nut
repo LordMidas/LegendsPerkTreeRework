@@ -81,7 +81,7 @@ gt.PTR.modActor <- function()
 				}
 			}
 
-			local enemiesAtTwoTilesDistance = this.getActorsAtDistanceAsArray(2, this.Const.FactionRelation.Enemy);
+			local enemiesAtTwoTilesDistance = ::Tactical.Entities.getHostileActors(this.getFaction(), this.getTile(), 2, true);
 
 			foreach (enemy in enemiesAtTwoTilesDistance)
 			{
