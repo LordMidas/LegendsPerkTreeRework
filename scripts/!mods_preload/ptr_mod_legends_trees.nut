@@ -1045,9 +1045,9 @@ gt.PTR.modWeaponTrees <- function()
 	this.Const.Perks.DaggerTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRSwiftStabs];
 
 	this.Const.Perks.FlailTree.Tree = array(7);
-	this.Const.Perks.FlailTree.Tree[0] = [this.Const.Perks.PerkDefs.PTRSmallTarget];
+	this.Const.Perks.FlailTree.Tree[0] = [this.Const.Perks.PerkDefs.PTRFromAllSides];
 	this.Const.Perks.FlailTree.Tree[1] = [this.Const.Perks.PerkDefs.PTRHeadSmasher];
-	this.Const.Perks.FlailTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRFromAllSides];
+	this.Const.Perks.FlailTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRSmallTarget];
 	this.Const.Perks.FlailTree.Tree[3] = [this.Const.Perks.PerkDefs.SpecFlail];
 	this.Const.Perks.FlailTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRDeadlyPrecision];
 	this.Const.Perks.FlailTree.Tree[5] = [this.Const.Perks.PerkDefs.HeadHunter];

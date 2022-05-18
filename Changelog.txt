@@ -1,10 +1,15 @@
 ====================
-==== Ver 2.0.1 ====
+==== Ver 2.0.2 =====
+====================
+- Moved From All Sides from Flail t3 to t1 and Small Target from t1 to t3.
+
+====================
+==== Ver 2.0.1 =====
 ====================
 - Refactored some code that was causing a crash.
 
 ====================
-==== Ver 2.0.0 ====
+==== Ver 2.0.0 =====
 ====================
 == IMPORTANT ==
 - Not save game compatible.
