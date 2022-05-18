@@ -164,7 +164,7 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 
 	function onAnySkillExecuted( _skill, _targetTile, _targetEntity, _forFree )
 	{
-		if (!this.getContainer().m.IsExecutingMoveSkill)
+		if (this.getContainer().getActor().isPlacedOnMap())
 		{
 			this.m.StartingTile = this.getContainer().getActor().getTile();
 		}
