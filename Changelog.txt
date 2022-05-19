@@ -1,4 +1,9 @@
 ====================
+==== Ver 2.0.5 =====
+====================
+- fix: Move to new bleedKiller setting
+
+====================
 ==== Ver 2.0.4 =====
 ====================
 - PTR now sets the ExpandedSkillTooltips setting of MSU to Enabled and locks it.

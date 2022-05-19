@@ -41,7 +41,7 @@ this.ptr_internal_hemorrhage_effect <- this.inherit("scripts/skills/skill", {
 
 	function getAttacker()
 	{
-		if (!this.LegendsMod.Configs().LegendBleedKillerEnabled())
+		if (!::Legends.Mod.ModSettings.getSetting("bleedKiller").getValue())
 		{
 			return this.getContainer().getActor();
 		}
