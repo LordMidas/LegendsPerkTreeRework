@@ -77,7 +77,13 @@ this.perk_ptr_entrenched <- this.inherit("scripts/skills/skill", {
 		{
 			return false;
 		}
+
 		local actor = this.getContainer().getActor();
+		if (!actor.isPlacedOnMap())
+		{
+			return false;
+		}
+
 		local adjacentAllies = ::Tactical.Entities.getFactionActors(actor.getFaction(), actor.getTile(), 1);
 		foreach (ally in adjacentAllies)
 		{
