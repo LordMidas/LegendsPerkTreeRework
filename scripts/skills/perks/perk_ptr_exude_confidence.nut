@@ -24,7 +24,7 @@ this.perk_ptr_exude_confidence <- this.inherit("scripts/skills/skill", {
 		local allies = ::Tactical.Entities.getAlliedActors(actor.getFaction(), actor.getTile(), 1);
 		foreach (ally in allies)
 		{
-			if (ally.getMoraleState() < actor.getMoraleState())
+			if (ally.getMoraleState() < actor.getMoraleState() && ally.getID() != actor.getID())
 			{
 				ally.setMoraleState(this.Math.min(this.Const.MoraleState.Confident, ally.getMoraleState() + 1));
 				this.spawnIcon("perk_ptr_exude_confidence", ally.getTile());

@@ -67,7 +67,7 @@ this.perk_ptr_strength_in_numbers <- this.inherit("scripts/skills/skill", {
 	function getBonus()
 	{
 		local actor = this.getContainer().getActor();
-		return ::Tactical.Entities.getFactionActors(actor.getFaction(), actor.getTile(), 1).len() * this.m.BonusPerAdjacentAlly;
+		return (::Tactical.Entities.getFactionActors(actor.getFaction(), actor.getTile(), 1).len() - 1) * this.m.BonusPerAdjacentAlly;
 	}
 
 	function getResolveBonus()

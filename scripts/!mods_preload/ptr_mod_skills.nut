@@ -101,6 +101,8 @@ gt.PTR.modSkills <- function()
 				local adjacentAllies = ::Tactical.Entities.getFactionActors(actor.getFaction(), actor.getTile(), 2)
 				foreach (ally in adjacentAllies)
 				{
+					if (ally.getID() == actor.getID()) continue;
+
 					if (ally.getSkills().hasSkill("perk.legend_shields_up"))
 					{
 						this.m.ActionPointCost = this.Math.max(this.m.ActionPointCost * 0.5, 2);
@@ -122,6 +124,8 @@ gt.PTR.modSkills <- function()
 				local adjacentAllies = ::Tactical.Entities.getFactionActors(actor.getFaction(), actor.getTile(), 2)
 				foreach (ally in adjacentAllies)
 				{
+					if (ally.getID() == actor.getID()) continue;
+
 					if (ally.getSkills().hasSkill("perk.legend_shields_up"))
 					{
 						this.m.ActionPointCost = this.Math.max(this.m.ActionPointCost * 0.5, 2);
@@ -144,6 +148,8 @@ gt.PTR.modSkills <- function()
 			local adjacentAllies = ::Tactical.Entities.getFactionActors(actor.getFaction(), actor.getTile(), 1)
 			foreach (ally in adjacentAllies)
 			{
+				if (ally.getID() == actor.getID()) continue;
+
 				if (this.Math.abs(ally.getTile().Level - actor.getTile().Level) <= 1 && ally.getSkills().hasSkill("actives.shieldwall") && (hasPerk || ally.getSkills().hasSkill("perk.legend_shields_up")))
 				{
 					this.getContainer().add(this.new("scripts/skills/effects/shieldwall_effect"));					
@@ -166,6 +172,8 @@ gt.PTR.modSkills <- function()
 			local adjacentAllies = ::Tactical.Entities.getFactionActors(actor.getFaction(), actor.getTile(), 2)
 			foreach (ally in adjacentAllies)
 			{
+				if (ally.getID() == actor.getID()) continue;
+
 				if (this.Math.abs(ally.getTile().Level - actor.getTile().Level) <= 1 && ally.getSkills().hasSkill("actives.shieldwall") && (hasPerk || ally.getSkills().hasSkill("perk.legend_shields_up")))
 				{
 					this.getContainer().add(this.new("scripts/skills/effects/shieldwall_effect"));					

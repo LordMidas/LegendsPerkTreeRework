@@ -120,7 +120,7 @@ this.str_cover_ally_skill <- this.inherit("scripts/skills/skill", {
 			return false;
 		}
 
-		return this.skill.isUsable() && !this.getContainer().hasSkill("effects.str_covering_ally") && ::Tactical.Entities.getAlliedActors(actor.getFaction(), actor.getTile(), 1).len() != 0;
+		return this.skill.isUsable() && !this.getContainer().hasSkill("effects.str_covering_ally") && ::Tactical.Entities.getAlliedActors(actor.getFaction(), actor.getTile(), 1).len() > 1;
 	}
 
 	function onVerifyTarget( _originTile, _targetTile )

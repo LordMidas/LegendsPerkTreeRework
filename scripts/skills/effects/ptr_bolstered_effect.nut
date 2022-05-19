@@ -66,7 +66,7 @@ this.ptr_bolstered_effect <- this.inherit("scripts/skills/skill", {
 			local adjacentAllies = ::Tactical.Entities.getFactionActors(actor.getFaction(), actor.getTile(), 1);
 			foreach (ally in adjacentAllies)
 			{
-				if (!ally.hasZoneOfControl())
+				if (!ally.hasZoneOfControl() || ally.getID() == actor.getID())
 				{
 					continue;
 				}

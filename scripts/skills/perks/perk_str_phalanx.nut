@@ -70,7 +70,7 @@ this.perk_str_phalanx <- this.inherit("scripts/skills/skill", {
 
 			foreach (ally in adjacentAllies)
 			{
-				if (!ally.isArmedWithShield() || !ally.isEngagedInMelee())
+				if (!ally.isArmedWithShield() || !ally.isEngagedInMelee() || ally.getID() == actor.getID())
 				{
 					continue;
 				}
