@@ -1,4 +1,14 @@
 ====================
+==== Ver 2.0.6 =====
+====================
+- Now requires MSU v1.0.4 or later.
+- Really fixed Internal Hemorrhage bugging out if Bleed Kills setting is enabled.
+- Fixed a bug when merging or rebuilding perk trees e.g. via events.
+- Fixed The Rush of Battle not properly reducing fatigue cost of skills in some cases.
+- Now print an error to the log if the ExpandedSkillTooltips setting is locked disabled by another mod.
+- Fixed missing info in v2.0.5 changelog.
+
+====================
 ==== Ver 2.0.5 =====
 ====================
 - Fixed several cases of crashes or battle freezes during auto-retreat.

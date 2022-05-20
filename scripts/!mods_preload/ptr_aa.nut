@@ -5,7 +5,7 @@ if (!("PTR" in gt))
 	gt.PTR <- {};
 }
 
-gt.PTR.Version <- "2.0.5";
+gt.PTR.Version <- "2.0.6";
 gt.PTR.ModID <- "mod_legends_PTR";
 ::PTR.Name <- "Perk Trees Rework (PTR)";
 
