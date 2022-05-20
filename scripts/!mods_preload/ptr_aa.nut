@@ -15,8 +15,12 @@ gt.PTR.ModID <- "mod_legends_PTR";
 {	
 	::PTR.Mod <- ::MSU.Class.Mod(::PTR.ModID, ::PTR.Version, ::PTR.Name);
 	local setting = ::MSU.Mod.ModSettings.getSetting("ExpandedSkillTooltips");
-	setting.set(true);
-	setting.lock("Locked by PTR");
+	if (!setting.getValue())
+	{
+		if (setting.isLocked()) ::logError("PTR requires ExpandedSkillTooltips to be enabled, but it is locked and disabled by another mod.");
+		setting.set(true);
+	}
+	if (setting.getValue()) setting.lock("Required by PTR");
 	
 	gt.PTR.modRetinue();
 	delete gt.PTR.modRetinue;
