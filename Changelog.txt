@@ -1,7 +1,9 @@
 ====================
 ==== Ver 2.0.5 =====
 ====================
-- fix: Move to new bleedKiller setting
+- Fixed several cases of crashes or battle freezes during auto-retreat.
+- Fixed Inspiring Presence and several other skills affecting the bro with the perk as well.
+- Fixed Internal Hemorrhage bugging out if Bleed Kills setting is enabled.
 
 ====================
 ==== Ver 2.0.4 =====
