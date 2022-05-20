@@ -285,7 +285,9 @@ gt.PTR.modCharacterBackground <- function()
 
 			if (::Legends.Mod.ModSettings.getSetting("PerkTrees").getValue())
 			{
-				this.m.CustomPerkTree = this.Const.Perks.MergeDynamicPerkTree(_tree, this.Const.Perks.GetDynamicPerkTree(this.getPerkTreeDynamicMins(), this.m.PerkTreeDynamic, this.getContainer().getActor()).TreeMap);
+				// TODO: Might need looking into to make sure if we should be passing this.m.PerkTreeDynamic or something else
+				this.Const.Perks.GetDynamicPerkTree(this.getPerkTreeDynamicMins(), this.m.PerkTreeDynamic, this.getContainer().getActor());
+				this.m.CustomPerkTree = this.Const.Perks.MergeDynamicPerkTree(_tree, this.m.CustomPerkTreeMap);
 			}
 
 			local pT = this.Const.Perks.BuildCustomPerkTree(this.m.CustomPerkTree);
