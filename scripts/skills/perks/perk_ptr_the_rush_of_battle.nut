@@ -69,24 +69,15 @@ this.perk_ptr_the_rush_of_battle <- this.inherit("scripts/skills/skill", {
 
 	function onUpdate( _properties )
 	{
-		if (this.m.Stacks == 0 || this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != this.getContainer().getActor().getID())
+		if (this.m.Stacks > 0)
 		{
-			return;
+			_properties.FatigueEffectMult *= 1.0 - this.getBonus() * 0.01;
 		}
-		_properties.FatigueEffectMult *= 1.0 - this.getBonus() * 0.01;
 	}
 
 	function onTurnEnd()
 	{
 		this.m.Stacks = 0;
-	}
-
-	function onTurnStart()
-	{
-		if (this.m.Stacks > 0)
-		{
-			this.getContainer().getActor().getCurrentProperties().FatigueEffectMult *= 1.0 - this.getBonus() * 0.01;
-		}
 	}
 
 	function onCombatStarted()
