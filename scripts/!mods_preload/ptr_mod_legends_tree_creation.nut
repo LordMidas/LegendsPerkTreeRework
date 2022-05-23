@@ -58,38 +58,8 @@ gt.PTR.modLegendsPerkTreeCreationSystem <- function()
 		[2, ::Const.Perks.FastTree]
 	];
 
-	gt.Const.Perks.ConvertLegendsMapToPTR <- function ( _map )
-	{
-		local getEquivalentPTRTrees = function(_legendsTree)
-		{
-			
-		}
-
-		local PTRMap = {};
-		PTRMap.WeightMultipliers <- [];		
-
-		foreach (categoryName, treeList in _map)
-		{
-			local PTRCategory = [];
-
-			foreach (tree in treeList)
-			{
-				local EquivalentPTRTrees = getEquivalentPTRTrees(tree);
-				foreach (t in EquivalentPTRTrees)
-				{
-					PTRCategory.push([{ Weight = 10, Tree = t }]);
-				}
-			}
-
-			PTRMap[categoryName] <- PTRCategory;
-		}
-
-		return PTRMap;
-	};
-
 	gt.Const.Perks.GetDynamicPerkTree = function ( _mins, _map, _player )
 	{
-		if (!("PerkGroupMultipliers" in _player.getBackground()))
 		if (!("PerkGroupMultipliers" in _player.getBackground().m))
 		{
 			local PTRMap = {};
