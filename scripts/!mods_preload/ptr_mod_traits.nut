@@ -452,7 +452,7 @@
 			];
 
 			this.m.PerkGroupMultipliers = [
-				[0, ::Const.Perks.LargeTree],
+				[-1, ::Const.Perks.LargeTree],
 				[4, ::Const.Perks.HeavyArmorTree]
 			];
 		}
