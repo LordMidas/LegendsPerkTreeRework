@@ -1,4 +1,16 @@
 ====================
+==== Ver 2.0.7 =====
+====================
+- Fixed major bug causing Traits to not apply their weight multipliers for perk groups.
+- Fixed the Huge trait guaranteeing to not have the Large tree instead of having it.
+- Fixed Scaling Beggar always adding stolen perks to the first row instead of the row with the fewest perks.
+- Fixed Entrenched always gaining stacks even when the conditions were not met.
+- Added a temporary fix for a bug with item swapping caused by MSU. This will be fixed in the next MSU update.
+- Fixed the Shields Up perk triggering automatic shield wall at 2 tiles distance as well instead of only adjacent allies.
+- Added info in King of all Weapons perk and status effect tooltips that the effect is lost upon switching weapons. Also added explicit intent in code.
+- Added info in Shields Up perk tooltip that it also applies to the character with the perk.
+
+====================
 ==== Ver 2.0.6 =====
 ====================
 - Now requires MSU v1.0.4 or later.
