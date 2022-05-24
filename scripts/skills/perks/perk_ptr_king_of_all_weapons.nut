@@ -103,6 +103,11 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
+	function onPayForItemAction( _skill, _items )
+	{
+		this.m.IsSpent = true;
+	}
+
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
 		if (this.m.IsSpent || this.m.IsHidden)
