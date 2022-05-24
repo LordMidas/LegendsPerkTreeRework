@@ -38,6 +38,13 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 			text = "The next Thrust or Prong attack costs [color=" + this.Const.UI.Color.PositiveValue + "]0[/color] Action Points, builds [color=" + this.Const.UI.Color.NegativeValue + "]0[/color] Fatigue but does [color=" + this.Const.UI.Color.NegativeValue + "]-" + this.m.DamageReductionPercentage + "%[/color] Damage"
 		});
 
+		tooltip.push({
+			id = 10,
+			type = "text",
+			icon = "ui/icons/warning.png",
+			text = "[color=" + this.Const.UI.Color.PositiveValue + "]Will be lost upon switching your weapon![/color]"
+		});
+
 		return tooltip;
 	}
 
