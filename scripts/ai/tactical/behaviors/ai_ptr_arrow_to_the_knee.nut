@@ -312,7 +312,7 @@ this.ai_ptr_arrow_to_the_knee <- this.inherit("scripts/ai/tactical/behavior", {
 						distanceToClosestAlly = distance;
 						if (ally.isArmedWithRangedWeapon())
 						{
-							isClosestAllyRanged = true;;
+							isClosestAllyRanged = true;
 						}
 					}
 				}

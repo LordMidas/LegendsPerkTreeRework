@@ -1729,7 +1729,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	// });
 
 	::mods_hookNewObject("skills/backgrounds/legend_assassin_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);;
+		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
 				this.Const.Perks.DaggerTree,
@@ -1809,7 +1809,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_assassin_commander_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);;
+		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -1918,7 +1918,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_beggar_commander_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);;
+		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -2040,7 +2040,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_beggar_commander_op_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);;
+		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -2171,7 +2171,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_berserker_background", function(o) {		
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);;
+		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
 		
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -2241,7 +2241,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_berserker_commander_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);;
+		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
 		
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -2405,7 +2405,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 
 
 	::mods_hookNewObject("skills/backgrounds/legend_crusader_commander_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);;
+		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -2521,7 +2521,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	}); */
 
 	::mods_hookNewObject("skills/backgrounds/legend_druid_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);;
+		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -2616,7 +2616,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_druid_commander_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);;
+		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -2723,7 +2723,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	}); */
 
 	::mods_hookNewObject("skills/backgrounds/legend_female_beggar_commander_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);;
+		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -2845,7 +2845,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_female_inventor_commander_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);;
+		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -3047,7 +3047,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_inventor_commander_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);;
+		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -3394,7 +3394,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_necro_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);;
+		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -3474,7 +3474,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_necro_commander_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);;
+		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -3590,7 +3590,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_noble_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);;
+		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -3657,7 +3657,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_noble_commander_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);;
+		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -3856,7 +3856,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	}); */
 
 	::mods_hookNewObject("skills/backgrounds/legend_preserver_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);;
+		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree, [
 				this.Const.Perks.AgileTree,
@@ -3973,7 +3973,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_puppet_master_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);;
+		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree, [
 				this.Const.Perks.ResilientTree,
@@ -4061,7 +4061,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_ranger_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);;
+		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -4137,7 +4137,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 
 
 	::mods_hookNewObject("skills/backgrounds/legend_ranger_commander_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);;
+		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -4275,7 +4275,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_trader_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);;
+		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
 
 	 	addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			 [
@@ -4341,7 +4341,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_trader_commander_background", function(o) {
-	 	o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);;
+	 	o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
 
 	 	addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			 [
@@ -4483,7 +4483,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	// });
 
 	::mods_hookNewObject("skills/backgrounds/legend_warlock_summoner_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);;
+		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree, [
 				this.Const.Perks.TalentedTree,
@@ -4627,7 +4627,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	::mods_hookNewObject("skills/backgrounds/mage_background", function(o) {
 		o.m.PerkTreeDynamic = null;
 
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);;
+		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -4671,7 +4671,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/mage_legend_mage_commander_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);;
+		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
 
 	 	addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
@@ -4738,7 +4738,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_lonewolf_background", function(o) {
-		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);;
+		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
 
 		addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
 			[
