@@ -169,7 +169,7 @@ gt.PTR.modSkills <- function()
 			}
 			
 			local hasPerk = this.getContainer().hasSkill("perk.legend_shields_up");
-			local adjacentAllies = ::Tactical.Entities.getFactionActors(actor.getFaction(), actor.getTile(), 2)
+			local adjacentAllies = ::Tactical.Entities.getFactionActors(actor.getFaction(), actor.getTile(), 1)
 			foreach (ally in adjacentAllies)
 			{
 				if (ally.getID() == actor.getID()) continue;
