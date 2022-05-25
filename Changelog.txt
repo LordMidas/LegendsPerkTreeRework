@@ -2,6 +2,7 @@
 ==== Ver 2.0.8 =====
 ====================
 - Lone Wolf now has access to Man of Steel at tier 7 as intended.
+- Removed Hold the Line and Push Forward perks from Noble Standard Bearers. Only Sergeants have access to these perks now in Noble armies.
 
 ====================
 ==== Ver 2.0.7 =====
