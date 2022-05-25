@@ -1,4 +1,9 @@
 ====================
+==== Ver 2.0.8 =====
+====================
+- Removed Hold the Line and Push Forward perks from Noble Standard Bearers. Only Sergeants have access to these perks now in Noble armies.
+
+====================
 ==== Ver 2.0.7 =====
 ====================
 - Fixed major bug causing Traits to not apply their weight multipliers for perk groups.
