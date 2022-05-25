@@ -3,6 +3,12 @@
 ====================
 - Lone Wolf now has access to Man of Steel at tier 7 as intended.
 - Removed Hold the Line and Push Forward perks from Noble Standard Bearers. Only Sergeants have access to these perks now in Noble armies.
+- Perk Tree Changes
+	• Agile Tree - Dynamic Duo added to t4. Rebound replaces Battle Flow at t7.
+	• Fast Tree - The Rush of Battle replaces Dynamic Duo at t4. Removed Vigorous Assault from t5. Killing Frenzy replaces Rebound t7.
+	• Unstoppable Tree - Vigorous Assault replaces The Rush of Battle at t4. Lone Wolf replaces Berserk at t5. Battle Flow replaces Killing Frenzy at t7.
+	• Vicious Tree - Berserk replaces Lone Wolf at t5.
+	• The reasoning behind these changes is that the Unstoppable tree was stacked with damage dealing perks at the higher tiers. These changes have moved these perks around, with the intention of leveling the playing field amongst the perk trees.
 
 ====================
 ==== Ver 2.0.7 =====

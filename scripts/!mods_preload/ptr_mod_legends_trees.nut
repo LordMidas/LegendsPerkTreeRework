@@ -461,10 +461,10 @@ gt.PTR.modTraitsTrees <- function()
 	this.Const.Perks.AgileTree.Tree[0] = [this.Const.Perks.PerkDefs.Pathfinder];
 	this.Const.Perks.AgileTree.Tree[1] = [this.Const.Perks.PerkDefs.Anticipation];
 	this.Const.Perks.AgileTree.Tree[2] = [this.Const.Perks.PerkDefs.Sprint];
-	this.Const.Perks.AgileTree.Tree[3] = [];
+	this.Const.Perks.AgileTree.Tree[3] = [this.Const.Perks.PerkDefs.PTRDynamicDuo];
 	this.Const.Perks.AgileTree.Tree[4] = [this.Const.Perks.PerkDefs.Footwork];
 	this.Const.Perks.AgileTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRFreshAndFurious];
-	this.Const.Perks.AgileTree.Tree[6] = [this.Const.Perks.PerkDefs.BattleFlow];
+	this.Const.Perks.AgileTree.Tree[6] = [this.Const.Perks.PerkDefs.Rebound];
 
 
 	this.Const.Perks.IndestructibleTree.Name = "Resilient";
@@ -502,7 +502,7 @@ gt.PTR.modTraitsTrees <- function()
 	this.Const.Perks.ViciousTree.Tree[1] = [this.Const.Perks.PerkDefs.CoupDeGrace];
 	this.Const.Perks.ViciousTree.Tree[2] = [this.Const.Perks.PerkDefs.Debilitate];
 	this.Const.Perks.ViciousTree.Tree[3] = [];
-	this.Const.Perks.ViciousTree.Tree[4] = [this.Const.Perks.PerkDefs.LoneWolf];
+	this.Const.Perks.ViciousTree.Tree[4] = [this.Const.Perks.PerkDefs.Berserk];
 	this.Const.Perks.ViciousTree.Tree[5] = [this.Const.Perks.PerkDefs.LegendAssuredConquest];
 	this.Const.Perks.ViciousTree.Tree[6] = [this.Const.Perks.PerkDefs.Fearsome];
 
@@ -577,10 +577,10 @@ gt.PTR.modTraitsTrees <- function()
 	this.Const.Perks.FastTree.Tree[0] = [this.Const.Perks.PerkDefs.LegendAlert];
 	this.Const.Perks.FastTree.Tree[1] = [this.Const.Perks.PerkDefs.QuickHands];
 	this.Const.Perks.FastTree.Tree[2] = [this.Const.Perks.PerkDefs.Relentless];
-	this.Const.Perks.FastTree.Tree[3] = [this.Const.Perks.PerkDefs.PTRDynamicDuo];
-	this.Const.Perks.FastTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRVigorousAssault];
+	this.Const.Perks.FastTree.Tree[3] = [this.Const.Perks.PerkDefs.PTRTheRushOfBattle];
+	this.Const.Perks.FastTree.Tree[4] = [];
 	this.Const.Perks.FastTree.Tree[5] = [this.Const.Perks.PerkDefs.Overwhelm];
-	this.Const.Perks.FastTree.Tree[6] = [this.Const.Perks.PerkDefs.Rebound];
+	this.Const.Perks.FastTree.Tree[6] = [this.Const.Perks.PerkDefs.KillingFrenzy];
 
 	this.Const.Perks.LargeTree.Descriptions = [
 		"is large",
@@ -653,10 +653,10 @@ gt.PTR.modTraitsTrees <- function()
 	this.Const.Perks.FitTree.Tree[0] = [this.Const.Perks.PerkDefs.Adrenalin];
 	this.Const.Perks.FitTree.Tree[1] = [];
 	this.Const.Perks.FitTree.Tree[2] = [];
-	this.Const.Perks.FitTree.Tree[3] = [this.Const.Perks.PerkDefs.PTRTheRushOfBattle];
-	this.Const.Perks.FitTree.Tree[4] = [this.Const.Perks.PerkDefs.Berserk];
+	this.Const.Perks.FitTree.Tree[3] = [this.Const.Perks.PerkDefs.PTRVigorousAssault];
+	this.Const.Perks.FitTree.Tree[4] = [this.Const.Perks.PerkDefs.LoneWolf];
 	this.Const.Perks.FitTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRUnstoppable];
-	this.Const.Perks.FitTree.Tree[6] = [this.Const.Perks.PerkDefs.KillingFrenzy];
+	this.Const.Perks.FitTree.Tree[6] = [this.Const.Perks.PerkDefs.BattleFlow];
 
 	this.Const.Perks.TrainedTree.SelfWeightMultiplier <- 0.75;
 	this.Const.Perks.TrainedTree.Descriptions = [
