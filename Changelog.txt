@@ -1,4 +1,9 @@
 ====================
+==== Ver 2.0.8 =====
+====================
+- Lone Wolf now has access to Man of Steel at tier 7 as intended.
+
+====================
 ==== Ver 2.0.7 =====
 ====================
 - Fixed major bug causing Traits to not apply their weight multipliers for perk groups.

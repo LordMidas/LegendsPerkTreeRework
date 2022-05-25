@@ -4814,7 +4814,8 @@ gt.PTR.modCharacterBackgrounds <- function()
 
 		addPerksToCustomPerkTree(7, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.Rebound,				
-				this.Const.Perks.PerkDefs.PerfectFocus
+				this.Const.Perks.PerkDefs.PerfectFocus,
+				this.Const.Perks.PerkDefs.PTRManOfSteel
 			]
 		);
 	});
