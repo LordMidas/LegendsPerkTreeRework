@@ -104,19 +104,19 @@ this.perk_ptr_promised_potential <- this.inherit("scripts/skills/skill", {
 
 					local traitsExclude = getExclude(this.Const.Perks.TraitsTrees.Tree);			
 					traitsExclude.push(this.Const.Perks.TalentedTree.ID);
-					local traitTree = this.Const.Perks.getRandomTree(this.Const.Perks.TraitsTrees.Tree, traitsExclude);
+					local traitTree = ::MSU.Array.rand(::Const.Perks.TraitsTrees.Tree.filter(@(idx, tree) traitsExclude.find(tree.ID) != null));
 					if (traitTree != null)
 					{
 						bg.addPerkGroup(traitTree.Tree);
 					}
 
 					local weaponExclude = getExclude(this.Const.Perks.WeaponTrees.Tree);	
-					local weaponTree = this.Const.Perks.getRandomTree(this.Const.Perks.WeaponTrees.Tree, weaponExclude);
+					local weaponTree = ::MSU.Array.rand(::Const.Perks.WeaponTrees.Tree.filter(@(idx, tree) weaponExclude.find(tree.ID) != null));
 					if (weaponTree != null)
 					{
 						bg.addPerkGroup(weaponTree.Tree);
 						weaponExclude.push(weaponTree.ID);
-						local weaponTree2 = this.Const.Perks.getRandomTree(this.Const.Perks.WeaponTrees.Tree, weaponExclude);
+						local weaponTree2 = ::MSU.Array.rand(::Const.Perks.WeaponTrees.Tree.filter(@(idx, tree) weaponExclude.find(tree.ID) != null));
 						if (weaponTree2 != null)
 						{
 							bg.addPerkGroup(weaponTree2.Tree);
