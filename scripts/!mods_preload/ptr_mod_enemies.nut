@@ -3047,7 +3047,8 @@ gt.PTR.modEnemies <- function()
 			this.m.Skills.removeByID("perk.fast_adaption");		
 			this.m.Skills.removeByID("perk.crippling_strikes");		
 			this.m.Skills.removeByID("perk.berserk");	
-			this.m.Skills.removeByID("perk.killing_frenzy");																																																	
+			this.m.Skills.removeByID("perk.killing_frenzy");
+			this.m.Skills.removeByID("perk.last_stand");
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_man_of_steel"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_the_rush_of_battle"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bulwark"));
@@ -3134,7 +3135,8 @@ gt.PTR.modEnemies <- function()
 			this.m.Skills.removeByID("perk.crippling_strikes");
 			this.m.Skills.removeByID("perk.coup_de_grace");		
 			this.m.Skills.removeByID("perk.reach_advantage");
-			this.m.Skills.removeByID("perk.berserk");						
+			this.m.Skills.removeByID("perk.berserk");
+			this.m.Skills.removeByID("perk.last_stand");
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_assured_conquest"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_man_of_steel"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_exude_confidence"));
