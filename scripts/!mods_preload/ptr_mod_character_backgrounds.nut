@@ -2346,7 +2346,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 		o.m.PerkTreeDynamic = {
 			Profession = [
 				::Const.Perks.ButcherProfessionTree
-			]
+			],
 			Traits = [
 				::Const.Perks.ViciousTree
 			],
