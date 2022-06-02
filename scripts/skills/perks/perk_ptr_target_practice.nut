@@ -1,5 +1,7 @@
 this.perk_ptr_target_practice <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		RangedSkillBonus = 10
+	},
 	function create()
 	{
 		this.m.ID = "perk.ptr_target_practice";
@@ -14,12 +16,22 @@ this.perk_ptr_target_practice <- this.inherit("scripts/skills/skill", {
 		this.m.ItemActionOrder = this.Const.ItemActionOrder.First;
 	}
 
-	function onAfterUpdate( _properties )
+	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
-		local aimedShot = this.getContainer().getSkillByID("actives.aimed_shot");
-		if (aimedShot != null)
+		if (_skill.getID() == "actives.aimed_shot")
 		{
-			aimedShot.m.ActionPointCost -= 1;
+			_properties.RangedSkill += this.m.RangedSkillBonus;
+		}
+	}
+
+	function onGetHitFactors( _skill, _targetTile, _tooltip )
+	{
+		if (_skill.getID() == "actives.aimed_shot")
+		{
+			ret.push({
+				icon = "ui/tooltips/positive.png",
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + this.m.RangedSkillBonus + "%[/color] " + this.getName()
+			});
 		}
 	}
 
