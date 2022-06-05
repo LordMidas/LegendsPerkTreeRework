@@ -59,7 +59,7 @@ this.perk_ptr_opportunist <- this.inherit("scripts/skills/skill", {
 	{
 		local actor = this.getContainer().getActor();
 
-		if (!actor.isPlacedOnMap() || !this.isEnabled())
+		if (!actor.isPlacedOnMap() || !this.isEnabled() || !::Tactical.TurnSequenceBar.isActiveEntity(actor))
 		{
 			return;
 		}
