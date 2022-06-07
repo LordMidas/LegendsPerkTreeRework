@@ -112,7 +112,14 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 
 	function onPayForItemAction( _skill, _items )
 	{
-		this.m.IsSpent = true;
+		foreach (item in _items)
+		{
+			if (item != null && item.getSlotType() == ::Const.ItemSlot.Mainhand)
+			{
+				this.m.IsSpent = true;
+				return;
+			}
+		}
 	}
 
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
