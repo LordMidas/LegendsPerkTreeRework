@@ -2424,7 +2424,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 			this.Const.Perks.SwordTree
 		];
 
-		for (local i = 0; i < 3; ++i)
+		for (local i = 0; i < 4; ++i)
 		{
 			addPerkTreesToCustomPerkTree(o.m.CustomPerkTree, [trees.remove(this.Math.rand(0, trees.len()-1))]);			
 		}
