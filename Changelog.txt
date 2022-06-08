@@ -141,7 +141,7 @@
 == PERKS ==
 - Man of Steel now increases armor by 10% in addition to previous effects.
 - En Garde now requires 15 remaining Fatigue to trigger (regardless of whether it triggers Riposte or Return Favor). Still costs no AP and builds no Fatigue.
-- Savage Strength now reduces the Fatigue Cost of weapon skills by -5 when using a weapon which has extra fatigue on skill use.
+- Savage Strength now reduces the Fatigue Cost of weapon skills by 5 when using a weapon which has extra fatigue on skill use.
 - Reduced the random relations gain from Family Ties from 1-5 to 1-2 and reduced the amount each character level increases this range by from 0.5 to 0.25.
 - Internal Hemorrhage now applies on all attacks instead of only after the armor is destroyed.
 - Deploy in Vanguard can now be used to swap places with allies up to 7 tiles away, instead of only adjacent allies.
