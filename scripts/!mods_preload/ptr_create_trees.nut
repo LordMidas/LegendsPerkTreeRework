@@ -1068,22 +1068,14 @@ gt.PTR.createSpecialTrees <- function()
 		return _chance;
 	});
 
-	gt.Const.Perks.SpecialTrees.addSpecialPerk(25, gt.Const.Perks.PerkDefs.PTRManOfSteel, 7, "Is tough as if made of steel!", function( _player, _chance ) {
+	gt.Const.Perks.SpecialTrees.addSpecialPerk(10, gt.Const.Perks.PerkDefs.PTRManOfSteel, 7, "Is tough as if made of steel!", function( _player, _chance ) {
 		if (!_player.getBackground().hasPerkGroup(::Const.Perks.HeavyArmorTree))
 		{
 			return 0;
 		}
 
 		local talents = _player.getTalents();
-		if (talents.len() == 0 || talents[this.Const.Attributes.Hitpoints] < 1)
-		{
-			return 0;
-		}
-		else
-		{
-			_chance *= talents[this.Const.Attributes.Hitpoints];
-		}
-		
+		_chance *= talents[this.Const.Attributes.Stamina];
 		return _chance;
 	});
 }
