@@ -3829,8 +3829,69 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_peddler_commander_background", function(o) {
-		o.m.PerkGroupMultipliers <- [];
-		o.m.PerkTreeDynamic = {};
+		o.m.CustomPerkTree = clearCustomPerkTree(o.m.CustomPerkTree);
+
+	 	addPerkTreesToCustomPerkTree(o.m.CustomPerkTree,
+			 [
+			 	 this.Const.Perks.CrossbowTree,
+				 this.Const.Perks.SwordTree,
+				 this.Const.Perks.SpearTree,
+				 this.Const.Perks.OneHandedTree,
+				 this.Const.Perks.TwoHandedTree,
+				 this.Const.Perks.RangedTree,
+				 this.Const.Perks.LightArmorTree,
+				 this.Const.Perks.MediumArmorTree,
+				 this.Const.Perks.ShieldTree,
+				 this.Const.Perks.DeviousTree,
+				 this.Const.Perks.TalentedTree,
+				 this.Const.Perks.EntertainerClassTree,
+				 this.Const.Perks.OrganisedTree,
+				 this.Const.Perks.ClerkClassTree,
+				 this.Const.Perks.TraderProfessionTree
+			 ]
+		);
+
+		addPerksToCustomPerkTree(1, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.LegendAlert,
+				this.Const.Perks.PerkDefs.LegendCheerOn,
+				this.Const.Perks.PerkDefs.LegendMedIngredients,
+				this.Const.Perks.PerkDefs.LegendMealPreperation,
+				this.Const.Perks.PerkDefs.NineLives,
+				this.Const.Perks.PerkDefs.FastAdaption
+			]
+		);
+
+		addPerksToCustomPerkTree(2, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.Anticipation
+			]
+		);
+
+		addPerksToCustomPerkTree(3, o.m.CustomPerkTree, [
+			]
+		);
+
+		addPerksToCustomPerkTree(4, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.PTRVigilant,
+				this.Const.Perks.PerkDefs.LegendPeaceful,
+				this.Const.Perks.PerkDefs.LegendShieldsUp
+			]
+		);
+
+		addPerksToCustomPerkTree(5, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.Footwork,
+				this.Const.Perks.PerkDefs.Underdog
+			]
+		);
+
+		addPerksToCustomPerkTree(6, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.LegendHoldTheLine
+			]
+		);
+
+		addPerksToCustomPerkTree(7, o.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.Rebound
+			]
+		);
 	});
 
 	::mods_hookNewObject("skills/backgrounds/legend_philosopher_background", function(o) {
