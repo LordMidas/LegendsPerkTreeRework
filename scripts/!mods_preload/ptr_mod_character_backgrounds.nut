@@ -788,6 +788,9 @@ gt.PTR.modCharacterBackgrounds <- function()
 					[30, ::Const.Perks.SoldierProfessionTree]
 				])
 			],
+			Enemy = [
+				::Const.Perks.UndeadTree
+			],
 			Traits = [
 				::Const.Perks.CalmTree
 			],
@@ -2392,6 +2395,9 @@ gt.PTR.modCharacterBackgrounds <- function()
 					[70, ::Const.Perks.HolyManProfessionTree],
 					[30, ::Const.Perks.SoldierProfessionTree]
 				])
+			],
+			Enemy = [
+				::Const.Perks.UndeadTree
 			],
 			Defense = [
 				::Const.Perks.HeavyArmorTree
