@@ -3070,6 +3070,7 @@ gt.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_exude_confidence"));				
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_personal_armor"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vigorous_assault"));
 			}
 		}
 
