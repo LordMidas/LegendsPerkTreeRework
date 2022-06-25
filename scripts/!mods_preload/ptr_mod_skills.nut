@@ -62,6 +62,7 @@ gt.PTR.modSkills <- function()
 	
 	::mods_hookExactClass("skills/traits/huge_trait", function(o) {
 		o.m.SkillOrder <- this.Const.SkillOrder.Last;
+		o.m.Skills <- [];
 
 		local getTooltip = o.getTooltip;
 		o.getTooltip = function()
@@ -80,13 +81,36 @@ gt.PTR.modSkills <- function()
 		o.onAfterUpdate <- function( _properties )
 		{
 			local weapon = this.getContainer().getActor().getMainhandItem();
-			if (weapon != null && weapon.m.FatigueOnSkillUse > 0)
+			if (weapon != null)
 			{
 				local skills = weapon.getSkills();
-				foreach (skill in skills)
+				if (skills.len() == 0)
 				{
-					skill.m.FatigueCost -= this.Math.min(2, weapon.m.FatigueOnSkillUse);
+					this.m.Skills.clear();
+					return;
 				}
+
+				if (weapon.m.FatigueOnSkillUse > 0)
+				{
+					foreach (skill in skills)
+					{
+						if (this.m.Skills.find(skill.getID()) == null)
+						{
+							this.m.Skills.push(skill.getID());
+							skill.m.FatigueCost -= this.Math.min(2, weapon.m.FatigueOnSkillUse);
+						}
+					}
+				}
+			}
+		}
+
+		o.onRemoved <- function()
+		{
+			local equippedItem = this.getContainer().getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);
+			if (equippedItem != null)
+			{
+				this.getContainer().getActor().getItems().unequip(equippedItem);
+				this.getContainer().getActor().getItems().equip(equippedItem);
 			}
 		}
 	});

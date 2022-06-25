@@ -1,5 +1,7 @@
 this.perk_ptr_savage_strength <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		Skills = []
+	},
 	function create()
 	{
 		this.m.ID = "perk.ptr_savage_strength";
@@ -16,13 +18,36 @@ this.perk_ptr_savage_strength <- this.inherit("scripts/skills/skill", {
 	function onAfterUpdate( _properties )
 	{
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon != null && weapon.m.FatigueOnSkillUse > 0)
+		if (weapon != null)
 		{
 			local skills = weapon.getSkills();
-			foreach (skill in skills)
+			if (skills.len() == 0)
 			{
-				skill.m.FatigueCost -= 5;
+				this.m.Skills.clear();
+				return;
 			}
+
+			if (weapon.m.FatigueOnSkillUse > 0)
+			{
+				foreach (skill in skills)
+				{
+					if (this.m.Skills.find(skill.getID()) == null)
+					{
+						this.m.Skills.push(skill.getID());
+						skill.m.FatigueCost -= 5;
+					}
+				}
+			}
+		}
+	}
+
+	function onRemoved()
+	{
+		local equippedItem = this.getContainer().getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);
+		if (equippedItem != null)
+		{
+			this.getContainer().getActor().getItems().unequip(equippedItem);
+			this.getContainer().getActor().getItems().equip(equippedItem);
 		}
 	}
 });
