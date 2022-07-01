@@ -21,34 +21,6 @@ gt.PTR.ModID <- "mod_legends_PTR";
 		setting.set(true);
 	}
 	if (setting.getValue()) setting.lock("Required by PTR");
-
-	// temporary fix for MSU bug with item swapping
-	if (::MSU.SemVer.compare(::MSU.SemVer.getTable(::MSU.Mod.getVersionString()), ::MSU.SemVer.getTable("1.1.0")) < 0)
-	{
-		::mods_hookNewObject("items/item_container", function(o) {
-			o.getActionCost = function( _items )
-			{
-				this.m.ActionSkill = null;
-
-				local info = this.getActor().getSkills().getItemActionCost(_items);
-
-				info.sort(@(info1, info2) info1.Skill.getItemActionOrder() <=> info2.Skill.getItemActionOrder());
-
-				local cost = ::Const.Tactical.Settings.SwitchItemAPCost;
-
-				foreach (entry in info)
-				{
-					if (entry.Cost < cost)
-					{
-						cost = entry.Cost;
-						this.m.ActionSkill = entry.Skill;
-					}
-				}
-
-				return cost;
-			}
-		});
-	}
 	
 	gt.PTR.modRetinue();
 	delete gt.PTR.modRetinue;
