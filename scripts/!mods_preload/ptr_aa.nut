@@ -18,7 +18,7 @@ gt.PTR.ModID <- "mod_legends_PTR";
 	if (!setting.getValue())
 	{
 		if (setting.isLocked()) ::logError("PTR requires ExpandedSkillTooltips to be enabled, but it is locked and disabled by another mod.");
-		setting.set(true);
+		else setting.set(true);
 	}
 	if (setting.getValue()) setting.lock("Required by PTR");
 
