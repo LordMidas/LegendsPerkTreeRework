@@ -18,7 +18,8 @@ this.perk_ptr_swordmaster_juggernaut <- this.inherit("scripts/skills/perks/perk_
 		local ret = this.perk_ptr_swordmaster_abstract.isEnabled();
 		if (ret)
 		{
-			if (this.getContainer().getActor().getMainhandItem().isWeaponType(::Const.Items.WeaponType.BFFencing)) return false;
+			local weapon = this.getContainer().getActor().getMainhandItem();
+			if (weapon.isWeaponType(::Const.Items.WeaponType.BFFencing) || !weapon.isItemType(::Const.Items.ItemType.TwoHanded)) return false;
 		}
 
 		return ret;
