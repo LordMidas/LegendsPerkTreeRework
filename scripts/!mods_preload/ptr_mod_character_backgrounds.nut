@@ -5615,6 +5615,9 @@ gt.PTR.modCharacterBackgrounds <- function()
 		];
 
 		o.m.PerkTreeDynamic = {
+			Profession = [
+				::Const.Perks.SwordmasterProfessionTree
+			]
 			Enemy = [
 				::Const.Perks.SwordmastersTree
 			],
@@ -5632,6 +5635,22 @@ gt.PTR.modCharacterBackgrounds <- function()
 				::Const.Perks.SwordmastersTree
 			]
 		};
+
+		local buildPerkTree = o.buildPerkTree;
+		o.buildPerkTree = function()
+		{
+			local ret = buildPerkTree();
+			local masteryRow = this.getPerkTree()[3];
+			for (local i = masteryRow.len() - 1; i >= 0; i--)
+			{
+				if (masteryRow[i].ID != "perk.mastery.sword" && masteryRow[i].ID.find("mastery") != null)
+				{
+					this.removePerk(::Const.Perks.PerkDefs[masteryRow[i].Const]);
+				}
+			}
+
+			return ret;
+		}
 	});
 
 	::mods_hookNewObject("skills/backgrounds/tailor_background", function(o) {
