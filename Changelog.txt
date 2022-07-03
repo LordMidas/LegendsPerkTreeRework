@@ -1,4 +1,51 @@
 ====================
+==== Ver 2.1.0 =====
+====================
+== OLD SWORDMASTER ==
+- 7 new perks belonging to the Swordmaster perk group, specifically designed for the Old Swordmaster PTR origin, to increase recruit specialization and allow for more varied and tactical gameplay.
+- Hired recruits no longer have any weapon mastery perk available except Sword mastery.
+- Hired recruits now get access to 7 new specialization perks at tier 4. Only one of these perks can be picked:
+- Perk - Blade Dancer: Reduces the Action Point cost of all Sword skills by 1 (exceping fencing swords). Allows Kata to be used even while equipping something in the offhand. Reduces the Action Point cost and the Fatigue Cost of Kata by 2, down to a minimum of 0.
+- Perk - Reaper: Reduces the Action Point cost of AOE sword skills by 2 and Fatigue Cost by 10%.
+- Perk - Metzger: Adds the Decapitate skill to southern curved swords. Attacks from Southern Curved swords now apply the Bleeding effect for 10 damage.
+- Perk - Grappler: Adds 3 active skills.
+	- Kick: Knock back and stagger the target. Action Point and Fatigue Cost are reduced while using a two-handed or double-gripped one-handed sword.d
+	- Push Through: Knock back and stagger the target while moving forward into their tile in one action.
+	- Tackle: Exchange tiles with the target adjacent enemy, staggering them.
+- Perk - Juggernaut: Single-target attacks with two-handed swords additionally deal 50% damage to a random enemy adjacent to your target. Also adds an active skill:
+	- Juggernaut Charge: Allows you to travel 2 tiles. Upon reaching the destination, stagger all enemies adjacent to you and get a free attack on a random adjacent enemy. Cannot be used when engaged in melee.
+- Perk - Versatile Swordsman: Adds 3 stances that can be swapped between freely during combat for 3 AP per swap:
+	- Half-swording: Removes all skills from the sword and adds the Puncture skill.
+	- Reverse grip: Removes all skills from the sword and adds the Bash / Knockout or Cudgel / Strike Down skills depending on if the sword is one-handed or two-handed respectively.
+	- Meisterhau: Moving from your position no longer disables the En Garde perk. This is the default stance active at combat start.
+- Perk - Precise: Doubles the bonuses from the Swordmaster's Training or Swordmaster's Finesse effects. When using a fencing sword, the reduction to hitpoints damage received due to remaining armor is reduced by half for all your attacks.
+- The Old Swordmaster now starts with all of these perks already picked. He is the only character who can have more than one of these perks. However, as he gets older, he will lose some of these perks.
+- The Old Swordmaster now starts with Professional, Duelist, Reach Advantage already picked.
+- The Old Swordmaster avatar no longer has a flat double bonus from his Swordmaster's Finesse. Instead the double bonus is applied via the Precise perk.
+
+== MAJOR CHANGES ==
+- Swordmaster recruits in regular origins now gain access to a lite version of the Swordmaster's Finesse effect. They no longer have access to any weapon mastery except sword mastery. They also gain access to all of the special sword specialization perks avialable in the Old Swordmaster origin, but are limited to picking only one.
+- Target Practice no longer reduces Action Point cost of Aimed Shot by 1. It instead now grants it +10% chance to hit.
+- The Rush of Battle now grants +5 Initiative per stack in addition to the previous 5% Fatigue Cost reduction. Increased the maximum bonus to 25 (up from 20).
+- Man of Steel special perk base chance reduced from 25% to 10%. Changed its multiplier from Hitpoints talents to Fatigue talents.
+
+== BALANCE ==
+- Legendary difficulty Hedge Knights now have Vigorous Assault.
+- Favored Enemy Undead tree is now guaranteed on Crusader and Legend Crusader.
+- Berserker Commander gains old Berserker Rage and Uber Nimble. Loses PTR Feral Rage. This now makes the Berserker and Berserker Commander perk trees different.
+
+== FIXES AND MISC ==
+- Peddler Commander given static perk tree from Trader Commander.
+- Fixed the Skirmisher perk's "remaining attacks" sometimes going into negative numbers.
+- Fixed the "Opportunist" perk triggering even when it was not the character's turn e.g. via being rotated onto a corpse by an ally.
+- Fixed the Crusader Commander getting 3 weapon trees instead of the intended 4.
+- Fixed King of all Weapons getting spent when swapping any item instead of swapping the weapon only.
+- Fixed Savage Strength and the Huge trait applying their Fatigue Cost reduction twice and not resetting properly upon being removed.
+- Fixed some backgrounds not receiving guaranteed Special Perks e.g. the Fencer perk on Swordmaster background.
+- Fixed a typo in Bear Down perk tooltip.
+- Temporarily added onEquip and onUnequip skill events. These will most likely be added to MSU later.
+
+====================
 ==== Ver 2.0.8 =====
 ====================
 - Lone Wolf now has access to Man of Steel at tier 7 as intended.
