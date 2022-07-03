@@ -858,6 +858,35 @@ gt.PTR.createProfessionTrees <- function()
 		]
 	};
 
+	gt.Const.Perks.SwordmasterProfessionTree <- {
+		ID = "SwordmasterProfessionTree",
+		Descriptions = [
+			"is a masterful swordsman",
+			"is a renowned swordmaster",
+			"is a master of the sword"
+		],
+		Name = "Swordmaster",
+		PerkGroupMultipliers = [
+		],
+		Tree = [
+			[],
+			[],
+			[],
+			[
+				::Const.Perks.PerkDefs.PTRSwordmasterBladeDancer,
+				::Const.Perks.PerkDefs.PTRSwordmasterReaper,
+				::Const.Perks.PerkDefs.PTRSwordmasterMetzger,
+				::Const.Perks.PerkDefs.PTRSwordmasterVersatileSwordsman,
+				::Const.Perks.PerkDefs.PTRSwordmasterPrecise,
+				::Const.Perks.PerkDefs.PTRSwordmasterGrappler,
+				::Const.Perks.PerkDefs.PTRSwordmasterJuggernaut
+			],
+			[],
+			[],
+			[]
+		]
+	};
+
 	gt.Const.Perks.ProfessionTrees <- {
 		Tree = [
 			gt.Const.Perks.AssassinProfessionTree,
@@ -882,7 +911,8 @@ gt.PTR.createProfessionTrees <- function()
 			gt.Const.Perks.RaiderProfessionTree,
 			gt.Const.Perks.SoldierProfessionTree,
 			gt.Const.Perks.WildlingProfessionTree,
-			gt.Const.Perks.NobleProfessionTree
+			gt.Const.Perks.NobleProfessionTree,
+			gt.Const.Perks.SwordmasterProfessionTree,
 		],
 		function getRandom( _exclude )
 		{
