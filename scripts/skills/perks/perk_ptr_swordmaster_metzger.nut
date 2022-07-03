@@ -6,7 +6,6 @@ this.perk_ptr_swordmaster_metzger <- this.inherit("scripts/skills/perks/perk_ptr
 			"weapon.scimitar",
 			"weapon.saif",
 		]
-		Actor = null
 	},
 	function create()
 	{
