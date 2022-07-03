@@ -70,7 +70,7 @@ this.perk_ptr_swordmaster_metzger <- this.inherit("scripts/skills/perks/perk_ptr
 	{
 		if (!_targetEntity.isAlive() || _targetEntity.isDying()) return;
 
-		if (!target.getCurrentProperties().IsImmuneToBleeding && _damageInflictedHitpoints >= ::Const.Combat.MinDamageToApplyBleeding)
+		if (!_targetEntity.getCurrentProperties().IsImmuneToBleeding && _damageInflictedHitpoints >= ::Const.Combat.MinDamageToApplyBleeding)
 		{
 			local actor = this.getContainer().getActor();
 			local effect = this.new("scripts/skills/effects/bleeding_effect");
