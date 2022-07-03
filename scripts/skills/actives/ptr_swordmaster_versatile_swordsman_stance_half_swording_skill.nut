@@ -11,7 +11,11 @@ this.ptr_swordmaster_versatile_swordsman_stance_half_swording_skill <- this.inhe
 		this.m.Icon = "skills/ptr_swordmaster_versatile_swordsman_stance_half_swording_skill.png";
 		this.m.IconDisabled = "skills/ptr_swordmaster_versatile_swordsman_stance_half_swording_skill_bw.png";
 		this.m.Overlay = "ptr_swordmaster_versatile_swordsman_stance_half_swording_skill";
-		this.m.SoundOnUse = [];
+		this.m.SoundOnUse = [
+			"sounds/combat/riposte_01.wav",
+			"sounds/combat/riposte_02.wav",
+			"sounds/combat/riposte_03.wav"
+		];
 	}
 
 	function getTooltip()
