@@ -1050,6 +1050,15 @@ gt.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_swordmaster_metzger.png",
 			IconDisabled = "ui/perks/ptr_swordmaster_metzger_bw.png",
 			Const = "PTRSwordmasterMetzger"
+		},
+		{
+			ID = "perk.ptr_swordmaster_precise",
+			Script = "scripts/skills/perks/perk_ptr_swordmaster_precise",
+			Name = this.Const.Strings.PerkName.PTRSwordmasterPrecise,
+			Tooltip = this.Const.Strings.PerkDescription.PTRSwordmasterPrecise,
+			Icon = "ui/perks/ptr_swordmaster_precise.png",
+			IconDisabled = "ui/perks/ptr_swordmaster_precise_bw.png",
+			Const = "PTRSwordmasterPrecise"
 		}
 	];
 

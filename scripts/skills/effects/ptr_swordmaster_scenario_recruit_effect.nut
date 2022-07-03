@@ -150,7 +150,9 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 		local actor = this.getContainer().getActor();
 		if (this.isEnabled())
 		{
-			local level = actor.getLevel();			
+			local level = actor.getLevel();
+			if (this.getContainer().hasSkill("perk.ptr_swordmaster_precise")) level *= 2;
+
 			_properties.MeleeSkill += level;
 			_properties.MeleeDefense += level;
 			_properties.Initiative += level;
