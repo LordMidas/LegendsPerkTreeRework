@@ -113,7 +113,7 @@ this.ptr_swordmaster_scenario_avatar_effect <- this.inherit("scripts/skills/effe
 
 	function getSkillBonus()
 	{
-		return this.getContainer().getActor().getLevel() * 2;
+		return this.getContainer().getActor().getLevel() * (this.getContainer().hasSkill("perk.ptr_swordmaster_precise") ? 2 : 1);
 	}
 
 	function getSkillMalus()
