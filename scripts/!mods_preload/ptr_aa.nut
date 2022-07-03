@@ -21,6 +21,31 @@ gt.PTR.ModID <- "mod_legends_PTR";
 		setting.set(true);
 	}
 	if (setting.getValue()) setting.lock("Required by PTR");
+
+	// Add onEquip and onUnequip events for skills if MSU is below v1.2.0 (as these events are expected to be added in v1.2.0)
+	if (::MSU.SemVer.compareVersionWithOperator(::MSU.Mod, "<", "1.2.0"))
+	{
+		// ::MSU.Skills.addEvent("onEquip", function( _item ) {} );
+		// ::MSU.Skills.addEvent("onUnequip", function( _item ) {} );
+
+		::mods_hookNewObject("items/item_container", function(o) {
+			local equip = o.equip;
+			o.equip = function( _item )
+			{
+				local ret = equip(_item);
+				if (ret == true) this.m.Actor.getSkills().onEquip(_item);
+				return ret;
+			}
+
+			local unequip = o.unequip;
+			o.unequip = function( _item )
+			{
+				local ret = unequip(_item);
+				if (ret == true) this.m.Actor.getSkills().onUnequip(_item);
+				return ret;
+			}
+		});
+	}
 	
 	gt.PTR.modRetinue();
 	delete gt.PTR.modRetinue;
