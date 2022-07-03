@@ -1075,7 +1075,7 @@ gt.PTR.createSpecialTrees <- function()
 		}
 
 		local talents = _player.getTalents();
-		_chance *= talents[this.Const.Attributes.Stamina];
+		_chance *= talents[this.Const.Attributes.Fatigue];
 		return _chance;
 	});
 }
