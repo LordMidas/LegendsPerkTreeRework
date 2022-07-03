@@ -18,6 +18,8 @@ this.ptr_swordmaster_scenario_old_age_event_1 <- this.inherit("scripts/events/ev
 					Text = "I\'ve still got it!",
 					function getResult( _event )
 					{
+						_event.m.Swordmaster.getSkills().removeByID("perk.ptr_swordmaster_juggernaut");
+						_event.m.Swordmaster.getBackground().removePerk(::Const.Perks.PerkDefs.PTRSwordmasterJuggernaut);
 						return 0;
 					}
 				}
@@ -30,6 +32,11 @@ this.ptr_swordmaster_scenario_old_age_event_1 <- this.inherit("scripts/events/ev
 						id = 16,
 						icon = "ui/backgrounds/ptr_old_swordmaster_background.png",
 						text = _event.m.Swordmaster.getName() + " grows older"
+					},
+					{
+						id = 16,
+						icon = "ui/backgrounds/ptr_old_swordmaster_background.png",
+						text = _event.m.Swordmaster.getName() + " loses the Juggernaut perk"
 					},
 					{
 						id = 16,
