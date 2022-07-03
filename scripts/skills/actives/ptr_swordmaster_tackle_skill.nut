@@ -93,10 +93,12 @@ this.ptr_swordmaster_tackle_skill <- this.inherit("scripts/skills/actives/ptr_sw
 	function onUse( _user, _targetTile )
 	{
 		local target = _targetTile.getEntity();
+		local userTile = _user.getTile();
+		target.getSkills().add(this.new("scripts/skills/effects/staggered_effect"));
+
 		this.Tactical.getNavigator().switchEntities(_user, target, null, null, 1.0);
 
-		target.getSkills().add(this.new("scripts/skills/effects/staggered_effect"));
-		if (_user.getTile().IsVisibleForPlayer)
+		if (userTile.IsVisibleForPlayer)
 		{
 			this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " tackled and staggered " + this.Const.UI.getColorizedEntityName(target));
 		}
