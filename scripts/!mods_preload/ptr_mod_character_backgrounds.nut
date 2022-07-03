@@ -2232,7 +2232,8 @@ gt.PTR.modCharacterBackgrounds <- function()
 
 		addPerksToCustomPerkTree(6, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.PTRFreshAndFurious,
-				this.Const.Perks.PerkDefs.PTRKnowTheirWeakness			]
+				this.Const.Perks.PerkDefs.PTRKnowTheirWeakness
+			]
 		);
 
 		addPerksToCustomPerkTree(7, o.m.CustomPerkTree, [
@@ -2302,13 +2303,15 @@ gt.PTR.modCharacterBackgrounds <- function()
 
 		addPerksToCustomPerkTree(6, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.PTRFreshAndFurious,
-				this.Const.Perks.PerkDefs.PTRKnowTheirWeakness			]
+				this.Const.Perks.PerkDefs.PTRKnowTheirWeakness
+			]
 		);
 
 		addPerksToCustomPerkTree(7, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.PTRBlitzkrieg,			
-				this.Const.Perks.PerkDefs.PTRFeralRage,
-				this.Const.Perks.PerkDefs.Rebound
+				this.Const.Perks.PerkDefs.LegendBerserkerRage,
+				this.Const.Perks.PerkDefs.Rebound,
+				this.Const.Perks.PerkDefs.LegendUberNimble
 			]
 		);
 	});
