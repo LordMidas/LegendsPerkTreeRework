@@ -1077,6 +1077,15 @@ gt.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_swordmaster_juggernaut.png",
 			IconDisabled = "ui/perks/ptr_swordmaster_juggernaut_bw.png",
 			Const = "PTRSwordmasterJuggernaut"
+		},
+		{
+			ID = "perk.ptr_swordmaster_grappler",
+			Script = "scripts/skills/perks/perk_ptr_swordmaster_grappler",
+			Name = this.Const.Strings.PerkName.PTRSwordmasterGrappler,
+			Tooltip = this.Const.Strings.PerkDescription.PTRSwordmasterGrappler,
+			Icon = "ui/perks/ptr_swordmaster_grappler.png",
+			IconDisabled = "ui/perks/ptr_swordmaster_grappler_bw.png",
+			Const = "PTRSwordmasterGrappler"
 		}
 	];
 
