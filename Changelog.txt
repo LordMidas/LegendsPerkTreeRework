@@ -1,4 +1,16 @@
 ====================
+==== Ver 2.1.1 =====
+====================
+- Fixed Juggernaut Charge not attacking after landing at target tile.
+- Fixed Juggernaut Charge being usable with two-handed fencing swords.
+- Fixed crash when using the Tackle skill.
+- Fixed Juggernaut spillover damage to adjacent enemy working even with one-handed weapons.
+- Fixed Metzger not applying its bleed properly.
+- Fixed Metzger being able to apply bleed even with non-southern swords.
+- Fixed an error in log when generating characters with swordmaster perks via breditor.
+- Fixed an error in log when resurrecting zombies (due to the recently added onUnequip skills event for MSU).
+
+====================
 ==== Ver 2.1.0 =====
 ====================
 == OLD SWORDMASTER ==
