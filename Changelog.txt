@@ -15,8 +15,8 @@
 - Perk - Juggernaut: Single-target attacks with two-handed swords additionally deal 50% damage to a random enemy adjacent to your target. Also adds an active skill:
 	- Juggernaut Charge: Allows you to travel 2 tiles. Upon reaching the destination, stagger all enemies adjacent to you and get a free attack on a random adjacent enemy. Cannot be used when engaged in melee.
 - Perk - Versatile Swordsman: Adds 3 stances that can be swapped between freely during combat for 3 AP per swap:
-	- Half-swording: Removes all skills from the sword and adds the Puncture skill.
-	- Reverse grip: Removes all skills from the sword and adds the Bash / Knockout or Cudgel / Strike Down skills depending on if the sword is one-handed or two-handed respectively.
+	- Half-swording: Removes all skills from the sword and adds the Puncture skill. Requires a two-handed sword or double-gripped one-handed sword.
+	- Reverse grip: Removes all skills from the sword and adds the Bash / Knockout or Cudgel / Strike Down skills depending on if the sword is one-handed or two-handed respectively. Requires a two-handed sword or double-gripped one-handed sword.
 	- Meisterhau: Moving from your position no longer disables the En Garde perk. This is the default stance active at combat start.
 - Perk - Precise: Doubles the bonuses from the Swordmaster's Training or Swordmaster's Finesse effects. When using a fencing sword, the reduction to hitpoints damage received due to remaining armor is reduced by half for all your attacks.
 - The Old Swordmaster now starts with all of these perks already picked. He is the only character who can have more than one of these perks. However, as he gets older, he will lose some of these perks.
