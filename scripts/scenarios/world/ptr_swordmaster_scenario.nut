@@ -30,15 +30,37 @@ this.ptr_swordmaster_scenario <- this.inherit("scripts/scenarios/world/starting_
 		]); //skills on start
 		bro.getSkills().add(this.new("scripts/skills/traits/player_character_trait"));
 
-		bro.getSkills().add(this.new("scripts/skills/perks/perk_ptr_versatile_weapon"));
-		bro.getSkills().add(this.new("scripts/skills/perks/perk_ptr_exploit_opening"));
-		bro.getSkills().add(this.new("scripts/skills/perks/perk_ptr_fluid_weapon"));
-		bro.getSkills().add(this.new("scripts/skills/perks/perk_mastery_sword"));
-		bro.getSkills().add(this.new("scripts/skills/perks/perk_ptr_tempo"));
-		bro.getSkills().add(this.new("scripts/skills/perks/perk_ptr_kata"));
-		bro.getSkills().add(this.new("scripts/skills/perks/perk_ptr_en_garde"));
-		bro.getSkills().add(this.new("scripts/skills/perks/perk_bf_fencer"));
-		bro.m.PerkPointsSpent += 8;
+		bro.getFlags().set("PTRSwordmasterPerksUnlimited", true);
+
+		local skills = [
+			"scripts/skills/perks/perk_ptr_swordmaster_blade_dancer",
+			"scripts/skills/perks/perk_ptr_swordmaster_metzger",
+			"scripts/skills/perks/perk_ptr_swordmaster_precise",
+			"scripts/skills/perks/perk_ptr_swordmaster_versatile_swordsman",
+			"scripts/skills/perks/perk_ptr_swordmaster_juggernaut",
+			"scripts/skills/perks/perk_ptr_swordmaster_grappler",
+			"scripts/skills/perks/perk_ptr_swordmaster_reaper",
+
+			"scripts/skills/perks/perk_ptr_versatile_weapon",
+			"scripts/skills/perks/perk_ptr_exploit_opening",
+			"scripts/skills/perks/perk_ptr_fluid_weapon",
+			"scripts/skills/perks/perk_mastery_sword",
+			"scripts/skills/perks/perk_ptr_tempo",
+			"scripts/skills/perks/perk_ptr_kata",
+			"scripts/skills/perks/perk_ptr_en_garde",
+
+			"scripts/skills/perks/perk_bf_fencer",
+			"scripts/skills/perks/perk_ptr_professional"
+			"scripts/skills/perks/perk_duelist"
+			"scripts/skills/perks/perk_reach_advantage"
+		]
+
+		foreach (skill in skills)
+		{
+			bro.getSkills().add(this.new(skill));
+		}
+
+		bro.m.PerkPointsSpent += 17;
 
 		bro.setPlaceInFormation(4);
 		bro.setVeteranPerks(2);
