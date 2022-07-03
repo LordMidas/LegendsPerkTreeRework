@@ -81,7 +81,8 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 		}
 
 		local weapon = actor.getMainhandItem();
-		if (weapon == null || (!actor.isDoubleGrippingWeapon() && !weapon.isItemType(this.Const.Items.ItemType.TwoHanded)))
+		local bladeDancerPerk = this.getContainer().getSkillByID("perk.ptr_swordmaster_blade_dancer");
+		if (weapon == null || (!actor.isDoubleGrippingWeapon() && !weapon.isItemType(this.Const.Items.ItemType.TwoHanded) && (bladeDancerPerk == null || !bladeDancerPerk.isEnabled())))
 		{
 			tooltip.push({
 				id = 9,
@@ -186,7 +187,11 @@ this.ptr_kata_step_skill <- this.inherit("scripts/skills/skill", {
 		local weapon = actor.getMainhandItem();
 		if (weapon == null || (!this.m.IsForceEnabled && !actor.isDoubleGrippingWeapon() && !weapon.isItemType(this.Const.Items.ItemType.TwoHanded)))
 		{
-			return false;
+			local bladeDancerPerk = this.getContainer().getSkillByID("perk.ptr_swordmaster_blade_dancer");
+			if (bladeDancerPerk == null || !bladeDancerPerk.isEnabled())
+			{
+				return false;
+			}
 		}
 
 		local myTile = actor.getTile();

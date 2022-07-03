@@ -358,6 +358,9 @@ gt.PTR.modStrings <- function()
 	gt.Const.Strings.PerkName.PTRFamilyPride <- "Family Pride";
 	gt.Const.Strings.PerkDescription.PTRFamilyPride <- "Death before dishonor!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Always start battles at Confident morale.\n• Morale checks can never drop your morale below Confident for the first [color=" + this.Const.UI.Color.PositiveValue + "]5[/color] rounds of battle (the entire battle if you have the \'Determined\' trait) and below Steady after that.\n\n[color=" + this.Const.UI.Color.OneTimeEffect + "][u]One-Time Effect:[/u][/color]\n• Removes the \'Insecure\' and \'Dastard\' traits.";
 
+	gt.Const.Strings.PerkName.PTRSwordmasterBladeDancer <- "Blade Dancer";
+	gt.Const.Strings.PerkDescription.PTRSwordmasterBladeDancer <- "[color=" + this.Const.UI.Color.NegativeValue + "][u]Requires:[/u] Non-hybrid Sword[/color]\nLet's Dance!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• When using a non-fencing sword, the Action Point costs of sword skills is reduced by [color=" + this.Const.UI.Color.PositiveValue + "]1[/color].\n• Allows \'Kata Step\' to be usable even while holding something, e.g. a shield, in your offhand.\n• \'Kata Step\' costs [color=" + this.Const.UI.Color.PositiveValue + "]2[/color] fewer Action Points and builds [color=" + this.Const.UI.Color.PositiveValue + "]2[/color] less Fatigue, both down to a minimum of 0.";
+
 	local poleWeaponStrings = [
 		"SpecAxe",
 		"SpecHammer",
