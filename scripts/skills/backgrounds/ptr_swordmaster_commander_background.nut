@@ -134,13 +134,12 @@ this.ptr_swordmaster_commander_background <- this.inherit("scripts/skills/backgr
 		);
 
 		addPerksToCustomPerkTree(2, this.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.PTROffhandTraining,
 				this.Const.Perks.PerkDefs.Anticipation,
 				this.Const.Perks.PerkDefs.LegendOnslaught,
 				this.Const.Perks.PerkDefs.PTRSanguinary,
 				this.Const.Perks.PerkDefs.PTRHeadSmasher,
 				this.Const.Perks.PerkDefs.Rotation,
-				this.Const.Perks.PerkDefs.LegendShieldsUp
+				this.Const.Perks.PerkDefs.LegendShieldsUp,
 			]
 		);
 
@@ -151,7 +150,8 @@ this.ptr_swordmaster_commander_background <- this.inherit("scripts/skills/backgr
 				this.Const.Perks.PerkDefs.PTRDismemberment,
 				this.Const.Perks.PerkDefs.PTRThroughTheGaps,
 				this.Const.Perks.PerkDefs.FortifiedMind,			
-				this.Const.Perks.PerkDefs.RallyTheTroops
+				this.Const.Perks.PerkDefs.RallyTheTroops,
+				this.Const.Perks.PerkDefs.PTRVigilant
 			]
 		);
 		
@@ -159,22 +159,22 @@ this.ptr_swordmaster_commander_background <- this.inherit("scripts/skills/backgr
 				this.Const.Perks.PerkDefs.LegendFavouredEnemySwordmaster,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyNoble,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemySoutherner,
-				this.Const.Perks.PerkDefs.PTRVigilant,
-				this.Const.Perks.PerkDefs.PTRTheRushOfBattle,			
-				this.Const.Perks.PerkDefs.DoubleStrike,			
 				this.Const.Perks.PerkDefs.LegendForwardPush,
 				this.Const.Perks.PerkDefs.LegendHoldTheLine,
-				this.Const.Perks.PerkDefs.Taunt
 			]
 		);
 
 		addPerksToCustomPerkTree(5, this.m.CustomPerkTree, [
+				this.Const.Perks.PerkDefs.PTROffhandTraining,
+				this.Const.Perks.PerkDefs.Taunt,
 				this.Const.Perks.PerkDefs.Footwork,
 				this.Const.Perks.PerkDefs.PTRBetweenTheEyes,
 				this.Const.Perks.PerkDefs.LegendBattleheart,
 				this.Const.Perks.PerkDefs.Berserk,			
 				this.Const.Perks.PerkDefs.PTRVigorousAssault,			
-				this.Const.Perks.PerkDefs.PTRUnstoppable				
+				this.Const.Perks.PerkDefs.PTRUnstoppable,
+				this.Const.Perks.PerkDefs.PTRTheRushOfBattle,
+				this.Const.Perks.PerkDefs.DoubleStrike
 			]
 		);
 
