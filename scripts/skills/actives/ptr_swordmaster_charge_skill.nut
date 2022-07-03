@@ -58,13 +58,13 @@ this.ptr_swordmaster_charge_skill <- this.inherit("scripts/skills/actives/ptr_sw
 		});
 
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon == null || !weapon.isWeaponType(::Const.Items.WeaponType.Sword) || !weapon.isItemType(::Const.Items.ItemType.TwoHanded))
+		if (weapon == null || weapon.isWeaponType(::Const.Items.WeaponType.BFFencing) || !weapon.isWeaponType(::Const.Items.WeaponType.Sword) || !weapon.isItemType(::Const.Items.ItemType.TwoHanded))
 		{
 			tooltip.push({
 				id = 7,
 				type = "text",
 				icon = "ui/icons/warning.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]Requires a two-handed sword[/color]"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]Requires a two-handed non-fencing sword[/color]"
 			});
 		}
 
