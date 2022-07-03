@@ -290,9 +290,9 @@ this.ptr_swordmaster_charge_skill <- this.inherit("scripts/skills/actives/ptr_sw
 				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_entity) + " charges and attacks " + this.Const.UI.getColorizedEntityName(victim) + " while staggering adjacent targets");
 			}
 
-			this.m.IsCharging = true;
+			_tag.Skill.m.IsCharging = true;
 			attack.useForFree(victim.getTile());
-			this.m.IsCharging = false;
+			_tag.Skill.m.IsCharging = false;
 
 			return;
 		}
