@@ -8,9 +8,7 @@ this.ptr_swordmaster_versatile_swordsman_stance_half_swording_skill <- this.inhe
 		this.m.ID = "actives.ptr_swordmaster_versatile_swordsman_stance_half_swording";
 		this.m.Name = "Stance: Half Swording";
 		this.m.Description = "Switch to a half-sword grip to allow for precise piercing attacks through your target\'s armor.";
-		this.m.IconOn <- "skills/ptr_swordmaster_versatile_swordsman_stance_half_swording_skill.png";
-		this.m.IconOff <- "skills/ptr_swordmaster_versatile_swordsman_stance_half_swording_skill_off.png";
-		this.m.Icon = this.m.IconOn;
+		this.m.Icon = "skills/ptr_swordmaster_versatile_swordsman_stance_half_swording_skill.png";
 		this.m.IconDisabled = "skills/ptr_swordmaster_versatile_swordsman_stance_half_swording_skill_bw.png";
 		this.m.Overlay = "ptr_swordmaster_versatile_swordsman_stance_half_swording_skill";
 		this.m.SoundOnUse = [];

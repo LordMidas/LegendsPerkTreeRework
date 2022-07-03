@@ -8,9 +8,7 @@ this.ptr_swordmaster_versatile_swordsman_stance_reverse_grip_skill <- this.inher
 		this.m.ID = "actives.ptr_swordmaster_versatile_swordsman_stance_reverse_grip";
 		this.m.Name = "Stance: Reverse Grip";
 		this.m.Description = "Grab your sword in a reverse grip to use it like a mace.";
-		this.m.IconOn <- "skills/ptr_swordmaster_versatile_swordsman_stance_reverse_grip_skill.png";
-		this.m.IconOff <- "skills/ptr_swordmaster_versatile_swordsman_stance_reverse_grip_skill_off.png";
-		this.m.Icon = this.m.IconOn;
+		this.m.Icon = "skills/ptr_swordmaster_versatile_swordsman_stance_reverse_grip_skill.png";
 		this.m.IconDisabled = "skills/ptr_swordmaster_versatile_swordsman_stance_reverse_grip_skill_bw.png";
 		this.m.Overlay = "ptr_swordmaster_versatile_swordsman_stance_reverse_grip_skill";
 		this.m.SoundOnUse = [];

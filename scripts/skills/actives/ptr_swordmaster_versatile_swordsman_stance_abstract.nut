@@ -24,10 +24,14 @@ this.ptr_swordmaster_versatile_swordsman_stance_abstract <- this.inherit("script
 		return true;
 	}
 
+	function isUsable()
+	{
+		return this.skill.isUsable() && !this.m.IsOn;
+	}
+
 	function toggleOn()
 	{
 		this.m.IsOn = true;
-		this.m.Icon = this.m.IconOn;
 		foreach (skill in this.getContainer().getSkillsByFunction(@(skill) ::MSU.isKindOf(skill, "ptr_swordmaster_versatile_swordsman_stance_abstract")))
 		{
 			if (skill != this) skill.toggleOff();
@@ -37,7 +41,6 @@ this.ptr_swordmaster_versatile_swordsman_stance_abstract <- this.inherit("script
 	function toggleOff()
 	{
 		this.m.IsOn = false;
-		this.m.Icon = this.m.IconOff;
 	}
 
 	function onUse( _user, _targetTile )

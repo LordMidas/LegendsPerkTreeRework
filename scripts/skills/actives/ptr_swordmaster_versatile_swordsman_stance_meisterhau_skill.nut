@@ -8,9 +8,7 @@ this.ptr_swordmaster_versatile_swordsman_stance_meisterhau_skill <- this.inherit
 		this.m.ID = "actives.ptr_swordmaster_versatile_swordsman_stance_meisterhau";
 		this.m.Name = "Stance: Meisterhau";
 		this.m.Description = "Readying yourself for the master strikes known as the Meisterhäu allows you to strike and defend at the same time.";
-		this.m.IconOn <- "skills/ptr_swordmaster_versatile_swordsman_stance_meisterhau_skill.png";
-		this.m.IconOff <- "skills/ptr_swordmaster_versatile_swordsman_stance_meisterhau_skill_off.png";
-		this.m.Icon = this.m.IconOn;
+		this.m.Icon = "skills/ptr_swordmaster_versatile_swordsman_stance_meisterhau_skill.png";
 		this.m.IconDisabled = "skills/ptr_swordmaster_versatile_swordsman_stance_meisterhau_skill_bw.png";
 		this.m.Overlay = "ptr_swordmaster_versatile_swordsman_stance_meisterhau_skill";
 		this.m.SoundOnUse = [];
