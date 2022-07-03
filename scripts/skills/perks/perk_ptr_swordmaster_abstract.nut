@@ -16,8 +16,12 @@ this.perk_ptr_swordmaster_abstract <- this.inherit("scripts/skills/skill", {
 		if (!this.canPick(this.getID()))
 		{
 			this.removeSelf();
-			this.getContainer().getActor().m.PerkPoints++;
-			this.getContainer().getActor().m.PerkPointsSpent--;
+			if (::MSU.isKindOf(this.getContainer().getActor(), "player"))
+			{
+				this.getContainer().getActor().m.PerkPoints++;
+				this.getContainer().getActor().m.PerkPointsSpent--;
+			}
+
 			return false;
 		}
 
