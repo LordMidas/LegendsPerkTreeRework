@@ -1032,6 +1032,15 @@ gt.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_swordmaster_blade_dancer.png",
 			IconDisabled = "ui/perks/ptr_swordmaster_blade_dancer_bw.png",
 			Const = "PTRSwordmasterBladeDancer"
+		},
+		{
+			ID = "perk.ptr_swordmaster_reaper",
+			Script = "scripts/skills/perks/perk_ptr_swordmaster_reaper",
+			Name = this.Const.Strings.PerkName.PTRSwordmasterReaper,
+			Tooltip = this.Const.Strings.PerkDescription.PTRSwordmasterReaper,
+			Icon = "ui/perks/ptr_swordmaster_reaper.png",
+			IconDisabled = "ui/perks/ptr_swordmaster_reaper_bw.png",
+			Const = "PTRSwordmasterReaper"
 		}
 	];
 

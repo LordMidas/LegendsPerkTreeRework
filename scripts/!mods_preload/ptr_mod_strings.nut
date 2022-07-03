@@ -360,6 +360,8 @@ gt.PTR.modStrings <- function()
 
 	gt.Const.Strings.PerkName.PTRSwordmasterBladeDancer <- "Blade Dancer";
 	gt.Const.Strings.PerkDescription.PTRSwordmasterBladeDancer <- "[color=" + this.Const.UI.Color.NegativeValue + "][u]Requires:[/u] Non-hybrid Sword[/color]\nLet's Dance!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• When using a non-fencing sword, the Action Point costs of sword skills is reduced by [color=" + this.Const.UI.Color.PositiveValue + "]1[/color].\n• Allows \'Kata Step\' to be usable even while holding something, e.g. a shield, in your offhand.\n• \'Kata Step\' costs [color=" + this.Const.UI.Color.PositiveValue + "]2[/color] fewer Action Points and builds [color=" + this.Const.UI.Color.PositiveValue + "]2[/color] less Fatigue, both down to a minimum of 0.";
+	gt.Const.Strings.PerkName.PTRSwordmasterReaper <- "Reaper";
+	gt.Const.Strings.PerkDescription.PTRSwordmasterReaper <- "[color=" + this.Const.UI.Color.NegativeValue + "][u]Requires:[/u] Non-hybrid Sword[/color]\nBring in the harvest!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• The Action Point costs of AOE sword skills is reduced by [color=" + this.Const.UI.Color.PositiveValue + "]2[/color] and the Fatigue Cost by [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color].";
 
 	local poleWeaponStrings = [
 		"SpecAxe",
