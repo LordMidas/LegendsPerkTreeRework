@@ -68,7 +68,7 @@ this.perk_ptr_swordmaster_metzger <- this.inherit("scripts/skills/perks/perk_ptr
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		if (!_targetEntity.isAlive() || _targetEntity.isDying()) return;
+		if (!_targetEntity.isAlive() || _targetEntity.isDying() || !this.isEnabled()) return;
 
 		if (!_targetEntity.getCurrentProperties().IsImmuneToBleeding && _damageInflictedHitpoints >= ::Const.Combat.MinDamageToApplyBleeding)
 		{
