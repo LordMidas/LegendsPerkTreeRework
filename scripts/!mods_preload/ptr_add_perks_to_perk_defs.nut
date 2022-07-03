@@ -1068,6 +1068,15 @@ gt.PTR.addPerksToPerkDefs <- function()
 			Icon = "ui/perks/ptr_swordmaster_versatile_swordsman.png",
 			IconDisabled = "ui/perks/ptr_swordmaster_versatile_swordsman_bw.png",
 			Const = "PTRSwordmasterVersatileSwordsman"
+		},
+		{
+			ID = "perk.ptr_swordmaster_juggernaut",
+			Script = "scripts/skills/perks/perk_ptr_swordmaster_juggernaut",
+			Name = this.Const.Strings.PerkName.PTRSwordmasterJuggernaut,
+			Tooltip = this.Const.Strings.PerkDescription.PTRSwordmasterJuggernaut,
+			Icon = "ui/perks/ptr_swordmaster_juggernaut.png",
+			IconDisabled = "ui/perks/ptr_swordmaster_juggernaut_bw.png",
+			Const = "PTRSwordmasterJuggernaut"
 		}
 	];
 
