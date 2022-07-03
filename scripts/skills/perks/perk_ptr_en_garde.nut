@@ -29,7 +29,11 @@ this.perk_ptr_en_garde <- this.inherit("scripts/skills/skill", {
 	{
 		if (this.getContainer().getActor().m.IsMoving)
 		{
-			this.m.IsSpent = true;
+			local meisterhau = this.getContainer().getSkillByID("actives.ptr_swordmaster_versatile_swordsman_stance_meisterhau");
+			if (meisterhau == null || !meisterhau.m.IsOn)
+			{
+				this.m.IsSpent = true;
+			}
 		}
 	}
 

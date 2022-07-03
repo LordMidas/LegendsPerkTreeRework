@@ -17,6 +17,9 @@
 	<sprite id="ptr_between_the_eyes_skill" ic = "FF23165B" img="..\skills\ptr_between_the_eyes_skill.png" />
 	<sprite id="ptr_follow_up_skill" ic = "FF23165B" img="..\skills\ptr_follow_up_skill.png" />
 	<sprite id="ptr_kata_step_skill" ic = "FF23165B" img="..\skills\ptr_kata_step_skill.png" />
+	<sprite id="ptr_swordmaster_versatile_swordsman_stance_meisterhau_skill" ic = "FF23165B" img="..\skills\ptr_swordmaster_versatile_swordsman_stance_meisterhau_skill.png" />
+	<sprite id="ptr_swordmaster_versatile_swordsman_stance_reverse_grip_skill" ic = "FF23165B" img="..\skills\ptr_swordmaster_versatile_swordsman_stance_reverse_grip_skill.png" />
+	<sprite id="ptr_swordmaster_versatile_swordsman_stance_half_swording_skill" ic = "FF23165B" img="..\skills\ptr_swordmaster_versatile_swordsman_stance_half_swording_skill.png" />
 	
 	<sprite id="ptr_arrow_to_the_knee_debuff_effect" ic = "FF23165B" img="..\ui\perks\ptr_arrow_to_the_knee.png" />
 	<sprite id="ptr_arrow_to_the_knee_debuff_effect_mini" ic = "FF23165B" img="mini\ptr_arrow_to_the_knee_debuff_effect_mini.png" />
