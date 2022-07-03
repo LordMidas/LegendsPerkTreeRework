@@ -392,13 +392,14 @@ gt.PTR.modLegendsPerkTreeCreationSystem <- function()
 		{
 			local chance = perk.Func(_player, perk.Chance);
 
-			if (chance == 0) continue;
+			// if (chance == 0) continue;
 
 			foreach (multiplier in _player.getBackground().m.SpecialPerkMultipliers)
 			{
 				if (multiplier[1] == perk.Perk)
 				{
-					chance *= multiplier[0];
+					if (multiplier[0] < 0) chance = multiplier[0];
+					else chance *= multiplier[0];
 					break;
 				}
 			}
@@ -411,7 +412,8 @@ gt.PTR.modLegendsPerkTreeCreationSystem <- function()
 				{
 					if (multiplier[1] == perk.Perk)
 					{
-						chance *= multiplier[0];
+						if (multiplier[0] < 0) chance = multiplier[0];
+						else chance *= multiplier[0];
 						break;
 					}
 				}
@@ -429,7 +431,8 @@ gt.PTR.modLegendsPerkTreeCreationSystem <- function()
 						{
 							if (multiplier[1] == perk.Perk)
 							{
-								chance *= multiplier[0];
+								if (multiplier[0] < 0) chance = multiplier[0];
+								else chance *= multiplier[0];
 								break;
 							}
 						}
