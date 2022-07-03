@@ -33,9 +33,24 @@ this.ptr_swordmaster_versatile_swordsman_stance_reverse_grip_skill <- this.inher
 			text = "[color=" + this.Const.UI.Color.NegativeValue + "]Removes[/color] all skills from the currently equipped sword and adds the " + skillsString + " skills"
 		});
 
+		if (!this.getContainer().getActor().isArmedWithTwoHandedWeapon() && !this.getContainer().getActor().isDoubleGrippingWeapon())
+		{
+			tooltip.push({
+				id = 10,
+				type = "text",
+				icon = "ui/icons/warning.png",
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]Requires a two-handed sword or a double-gripped one-handed sword[/color]"
+			});
+		}
+
 		this.addEnabledTooltip(tooltip);
 
 		return tooltip;
+	}
+
+	function isUsable()
+	{
+		return this.ptr_swordmaster_versatile_swordsman_stance_abstract.isUsable() && (this.getContainer().getActor().isArmedWithTwoHandedWeapon() || this.getContainer().getActor().isDoubleGrippingWeapon());
 	}
 
 	function toggleOn()
