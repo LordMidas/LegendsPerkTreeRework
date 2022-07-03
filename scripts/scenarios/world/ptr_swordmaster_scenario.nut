@@ -60,6 +60,14 @@ this.ptr_swordmaster_scenario <- this.inherit("scripts/scenarios/world/starting_
 			bro.getSkills().add(this.new(skill));
 		}
 
+		foreach (row in bro.getBackground().getPerkTree())
+		{
+			foreach (perk in row)
+			{
+				if (skills.find(perk.Script) != null) perk.IsRefundable = false;
+			}
+		}
+
 		bro.m.PerkPointsSpent += 17;
 
 		bro.setPlaceInFormation(4);
