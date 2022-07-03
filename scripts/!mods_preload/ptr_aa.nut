@@ -33,7 +33,7 @@ gt.PTR.ModID <- "mod_legends_PTR";
 			o.equip = function( _item )
 			{
 				local ret = equip(_item);
-				if (ret == true) this.m.Actor.getSkills().onEquip(_item);
+				if (ret == true && this.m.Actor != null) this.m.Actor.getSkills().onEquip(_item);
 				return ret;
 			}
 
@@ -41,7 +41,7 @@ gt.PTR.ModID <- "mod_legends_PTR";
 			o.unequip = function( _item )
 			{
 				local ret = unequip(_item);
-				if (ret == true) this.m.Actor.getSkills().onUnequip(_item);
+				if (ret == true && this.m.Actor != null) this.m.Actor.getSkills().onUnequip(_item);
 				return ret;
 			}
 		});
