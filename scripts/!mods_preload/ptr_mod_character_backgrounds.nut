@@ -5649,6 +5649,8 @@ gt.PTR.modCharacterBackgrounds <- function()
 				}
 			}
 
+			this.getContainer().add(this.new("scripts/skills/effects/ptr_swordmasters_finesse_effect"));
+
 			return ret;
 		}
 	});
