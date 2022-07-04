@@ -50,9 +50,11 @@ this.ptr_swordmaster_scenario <- this.inherit("scripts/scenarios/world/starting_
 			"scripts/skills/perks/perk_ptr_en_garde",
 
 			"scripts/skills/perks/perk_bf_fencer",
-			"scripts/skills/perks/perk_ptr_professional"
 			"scripts/skills/perks/perk_duelist"
-			"scripts/skills/perks/perk_reach_advantage"
+			"scripts/skills/perks/perk_reach_advantage",
+			"scripts/skills/perks/perk_shield_expert",
+			"scripts/skills/perks/perk_ptr_bloody_harvest",
+			"scripts/skills/perks/perk_ptr_weapon_master"
 		]
 
 		foreach (skill in skills)
@@ -68,7 +70,7 @@ this.ptr_swordmaster_scenario <- this.inherit("scripts/scenarios/world/starting_
 			}
 		}
 
-		bro.m.PerkPointsSpent += 17;
+		bro.m.PerkPointsSpent += 20;
 
 		bro.setPlaceInFormation(4);
 		bro.setVeteranPerks(2);
@@ -159,9 +161,9 @@ this.ptr_swordmaster_scenario <- this.inherit("scripts/scenarios/world/starting_
 		effect.m.FreePerks.push(this.Const.Perks.PerkDefs.PTRVersatileWeapon);
 		bro.getSkills().add(effect);
 
-		if (_background.hasPerk(::Const.Perks.PerkDefs.SpecSword))
+		if (bro.getBackground().hasPerk(::Const.Perks.PerkDefs.SpecSword))
 		{
-			local masteryRow = _background.getPerkTree()[3];
+			local masteryRow = bro.getBackground().getPerkTree()[3];
 			for (local i = masteryRow.len() - 1; i >= 0; i--)
 			{
 				local id = masteryRow[i].ID;
@@ -177,14 +179,14 @@ this.ptr_swordmaster_scenario <- this.inherit("scripts/scenarios/world/starting_
 					default:
 						if (id.find("mastery") != null)
 						{
-							_background.removePerk(::Const.Perks.PerkDefs[masteryRow[i].Const]);
+							bro.getBackground().removePerk(::Const.Perks.PerkDefs[masteryRow[i].Const]);
 						}
 				}
 			}
 
 			foreach (perk in ::Const.Perks.SwordmasterProfessionTree.Tree[3])
 			{
-				_background.addPerk(perk, 3);
+				bro.getBackground().addPerk(perk, 3);
 			}
 		}
 	}

@@ -120,7 +120,6 @@ this.ptr_swordmaster_commander_background <- this.inherit("scripts/skills/backgr
 		);
 
 		addPerksToCustomPerkTree(1, this.m.CustomPerkTree, [
-				this.Const.Perks.PerkDefs.PTRProfessional,
 				this.Const.Perks.PerkDefs.PTRMenacing,
 				this.Const.Perks.PerkDefs.LegendHairSplitter,
 				this.Const.Perks.PerkDefs.PTRFamilyTies,
@@ -130,7 +129,8 @@ this.ptr_swordmaster_commander_background <- this.inherit("scripts/skills/backgr
 				this.Const.Perks.PerkDefs.PTRDeepCuts,
 				this.Const.Perks.PerkDefs.PTRSmallTarget,
 				this.Const.Perks.PerkDefs.LoneWolf,
-				this.Const.Perks.PerkDefs.PTRPatternRecognition			
+				this.Const.Perks.PerkDefs.PTRPatternRecognition,
+				this.Const.Perks.PerkDefs.PTRVigilant
 			]
 		);
 
@@ -141,6 +141,8 @@ this.ptr_swordmaster_commander_background <- this.inherit("scripts/skills/backgr
 				this.Const.Perks.PerkDefs.PTRHeadSmasher,
 				this.Const.Perks.PerkDefs.Rotation,
 				this.Const.Perks.PerkDefs.LegendShieldsUp,
+				this.Const.Perks.PerkDefs.ShieldExpert,
+				this.Const.Perks.PerkDefs.PTRBloodyHarvest
 			]
 		);
 
@@ -152,7 +154,7 @@ this.ptr_swordmaster_commander_background <- this.inherit("scripts/skills/backgr
 				this.Const.Perks.PerkDefs.PTRThroughTheGaps,
 				this.Const.Perks.PerkDefs.FortifiedMind,			
 				this.Const.Perks.PerkDefs.RallyTheTroops,
-				this.Const.Perks.PerkDefs.PTRVigilant
+				this.Const.Perks.PerkDefs.LegendHoldTheLine
 			]
 		);
 		
@@ -161,7 +163,6 @@ this.ptr_swordmaster_commander_background <- this.inherit("scripts/skills/backgr
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyNoble,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemySoutherner,
 				this.Const.Perks.PerkDefs.LegendForwardPush,
-				this.Const.Perks.PerkDefs.LegendHoldTheLine,
 			]
 		);
 
@@ -187,7 +188,8 @@ this.ptr_swordmaster_commander_background <- this.inherit("scripts/skills/backgr
 				this.Const.Perks.PerkDefs.Overwhelm,
 				this.Const.Perks.PerkDefs.LegendClarity,
 				this.Const.Perks.PerkDefs.PushTheAdvantage,
-				this.Const.Perks.PerkDefs.PTRBloodbath
+				this.Const.Perks.PerkDefs.PTRBloodbath,
+				this.Const.Perks.PerkDefs.Duelist
 			]
 		);
 
@@ -199,7 +201,8 @@ this.ptr_swordmaster_commander_background <- this.inherit("scripts/skills/backgr
 				this.Const.Perks.PerkDefs.KillingFrenzy,
 				this.Const.Perks.PerkDefs.Inspire,
 				this.Const.Perks.PerkDefs.PTRBlitzkrieg,
-				this.Const.Perks.PerkDefs.PTRFreshAndFurious
+				this.Const.Perks.PerkDefs.PTRFreshAndFurious,
+				this.Const.Perks.PerkDefs.PTRWeaponMaster
 			]
 		);
 	}
