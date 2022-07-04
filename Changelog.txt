@@ -1,4 +1,10 @@
 ====================
+==== Ver 2.1.3 =====
+====================
+- Fixed wrong variable name causing target practice to bug out skills of a character.
+- Fixed actor being null during unequip causing transferTo to bug out especially during zombie resurrection.
+
+====================
 ==== Ver 2.1.2 =====
 ====================
 - Picking the Metzger perk now adds the Cleaver perk group to the character's perk tree, except the Cleaver Mastery perk.
