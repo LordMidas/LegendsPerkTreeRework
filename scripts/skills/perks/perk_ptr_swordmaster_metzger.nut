@@ -5,7 +5,8 @@ this.perk_ptr_swordmaster_metzger <- this.inherit("scripts/skills/perks/perk_ptr
 			"weapon.named_shamshir",
 			"weapon.scimitar",
 			"weapon.saif",
-		]
+		],
+		IsSet = false
 	},
 	function create()
 	{
@@ -18,22 +19,28 @@ this.perk_ptr_swordmaster_metzger <- this.inherit("scripts/skills/perks/perk_ptr
 
 	function onAdded()
 	{
-		local equippedItem = this.getContainer().getActor().getMainhandItem();
-		if (equippedItem != null)
+		if (!this.m.IsSet && this.perk_ptr_swordmaster_abstract.onAdded())
 		{
-			this.getContainer().getActor().getItems().unequip(equippedItem);
-			this.getContainer().getActor().getItems().equip(equippedItem);
+			local equippedItem = this.getContainer().getActor().getMainhandItem();
+			if (equippedItem != null)
+			{
+				this.getContainer().getActor().getItems().unequip(equippedItem);
+				this.getContainer().getActor().getItems().equip(equippedItem);
+			}
+			this.m.IsSet = true;
 		}
-		this.perk_ptr_swordmaster_abstract.onAdded();
 	}
 
 	function onRemoved()
 	{
-		local equippedItem = this.getContainer().getActor().getMainhandItem();
-		if (equippedItem != null)
+		if (this.m.IsSet)
 		{
-			this.getContainer().getActor().getItems().unequip(equippedItem);
-			this.getContainer().getActor().getItems().equip(equippedItem);
+			local equippedItem = this.getContainer().getActor().getMainhandItem();
+			if (equippedItem != null)
+			{
+				this.getContainer().getActor().getItems().unequip(equippedItem);
+				this.getContainer().getActor().getItems().equip(equippedItem);
+			}
 		}
 	}
 
@@ -82,5 +89,11 @@ this.perk_ptr_swordmaster_metzger <- this.inherit("scripts/skills/perks/perk_ptr
 
 			_targetEntity.getSkills().add(effect);
 		}
+	}
+
+	function onDeserialize( _in )
+	{
+		this.perk_ptr_swordmaster_abstract.onDeserialize(_in);
+		this.m.IsSet = true;
 	}
 });
