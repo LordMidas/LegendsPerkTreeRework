@@ -110,6 +110,7 @@ this.ptr_swordmaster_commander_background <- this.inherit("scripts/skills/backgr
 
 		addPerkTreesToCustomPerkTree(this.m.CustomPerkTree,
 			[
+				this.Const.Perks.SwordmasterProfessionTree,
 				this.Const.Perks.ViciousTree,
 				this.Const.Perks.TrapperClassTree,
 				this.Const.Perks.SwordTree,
