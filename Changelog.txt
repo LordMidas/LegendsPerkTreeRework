@@ -1,4 +1,15 @@
 ====================
+==== Ver 2.1.2 =====
+====================
+- Picking the Metzger perk now adds the Cleaver perk group to the character's perk tree, except the Cleaver Mastery perk.
+- Fixed characters with the Metzger perk having their traits duplicated upon loading a saved game.
+- Fixed being unable to load older saves where Swordmaster recruits were present.
+- Removed the Professional perk from the Old Swordmaster but gave him all the perks that that perk gave. This is to avoid some bugs with using Oblivion Potion on that character causing the number of Perk Points available to bug out.
+- Characters in the Old Swordmaster origin will no longer lose access to ranged weapon mastery perks.
+- Characters in the Old Swordmaster origin will only lose access to other weapon masteries and gain access to the swordmaster perk group perks if they have the sword perk group.
+- Fixed some modifications done to the perk group of characters in the Old Swordmaster origin via Breditor being reset upon loading a saved game.
+
+====================
 ==== Ver 2.1.1 =====
 ====================
 - Fixed Juggernaut Charge not attacking after landing at target tile.
