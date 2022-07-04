@@ -5596,6 +5596,8 @@ gt.PTR.modCharacterBackgrounds <- function()
 	});
 
 	::mods_hookNewObject("skills/backgrounds/swordmaster_background", function(o) {
+		o.m.IsSet <- false;
+
 		o.m.SpecialPerkMultipliers = [
 			[-1, ::Const.Perks.PerkDefs.BFFencer]
 		];
@@ -5642,19 +5644,24 @@ gt.PTR.modCharacterBackgrounds <- function()
 		local buildPerkTree = o.buildPerkTree;
 		o.buildPerkTree = function()
 		{
-			local ret = buildPerkTree();
-			local masteryRow = this.getPerkTree()[3];
-			for (local i = masteryRow.len() - 1; i >= 0; i--)
+			if (this.m.CustomPerkTree == null)
 			{
-				if (masteryRow[i].ID != "perk.mastery.sword" && masteryRow[i].ID.find("mastery") != null)
+				local ret = buildPerkTree();
+				local masteryRow = this.getPerkTree()[3];
+				for (local i = masteryRow.len() - 1; i >= 0; i--)
 				{
-					this.removePerk(::Const.Perks.PerkDefs[masteryRow[i].Const]);
+					if (masteryRow[i].ID != "perk.mastery.sword" && masteryRow[i].ID.find("mastery") != null)
+					{
+						this.removePerk(::Const.Perks.PerkDefs[masteryRow[i].Const]);
+					}
 				}
+
+				this.getContainer().add(this.new("scripts/skills/effects/ptr_swordmasters_finesse_effect"));
+
+				return ret;
 			}
 
-			this.getContainer().add(this.new("scripts/skills/effects/ptr_swordmasters_finesse_effect"));
-
-			return ret;
+			return buildPerkTree();
 		}
 	});
 
