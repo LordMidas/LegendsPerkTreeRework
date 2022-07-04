@@ -189,18 +189,34 @@ this.ptr_swordmaster_scenario <- this.inherit("scripts/scenarios/world/starting_
 	function onBuildPerkTree( _background )
 	{
 		this.addScenarioPerk(_background, this.Const.Perks.PerkDefs.PTRVersatileWeapon);
-		local masteryRow = _background.getPerkTree()[3];
-		for (local i = masteryRow.len() - 1; i >= 0; i--)
-		{
-			if (masteryRow[i].ID != "perk.mastery.sword" && masteryRow[i].ID.find("mastery") != null)
-			{
-				_background.removePerk(::Const.Perks.PerkDefs[masteryRow[i].Const]);
-			}
-		}
 
-		foreach (perk in ::Const.Perks.SwordmasterProfessionTree.Tree[3])
+		if (_background.hasPerk(::Const.Perks.PerkDefs.SpecSword))
 		{
-			_background.addPerk(perk, 3);
+			local masteryRow = _background.getPerkTree()[3];
+			for (local i = masteryRow.len() - 1; i >= 0; i--)
+			{
+				local id = masteryRow[i].ID;
+				switch (id)
+				{
+					case "perk.mastery.sword":
+					case "perk.mastery.bow":
+					case "perk.mastery.crossbow":
+					case "perk.mastery.throwing":
+					case "perk.legend_mastery_slings":
+						break;
+
+					default:
+						if (id.find("mastery") != null)
+						{
+							_background.removePerk(::Const.Perks.PerkDefs[masteryRow[i].Const]);
+						}
+				}
+			}
+
+			foreach (perk in ::Const.Perks.SwordmasterProfessionTree.Tree[3])
+			{
+				_background.addPerk(perk, 3);
+			}
 		}
 	}
 });
