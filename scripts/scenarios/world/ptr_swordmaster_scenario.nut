@@ -158,6 +158,35 @@ this.ptr_swordmaster_scenario <- this.inherit("scripts/scenarios/world/starting_
 		local effect = this.new("scripts/skills/effects/ptr_swordmaster_scenario_recruit_effect");
 		effect.m.FreePerks.push(this.Const.Perks.PerkDefs.PTRVersatileWeapon);
 		bro.getSkills().add(effect);
+
+		if (_background.hasPerk(::Const.Perks.PerkDefs.SpecSword))
+		{
+			local masteryRow = _background.getPerkTree()[3];
+			for (local i = masteryRow.len() - 1; i >= 0; i--)
+			{
+				local id = masteryRow[i].ID;
+				switch (id)
+				{
+					case "perk.mastery.sword":
+					case "perk.mastery.bow":
+					case "perk.mastery.crossbow":
+					case "perk.mastery.throwing":
+					case "perk.legend_mastery_slings":
+						break;
+
+					default:
+						if (id.find("mastery") != null)
+						{
+							_background.removePerk(::Const.Perks.PerkDefs[masteryRow[i].Const]);
+						}
+				}
+			}
+
+			foreach (perk in ::Const.Perks.SwordmasterProfessionTree.Tree[3])
+			{
+				_background.addPerk(perk, 3);
+			}
+		}
 	}
 
 	function onUpdateHiringRoster( _roster )
@@ -189,35 +218,6 @@ this.ptr_swordmaster_scenario <- this.inherit("scripts/scenarios/world/starting_
 	function onBuildPerkTree( _background )
 	{
 		this.addScenarioPerk(_background, this.Const.Perks.PerkDefs.PTRVersatileWeapon);
-
-		if (_background.hasPerk(::Const.Perks.PerkDefs.SpecSword))
-		{
-			local masteryRow = _background.getPerkTree()[3];
-			for (local i = masteryRow.len() - 1; i >= 0; i--)
-			{
-				local id = masteryRow[i].ID;
-				switch (id)
-				{
-					case "perk.mastery.sword":
-					case "perk.mastery.bow":
-					case "perk.mastery.crossbow":
-					case "perk.mastery.throwing":
-					case "perk.legend_mastery_slings":
-						break;
-
-					default:
-						if (id.find("mastery") != null)
-						{
-							_background.removePerk(::Const.Perks.PerkDefs[masteryRow[i].Const]);
-						}
-				}
-			}
-
-			foreach (perk in ::Const.Perks.SwordmasterProfessionTree.Tree[3])
-			{
-				_background.addPerk(perk, 3);
-			}
-		}
 	}
 });
 
