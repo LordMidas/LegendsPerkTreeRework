@@ -33,7 +33,7 @@ gt.PTR.ModID <- "mod_legends_PTR";
 			o.equip = function( _item )
 			{
 				local ret = equip(_item);
-				if (ret == true !::MSU.isNull(this.m.Actor) && this.m.Actor.isAlive()) this.m.Actor.getSkills().onEquip(_item);
+				if (ret == true && !::MSU.isNull(this.m.Actor) && this.m.Actor.isAlive()) this.m.Actor.getSkills().onEquip(_item);
 				return ret;
 			}
 
