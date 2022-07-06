@@ -1211,7 +1211,7 @@ gt.PTR.modEnemies <- function()
 			local ret = makeMiniboss();
 			if (ret)
 			{
-				this.m.Skills.removeByID("perk.adrenalin");				
+				this.m.Skills.removeByID("perk.adrenaline");
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_personal_armor"));
 			}
 
@@ -2321,7 +2321,7 @@ gt.PTR.modEnemies <- function()
 		{
 			assignRandomEquipment();
 			this.m.Skills.removeByID("perk.underdog");
-			this.m.Skills.removeByID("perk.adrenalin");		
+			this.m.Skills.removeByID("perk.adrenaline");
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vigorous_assault"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_know_their_weakness"));							
 
@@ -2814,7 +2814,7 @@ gt.PTR.modEnemies <- function()
 			}
 
 			this.m.Skills.removeByID("perk.fast_adaption");			
-			this.m.Skills.removeByID("perk.adrenalin");
+			this.m.Skills.removeByID("perk.adrenaline");
 			this.m.Skills.removeByID("perk.underdog");		
 			this.m.Skills.removeByID("perk.head_hunter");		
 			local kata = this.new("scripts/skills/perks/perk_ptr_kata");

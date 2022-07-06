@@ -650,7 +650,7 @@ gt.PTR.modTraitsTrees <- function()
 	],
 
 	this.Const.Perks.FitTree.Tree = array(7);
-	this.Const.Perks.FitTree.Tree[0] = [this.Const.Perks.PerkDefs.Adrenalin];
+	this.Const.Perks.FitTree.Tree[0] = [this.Const.Perks.PerkDefs.Adrenaline];
 	this.Const.Perks.FitTree.Tree[1] = [];
 	this.Const.Perks.FitTree.Tree[2] = [];
 	this.Const.Perks.FitTree.Tree[3] = [this.Const.Perks.PerkDefs.PTRVigorousAssault];
