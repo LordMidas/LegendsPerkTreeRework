@@ -77,12 +77,6 @@ this.ptr_swordmasters_finesse_effect <- this.inherit("scripts/skills/skill", {
 					type = "text",
 					icon = "ui/icons/initiative.png",
 					text = "[color=" + this.Const.UI.Color.NegativeValue + "]-" + ::Math.floor(skillMalus * 1.5) + "[/color] Initiative"
-				},
-				{
-					id = 10,
-					type = "text",
-					icon = "ui/icons/fatigue.png",
-					text = "Skills build up [color=" + this.Const.UI.Color.NegativeValue + "]+" + (2 * skillMalus) + "%[/color] Fatigue"
 				}
 			]);
 		}
@@ -124,7 +118,7 @@ this.ptr_swordmasters_finesse_effect <- this.inherit("scripts/skills/skill", {
 	{
 		if (this.getContainer().getActor().getFlags().has("SwordmasterAgeDays"))
 		{
-			return this.Math.min(30, this.getContainer().getActor().getFlags().get("SwordmasterAgeDays") / 10);
+			return this.Math.min(10, this.getContainer().getActor().getFlags().get("SwordmasterAgeDays") / 10);
 		}
 
 		return 0;
@@ -144,9 +138,8 @@ this.ptr_swordmasters_finesse_effect <- this.inherit("scripts/skills/skill", {
 
 		local skillMalus = this.getSkillMalus();
 		_properties.Stamina -= skillMalus;
-		_properties.Initiative -= ::Math.floor(skillMalus * 1.5);
+		_properties.Initiative -= skillMalus;
 		_properties.Hitpoints -= skillMalus;
-		_properties.FatigueEffectMult *= 1.0 + 2 * skillMalus * 0.01;
 	}
 
 });
