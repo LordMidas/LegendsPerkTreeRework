@@ -1,4 +1,9 @@
 ====================
+==== Ver 2.1.4 =====
+====================
+- Reduced the maluses for regular swordmasters from the Swordmaster's Finesse effect. They no longer have a penalty to Fatigue Cost of skills. The 1.5x multiplier to the Initiative malus has been removed. The total malus has been capped at -10 (which makes it similar to the Old trait).
+
+====================
 ==== Ver 2.1.3 =====
 ====================
 - Fixed wrong variable name causing target practice to bug out skills of a character.
