@@ -62,7 +62,7 @@ this.perk_ptr_en_garde <- this.inherit("scripts/skills/skill", {
 		{
 			return riposte;
 		}
-		else
+		else if (weapon.isItemType(::Const.Items.ItemType.TwoHanded))
 		{
 			return this.new("scripts/skills/effects/return_favor_effect");
 		}
