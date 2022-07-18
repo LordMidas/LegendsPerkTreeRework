@@ -53,6 +53,12 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 		local myTile = _entity.getTile();		
 		local knownAllies = this.getAgent().getKnownAllies();
 		local lungeSkill = _entity.getSkills().getSkillByID("actives.lunge");
+		local canEngarde = false;
+		local engarde = _entity.getSkills().getSkillByID("perk.ptr_en_garde");
+		if (engarde != null && engarde.pickSkill() != null)
+		{
+			canEngarde = true;
+		}
 
 		local evaluateTarget = function( _target, _startingTile )
 		{
@@ -268,6 +274,15 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 
 				local spearwallMult = this.querySpearwallValueForTile(_entity, tile);
 
+
+				if (tile.isSameTileAs(myTile) && canEngarde)
+				{
+					if (this.Const.AI.VerboseMode)
+					{
+						this.logInfo("Increasing score of my tile as I have En Garde available");
+					}
+					tileScore += 10 + this.Const.AI.Behavior.EngageTerrainLevelBonus * this.getProperties().EngageOnGoodTerrainBonusMult;
+				}
 
 				local isSkillUsable = !tile.isSameTileAs(_startingTile);
 
