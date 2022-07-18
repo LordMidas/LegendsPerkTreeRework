@@ -18,12 +18,9 @@ this.ptr_swordmaster_scenario_old_age_event_3 <- this.inherit("scripts/events/ev
 					Text = "How much longer do I have?",
 					function getResult( _event )
 					{
-						function getResult( _event )
-						{
-							_event.m.Swordmaster.getSkills().removeByID("perk.ptr_swordmaster_reaper");
-							_event.m.Swordmaster.getBackground().removePerk(::Const.Perks.PerkDefs.PTRSwordmasterReaper);
-							return 0;
-						}
+						_event.m.Swordmaster.getSkills().removeByID("perk.ptr_swordmaster_reaper");
+						_event.m.Swordmaster.getBackground().removePerk(::Const.Perks.PerkDefs.PTRSwordmasterReaper);
+						return 0;
 						return 0;
 					}
 

@@ -18,12 +18,9 @@ this.ptr_swordmaster_scenario_old_age_event_2 <- this.inherit("scripts/events/ev
 					Text = "Time takes its toll...",
 					function getResult( _event )
 					{
-						function getResult( _event )
-						{
-							_event.m.Swordmaster.getSkills().removeByID("perk.ptr_swordmaster_grappler");
-							_event.m.Swordmaster.getBackground().removePerk(::Const.Perks.PerkDefs.PTRSwordmasterGrappler);
-							return 0;
-						}
+						_event.m.Swordmaster.getSkills().removeByID("perk.ptr_swordmaster_grappler");
+						_event.m.Swordmaster.getBackground().removePerk(::Const.Perks.PerkDefs.PTRSwordmasterGrappler);
+						return 0;
 						return 0;
 					}
 
