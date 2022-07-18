@@ -64,7 +64,7 @@ this.ai_legend_hold_the_line <- this.inherit("scripts/ai/tactical/behavior", {
 
 			local hitChance = enemyAttack.getHitchance(bestTarget);
 
-			if (hitChance < 50 || hitChance > 90)
+			if (hitChance < 40 || hitChance > 90)
 			{
 				continue;
 			}
@@ -74,7 +74,7 @@ this.ai_legend_hold_the_line <- this.inherit("scripts/ai/tactical/behavior", {
 				relevantAllies.push(bestTarget.getID());
 			}
 			
-			useScore = useScore + hitChance - 50;
+			useScore = useScore + hitChance - 40;
 		}
 
 		if (relevantAllies.len() < 5)

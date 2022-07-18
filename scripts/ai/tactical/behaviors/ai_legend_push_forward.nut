@@ -62,7 +62,7 @@ this.ai_legend_push_forward <- this.inherit("scripts/ai/tactical/behavior", {
 			}
 
 			local hitChance = allyAttack.getHitchance(bestTarget);
-			if (hitChance < 40 || hitChance > 85)
+			if (hitChance < 20 || hitChance > 85)
 			{
 				continue;
 			}
