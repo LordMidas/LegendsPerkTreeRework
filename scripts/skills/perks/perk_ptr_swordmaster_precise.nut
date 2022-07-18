@@ -11,21 +11,6 @@ this.perk_ptr_swordmaster_precise <- this.inherit("scripts/skills/perks/perk_ptr
 		this.m.Icon = "ui/perks/ptr_swordmaster_precise.png";
 	}
 
-	function onAfterUpdate( _properties )
-	{
-		if (!this.isEnabled()) return;
-
-		local skills = this.getContainer().getActor().getMainhandItem().getSkills();
-		foreach (skill in skills)
-		{
-			if (skill.isAttack() && skill.isAOE())
-			{
-				skill.m.ActionPointCost = ::Math.max(0, skill.m.ActionPointCost - 1);
-				skill.m.FatigueCostMult *= 0.8;
-			}
-		}
-	}
-
 	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
 	{
 		if (_skill.isAOE()) return;
