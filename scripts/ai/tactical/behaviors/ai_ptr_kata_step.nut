@@ -78,9 +78,24 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 				{
 					if (this.Const.AI.VerboseMode)
 					{
-						this.logInfo("Better to engage " + _target.getName() + " with Lunge");
+						this.logInfo("Better to engage " + _target.getName() + " with Lunge. Lunge Value: " + lungeValue + " vs Target Value: " + targetValue);
 					}
-					return ret;
+					if (_startingTile.isSameTileAs(myTile))
+					{
+						return ret;
+					}
+					else 
+					{
+						ret.push({
+							Tile = _target.getTile(),
+							Actor = _target,
+							TargetValue = lungeValue,
+							TileScore = 50,
+							ScoreMult = 2
+						});
+
+						return ret;
+					}
 				}
 			}
 
@@ -89,6 +104,10 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 			{
 				potentialTiles.push(_startingTile);
 			}
+
+			// These are for AI VerboseMode
+			local tilesToEvaluate = [];
+			local ignoredTiles = [];
 
 			for (local i = 0; i < 6; i++)
 			{
@@ -101,13 +120,33 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 						potentialTiles.push(nextTile);
 						if (this.Const.AI.VerboseMode)
 						{
-							this.logInfo("Adding tile " + nextTile.ID + " for evaluation for Kata use from tile " + _startingTile.ID);
+							tilesToEvaluate.push(nextTile);
 						}
 					}
 					else if (this.Const.AI.VerboseMode)
 					{
-						this.logInfo("Ignoring tile " + nextTile.ID + " as we can't use Kata to get to there from tile " + _startingTile.ID);
+						ignoredTiles.push(nextTile);
 					}
+				}
+			}
+
+			if (::Const.AI.VerboseMode)
+			{
+				local text = tilesToEvaluate.len() > 0 ? "Tiles to evaluate: " : "Tiles to evaluate: None  ";
+				foreach (tile in tilesToEvaluate)
+				{
+					text += tile.ID + ", ";
+				}
+				::logInfo(text.slice(0, -2));
+				if (ignoredTiles.len() != 0)
+				{
+					local text = "Ignored Tiles: ";
+					foreach (tile in ignoredTiles)
+					{
+						text += tile.ID + ", ";
+					}
+					::logInfo(text.slice(0, -2));
+					ignoredTiles.clear();
 				}
 			}
 
@@ -128,12 +167,11 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 					continue;
 				}
 
-				local isSkillUsable = !tile.isSameTileAs(_startingTile);				
 				if (attackSkill == null || !attackSkill.onVerifyTarget(tile, targetTile) || !attackSkill.isInRange(targetTile, tile))
 				{
 					if (this.Const.AI.VerboseMode)
 					{
-						this.logInfo("Ignoring target " + _target.getName() + " from tile " + tile.ID + " as we won\'t be able to use " + attackSkill.getName() + " against them from that tile");
+						ignoredTiles.push(tile);
 					}
 					continue;
 				}
@@ -230,6 +268,9 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 
 				local spearwallMult = this.querySpearwallValueForTile(_entity, tile);
 
+
+				local isSkillUsable = !tile.isSameTileAs(_startingTile);
+
 				if (isSkillUsable && this.m.Skill.isSpearwallRelevant())
 				{
 					tileScore = tileScore - this.Const.AI.Behavior.EngageSpearwallTargetPenalty * spearwallMult;
@@ -293,6 +334,20 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 					TileScore = tileScore,
 					ScoreMult = scoreMult
 				});
+
+				if (::Const.AI.VerboseMode)
+				{
+					if (ignoredTiles.len() != 0)
+					{
+						local text = "From Tile " + tile.ID + ", ignoring tiles ";
+						foreach (tile in ignoredTiles)
+						{
+							text += tile.ID + ", ";
+						}
+						::logInfo(text.slice(0, -2) + " as we won\'t be able to use " + attackSkill.getName() + " against them from those tiles");
+						ignoredTiles.clear();
+					}
+				}
 			}
 
 			return ret;
@@ -365,7 +420,10 @@ this.ai_ptr_kata_step <- this.inherit("scripts/ai/tactical/behavior", {
 						{
 							if (this.Const.AI.VerboseMode)
 							{
-								this.logInfo("Increasing score of Kata against " + dest.Actor.getName() + " to tile " + dest.Tile.ID + " for future Kata towards " + d.Actor.getName() + " to tile " + d.Tile.ID);
+								local text = "Increasing score of Kata against " + dest.Actor.getName() + " to tile " + dest.Tile.ID + " for future ";
+								if (d.TileScore == 999) text += "Lunge towards " + d.Actor.getName();
+								else text += "Kata towards " + d.Actor.getName() + " to tile " + d.Tile.ID;
+								this.logInfo(text);
 							}
 							dest.TileScore += d.TileScore;
 						}
