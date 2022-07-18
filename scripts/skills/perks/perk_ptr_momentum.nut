@@ -95,6 +95,34 @@ this.perk_ptr_momentum <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
+	function onAffordablePreview( _skill, _movementTile )
+	{
+		if (!this.isEnabled()) return;
+
+		if (_skill != null)
+		{
+			foreach (s in this.getContainer().getActor().getMainhandItem().getSkills())
+			{
+				if (s.isAttack() && s.isRanged())
+				{
+					this.modifyPreviewField(s, "ActionPointCost", 0, false);
+				}
+			}
+		}
+
+		if (_movementTile != null)
+		{
+			local bonus = _movementTile.getDistanceTo(this.getContainer().getActor().getTile());
+			foreach (s in this.getContainer().getActor().getMainhandItem().getSkills())
+			{
+				if (s.isAttack() && s.isRanged())
+				{
+					this.modifyPreviewField(s, "ActionPointCost", ::Math.min(s.m.ActionPointCost - 1, bonus) * -1, false);
+				}
+			}
+		}
+	}
+
 	function getBonus()
 	{
 		return this.m.TilesMovedThisTurn * this.m.BonusPerTile;
