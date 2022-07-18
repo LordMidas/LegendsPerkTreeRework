@@ -1,6 +1,8 @@
 BBDir="${1-"c:\\Steam\\steamapps\\common\\Battle Brothers\\data"}"
 RepoDir="${2-"battlebrothers"}"
 
+rm -rf  "$BBDir\\brushes" "$BBDir\\gfx" "$BBDir\\preload" "$BBDir\\scripts" "$BBDir\\sounds" "$BBDir\\ui"
+
 function checkForCompileError() {
 code=0
 while read -r line; do
@@ -79,6 +81,14 @@ done <<< "$FILES"
 # o=$(./masscompile.bat "$BBDir\\scripts")
 # cd ../"$RepoDir"
 
+echo "Zipping mod ..."
+rm -rf "$BBDir\\mod_ptr.zip"
+"C:\Program Files\7-Zip\7z.exe" a "$BBDir\\mod_ptr.zip" "$BBDir\\brushes" "$BBDir\\gfx" "$BBDir\\scripts" "$BBDir\\sounds" "$BBDir\\ui"
+echo "Cleaning up ..."
+rm -rf  "$BBDir\\brushes" "$BBDir\\gfx" "$BBDir\\preload" "$BBDir\\scripts" "$BBDir\\sounds" "$BBDir\\ui"
+mkdir -p "$BBDir\\gfx\\fonts"
+cp -R ../fonts "$BBDir\\gfx"
+
 checkForCompileError "$o"
 resp="$?"
 echo $resp
@@ -90,4 +100,3 @@ else
     echo "Success!"
     exit 0
 fi
-
