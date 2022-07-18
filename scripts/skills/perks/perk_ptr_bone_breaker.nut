@@ -6,6 +6,8 @@ this.perk_ptr_bone_breaker <- this.inherit("scripts/skills/skill", {
 		InjuryPool = null,
 		BonusVsUndead = 1.15,
 		ChanceOneHanded = 50,
+		DamageInflictedHitpoints = 0,
+		MinDamageToInflictInjury = 5,
 		TargetsThisTurn = [],
 		ValidEffects = [
 			"effects.sleeping",
@@ -62,16 +64,20 @@ this.perk_ptr_bone_breaker <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.InjuryPool = null;
 	}
-
 	
 	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
 	{
 		this.m.InjuryPool = _hitInfo.Injuries;
 	}
 
+	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
+	{
+		this.m.DamageInflictedHitpoints = _damageInflictedHitpoints;
+	}
+
 	function onAnySkillExecuted( _skill, _targetTile, _targetEntity, _forFree )
 	{
-		if (this.m.InjuryPool == null || _targetEntity == null || this.m.TargetsThisTurn.find(_targetEntity.getID()) != null || !_targetEntity.isAlive() || _targetEntity.isDying() || _targetEntity.isAlliedWith(this.getContainer().getActor()) || !_skill.isAttack() || !this.isEnabled())
+		if (this.m.DamageInflictedHitpoints < this.m.MinDamageToInflictInjury || this.m.InjuryPool == null || _targetEntity == null || this.m.TargetsThisTurn.find(_targetEntity.getID()) != null || !_targetEntity.isAlive() || _targetEntity.isDying() || _targetEntity.isAlliedWith(this.getContainer().getActor()) || !_skill.isAttack() || !this.isEnabled())
 		{
 			return;
 		}
