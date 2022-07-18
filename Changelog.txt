@@ -1,4 +1,16 @@
 ====================
+==== Ver 2.1.5 =====
+====================
+- Improved Kata Step AI to factor the availability of the En Garde perk.
+- Taught Kata Step AI to consider future Lunge possibilities from the Kata tiles.
+- Increased the likelihood of the AI using Push Forward and Hold the Line skills.
+- En Garde no longer triggers Return Favor with one-handed swords (primarily affects things like southern swords without Riposte).
+- Increased the base Fatigue Cost of switching between stances from the Versatile Swordsman perk from 0 to 1.
+- Improved the Versatile Swordsman perk tooltip.
+- Fixed the Precise perk unintentionally reducing the Action Point cost of AOE skills by 1 and Fatigue cost by 20%.
+- Fixed the Old Swordmaster not losing the Grappler perk during old age event 2 and the Reaper perk during old age event 3.
+
+====================
 ==== Ver 2.1.4 =====
 ====================
 - Reduced the maluses for regular swordmasters from the Swordmaster's Finesse effect. They no longer have a penalty to Fatigue Cost of skills. The 1.5x multiplier to the Initiative malus has been removed. The total malus has been capped at -10 (which makes it similar to the Old trait).
