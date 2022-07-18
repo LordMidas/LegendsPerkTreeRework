@@ -7,6 +7,7 @@ this.ptr_swordmaster_versatile_swordsman_stance_abstract <- this.inherit("script
 		this.ptr_swordmaster_active_abstract.create();
 		this.m.IsWeaponSkill = true;
 		this.m.ActionPointCost = 3;
+		this.m.FatigueCost = 1;
 	}
 
 	function onAdded()
