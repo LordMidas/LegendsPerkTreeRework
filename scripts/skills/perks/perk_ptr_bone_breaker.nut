@@ -79,11 +79,13 @@ this.perk_ptr_bone_breaker <- this.inherit("scripts/skills/skill", {
 	{
 		if (this.m.DamageInflictedHitpoints < this.m.MinDamageToInflictInjury || this.m.InjuryPool == null || _targetEntity == null || this.m.TargetsThisTurn.find(_targetEntity.getID()) != null || !_targetEntity.isAlive() || _targetEntity.isDying() || _targetEntity.isAlliedWith(this.getContainer().getActor()) || !_skill.isAttack() || !this.isEnabled())
 		{
+			this.m.InjuryPool = null;
 			return;
 		}
 
 		if (_targetEntity.getFlags().has("undead") && !_targetEntity.getFlags().has("ghoul") && !_targetEntity.getFlags().has("ghost") && !this.getContainer().hasSkill("perk.ptr_deep_impact"))
 		{
+			this.m.InjuryPool = null;
 			return;
 		}
 
@@ -94,6 +96,7 @@ this.perk_ptr_bone_breaker <- this.inherit("scripts/skills/skill", {
 			{
 				this.m.TargetsThisTurn.push(_targetEntity.getID());
 				this.applyInjury(_targetEntity);
+				this.m.InjuryPool = null;
 			}
 		}
 	}
@@ -103,10 +106,16 @@ this.perk_ptr_bone_breaker <- this.inherit("scripts/skills/skill", {
 		this.m.TargetsThisTurn.clear();
 	}
 
+	function onCombatStarted()
+	{
+		this.m.InjuryPool = null;
+	}
+
 	function onCombatFinished()
 	{
 		this.skill.onCombatFinished();
 		this.m.TargetsThisTurn.clear();
+		this.m.InjuryPool = null;
 	}
 
 	function applyInjury( _targetEntity )
