@@ -7,7 +7,7 @@ gfx/*.png
 *.DS_Store
 temp.nut
 .vscode
-build_compile_midas.sh
-unstaged_build_midas.sh
 unstaged_build_uber.sh
 bcompile_uber.sh
+*.sublime-project
+*.sublime-workspace
