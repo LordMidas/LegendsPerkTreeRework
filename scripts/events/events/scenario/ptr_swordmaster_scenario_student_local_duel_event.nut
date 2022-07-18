@@ -352,7 +352,7 @@ this.ptr_swordmaster_scenario_student_local_duel_event <- this.inherit("scripts/
 			{
 				continue;
 			}
-			if (bro.getCurrentProperties().getMeleeSkill() < 100 || bro.getCurrentProperties().getMeleeDefense() < 30 || bro.getBackground().getID().find("swordmaster") != null)
+			if (bro.getCurrentProperties().getMeleeSkill() < 100 || bro.getCurrentProperties().getMeleeDefense() < 45 || bro.getBackground().getID().find("swordmaster") != null)
 			{
 				non_canditates.push(bro);
 			}
