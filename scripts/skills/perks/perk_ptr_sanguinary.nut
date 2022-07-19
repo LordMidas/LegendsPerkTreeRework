@@ -49,7 +49,7 @@ this.perk_ptr_sanguinary <- this.inherit("scripts/skills/skill", {
 		if (_targetEntity != null && this.m.DidHit && (this.m.WasBleeding || (_targetEntity.isAlive() && !_targetEntity.isDying() && _targetEntity.getSkills().hasSkill("effects.bleeding"))))
 		{
 			local actor = this.getContainer().getActor();
-			if (actor.getMoraleState() < this.Const.MoraleState.Confident && actor.getMoraleState() != this.Const.MoraleState.Fleeing)
+			if (actor.getMoraleState() < this.Const.MoraleState.Steady && actor.getMoraleState() != this.Const.MoraleState.Fleeing)
 			{
 				actor.setMoraleState(actor.getMoraleState() + 1);
 				this.spawnIcon("perk_ptr_sanguinary", actor.getTile());
