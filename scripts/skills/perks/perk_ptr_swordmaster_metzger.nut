@@ -72,6 +72,15 @@ this.perk_ptr_swordmaster_metzger <- this.inherit("scripts/skills/perks/perk_ptr
 		}
 
 		_item.addSkill(this.new("scripts/skills/actives/decapitate"));
+
+		if (!this.getContainer().hasSkill("perk.ptr_sanguinary"))
+		{
+			_item.addSkill(::new("scripts/skills/perks/perk_ptr_sanguinary"));
+		}
+		if (!this.getContainer().hasSkill("perk.ptr_bloodbath"))
+		{
+			_item.addSkill(::new("scripts/skills/perks/perk_ptr_bloodbath"));
+		}
 	}
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
