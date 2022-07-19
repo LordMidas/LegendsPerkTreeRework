@@ -1,4 +1,17 @@
 ====================
+==== Ver 2.1.6 =====
+====================
+- The Metzger perk now grants the Sanguinary and Bloodbath perks for free while a southern curved sword is equipped.
+- The Stunned Effect now reduces Melee Defense, Ranged Defense and Initiative by 50%.
+- Return Favor reworked: Now has a 10% chance to stun, 50% chance to daze, and 75% chance to Stagger the target. Only one effect is applied.
+- Return Favor now requires being unarmed or equipping a melee weapon.
+- Bone Breaker now requires at least 5 Hitpoints damage to trigger its injury.
+- The morale increase from Sanguinary by applying Bleeding is now capped at Steady (Fatalities still set it to Confident instantly).
+- Increased the minimum Melee Defense for candidates for the student's duel event from Old Swordmaster from 30 to 45.
+- Added affordability preview to Momentum to properly show the affordability of throwing attacks after moving.
+- The Metzger perk no longer adds Swordlike and Mauler to the perk tree as these require Cleaver.
+
+====================
 ==== Ver 2.1.5 =====
 ====================
 - Improved Kata Step AI to factor the availability of the En Garde perk.
@@ -7,7 +20,7 @@
 - En Garde no longer triggers Return Favor with one-handed swords (primarily affects things like southern swords without Riposte).
 - Increased the base Fatigue Cost of switching between stances from the Versatile Swordsman perk from 0 to 1.
 - Improved the Versatile Swordsman perk tooltip.
-- Fixed the Precise perk unintentionally reducing the Action Point cost of AOE skills by 1 and Fatigue cost by 20%.
+- Fixed the Precise perk unintentionally reducing the Action Point cost of AOE skills by 1 \and Fatigue cost by 20%.
 - Fixed the Old Swordmaster not losing the Grappler perk during old age event 2 and the Reaper perk during old age event 3.
 
 ====================
