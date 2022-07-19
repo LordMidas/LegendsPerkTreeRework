@@ -152,6 +152,12 @@ gt.PTR.modActor <- function()
 		local resetPerks = o.resetPerks;
 		o.resetPerks = function()
 		{
+			local weapon = this.getContainer().getActor().getMainhandItem();
+			if (weapon != null)
+			{
+				this.getContainer().getActor().getItems().unequip(equippedItem);
+			}
+
 			local hasDiscoveredTalent = false;
 			if (this.getSkills().hasSkill("perk.ptr_discovered_talent"))
 			{
@@ -231,6 +237,11 @@ gt.PTR.modActor <- function()
 			if (hasProfessional)
 			{
 				this.m.PerkPoints -= numProfessionalAddedPerks;
+			}
+
+			if (weapon != null)
+			{
+				this.getContainer().getActor().getItems().equip(equippedItem);
 			}
 		}
 
