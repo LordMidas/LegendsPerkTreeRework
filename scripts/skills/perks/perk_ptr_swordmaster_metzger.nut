@@ -29,6 +29,8 @@ this.perk_ptr_swordmaster_metzger <- this.inherit("scripts/skills/perks/perk_ptr
 			}
 			this.getContainer().getActor().getBackground().addPerkGroup(::Const.Perks.CleaverTree.Tree);
 			this.getContainer().getActor().getBackground().removePerk(::Const.Perks.PerkDefs.SpecCleaver);
+			this.getContainer().getActor().getBackground().removePerk(::Const.Perks.PerkDefs.PTRSwordlike);
+			this.getContainer().getActor().getBackground().removePerk(::Const.Perks.PerkDefs.PTRMauler);
 			this.m.IsSet = true;
 		}
 	}
