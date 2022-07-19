@@ -820,6 +820,33 @@ gt.PTR.modSkills <- function()
 	}	
 
 	::mods_hookExactClass("skills/effects/stunned_effect", function(o) {
+		o.getTooltip <- function()
+		{
+			local tooltip = this.skill.getDefaultTooltip();
+			tooltip.extend([
+				{
+					id = 7,
+					type = "text",
+					icon = "ui/icons/melee_defense.png",
+					text = "[color=" + this.Const.UI.Color.NegativeValue + "]-50%[/color] Melee Defense"
+				},
+				{
+					id = 7,
+					type = "text",
+					icon = "ui/icons/ranged_defense.png",
+					text = "[color=" + this.Const.UI.Color.NegativeValue + "]-50%[/color] Ranged Defense"
+				},
+				{
+					id = 7,
+					type = "text",
+					icon = "ui/icons/initiative.png",
+					text = "[color=" + this.Const.UI.Color.NegativeValue + "]-50%[/color] Initiative"
+				}
+			]);
+
+			return tooltip;
+		}
+
 		local setTurns = o.setTurns;
 		o.setTurns = function( _t )
 		{
@@ -851,6 +878,15 @@ gt.PTR.modSkills <- function()
 			}		
 
 			onAdded();
+		}
+
+		local onUpdate = o.onUpdate;
+		o.onUpdate = function( _properties )
+		{
+			onUpdate(_properties);
+			_properties.MeleeDefenseMult *= 0.5;
+			_properties.RangedDefenseMult *= 0.5;
+			_properties.InitiativeMult *= 0.5;
 		}
 	});
 
