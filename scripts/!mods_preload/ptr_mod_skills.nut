@@ -1008,7 +1008,9 @@ gt.PTR.modSkills <- function()
 
 					if (r <= 10 && !_attacker.getCurrentProperties().IsImmuneToStun())
 					{
-						_attacker.getSkills().add(::new("scripts/skills/effects/stunned_effect"));
+						local effect = ::new("scripts/skills/effects/stunned_effect");
+						effect.addTurns(1);
+						_attacker.getSkills().add(effect);
 						if (!actor.isHiddenToPlayer() && _attacker.getTile().IsVisibleForPlayer)
 						{
 							::Tactical.EventLog.log(::Const.UI.getColorizedEntityName(actor) + " has stunned " + this.Const.UI.getColorizedEntityName(_attacker) + " for one turn");
@@ -1016,9 +1018,7 @@ gt.PTR.modSkills <- function()
 					}
 					else if (r <= 50)
 					{
-						local effect = ::new("scripts/skills/effects/dazed_effect");
-						_attacker.getSkills().add(effect);
-						effect.m.TurnsLeft = 1;
+						_attacker.getSkills().add(::new("scripts/skills/effects/dazed_effect"));
 						if (!actor.isHiddenToPlayer() && _attacker.getTile().IsVisibleForPlayer)
 						{
 							::Tactical.EventLog.log(::Const.UI.getColorizedEntityName(actor) + " has dazed " + this.Const.UI.getColorizedEntityName(_attacker) + " for one turn");
@@ -1026,9 +1026,7 @@ gt.PTR.modSkills <- function()
 					}
 					else if (r <= 75)
 					{
-						local effect = ::new("scripts/skills/effects/staggered_effect");
-						_attacker.getSkills().add(effect);
-						effect.m.TurnsLeft = 1;
+						_attacker.getSkills().add(::new("scripts/skills/effects/staggered_effect"));
 						if (!actor.isHiddenToPlayer() && _attacker.getTile().IsVisibleForPlayer)
 						{
 							::Tactical.EventLog.log(::Const.UI.getColorizedEntityName(actor) + " has staggered " + this.Const.UI.getColorizedEntityName(_attacker) + " for one turn");
