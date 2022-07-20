@@ -364,11 +364,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 			[1.5, this.Const.Perks.HeavyArmorTree]
 		];
 
-		o.m.PerkTreeDynamic = {
-			Class = [
-				::Const.Perks.FistsClassTree
-			]
-		};
+		o.m.PerkTreeDynamic = {};
 	});
 
 	::mods_hookNewObject("skills/backgrounds/butcher_background", function(o) {
