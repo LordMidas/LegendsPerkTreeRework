@@ -83,7 +83,7 @@ done <<< "$FILES"
 
 echo "Zipping mod ..."
 rm -rf "$BBDir\\mod_ptr.zip"
-"C:\Program Files\7-Zip\7z.exe" a "$BBDir\\mod_ptr.zip" "$BBDir\\brushes" "$BBDir\\gfx" "$BBDir\\scripts" "$BBDir\\sounds" "$BBDir\\ui"
+"C:\Program Files\7-Zip\7z.exe" a "$BBDir\\mod_ptr.zip" "$BBDir\\brushes" "$BBDir\\gfx" "$BBDir\\scripts" "$BBDir\\sounds" "$BBDir\\ui" "Changelog.txt"
 echo "Cleaning up ..."
 rm -rf  "$BBDir\\brushes" "$BBDir\\gfx" "$BBDir\\preload" "$BBDir\\scripts" "$BBDir\\sounds" "$BBDir\\ui"
 mkdir -p "$BBDir\\gfx\\fonts"
