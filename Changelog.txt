@@ -3,7 +3,7 @@
 ====================
 - Removed the maluses to Melee Defense, Ranged Defense and Initiative added to the Stunned Effect in v2.1.6.
 - The debuffs applied by Return Favor will now last through the attacker's next turn, as intended, instead of expiring immediately.
-- Fixed a long standing bug which caused Discovered Talents to apply its talent stars retroactively to levelups.
+- Fixed a long standing bug which caused Discovered Talent to apply its talent stars retroactively to levelups.
 - Fixed Oblivion Potion and other sources of perk reset not properly resetting the perks.
 
 ====================
