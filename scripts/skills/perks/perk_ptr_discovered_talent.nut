@@ -38,12 +38,26 @@ this.perk_ptr_discovered_talent <- this.inherit("scripts/skills/skill", {
 		if (actor.m.LevelUpsSpent < requiredLevelUpsSpent)
 		{
 			local startIndex = requiredLevelUpsSpent - actor.m.LevelUpsSpent;
-			local attributes = clone actor.m.Attributes;
+			local attributes = array(actor.m.Attributes.len());
+
+			foreach (i, attributeLevelUps in actor.m.Attributes)
+			{
+				attributes[i] = array(startIndex);
+				for (local j = 0; j < startIndex; j++)
+				{
+					attributes[i][j] = attributeLevelUps[j];
+				}
+			}
+
 			actor.m.Attributes.clear();
 			actor.fillAttributeLevelUpValues(this.Const.XP.MaxLevelWithPerkpoints - actor.getLevel() + actor.m.LevelUps);
-			for (local i = 0; i < startIndex; i++)
+
+			foreach (i, attributeLevelUps in attributes)
 			{
-				actor.m.Attributes[i] = attributes[i];
+				foreach (j, levelup in attributeLevelUps)
+				{
+					actor.m.Attributes[i][j] = levelup;
+				}
 			}
 		}
 		else
