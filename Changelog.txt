@@ -1,4 +1,11 @@
 ====================
+==== Ver 2.1.8 =====
+====================
+Up In Arms
+- Removed the unarmed perk tree from brawler background.
+- Renamed adrenalin in the code to adrenaline to maintain Legends compatability.
+
+====================
 ==== Ver 2.1.7 =====
 ====================
 - Removed the maluses to Melee Defense, Ranged Defense and Initiative added to the Stunned Effect in v2.1.6.
