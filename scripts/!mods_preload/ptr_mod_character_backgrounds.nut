@@ -4150,7 +4150,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 		addPerksToCustomPerkTree(1, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.FastAdaption,			
 				this.Const.Perks.PerkDefs.LegendMarkTarget,
-				this.Const.Perks.PerkDefs.Adrenalin,				
+				this.Const.Perks.PerkDefs.Adrenaline,
 				this.Const.Perks.PerkDefs.Recover,
 				this.Const.Perks.PerkDefs.LegendSummonHound,
 				this.Const.Perks.PerkDefs.PTRSmallTarget
@@ -4226,7 +4226,7 @@ gt.PTR.modCharacterBackgrounds <- function()
 		addPerksToCustomPerkTree(1, o.m.CustomPerkTree, [
 				this.Const.Perks.PerkDefs.FastAdaption,			
 				this.Const.Perks.PerkDefs.LegendMarkTarget,
-				this.Const.Perks.PerkDefs.Adrenalin,				
+				this.Const.Perks.PerkDefs.Adrenaline,
 				this.Const.Perks.PerkDefs.Recover,
 				this.Const.Perks.PerkDefs.LegendSummonHound,
 				this.Const.Perks.PerkDefs.PTRSmallTarget
