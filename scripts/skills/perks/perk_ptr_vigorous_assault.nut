@@ -170,6 +170,31 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
+	function onAffordablePreview( _skill, _movementTile )
+	{
+		if (!this.isEnabled()) return;
+
+		if (_skill != null)
+		{
+			foreach (skill in this.getContainer().getSkillsByFunction(@(skill) skill.isAttack()))
+	        {
+	            this.modifyPreviewField(skill, "ActionPointCost", 0, false);
+	            this.modifyPreviewField(skill, "FatigueCostMult", 1, true);
+	        }
+		}
+
+		if (_movementTile != null)
+		{
+			local bonus = this.m.StartingTile.getDistanceTo(_movementTile) / this.m.BonusEveryXTiles;
+
+	        foreach (skill in this.getContainer().getSkillsByFunction(@(skill) skill.isAttack()))
+	        {
+	            this.modifyPreviewField(skill, "ActionPointCost", ::Math.min(skill.m.ActionPointCost - 1, bonus) * -1, false);
+	            this.modifyPreviewField(skill, "FatigueCostMult", 1 - this.m.FatCostReduction * bonus * 0.01, true);
+	        }
+		}
+	}
+
 	function onWaitTurn()
 	{
 		this.m.StartingTile = null;
