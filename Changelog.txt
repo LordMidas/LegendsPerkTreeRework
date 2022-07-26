@@ -1,8 +1,11 @@
 ====================
 ==== Ver 2.1.8 =====
 ====================
-Up In Arms
-- Removed the unarmed perk tree from brawler background.
+- Now REQUIRES Legends version 16.1.0 or later.
+- Removed the Unarmed perk group from Brawler background. No backgrounds in PTR have this perk group anymore (but we've left it in Breditor if you want it - use the Breditor PTR patch).
+- The Old Swordmaster will now lose the Blade Dancer perk in addition to the Reaper perk during the third old age event.
+- Fixed the action point costs of Momentum bugging out after moving (this was part of an MSU bug related to affordability preview of skills. We have included a temporary fix for this in PTR while we wait for the MSU update).
+- Added affordability preview to Vigorous Assault when moving to properly reflect the predicted affordability of the skills.
 - Renamed adrenalin in the code to adrenaline to maintain Legends compatability.
 
 ====================
