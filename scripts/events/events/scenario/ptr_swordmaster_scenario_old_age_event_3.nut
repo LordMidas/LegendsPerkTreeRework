@@ -20,7 +20,8 @@ this.ptr_swordmaster_scenario_old_age_event_3 <- this.inherit("scripts/events/ev
 					{
 						_event.m.Swordmaster.getSkills().removeByID("perk.ptr_swordmaster_reaper");
 						_event.m.Swordmaster.getBackground().removePerk(::Const.Perks.PerkDefs.PTRSwordmasterReaper);
-						return 0;
+						_event.m.Swordmaster.getSkills().removeByID("perk.ptr_swordmaster_blade_dancer");
+						_event.m.Swordmaster.getBackground().removePerk(::Const.Perks.PerkDefs.PTRSwordmasterBladeDancer);
 						return 0;
 					}
 
@@ -59,6 +60,11 @@ this.ptr_swordmaster_scenario_old_age_event_3 <- this.inherit("scripts/events/ev
 						id = 16,
 						icon = "ui/backgrounds/ptr_old_swordmaster_background.png",
 						text = _event.m.Swordmaster.getName() + " loses the Reaper perk"
+					},
+					{
+						id = 16,
+						icon = "ui/backgrounds/ptr_old_swordmaster_background.png",
+						text = _event.m.Swordmaster.getName() + " loses the Blade Dancer perk"
 					},
 					{
 						id = 16,
