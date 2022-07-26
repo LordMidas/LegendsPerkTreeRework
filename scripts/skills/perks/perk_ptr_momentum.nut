@@ -112,7 +112,7 @@ this.perk_ptr_momentum <- this.inherit("scripts/skills/skill", {
 
 		if (_movementTile != null)
 		{
-			local bonus = _movementTile.getDistanceTo(this.getContainer().getActor().getTile());
+			local bonus = this.m.TilesMovedThisTurn + _movementTile.getDistanceTo(this.getContainer().getActor().getTile());
 			foreach (s in this.getContainer().getActor().getMainhandItem().getSkills())
 			{
 				if (s.isAttack() && s.isRanged())
