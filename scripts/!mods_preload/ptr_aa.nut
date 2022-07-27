@@ -40,13 +40,55 @@ gt.PTR.ModID <- "mod_legends_PTR";
 			local unequip = o.unequip;
 			o.unequip = function( _item )
 			{
-				local ret = unequip(_item);
-				if (ret == true && !::MSU.isNull(this.m.Actor) && this.m.Actor.isAlive()) this.m.Actor.getSkills().onUnequip(_item);
-				return ret;
+				if (_item != null && _item != -1 && _item.getCurrentSlotType() != ::Const.ItemSlot.None && _item.getCurrentSlotType() != ::Const.ItemSlot.Bag && !::MSU.isNull(this.m.Actor) && this.m.Actor.isAlive())
+				{
+					foreach (item in this.m.Items[_item.getSlotType()])
+					{
+						if (item == _item)
+						{
+							this.m.Actor.getSkills().onUnequip(_item);
+							break;
+						}
+					}
+				}
+
+				return unequip(_item);
 			}
 		});
 
 		::mods_hookNewObject("skills/skill_container", function(o) {
+			o.callSkillsFunction = function( _function, _argsArray = null, _update = true, _aliveOnly = false )
+			{
+				if (_argsArray == null) _argsArray = [null];
+				else _argsArray.insert(0, null);
+
+				local wasUpdating = this.m.IsUpdating;
+				this.m.IsUpdating = true;
+				this.m.IsBusy = false;
+				this.m.BusyStack = 0;
+
+				foreach (skill in this.m.Skills)
+				{
+					if (_aliveOnly && !this.m.Actor.isAlive())
+					{
+						break;
+					}
+
+					if (!skill.isGarbage())
+					{
+						_argsArray[0] = skill;
+						skill[_function].acall(_argsArray);
+					}
+				}
+
+				this.m.IsUpdating = wasUpdating;
+
+				if (_update)
+				{
+					this.update();
+				}
+			}
+
 			local onAnySkillExecuted = o.onAnySkillExecuted;
 			o.onAnySkillExecuted = function( _skill, _targetTile, _targetEntity, _forFree )
 			{
