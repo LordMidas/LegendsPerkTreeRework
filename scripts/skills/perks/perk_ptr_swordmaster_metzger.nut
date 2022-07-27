@@ -69,20 +69,22 @@ this.perk_ptr_swordmaster_metzger <- this.inherit("scripts/skills/perks/perk_ptr
 	{
 		if (!this.isEnabled() || _item.getSlotType() != ::Const.ItemSlot.Mainhand) return;
 
-		foreach (skill in _item.getSkills())
+		if (!this.getContainer().hasSkill("actives.decapitate"))
 		{
-			if (!skill.isHidden() && skill.getID() == "actives.decapitate") return;
+			_item.addSkill(this.new("scripts/skills/actives/decapitate"));
 		}
-
-		_item.addSkill(this.new("scripts/skills/actives/decapitate"));
 
 		if (!this.getContainer().hasSkill("perk.ptr_sanguinary"))
 		{
-			_item.addSkill(::new("scripts/skills/perks/perk_ptr_sanguinary"));
+			local skill = ::new("scripts/skills/perks/perk_ptr_sanguinary");
+			skill.m.IsSerialized = false;
+			_item.addSkill(skill);
 		}
 		if (!this.getContainer().hasSkill("perk.ptr_bloodbath"))
 		{
-			_item.addSkill(::new("scripts/skills/perks/perk_ptr_bloodbath"));
+			local skill = ::new("scripts/skills/perks/perk_ptr_bloodbath");
+			skill.m.IsSerialized = false;
+			_item.addSkill(skill);
 		}
 	}
 
