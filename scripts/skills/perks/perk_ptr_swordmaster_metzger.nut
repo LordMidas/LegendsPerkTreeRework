@@ -19,14 +19,15 @@ this.perk_ptr_swordmaster_metzger <- this.inherit("scripts/skills/perks/perk_ptr
 
 	function onAdded()
 	{
+		local equippedItem = this.getContainer().getActor().getMainhandItem();
+		if (equippedItem != null)
+		{
+			this.getContainer().getActor().getItems().unequip(equippedItem);
+			this.getContainer().getActor().getItems().equip(equippedItem);
+		}
+
 		if (!this.m.IsSet && this.perk_ptr_swordmaster_abstract.onAdded())
 		{
-			local equippedItem = this.getContainer().getActor().getMainhandItem();
-			if (equippedItem != null)
-			{
-				this.getContainer().getActor().getItems().unequip(equippedItem);
-				this.getContainer().getActor().getItems().equip(equippedItem);
-			}
 			this.getContainer().getActor().getBackground().addPerkGroup(::Const.Perks.CleaverTree.Tree);
 			this.getContainer().getActor().getBackground().removePerk(::Const.Perks.PerkDefs.SpecCleaver);
 			this.getContainer().getActor().getBackground().removePerk(::Const.Perks.PerkDefs.PTRSwordlike);
