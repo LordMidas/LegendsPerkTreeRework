@@ -1,3 +1,9 @@
+=====================
+==== Ver 2.1.10 =====
+=====================
+- Fixed the Metzger perk causing duplication of effects/traits etc.
+- Fixed the Sanguinary and Bloodbath perks from Metzger added while equipping a southern curved sword becoming permanent after loading a saved game.
+
 ====================
 ==== Ver 2.1.9 =====
 ====================
