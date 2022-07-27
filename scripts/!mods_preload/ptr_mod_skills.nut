@@ -970,7 +970,7 @@ gt.PTR.modSkills <- function()
 				{
 					local r = ::Math.rand(1, 100);
 
-					if (r <= 10 && !_attacker.getCurrentProperties().IsImmuneToStun())
+					if (r <= 10 && !_attacker.getCurrentProperties().IsImmuneToStun)
 					{
 						local effect = ::new("scripts/skills/effects/stunned_effect");
 						effect.addTurns(1);
