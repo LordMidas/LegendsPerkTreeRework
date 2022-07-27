@@ -32,7 +32,7 @@ this.ptr_swordmaster_charge_skill <- this.inherit("scripts/skills/actives/ptr_sw
 		this.m.IsAttack = false;
 		this.m.IsIgnoredAsAOO = true;
 		this.m.IsUsingActorPitch = true;
-		this.m.ActionPointCost = 6;
+		this.m.ActionPointCost = 5;
 		this.m.FatigueCost = 25;
 		this.m.MinRange = 1;
 		this.m.MaxRange = 2;
