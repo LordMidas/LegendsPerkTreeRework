@@ -1,4 +1,10 @@
 ====================
+==== Ver 2.1.9 =====
+====================
+- Reduced the Action Point cost of Juggernaut Charge from 6 to 5.
+- Fixed the Decapitate skill added by the Metzger perk disappearing (it used to disappear after loading a saved game).
+
+====================
 ==== Ver 2.1.8 =====
 ====================
 - Now REQUIRES Legends version 16.1.0 or later.
