@@ -184,25 +184,26 @@ this.ptr_swordmaster_charge_skill <- this.inherit("scripts/skills/actives/ptr_sw
 	function onTeleportDone( _entity, _tag )
 	{
 		local attack = _entity.getSkills().getAttackOfOpportunity();
-		if (attack == null) return;
-
 		local myTile = _entity.getTile();
 		local ZOC = [];
 		local dirToTarget = _tag.OldTile.getDirectionTo(myTile);
 
-		for (local i = 0; i < 6; i = ++i)
+		if (attack != null)
 		{
-			if (myTile.hasNextTile(i))
+			for (local i = 0; i < 6; i = ++i)
 			{
-				local tile = myTile.getNextTile(i);
-
-				if (tile.IsOccupiedByActor && attack.verifyTargetAndRange(tile, myTile))
+				if (myTile.hasNextTile(i))
 				{
-					local actor = tile.getEntity();
+					local tile = myTile.getNextTile(i);
 
-					if (!actor.isAlliedWith(_entity))
+					if (tile.IsOccupiedByActor && attack.verifyTargetAndRange(tile, myTile))
 					{
-						ZOC.push(actor);
+						local actor = tile.getEntity();
+
+						if (!actor.isAlliedWith(_entity))
+						{
+							ZOC.push(actor);
+						}
 					}
 				}
 			}
