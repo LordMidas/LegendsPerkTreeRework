@@ -85,7 +85,10 @@ this.ptr_swordmaster_charge_skill <- this.inherit("scripts/skills/actives/ptr_sw
 
 	function isUsable()
 	{
-		return this.skill.isUsable() && !this.m.IsSpent && this.isEnabled() && this.getContainer().getActor().isArmedWithTwoHandedWeapon() && !this.getContainer().getActor().getTile().hasZoneOfControlOtherThan(this.getContainer().getActor().getAlliedFactions());
+		return !this.m.IsSpent && this.ptr_swordmaster_active_abstract.isUsable() &&
+				this.getContainer().getActor().isArmedWithTwoHandedWeapon() &&
+				!this.getContainer().getActor().getMainhandItem().isWeaponType(::Const.Items.WeaponType.BFFencing) &&
+				!this.getContainer().getActor().getTile().hasZoneOfControlOtherThan(this.getContainer().getActor().getAlliedFactions());
 	}
 
 	function onVerifyTarget( _originTile, _targetTile )
