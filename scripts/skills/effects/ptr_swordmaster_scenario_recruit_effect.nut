@@ -29,32 +29,32 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 		}
 		else
 		{
-			local level = this.getContainer().getActor().getLevel();			
+			local bonus = this.getBonus();
 
 			tooltip.extend([
 				{
 					id = 10,
 					type = "text",
 					icon = "ui/icons/melee_skill.png",
-					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + level + "[/color] Melee Skill"
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + bonus + "[/color] Melee Skill"
 				},
 				{
 					id = 10,
 					type = "text",
 					icon = "ui/icons/melee_defense.png",
-					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + level + "[/color] Melee Defense"
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + bonus + "[/color] Melee Defense"
 				},
 				{
 					id = 10,
 					type = "text",
 					icon = "ui/icons/initiative.png",
-					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + level + "[/color] Initiative"
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + bonus + "[/color] Initiative"
 				},
 				{
 					id = 10,
 					type = "text",
 					icon = "ui/icons/direct_damage.png",
-					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + level + "%[/color] damage ignores armor"
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + bonus + "%[/color] damage ignores armor"
 				}
 			]);			
 		}
@@ -143,6 +143,11 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 		}
 	}
 
+	function getBonus()
+	{
+		return this.getContainer().getActor().getLevel() * (this.getContainer().hasSkill("perk.ptr_swordmaster_precise") ? 2 : 1);
+	}
+
 	function onUpdate( _properties )
 	{
 		this.ptr_swordmaster_scenario_effect.onUpdate(_properties);
@@ -150,13 +155,12 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 		local actor = this.getContainer().getActor();
 		if (this.isEnabled())
 		{
-			local level = actor.getLevel();
-			if (this.getContainer().hasSkill("perk.ptr_swordmaster_precise")) level *= 2;
+			local bonus = this.getBonus();
 
-			_properties.MeleeSkill += level;
-			_properties.MeleeDefense += level;
-			_properties.Initiative += level;
-			_properties.DamageDirectAdd += level * 0.01;
+			_properties.MeleeSkill += bonus;
+			_properties.MeleeDefense += bonus;
+			_properties.Initiative += bonus;
+			_properties.DamageDirectAdd += bonus * 0.01;
 		}
 	}
 
