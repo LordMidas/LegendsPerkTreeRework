@@ -116,7 +116,7 @@ this.ptr_swordmasters_finesse_effect <- this.inherit("scripts/skills/skill", {
 
 	function getSkillMalus()
 	{
-		if (this.getContainer().getActor().getFlags().has("SwordmasterAgeDays"))
+		if (!this.getContainer().hasSkill("trait.old") && !this.getContainer().getActor().getFlags().has("IsRejuvinated") && this.getContainer().getActor().getFlags().has("SwordmasterAgeDays"))
 		{
 			return this.Math.min(10, this.getContainer().getActor().getFlags().get("SwordmasterAgeDays") / 10);
 		}
