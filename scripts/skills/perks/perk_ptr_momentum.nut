@@ -89,7 +89,7 @@ this.perk_ptr_momentum <- this.inherit("scripts/skills/skill", {
 			{
 				if (s.isAttack() && s.isRanged())
 				{
-					s.m.ActionPointCost = this.Math.max(1, s.m.ActionPointCost - this.m.TilesMovedThisTurn);
+					s.m.ActionPointCost -= this.Math.min(s.m.ActionPointCost - 1, this.m.TilesMovedThisTurn);
 				}
 			}
 		}
