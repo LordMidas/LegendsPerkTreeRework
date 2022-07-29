@@ -422,16 +422,15 @@ gt.PTR.modEnemies <- function()
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_fresh_and_furious"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_unstoppable"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vengeful_spite"));
 				local b = this.getBaseProperties();
-				b.MeleeDefense += 5;
-				b.RangedDefense += 5;
+				b.MeleeDefense += 10;
+				b.RangedDefense += 10;
 				local c = this.getCurrentProperties();
-				c.MeleeDefense += 5;
-				c.RangedDefense += 5;
+				c.MeleeDefense += 10;
+				c.RangedDefense += 10;
 			}
 		}
 	});
@@ -486,7 +485,13 @@ gt.PTR.modEnemies <- function()
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.removeByID("perk.legend_muscularity");
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_fresh_and_furious"));
+				local b = this.getBaseProperties();
+				b.MeleeDefense += 5;
+				b.RangedDefense += 5;
+				local c = this.getCurrentProperties();
+				c.MeleeDefense += 5;
+				c.RangedDefense += 5;
+				// in new mod replace +5 mdef/rdef with dodge this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_crippling_strikes"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bloodlust"));
 			}
@@ -1348,7 +1353,7 @@ gt.PTR.modEnemies <- function()
 		o.onInit = function()
 		{
 			onInit();
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_fresh_and_furious"));
+			this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));
 			this.m.Skills.add(this.new("scripts/skills/traits/iron_jaw_trait"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
@@ -1461,10 +1466,19 @@ gt.PTR.modEnemies <- function()
 		o.onInit = function()
 		{
 			onInit();
-
+			this.m.Skills.removeByID("perk.fast_adaption");
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_menacing"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bully"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vengeful_spite"));
+
+			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+			{
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_pattern_recognition"));
+				local maulerPerk = this.new("scripts/skills/perks/perk_ptr_mauler");
+				maulerPerk.m.IsForceEnabled = true;
+				this.m.Skills.add(maulerPerk);
+			}
 		}
 	});
 
@@ -1560,7 +1574,7 @@ gt.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_lone_wolf"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_fearsome"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_killing_frenzy"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_fresh_and_furious"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bully"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_unstoppable"));				
 			}
 		}
@@ -1691,7 +1705,7 @@ gt.PTR.modEnemies <- function()
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_strength_in_numbers"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_fresh_and_furious"));				
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bully"));
 
 			}
 		}
@@ -2391,12 +2405,12 @@ gt.PTR.modEnemies <- function()
 				this.m.Skills.removeByID("perk.backstabber");		
 				this.m.Skills.removeByID("perk.mastery_fist");																										
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_second_wind"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_fresh_and_furious"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_personal_armor"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_battle_flow"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bulwark"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vigorous_assault"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_menacing"));		
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_menacing"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_killing_frenzy"));
 			}
 		}
 
@@ -2432,14 +2446,15 @@ gt.PTR.modEnemies <- function()
 				this.m.Skills.removeByID("perk.legend_balance");
 				this.m.Skills.removeByID("perk.backstabber");		
 				this.m.Skills.removeByID("perk.mastery_fist");	
-				this.m.Skills.removeByID("perk.last_stand");		
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_menacing"));									
+				this.m.Skills.removeByID("perk.last_stand");
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_second_wind"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_fresh_and_furious"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_fruits_of_labor"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_personal_armor"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_fearsome"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vigorous_assault"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bulwark"));				
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bulwark"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_menacing"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bully"));
 			}
 		}
 
