@@ -1,9 +1,10 @@
 this.perk_ptr_unstoppable <- this.inherit("scripts/skills/skill", {
 	m = {
 		Stacks = 0,
-		BonusPerStack = 5,
+		SkillBonusPerStack = 5,
 		MaxStacks = 10,
-		Distance = 0
+		Distance = 0,
+		APBonusBefore = 0
 	},
 	function create()
 	{
@@ -37,15 +38,19 @@ this.perk_ptr_unstoppable <- this.inherit("scripts/skills/skill", {
 			id = 10,
 			type = "text",
 			icon = "ui/icons/hitchance.png",
-			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getBonus() + "[/color] Melee Skill"
+			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getSkillBonus() + "[/color] Melee Skill"
 		});
 
-		tooltip.push({
-			id = 10,
-			type = "text",
-			icon = "ui/icons/damage_dealt.png",
-			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getBonus() + "%[/color] Melee Damage"
-		});
+		local APBonus = this.getAPBonus();
+		if (APBonus > 0)
+		{
+			tooltip.push({
+				id = 10,
+				type = "text",
+				icon = "ui/icons/action_points.png",
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + APBonus + "[/color] Action Point(s)"
+			});
+		}
 
 		return tooltip;
 	}
@@ -53,7 +58,7 @@ this.perk_ptr_unstoppable <- this.inherit("scripts/skills/skill", {
 	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
 	{
 		this.m.Distance = 0;
-		local actor = this.getContainer().getActor();
+		this.m.APBonusBefore = this.getAPBonus();
 
 		if (_skill == null || !_skill.isAttack() || _targetEntity == null || _targetEntity.isAlliedWith(actor))
 		{
@@ -71,14 +76,8 @@ this.perk_ptr_unstoppable <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		if (this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
-		{
-			return;
-		}
-
-		local stacksToAdd = this.m.Distance > 1 ? 0.5 : 1;
-
-		this.m.Stacks = this.Math.minf(this.m.MaxStacks, this.m.Stacks + stacksToAdd);
+		this.m.Stacks = this.Math.minf(this.m.MaxStacks, this.m.Stacks + (this.m.Distance > 1 ? 0.5 : 1));
+		actor.setActionPoints(actor.getActionPoints() + this.getAPBonus() - this.m.APBonusBefore);
 	}
 
 	function onTargetMissed( _skill, _targetEntity )
@@ -101,16 +100,23 @@ this.perk_ptr_unstoppable <- this.inherit("scripts/skills/skill", {
 		this.m.Stacks = this.Math.floor(this.m.Stacks / 2);
 	}
 
-	function getBonus()
+	function getSkillBonus()
 	{
-		return this.Math.floor(this.m.Stacks) * this.m.BonusPerStack;
+		return this.Math.floor(this.m.Stacks) * this.m.SkillBonusPerStack;
+	}
+
+	function getAPBonus()
+	{
+		if (this.m.Stacks == 10) return 3;
+		if (this.m.Stacks >= 6) return 2;
+		if (this.m.Stacks >= 3) return 1;
+		return 0;
 	}
 
 	function onUpdate( _properties )
 	{
-		local bonus = this.getBonus();
-		_properties.MeleeSkill += bonus;
-		_properties.MeleeDamageMult *= 1.0 + (bonus * 0.01);
+		_properties.MeleeSkill += this.getSkillBonus();
+		_properties.ActionPoints += this.getAPBonus();
 	}
 
 	function onCombatStarted()
