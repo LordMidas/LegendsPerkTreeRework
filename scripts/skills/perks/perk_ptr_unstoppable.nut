@@ -60,18 +60,16 @@ this.perk_ptr_unstoppable <- this.inherit("scripts/skills/skill", {
 		this.m.Distance = 0;
 		this.m.APBonusBefore = this.getAPBonus();
 
-		if (_skill == null || !_skill.isAttack() || _targetEntity == null || _targetEntity.isAlliedWith(actor))
+		if (_skill.isAttack() && !_targetEntity.isAlliedWith(this.getContainer().getActor()))
 		{
-			return;
+			this.m.Distance = _targetEntity.getTile().getDistanceTo(this.getContainer().getActor().getTile());
 		}
-
-		this.m.Distance = _targetEntity.getTile().getDistanceTo(actor.getTile());
 	}
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
 		local actor = this.getContainer().getActor();
-		if (_skill == null || !_skill.isAttack() || _targetEntity == null || _targetEntity.isAlliedWith(actor))
+		if (!_skill.isAttack() || _targetEntity.isAlliedWith(actor) || this.Tactical.TurnSequenceBar.getActiveEntity() == null || this.Tactical.TurnSequenceBar.getActiveEntity().getID() != actor.getID())
 		{
 			return;
 		}
@@ -82,12 +80,10 @@ this.perk_ptr_unstoppable <- this.inherit("scripts/skills/skill", {
 
 	function onTargetMissed( _skill, _targetEntity )
 	{
-		if (_skill == null || !_skill.isAttack() || _targetEntity == null || _targetEntity.isAlliedWith(this.getContainer().getActor()))
+		if (_skill.isAttack() && !_targetEntity.isAlliedWith(this.getContainer().getActor()))
 		{
-			return;
+			this.m.Stacks = this.Math.floor(this.m.Stacks / 2);
 		}
-
-		this.m.Stacks = this.Math.floor(this.m.Stacks / 2);
 	}
 
 	function onDamageReceived( _attacker, _damageHitpoints, _damageArmor )
