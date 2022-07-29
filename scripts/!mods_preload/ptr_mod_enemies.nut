@@ -485,7 +485,13 @@ gt.PTR.modEnemies <- function()
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Skills.removeByID("perk.legend_muscularity");
-				this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));
+				local b = this.getBaseProperties();
+				b.MeleeDefense += 5;
+				b.RangedDefense += 5;
+				local c = this.getCurrentProperties();
+				c.MeleeDefense += 5;
+				c.RangedDefense += 5;
+				// in new mod replace +5 mdef/rdef with dodge this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_crippling_strikes"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bloodlust"));
 			}
