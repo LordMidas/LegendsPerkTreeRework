@@ -47,6 +47,13 @@ this.ptr_swordmaster_charge_skill <- this.inherit("scripts/skills/actives/ptr_sw
 			id = 7,
 			type = "text",
 			icon = "ui/icons/special.png",
+			text = "Immediately gain the Indomitable effect"
+		});
+
+		tooltip.push({
+			id = 7,
+			type = "text",
+			icon = "ui/icons/special.png",
 			text = "Will move to the targeted tile and attack a random adjacent enemy with [color=" + this.Const.UI.Color.PositiveValue + "]" + (this.m.DamageMultBonus * 100) + "%[/color] increased damage"
 		});
 
@@ -143,6 +150,8 @@ this.ptr_swordmaster_charge_skill <- this.inherit("scripts/skills/actives/ptr_sw
 	function onUse( _user, _targetTile )
 	{
 		this.m.IsSpent = true;
+		_user.getSkills().add(::new("scripts/skills/effects/indomitable_effect"));
+
 		local tag = {
 			Skill = this,
 			User = _user,
