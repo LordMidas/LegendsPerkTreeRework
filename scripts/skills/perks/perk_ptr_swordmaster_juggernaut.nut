@@ -25,11 +25,25 @@ this.perk_ptr_swordmaster_juggernaut <- this.inherit("scripts/skills/perks/perk_
 		return ret;
 	}
 
+	function onEquip( _item )
+	{
+		if (this.isEnabled() && this.getContainer().hasSkill("actives.indomitable"))
+		{
+			_item.add(::new("scripts/skills/active/indomitable"));
+		}
+	}
+
 	function onAdded()
 	{
 		if (this.perk_ptr_swordmaster_abstract.onAdded())
 		{
 			this.getContainer().add(this.new("scripts/skills/actives/ptr_swordmaster_charge_skill"));
+			local equippedItem = this.getContainer().getActor().getMainhandItem();
+			if (equippedItem != null)
+			{
+				this.getContainer().getActor().getItems().unequip(equippedItem);
+				this.getContainer().getActor().getItems().equip(equippedItem);
+			}
 		}
 	}
 
