@@ -1,12 +1,12 @@
 this.perk_ptr_fresh_and_furious <- this.inherit("scripts/skills/skill", {
 	m = {
-		IsForceEnabled = false
+		IsSpent = true
 	},
 	function create()
 	{
 		this.m.ID = "perk.ptr_fresh_and_furious";
 		this.m.Name = this.Const.Strings.PerkName.PTRFreshAndFurious;
-		this.m.Description = "This character hits exceptionally hard when not fatigued.";
+		this.m.Description = "This character is exceptionally fast when not fatigued.";
 		this.m.Icon = "ui/perks/ptr_fresh_and_furious.png";
 		this.m.IconMini = "ptr_fresh_and_furious_mini";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
@@ -18,61 +18,60 @@ this.perk_ptr_fresh_and_furious <- this.inherit("scripts/skills/skill", {
 
 	function isHidden()
 	{
-		return this.getBonus() <= 0;
+		return !this.m.IsSpent && this.isEnabled();
 	}
 
 	function getTooltip()
 	{
 		local tooltip = this.skill.getTooltip();
 
-		tooltip.push(
-			{
-				id = 10,
-				type = "text",
-				icon = "ui/icons/damage_dealt.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getBonus() + "%[/color] Damage Dealt"
-			}
-		);
+		tooltip.push({
+			id = 10,
+			type = "text",
+			icon = "ui/icons/special.png",
+			text = "The next skill used has its Action Point cost [color=" + this.Const.UI.Color.PositiveValue + "]halved[/color] and Fatigue Cost reduced by [color=" + this.Const.UI.Color.PositiveValue + "]25%[/color]"
+		});
+
+		tooltip.push({
+			id = 10,
+			type = "text",
+			icon = "ui/icons/warning.png",
+			text = "[color=" + this.Const.UI.Color.NegativeValue + "]Will expire upon using a skill or when current Fatigue reaches 30% of Maximum Fatigue[/color]"
+		});
 
 		return tooltip;
 	}
 
 	function isEnabled()
 	{
-		if (this.m.IsForceEnabled)
-		{
-			return true;
-		}
-
-		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon != null && (weapon.isWeaponType(this.Const.Items.WeaponType.Throwing) || weapon.isWeaponType(this.Const.Items.WeaponType.Bow)))
-		{
-			return true;
-		}
-
-		return false;
+		return this.getContainer().getActor().getFatigue() < 0.3 * this.getContainer().getActor().getFatigueMax();
 	}
 
-	function getBonus()
+	function onUpdate( _properties )
 	{
-		if (!this.getContainer().getActor().isPlacedOnMap())
+		if (!this.m.IsSpent && this.isEnabled())
 		{
-			return 0;
-		}
-
-		local actor = this.getContainer().getActor();
-		return this.Math.floor(100 * (0.25 * (1.0 - (actor.getFatigue() / actor.getFatigueMax()) / 0.3)));
-	}
-
-	function onAnySkillUsed( _skill, _targetEntity, _properties )
-	{
-		if ((_skill.isAttack() && !_skill.isRanged()) || this.isEnabled())
-		{
-			local bonus = this.getBonus();
-			if (bonus > 0)
+			_properties.IsSkillUseHalfCost = true;
+			foreach (skill in this.getContainer().getAllSkillsOfType(::Const.SkillType.Active))
 			{
-				_properties.DamageTotalMult *= 1.0 + bonus / 100.0;
+				skill.m.FatigueCostMult *= 0.75;
 			}
 		}
+	}
+
+	function onAnySkillExecuted( _skill, _targetTile, _targetEntity, _forFree )
+	{
+		this.m.IsSpent = true;
+	}
+
+	function onTurnStart()
+	{
+		this.m.IsSpent = false;
+	}
+
+	function onCombatFinished()
+	{
+		this.skill.onCombatFinished();
+		this.m.IsSpent = true;
 	}
 });
