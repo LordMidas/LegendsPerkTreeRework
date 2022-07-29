@@ -1,4 +1,24 @@
 =====================
+==== Ver 2.1.11 =====
+=====================
+- Fresh and Furious reworked: As long as your current Fatigue is less than 30% of your Maximum Fatigue, the first skill used every turn has its Action Point cost halved and Fatigue Cost reduced by 25%.
+- Unstoppable reworked: No longer grants a damage bonus. Instead gain a total of +1 Action Points at 3 stacks, +2 at 6 stacks and +3 at 10 stacks. The other bonuses remain the same as before.
+- Juggernaut perk: Now grants the Indomitable active skill as long as the perk's conditions are fulfilled.
+- Juggernaut Charge: Grants the Indomitable effect for free when used.
+- Fixed a bug when Return Favor would have triggered a stun which caused the stun to not trigger and instead bug out the skills of the attacker.
+- Fixed the tooltip of the Swordmaster's Training effect not properly reflecting the doubled bonuses due to Precise.
+- Fixed the Juggernaut Charge skill being usable with two-handed fencing swords.
+- Fixed the Juggernaut perk tooltip mentioning 6 AP cost instead of 5.
+
+== Enemies Balance ==
+- Direwolf, Nachzehrer: Legendary Difficulty: Removed Fresh and Furious. Increased Melee Defense and Ranged Defense by 5.
+- Skin Ghoul: Replaced Fresh and Furious with Dodge.
+- White Direwolf: Removed Fast Adaptation. Legendary Difficulty: Removed Fresh and Furious. Added Survival Instinct, Pattern Recognition, Mauler, Bully.
+- Orc Young, Orc Berserker: Legendary Difficulty: Replaced Fresh and Furious with Bully.
+- Barbarian Chosen: Legendary Difficulty: Replaced Fresh and Furious with Killing Frenzy.
+- Barbarian King: Legendary Difficulty: Replaced Fresh and Furious with Fruits of Labor. Added Bully.
+
+=====================
 ==== Ver 2.1.10 =====
 =====================
 - Fixed the Metzger perk causing duplication of effects/traits etc.
