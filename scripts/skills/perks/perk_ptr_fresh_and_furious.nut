@@ -47,7 +47,7 @@ this.perk_ptr_fresh_and_furious <- this.inherit("scripts/skills/skill", {
 		return this.getContainer().getActor().getFatigue() < 0.3 * this.getContainer().getActor().getFatigueMax();
 	}
 
-	function onUpdate( _properties )
+	function onAfterUpdate( _properties )
 	{
 		if (!this.m.IsSpent && this.isEnabled())
 		{
