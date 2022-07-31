@@ -62,6 +62,18 @@ this.perk_ptr_fresh_and_furious <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
+	function onAffordablePreview( _skill, _movementTile )
+	{
+		if (_skill != null && _skill.getActionPointCost() != 0 && _skill.getFatigueCost() != 0)
+		{
+			foreach (skill in this.getContainer().getAllSkillsOfType(::Const.SkillType.Active))
+			{
+				this.modifyPreviewField(skill, "ActionPointCost", 0, false);
+				this.modifyPreviewField(skill, "FatigueCostMult", 1, true);
+			}
+		}
+	}
+
 	function onBeforeAnySkillExecuted( _skill, _targetTile, _targetEntity, _forFree )
 	{
 		this.m.IsUsingFreeSkill = _forFree || (_skill.getActionPointCost() == 0 && _skill.getFatigueCost() == 0);
