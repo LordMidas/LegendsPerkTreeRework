@@ -19,7 +19,7 @@ this.perk_ptr_fresh_and_furious <- this.inherit("scripts/skills/skill", {
 
 	function isHidden()
 	{
-		return !this.m.IsSpent && this.isEnabled();
+		return this.m.IsSpent || !this.isEnabled();
 	}
 
 	function getTooltip()
