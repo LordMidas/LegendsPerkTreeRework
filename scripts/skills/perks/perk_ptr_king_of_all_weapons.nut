@@ -98,6 +98,18 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
+	function onAffordablePreview( _skill, _movementTile )
+	{
+		if (_skill != null)
+		{
+			foreach (skill in this.getContainer().getSkillsByFunction((@(_skill) this.m.Skills.find(_skill.getID()) != null).bindenv(this)))
+			{
+				this.modifyPreviewField(skill, "ActionPointCost", 0, false);
+				this.modifyPreviewField(skill, "FatigueCostMult", 1, true);
+			}
+		}
+	}
+
 	function onAnySkillExecuted( _skill, _targetTile, _targetEntity, _forFree )
 	{
 		if (_targetEntity != null && 
