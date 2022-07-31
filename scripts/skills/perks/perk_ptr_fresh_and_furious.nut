@@ -1,5 +1,6 @@
 this.perk_ptr_fresh_and_furious <- this.inherit("scripts/skills/skill", {
 	m = {
+		IsUsingFreeSkill = false,
 		IsSpent = true
 	},
 	function create()
@@ -36,7 +37,7 @@ this.perk_ptr_fresh_and_furious <- this.inherit("scripts/skills/skill", {
 			id = 10,
 			type = "text",
 			icon = "ui/icons/warning.png",
-			text = "[color=" + this.Const.UI.Color.NegativeValue + "]Will expire upon using a skill or when current Fatigue reaches 30% of Maximum Fatigue[/color]"
+			text = "[color=" + this.Const.UI.Color.NegativeValue + "]Will expire upon using a skill with non-zero Action Point or Fatigue cost or when current Fatigue reaches 30% of Maximum Fatigue[/color]"
 		});
 
 		return tooltip;
@@ -51,18 +52,24 @@ this.perk_ptr_fresh_and_furious <- this.inherit("scripts/skills/skill", {
 	{
 		if (!this.m.IsSpent && this.isEnabled())
 		{
-			_properties.IsSkillUseHalfCost = true;
 			foreach (skill in this.getContainer().getAllSkillsOfType(::Const.SkillType.Active))
 			{
+				// ::Math.round to round up the subtraction because we want to emulate the behavior of _properties.IsSkillUseHalfCost
+				// whereby it rounds down the cost (due to integer division) after halving it.
 				skill.m.ActionPointCost -= ::Math.max(0, ::Math.min(skill.m.ActionPointCost - 1, ::Math.round(skill.m.ActionPointCost / 2.0)));
 				skill.m.FatigueCostMult *= 0.75;
 			}
 		}
 	}
 
+	function onBeforeAnySkillExecuted( _skill, _targetTile, _targetEntity, _forFree )
+	{
+		this.m.IsUsingFreeSkill = _forFree || (_skill.getActionPointCost() == 0 && _skill.getFatigueCost() == 0);
+	}
+
 	function onAnySkillExecuted( _skill, _targetTile, _targetEntity, _forFree )
 	{
-		this.m.IsSpent = true;
+		this.m.IsSpent = !this.m.IsUsingFreeSkill;
 	}
 
 	function onTurnStart()
