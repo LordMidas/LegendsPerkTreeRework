@@ -92,8 +92,8 @@ this.perk_ptr_king_of_all_weapons <- this.inherit("scripts/skills/skill", {
 		{
 			if (s != null)
 			{
-				s.m.ActionPointCost = 0;
-				s.m.FatigueCostMult = 0;
+				s.m.ActionPointCost -= s.m.ActionPointCost;
+				s.m.FatigueCostMult *= 0;
 			}
 		}
 	}
