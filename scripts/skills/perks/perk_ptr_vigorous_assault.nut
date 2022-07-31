@@ -156,7 +156,7 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 		{
 			foreach (skill in this.getContainer().getSkillsByFunction(@(_skill) _skill.isAttack()))
 			{
-				skill.m.ActionPointCost -= this.Math.min(skill.m.ActionPointCost - 1, this.m.CurrAPBonus);
+				skill.m.ActionPointCost -= ::Math.max(0, this.Math.min(skill.m.ActionPointCost - 1, this.m.CurrAPBonus));
 				skill.m.FatigueCostMult *= 1.0 - this.m.CurrFatBonus * 0.01;
 			}
 		}
