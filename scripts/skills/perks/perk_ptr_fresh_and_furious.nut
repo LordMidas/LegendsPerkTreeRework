@@ -54,6 +54,7 @@ this.perk_ptr_fresh_and_furious <- this.inherit("scripts/skills/skill", {
 			_properties.IsSkillUseHalfCost = true;
 			foreach (skill in this.getContainer().getAllSkillsOfType(::Const.SkillType.Active))
 			{
+				skill.m.ActionPointCost -= ::Math.max(0, ::Math.min(skill.m.ActionPointCost - 1, ::Math.round(skill.m.ActionPointCost / 2.0)));
 				skill.m.FatigueCostMult *= 0.75;
 			}
 		}
