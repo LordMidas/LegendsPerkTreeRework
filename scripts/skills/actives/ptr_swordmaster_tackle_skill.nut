@@ -70,7 +70,7 @@ this.ptr_swordmaster_tackle_skill <- this.inherit("scripts/skills/actives/ptr_sw
 
 	function isUsable()
 	{
-		return this.ptr_swordmaster_active_abstract.isUsable() && !this.getContainer().getActor().getCurrentProperties().IsRooted;
+		return this.ptr_swordmaster_active_abstract.isUsable() && !this.getContainer().getActor().getCurrentProperties().IsRooted && (this.getContainer().getActor().isArmedWithTwoHandedWeapon() || this.getContainer().getActor().isDoubleGrippingWeapon());
 	}
 
 	function onVerifyTarget( _originTile, _targetTile )
