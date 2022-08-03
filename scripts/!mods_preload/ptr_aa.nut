@@ -28,6 +28,67 @@ gt.PTR.ModID <- "mod_legends_PTR";
 		// ::MSU.Skills.addEvent("onEquip", function( _item ) {} );
 		// ::MSU.Skills.addEvent("onUnequip", function( _item ) {} );
 
+		::mods_hookExactClass("ai/tactical/behaviors/ai_throw_bomb", function(o) {
+			local onExecute = o.onExecute;
+			o.onExecute = function( _entity )
+			{
+				local ret = onExecute(_entity);
+				if (ret && this.m.Skill == null)
+				{
+					// This assumes that the newly equipped bomb will always be in the offhand
+					// If we don't want that, then we could first iterate over all equipped items, then call onExecute,
+					// then iterate over all items again, detect the new item, and pass it
+					_entity.getItems().payForAction([_entity.getOffhandItem()]);
+				}
+				return ret;
+			}
+		});
+
+		::mods_hookExactClass("ai/tactical/behaviors/ai_switchto_ranged", function(o) {
+			local onExecute = o.onExecute;
+			o.onExecute = function( _entity )
+			{
+				local items = [_entity.getMainhandItem(), this.m.WeaponToEquip];
+				local ret = onExecute(_entity);
+				if (ret) _entity.getItems().payForAction(items);
+				return ret;
+			}
+		});
+
+		::mods_hookExactClass("ai/tactical/behaviors/ai_switchto_melee", function(o) {
+			local onExecute = o.onExecute;
+			o.onExecute = function( _entity )
+			{
+				local items = this.m.IsNegatingDisarm ? [_entity.getMainhandItem()] : [_entity.getMainhandItem(), this.m.WeaponToEquip];
+				local ret = onExecute(_entity);
+				if (ret) _entity.getItems().payForAction(items);
+				return ret;
+			}
+		});
+
+		::mods_hookExactClass("entity/tactical/actor", function(o) {
+			local pickupMeleeWeaponAndShield = o.pickupMeleeWeaponAndShield;
+			o.pickupMeleeWeaponAndShield = function( _tile )
+			{
+				local mainhandBefore = this.getMainhandItem();
+				local offhandBefore = this.getOffhandItem();
+
+				local ret = pickupMeleeWeaponAndShield(_tile);
+
+				local mainhandAfter = this.getMainhandItem();
+				local offhandAfter = this.getOffhandItem();
+
+				local items = [];
+
+				if (mainhandAfter != null && mainhandAfter != mainhandBefore) items.extend([mainhandBefore, mainhandAfter]);
+				if (offhandAfter != null && offhandAfter != offhandBefore) items.extend([offhandBefore, offhandAfter]);
+
+				this.getItems().payForAction(items);
+
+				return ret;
+			}
+		});
+
 		::mods_hookNewObject("items/item_container", function(o) {
 			local equip = o.equip;
 			o.equip = function( _item )
