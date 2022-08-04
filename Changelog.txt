@@ -1,4 +1,16 @@
 =====================
+==== Ver 2.1.12 =====
+=====================
+- Crossbow perk group changes: Moved Power Shot to t1, Primal Fear to t3, and Take Aim to t6.
+- Added Momentum to Barbarian Thralls on Legendary Difficulty.
+- Fixed Fresh and Furious not properly applying its Fatigue Cost reduction.
+- Fixed Fresh and Furious icon being hidden when it should show and vice versa.
+- Fixed the Tackle skill being usable without a two-handed or double-gripped one-handed sword.
+- Added affordability preview to King of all Weapons so that the Thrust tooltip correctly predicts that the next Thrust will no longer cost 0 AP and 0 Fatigue.
+- Added affordability preview to Fresh and Furious so that the affordability of skills is properly predicted after using the currently selected skill.
+- Added temporary fixes to MSU code to fix some back-end issues pertaining to how skills were handled for AI characters after swapping items (now Barbarians will properly make use of Momentum and be able to throw if they swap to a throwing weapon after moving).
+
+=====================
 ==== Ver 2.1.11 =====
 =====================
 - Fresh and Furious reworked: As long as your current Fatigue is less than 30% of your Maximum Fatigue, the first skill used every turn has its Action Point cost halved and Fatigue Cost reduced by 25%.
