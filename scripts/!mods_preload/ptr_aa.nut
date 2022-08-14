@@ -25,21 +25,35 @@ gt.PTR.ModID <- "mod_legends_PTR";
 	// Add onEquip and onUnequip events for skills if MSU is below v1.2.0 (as these events are expected to be added in v1.2.0)
 	if (::MSU.SemVer.compareVersionWithOperator(::MSU.Mod, "<", "1.2.0"))
 	{
-		// ::MSU.Skills.addEvent("onEquip", function( _item ) {} );
-		// ::MSU.Skills.addEvent("onUnequip", function( _item ) {} );
 
 		::mods_hookExactClass("ai/tactical/behaviors/ai_throw_bomb", function(o) {
 			local onExecute = o.onExecute;
 			o.onExecute = function( _entity )
 			{
+				_entity.getItems().m.IsMSUHandledItemAction = true;
+
+				local itemsBefore = {};
+				for (local i = 0; i < ::Const.ItemSlot.COUNT; i++)
+				{
+					itemsBefore[i] = _entity.getItems().getAllItemsAtSlot(i);
+				}
+
 				local ret = onExecute(_entity);
+
 				if (ret && this.m.Skill == null)
 				{
-					// This assumes that the newly equipped bomb will always be in the offhand
-					// If we don't want that, then we could first iterate over all equipped items, then call onExecute,
-					// then iterate over all items again, detect the new item, and pass it
-					_entity.getItems().payForAction([_entity.getOffhandItem()]);
+					local items = [];
+					for (local i = 0; i < ::Const.ItemSlot.COUNT; i++)
+					{
+						local itemsNowInSlot = _entity.getItems().getAllItemsAtSlot(i);
+						items.extend(itemsBefore[i].filter(@(idx, item) itemsNowInSlot.find(item) == null));
+						items.extend(itemsNowInSlot.filter(@(idx, item) itemsBefore[i].find(item) == null));
+					}
+					_entity.getItems().payForAction(items);
 				}
+
+				_entity.getItems().m.IsMSUHandledItemAction = false;
+
 				return ret;
 			}
 		});
@@ -48,9 +62,30 @@ gt.PTR.ModID <- "mod_legends_PTR";
 			local onExecute = o.onExecute;
 			o.onExecute = function( _entity )
 			{
-				local items = [_entity.getMainhandItem(), this.m.WeaponToEquip];
+				_entity.getItems().m.IsMSUHandledItemAction = true;
+
+				local itemsBefore = {};
+				for (local i = 0; i < ::Const.ItemSlot.COUNT; i++)
+				{
+					itemsBefore[i] = _entity.getItems().getAllItemsAtSlot(i);
+				}
+
 				local ret = onExecute(_entity);
-				if (ret) _entity.getItems().payForAction(items);
+				if (ret)
+				{
+
+					local items = [];
+					for (local i = 0; i < ::Const.ItemSlot.COUNT; i++)
+					{
+						local itemsNowInSlot = _entity.getItems().getAllItemsAtSlot(i);
+						items.extend(itemsBefore[i].filter(@(idx, item) itemsNowInSlot.find(item) == null));
+						items.extend(itemsNowInSlot.filter(@(idx, item) itemsBefore[i].find(item) == null));
+					}
+					_entity.getItems().payForAction(items);
+				}
+
+				_entity.getItems().m.IsMSUHandledItemAction = false;
+
 				return ret;
 			}
 		});
@@ -59,37 +94,67 @@ gt.PTR.ModID <- "mod_legends_PTR";
 			local onExecute = o.onExecute;
 			o.onExecute = function( _entity )
 			{
-				local items = this.m.IsNegatingDisarm ? [_entity.getMainhandItem()] : [_entity.getMainhandItem(), this.m.WeaponToEquip];
+				_entity.getItems().m.IsMSUHandledItemAction = true;
+
+				local itemsBefore = {};
+				for (local i = 0; i < ::Const.ItemSlot.COUNT; i++)
+				{
+					itemsBefore[i] = _entity.getItems().getAllItemsAtSlot(i);
+				}
+
 				local ret = onExecute(_entity);
-				if (ret) _entity.getItems().payForAction(items);
-				return ret;
-			}
-		});
 
-		::mods_hookExactClass("entity/tactical/actor", function(o) {
-			local pickupMeleeWeaponAndShield = o.pickupMeleeWeaponAndShield;
-			o.pickupMeleeWeaponAndShield = function( _tile )
-			{
-				local mainhandBefore = this.getMainhandItem();
-				local offhandBefore = this.getOffhandItem();
+				if (ret)
+				{
+					if (this.m.IsNegatingDisarm)
+					{
+						_entity.getItems().payForAction([_entity.getMainhandItem()]);
+					}
+					else
+					{
+						local items = [];
+						for (local i = 0; i < ::Const.ItemSlot.COUNT; i++)
+						{
+							local itemsNowInSlot = _entity.getItems().getAllItemsAtSlot(i);
+							items.extend(itemsBefore[i].filter(@(idx, item) itemsNowInSlot.find(item) == null));
+							items.extend(itemsNowInSlot.filter(@(idx, item) itemsBefore[i].find(item) == null));
+						}
+						_entity.getItems().payForAction(items);
+					}
+				}
 
-				local ret = pickupMeleeWeaponAndShield(_tile);
-
-				local mainhandAfter = this.getMainhandItem();
-				local offhandAfter = this.getOffhandItem();
-
-				local items = [];
-
-				if (mainhandAfter != null && mainhandAfter != mainhandBefore) items.extend([mainhandBefore, mainhandAfter]);
-				if (offhandAfter != null && offhandAfter != offhandBefore) items.extend([offhandBefore, offhandAfter]);
-
-				this.getItems().payForAction(items);
+				_entity.getItems().m.IsMSUHandledItemAction = false;
 
 				return ret;
 			}
 		});
+
+		// ::mods_hookExactClass("entity/tactical/actor", function(o) {
+		// 	local pickupMeleeWeaponAndShield = o.pickupMeleeWeaponAndShield;
+		// 	o.pickupMeleeWeaponAndShield = function( _tile )
+		// 	{
+		// 		local mainhandBefore = this.getMainhandItem();
+		// 		local offhandBefore = this.getOffhandItem();
+
+		// 		local ret = pickupMeleeWeaponAndShield(_tile);
+
+		// 		local mainhandAfter = this.getMainhandItem();
+		// 		local offhandAfter = this.getOffhandItem();
+
+		// 		local items = [];
+
+		// 		if (mainhandAfter != null && mainhandAfter != mainhandBefore) items.extend([mainhandBefore, mainhandAfter]);
+		// 		if (offhandAfter != null && offhandAfter != offhandBefore) items.extend([offhandBefore, offhandAfter]);
+
+		// 		this.getItems().payForAction(items);
+
+		// 		return ret;
+		// 	}
+		// });
 
 		::mods_hookNewObject("items/item_container", function(o) {
+			o.m.IsMSUHandledItemAction <- false;
+
 			local equip = o.equip;
 			o.equip = function( _item )
 			{
