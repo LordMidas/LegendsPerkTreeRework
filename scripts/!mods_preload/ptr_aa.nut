@@ -118,6 +118,27 @@ gt.PTR.ModID <- "mod_legends_PTR";
 		});
 
 		::mods_hookNewObject("skills/skill_container", function(o) {
+			local add = o.add;
+			o.add = function( _skill, _order = 0 )
+			{
+				local suffix = "";
+				foreach (skill in this.m.SkillsToAdd)
+				{
+					if (skill.isGarbage() && skill.getID() == _skill.getID())
+					{
+						suffix = "" + _skill;
+						_skill.m.ID += suffix;
+						break;
+					}
+				}
+
+				local ret = add(_skill, _order);
+
+				if (suffix != "") _skill.m.ID = _skill.m.ID.slice(0, -suffix.len());
+
+				return ret;
+			}
+
 			o.callSkillsFunction = function( _function, _argsArray = null, _update = true, _aliveOnly = false )
 			{
 				if (_argsArray == null) _argsArray = [null];
