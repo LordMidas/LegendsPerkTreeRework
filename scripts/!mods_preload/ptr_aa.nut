@@ -35,7 +35,7 @@ gt.PTR.ModID <- "mod_legends_PTR";
 				local itemsBefore = {};
 				for (local i = 0; i < ::Const.ItemSlot.COUNT; i++)
 				{
-					itemsBefore[i] = _entity.getItems().getAllItemsAtSlot(i);
+					itemsBefore[i] <- _entity.getItems().getAllItemsAtSlot(i);
 				}
 
 				local ret = onExecute(_entity);
@@ -67,7 +67,7 @@ gt.PTR.ModID <- "mod_legends_PTR";
 				local itemsBefore = {};
 				for (local i = 0; i < ::Const.ItemSlot.COUNT; i++)
 				{
-					itemsBefore[i] = _entity.getItems().getAllItemsAtSlot(i);
+					itemsBefore[i] <- _entity.getItems().getAllItemsAtSlot(i);
 				}
 
 				local ret = onExecute(_entity);
@@ -99,7 +99,7 @@ gt.PTR.ModID <- "mod_legends_PTR";
 				local itemsBefore = {};
 				for (local i = 0; i < ::Const.ItemSlot.COUNT; i++)
 				{
-					itemsBefore[i] = _entity.getItems().getAllItemsAtSlot(i);
+					itemsBefore[i] <- _entity.getItems().getAllItemsAtSlot(i);
 				}
 
 				local ret = onExecute(_entity);
