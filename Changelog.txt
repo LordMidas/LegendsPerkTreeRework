@@ -1,4 +1,11 @@
 =====================
+==== Ver 2.1.13 =====
+=====================
+- Eyes Up now always applies half a stack to targets adjacent to the primary target.
+- Fixed enemies swapping weapons losing more Action Points in the process than intended.
+- Fixed cases where characters with certain perks lost their weapon skills upon loading a saved game (e.g. Old Swordmaster) until they re-equipped the weapon.
+
+=====================
 ==== Ver 2.1.12 =====
 =====================
 - Crossbow perk group changes: Moved Power Shot to t1, Primal Fear to t3, and Take Aim to t6.
