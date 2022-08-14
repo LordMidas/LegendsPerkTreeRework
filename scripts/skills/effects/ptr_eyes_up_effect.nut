@@ -20,7 +20,7 @@ this.ptr_eyes_up_effect <- this.inherit("scripts/skills/skill", {
 
 	function getName()
 	{
-		return this.m.Stacks > 1 ? this.m.Name + " (x" + this.m.Stacks + ")" : this.m.Name;
+		return this.m.Stacks == 1 ? this.m.Name : this.m.Name + " (x" + this.m.Stacks + ")";
 	}
 
 	function getTooltip()
@@ -65,12 +65,12 @@ this.ptr_eyes_up_effect <- this.inherit("scripts/skills/skill", {
 
 	function getSkillMalus()
 	{
-		return this.m.Stacks * this.m.SkillMalus;
+		return ::Math.floor(this.m.Stacks * this.m.SkillMalus);
 	}
 
 	function getDefenseMalus()
 	{
-		return this.m.Stacks * this.m.DefenseMalus;
+		return ::Math.floor(this.m.Stacks * this.m.DefenseMalus);
 	}
 
 	function onUpdate( _properties )
