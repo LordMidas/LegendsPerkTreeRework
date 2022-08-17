@@ -1,4 +1,16 @@
 =====================
+==== Ver 2.1.14 =====
+=====================
+- Removed Perfect Fit and In the Zone from the Medium Armor perk group t2 and t7 respectively.
+- Added Dodge to Medium Armor perk group t2 and moved Balance to t3.
+- Balance perk reworked: Now reduces penalty to Initiatve from head and body armor by 30% and reduces the Initiative loss from building Fatigue by 50%.
+- Lithe perk reworked: Now reduces damage to Hitpoints by 30% and to Armor by 15%. The reduction is no longer reduced by losing armor durability but is instead reduced exponentially by wearing armor with total fatigue penalty above 35. Does not work if you have Nimble.
+- Nimble perk reworked: Now reduces damage to Hitpoints by a random value between 40% and 60% and damage to armor by half that value. The bonus reduces exponentially by wearing armor with total fatigue penalty above 15. Removed the 10% increased injury threshold added by Legends.
+- Removed Freedom of Movement from Light Armor perk group t5.
+- Footwork tweaked: Reduced Fatigue Cost from 20 to 10. The Fatigue Cost increases by 1 for every 1 point of total armor fatigue penalty above 15, up to a maximum Fatigue Cost of 20.
+- Fixed some cases where the AI would freeze in battle (was caused by some bugs in item swapping logic).
+
+=====================
 ==== Ver 2.1.13 =====
 =====================
 - Eyes Up now always applies half a stack to targets adjacent to the primary target.
