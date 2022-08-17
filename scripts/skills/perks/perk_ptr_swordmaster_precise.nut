@@ -1,6 +1,6 @@
 this.perk_ptr_swordmaster_precise <- this.inherit("scripts/skills/perks/perk_ptr_swordmaster_abstract", {
 	m = {
-		ArmorDirectDamageMitigationMult = ::Const.Combat.ArmorDirectDamageMitigationMult
+		DidApply = false
 	},
 	function create()
 	{
@@ -18,13 +18,17 @@ this.perk_ptr_swordmaster_precise <- this.inherit("scripts/skills/perks/perk_ptr
 		local weapon = this.getContainer().getActor().getMainhandItem();
 		if (weapon != null && weapon.isWeaponType(::Const.Items.WeaponType.BFFencing))
 		{
-			this.m.ArmorDirectDamageMitigationMult = ::Const.Combat.ArmorDirectDamageMitigationMult;
 			::Const.Combat.ArmorDirectDamageMitigationMult /= 2;
+			this.m.DidApply = true;
 		}
 	}
 
-	function onAnySkillExecuted( _skill, _targetTile, _targetEntity, _forFree )
+	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		::Const.Combat.ArmorDirectDamageMitigationMult = this.m.ArmorDirectDamageMitigationMult;
+		if (this.m.DidApply)
+		{
+			::Const.Combat.ArmorDirectDamageMitigationMult *= 2;
+			this.m.DidApply = false;
+		}
 	}
 });
