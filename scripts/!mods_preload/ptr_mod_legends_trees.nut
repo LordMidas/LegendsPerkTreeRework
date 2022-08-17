@@ -1132,13 +1132,13 @@ gt.PTR.modWeaponTrees <- function()
 	this.Const.Perks.StaffTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRWhackASmack];
 
 	this.Const.Perks.ThrowingTree.Tree = array(7);
-	this.Const.Perks.ThrowingTree.Tree[0] = [this.Const.Perks.PerkDefs.PTRHybridization];
-	this.Const.Perks.ThrowingTree.Tree[1] = [this.Const.Perks.PerkDefs.PTRMomentum];
-	this.Const.Perks.ThrowingTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRSkirmisher];
+	this.Const.Perks.ThrowingTree.Tree[0] = [this.Const.Perks.PerkDefs.PTRMomentum];
+	this.Const.Perks.ThrowingTree.Tree[1] = [this.Const.Perks.PerkDefs.PTRSkirmisher];
+	this.Const.Perks.ThrowingTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRHybridization];
 	this.Const.Perks.ThrowingTree.Tree[3] = [this.Const.Perks.PerkDefs.SpecThrowing];
 	this.Const.Perks.ThrowingTree.Tree[4] = [this.Const.Perks.PerkDefs.PTROpportunist];
-	this.Const.Perks.ThrowingTree.Tree[5] = [this.Const.Perks.PerkDefs.CloseCombatArcher];
-	this.Const.Perks.ThrowingTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRNailedIt];
+	this.Const.Perks.ThrowingTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRNailedIt];
+	this.Const.Perks.ThrowingTree.Tree[6] = [this.Const.Perks.PerkDefs.CloseCombatArcher];
 
 	local idx = gt.Const.Perks.WeaponTrees.Tree.find(this.Const.Perks.GreatSwordTree);
 	if (idx != null)
