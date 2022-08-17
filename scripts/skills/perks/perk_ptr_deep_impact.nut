@@ -1,6 +1,7 @@
 this.perk_ptr_deep_impact <- this.inherit("scripts/skills/skill", {
 	m = {
-		ArmorEffectivenessMult = 0.25,
+		AppliedMultiplier = null,
+		ArmorEffectivenessMult = 0.2,
 		IsForceEnabled = false
 	},
 	function create()
@@ -23,11 +24,24 @@ this.perk_ptr_deep_impact <- this.inherit("scripts/skills/skill", {
 
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
-		if (_targetEntity == null || !_skill.isAttack() || (!_skill.getDamageType().contains(this.Const.Damage.DamageType.Blunt) && !this.m.IsForceEnabled))
+		this.m.AppliedMultiplier = _properties.DamageArmorMult * this.m.ArmorEffectivenessMult;
+	}
+
+	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
+	{
+		if (_skill.isAttack() && (_hitInfo.DamageType == ::Const.Damage.DamageType.Blunt || this.m.IsForceEnabled))
 		{
-			return;
+			::Const.Combat.ArmorDirectDamageMitigationMult *= 1.0 - this.m.AppliedMultiplier;
+			this.m.DidApply = true;
 		}
-	
-		_properties.ThresholdToInflictInjuryMult *= 1.0 - this.Math.minf(0.99, (this.m.ArmorEffectivenessMult * _properties.DamageArmorMult));
+	}
+
+	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
+	{
+		if (this.m.DidApply)
+		{
+			::Const.Combat.ArmorDirectDamageMitigationMult /= 1.0 - this.m.AppliedMultiplier;
+			this.m.DidApply = false;
+		}
 	}
 });
