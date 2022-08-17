@@ -2,6 +2,120 @@ local gt = this.getroottable();
 
 gt.PTR.modSkills <- function()
 {
+	::mods_hookExactClass("skills/perks/perk_legend_lithe", function(o) {
+		o.isHidden <- function()
+		{
+			return this.getContainer().hasSkill("perk.nimble") || (::Math.floor(this.getHitpointsDamageReduction() * 100) >= 100 && ::Math.floor(this.getArmorDamageReduction() * 100) >= 100);
+		}
+
+		o.getTooltip = function()
+		{
+			local tooltip = this.skill.getTooltip();
+			local hpBonus = ::Math.round(this.getHitpointsDamageReduction() * 100);
+			if (hpBonus < 100)
+			{
+				tooltip.push({
+					id = 6,
+					type = "text",
+					icon = "ui/icons/special.png",
+					text = "Only receive [color=" + this.Const.UI.Color.PositiveValue + "]" + hpBonus + "%[/color] of any damage to hitpoints from attacks"
+				});
+			}
+			local armorBonus = ::Math.round(this.getArmorDamageReduction() * 100);
+			if (armorBonus < 100)
+			{
+				tooltip.push({
+					id = 6,
+					type = "text",
+					icon = "ui/icons/special.png",
+					text = "Only receive [color=" + this.Const.UI.Color.PositiveValue + "]" + armorBonus + "%[/color] of any damage to armor from attacks"
+				});
+			}
+
+			if (hpBonus >= 100 && armorBonus >= 100)
+			{
+				tooltip.push({
+					id = 6,
+					type = "text",
+					icon = "ui/tooltips/warning.png",
+					text = "[color=" + this.Const.UI.Color.NegativeValue + "]This character\'s body and head armor are too heavy to gain any benefit from being lithe[/color]"
+				});
+			}
+
+			return tooltip;
+		}
+
+		o.getHitpointsDamageReduction <- function()
+		{
+			local fat = this.getContainer().getActor().getItems().getStaminaModifier([::Const.ItemSlot.Body, ::Const.ItemSlot.Head]);
+			fat = ::Math.min(0, fat + 35);
+			return ::Math.minf(1.0, 1.0 - 0.7 + this.Math.pow(this.Math.abs(fat), 1.23) * 0.01);
+		}
+
+		o.getArmorDamageReduction <- function()
+		{
+			local fat = this.getContainer().getActor().getItems().getStaminaModifier([::Const.ItemSlot.Body, ::Const.ItemSlot.Head]);
+			fat = ::Math.min(0, fat + 35);
+			return ::Math.minf(1.0, 1.0 - 0.85 + this.Math.pow(this.Math.abs(fat), 1.23) * 0.01);
+		}
+
+		function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
+		{
+			if (_attacker != null && _attacker.getID() == this.getContainer().getActor().getID() || _skill == null || !_skill.isAttack() || !_skill.isUsingHitchance())
+			{
+				return;
+			}
+
+			if (this.getContainer().hasSkill("perk.nimble")) return;
+
+			_properties.DamageReceivedRegularMult *= this.getHitpointsDamageReduction();
+			_properties.DamageReceivedArmorMult *= this.getArmorDamageReduction();
+		}
+	});
+
+	::mods_hookNewObject("skills/perks/perk_legend_balance", function(o) {
+		o.m.Description = "%name% gains increased speed and endurance by balancing their armor and mobility.";
+
+		o.getTooltip = function()
+		{
+			local tooltip = this.skill.getTooltip();
+			local initBonus = this.getInitiativeBonus()
+			if (initBonus > 0)
+			{
+				tooltip.push({
+					id = 6,
+					type = "text",
+					icon = "ui/icons/initiative.png",
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + initBonus + "[/color] Initiative"
+				});
+			}
+			tooltip.push({
+				id = 6,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Initiative loss due to built Fatigue is reduced by [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color]"
+			});
+
+			return tooltip;
+		}
+
+		o.getInitiativeBonus <- function()
+		{
+			return this.getContainer().getActor().getItems().getStaminaModifier([::Const.ItemSlot.Body, ::Const.ItemSlot.Head]) * -1 * 0.3;
+		}
+
+		o.onUpdate = function( _properties )
+		{
+			_properties.FatigueToInitiativeRate *= 0.5;
+			_properties.Initiative += this.getInitiativeBonus();
+		}
+
+		o.onAfterUpdate = function( _properties )
+		{
+			// overwrite original function
+		}
+	});
+
 	::mods_hookExactClass("skills/actives/root_skill", function(o) {
 		o.m.Cooldown <- 0;
 		o.onTurnStart <- function()

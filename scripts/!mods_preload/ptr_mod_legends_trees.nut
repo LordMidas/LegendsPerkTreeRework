@@ -1186,6 +1186,17 @@ gt.PTR.modDefenseTrees <- function ()
 	this.Const.Perks.LightArmorTree.Tree[4] = [this.Const.Perks.PerkDefs.LegendFreedomOfMovement];
 	this.Const.Perks.LightArmorTree.Tree[5] = [this.Const.Perks.PerkDefs.Nimble];
 	this.Const.Perks.LightArmorTree.Tree[6] = [];
+
+	this.Const.Perks.MediumArmorTree.Tree = array(7);
+	this.Const.Perks.MediumArmorTree.PerkGroupMultipliers <- [];
+	this.Const.Perks.MediumArmorTree.SpecialPerkMultipliers <- [];
+	this.Const.Perks.MediumArmorTree.Tree[0] = [];
+	this.Const.Perks.MediumArmorTree.Tree[1] = [this.Const.Perks.PerkDefs.Dodge];
+	this.Const.Perks.MediumArmorTree.Tree[2] = [this.Const.Perks.PerkDefs.LegendBalance];
+	this.Const.Perks.MediumArmorTree.Tree[3] = [];
+	this.Const.Perks.MediumArmorTree.Tree[4] = [];
+	this.Const.Perks.MediumArmorTree.Tree[5] = [this.Const.Perks.PerkDefs.LegendLithe];
+	this.Const.Perks.MediumArmorTree.Tree[6] = [];
 }
 
 gt.PTR.modMagicTrees <- function()
