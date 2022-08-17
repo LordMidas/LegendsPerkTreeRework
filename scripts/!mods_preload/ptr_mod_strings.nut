@@ -383,6 +383,9 @@ gt.PTR.modStrings <- function()
 	gt.Const.Strings.PerkDescription.Nimble = "Specialize in light armor! By nimbly dodging or deflecting blows, convert any hits to glancing hits.\n\n[color=" + this.Const.UI.Color.Passive + "][u]Passive:[/u][/color]\n• Damage to Hitpoints is reduced by between [color=" + this.Const.UI.Color.PositiveValue + "]40%[/color] and [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] and that to armor by [color=" + this.Const.UI.Color.PositiveValue + "]half[/color] this value.\n• The bonus drops exponentially when wearing head and body armor with a total penalty to Maximum Fatigue above 15. The lighter your armor and helmet, the more you benefit.\n• Brawny does not affect this perk.\n• Does not affect damage from mental attacks or status effects, but can help to avoid receiving them.";
 	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Nimble].Tooltip = gt.Const.Strings.PerkDescription.Nimble;
 
+	gt.Const.Strings.PerkDescription.Footwork <- "Work those feet!\n\n[color=" + this.Const.UI.Color.Passive + "][u]Active:[/u][/color]\n• Costs 3 AP and builds 10 Fatigue.\n• Unlocks the \'Footwork\' skill which allows you to leave a Zone of Control without triggering free attacks by using skillful footwork.\n• The Fatigue Cost of the skill increases by [color=" + this.Const.UI.Color.NegativeValue + "]1[/color] for every 1 point of total penalty to Maximum Fatigue from head and body armor above 15, up to a maximum Fatigue Cost of [color=" + this.Const.UI.Color.NegativeValue + "]20[/color].";
+	gt.Const.Perks.PerkDefObjects[gt.Const.Perks.PerkDefs.Footwork].Tooltip = gt.Const.Strings.PerkDescription.Footwork;
+
 	local poleWeaponStrings = [
 		"SpecAxe",
 		"SpecHammer",
