@@ -1664,6 +1664,23 @@ gt.PTR.modSkills <- function()
 		}
 	});
 
+	::mods_hookExactClass("skills/perks/perk_mastery_throwing", function(o) {
+		o.onAnySkillUsed = function( _skill, _targetEntity, _properties )
+		{
+			if (_targetEntity == null || !_skill.isRanged()) return;
+
+			local weapon = this.getContainer().getActor().getMainhandItem();
+			if (weapon == null || !weapon.isWeaponType(::Const.Items.WeaponType.Throwing)) return;
+
+			local actor = this.getContainer().getActor();
+			local distance = _targetEntity.getTile().getDistanceTo(actor.getTile());
+			if (distance <= 3)
+			{
+				_properties.RangedSkill += ::Math.floor(0.25 * actor.getCurrentProperties().getMeleeSkill() * (distance == 2 ? 1.0 : 0.5));
+			}
+		}
+	});
+
 	::mods_hookExactClass("skills/perks/perk_close_combat_archer", function(o) {
 		o.m.IsForceEnabled <- false;
 
@@ -1683,6 +1700,25 @@ gt.PTR.modSkills <- function()
 			return true;
 		}
 
+		o.onAnySkillUsed = function( _skill, _targetEntity, _properties )
+		{
+			if (_targetEntity == null || !this.isEnabled())
+			{
+				return;
+			}
+
+			local d = this.getContainer().getActor().getTile().getDistanceTo(_targetEntity.getTile());
+
+			if (d <= 2)
+			{
+				_properties.DamageTotalMult *= 1.4;
+			}
+			else if (d <= 3)
+			{
+				_properties.DamageTotalMult *= 1.2;
+			}
+		}
+
 		o.onGetHitFactors <- function( _skill, _targetTile, _tooltip )
 		{
 			local targetEntity = _targetTile.getEntity();
@@ -1698,42 +1734,9 @@ gt.PTR.modSkills <- function()
 			}
 		}
 
-		o.onAnySkillUsed = function( _skill, _targetEntity, _properties )
-		{
-			if (_targetEntity == null || !_skill.isRanged() || !this.isEnabled())
-			{
-				return;
-			}
-
-			local actor = this.getContainer().getActor();
-			local distance = _targetEntity.getTile().getDistanceTo(actor.getTile());
-			if (distance > 3)
-			{
-				return;
-			}
-
-			local meleeSkill = actor.getCurrentProperties().getMeleeSkill();
-			local rangedSkill = actor.getCurrentProperties().getRangedSkill();
-
-			local hitChanceBonus = this.Math.floor(0.25 * meleeSkill * (distance == 2 ? 1.0 : 0.5));
-			local directDamageBonus = this.Math.floor(0.2 * rangedSkill * (distance == 2 ? 1.0 : 0.5));
-			local damageBonus = this.Math.floor(0.4 * rangedSkill * (distance == 2 ? 1.0 : 0.5));
-
-			_properties.RangedSkill += hitChanceBonus;
-
-			if (_skill.getDamageType().contains(this.Const.Damage.DamageType.Piercing))
-			{
-				_properties.DamageDirectAdd += directDamageBonus * 0.01;
-			}
-			else if (_skill.getDamageType().contains(this.Const.Damage.DamageType.Cutting))
-			{
-				_properties.DamageTotalMult += damageBonus * 0.01;
-			}
-		}
-
 		o.onTargetHit <- function( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 		{
-			if (!_targetEntity.isAlive() || _targetEntity.isDying() || !this.isEnabled() || _skill == null || !_skill.isRanged() || !_skill.getDamageType().contains(this.Const.Damage.DamageType.Blunt))
+			if (!_targetEntity.isAlive() || _targetEntity.isDying() || !this.isEnabled() || !_skill.isRanged())
 			{
 				return;
 			}
@@ -1744,35 +1747,60 @@ gt.PTR.modSkills <- function()
 				return;
 			}
 
-			local chance = distance == 2 ? 100 : 50;
-			local roll = this.Math.rand(1, 100);
-
-			if (roll > chance)
-			{
-				return;
-			}
-
 			local actor = this.getContainer().getActor();
 
-			local staggeredEffect = _targetEntity.getSkills().getSkillByID("effects.staggered");
-			if (staggeredEffect != null && !_targetEntity.getCurrentProperties().IsImmuneToStun)
+			if (_skill.getDamageType().contains(::Const.Damage.DamageType.Blunt))
 			{
-				local effect = this.new("scripts/skills/effects/stunned_effect");
-				_targetEntity.getSkills().add(effect);
-				effect.m.TurnsLeft = 1;
-				if (!actor.isHiddenToPlayer() && _targetEntity.getTile().IsVisibleForPlayer)
+				local chance = distance == 2 ? 100 : 50;
+				local roll = this.Math.rand(1, 100);
+
+				if (roll <= chance)
 				{
-					this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " has stunned " + this.Const.UI.getColorizedEntityName(_targetEntity) + " for " + effect.m.TurnsLeft + " turn");
+					local staggeredEffect = _targetEntity.getSkills().getSkillByID("effects.staggered");
+					if (staggeredEffect != null && !_targetEntity.getCurrentProperties().IsImmuneToStun)
+					{
+						local effect = this.new("scripts/skills/effects/stunned_effect");
+						_targetEntity.getSkills().add(effect);
+						effect.m.TurnsLeft = 1;
+						if (!actor.isHiddenToPlayer() && _targetEntity.getTile().IsVisibleForPlayer)
+						{
+							this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " has stunned " + this.Const.UI.getColorizedEntityName(_targetEntity) + " for " + effect.m.TurnsLeft + " turn");
+						}
+					}
+					else
+					{
+						local effect = this.new("scripts/skills/effects/staggered_effect");
+						_targetEntity.getSkills().add(effect);
+						effect.m.TurnsLeft = 1;
+						if (!actor.isHiddenToPlayer() && _targetEntity.getTile().IsVisibleForPlayer)
+						{
+							this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " has staggered " + this.Const.UI.getColorizedEntityName(_targetEntity) + " for " + effect.m.TurnsLeft + " turn");
+						}
+					}
 				}
 			}
-			else
+			else if (_skill.getDamageType().contains(::Const.Damage.DamageType.Piercing))
 			{
-				local effect = this.new("scripts/skills/effects/staggered_effect");
-				_targetEntity.getSkills().add(effect);
-				effect.m.TurnsLeft = 1;
-				if (!actor.isHiddenToPlayer() && _targetEntity.getTile().IsVisibleForPlayer)
+				local chance = distance == 2 ? 100 : 50;
+				local roll = this.Math.rand(1, 100);
+
+				if (roll <= chance)
 				{
-					this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " has staggered " + this.Const.UI.getColorizedEntityName(_targetEntity) + " for " + effect.m.TurnsLeft + " turn");
+					_targetEntity.getSkills().add(::new("scripts/skills/effects/ptr_arrow_to_the_knee_debuff_effect"));
+					if (!actor.isHiddenToPlayer() && _targetEntity.getTile().IsVisibleForPlayer)
+					{
+						this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " has impaled " + this.Const.UI.getColorizedEntityName(_targetEntity) + " for " + effect.m.TurnsLeft + " turns");
+					}
+				}
+			}
+			else if (_skill.getDamageType().contains(::Const.Damage.DamageType.Cutting))
+			{
+				local chance = distance == 2 ? 100 : 50;
+				local roll = this.Math.rand(1, 100);
+
+				if (roll <= chance)
+				{
+					_targetEntity.getSkills().add(::new("scripts/skills/effects/overwhelmed_effect"));
 				}
 			}
 		}
