@@ -180,6 +180,38 @@ gt.PTR.ModID <- "mod_legends_PTR";
 
 				return unequip(_item);
 			}
+
+			o.getActionCost = function( _items )
+			{
+				if (this.m.IsMSUHandledItemAction) return 0;
+
+				this.m.ActionSkill = null;
+
+				local info = this.getActor().getSkills().getItemActionCost(_items);
+
+				info.sort(@(info1, info2) info1.Skill.getItemActionOrder() <=> info2.Skill.getItemActionOrder());
+
+				local cost = ::Const.Tactical.Settings.SwitchItemAPCost;
+
+				foreach (entry in info)
+				{
+					if (entry.Cost < cost)
+					{
+						cost = entry.Cost;
+						this.m.ActionSkill = entry.Skill;
+					}
+				}
+
+				return cost;
+			}
+
+			o.payForAction = function ( _items )
+			{
+				local actionCost = this.getActionCost(_items);
+				this.m.Actor.setActionPoints(::Math.max(0, this.m.Actor.getActionPoints() - actionCost));
+				if (_items.len() != 0) this.m.Actor.getSkills().onPayForItemAction(this.m.ActionSkill, _items);
+				this.m.ActionSkill = null;
+			}
 		});
 
 		::mods_hookNewObject("skills/skill_container", function(o) {
