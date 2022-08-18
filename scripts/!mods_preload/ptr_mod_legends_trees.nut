@@ -1056,10 +1056,10 @@ gt.PTR.modWeaponTrees <- function()
 	this.Const.Perks.HammerTree.Tree = array(7);
 	this.Const.Perks.HammerTree.Tree[0] = [this.Const.Perks.PerkDefs.LegendSmackdown];
 	this.Const.Perks.HammerTree.Tree[1] = [this.Const.Perks.PerkDefs.PTRRattle];
-	this.Const.Perks.HammerTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRDeepImpact];
+	this.Const.Perks.HammerTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRInternalHemorrhage];
 	this.Const.Perks.HammerTree.Tree[3] = [this.Const.Perks.PerkDefs.SpecHammer];
 	this.Const.Perks.HammerTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRDismantle];
-	this.Const.Perks.HammerTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRInternalHemorrhage];
+	this.Const.Perks.HammerTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRDeepImpact];
 	this.Const.Perks.HammerTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRDentArmor];
 
 	this.Const.Perks.MaceTree.Tree = array(7);
