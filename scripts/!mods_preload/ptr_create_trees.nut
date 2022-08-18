@@ -1098,7 +1098,7 @@ gt.PTR.createSpecialTrees <- function()
 		return _chance;
 	});
 
-	gt.Const.Perks.SpecialTrees.addSpecialPerk(10, gt.Const.Perks.PerkDefs.PTRManOfSteel, 7, "Is tough as if made of steel!", function( _player, _chance ) {
+	gt.Const.Perks.SpecialTrees.addSpecialPerk(25, gt.Const.Perks.PerkDefs.PTRManOfSteel, 7, "Is tough as if made of steel!", function( _player, _chance ) {
 		if (!_player.getBackground().hasPerkGroup(::Const.Perks.HeavyArmorTree))
 		{
 			return 0;
