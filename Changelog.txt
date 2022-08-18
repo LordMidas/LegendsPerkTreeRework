@@ -1,4 +1,19 @@
 =====================
+==== Ver 2.1.15 =====
+=====================
+- Man of Steel reworked: Now doubles the HP damage mitigation from armor.
+- Deep Impact reworked: Now grants 20% of your armor effectiveness as a reduction to the HP damage mitigation from armor when attacking a target with a blunt weapon.
+- Throwing Mastery tweaked: No longer grants a bonus to damage. Instead grants 25% of your Melee Skill as additional chance to hit at 3 tiles or less distance.
+- Whites of their Eyes reworked: Damage increased by 40%. For piercing type throwing weapons, 100% chance to apply Arrow to the Knee debuff. For Cutting type throwing weapons 100% chance to apply Overwhelmed. For Blunt type throwing weapons 100% chance to apply Staggered and if the target is already Staggered, to apply Stun. The damage bonus and chance apply at 2 tiles distance, are halved at 3 tiles distance, and don't apply at longer distances.
+- Throwing perk group tweaked: Moved Momentum to t1, Skirmisher to t2, Hybridization to t3, Nailed It to t6, Whites of their Eyes to t7.
+- Muscle Memory tweaked: No longer reduces AP cost reduction for reloading crossbows. We are brainstorming a rework/new perk for the crossbow perk group, meanwhile we are removing this bonus for balance.
+- Cover Ally tweaked: Now grants the target ally +5000 Initiative for turn order calcluation, instead of +50. This should effectively cause the target to always go first in the next round.
+- Intimidate tweaked: Removed the condition that it cannot stack from the same source.
+- Bolster tweaked: In addition to previous bonuses, now triggers a positive Morale Check for adjacent members of your company with a bonus to Resolve of 5% of your Melee Skill as long as you are not engaged in melee.
+- Polearm perk group: Moved Follow Up to t7 and Long Reach to t6.
+- Fixed a case in the Precise perk when using Lunge may have caused the base HP damage mitigation from armor in the game to change.
+
+=====================
 ==== Ver 2.1.14 =====
 =====================
 - Removed Perfect Fit and In the Zone from the Medium Armor perk group t2 and t7 respectively.
