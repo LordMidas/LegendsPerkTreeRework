@@ -22,16 +22,16 @@ this.perk_ptr_intimidate <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		local effect = _targetEntity.getSkills().getSkillByID("effect.ptr_intimidated");
-		if (effect == null)
+		local effect = _targetEntity.getSkills().getSkillByID("effects.ptr_intimidated");
+		if (effect != null)
 		{
-			effect = this.new("scripts/skills/effects/ptr_intimidated_effect");
-			effect.addIntimidator(this.getContainer().getActor().getID());
-			_targetEntity.getSkills().add(effect);
+			effect.m.ResolveMalus += ::Math.floor(this.getContainer().getActor().getCurrentProperties().getMeleeSkill() * 0.1);
 		}
 		else
 		{
-			effect.addIntimidator(this.getContainer().getActor().getID());
+			effect = ::new("scripts/skills/effects/ptr_intimidated_effect");
+			effect.m.ResolveMalus += ::Math.floor(this.getContainer().getActor().getCurrentProperties().getMeleeSkill() * 0.1);
+			_targetEntity.getSkills().add(effect);
 		}
 	}
 
