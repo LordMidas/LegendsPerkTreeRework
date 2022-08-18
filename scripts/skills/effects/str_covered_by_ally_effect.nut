@@ -45,7 +45,7 @@ this.str_covered_by_ally_effect <- this.inherit("scripts/skills/skill", {
 
 		if (actor.getTile().getDistanceTo(this.m.CoverProvider.getTile()) > 1)
 		{
-			return false;			
+			return false;
 		}
 
 		return true;
@@ -60,7 +60,7 @@ this.str_covered_by_ally_effect <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		_properties.InitiativeForTurnOrderAdditional += 50;
+		_properties.InitiativeForTurnOrderAdditional += 5000;
 	}
 
 	function onAdded()
