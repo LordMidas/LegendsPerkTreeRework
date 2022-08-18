@@ -1078,8 +1078,8 @@ gt.PTR.modWeaponTrees <- function()
 	this.Const.Perks.PolearmTree.Tree[2] = [this.Const.Perks.PerkDefs.PTRIntimidate];
 	this.Const.Perks.PolearmTree.Tree[3] = [this.Const.Perks.PerkDefs.SpecPolearm];
 	this.Const.Perks.PolearmTree.Tree[4] = [this.Const.Perks.PerkDefs.PTRUtilitarian];
-	this.Const.Perks.PolearmTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRFollowUp];
-	this.Const.Perks.PolearmTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRLongReach];
+	this.Const.Perks.PolearmTree.Tree[5] = [this.Const.Perks.PerkDefs.PTRLongReach];
+	this.Const.Perks.PolearmTree.Tree[6] = [this.Const.Perks.PerkDefs.PTRFollowUp];
 
 	this.Const.Perks.SlingTree.Tree = array(7);
 	this.Const.Perks.SlingTree.Tree[0] = [this.Const.Perks.PerkDefs.Lookout];
