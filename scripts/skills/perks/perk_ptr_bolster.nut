@@ -23,4 +23,26 @@ this.perk_ptr_bolster <- this.inherit("scripts/skills/skill", {
 
 		return true;
 	}
+
+	function onTurnEnd()
+	{
+		if (this.isInEffect() && !this.getContainer().getActor().isEngagedInMelee())
+		{
+			local myTile = this.getContainer().getActor().getTile();
+			for (local i = 0; i < 6; i++)
+			{
+				if (myTile.hasNextTile(i))
+				{
+					local nextTile = myTile.getNextTile(i);
+					if (nextTile.IsOccupiedByActor)
+					{
+						if (nextTile.getEntity().getFaction() == this.getContainer().getActor().getFaction())
+						{
+							nextTile.getEntity().checkMorale(1, this.getContainer().getActor().getCurrentProperties().getMeleeSkill() * 0.05);
+						}
+					}
+				}
+			}
+		}
+	}
 });
