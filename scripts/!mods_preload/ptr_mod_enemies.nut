@@ -897,7 +897,6 @@ gt.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_quick_hands"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_close_combat_archer"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_momentum"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_man_of_steel"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_berserk"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_killing_frenzy"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_know_their_weakness"));
@@ -1102,7 +1101,6 @@ gt.PTR.modEnemies <- function()
 			this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);			
 			this.m.Skills.removeByID("perk.legend_slaughter");
 			this.m.Skills.removeByID("perk.legend_bloodbath");
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_man_of_steel"));						
 			// if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			// {
 
@@ -1194,7 +1192,6 @@ gt.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/racial/ptr_orc_racial"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_fearsome"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_crippling_strikes"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_man_of_steel"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_menacing"));
 			this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));				
 
@@ -1810,7 +1807,6 @@ gt.PTR.modEnemies <- function()
 
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_menacing"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_fearsome"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_man_of_steel"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_personal_armor"));
 			this.m.Skills.addPerkTree(this.Const.Perks.OneHandedTree);
 			this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
@@ -1878,7 +1874,6 @@ gt.PTR.modEnemies <- function()
 			this.m.Skills.addPerkTree(this.Const.Perks.TwoHandedTree);
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_personal_armor"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_menacing"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_man_of_steel"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -2930,7 +2925,6 @@ gt.PTR.modEnemies <- function()
 			this.m.Skills.removeByID("perk.crippling_strikes");			
 			this.m.Skills.removeByID("perk.coup_de_grace");																	
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_assured_conquest"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_man_of_steel"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bulwark"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_formidable_approach"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_menacing"));
@@ -3274,7 +3268,6 @@ gt.PTR.modEnemies <- function()
 			this.m.Skills.removeByID("perk.coup_de_grace");
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_assured_conquest"));			
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_follow_up"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_man_of_steel"));
 			this.m.Skills.removeByID("perk.berserk");
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
@@ -3606,7 +3599,6 @@ gt.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_quick_hands"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_close_combat_archer"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_skirmisher"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_man_of_steel"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -4136,7 +4128,6 @@ gt.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_exploit_opening"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_tempo"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_en_garde"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_man_of_steel"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_sweeping_strikes"));	
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_battle_flow"));
 
@@ -4403,7 +4394,6 @@ gt.PTR.modEnemies <- function()
 			this.m.Skills.addPerkTree(this.Const.Perks.TacticianClassTree);
 			this.m.Skills.removeByID("perk.fast_adaption");	
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_assured_conquest"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_man_of_steel"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_rally_the_troops"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bulwark"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_hold_out"));			
