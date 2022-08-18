@@ -1,6 +1,6 @@
 this.perk_ptr_deep_impact <- this.inherit("scripts/skills/skill", {
 	m = {
-		AppliedMultiplier = null,
+		AppliedMultiplier = 1.0,
 		DidApply = false,
 		ArmorEffectivenessMult = 0.2,
 		IsForceEnabled = false
