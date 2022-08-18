@@ -1,4 +1,15 @@
 =====================
+==== Ver 2.1.16 =====
+=====================
+- Hammer perk group: Moved Internal Hemorrhage to t3 and Deep Impact to t6.
+- Increased the base chance of the Man of Steel special perk from 10% to 25%. It still has a multiplier for talent stars in Fatigue and requires at least 1 star in Fatigue.
+- Removed Man of Steel from: Bandit Veteran, Mummy Heavy, Orc Behemoth, Skeleton Heavy, Skeleton Heavy Polearm, Executioner, Halberdier, Mercenary, Zweihander, Officer.
+- Added info in Lithe tooltip that it does not work if you have Nimble.
+- Fixed issues with AI item swapping spending more Action Points than intended.
+- Fixed Intimidate tooltip to correctly state that it stacks.
+- Fixed Deep Impact bug causing attacks to bug out.
+
+=====================
 ==== Ver 2.1.15 =====
 =====================
 - Man of Steel reworked: Now doubles the HP damage mitigation from armor.
