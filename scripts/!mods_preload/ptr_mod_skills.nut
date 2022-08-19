@@ -133,14 +133,14 @@ gt.PTR.modSkills <- function()
 		{
 			local fat = this.getContainer().getActor().getItems().getStaminaModifier([::Const.ItemSlot.Body, ::Const.ItemSlot.Head]);
 			fat = ::Math.min(0, fat + 35);
-			return ::Math.minf(1.0, 1.0 - 0.7 + this.Math.pow(this.Math.abs(fat), 1.23) * 0.01);
+			return 1.0 - ::Math.minf(1.0, 1.0 - 0.7 + this.Math.pow(this.Math.abs(fat), 1.23) * 0.01);
 		}
 
 		o.getArmorDamageReduction <- function()
 		{
 			local fat = this.getContainer().getActor().getItems().getStaminaModifier([::Const.ItemSlot.Body, ::Const.ItemSlot.Head]);
 			fat = ::Math.min(0, fat + 35);
-			return ::Math.minf(1.0, 1.0 - 0.85 + this.Math.pow(this.Math.abs(fat), 1.23) * 0.01);
+			return 1.0 - ::Math.minf(1.0, 1.0 - 0.85 + this.Math.pow(this.Math.abs(fat), 1.23) * 0.01);
 		}
 
 		function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
