@@ -1,4 +1,11 @@
 =====================
+==== Ver 2.1.17 =====
+=====================
+- Improved Nimble and Lithe tooltip to mention damage reduction percentage instead of damage received percentage.
+- Fixed Lithe damage reduction multiplier being too high (it was not being subtracted from 100).
+- Fixed Nimble not applying its damage reduction to armor damage.
+
+=====================
 ==== Ver 2.1.16 =====
 =====================
 - Hammer perk group: Moved Internal Hemorrhage to t3 and Deep Impact to t6.
