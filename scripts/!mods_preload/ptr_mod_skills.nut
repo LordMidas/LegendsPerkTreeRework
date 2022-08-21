@@ -40,13 +40,13 @@ gt.PTR.modSkills <- function()
 					id = 6,
 					type = "text",
 					icon = "ui/icons/special.png",
-					text = "Only receive between [color=" + this.Const.UI.Color.PositiveValue + "]" + chanceMax + "%[/color] and [color=" + this.Const.UI.Color.PositiveValue + "]" + chanceMin + "%[/color] of any damage to hitpoints from attacks"
+					text = "Damage to hitpoints from attacks is reduced by [color=" + this.Const.UI.Color.PositiveValue + "]" + chanceMax + "%[/color] to [color=" + this.Const.UI.Color.PositiveValue + "]" + chanceMin + "%[/color]"
 				});
 				tooltip.push({
 					id = 6,
 					type = "text",
 					icon = "ui/icons/special.png",
-					text = "Only receive between [color=" + this.Const.UI.Color.PositiveValue + "]" + (chanceMax/2) + "%[/color] and [color=" + this.Const.UI.Color.PositiveValue + "]" + (chanceMin/2) + "%[/color] of any damage to armor from attacks"
+					text = "Damage to armor from attacks is reduced by [color=" + this.Const.UI.Color.PositiveValue + "]" + (chanceMax/2) + "%[/color] to [color=" + this.Const.UI.Color.PositiveValue + "]" + (chanceMin/2) + "%[/color]"
 				});
 			}
 
@@ -103,7 +103,7 @@ gt.PTR.modSkills <- function()
 					id = 6,
 					type = "text",
 					icon = "ui/icons/special.png",
-					text = "Only receive [color=" + this.Const.UI.Color.PositiveValue + "]" + hpBonus + "%[/color] of any damage to hitpoints from attacks"
+					text = "Damage to hitpoints from attacks is reduced by [color=" + this.Const.UI.Color.PositiveValue + "]" + (100-hpBonus) + "%[/color]"
 				});
 			}
 			local armorBonus = ::Math.round(this.getArmorDamageReduction() * 100);
@@ -113,7 +113,7 @@ gt.PTR.modSkills <- function()
 					id = 6,
 					type = "text",
 					icon = "ui/icons/special.png",
-					text = "Only receive [color=" + this.Const.UI.Color.PositiveValue + "]" + armorBonus + "%[/color] of any damage to armor from attacks"
+					text = "Damage to armor from attacks is reduced by[color=" + this.Const.UI.Color.PositiveValue + "]" + (100-armorBonus) + "%[/color]"
 				});
 			}
 
