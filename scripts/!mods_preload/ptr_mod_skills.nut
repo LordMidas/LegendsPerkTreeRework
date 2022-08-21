@@ -83,6 +83,7 @@ gt.PTR.modSkills <- function()
 
 			local reduction = ::MSU.Math.randf(0.4, 0.6);
 			_properties.DamageReceivedRegularMult *= this.getReductionChance(reduction);
+			_properties.DamageReceivedArmorMult *= 1.0 - this.getReductionChance(reduction/2);
 		}
 	});
 
