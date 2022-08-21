@@ -39,42 +39,6 @@ echo "Copying gfx to $BBDir\\gfx ..."
 cp -R gfx/. "$BBDir\\gfx"
 rm -rf "$BBDir\\gfx\\ptr_mod"
 handleExit
-echo "Copying mod script files to $BBDir\\scripts ..."
-# FILES=$(git diff --name-only `git merge-base origin/master HEAD` | grep '.nut\|.txt\|.css\|.js\|.html')
-FILES=$(git ls-tree -r --name-only HEAD | grep '.nut\|.txt\|.css\|.js\|.html')
-while read -r line; do
-    if [[ "$line" == *.sh ]]; then
-        :
-    elif [[ "$line" == *.md ]]; then
-        :
-    elif [[ "$line" == *.py ]]; then
-        :
-    elif [[ "$line" == unpacked* ]]; then
-        :
-    elif [[ "$line" == gfx/*.png ]]; then
-        :
-    elif [[ "$line" == gfx/*.jpg ]]; then
-        :
-    elif [[ "$line" == sounds/*.wav ]]; then
-        :
-    elif [[ "$line" == *.cnut ]]; then
-        :
-    elif [ "$line" == ".gitignore" ]; then
-        :
-    elif [ "$line" == ".editorconfig" ]; then
-        :    
-    elif [ "$line" == "Changelog.txt" ]; then
-        cp "$line" "$BBDir\\$line"
-        handleExit            
-    else
-        #echo "$line"
-        path=$( echo ${line%/*} )
-        mkdir -p "$BBDir\\$path"
-        handleExit
-        cp "$line" "$BBDir\\$line"
-        handleExit
-    fi
-done <<< "$FILES"
 
 # echo "Compiling all nut files ..."
 # cd ../bin
@@ -83,9 +47,9 @@ done <<< "$FILES"
 
 echo "Zipping mod ..."
 rm -rf "$BBDir\\mod_ptr.zip"
-"C:\Program Files\7-Zip\7z.exe" a "$BBDir\\mod_ptr.zip" "$BBDir\\brushes" "$BBDir\\gfx" "$BBDir\\scripts" "$BBDir\\sounds" "$BBDir\\ui" "Changelog.txt"
+"C:\Program Files\7-Zip\7z.exe" a "$BBDir\\mod_ptr.zip" "$BBDir\\brushes" "$BBDir\\gfx" "scripts" "$BBDir\\sounds" "ui" "Changelog.txt"
 echo "Cleaning up ..."
-rm -rf  "$BBDir\\brushes" "$BBDir\\gfx" "$BBDir\\preload" "$BBDir\\scripts" "$BBDir\\sounds" "$BBDir\\ui"
+rm -rf  "$BBDir\\brushes" "$BBDir\\gfx" "$BBDir\\sounds" "$BBDir\\ui"
 mkdir -p "$BBDir\\gfx\\fonts"
 cp -R ../fonts "$BBDir\\gfx"
 
