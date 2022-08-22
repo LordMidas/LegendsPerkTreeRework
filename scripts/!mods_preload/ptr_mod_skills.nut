@@ -40,13 +40,13 @@ gt.PTR.modSkills <- function()
 					id = 6,
 					type = "text",
 					icon = "ui/icons/special.png",
-					text = "Damage to hitpoints from attacks is reduced by [color=" + this.Const.UI.Color.PositiveValue + "]" + chanceMax + "%[/color] to [color=" + this.Const.UI.Color.PositiveValue + "]" + chanceMin + "%[/color]"
+					text = "Damage to hitpoints from attacks is reduced by [color=" + this.Const.UI.Color.PositiveValue + "]" + (100-chanceMin) + "%[/color] to [color=" + this.Const.UI.Color.PositiveValue + "]" + (100-chanceMax) + "%[/color]"
 				});
 				tooltip.push({
 					id = 6,
 					type = "text",
 					icon = "ui/icons/special.png",
-					text = "Damage to armor from attacks is reduced by [color=" + this.Const.UI.Color.PositiveValue + "]" + (chanceMax/2) + "%[/color] to [color=" + this.Const.UI.Color.PositiveValue + "]" + (chanceMin/2) + "%[/color]"
+					text = "Damage to armor from attacks is reduced by [color=" + this.Const.UI.Color.PositiveValue + "]" + (chanceMin/2) + "%[/color] to [color=" + this.Const.UI.Color.PositiveValue + "]" + (chanceMax/2) + "%[/color]"
 				});
 			}
 
@@ -70,8 +70,7 @@ gt.PTR.modSkills <- function()
 			}
 
 			fat = this.Math.min(0, fat + 15);
-			local ret = this.Math.minf(1.0, 1.0 - _reduction + this.Math.pow(this.Math.abs(fat), 1.23) * 0.01);
-			return ret;
+			return this.Math.minf(1.0, 1.0 - _reduction + this.Math.pow(this.Math.abs(fat), 1.23) * 0.01);
 		}
 
 		function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
@@ -83,7 +82,7 @@ gt.PTR.modSkills <- function()
 
 			local reduction = ::MSU.Math.randf(0.4, 0.6);
 			_properties.DamageReceivedRegularMult *= this.getReductionChance(reduction);
-			_properties.DamageReceivedArmorMult *= 1.0 - this.getReductionChance(reduction/2);
+			_properties.DamageReceivedArmorMult *= this.getReductionChance(1.0 - reduction/2);
 		}
 	});
 
@@ -134,14 +133,14 @@ gt.PTR.modSkills <- function()
 		{
 			local fat = this.getContainer().getActor().getItems().getStaminaModifier([::Const.ItemSlot.Body, ::Const.ItemSlot.Head]);
 			fat = ::Math.min(0, fat + 35);
-			return 1.0 - ::Math.minf(1.0, 1.0 - 0.7 + this.Math.pow(this.Math.abs(fat), 1.23) * 0.01);
+			return ::Math.minf(1.0, 1.0 - 0.3 + this.Math.pow(this.Math.abs(fat), 1.23) * 0.01);
 		}
 
 		o.getArmorDamageReduction <- function()
 		{
 			local fat = this.getContainer().getActor().getItems().getStaminaModifier([::Const.ItemSlot.Body, ::Const.ItemSlot.Head]);
 			fat = ::Math.min(0, fat + 35);
-			return 1.0 - ::Math.minf(1.0, 1.0 - 0.85 + this.Math.pow(this.Math.abs(fat), 1.23) * 0.01);
+			return ::Math.minf(1.0, 1.0 - 0.15 + this.Math.pow(this.Math.abs(fat), 1.23) * 0.01);
 		}
 
 		function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
