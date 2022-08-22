@@ -16,11 +16,6 @@ this.perk_ptr_man_of_steel <- this.inherit("scripts/skills/skill", {
 
 	function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
 	{
-		::Const.Combat.ArmorDirectDamageMitigationMult *= 2;
-	}
-
-	function onAfterDamageReceived()
-	{
-		::Const.Combat.ArmorDirectDamageMitigationMult /= 2;
+		_properties.ArmorMult[_hitInfo.BodyPart] *= 2;
 	}
 });
