@@ -5637,6 +5637,13 @@ gt.PTR.modCharacterBackgrounds <- function()
 			]
 		};
 
+		local onAdded = o.onAdded;
+		o.onAdded = function()
+		{
+			onAdded();
+			this.getContainer().add(this.new("scripts/skills/effects/ptr_swordmasters_finesse_effect"));
+		}
+
 		local buildPerkTree = o.buildPerkTree;
 		o.buildPerkTree = function()
 		{
@@ -5651,8 +5658,6 @@ gt.PTR.modCharacterBackgrounds <- function()
 						this.removePerk(::Const.Perks.PerkDefs[masteryRow[i].Const]);
 					}
 				}
-
-				this.getContainer().add(this.new("scripts/skills/effects/ptr_swordmasters_finesse_effect"));
 
 				return ret;
 			}
