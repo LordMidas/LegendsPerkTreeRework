@@ -848,44 +848,6 @@ gt.PTR.modSkills <- function()
 		}
 	});
 	
-	::mods_hookExactClass("skills/actives/thrust", function(o) {
-		o.getTooltip = function()
-		{
-			local ret = this.getDefaultTooltip();
-			ret.push(
-				{
-					id = 6,
-					type = "text",
-					icon = "ui/icons/hitchance.png",
-					text = "Has [color=" + this.Const.UI.Color.PositiveValue + "]+20%[/color] chance to hit against adjacent targets"
-				}
-			);
-
-			if (this.getContainer().getActor().isDoubleGrippingWeapon() && this.getContainer().hasSkill("perk.ptr_a_better_grip"))
-			{
-				ret.push(
-					{
-						id = 6,
-						type = "text",
-						icon = "ui/icons/hitchance.png",
-						text = "Has [color=" + this.Const.UI.Color.NegativeValue + "]-20%[/color] chance to hit per character between you and the target"
-					}
-				);
-
-				ret.push(
-					{
-						id = 6,
-						type = "text",
-						icon = "ui/icons/damage_dealt.png",
-						text = "Damage is reduced by [color=" + this.Const.UI.Color.PositiveValue + "]33%[/color] when attacking at a distance of 2 tiles"
-					}
-				);
-			}
-
-			return ret;
-		}
-	});
-
 	::mods_hookExactClass("skills/actives/cascade_skill", function(o) {
 		o.m.RerollDamageMult <- 1.0;
 		o.m.IsAttacking <- false;	
@@ -2013,42 +1975,6 @@ gt.PTR.modSkills <- function()
 			{
 				this.resetField("Description");
 				this.m.FieldsChangedByFlamingArrows = false;
-			}
-		}
-	});
-
-	::mods_hookNewObject("skills/perks/perk_reach_advantage", function(o) {
-		local onTargetHit = o.onTargetHit;
-		o.onTargetHit = function( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
-		{
-			onTargetHit(_skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor);
-
-			local actor = this.getContainer().getActor();
-			if (!actor.getCurrentProperties().IsAbleToUseWeaponSkills)
-			{
-				return;
-			}
-
-			local weapon = actor.getMainhandItem();
-			if (weapon != null && weapon.isItemType(this.Const.Items.ItemType.OneHanded) && weapon.isWeaponType(this.Const.Items.WeaponType.Spear) && actor.isDoubleGrippingWeapon() && this.getContainer().hasSkill("perk.ptr_a_better_grip"))
-			{
-				this.m.Stacks = this.Math.min(this.m.Stacks + 1, 5);
-			}
-		}
-
-		o.onUpdate = function( _properties )
-		{
-			this.m.IsHidden = this.m.Stacks == 0;
-			local actor = this.getContainer().getActor();
-			local weapon = actor.getMainhandItem();
-
-			if (weapon != null && weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon) && (weapon.isItemType(this.Const.Items.ItemType.TwoHanded) || (weapon.isWeaponType(this.Const.Items.WeaponType.Spear) && actor.isDoubleGrippingWeapon() && this.getContainer().hasSkill("perk.ptr_a_better_grip"))))
-			{
-				_properties.MeleeDefense += this.m.Stacks * 5;
-			}
-			else
-			{
-				this.m.Stacks = 0;
 			}
 		}
 	});
