@@ -38,7 +38,7 @@ this.perk_ptr_bolster <- this.inherit("scripts/skills/skill", {
 					{
 						if (nextTile.getEntity().getFaction() == this.getContainer().getActor().getFaction())
 						{
-							nextTile.getEntity().checkMorale(1, this.getContainer().getActor().getCurrentProperties().getMeleeSkill() * 0.05);
+							nextTile.getEntity().checkMorale(1, -0.5 * nextTile.getEntity().getBravery());
 						}
 					}
 				}
