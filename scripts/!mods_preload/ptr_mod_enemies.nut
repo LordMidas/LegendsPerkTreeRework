@@ -2016,13 +2016,24 @@ gt.PTR.modEnemies <- function()
 		}
 	});
 
-	# ::mods_hookExactClass("entity/tactical/enemies/trickster_god", function(o) {
-	# 	local onInit = o.onInit;
-	# 	o.onInit = function()
-	# 	{
-	# 		onInit();
-	# 	}
-	# });
+	::mods_hookExactClass("entity/tactical/enemies/trickster_god", function(o) {
+		local onInit = o.onInit;
+		o.onInit = function()
+		{
+			onInit();
+			this.m.Skills.removeByID("perk.nimble");
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_internal_hemorrhage"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_deep_impact"));
+			local dentArmorPerk = this.new("scripts/skills/perks/perk_ptr_dent_armor");
+			dentArmorPerk.m.IsForceEnabled = true;
+			dentArmorPerk.m.IsForceTwoHanded = true;
+			this.m.Skills.add(dentArmorPerk);
+
+			local returnFavor = this.new("scripts/skills/effects/return_favor_effect");
+			returnFavor.onTurnStart = function() {}; // overwrite the original function which removes it
+			this.m.Skills.add(returnFavor);
+		}
+	});
 
 	::mods_hookExactClass("entity/tactical/enemies/unhold", function(o) {
 		local onInit = o.onInit;
