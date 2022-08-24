@@ -1,4 +1,14 @@
 =====================
+==== Ver 2.1.8 =====
+=====================
+- Ijirok: Removed the Nimble perk that is added by Legends. Added Internal Hemorrhage, Deep Impact, Dent Armor and permanent Return Favor.
+- Bolster tweaked: The morale check now uses half of the target's Resolve.
+- A Better Grip perk reworked: Renamed to Spear Advantage. When double-gripping One-Handed spears, the range of Thrust is increased to 2 tiles. When used at this range, it does 20% reduced damage, has no bonus chance to hit, and has -20% chance to hit per character between you and the target. When using a spear, every successful hit against an opponent increases your Melee Skill and Melee Defense against that opponent by +5 up to a maximum of +20. This bonus does not expire on its own but is lost upon taking damage from that opponent.
+- Fixed an issue with Man of Steel potentially causing the game's HP damage mitigation from armor to continuously change.
+- Fixed Nimble and Lithe damge reduction calcluation (once again) and the tooltips.
+- Changed some code so that if the Swordmaster background is added to a character via breditor, it correctly adds the Swordmaster's Finesse effect.
+
+=====================
 ==== Ver 2.1.17 =====
 =====================
 - Improved Nimble and Lithe tooltip to mention damage reduction percentage instead of damage received percentage.
