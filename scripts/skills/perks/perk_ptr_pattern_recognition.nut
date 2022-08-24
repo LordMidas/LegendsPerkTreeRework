@@ -78,7 +78,7 @@ this.perk_ptr_pattern_recognition <- this.inherit("scripts/skills/skill", {
 			{
 				_tooltip.push({
 					icon = "ui/tooltips/positive.png",
-					text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + this.getBonus(opponentEntry) + "%[/color]" + this.getName()
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + this.getBonus(opponentEntry) + "%[/color] " + this.getName()
 				});
 			}
 		}
