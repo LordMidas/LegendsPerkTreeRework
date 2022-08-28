@@ -55,14 +55,10 @@ this.perk_ptr_swordmaster_metzger <- this.inherit("scripts/skills/perks/perk_ptr
 
 		if (this.perk_ptr_swordmaster_abstract.isEnabled())
 		{
-			local weapon = this.getContainer().getActor().getMainhandItem();
-			if (weapon == null || this.m.Weapons.find(weapon.getID()) == null)
-			{
-				return false
-			}
+			return this.m.Weapons.find(this.getContainer().getActor().getMainhandItem()) != null;
 		}
 
-		return true;
+		return false;
 	}
 
 	function onEquip( _item )
