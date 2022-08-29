@@ -1,5 +1,5 @@
 =====================
-==== Ver 2.1.8 =====
+==== Ver 2.1.18 =====
 =====================
 - Ijirok: Removed the Nimble perk that is added by Legends. Added Internal Hemorrhage, Deep Impact, Dent Armor and permanent Return Favor.
 - Bolster tweaked: The morale check now uses half of the target's Resolve.
