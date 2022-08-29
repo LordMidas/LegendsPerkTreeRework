@@ -1,4 +1,11 @@
 =====================
+==== Ver 2.1.19 =====
+=====================
+- Fixed an issue that caused a guaranteed perk group to become not-guaranteed if multiple sources would guarantee that perk group. This will now fix issues such as Butchers spawning without the Cleaver perk group and Militia without the Spear perk group etc.
+- Fixed the Metzger perk adding the Decapitate skill to non-sword weapons.
+- Fixed an error that would happen during perk tree creation if the character's talents had not been assigned yet.
+
+=====================
 ==== Ver 2.1.18 =====
 =====================
 - Ijirok: Removed the Nimble perk that is added by Legends. Added Internal Hemorrhage, Deep Impact, Dent Armor and permanent Return Favor.
