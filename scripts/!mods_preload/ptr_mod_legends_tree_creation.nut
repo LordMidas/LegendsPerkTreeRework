@@ -120,7 +120,14 @@ gt.PTR.modLegendsPerkTreeCreationSystem <- function()
 			foreach (multiplier in _multipliersList)
 			{
 				local tree = multiplier[1];
-				if (_treeContainer.contains(tree)) _treeContainer.setWeight(tree, _treeContainer.getWeight(tree) * multiplier[0]);
+				if (_treeContainer.contains(tree))
+				{
+					if (multiplier[0] == 0) _treeContainer.setWeight(tree, 0);
+					else
+					{
+						if (_treeContainer.getWeight(tree) > 0) _treeContainer.setWeight(tree, _treeContainer.getWeight(tree) * multiplier[0]);
+					}
+				}
 			}
 		}
 
