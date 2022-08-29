@@ -185,7 +185,7 @@ gt.PTR.modSkills <- function()
 
 		o.getInitiativeBonus <- function()
 		{
-			return this.getContainer().getActor().getItems().getStaminaModifier([::Const.ItemSlot.Body, ::Const.ItemSlot.Head]) * -1 * 0.3;
+			return ::Math.floor(this.getContainer().getActor().getItems().getStaminaModifier([::Const.ItemSlot.Body, ::Const.ItemSlot.Head]) * -1 * 0.3);
 		}
 
 		o.onUpdate = function( _properties )
