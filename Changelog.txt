@@ -1,4 +1,11 @@
 =====================
+==== Ver 2.1.20 =====
+=====================
+- Fixed a bug introduced in v2.1.19 causing the Metzger perk to not work with southern curved swords.
+- Fixed the Balance perk possibly having decimal places in its Initiative bonus.
+- Whites of their Eyes will now only show up as a bonus in the hit chance tooltip when equipped with a throwing weapon.
+
+=====================
 ==== Ver 2.1.19 =====
 =====================
 - Fixed an issue that caused a guaranteed perk group to become not-guaranteed if multiple sources would guarantee that perk group. This will now fix issues such as Butchers spawning without the Cleaver perk group and Militia without the Spear perk group etc.
