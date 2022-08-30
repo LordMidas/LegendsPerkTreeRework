@@ -1686,7 +1686,7 @@ gt.PTR.modSkills <- function()
 			local targetEntity = _targetTile.getEntity();
 			if (targetEntity != null)
 			{
-				if (_skill.isAttack() && _skill.isRanged() && targetEntity.getTile().getDistanceTo(this.getContainer().getActor().getTile()) <= 3)
+				if (_skill.isAttack() && _skill.isRanged() && this.isEnabled() && targetEntity.getTile().getDistanceTo(this.getContainer().getActor().getTile()) <= 3)
 				{
 					_tooltip.push({
 						icon = "ui/tooltips/positive.png",
