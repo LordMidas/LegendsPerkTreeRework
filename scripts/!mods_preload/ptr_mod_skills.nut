@@ -1748,7 +1748,8 @@ gt.PTR.modSkills <- function()
 
 				if (roll <= chance)
 				{
-					_targetEntity.getSkills().add(::new("scripts/skills/effects/ptr_arrow_to_the_knee_debuff_effect"));
+					local effect = ::new("scripts/skills/effects/ptr_arrow_to_the_knee_debuff_effect");
+					_targetEntity.getSkills().add(effect);
 					if (!actor.isHiddenToPlayer() && _targetEntity.getTile().IsVisibleForPlayer)
 					{
 						this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " has impaled " + this.Const.UI.getColorizedEntityName(_targetEntity) + " for " + effect.m.TurnsLeft + " turns");
