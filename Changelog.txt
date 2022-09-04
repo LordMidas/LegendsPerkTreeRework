@@ -1,4 +1,12 @@
 =====================
+==== Ver 2.1.21 =====
+=====================
+- Fixed Realized Potential not properly adding new perk groups.
+- Fixed Piercing Type Throwing Weapons bugging out the target when the attacker has Whites of their Eyes.
+- Fixed cases where the AI could switch weapons without spending any Action Points even without Quick Hands.
+- Added info to Juggernaut Charge tooltips that it is only usable once per turn.
+
+=====================
 ==== Ver 2.1.20 =====
 =====================
 - Fixed a bug introduced in v2.1.19 causing the Metzger perk to not work with southern curved swords.
