@@ -30,15 +30,15 @@ gt.PTR.ModID <- "mod_legends_PTR";
 			local onExecute = o.onExecute;
 			o.onExecute = function( _entity )
 			{
-				_entity.getItems().m.IsMSUHandledItemAction = true;
-
 				local itemsBefore = {};
 				for (local i = 0; i < ::Const.ItemSlot.COUNT; i++)
 				{
 					itemsBefore[i] <- _entity.getItems().getAllItemsAtSlot(i);
 				}
 
+				_entity.getItems().m.IsMSUHandledItemAction = true;
 				local ret = onExecute(_entity);
+				_entity.getItems().m.IsMSUHandledItemAction = false;
 
 				if (ret && this.m.Skill == null)
 				{
@@ -52,8 +52,6 @@ gt.PTR.ModID <- "mod_legends_PTR";
 					_entity.getItems().payForAction(items);
 				}
 
-				_entity.getItems().m.IsMSUHandledItemAction = false;
-
 				return ret;
 			}
 		});
@@ -62,15 +60,16 @@ gt.PTR.ModID <- "mod_legends_PTR";
 			local onExecute = o.onExecute;
 			o.onExecute = function( _entity )
 			{
-				_entity.getItems().m.IsMSUHandledItemAction = true;
-
 				local itemsBefore = {};
 				for (local i = 0; i < ::Const.ItemSlot.COUNT; i++)
 				{
 					itemsBefore[i] <- _entity.getItems().getAllItemsAtSlot(i);
 				}
 
+				_entity.getItems().m.IsMSUHandledItemAction = true;
 				local ret = onExecute(_entity);
+				_entity.getItems().m.IsMSUHandledItemAction = false;
+
 				if (ret)
 				{
 
@@ -84,8 +83,6 @@ gt.PTR.ModID <- "mod_legends_PTR";
 					_entity.getItems().payForAction(items);
 				}
 
-				_entity.getItems().m.IsMSUHandledItemAction = false;
-
 				return ret;
 			}
 		});
@@ -94,15 +91,15 @@ gt.PTR.ModID <- "mod_legends_PTR";
 			local onExecute = o.onExecute;
 			o.onExecute = function( _entity )
 			{
-				_entity.getItems().m.IsMSUHandledItemAction = true;
-
 				local itemsBefore = {};
 				for (local i = 0; i < ::Const.ItemSlot.COUNT; i++)
 				{
 					itemsBefore[i] <- _entity.getItems().getAllItemsAtSlot(i);
 				}
 
+				_entity.getItems().m.IsMSUHandledItemAction = true;
 				local ret = onExecute(_entity);
+				_entity.getItems().m.IsMSUHandledItemAction = false;
 
 				if (ret)
 				{
@@ -122,8 +119,6 @@ gt.PTR.ModID <- "mod_legends_PTR";
 						_entity.getItems().payForAction(items);
 					}
 				}
-
-				_entity.getItems().m.IsMSUHandledItemAction = false;
 
 				return ret;
 			}
