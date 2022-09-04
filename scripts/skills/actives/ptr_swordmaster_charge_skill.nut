@@ -87,6 +87,16 @@ this.ptr_swordmaster_charge_skill <- this.inherit("scripts/skills/actives/ptr_sw
 			});
 		}
 
+		if (this.m.IsSpent)
+		{
+			tooltip.push({
+				id = 7,
+				type = "text",
+				icon = "ui/icons/warning.png",
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]Is only usable once per turn[/color]"
+			});
+		}
+
 		return tooltip;
 	}
 
