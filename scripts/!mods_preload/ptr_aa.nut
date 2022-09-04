@@ -307,7 +307,6 @@ gt.PTR.ModID <- "mod_legends_PTR";
 									{
 										local target = change.TargetSkill != null ? change.TargetSkill.m : propertiesClone;
 										change.ValueBefore = target[change.Field];
-										::logInfo(_function + " value before: " + change.ValueBefore);
 									}
 								}
 							}
@@ -325,8 +324,6 @@ gt.PTR.ModID <- "mod_legends_PTR";
 
 										local target = change.TargetSkill != null ? change.TargetSkill.m : propertiesClone;
 										if (target[change.Field] == change.ValueBefore) continue;
-
-										::logInfo(_function + " value after: " + target[change.Field]);
 
 										if (change.Multiplicative) change.CurrChange *= target[change.Field] / change.ValueBefore;
 										else change.CurrChange += target[change.Field] - change.ValueBefore;
