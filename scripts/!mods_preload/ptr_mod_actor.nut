@@ -166,11 +166,8 @@ gt.PTR.modActor <- function()
 				hasDiscoveredTalent = true;
 			}
 
-			local hasRisingStar = false;
-			if (this.getSkills().hasSkill("perk.ptr_rising_star"))
-			{
-				hasRisingStar = true;
-			}
+			local risingStar = this.getSkills().getSkillByID("perk.ptr_rising_star");
+			local risingStarStartLevel = risingStar != null ? risingStar.m.StartLevel : null;
 
 			local hasPromisedPotential = false;
 			local promisedPotentialSkill = this.getSkills().getSkillByID("perk.ptr_promised_potential");
@@ -206,10 +203,13 @@ gt.PTR.modActor <- function()
 				this.getSkills().add(dtPerk);
 			}
 
-			if (hasRisingStar)
+			if (risingStarStartingLevel != null)
 			{
 				this.m.PerkPoints -= 1;
-				this.getSkills().add(this.new("scripts/skills/perks/perk_ptr_rising_star"));
+				local perk = ::new("scripts/skills/perks/perk_ptr_rising_star");
+				perk.m.StartLevel = risingStarStartLevel;
+				perk.m.IsSet = true;
+				this.getSkills().add(perk);
 			}
 
 			if (hasPromisedPotential)
