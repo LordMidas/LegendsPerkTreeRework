@@ -57,6 +57,11 @@ this.ptr_en_garde_toggle_skill <- this.inherit("scripts/skills/skill", {
 		return true;
 	}
 
+	function onAffordablePreview( _skill, _movementTile )
+	{
+		this.modifyPreviewField(this, "FatigueCost", 15, false);
+	}
+
 	function onUse( _user, _targetTile )
 	{
 		this.m.IsOn = !this.m.IsOn;
