@@ -12,16 +12,11 @@ this.perk_ptr_cull <- this.inherit("scripts/skills/skill", {
 		this.m.Description = this.Const.Strings.PerkDescription.PTRCull;
 		this.m.Icon = "ui/perks/ptr_cull.png";
 		this.m.IconMini = "ptr_cull_mini";
-		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
+		this.m.Type = this.Const.SkillType.Perk;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
-	}
-
-	function isHidden()
-	{
-		return this.getContainer().getActor().isPlayerControlled() || !this.isEnabled();		
 	}
 
 	function isEnabled()
