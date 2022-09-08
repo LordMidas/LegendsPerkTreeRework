@@ -227,7 +227,7 @@ this.ptr_swordmaster_scenario_student_local_duel_event <- this.inherit("scripts/
 
 					bro.improveMood(0.5, "The company\'s champion won an impressive duel");
 
-					if (bro.getMoodState() > this.Const.MoodState.Neutral)
+					if (bro.getMoodState() >= this.Const.MoodState.Neutral)
 					{
 						this.List.push({
 							id = 10,
