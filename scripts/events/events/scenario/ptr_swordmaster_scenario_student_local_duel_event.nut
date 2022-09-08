@@ -61,6 +61,7 @@ this.ptr_swordmaster_scenario_student_local_duel_event <- this.inherit("scripts/
 			function start( _event )
 			{
 				_event.m.Title = "Disappointment";
+				_event.m.Cooldown = 30.0 * this.World.getTime().SecondsPerDay;
 
 				_event.m.Champion.worsenMood(1.5, "Prevented from taking part in a great duel");
 
