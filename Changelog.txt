@@ -1,4 +1,14 @@
 =====================
+==== Ver 2.1.22 =====
+=====================
+- Cull tweaked: Now has a fixed 33% threshold instead of the 40% with two-handed axes and 20% with one-handed axes.
+- Removed Cull as a Status Effect from enemies. It will only show up in their Perks now (it was made a status effect to show the threshold, but as the threshold is now fixed, it is no longer necessary).
+- Added affordability preview to En Garde Toggle. It will show up as unaffordable if the currently previewed action will leave you with too little Fatigue to trigger En Garde after the action.
+- Fixed the Rising Star perk's "Starting Level" getting reset after using Potion of Oblivion.
+- Fixed a gender pronoun in Young Swordmaster description. Will only apply to new young swordmasters.
+- Moved the information about how the origin works to a second screen in the Old Swordmaster origin starting event to make it less likely that new players will miss that info. Also improved that information a little.
+
+=====================
 ==== Ver 2.1.21 =====
 =====================
 - Fixed Realized Potential not properly adding new perk groups.
