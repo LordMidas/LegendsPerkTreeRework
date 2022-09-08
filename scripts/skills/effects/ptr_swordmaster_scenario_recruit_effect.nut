@@ -220,7 +220,7 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 
 		actor.getSkills().add(bg);
 
-		bg.m.RawDescription = oldDesc + " Under your tutelage, %name% has grown into a true master of the sword, having proven his mettle by defeating a famous swordmaster in single combat!";
+		bg.m.RawDescription = oldDesc + " Under your tutelage, %name% has grown into a true master of the sword, having proven %their% mettle by defeating a famous swordmaster in single combat!";
 		bg.buildDescription(true);
 		
 		foreach (i, row in this.Const.Perks.SwordTree.Tree)
