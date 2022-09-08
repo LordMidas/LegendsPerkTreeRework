@@ -208,6 +208,8 @@ this.ptr_swordmaster_scenario_student_local_duel_event <- this.inherit("scripts/
 					}
 				]);
 
+				_event.m.Champion.improveMood(1.0, "Won a great duel");
+
 				if (_event.m.Champion.getMoodState() >= this.Const.MoodState.Neutral)
 				{
 					this.List.push({
@@ -217,11 +219,12 @@ this.ptr_swordmaster_scenario_student_local_duel_event <- this.inherit("scripts/
 					});
 				}
 
-				_event.m.Champion.getSkills().update();
 				local playerRoster = this.World.getPlayerRoster().getAll();
 
 				foreach( bro in playerRoster )
 				{
+					if (bro == _event.m.Champion) continue;
+
 					bro.improveMood(0.5, "The company\'s champion won an impressive duel");
 
 					if (bro.getMoodState() > this.Const.MoodState.Neutral)
