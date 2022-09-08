@@ -62,6 +62,17 @@ this.ptr_swordmaster_scenario_student_local_duel_event <- this.inherit("scripts/
 			{
 				_event.m.Title = "Disappointment";
 
+				_event.m.Champion.worsenMood(1.5, "Prevented from taking part in a great duel");
+
+				if (_event.m.Champion.getMoodState() < this.Const.MoodState.Neutral)
+				{
+					this.List.push({
+						id = 10,
+						icon = this.Const.MoodStateIcon[_event.m.Champion.getMoodState()],
+						text = _event.m.Champion.getName() + this.Const.MoodStateEvent[_event.m.Champion.getMoodState()]
+					});
+				}
+
 				this.Options.push({
 					Text = "Patience bears sweet fruit... your time will come, %champion%!",
 					function getResult( _event )
