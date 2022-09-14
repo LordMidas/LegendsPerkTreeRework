@@ -21,7 +21,7 @@ this.ptr_direct_damage_limiter_effect <- this.inherit("scripts/skills/skill", {
 		this.m.FullArmorIgnoreChance = 0;
 		if (_skill.getDirectDamage() < 1.0)
 		{
-			local damageDirect = _properties.DamageDirectMult * (_skill.getDirectDamage() + _properties.DamageDirectAdd);
+			local damageDirect = _properties.DamageDirectMult * (_skill.getDirectDamage() + _properties.DamageDirectAdd + (_skill.m.IsRanged ? _properties.DamageDirectRangedAdd : _properties.DamageDirectMeleeAdd));
 			if (damageDirect >= this.m.Max)
 			{
 				this.m.FullArmorIgnoreChance = this.Math.floor(this.Math.minf(this.m.Max, damageDirect - this.m.Max) * 100);
@@ -30,7 +30,7 @@ this.ptr_direct_damage_limiter_effect <- this.inherit("scripts/skills/skill", {
 				// the tooltip is calculated properly.
 				if (_targetEntity == null)
 				{
-					_properties.DamageDirectMult = this.m.Max / (_skill.getDirectDamage() + _properties.DamageDirectAdd);
+					_properties.DamageDirectMult = this.m.Max / (_skill.getDirectDamage() + _properties.DamageDirectAdd + (_skill.m.IsRanged ? _properties.DamageDirectRangedAdd : _properties.DamageDirectMeleeAdd));
 				}
 			}
 		}
