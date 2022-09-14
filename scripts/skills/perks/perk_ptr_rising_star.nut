@@ -19,7 +19,7 @@ this.perk_ptr_rising_star <- this.inherit("scripts/skills/skill", {
 
 	function onUpdate( _properties )
 	{
-		if (this.getContainer().getActor().getLevel() < 13)
+		if (this.getContainer().getActor().getLevel() < this.m.StartLevel + this.m.LevelsRequiredForPerk)
 		{
 			_properties.XPGainMult *= 1.2;
 		}
