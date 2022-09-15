@@ -203,7 +203,7 @@ gt.PTR.modActor <- function()
 				this.getSkills().add(dtPerk);
 			}
 
-			if (risingStarStartingLevel != null)
+			if (risingStarStartLevel != null)
 			{
 				this.m.PerkPoints -= 1;
 				local perk = ::new("scripts/skills/perks/perk_ptr_rising_star");
