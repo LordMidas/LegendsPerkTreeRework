@@ -1421,7 +1421,7 @@ gt.PTR.modSkills <- function()
 		o.onAnySkillUsed = function( _skill, _targetEntity, _properties )
 		{
 			onAnySkillUsed( _skill, _targetEntity, _properties );
-			if (_skill == this)
+			if (_skill == this && _properties.IsSpecializedInThrowing)
 			{
 				local weapon = this.getContainer().getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);
 				weapon.m.ShieldDamage = this.m.ShieldDamage;
