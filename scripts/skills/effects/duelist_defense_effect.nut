@@ -28,7 +28,7 @@ this.duelist_defense_effect <- this.inherit("scripts/skills/skill", {
 			return 0;
 		}
 
-		local adjacentEnemies = ::Tactical.Entities.getHostileActors(actor.getFaction(), actor.getTile(), 1, true);
+		local adjacentEnemies = ::Tactical.Entities.getHostileActors(actor.getFaction(), actor.getTile(), 1, true).len();
 
 		local bonus = 0;
 
