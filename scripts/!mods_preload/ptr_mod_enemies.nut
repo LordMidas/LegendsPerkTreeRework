@@ -3515,7 +3515,6 @@ gt.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_entrenched"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_iron_sights"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_versatile_weapon"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_wind_reader"));
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 				this.m.Hitpoints = this.getBaseProperties().Hitpoints;				
