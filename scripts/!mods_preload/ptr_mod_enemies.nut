@@ -3074,7 +3074,8 @@ gt.PTR.modEnemies <- function()
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_the_rush_of_battle"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bulwark"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_menacing"));			
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bully"));								
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_bully"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vigorous_assault"));
 
 			if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
@@ -3091,7 +3092,7 @@ gt.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_exude_confidence"));				
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_personal_armor"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_survival_instinct"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_vigorous_assault"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_fresh_and_furious"));
 			}
 		}
 
