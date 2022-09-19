@@ -81,7 +81,7 @@ this.perk_ptr_fresh_and_furious <- this.inherit("scripts/skills/skill", {
 
 	function onAnySkillExecuted( _skill, _targetTile, _targetEntity, _forFree )
 	{
-		this.m.IsSpent = !this.m.IsUsingFreeSkill;
+		if (!this.m.IsUsingFreeSkill) this.m.IsSpent = true;
 	}
 
 	function onTurnStart()
