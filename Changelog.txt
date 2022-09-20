@@ -1,4 +1,20 @@
 =====================
+==== Ver 2.1.23 =====
+=====================
+- Old Swordmaster: The student will now be in a worse mood after being denied his desire to duel.
+- Old Swordmaster: The cooldown of the student duel event is halved if the student listened to you and backed off from the duel.
+- Old Swordmaster: The student will gain a larger mood bonus for winning the duel compared to other bros of the company.
+- Fixed the Oblivion Potion and other means of resetting a character's perks (e.g. Realized Potential) causing the character to bug out.
+- Fixed the Old Swordmaster student duel won event only showing brothers whose mod improved above Neutral instead of Neutral and above.
+- Fixed a pronoun in the Old Swordmaster student duel event text and made some minor improvements.
+- Fixed the Rising Star perk always granting the 20% bonus XP until level 13 instead of the next 5 levels after picking it.
+- Fixed the Juggernaut perk not adding the Indomitable active skill while its conditions were satisfied.
+- Fixed the Duelist Defense effect not applying its bonus.
+- Fixed the Throwing Spear always ignoring the target's Shield Expert perk instead of only ignoring it when the thrower has Throwing Mastery.
+- Fixed Fresh and Furious becoming available again in the same turn after using a skill with no cost (e.g. Kata Step).
+- Updated some code based on vanilla code changes.
+
+=====================
 ==== Ver 2.1.22 =====
 =====================
 - Cull tweaked: Now has a fixed 33% threshold instead of the 40% with two-handed axes and 20% with one-handed axes.
