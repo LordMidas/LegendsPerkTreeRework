@@ -29,7 +29,7 @@ this.perk_ptr_swordmaster_juggernaut <- this.inherit("scripts/skills/perks/perk_
 	{
 		if (this.isEnabled() && !this.getContainer().hasSkill("actives.indomitable"))
 		{
-			_item.add(::new("scripts/skills/active/indomitable"));
+			_item.addSkill(::new("scripts/skills/actives/indomitable"));
 		}
 	}
 
