@@ -84,7 +84,7 @@ this.perk_ptr_swordmaster_juggernaut <- this.inherit("scripts/skills/perks/perk_
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		if (this.m.Target != null)
+		if (this.m.Target != null && this.m.Target.isAlive())
 		{
 			_skill.onUse(this.getContainer().getActor(), this.m.Target.getTile());
 			this.m.Target = null;
