@@ -44,12 +44,12 @@ this.perk_ptr_eyes_up <- this.inherit("scripts/skills/skill", {
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		this.applyEffect();
+		if (_targetEntity.getID() == this.m.TargetEntity.getID()) this.applyEffect();
 	}
 
 	function onTargetMissed( _skill, _targetEntity )
 	{
-		this.applyEffect();
+		if (_targetEntity.getID() == this.m.TargetEntity.getID()) this.applyEffect();
 	}
 
 	function applyEffect()
@@ -80,7 +80,16 @@ this.perk_ptr_eyes_up <- this.inherit("scripts/skills/skill", {
 				}
 			}
 		}
+	}
 
+	function onTurnEnd()
+	{
+		this.m.TargetEntity = null;
+		this.m.TargetTile = null;
+	}
+
+	function onCombatFinished()
+	{
 		this.m.TargetEntity = null;
 		this.m.TargetTile = null;
 	}
