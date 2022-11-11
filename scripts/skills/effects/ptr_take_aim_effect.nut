@@ -98,9 +98,17 @@ this.ptr_take_aim_effect <- this.inherit("scripts/skills/skill", {
 				this.Const.Combat.DiversionMinDist = this.m.DiversionMinDist;
 				this.m.DiversionMinDist = null;
 			}
-
-			this.removeSelf();
 		}
+	}
+
+	function onTargetMissed( _skill, _targetEntity )
+	{
+		this.removeSelf();
+	}
+
+	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
+	{
+		this.removeSelf();
 	}
 
 	function onTurnEnd()
