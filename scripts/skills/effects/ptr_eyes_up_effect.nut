@@ -2,7 +2,8 @@ this.ptr_eyes_up_effect <- this.inherit("scripts/skills/skill", {
 	m = {
 		Stacks = 1
 		SkillMalus = 5,
-		DefenseMalus = 3
+		DefenseMalus = 3,
+		MaxStacks = 10
 	},
 	function create()
 	{
@@ -54,13 +55,15 @@ this.ptr_eyes_up_effect <- this.inherit("scripts/skills/skill", {
 		return tooltip;
 	}
 
+	function addStacks( _stacks )
+	{
+		this.m.Stacks = ::Math.minf(this.m.MaxStacks, this.m.Stacks + _stacks);
+	}
+
 	function onRefresh()
 	{
-		if (this.m.Stacks < 10)
-		{
-			this.m.Stacks++;
-			this.spawnIcon("ptr_eyes_up_effect", this.getContainer().getActor().getTile());		
-		}
+		this.addStacks(1);
+		this.spawnIcon("ptr_eyes_up_effect", this.getContainer().getActor().getTile());
 	}
 
 	function getSkillMalus()

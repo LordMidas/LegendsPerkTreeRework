@@ -70,11 +70,11 @@ this.perk_ptr_eyes_up <- this.inherit("scripts/skills/skill", {
 					local previouslyAppliedEffect = nextTile.getEntity().getSkills().getSkillByID("effects.ptr_eyes_up");
 					if (previouslyAppliedEffect != null)
 					{
-						previouslyAppliedEffect.m.Stacks -= 0.5;
+						previouslyAppliedEffect.addStacks(-0.5);
 					}
 					else
 					{
-						effect.m.Stacks -= 0.5;
+						effect.addStacks(-0.5);
 					}
 					nextTile.getEntity().getSkills().add(effect);
 				}
