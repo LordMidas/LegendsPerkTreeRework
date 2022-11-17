@@ -603,6 +603,19 @@ gt.PTR.modSkills <- function()
 	::mods_hookExactClass("skills/perks/perk_inspiring_presence", function(o) {
 		o.m.IsForceEnabled <- false;
 
+		local create = o.create;
+		o.create = function()
+		{
+			create();
+			this.m.SkillType = ::Const.SkillType.Perk | ::Const.SkillType.StatusEffect;
+			this.m.IconMini = "perk_28_mini";
+		}
+
+		function isHidden()
+		{
+			return !this.isEnabled();
+		}
+
 		o.isEnabled <- function()
 		{
 			if (this.m.IsForceEnabled)
