@@ -53,7 +53,7 @@ this.ptr_immersive_damage_effect <- this.inherit("scripts/skills/skill", {
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		if (!_targetEntity.isAlive() || _targetEntity.isDying() || this.getContainer().getActor().isHiddenToPlayer() || !_targetEntity.getTile().IsVisibleForPlayer)
+		if (!_targetEntity.isAlive() || _targetEntity.isDying() || this.getContainer().getActor().isHiddenToPlayer() || !_targetEntity.getTile().IsVisibleForPlayer || (_damageInflictedHitpoints == 0 && _damageInflictedArmor == 0))
 		{
 			return;
 		}
