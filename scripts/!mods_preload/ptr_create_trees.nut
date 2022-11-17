@@ -654,7 +654,9 @@ gt.PTR.createProfessionTrees <- function()
 			[
 				gt.Const.Perks.PerkDefs.LegendBarterTrustworthy
 			],
-			[],
+			[
+				gt.Const.Perks.PerkDefs.LegendOffBookDeal
+			],
 			[
 				gt.Const.Perks.PerkDefs.LegendBarterGreed
 			]
