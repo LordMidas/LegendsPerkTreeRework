@@ -884,7 +884,7 @@ gt.PTR.modClassTrees <- function()
 				gt.Const.Perks.PerkDefs.LegendPaymaster
 			],
 			[
-				gt.Const.Perks.PerkDefs.LegendBribe
+				gt.Const.Perks.PerkDefs.LegendOffBookDeal
 			]
 		]
 	};
