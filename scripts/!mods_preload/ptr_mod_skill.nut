@@ -7,7 +7,7 @@ gt.PTR.modSkill <- function()
 
 		o.isDuelistValid <- function()
 		{
-			return this.isAttack() && !this.isRanged() && this.b.ActionPointCost <= 4 && this.getMaxRange() == 1;
+			return this.isAttack() && !this.isRanged() && this.b.ActionPointCost <= 4 && this.getBaseValue("MaxRange") == 1;
 		}
 
 		if (::MSU.SemVer.compareVersionWithOperator(::MSU.Mod, "<", "1.2.0"))
