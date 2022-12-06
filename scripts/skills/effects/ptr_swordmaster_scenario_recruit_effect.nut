@@ -240,6 +240,34 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 			}
 		}
 
+		foreach (row in bg.getPerkTree())
+		{
+			foreach (perk in row)
+			{
+				for (local i = row.len() - 1; i >= 0; i--)
+				{
+					if (row[i].ID != "perk.mastery.sword" && row[i].ID.find("mastery") != null)
+					{
+						if (this.getContainer().hasSkill(row[i].ID))
+						{
+							this.getContainer().removeByID(row[i].ID);
+							actor.m.PerkPoints++;
+							actor.m.PerkPointsSpent--;
+						}
+						bg.removePerk(::Const.Perks.PerkDefs[row[i].Const]);
+					}
+				}
+			}
+		}
+
+		foreach (i, row in ::Const.Perks.SwordmasterProfessionTree.Tree)
+		{
+			foreach (perk in row)
+			{
+				bg.addPerk(perk, i);
+			}
+		}
+
 		return attributes;
 	}
 
