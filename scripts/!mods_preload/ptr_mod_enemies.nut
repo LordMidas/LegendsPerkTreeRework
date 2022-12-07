@@ -156,7 +156,7 @@ gt.PTR.modEnemies <- function()
 			{
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_onslaught"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_anticipation"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_eyes_up"));				
+				if (::Math.rand(1, 100) <= 50) this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_eyes_up"));
 			}
 		}
 	});
@@ -559,6 +559,7 @@ gt.PTR.modEnemies <- function()
 				this.m.Skills.addPerkTree(this.Const.Perks.DaggerTree, 3);
 			}
 			this.m.Skills.addTreeOfEquippedWeapon(5);
+			if (::Math.rand(1, 100) <= 50) this.m.Skills.removeByID("perk.ptr_eyes_up");
 		}
 
 		local makeMiniboss = o.makeMiniboss;
@@ -568,6 +569,7 @@ gt.PTR.modEnemies <- function()
 			if (ret)
 			{
 				this.m.Skills.removeByID("perk.head_hunter");
+				this.m.Skills.add(::new("scripts/skills/perks/perk_ptr_eyes_up"));
 			}
 
 			return ret;
@@ -604,6 +606,7 @@ gt.PTR.modEnemies <- function()
 				this.m.Skills.addPerkTree(this.Const.Perks.DaggerTree, 3);
 			}
 			this.m.Skills.addTreeOfEquippedWeapon(5);
+			if (::Math.rand(1, 100) <= 33) this.m.Skills.removeByID("perk.ptr_eyes_up");
 		}
 		
 	});
@@ -1119,7 +1122,7 @@ gt.PTR.modEnemies <- function()
 			}
 
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_str_phalanx"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_eyes_up"));		
+			if (::Math.rand(1, 100) <= 50) this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_eyes_up"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_primal_fear"));
 
 			if (this.Math.rand(1,100) <= 25)
@@ -4201,7 +4204,7 @@ gt.PTR.modEnemies <- function()
 		o.onInit = function()
 		{
 			onInit();
-			if (this.Math.rand(1,100) <= 25)
+			if (this.Math.rand(1,100) <= 50)
 			{
 				if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 				{
