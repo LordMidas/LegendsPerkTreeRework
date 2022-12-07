@@ -58,7 +58,7 @@ this.perk_ptr_cull <- this.inherit("scripts/skills/skill", {
 				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " is going to Cull " + this.Const.UI.getColorizedEntityName(_targetEntity));
 			}
 			this.logDebug("[" + actor.getName() + "] is going to Cull target [" + _targetEntity.getName() + "] with skill [" + _skill.getName() + "]");
-			_targetEntity.kill(actor, _skill);
+			_targetEntity.kill(actor, _skill, ::Const.FatalityType.Decapitated);
 		}
 	}
 });
