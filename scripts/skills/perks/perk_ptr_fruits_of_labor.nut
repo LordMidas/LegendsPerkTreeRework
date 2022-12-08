@@ -15,8 +15,12 @@ this.perk_ptr_fruits_of_labor <- this.inherit("scripts/skills/skill", {
 
 	function onUpdate(_properties)
 	{
-		_properties.HitpointsMult *= 1.12;
-		_properties.StaminaMult *= 1.12;
-		_properties.InitiativeMult *= 1.12;
+		local baseProperties = this.getContainer().getActor().getBaseProperties();
+
+		_properties.Hitpoints += ::Math.floor(0.1 * baseProperties.Hitpoints);
+
+		local staminaBonus = ::Math.floor(0.1 * baseProperties.Stamina);
+		_properties.Stamina += staminaBonus;
+		_properties.Initiative += ::Math.floor(0.1 * baseProperties.Initiative) - staminaBonus; // Subtract the stamina bonus because of how it increases initiative in actor.nut getInitiative()
 	}
 });
