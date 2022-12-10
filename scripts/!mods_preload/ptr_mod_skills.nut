@@ -1651,6 +1651,7 @@ gt.PTR.modSkills <- function()
 			local distance = _targetEntity.getTile().getDistanceTo(actor.getTile());
 			if (distance <= 3)
 			{
+				_properties.DamageTotalMult *= 1.2;
 				_properties.RangedSkill += ::Math.floor(0.25 * actor.getCurrentProperties().getMeleeSkill() * (distance == 2 ? 1.0 : 0.5));
 			}
 		}
