@@ -23,12 +23,7 @@ this.perk_ptr_nailed_it <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		local myTile = this.getContainer().getActor().getTile();
-		local targetTile = _targetEntity.getTile();
-
-		if (myTile != null && targetTile != null)
-		{
-			_properties.HitChance[this.Const.BodyPart.Head] += this.Math.max(0, this.m.BaseBonus - this.m.BonusDecreasePerTile * targetTile.getDistanceTo(myTile));
-		}
+		local distance = _targetEntity.getTile().getDistanceTo(this.getContainer().getActor().getTile());
+		_properties.HitChance[::Const.BodyPart.Head] += ::Math.max(0, this.m.BaseBonus - this.m.BonusDecreasePerTile * (distance - 2));
 	}
 });
