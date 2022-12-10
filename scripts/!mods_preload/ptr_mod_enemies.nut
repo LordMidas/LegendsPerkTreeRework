@@ -4024,10 +4024,10 @@ gt.PTR.modEnemies <- function()
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_nimble"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_berserk"));
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_muscle_memory"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_clarity"));				
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_clarity"));
+				this.m.Skills.add(this.new("scripts/skills/perks/perk_ptr_iron_sights"));
 			}
 		}
-
 	});
 
 	::mods_hookExactClass("entity/tactical/humans/noble_billman", function(o) {
