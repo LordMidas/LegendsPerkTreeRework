@@ -1079,7 +1079,7 @@ gt.PTR.createSpecialTrees <- function()
 		return _chance;
 	});
 
-	gt.Const.Perks.SpecialTrees.addSpecialPerk(5, gt.Const.Perks.PerkDefs.PTRMarksmanship, 7, "Has the talent to become a formidable marksman.", function( _player, _chance ) {
+	gt.Const.Perks.SpecialTrees.addSpecialPerk(20, gt.Const.Perks.PerkDefs.PTRMarksmanship, 7, "Has the talent to become a formidable marksman.", function( _player, _chance ) {
 		if (!_player.getBackground().hasPerkGroup(::Const.Perks.RangedTree))
 		{
 			return 0;
