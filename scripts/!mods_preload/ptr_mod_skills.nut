@@ -50,6 +50,21 @@ gt.PTR.modSkills <- function()
 				});
 			}
 
+			local HPMultMin = chanceMin / 100.0;
+			local HPMultMax = chanceMax / 100.0;
+
+			local actor = this.getContainer().getActor();
+
+			local maxHPString = ::Math.floor(actor.getHitpointsMax() / HPMultMin) + " - " + ::Math.floor(actor.getHitpointsMax() / HPMultMax);
+			local currHPString = ::Math.floor(actor.getHitpoints() / HPMultMin) + " - " + ::Math.floor(actor.getHitpoints() / HPMultMax);
+
+			tooltip.push({
+				id = 6,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]Effective Hitpoints:[/color]\n[" + currHPString + "] / [" + maxHPString + "]"
+			});
+
 			return tooltip;
 		}
 
@@ -125,6 +140,17 @@ gt.PTR.modSkills <- function()
 					text = "[color=" + this.Const.UI.Color.NegativeValue + "]This character\'s body and head armor are too heavy to gain any benefit from being lithe[/color]"
 				});
 			}
+
+			local actor = this.getContainer().getActor();
+			local maxHPString = ::Math.floor(actor.getHitpointsMax() / (hpBonus * 0.01));
+			local currHPString = ::Math.floor(actor.getHitpoints() / (hpBonus * 0.01));
+
+			tooltip.push({
+				id = 6,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]Effective Hitpoints:[/color] " + currHPString + " / " + maxHPString
+			});
 
 			return tooltip;
 		}
