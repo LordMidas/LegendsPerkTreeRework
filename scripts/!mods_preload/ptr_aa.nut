@@ -14,14 +14,8 @@ gt.PTR.ModID <- "mod_legends_PTR";
 ::mods_queue(gt.PTR.ModID, "mod_legends, mod_msu(>=1.1.1), mod_betterFencing, mod_WMS, mod_legends_STR, mod_duelistDefense, <mod_clever_recruiter", function()
 {	
 	::PTR.Mod <- ::MSU.Class.Mod(::PTR.ModID, ::PTR.Version, ::PTR.Name);
-	local setting = ::MSU.Mod.ModSettings.getSetting("ExpandedSkillTooltips");
-	if (!setting.getValue())
-	{
-		if (setting.isLocked()) ::logError("PTR requires ExpandedSkillTooltips to be enabled, but it is locked and disabled by another mod.");
-		else setting.set(true);
-	}
-	if (setting.getValue()) setting.lock("Required by PTR");
 
+	::PTR.Mod.ModSettings.requireSettingValue(::getModSetting("mod_msu", "ExpandedSkillTooltips"), true);
 
 	gt.PTR.modRetinue();
 	delete gt.PTR.modRetinue;
