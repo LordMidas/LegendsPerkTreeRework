@@ -10,17 +10,6 @@ gt.PTR.modSkill <- function()
 			return this.isAttack() && !this.isRanged() && this.b.ActionPointCost <= 4 && this.getBaseValue("MaxRange") == 1;
 		}
 
-		if (::MSU.SemVer.compareVersionWithOperator(::MSU.Mod, "<", "1.2.0"))
-		{
-			o.onEquip <- function( _item )
-			{
-			}
-
-			o.onUnequip <- function( _item )
-			{
-			}
-		}
-
 		local getHitFactors = ::mods_getMember(o, "getHitFactors");
 		::mods_override(o, "getHitFactors", function(_targetTile)
 		{

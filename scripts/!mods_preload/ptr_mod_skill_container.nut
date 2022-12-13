@@ -3,23 +3,6 @@ local gt = this.getroottable();
 gt.PTR.modSkillContainer <- function()
 {
 	::mods_hookNewObject("skills/skill_container", function(o) {
-		if (::MSU.SemVer.compareVersionWithOperator(::MSU.Mod, "<", "1.2.0"))
-		{
-			o.onEquip <- function( _item )
-			{
-				this.callSkillsFunction("onEquip", [
-					_item
-				]);
-			}
-
-			o.onUnequip <- function( _item )
-			{
-				this.callSkillsFunction("onUnequip", [
-					_item
-				]);
-			}
-		}
-
 		o.getArrayOfNegativeStatusEffects <- function()
 		{
 			local ret = [];
