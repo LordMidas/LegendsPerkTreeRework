@@ -84,6 +84,20 @@ this.perk_ptr_pattern_recognition <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
+	function onGetHitFactorsAsTarget( _skill, _targetTile, _tooltip )
+	{
+		if (_skill.isRanged()) return;
+
+		local opponentEntry = this.getOpponentEntry(_skill.getContainer().getActor().getID());
+		if (opponentEntry != null)
+		{
+			ret.push({
+				icon = "ui/tooltips/negative.png",
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]" + this.getBonus(opponentEntry) + "%[/color] Pattern Recognition"
+			});
+		}
+	}
+
 	function getBonus( _opponentEntry )
 	{
 		local bonus = 0;

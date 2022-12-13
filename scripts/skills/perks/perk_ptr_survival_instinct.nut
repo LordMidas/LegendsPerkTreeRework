@@ -99,6 +99,18 @@ this.perk_ptr_survival_instinct <- this.inherit("scripts/skills/skill", {
 		_properties.RangedDefense += bonus;
 	}
 
+	function onGetHitFactorsAsTarget( _skill, _targetTile, _tooltip )
+	{
+		local bonus = this.getBonus();
+		if (bonus > 0)
+		{
+			ret.push({
+				icon = "ui/tooltips/negative.png",
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]" + bonus + "%[/color] Survival Instinct"
+			});
+		}
+	}
+
 	function onTurnStart()
 	{
 		this.m.MissStacks = 0;
