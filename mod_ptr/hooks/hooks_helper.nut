@@ -79,16 +79,6 @@
 		});
 	}
 
-	function removeRuneBlueprint( _script )
-	{
-		::mods_hookExactClass(_script, function(o) {
-			// Overwrite create function to remove this rune from blueprints
-			o.create = function ()
-			{
-			}
-		});
-	}
-
 	function addPerkTreesToCustomPerkTree(_customPerkTree, _treesToAdd )
 	{
 		foreach (tree in _treesToAdd)
