@@ -2,12 +2,6 @@ brushes/
 gfx/*.png
 !gfx/skills*
 !gfx/ui**
-!gfx/ptr_mod/*
 *.cnut
-*.DS_Store
-temp.nut
-.vscode
-unstaged_build_uber.sh
-bcompile_uber.sh
 *.sublime-project
 *.sublime-workspace

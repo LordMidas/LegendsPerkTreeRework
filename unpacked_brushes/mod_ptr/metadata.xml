@@ -1,31 +1,31 @@
 <brush name="gfx/ptr_mod.png" version ="17" b1="2" b5="0">		
-	<sprite id="perk_ptr_bloodbath" ic = "FF23165B" img="..\ui\perks\ptr_bloodbath.png" />	
-	<sprite id="perk_ptr_opportunist" ic = "FF23165B" img="..\ui\perks\ptr_opportunist.png" />	
-	<sprite id="perk_ptr_patience_mini" ic = "FF23165B" img="..\ui\perks\ptr_patience.png" />	
-	<sprite id="perk_ptr_sanguinary" ic = "FF23165B" img="..\ui\perks\ptr_sanguinary.png" />
-	<sprite id="perk_ptr_exude_confidence" ic = "FF23165B" img="..\ui\perks\ptr_exude_confidence.png" />
-	<sprite id="perk_legend_smashing_shields" ic = "FF23165B" img="..\ui\perks\smashing_shields_circle.png" />	
-	<sprite id="perk_ptr_primal_fear" ic = "FF23165B" img="..\ui\perks\ptr_primal_fear.png" />	
+	<sprite id="perk_ptr_bloodbath" ic = "FF23165B" img="..\..\gfx\ui\perks\ptr_bloodbath.png" />
+	<sprite id="perk_ptr_opportunist" ic = "FF23165B" img="..\..\gfx\ui\perks\ptr_opportunist.png" />
+	<sprite id="perk_ptr_patience_mini" ic = "FF23165B" img="..\..\gfx\ui\perks\ptr_patience.png" />
+	<sprite id="perk_ptr_sanguinary" ic = "FF23165B" img="..\..\gfx\ui\perks\ptr_sanguinary.png" />
+	<sprite id="perk_ptr_exude_confidence" ic = "FF23165B" img="..\..\gfx\ui\perks\ptr_exude_confidence.png" />
+	<sprite id="perk_legend_smashing_shields" ic = "FF23165B" img="..\..\gfx\ui\perks\smashing_shields_circle.png" />
+	<sprite id="perk_ptr_primal_fear" ic = "FF23165B" img="..\..\gfx\ui\perks\ptr_primal_fear.png" />
 
-	<sprite id="ptr_arrow_to_the_knee_skill" ic = "FF23165B" img="..\skills\ptr_arrow_to_the_knee_skill.png" />
-	<sprite id="ptr_blitzkrieg_skill" ic = "FF23165B" img="..\skills\ptr_blitzkrieg_skill.png" />
-	<sprite id="ptr_bestial_vigor_skill" ic = "FF23165B" img="..\skills\ptr_bestial_vigor_skill.png" />
-	<sprite id="ptr_cover_ally_skill" ic = "FF23165B" img="..\skills\ptr_cover_ally_skill.png" />
-	<sprite id="ptr_deploy_in_vanguard_skill" ic = "FF23165B" img="..\skills\ptr_deploy_in_vanguard_skill.png" />
-	<sprite id="ptr_line_breaker_skill" ic = "FF23165B" img="..\skills\ptr_line_breaker_skill.png" />
-	<sprite id="ptr_take_aim_skill" ic = "FF23165B" img="..\skills\ptr_take_aim_skill.png" />
-	<sprite id="ptr_between_the_eyes_skill" ic = "FF23165B" img="..\skills\ptr_between_the_eyes_skill.png" />
-	<sprite id="ptr_follow_up_skill" ic = "FF23165B" img="..\skills\ptr_follow_up_skill.png" />
-	<sprite id="ptr_kata_step_skill" ic = "FF23165B" img="..\skills\ptr_kata_step_skill.png" />
-	<sprite id="ptr_swordmaster_versatile_swordsman_stance_meisterhau_skill" ic = "FF23165B" img="..\skills\ptr_swordmaster_versatile_swordsman_stance_meisterhau_skill.png" />
-	<sprite id="ptr_swordmaster_versatile_swordsman_stance_reverse_grip_skill" ic = "FF23165B" img="..\skills\ptr_swordmaster_versatile_swordsman_stance_reverse_grip_skill.png" />
-	<sprite id="ptr_swordmaster_versatile_swordsman_stance_half_swording_skill" ic = "FF23165B" img="..\skills\ptr_swordmaster_versatile_swordsman_stance_half_swording_skill.png" />
-	<sprite id="ptr_swordmaster_charge_skill" ic = "FF23165B" img="..\skills\ptr_swordmaster_charge_skill.png" />
-	<sprite id="ptr_swordmaster_tackle_skill" ic = "FF23165B" img="..\skills\ptr_swordmaster_tackle_skill.png" />
-	<sprite id="ptr_swordmaster_kick_skill" ic = "FF23165B" img="..\skills\ptr_swordmaster_kick_skill.png" />
-	<sprite id="ptr_swordmaster_push_through_skill" ic = "FF23165B" img="..\skills\ptr_swordmaster_push_through_skill.png" />
+	<sprite id="ptr_arrow_to_the_knee_skill" ic = "FF23165B" img="..\..\gfx\skills\ptr_arrow_to_the_knee_skill.png" />
+	<sprite id="ptr_blitzkrieg_skill" ic = "FF23165B" img="..\..\gfx\skills\ptr_blitzkrieg_skill.png" />
+	<sprite id="ptr_bestial_vigor_skill" ic = "FF23165B" img="..\..\gfx\skills\ptr_bestial_vigor_skill.png" />
+	<sprite id="ptr_cover_ally_skill" ic = "FF23165B" img="..\..\gfx\skills\ptr_cover_ally_skill.png" />
+	<sprite id="ptr_deploy_in_vanguard_skill" ic = "FF23165B" img="..\..\gfx\skills\ptr_deploy_in_vanguard_skill.png" />
+	<sprite id="ptr_line_breaker_skill" ic = "FF23165B" img="..\..\gfx\skills\ptr_line_breaker_skill.png" />
+	<sprite id="ptr_take_aim_skill" ic = "FF23165B" img="..\..\gfx\skills\ptr_take_aim_skill.png" />
+	<sprite id="ptr_between_the_eyes_skill" ic = "FF23165B" img="..\..\gfx\skills\ptr_between_the_eyes_skill.png" />
+	<sprite id="ptr_follow_up_skill" ic = "FF23165B" img="..\..\gfx\skills\ptr_follow_up_skill.png" />
+	<sprite id="ptr_kata_step_skill" ic = "FF23165B" img="..\..\gfx\skills\ptr_kata_step_skill.png" />
+	<sprite id="ptr_swordmaster_versatile_swordsman_stance_meisterhau_skill" ic = "FF23165B" img="..\..\gfx\skills\ptr_swordmaster_versatile_swordsman_stance_meisterhau_skill.png" />
+	<sprite id="ptr_swordmaster_versatile_swordsman_stance_reverse_grip_skill" ic = "FF23165B" img="..\..\gfx\skills\ptr_swordmaster_versatile_swordsman_stance_reverse_grip_skill.png" />
+	<sprite id="ptr_swordmaster_versatile_swordsman_stance_half_swording_skill" ic = "FF23165B" img="..\..\gfx\skills\ptr_swordmaster_versatile_swordsman_stance_half_swording_skill.png" />
+	<sprite id="ptr_swordmaster_charge_skill" ic = "FF23165B" img="..\..\gfx\skills\ptr_swordmaster_charge_skill.png" />
+	<sprite id="ptr_swordmaster_tackle_skill" ic = "FF23165B" img="..\..\gfx\skills\ptr_swordmaster_tackle_skill.png" />
+	<sprite id="ptr_swordmaster_kick_skill" ic = "FF23165B" img="..\..\gfx\skills\ptr_swordmaster_kick_skill.png" />
+	<sprite id="ptr_swordmaster_push_through_skill" ic = "FF23165B" img="..\..\gfx\skills\ptr_swordmaster_push_through_skill.png" />
 	
-	<sprite id="ptr_arrow_to_the_knee_debuff_effect" ic = "FF23165B" img="..\ui\perks\ptr_arrow_to_the_knee.png" />
+	<sprite id="ptr_arrow_to_the_knee_debuff_effect" ic = "FF23165B" img="..\..\gfx\ui\perks\ptr_arrow_to_the_knee.png" />
 	<sprite id="ptr_arrow_to_the_knee_debuff_effect_mini" ic = "FF23165B" img="mini\ptr_arrow_to_the_knee_debuff_effect_mini.png" />
 		
 	<sprite id="ptr_between_the_eyes_attack_effect_mini" ic = "FF23165B" img="mini\ptr_between_the_eyes_attack_effect_mini.png" />
@@ -33,10 +33,10 @@
 	<sprite id="ptr_bolstered_effect_mini" ic = "FF23165B" img="mini\ptr_bolstered_effect_mini.png" />		
 	<sprite id="ptr_bulwark_mini" ic = "FF23165B" img="mini\ptr_bulwark_mini.png" />	
 	
-	<sprite id="ptr_covered_by_ally_effect" ic = "FF23165B" img="..\skills\ptr_covered_by_ally_effect.png" />	
+	<sprite id="ptr_covered_by_ally_effect" ic = "FF23165B" img="..\..\gfx\skills\ptr_covered_by_ally_effect.png" />
 	<sprite id="ptr_covered_by_ally_effect_mini" ic = "FF23165B" img="mini\ptr_covered_by_ally_effect_mini.png" />
 	
-	<sprite id="ptr_covering_ally_effect" ic = "FF23165B" img="..\ui\perks\ptr_cover_ally.png" />
+	<sprite id="ptr_covering_ally_effect" ic = "FF23165B" img="..\..\gfx\ui\perks\ptr_cover_ally.png" />
 	<sprite id="ptr_covering_ally_effect_mini" ic = "FF23165B" img="mini\ptr_covering_ally_effect_mini.png" />	
 	
 	<sprite id="ptr_cull_mini" ic = "FF23165B" img="mini\ptr_cull_mini.png" />
@@ -66,52 +66,52 @@
 	<sprite id="ptr_vigorous_assault_mini" ic = "FF23165B" img="mini\ptr_vigorous_assault_mini.png" />
 	<sprite id="ptr_vigorous_assault_barbarian_mini" ic = "FF23165B" img="mini\ptr_vigorous_assault_barbarian_mini.png" />	
 	
-	<sprite id="ptr_bestial_vigor_effect" ic = "FF23165B" img="..\ui\perks\ptr_bestial_vigor.png" />
+	<sprite id="ptr_bestial_vigor_effect" ic = "FF23165B" img="..\..\gfx\ui\perks\ptr_bestial_vigor.png" />
 	<sprite id="ptr_bestial_vigor_effect_mini" ic = "FF23165B" img="mini\ptr_bestial_vigor_effect_mini.png" />
 
-	<sprite id="ptr_dented_armor_effect" ic = "FF23165B" img="..\ui\perks\ptr_dent_armor.png" />
+	<sprite id="ptr_dented_armor_effect" ic = "FF23165B" img="..\..\gfx\ui\perks\ptr_dent_armor.png" />
 	<sprite id="ptr_dented_armor_effect_mini" ic = "FF23165B" img="mini\ptr_dented_armor_effect_mini.png" />
 		
-	<sprite id="ptr_dismantled_effect" ic = "FF23165B" img="..\skills\ptr_dismantled_effect.png" />
+	<sprite id="ptr_dismantled_effect" ic = "FF23165B" img="..\..\gfx\skills\ptr_dismantled_effect.png" />
 	<sprite id="ptr_dismantled_effect_mini" ic = "FF23165B" img="mini\ptr_dismantled_effect_mini.png" />
 	
-	<sprite id="ptr_en_garde_effect" ic = "FF23165B" img="..\ui\perks\ptr_en_garde.png" />
+	<sprite id="ptr_en_garde_effect" ic = "FF23165B" img="..\..\gfx\ui\perks\ptr_en_garde.png" />
 	<sprite id="ptr_en_garde_effect_mini" ic = "FF23165B" img="mini\ptr_en_garde_effect_mini.png" />
 	
 	<sprite id="ptr_entrenched_mini" ic = "FF23165B" img="mini\ptr_entrenched_mini.png" />
 
-	<sprite id="ptr_eyes_up_effect" ic = "FF23165B" img="..\ui\perks\ptr_eyes_up.png" />
+	<sprite id="ptr_eyes_up_effect" ic = "FF23165B" img="..\..\gfx\ui\perks\ptr_eyes_up.png" />
 	<sprite id="ptr_eyes_up_mini" ic = "FF23165B" img="mini\ptr_eyes_up_mini.png" />
 	
 	<sprite id="ptr_follow_up_effect_mini" ic = "FF23165B" img="mini\ptr_follow_up_effect_mini.png" />
 	
 	<sprite id="ptr_formidable_approach_debuff_effect_mini" ic = "FF23165B" img="mini\ptr_formidable_approach_debuff_effect_mini.png" />
 	
-	<sprite id="ptr_from_all_sides_effect" ic = "FF23165B" img="..\ui\perks\ptr_from_all_sides.png" />
+	<sprite id="ptr_from_all_sides_effect" ic = "FF23165B" img="..\..\gfx\ui\perks\ptr_from_all_sides.png" />
 	<sprite id="ptr_from_all_sides_effect_mini" ic = "FF23165B" img="mini\ptr_from_all_sides_effect_mini.png" />	
 
-	<sprite id="ptr_inspiring_presence_buff_effect" ic = "FF23165B" img="..\skills\ptr_inspiring_presence_buff_effect.png" />
+	<sprite id="ptr_inspiring_presence_buff_effect" ic = "FF23165B" img="..\..\gfx\skills\ptr_inspiring_presence_buff_effect.png" />
 	
-	<sprite id="ptr_intimidated_effect" ic = "FF23165B" img="..\ui\perks\ptr_intimidate.png" />
+	<sprite id="ptr_intimidated_effect" ic = "FF23165B" img="..\..\gfx\ui\perks\ptr_intimidate.png" />
 	<sprite id="ptr_intimidated_effect_mini" ic = "FF23165B" img="mini\ptr_intimidated_effect_mini.png" />	
 	
-	<sprite id="ptr_rattled_effect" ic = "FF23165B" img="..\ui\perks\ptr_rattle.png" />
+	<sprite id="ptr_rattled_effect" ic = "FF23165B" img="..\..\gfx\ui\perks\ptr_rattle.png" />
 	<sprite id="ptr_rattled_effect_mini" ic = "FF23165B" img="mini\ptr_rattled_effect_mini.png" />
 	
-	<sprite id="ptr_sweeping_strikes_debuff_effect" ic = "FF23165B" img="..\ui\perks\ptr_sweeping_strikes.png" />
+	<sprite id="ptr_sweeping_strikes_debuff_effect" ic = "FF23165B" img="..\..\gfx\ui\perks\ptr_sweeping_strikes.png" />
 	<sprite id="ptr_sweeping_strikes_debuff_effect_mini" ic = "FF23165B" img="mini\ptr_sweeping_strikes_debuff_effect_mini.png" />	
 	
 	<sprite id="ptr_swift_stabs_mini" ic = "FF23165B" img="mini\ptr_swift_stabs_mini.png" />	
 	
 	<sprite id="ptr_tunnel_vision_mini" ic = "FF23165B" img="mini\ptr_tunnel_vision_mini.png" />	
 	
-	<sprite id="ptr_worn_down_effect" ic = "FF23165B" img="..\ui\perks\ptr_wear_them_down.png" />
+	<sprite id="ptr_worn_down_effect" ic = "FF23165B" img="..\..\gfx\ui\perks\ptr_wear_them_down.png" />
 	<sprite id="ptr_worn_down_effect_mini" ic = "FF23165B" img="mini\ptr_worn_down_effect_mini.png" />
 	
-	<sprite id="ptr_exhausted_effect" ic = "FF23165B" img="..\skills\ptr_exhausted_effect.png" />
+	<sprite id="ptr_exhausted_effect" ic = "FF23165B" img="..\..\gfx\skills\ptr_exhausted_effect.png" />
 	<sprite id="ptr_exhausted_effect_mini" ic = "FF23165B" img="mini\ptr_exhausted_effect_mini.png" />
 	
-	<sprite id="ptr_whack_a_smack" ic = "FF23165B" img="..\ui\perks\ptr_whack_a_smack.png" />
+	<sprite id="ptr_whack_a_smack" ic = "FF23165B" img="..\..\gfx\ui\perks\ptr_whack_a_smack.png" />
 	<sprite id="ptr_whack_a_smack_mini" ic = "FF23165B" img="mini\ptr_whack_a_smack_mini.png" />
 	
 	<sprite id="projectile_flaming_arrow" ic = "FF23165B" img="projectiles\projectile_flaming_arrow.png" />
