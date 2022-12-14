@@ -98,6 +98,11 @@
 		return true;
 	}
 
+	o.getPerkTreeDescription = function()
+	{
+		return this.getPerkBackgroundDescription(this.getPerkTree());
+	}
+
 	local getPerkBackgroundDescription = o.getPerkBackgroundDescription;
 	o.getPerkBackgroundDescription = function(_tree)
 	{
