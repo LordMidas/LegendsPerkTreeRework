@@ -9,7 +9,7 @@ gt.PTR.Version <- "2.1.23";
 gt.PTR.ModID <- "mod_legends_PTR";
 ::PTR.Name <- "Perk Trees Rework (PTR)";
 
-::mods_registerMod(gt.PTR.ModID, gt.PTR.Version, ::PTR.Name + ::PTR.Version);
+::mods_registerMod(gt.PTR.ModID, gt.PTR.Version, ::PTR.Name);
 
 ::mods_queue(gt.PTR.ModID, "mod_legends, mod_msu(>=1.1.1), mod_betterFencing, mod_WMS, mod_legends_STR, mod_duelistDefense, <mod_clever_recruiter", function()
 {	
