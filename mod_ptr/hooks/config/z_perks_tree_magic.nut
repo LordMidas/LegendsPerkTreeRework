@@ -1,0 +1,1 @@
+::Const.Perks.CaptainMagicTree.Tree[1] = [];

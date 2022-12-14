@@ -1,0 +1,25 @@
+::mods_hookExactClass("skills/backgrounds/legend_vala_background", function(o) {
+	local create = o.create;
+	o.create = function()
+	{
+		create();
+		::PTR.HooksHelper.addPerkTreesToCustomPerkTree(this.m.CustomPerkTree,
+			 [
+			 	 ::Const.Perks.ValaSpiritMagicTree,
+				 ::Const.Perks.ValaChantMagicTree,
+				 ::Const.Perks.ValaTranceMagicTree,
+				 ::Const.Perks.CalmTree,
+				 ::Const.Perks.TalentedTree,
+				 ::Const.Perks.SergeantClassTree,
+				 ::Const.Perks.LightArmorTree,
+				 ::Const.Perks.TwoHandedTree,
+				 ::Const.Perks.StaffTree,
+			 ]
+		);
+
+		::PTR.HooksHelper.addPerksToCustomPerkTree(7, this.m.CustomPerkTree, [
+				::Const.Perks.PerkDefs.PTRRisingStar
+			]
+		);
+	}
+});
