@@ -1,4 +1,4 @@
-::mods_hookExactClass("skills/backgrounds/legend_lonewolf_companion_ranged_background", function(o) {
+::mods_hookExactClass("skills/backgrounds/legend_companion_ranged_background", function(o) {
 	local create = o.create;
 	o.create = function()
 	{
