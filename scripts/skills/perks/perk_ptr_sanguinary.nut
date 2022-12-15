@@ -59,4 +59,20 @@ this.perk_ptr_sanguinary <- this.inherit("scripts/skills/skill", {
 		this.m.DidHit = false;
 		this.m.WasBleeding = false;
 	}
+
+	function onOtherActorDeath( _killer, _victim, _skill, _deathTile, _corpseTile, _fatalityType )
+	{
+		if (_fatalityType != ::Const.FatalityType.None && _skill != null && _skill.isAttack() && !_skill.isRanged() &&
+			_killer != null && _killer.getID() == this.getContainer().getActor().getID() && ::Tactical.TurnSequenceBar.isActiveEntity(_killer)
+			)
+		{
+			local fatigueCostRefund = ::Math.floor(_skill.m.FatigueCost * this.m.FatigueCostRefundPercentage * 0.01);
+			_killer.setFatigue(::Math.max(0, _killer.getFatigue() - fatigueCostRefund));
+			if (_killer.getMoraleState() < ::Const.MoraleState.Confident && _killer.getMoraleState() != ::Const.MoraleState.Fleeing)
+			{
+				_killer.setMoraleState(::Const.MoraleState.Confident);
+				_skill.spawnIcon("perk_ptr_sanguinary", _killer.getTile());
+			}
+		}
+	}
 });
