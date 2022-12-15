@@ -8,18 +8,6 @@
 			[0, ::Const.Perks.HeavyArmorTree]
 		];
 
-		local trees = [
-			::Const.Perks.BowTree,
-			::Const.Perks.CrossbowTree,
-			::Const.Perks.SlingTree,
-			::Const.Perks.ThrowingTree
-		];
-
-		for (local i = 0; i < 1; ++i)
-		{
-			::PTR.HooksHelper.addPerkTreesToCustomPerkTree(this.m.CustomPerkTree, [trees.remove(::Math.rand(0, trees.len()-1))]);
-		}
-
 		this.m.PerkTreeDynamic = {
 			Profession = [
 				::MSU.Class.WeightedContainer([
@@ -32,6 +20,22 @@
 					[5, ::Const.Perks.TraderProfessionTree],
 					[40, ::Const.Perks.NoTree]
 				])
+			],
+			Weapon = [
+				::MSU.Class.WeightedContainer([
+					[10, ::Const.Perks.BowTree],
+					[10, ::Const.Perks.CrossbowTree]
+				]),
+				::MSU.Class.WeightedContainer([
+					[10, ::Const.Perks.SlingTree],
+					[10, ::Const.Perks.ThrowingTree]
+				])
+			],
+			Defense = [
+				::Const.Perks.LightArmorTree
+			]
+			Styles = [
+				::Const.Perks.RangedTree
 			]
 		};
 	}
