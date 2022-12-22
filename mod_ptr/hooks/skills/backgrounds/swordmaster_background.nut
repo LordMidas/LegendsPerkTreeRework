@@ -59,21 +59,37 @@
 	local buildPerkTree = ::mods_getMember(o, "buildPerkTree");
 	o.buildPerkTree <- function()
 	{
-		if (this.m.CustomPerkTree == null)
+		if (this.m.CustomPerkTree != null) return buildPerkTree();
+
+		local ret = buildPerkTree();
+		foreach (row in this.getPerkTree())
 		{
-			local ret = buildPerkTree();
-			local masteryRow = this.getPerkTree()[3];
-			for (local i = masteryRow.len() - 1; i >= 0; i--)
+			foreach (perk in row)
 			{
-				if (masteryRow[i].ID != "perk.mastery.sword" && masteryRow[i].ID.find("mastery") != null)
+				for (local i = row.len() - 1; i >= 0; i--)
 				{
-					this.removePerk(::Const.Perks.PerkDefs[masteryRow[i].Const]);
+					switch (row[i].ID)
+					{
+						case "perk.mastery.axe":
+						case "perk.mastery.bow":
+						case "perk.mastery.cleaver":
+						case "perk.mastery.crossbow":
+						case "perk.mastery.dagger":
+						case "perk.mastery.flail":
+						case "perk.mastery.hammer":
+						case "perk.mastery.mace":
+						case "perk.mastery.polearm":
+						case "perk.mastery.spear":
+						case "perk.mastery.throwing":
+						case "perk.legend_mastery_slings":
+						case "perk.legend_mastery_staves":
+							this.removePerk(::Const.Perks.PerkDefs[row[i].Const]);
+							break;
+					}
 				}
 			}
-
-			return ret;
 		}
 
-		return buildPerkTree();
+		return ret;
 	}
 });

@@ -246,15 +246,29 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 			{
 				for (local i = row.len() - 1; i >= 0; i--)
 				{
-					if (row[i].ID != "perk.mastery.sword" && row[i].ID.find("mastery") != null)
+					switch (row[i].ID)
 					{
-						if (this.getContainer().hasSkill(row[i].ID))
-						{
-							this.getContainer().removeByID(row[i].ID);
-							actor.m.PerkPoints++;
-							actor.m.PerkPointsSpent--;
-						}
-						bg.removePerk(::Const.Perks.PerkDefs[row[i].Const]);
+						case "perk.mastery.axe":
+						case "perk.mastery.bow":
+						case "perk.mastery.cleaver":
+						case "perk.mastery.crossbow":
+						case "perk.mastery.dagger":
+						case "perk.mastery.flail":
+						case "perk.mastery.hammer":
+						case "perk.mastery.mace":
+						case "perk.mastery.polearm":
+						case "perk.mastery.spear":
+						case "perk.mastery.throwing":
+						case "perk.legend_mastery_slings":
+						case "perk.legend_mastery_staves":
+							if (this.getContainer().hasSkill(row[i].ID))
+							{
+								this.getContainer().removeByID(row[i].ID);
+								actor.m.PerkPoints++;
+								actor.m.PerkPointsSpent--;
+							}
+							bg.removePerk(::Const.Perks.PerkDefs[row[i].Const]);
+							break;
 					}
 				}
 			}
