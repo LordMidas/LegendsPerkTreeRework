@@ -159,6 +159,8 @@ this.ptr_swordmaster_scenario_student_local_duel_event <- this.inherit("scripts/
 				this.Characters.push(_event.m.Champion.getImagePath());
 				this.World.Assets.addBusinessReputation(50);
 
+				local hadSwordMasterPerkGroup = _event.m.Champion.getBackground().hasPerkGroup(::Const.Perks.SwordmasterProfessionTree);
+
 				local effect = _event.m.Champion.getSkills().getSkillByID("effects.ptr_swordmaster_scenario_recruit");
 				local attributes = effect.evolve();
 
@@ -172,15 +174,24 @@ this.ptr_swordmaster_scenario_student_local_duel_event <- this.inherit("scripts/
 						id = 10,
 						icon = "ui/icons/perks.png",
 						text = _event.m.Champion.getName() + " gains all Sword group perks. Any perk points spent on Sword perks are refunded."
-					},
+					}
+				];
+
+				if (!hadSwordMasterPerkGroup)
+				{
+					this.List.push({
+						id = 10,
+						icon = "ui/icons/perks.png",
+						text = _event.m.Champion.getName() + " gains access to the Swordmaster perk group but loses access to all non-sword weapon mastery perks. Any perk points spent on such perks are refunded."
+					});
+				}
+
+				this.List.extend([
 					{
 						id = 10,
 						icon = "ui/icons/special.png",
 						text = "The company gained renown"
-					}
-				];
-
-				this.List.extend([
+					},
 					{
 						id = 10,
 						icon = "ui/icons/melee_skill.png",
