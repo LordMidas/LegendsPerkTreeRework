@@ -201,6 +201,15 @@ this.ptr_swordmaster_scenario_recruit_effect <- this.inherit("scripts/skills/eff
 		bg.m.PerkTree = clone currentBackground.m.PerkTree;
 		bg.m.PerkTreeMap = clone currentBackground.m.PerkTreeMap;
 		bg.m.CustomPerkTree = clone currentBackground.m.CustomPerkTree;
+		foreach (i, value in currentBackground.m.Modifiers.Terrain)
+		{
+			if (value > bg.m.Modifiers.Terrain[i]) bg.m.Modifiers.Terrain[i] = value;
+		}
+		foreach (modifierName, value in currentBackground.m.Modifiers)
+		{
+			if ((typeof value == "integer" || typeof value == "float") && value > bg.m.Modifiers[modifierName])
+				bg.m.Modifiers[modifierName] = value;
+		}
 
 		currentBackground.removeSelf();
 		
