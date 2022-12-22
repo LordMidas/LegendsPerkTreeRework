@@ -87,16 +87,7 @@ this.perk_ptr_promised_potential <- this.inherit("scripts/skills/skill", {
 						local exclude = [];
 						foreach (tree in _treeList)
 						{
-							foreach (category in bg.m.CustomPerkTreeMap)
-							{
-								foreach (treeInMap in category)
-								{
-									if (treeInMap.ID == tree.ID)
-									{
-										exclude.push(tree.ID);
-									}
-								}
-							}
+							if (bg.hasPerkGroup(tree)) exclude.push(tree.ID);
 						}
 
 						return exclude;
