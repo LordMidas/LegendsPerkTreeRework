@@ -1,4 +1,6 @@
 ::mods_hookExactClass("entity/tactical/actor", function(o) {
+	o.m.IsPerformingAttackOfOpportunity <- false;
+
 	local onInit = o.onInit;
 	o.onInit = function()
 	{
@@ -26,6 +28,15 @@
 				this.m.ExcludedInjuries.extend(this.Const.Injury.ExcludedInjuries.get(this.Const.Injury.ExcludedInjuries.PTRUndead));
 			}
 		}
+	}
+
+	local onAttackOfOpportunity = o.onAttackOfOpportunity;
+	o.onAttackOfOpportunity = function( _entity, _isOnEnter )
+	{
+		this.m.IsPerformingAttackOfOpportunity = true;
+		local ret = onAttackOfOpportunity(_entity, _isOnEnter);
+		this.m.IsPerformingAttackOfOpportunity = false;
+		return ret;
 	}
 
 	o.getSurroundedCount = function()
