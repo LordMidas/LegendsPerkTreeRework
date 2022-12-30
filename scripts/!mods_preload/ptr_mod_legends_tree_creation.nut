@@ -1,9 +1,7 @@
-local gt = this.getroottable();
-
-gt.PTR.modLegendsPerkTreeCreationSystem <- function()
+::PTR.modLegendsPerkTreeCreationSystem <- function()
 {
-	gt.Const.Perks.RandomTree <- {ID = "RandomTree"};
-	gt.Const.Perks.NoTree <- {
+	::Const.Perks.RandomTree <- {ID = "RandomTree"};
+	::Const.Perks.NoTree <- {
 		ID = "NoTree",
 		Descriptions = [
 			""
@@ -15,50 +13,50 @@ gt.PTR.modLegendsPerkTreeCreationSystem <- function()
 
 	::Const.Perks.OrderOfAssignment <- ["Profession", "Enemy", "Traits", "Class", "Defense", "Weapon", "Styles"];
 
-	gt.Const.Perks.PerkTreeMinsChances <- {
+	::Const.Perks.PerkTreeMinsChances <- {
 		Enemy1 = 95,
 		Enemy2 = 4,
 		Enemy3 = 1
 	};
 
-	gt.Const.Perks.TalentMultipliers <- array(::Const.Attributes.COUNT);
+	::Const.Perks.TalentMultipliers <- array(::Const.Attributes.COUNT);
 
-	gt.Const.Perks.TalentMultipliers[this.Const.Attributes.Hitpoints] = [
+	::Const.Perks.TalentMultipliers[this.Const.Attributes.Hitpoints] = [
 		[2, ::Const.Perks.LargeTree],
 		[2, ::Const.Perks.SturdyTree]
 	];
-	gt.Const.Perks.TalentMultipliers[this.Const.Attributes.Bravery] = [
+	::Const.Perks.TalentMultipliers[this.Const.Attributes.Bravery] = [
 		[2, ::Const.Perks.CalmTree],
 		[2, ::Const.Perks.SergeantClassTree],
 	];
-	gt.Const.Perks.TalentMultipliers[this.Const.Attributes.Fatigue] = [
+	::Const.Perks.TalentMultipliers[this.Const.Attributes.Fatigue] = [
 		[1.33, ::Const.Perks.HeavyArmorTree]
 	];
-	gt.Const.Perks.TalentMultipliers[this.Const.Attributes.Initiative] = [
+	::Const.Perks.TalentMultipliers[this.Const.Attributes.Initiative] = [
 		[2, ::Const.Perks.LightArmorTree],
 		[2, ::Const.Perks.SwordTree]
 	];
-	gt.Const.Perks.TalentMultipliers[this.Const.Attributes.MeleeSkill] = [
+	::Const.Perks.TalentMultipliers[this.Const.Attributes.MeleeSkill] = [
 		[0.5, ::Const.Perks.BowTree],
 		[0.5, ::Const.Perks.CrossbowTree],
 		[0.5, ::Const.Perks.SlingTree],
 		[0.5, ::Const.Perks.RangedTree]
 	];
-	gt.Const.Perks.TalentMultipliers[this.Const.Attributes.RangedSkill] = [
+	::Const.Perks.TalentMultipliers[this.Const.Attributes.RangedSkill] = [
 		[2, ::Const.Perks.BowTree],
 		[2, ::Const.Perks.CrossbowTree],
 		[2, ::Const.Perks.SlingTree],
 		[1.5, ::Const.Perks.ThrowingTree],
 		[2, ::Const.Perks.RangedTree]
 	];
-	gt.Const.Perks.TalentMultipliers[this.Const.Attributes.MeleeDefense] = [
+	::Const.Perks.TalentMultipliers[this.Const.Attributes.MeleeDefense] = [
 		[2, ::Const.Perks.TrainedTree]
 	];
-	gt.Const.Perks.TalentMultipliers[this.Const.Attributes.RangedDefense] = [
+	::Const.Perks.TalentMultipliers[this.Const.Attributes.RangedDefense] = [
 		[2, ::Const.Perks.FastTree]
 	];
 
-	gt.Const.Perks.GetDynamicPerkTree = function ( _mins, _map, _player )
+	::Const.Perks.GetDynamicPerkTree = function ( _mins, _map, _player )
 	{
 		if (!("PerkGroupMultipliers" in _player.getBackground().m))
 		{
@@ -208,7 +206,7 @@ gt.PTR.modLegendsPerkTreeCreationSystem <- function()
 		{
 			local potentialTrees = ::MSU.Class.WeightedContainer();
 
-			foreach (tree in gt.Const.Perks[_categoryName + "Trees"].Tree)
+			foreach (tree in ::Const.Perks[_categoryName + "Trees"].Tree)
 			{
 				if (_exclude != null && _exclude.find(tree.ID) != null)	continue;
 
@@ -484,7 +482,7 @@ gt.PTR.modLegendsPerkTreeCreationSystem <- function()
 		};
 	};
 
-	gt.Const.Perks.MergeDynamicPerkTree <- function(_tree, _map)
+	::Const.Perks.MergeDynamicPerkTree <- function(_tree, _map)
 	{
 		foreach( categoryName, category in _map )
 		{
