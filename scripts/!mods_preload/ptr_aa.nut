@@ -20,5 +20,36 @@ if (!("PTR" in this.getroottable()))
 	::PTR.modLegendsPerkTreeCreationSystem();
 	delete ::PTR.modLegendsPerkTreeCreationSystem;
 
+	// This is a temporary hook until Legends updates their skill_container with vanilla fixes
+	// This fixes: http://battlebrothersgame.com/forums/topic/weapon-skills-lost-on-load-if-multiple-skills-call-unequip-and-equip-in-onadded/
+	::mods_hookNewObject("skills/skill_container", function(o) {
+		local add = o.add;
+		o.add = function( _skill, _order = 0 )
+		{
+			local garbageSkills = {};
+			foreach (skill in this.m.SkillsToAdd)
+			{
+				if (skill.isGarbage() && skill.getID() == _skill.getID())
+				{
+					local suffix = "" + skill;
+					skill.m.ID += suffix;
+					garbageSkills[skill] <- suffix;;
+				}
+			}
+
+			local ret = add(_skill, _order);
+
+			if (garbageSkills.len() > 0)
+			{
+				foreach (skill, suffix in garbageSkills)
+				{
+					skill.m.ID = skill.m.ID.slice(0, -suffix.len());
+				}
+			}
+
+			return ret;
+		}
+	});
+
 	::mods_registerJS("ptr_mod_screens.js");
 });
