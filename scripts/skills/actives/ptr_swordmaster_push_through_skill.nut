@@ -48,7 +48,7 @@ this.ptr_swordmaster_push_through_skill <- this.inherit("scripts/skills/actives/
 			text = "Has a [color=" + this.Const.UI.Color.PositiveValue + "]100%[/color] chance to stagger the target"
 		});
 
-		if (!actor.getCurrentProperties().IsRooted || actor.getCurrentProperties().IsStunned)
+		if (actor.getCurrentProperties().IsRooted || actor.getCurrentProperties().IsStunned)
 		{
 			tooltip.push({
 				id = 10,
