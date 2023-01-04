@@ -1,4 +1,37 @@
 =====================
+==== Ver 2.1.24 =====
+=====================
+- Duelist now requires the base maximum range of the skill to be 1 instead of the current range. This fixes issues whereby it stopped working with spears after taking the perk which increases range of Thrust to 2 tiles.
+- Muscle Memory: In addition to the current bonuses, increases ranged damage when using a crossbow by 1% for every point of current Ranged Skill above 90.
+- Cull: Will now always decapitate the target if killed via culling.
+- Fruits of Labor: Now adds its bonuses based on the base values of the attributes instead of the current values.
+- Throwing Mastery: Now increases damage by 20% at a distance of 3 tiles or less.
+- Nailed It: Now increases chance to hit head by 25% up to a distance of 2 tiles and then drops by 5% per tile after that.
+- Increased the base chance of the Marksmanship special perk from 5% to 20%. It still requires at least 2 stars in Ranged Skill. The chance is then multiplied by the number of stars in Ranged Skill.
+- Old Swordmaster: Upon winning the duel with a local swordmaster, the recruit will now gain access to the Swordmaster perk group but will lose access to all other weapon mastery perks.
+- Old Swordmaster: Upon becoming a Young Swordmaster, the recruit will no longer forget the previous background's modifiers e.g. terrain, ammo, barter etc.
+- Immersive Damage System (IDS) will no longer add an entry to the Combat Log if the attack didn't do any damage.
+- Nimble and Lithe now show Effective Hitpoints in their tooltips.
+- The secondary attack of Juggernaut no longer triggers upon attacks of opportunity. This fixes a rare bug whereby the game froze when killing both targets during an attack of opportunity if the secondary target was next in the turn order.
+- Re-enabled the perk list icons that Legends has on the recruitment screen. But these icons will show flavorful descriptions of the perk tree instead of the complete perk list. The icons have been re-enabled because the perk tree description in the tooltip of the background icon is easy to miss especially for new players.
+- Enemies:
+    - Inspiring Presence will now show up as a Status Effect on enemies as well as have a mini-icon.
+    - Hedge Knight: Added Vigorous Assault. Additionally added Fresh and Furious on Legendary difficulty.
+    - Witchhunter: Removed Windreader.
+    - Noble Arbalester: Added Iron Sights on Legendary difficulty.
+    - The following enemies now only have a 50% chance to spawn with the Eyes Up perk: Brigand Marksman, Mummy Light, Nomad Archer, Goblin Ambusher (for Goblin Ambusher Low the chance is 33%).
+- Fixed crash when killing Lindwurm with a character with the Juggernaut perk.
+- Fixed the Cascade skill with bows only applying a single stack of Eyes Up.
+- Fixed a situation with the Handgonne not properly attacking targets in the increased AOE from Take Aim.
+- Fixed Eyes Up being able to gain more than the maximum number of stacks when applying stacks to targets adjacent to the primary target.
+- Fixed Nimble tooltip saying 50% instead of 60%.
+- Fixed the Bleeding, Feeding, Poison and Resilience runes being craftable (they had become craftable due to some backend changes in Legends).
+- Fixed the Frail trait missing a special perk multiplier (0.5x for Rising Star).
+- Fixed the Huge trait having wrong Skill Order.
+- Fixed some code for perk trees of lonewolf companions not applying.
+- Fixed Promised Potential breaking when realizing potential when used with breditor exported/imported bros.
+
+=====================
 ==== Ver 2.1.23 =====
 =====================
 - Old Swordmaster: The student will now be in a worse mood after being denied his desire to duel.
