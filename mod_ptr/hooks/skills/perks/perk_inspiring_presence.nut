@@ -5,7 +5,7 @@
 	o.create = function()
 	{
 		create();
-		this.m.SkillType = ::Const.SkillType.Perk | ::Const.SkillType.StatusEffect;
+		this.m.Type = ::Const.SkillType.Perk | ::Const.SkillType.StatusEffect;
 		this.m.IconMini = "perk_28_mini";
 	}
 
