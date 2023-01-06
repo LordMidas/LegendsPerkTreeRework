@@ -12,7 +12,7 @@ this.perk_ptr_vigorous_assault <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "perk.ptr_vigorous_assault";
 		this.m.Name = this.Const.Strings.PerkName.PTRVigorousAssault;
-		this.m.Description = "This character is adding the momentum of their movement to %their% next attack.";
+		this.m.Description = "This character is adding the momentum of %their% movement to %their% next attack.";
 		this.m.Icon = "ui/perks/ptr_vigorous_assault.png";
 		this.m.IconMini = "ptr_vigorous_assault_mini";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;

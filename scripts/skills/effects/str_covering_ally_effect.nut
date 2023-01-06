@@ -21,7 +21,7 @@ this.str_covering_ally_effect <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "effects.str_covering_ally";
 		this.m.Name = "Covering an Ally";
-		this.m.Description = "This character is using their shield to help an ally move ignoring Zone of Control. This takes up significant effort, reducing %their% combat effectiveness."
+		this.m.Description = "This character is using %their% shield to help an ally move ignoring Zone of Control. This takes up significant effort, reducing %their% combat effectiveness."
 		this.m.Icon = "ui/perks/ptr_cover_ally.png";
 		this.m.IconMini = "ptr_covering_ally_effect_mini";
 		this.m.Overlay = "ptr_covering_ally_effect";

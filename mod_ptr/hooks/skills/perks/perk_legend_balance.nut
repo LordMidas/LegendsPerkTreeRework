@@ -3,7 +3,7 @@
 	o.create = function()
 	{
 		create();
-		this.m.Description = "%name% gains increased speed and endurance by balancing their armor and mobility.";
+		this.m.Description = "%name% gains increased speed and endurance by balancing %their% armor and mobility.";
 	}
 
 	o.getTooltip = function()
