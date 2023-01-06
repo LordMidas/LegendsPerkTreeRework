@@ -1,8 +1,8 @@
 this.perk_ptr_eyes_up <- this.inherit("scripts/skills/skill", {
 	m = {
 		IsForceEnabled = false,
-		TargetEntity = null,
-		TargetTile = null
+		TargetTile = null,
+		ActorsAppliedTo = []
 	},
 	function create()
 	{
@@ -35,62 +35,61 @@ this.perk_ptr_eyes_up <- this.inherit("scripts/skills/skill", {
 
 	function onBeforeAnySkillExecuted( _skill, _targetTile, _targetEntity, _forFree )
 	{
-		if (_targetEntity != null && this.isEnabled() && (_skill.isRanged() || this.m.IsForceEnabled))
-		{
-			this.m.TargetEntity = _targetEntity;
-			this.m.TargetTile = _targetTile;
-		}
+		this.m.TargetTile = _targetTile;
+		this.m.ActorsAppliedTo = [];
 	}
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		if (_targetEntity.getID() == this.m.TargetEntity.getID()) this.applyEffect();
+		if (this.isEnabled() && (_skill.isRanged() || this.m.IsForceEnabled)) this.applyEffect(_targetEntity);
 	}
 
 	function onTargetMissed( _skill, _targetEntity )
 	{
-		if (_targetEntity.getID() == this.m.TargetEntity.getID()) this.applyEffect();
+		if (this.isEnabled() && (_skill.isRanged() || this.m.IsForceEnabled)) this.applyEffect(_targetEntity);
 	}
 
-	function applyEffect()
+	function applyEffect( _targetEntity )
 	{
-		if (this.m.TargetEntity == null) return;
-
-		if (this.m.TargetEntity.isAlive() && !this.m.TargetEntity.isDying()) this.m.TargetEntity.getSkills().add(this.new("scripts/skills/effects/ptr_eyes_up_effect"));
-		for (local i = 0; i < 6; i++)
+		if (_targetEntity.isAlive() && !_targetEntity.isDying() && this.m.ActorsAppliedTo.find(_targetEntity.getID()) == null)
 		{
-			if (this.m.TargetTile.hasNextTile(i))
-			{
-				local nextTile = this.m.TargetTile.getNextTile(i);
-				if (nextTile.IsOccupiedByActor)
-				{
-					if (nextTile.getEntity().isAlliedWith(this.getContainer().getActor())) continue;
+			_targetEntity.getSkills().add(this.new("scripts/skills/effects/ptr_eyes_up_effect"));
+			this.m.ActorsAppliedTo.push(_targetEntity.getID());
+		}
 
-					local effect = ::new("scripts/skills/effects/ptr_eyes_up_effect");
-					local previouslyAppliedEffect = nextTile.getEntity().getSkills().getSkillByID("effects.ptr_eyes_up");
-					if (previouslyAppliedEffect != null)
+		if (this.m.TargetTile != null)
+		{
+			for (local i = 0; i < 6; i++)
+			{
+				if (this.m.TargetTile.hasNextTile(i))
+				{
+					local nextTile = this.m.TargetTile.getNextTile(i);
+					if (nextTile.IsOccupiedByActor)
 					{
-						previouslyAppliedEffect.addStacks(-0.5);
+						local entity = nextTile.getEntity();
+						if (entity.isAlliedWith(this.getContainer().getActor()) || this.m.ActorsAppliedTo.find(entity.getID() != null)) continue;
+
+						local effect = ::new("scripts/skills/effects/ptr_eyes_up_effect");
+						local previouslyAppliedEffect = entity.getSkills().getSkillByID("effects.ptr_eyes_up");
+						if (previouslyAppliedEffect != null)
+						{
+							previouslyAppliedEffect.addStacks(-0.5);
+						}
+						else
+						{
+							effect.addStacks(-0.5);
+						}
+						entity.getSkills().add(effect);
+						this.m.ActorsAppliedTo.push(entity.getID());
 					}
-					else
-					{
-						effect.addStacks(-0.5);
-					}
-					nextTile.getEntity().getSkills().add(effect);
 				}
 			}
 		}
 	}
 
-	function onTurnEnd()
-	{
-		this.m.TargetEntity = null;
-		this.m.TargetTile = null;
-	}
-
 	function onCombatFinished()
 	{
-		this.m.TargetEntity = null;
 		this.m.TargetTile = null;
+		this.m.ActorsAppliedTo = [];
 	}
 });
