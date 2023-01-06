@@ -2,6 +2,7 @@
 	local create = o.create;
 	o.create = function()
 	{
+		create();
 		this.m.Type = ::Const.SkillType.Perk | ::Const.SkillType.StatusEffect;
 		this.m.Description = "This character believes that %their% victory is an absolute certainty.";
 	}

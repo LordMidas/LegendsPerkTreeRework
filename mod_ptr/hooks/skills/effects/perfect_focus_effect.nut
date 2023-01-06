@@ -7,6 +7,7 @@
 	local create = o.create;
 	o.create = function()
 	{
+		create();
 		this.m.Description = "This character has achieved perfect focus as if time itself were to stand still, gaining additional Action Points for this turn.";
 	}
 

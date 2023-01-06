@@ -4,6 +4,7 @@
 	local create = o.create;
 	o.create = function()
 	{
+		create();
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Description = "This character hits harder after having received hits.";
 	}
