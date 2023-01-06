@@ -1,4 +1,10 @@
 =====================
+==== Ver 2.1.25 =====
+=====================
+- Fixed the following perks bugging out during creation: Balance, Clarity, Vengeance, Assured Conquest, Inspiring Presence, Perfect Focus (status effect)
+- Fixed some gender pronouns in various tooltips.
+
+=====================
 ==== Ver 2.1.24 =====
 =====================
 - Duelist now requires the base maximum range of the skill to be 1 instead of the current range. This fixes issues whereby it stopped working with spears after taking the perk which increases range of Thrust to 2 tiles.

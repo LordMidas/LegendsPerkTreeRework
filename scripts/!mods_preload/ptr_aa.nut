@@ -3,7 +3,7 @@ if (!("PTR" in this.getroottable()))
 	::PTR <- {};
 }
 
-::PTR.Version <- "2.1.24";
+::PTR.Version <- "2.1.25";
 ::PTR.ModID <- "mod_legends_PTR";
 ::PTR.Name <- "Perk Trees Rework (PTR)";
 
