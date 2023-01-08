@@ -104,7 +104,7 @@ this.perk_ptr_survival_instinct <- this.inherit("scripts/skills/skill", {
 		local bonus = this.getBonus();
 		if (bonus > 0)
 		{
-			ret.push({
+			_tooltip.push({
 				icon = "ui/tooltips/negative.png",
 				text = "[color=" + this.Const.UI.Color.NegativeValue + "]" + bonus + "%[/color] Survival Instinct"
 			});

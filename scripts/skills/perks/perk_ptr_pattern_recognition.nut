@@ -91,7 +91,7 @@ this.perk_ptr_pattern_recognition <- this.inherit("scripts/skills/skill", {
 		local opponentEntry = this.getOpponentEntry(_skill.getContainer().getActor().getID());
 		if (opponentEntry != null)
 		{
-			ret.push({
+			_tooltip.push({
 				icon = "ui/tooltips/negative.png",
 				text = "[color=" + this.Const.UI.Color.NegativeValue + "]" + this.getBonus(opponentEntry) + "%[/color] Pattern Recognition"
 			});
