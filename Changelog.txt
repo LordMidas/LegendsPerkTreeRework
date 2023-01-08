@@ -1,4 +1,12 @@
 =====================
+==== Ver 2.1.26 =====
+=====================
+- Improved Duelist tooltip to clarify its requirements.
+- Fixed enemies with Pattern Recognition or Survival Instinct bugging out when being targeted with attacks.
+- Fixed Bloodlust not working with attacks that have a delayed attack use e.g. Lunge.
+- Fixed enemies with the Eyes Up perk bugging out their other skills.
+
+=====================
 ==== Ver 2.1.25 =====
 =====================
 - Fixed the following perks bugging out during creation: Balance, Clarity, Vengeance, Assured Conquest, Inspiring Presence, Perfect Focus (status effect)
