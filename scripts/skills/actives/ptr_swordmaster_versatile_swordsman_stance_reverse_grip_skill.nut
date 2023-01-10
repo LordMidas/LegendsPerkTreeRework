@@ -1,7 +1,5 @@
 this.ptr_swordmaster_versatile_swordsman_stance_reverse_grip_skill <- this.inherit("scripts/skills/actives/ptr_swordmaster_versatile_swordsman_stance_abstract", {
-	m = {
-		RemovedSkills = []
-	},
+	m = {},
 	function create()
 	{
 		this.ptr_swordmaster_versatile_swordsman_stance_abstract.create();
@@ -61,10 +59,8 @@ this.ptr_swordmaster_versatile_swordsman_stance_reverse_grip_skill <- this.inher
 	{
 		this.ptr_swordmaster_versatile_swordsman_stance_abstract.toggleOn();
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		local skills = weapon.getSkills();
-		foreach (skill in skills)
+		foreach (skill in weapon.getSkills())
 		{
-			this.m.RemovedSkills.push(skill);
 			weapon.removeSkill(skill);
 		}
 
@@ -84,36 +80,16 @@ this.ptr_swordmaster_versatile_swordsman_stance_reverse_grip_skill <- this.inher
 	{
 		this.ptr_swordmaster_versatile_swordsman_stance_abstract.toggleOff();
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon != null && this.m.RemovedSkills.len() != 0)
+		if (weapon != null)
 		{
-			if (weapon.isItemType(::Const.Items.ItemType.TwoHanded))
-			{
-				weapon.removeSkill(this.getContainer().getSkillByID("actives.cudgel"));
-				weapon.removeSkill(this.getContainer().getSkillByID("actives.strike_down"));
-			}
-			else
-			{
-				weapon.removeSkill(this.getContainer().getSkillByID("actives.bash"));
-				weapon.removeSkill(this.getContainer().getSkillByID("actives.knock_out"));
-			}
-
-			foreach (skill in this.m.RemovedSkills)
-			{
-				weapon.addSkill(skill);
-			}
+			this.getContainer().getActor().getItems().unequip(weapon);
+			this.getContainer().getActor().getItems().equip(weapon);
 		}
-
-		this.m.RemovedSkills.clear();
-	}
-
-	function onUnequip( _item )
-	{
-		if (_item.getSlotType() == ::Const.ItemSlot.Mainhand) this.m.RemovedSkills.clear();
 	}
 
 	function onCombatFinished()
 	{
 		this.ptr_swordmaster_versatile_swordsman_stance_abstract.onCombatFinished();
-		this.m.RemovedSkills.clear();
+		this.toggleOff();
 	}
 });
