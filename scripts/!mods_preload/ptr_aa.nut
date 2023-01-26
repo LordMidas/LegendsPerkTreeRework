@@ -14,6 +14,7 @@ if (!("PTR" in this.getroottable()))
 	::PTR.Mod <- ::MSU.Class.Mod(::PTR.ModID, ::PTR.Version, ::PTR.Name);
 
 	::PTR.Mod.ModSettings.requireSettingValue(::getModSetting("mod_msu", "ExpandedSkillTooltips"), true);
+	::PTR.Mod.ModSettings.requireSettingValue(::getModSetting("mod_msu", "ExpandedItemTooltips"), true);
 
 	::include("mod_ptr/load.nut");
 
