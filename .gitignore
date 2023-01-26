@@ -1,7 +1,10 @@
 brushes/
+# gfx/*.png
+# !gfx/skills*
+# !gfx/ui**
 gfx/*.png
-!gfx/skills*
-!gfx/ui**
+!gfx/*/.png
+
 *.cnut
 *.sublime-project
 *.sublime-workspace
