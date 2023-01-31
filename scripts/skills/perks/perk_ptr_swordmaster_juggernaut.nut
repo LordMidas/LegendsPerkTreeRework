@@ -54,7 +54,7 @@ this.perk_ptr_swordmaster_juggernaut <- this.inherit("scripts/skills/perks/perk_
 
 	function onBeforeTargetHit( _skill, _targetEntity, _hitInfo )
 	{
-		if (this.m.Target != null || !_skill.isAttack() || _skill.isAOE() || !this.isEnabled() || this.getContainer().getActor().m.IsPerformingAttackOfOpportunity)
+		if (this.m.Target != null || !_skill.isAttack() || _skill.isAOE() || !this.isEnabled() || !::Tactical.TurnSequenceBar.isActiveEntity(this.getContainer().getActor()))
 		{
 			this.m.Target = null;
 			return;
