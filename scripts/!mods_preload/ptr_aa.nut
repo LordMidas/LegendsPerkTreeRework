@@ -13,8 +13,14 @@ if (!("PTR" in this.getroottable()))
 {	
 	::PTR.Mod <- ::MSU.Class.Mod(::PTR.ModID, ::PTR.Version, ::PTR.Name);
 
-	::PTR.Mod.ModSettings.requireSettingValue(::getModSetting("mod_msu", "ExpandedSkillTooltips"), true);
-	::PTR.Mod.ModSettings.requireSettingValue(::getModSetting("mod_msu", "ExpandedItemTooltips"), true);
+	local function requireSettingValue( _setting, _value )
+	{
+		if (_setting.set(true)) _setting.lock(format("Required by %s (%s)", ::PTR.Name, ::PTR.ModID));
+		else ::MSU.QueueErrors.add(format("%s (%s) requires the MSU setting \'%s\' to be \'%s\'", ::PTR.Name, ::PTR.ModID, _setting.getID(), _value + ""));
+	}
+
+	requireSettingValue(::getModSetting("mod_msu", "ExpandedSkillTooltips"), true);
+	requireSettingValue(::getModSetting("mod_msu", "ExpandedItemTooltips"), true);
 
 	::include("mod_ptr/load.nut");
 
