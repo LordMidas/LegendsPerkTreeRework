@@ -47,7 +47,7 @@ this.perk_ptr_swordmaster_abstract <- this.inherit("scripts/skills/skill", {
 		if (this.m.IsForceEnabled) return true;
 
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon == null || (!weapon.isWeaponType(::Const.Items.WeaponType.BFFencing) && !weapon.isWeaponType(::Const.Items.WeaponType.Sword, true)))
+		if (weapon == null || (!weapon.isWeaponType(::Const.Items.WeaponType.BFFencing) && !weapon.isWeaponType(::Const.Items.WeaponType.Sword, true, true)))
 		{
 			return false;
 		}

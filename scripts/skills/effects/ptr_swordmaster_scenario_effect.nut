@@ -35,7 +35,7 @@ this.ptr_swordmaster_scenario_effect <- this.inherit("scripts/skills/skill", {
 	function isValidWeapon( _weapon )
 	{
 		if (	!_weapon.isItemType(this.Const.Items.ItemType.MeleeWeapon) ||
-				_weapon.isWeaponType(this.Const.Items.WeaponType.Sword, true) ||
+				_weapon.isWeaponType(this.Const.Items.WeaponType.Sword, true, true) ||
 				_weapon.isWeaponType(this.Const.Items.WeaponType.BFFencing) ||
 				_weapon.getID() == "weapon.player_banner" ||
 				(_weapon.getID() == "weapon.legend_staff_vala" && this.getContainer().getActor().getBackground().getID() == "background.legend_vala")

@@ -24,7 +24,7 @@ this.perk_ptr_swift_stabs <- this.inherit("scripts/skills/skill", {
 	function isEnabled()
 	{
 		local weapon = this.getContainer().getActor().getMainhandItem();
-		if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.Dagger, true))
+		if (weapon != null && weapon.isWeaponType(this.Const.Items.WeaponType.Dagger, true, true))
 		{
 			return true;
 		}
