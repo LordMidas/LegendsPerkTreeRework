@@ -1,4 +1,15 @@
 =====================
+==== Ver 2.1.27 =====
+=====================
+- Now requires MSU 1.2.0-rc.3 or later.
+- Added a requirement for the Expanded Item Tooltips setting of MSU to be enabled.
+- Juggernaut now only does the splash damage during the attacker's turn. This fixes issues whereby the game would freeze if it killed two entities where the splashed one was next in turn order.
+- Fixed cases where the swordmaster stances were not properly resetting the weapon's skills on combat end.
+- Fixed the Tackle skill being able to swap positions with knock-back immune enemies.
+- Fixed the Inspiring Presence status effect always being visible instead of only when enabled. And fixed issues with its tooltip.
+- Fixed the following perks working with hybrid weapons: Swordmaster's Finesse, Swift Stabs, Swordmaster perks and active skills.
+
+=====================
 ==== Ver 2.1.26 =====
 =====================
 - Improved Duelist tooltip to clarify its requirements.
