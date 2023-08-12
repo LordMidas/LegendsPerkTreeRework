@@ -1,4 +1,29 @@
 =====================
+==== Ver 2.1.28 =====
+=====================
+- Replaces perks in Assassin Profession group with new Assassin perks from Legends:
+	T1: Knife Spec replaced with Knifeplay
+	T2: LegendOpportunist added
+	T3: Knife Damage replaced by Prepared
+	T4: Rotation removed
+	T5: Twirl replaced by Lurker
+	T6: Hidden replaced by Night Raider
+
+- Assassin static tree update:
+	T1: Knife Spec replaced by Knifeplay
+	T2: Knife Damage replaced by LegendOpportunist
+	T3: Hidden replaced by Prepared
+	T4: Boondock Blade replaced by Lurker
+	T6: Twirl replaced by Lurker
+
+- Assassin Commander static tree update:
+	T1: Knife Spec replaced by Knifeplay
+	T2: Knife Damage replaced by LegendOpportunist
+	T3: Prepared added
+	T4: Hidden replaced by Lurker
+	T5: Twirl replaced by Night Raider
+
+=====================
 ==== Ver 2.1.27 =====
 =====================
 - Now requires MSU 1.2.0-rc.3 or later.
