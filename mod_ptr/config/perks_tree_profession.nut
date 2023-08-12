@@ -28,20 +28,20 @@
 	],
 	Tree = [
 		[
-			::Const.Perks.PerkDefs.LegendSpecialistKnifeSkill
+			::Const.Perks.PerkDefs.LegendKnifeplay
+		],
+		[
+			::Const.Perks.PerkDefs.LegendOpportunist
+		],
+		[
+			::Const.Perks.PerkDefs.LegendPrepared
 		],
 		[],
 		[
-			::Const.Perks.PerkDefs.LegendSpecialistKnifeDamage
+			::Const.Perks.PerkDefs.LegendLurker
 		],
 		[
-			::Const.Perks.PerkDefs.Rotation
-		],
-		[
-			::Const.Perks.PerkDefs.LegendTwirl
-		],
-		[
-			::Const.Perks.PerkDefs.LegendHidden
+			::Const.Perks.PerkDefs.LegendNightRaider
 		],
 		[
 			::Const.Perks.PerkDefs.LegendAssassinate
