@@ -19,7 +19,7 @@
 		);
 
 		::PTR.HooksHelper.addPerksToCustomPerkTree(1, this.m.CustomPerkTree, [
-				::Const.Perks.PerkDefs.LegendSpecialistKnifeSkill,
+				::Const.Perks.PerkDefs.LegendKnifeplay,
 				::Const.Perks.PerkDefs.BagsAndBelts,
 				::Const.Perks.PerkDefs.Pathfinder,
 				::Const.Perks.PerkDefs.LegendAlert,
@@ -34,7 +34,7 @@
 				::Const.Perks.PerkDefs.PTRBetweenTheEyes,
 				::Const.Perks.PerkDefs.Footwork,
 				::Const.Perks.PerkDefs.QuickHands,
-				::Const.Perks.PerkDefs.LegendSpecialistKnifeDamage,
+				::Const.Perks.PerkDefs.LegendOpportunist,
 				::Const.Perks.PerkDefs.PTRSmallTarget,
 				::Const.Perks.PerkDefs.PTRMenacing,
 				::Const.Perks.PerkDefs.FortifiedMind
@@ -47,14 +47,15 @@
 				::Const.Perks.PerkDefs.PTRVigilant,
 				::Const.Perks.PerkDefs.PTRPatternRecognition,
 				::Const.Perks.PerkDefs.Rotation,
-				::Const.Perks.PerkDefs.Overwhelm
+				::Const.Perks.PerkDefs.Overwhelm,
+				::Const.Perks.PerkDefs.LegendPrepared
 			]
 		);
 
 		::PTR.HooksHelper.addPerksToCustomPerkTree(4, this.m.CustomPerkTree, [
 				::Const.Perks.PerkDefs.PTROffhandTraining,
 				::Const.Perks.PerkDefs.LegendPoisonImmunity,
-				::Const.Perks.PerkDefs.LegendHidden,
+				::Const.Perks.PerkDefs.LegendLurker,
 				::Const.Perks.PerkDefs.HeadHunter,
 				::Const.Perks.PerkDefs.Duelist,
 				::Const.Perks.PerkDefs.BoondockBlade,
@@ -68,7 +69,7 @@
 				::Const.Perks.PerkDefs.PTRFreshAndFurious,
 				::Const.Perks.PerkDefs.PTRVigorousAssault,
 				::Const.Perks.PerkDefs.LegendClarity,
-				::Const.Perks.PerkDefs.LegendTwirl
+				::Const.Perks.PerkDefs.LegendNightRaider
 			]
 		);
 

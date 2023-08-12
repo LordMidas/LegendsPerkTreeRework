@@ -20,7 +20,7 @@
 		);
 
 		::PTR.HooksHelper.addPerksToCustomPerkTree(1, this.m.CustomPerkTree, [
-				::Const.Perks.PerkDefs.LegendSpecialistKnifeSkill,
+				::Const.Perks.PerkDefs.LegendKnifeplay,
 				::Const.Perks.PerkDefs.BagsAndBelts,
 				::Const.Perks.PerkDefs.Recover,
 				::Const.Perks.PerkDefs.PTRSmallTarget,
@@ -31,14 +31,14 @@
 
 		::PTR.HooksHelper.addPerksToCustomPerkTree(2, this.m.CustomPerkTree, [
 				::Const.Perks.PerkDefs.PTRBetweenTheEyes,
-				::Const.Perks.PerkDefs.LegendSpecialistKnifeDamage,
+				::Const.Perks.PerkDefs.LegendOpportunist,
 				::Const.Perks.PerkDefs.LegendHairSplitter,
 				::Const.Perks.PerkDefs.PTRTunnelVision
 			]
 		);
 
 		::PTR.HooksHelper.addPerksToCustomPerkTree(3, this.m.CustomPerkTree, [
-				::Const.Perks.PerkDefs.LegendHidden,
+				::Const.Perks.PerkDefs.LegendPrepared,
 				::Const.Perks.PerkDefs.PTRVigilant,
 				::Const.Perks.PerkDefs.PTRPatternRecognition,
 				::Const.Perks.PerkDefs.Rotation,
@@ -52,7 +52,7 @@
 				::Const.Perks.PerkDefs.LegendPoisonImmunity,
 				::Const.Perks.PerkDefs.LegendFavouredEnemyNoble,
 				::Const.Perks.PerkDefs.LegendFavouredEnemySwordmaster,
-				::Const.Perks.PerkDefs.BoondockBlade,
+				::Const.Perks.PerkDefs.LegendLurker,
 				::Const.Perks.PerkDefs.LegendBackflip
 			]
 		);
@@ -68,7 +68,7 @@
 				::Const.Perks.PerkDefs.Duelist,
 				::Const.Perks.PerkDefs.PTRPrimalFear,
 				::Const.Perks.PerkDefs.LegendClarity,
-				::Const.Perks.PerkDefs.LegendTwirl
+				::Const.Perks.PerkDefs.LegendNightRaider
 			]
 		);
 
