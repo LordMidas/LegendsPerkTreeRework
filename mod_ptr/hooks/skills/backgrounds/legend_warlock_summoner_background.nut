@@ -69,8 +69,7 @@
 		);
 
 		::PTR.HooksHelper.addPerksToCustomPerkTree(6, this.m.CustomPerkTree, [
-				::Const.Perks.PerkDefs.Duelist,
-				::Const.Perks.PerkDefs.LegendHidden
+				::Const.Perks.PerkDefs.Duelist
 			]
 		);
 

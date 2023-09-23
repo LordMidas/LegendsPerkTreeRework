@@ -114,7 +114,7 @@
 ::Const.Perks.DeviousTree.Tree[2] = [::Const.Perks.PerkDefs.LegendBlendIn];
 ::Const.Perks.DeviousTree.Tree[3] = [];
 ::Const.Perks.DeviousTree.Tree[4] = [::Const.Perks.PerkDefs.LegendEvasion];
-::Const.Perks.DeviousTree.Tree[5] = [::Const.Perks.PerkDefs.LegendHidden];
+::Const.Perks.DeviousTree.Tree[5] = [];
 ::Const.Perks.DeviousTree.Tree[6] = [::Const.Perks.PerkDefs.LegendUntouchable];
 
 ::Const.Perks.IntelligentTree.Name = "Talented";

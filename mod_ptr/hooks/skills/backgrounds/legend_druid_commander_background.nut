@@ -64,7 +64,6 @@
 		);
 
 		::PTR.HooksHelper.addPerksToCustomPerkTree(5, this.m.CustomPerkTree, [
-				::Const.Perks.PerkDefs.LegendHidden,
 				::Const.Perks.PerkDefs.PTRHaleAndHearty,
 				::Const.Perks.PerkDefs.Footwork,
 				::Const.Perks.PerkDefs.LegendWoodworking,

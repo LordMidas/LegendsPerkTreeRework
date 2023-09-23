@@ -60,8 +60,7 @@
 		::PTR.HooksHelper.addPerksToCustomPerkTree(6, this.m.CustomPerkTree, [
 				::Const.Perks.PerkDefs.LegendCascade,
 				::Const.Perks.PerkDefs.PTRUnstoppable,
-				::Const.Perks.PerkDefs.PTRKnowTheirWeakness,
-				::Const.Perks.PerkDefs.LegendHidden
+				::Const.Perks.PerkDefs.PTRKnowTheirWeakness
 			]
 		);
 
