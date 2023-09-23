@@ -47,16 +47,9 @@
 
 		if (this.m.CustomPerkTree == null)
 		{
-			if (::Legends.Mod.ModSettings.getSetting("PerkTrees").getValue())
-			{
-				local result = this.Const.Perks.GetDynamicPerkTree(this.getPerkTreeDynamicMins(), this.m.PerkTreeDynamic, this.getContainer().getActor());
-				this.m.CustomPerkTree = result.Tree;
-				a = result.Attributes;
-			}
-			else
-			{
-				this.m.CustomPerkTree = this.Const.Perks.DefaultCustomPerkTree;
-			}
+			local result = this.Const.Perks.GetDynamicPerkTree(this.getPerkTreeDynamicMins(), this.m.PerkTreeDynamic, this.getContainer().getActor());
+			this.m.CustomPerkTree = result.Tree;
+			a = result.Attributes;
 		}
 
 		local pT = this.Const.Perks.BuildCustomPerkTree(this.m.CustomPerkTree);
