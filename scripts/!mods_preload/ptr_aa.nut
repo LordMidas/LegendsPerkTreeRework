@@ -9,7 +9,7 @@ if (!("PTR" in this.getroottable()))
 
 ::mods_registerMod(::PTR.ModID, ::PTR.Version, ::PTR.Name);
 
-::mods_queue(::PTR.ModID, "mod_legends, mod_msu(>=1.2.0-rc.3), mod_betterFencing, mod_WMS, mod_legends_STR, mod_duelistDefense, <mod_clever_recruiter", function()
+::mods_queue(::PTR.ModID, "mod_legends(>=18.0.0), mod_msu(>=1.2.0-rc.3), mod_betterFencing, mod_WMS, mod_legends_STR, mod_duelistDefense, <mod_clever_recruiter", function()
 {	
 	::PTR.Mod <- ::MSU.Class.Mod(::PTR.ModID, ::PTR.Version, ::PTR.Name);
 
