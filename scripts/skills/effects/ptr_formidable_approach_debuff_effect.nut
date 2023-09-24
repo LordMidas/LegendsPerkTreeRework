@@ -110,6 +110,15 @@ this.ptr_formidable_approach_debuff_effect <- this.inherit("scripts/skills/skill
 		return meleeSkill * malusfactor;
 	}
 
+	function onOtherActorDeath( _killer, _victim, _skill, _deathTile, _corpseTile, _fatalityType )
+	{
+		if (this.hasEnemy(_victim.getID()))
+		{
+			this.removeEnemy(_victim.getID());
+			this.updateMalus();
+		}
+	}
+
 	function updateMalus()
 	{
 		this.m.CurrentMalus = this.Math.floor(this.getCurrentMalus());
