@@ -1,4 +1,10 @@
 =====================
+==== Ver 2.2.0 ======
+=====================
+- Compatibility update for Legends version 18.0.0.
+- Requires Legends version 18.0.0 or later.
+
+=====================
 ==== Ver 2.1.28 =====
 =====================
 - Compatibility update for Legends version 17.0.9.
