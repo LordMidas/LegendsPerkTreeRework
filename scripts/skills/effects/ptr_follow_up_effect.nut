@@ -95,7 +95,7 @@ this.ptr_follow_up_effect <- this.inherit("scripts/skills/skill", {
 		}
 
 		local targetTile = _targetEntity.getTile();
-		if (targetTile == null)
+		if (targetTile == null || !this.getContainer().getActor().getTile().hasLineOfSightTo(targetTile, this.getContainer().getActor().getCurrentProperties().getVision()))
 		{
 			return;
 		}
