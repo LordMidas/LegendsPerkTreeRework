@@ -1,8 +1,10 @@
 ::mods_hookExactClass("entity/tactical/humans/barbarian_madman", function(o) {
-	local assignRandomEquipment = o.assignRandomEquipment;
-	o.assignRandomEquipment = function()
+	local parentName = o.SuperName;
+	local assignRandomEquipment = "assignRandomEquipment" in o ? o.assignRandomEquipment : null;
+	o.assignRandomEquipment <- function()
 	{
-		assignRandomEquipment();
+		if (assignRandomEquipment != null) assignRandomEquipment();
+		else this[parentName].assignRandomEquipment();
 		this.m.Skills.addPerkTree(::Const.Perks.CleaverTree);
 		this.m.Skills.addPerkTree(::Const.Perks.TwoHandedTree);
 		this.m.Skills.add(::new("scripts/skills/perks/perk_ptr_unstoppable"));

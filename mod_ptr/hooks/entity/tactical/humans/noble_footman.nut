@@ -1,8 +1,10 @@
 ::mods_hookExactClass("entity/tactical/humans/noble_footman", function(o) {
-	local assignRandomEquipment = o.assignRandomEquipment;
-	o.assignRandomEquipment = function()
+	local parentName = o.SuperName;
+	local assignRandomEquipment = "assignRandomEquipment" in o ? o.assignRandomEquipment : null;
+	o.assignRandomEquipment <- function()
 	{
-		assignRandomEquipment();
+		if (assignRandomEquipment != null) assignRandomEquipment();
+		else this[parentName].assignRandomEquipment();
 		this.m.Skills.addTreeOfEquippedWeapon(4);
 		this.m.Skills.removeByID("perk.fast_adaption");
 		this.m.Skills.add(::new("scripts/skills/perks/perk_legend_assured_conquest"));

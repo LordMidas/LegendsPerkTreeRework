@@ -17,10 +17,12 @@
 		}
 	}
 
-	local assignRandomEquipment = o.assignRandomEquipment;
-	o.assignRandomEquipment = function()
+	local parentName = o.SuperName;
+	local assignRandomEquipment = "assignRandomEquipment" in o ? o.assignRandomEquipment : null;
+	o.assignRandomEquipment <- function()
 	{
-		assignRandomEquipment();
+		if (assignRandomEquipment != null) assignRandomEquipment();
+		else this[parentName].assignRandomEquipment();
 		if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == ::Const.Difficulty.Legendary)
 		{
 			this.m.Skills.addTreeOfEquippedWeapon();

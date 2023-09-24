@@ -1,8 +1,10 @@
 ::mods_hookExactClass("entity/tactical/humans/legend_peasant_butcher", function(o) {
-	local assignRandomEquipment = o.assignRandomEquipment;
-	o.assignRandomEquipment = function()
+	local parentName = o.SuperName;
+	local assignRandomEquipment = "assignRandomEquipment" in o ? o.assignRandomEquipment : null;
+	o.assignRandomEquipment <- function()
 	{
-		assignRandomEquipment();
+		if (assignRandomEquipment != null) assignRandomEquipment();
+		else this[parentName].assignRandomEquipment();
 		this.m.Skills.addPerkTree(::Const.Perks.ButcherProfessionTree);
 		this.m.Skills.add(::new("scripts/skills/perks/perk_ptr_swordlike"));
 		this.m.Skills.add(::new("scripts/skills/perks/perk_mastery_cleaver"));
