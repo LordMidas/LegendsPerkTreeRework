@@ -1,4 +1,13 @@
 =====================
+==== Ver 2.2.1 ======
+=====================
+- Converted Estoc back to being a two-handed fencing sword.
+- Fixed Footwork not ignoring the first 15 fatigue penalty from armor for its Fatigue Cost.
+- Fixed Follow Up ignoring line of sight.
+- Fixed Bolster tooltip to say that it triggers at end of turn, not start.
+- Fixed Formidable Approach not updating when entities died.
+
+=====================
 ==== Ver 2.2.0 ======
 =====================
 - Compatibility update for Legends version 18.0.0.
