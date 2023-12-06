@@ -62,4 +62,14 @@
 		_properties.MeleeSkill += bonus;
 		_properties.MeleeDefense += bonus;
 	}
+
+	// Overwrite with empty function to replace legends function
+	o.onOtherActorTooltip <- function( _tooltip, _targetActor)
+	{
+	}
+
+	// Overwrite with empty function to replace legends function1
+	o.onGetHitFactorsAsTarget <- function( _skill, _targetTile, _tooltip)
+	{
+	}
 });
