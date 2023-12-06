@@ -1,4 +1,12 @@
 =====================
+==== Ver 2.2.2 ======
+=====================
+- Fixed Footwork not properly ignoring the first 15 fatigue penalty of armor when calculating its costs.
+- Fixed rebuilding of perk trees, e.g. via Kingsguard event, not working properly.
+- Replaced Sprint in perk trees with the new Legends perk Athlete.
+- Added overwrite of some changes in Freedom of Movement perk coming in the next Legends build to maintain compatibility with PTR.
+
+=====================
 ==== Ver 2.2.1 ======
 =====================
 - Converted Estoc back to being a two-handed fencing sword.
