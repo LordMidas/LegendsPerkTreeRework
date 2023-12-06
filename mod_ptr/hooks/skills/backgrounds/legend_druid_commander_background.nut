@@ -45,7 +45,7 @@
 				::Const.Perks.PerkDefs.LegendHerbcraft,
 				::Const.Perks.PerkDefs.ShieldExpert,
 				::Const.Perks.PerkDefs.Rotation,
-				::Const.Perks.PerkDefs.Sprint
+				::Const.Perks.PerkDefs.LegendAthlete
 			]
 		);
 

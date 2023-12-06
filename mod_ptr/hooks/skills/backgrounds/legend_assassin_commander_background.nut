@@ -43,7 +43,7 @@
 
 		::PTR.HooksHelper.addPerksToCustomPerkTree(3, this.m.CustomPerkTree, [
 				::Const.Perks.PerkDefs.LegendFavouredEnemySoutherner,
-				::Const.Perks.PerkDefs.Sprint,
+				::Const.Perks.PerkDefs.LegendAthlete,
 				::Const.Perks.PerkDefs.PTRVigilant,
 				::Const.Perks.PerkDefs.PTRPatternRecognition,
 				::Const.Perks.PerkDefs.Rotation,

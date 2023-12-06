@@ -39,7 +39,7 @@
 		);
 
 		::PTR.HooksHelper.addPerksToCustomPerkTree(4, this.m.CustomPerkTree, [
-				::Const.Perks.PerkDefs.Sprint,
+				::Const.Perks.PerkDefs.LegendAthlete,
 				::Const.Perks.PerkDefs.RallyTheTroops
 
 			]

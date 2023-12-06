@@ -52,7 +52,7 @@
 ::Const.Perks.AgileTree.Tree = array(7);
 ::Const.Perks.AgileTree.Tree[0] = [::Const.Perks.PerkDefs.Pathfinder];
 ::Const.Perks.AgileTree.Tree[1] = [::Const.Perks.PerkDefs.Anticipation];
-::Const.Perks.AgileTree.Tree[2] = [::Const.Perks.PerkDefs.Sprint];
+::Const.Perks.AgileTree.Tree[2] = [::Const.Perks.PerkDefs.LegendAthlete];
 ::Const.Perks.AgileTree.Tree[3] = [::Const.Perks.PerkDefs.PTRDynamicDuo];
 ::Const.Perks.AgileTree.Tree[4] = [::Const.Perks.PerkDefs.Footwork];
 ::Const.Perks.AgileTree.Tree[5] = [::Const.Perks.PerkDefs.PTRFreshAndFurious];
