@@ -42,7 +42,7 @@ this.perk_ptr_offhand_training <- this.inherit("scripts/skills/skill", {
 
 			if (i.isItemType(this.Const.Items.ItemType.Shield))
 			{
-				 if (i.getID().find("buckler") != null || i.getID().find("parrying_dagger") != null)
+				 if (i.getID().find("buckler") != null)
 				 {
 					 validItemsCount++;
 				 }
@@ -52,7 +52,7 @@ this.perk_ptr_offhand_training <- this.inherit("scripts/skills/skill", {
 				 }
 			}
 
-			if (i.isItemType(this.Const.Items.ItemType.Tool))
+			if (i.isItemType(this.Const.Items.ItemType.Tool) || i.getID().find("parrying_dagger") != null)
 			{
 				validItemsCount++;
 			}
